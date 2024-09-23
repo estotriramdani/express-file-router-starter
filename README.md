@@ -17,7 +17,6 @@ Synchronize the database schema with your `schema.prisma` file:
 ```bash
 //sync skema database ke shema.prisma
 npx prisma db pull --schema=./prisma/schema1.prisma //db project management
-npx prisma db pull --schema=./prisma/schema2.prisma //db employee
 ```
 
 ### Generating Prisma Client
