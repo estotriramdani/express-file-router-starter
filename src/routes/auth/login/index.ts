@@ -1,6 +1,6 @@
 import { Response, Request } from "express";
-import { db2 } from "../../utils/db2";
-import { db1 } from "../../utils/db1";
+import { db2 } from "../../../utils/db2";
+import { db1 } from "../../../utils/db1";
 import jwt from "jsonwebtoken";
 import md5 from "md5";
 
