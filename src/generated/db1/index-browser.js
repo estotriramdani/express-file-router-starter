@@ -16,12 +16,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 5.19.0
- * Query Engine version: 5fe21811a6ba0b952a3bc71400666511fe3b902f
+ * Prisma Client JS version: 5.19.1
+ * Query Engine version: 69d742ee20b815d88e17e54db4a2a7a3b30324e3
  */
 Prisma.prismaVersion = {
-  client: "5.19.0",
-  engine: "5fe21811a6ba0b952a3bc71400666511fe3b902f"
+  client: "5.19.1",
+  engine: "69d742ee20b815d88e17e54db4a2a7a3b30324e3"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -123,6 +123,7 @@ exports.Prisma.Mst_applicationScalarFieldEnum = {
   id: 'id',
   application_name: 'application_name',
   group_id_technician: 'group_id_technician',
+  entity_id: 'entity_id',
   department_code: 'department_code',
   is_deleted: 'is_deleted',
   created_at: 'created_at',
@@ -143,7 +144,9 @@ exports.Prisma.Mst_authorizationScalarFieldEnum = {
   is_active: 'is_active',
   created_at: 'created_at',
   created_by: 'created_by',
-  technician_level: 'technician_level'
+  technician_level: 'technician_level',
+  active_profile: 'active_profile',
+  active_entities: 'active_entities'
 };
 
 exports.Prisma.Mst_authorization_profileScalarFieldEnum = {
@@ -177,6 +180,7 @@ exports.Prisma.Mst_groupScalarFieldEnum = {
   entities_id: 'entities_id',
   group_name: 'group_name',
   parent_id: 'parent_id',
+  is_deleted: 'is_deleted',
   created_at: 'created_at',
   created_by: 'created_by'
 };
@@ -193,6 +197,7 @@ exports.Prisma.Mst_manpower_costScalarFieldEnum = {
 exports.Prisma.Mst_profileScalarFieldEnum = {
   id: 'id',
   profile_name: 'profile_name',
+  is_deleted: 'is_deleted',
   created_at: 'created_at',
   created_by: 'created_by'
 };
