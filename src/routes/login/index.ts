@@ -40,7 +40,7 @@ console.log(req.body)
         },
         where: {
           employee_code: datas.lg_nik,
-          is_active : true
+          is_active : "1"
         },
       });
 

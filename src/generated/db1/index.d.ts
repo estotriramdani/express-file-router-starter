@@ -4409,7 +4409,7 @@ export namespace Prisma {
   export type Mst_authorizationMinAggregateOutputType = {
     id: number | null
     employee_code: string | null
-    is_active: boolean | null
+    is_active: string | null
     created_at: Date | null
     created_by: string | null
     technician_level: string | null
@@ -4420,7 +4420,7 @@ export namespace Prisma {
   export type Mst_authorizationMaxAggregateOutputType = {
     id: number | null
     employee_code: string | null
-    is_active: boolean | null
+    is_active: string | null
     created_at: Date | null
     created_by: string | null
     technician_level: string | null
@@ -4576,7 +4576,7 @@ export namespace Prisma {
   export type Mst_authorizationGroupByOutputType = {
     id: number
     employee_code: string | null
-    is_active: boolean | null
+    is_active: string | null
     created_at: Date | null
     created_by: string | null
     technician_level: string | null
@@ -4642,7 +4642,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       employee_code: string | null
-      is_active: boolean | null
+      is_active: string | null
       created_at: Date | null
       created_by: string | null
       technician_level: string | null
@@ -5021,7 +5021,7 @@ export namespace Prisma {
   interface mst_authorizationFieldRefs {
     readonly id: FieldRef<"mst_authorization", 'Int'>
     readonly employee_code: FieldRef<"mst_authorization", 'String'>
-    readonly is_active: FieldRef<"mst_authorization", 'Boolean'>
+    readonly is_active: FieldRef<"mst_authorization", 'String'>
     readonly created_at: FieldRef<"mst_authorization", 'DateTime'>
     readonly created_by: FieldRef<"mst_authorization", 'String'>
     readonly technician_level: FieldRef<"mst_authorization", 'String'>
@@ -22722,7 +22722,7 @@ export namespace Prisma {
     NOT?: mst_authorizationWhereInput | mst_authorizationWhereInput[]
     id?: IntFilter<"mst_authorization"> | number
     employee_code?: StringNullableFilter<"mst_authorization"> | string | null
-    is_active?: BoolNullableFilter<"mst_authorization"> | boolean | null
+    is_active?: StringNullableFilter<"mst_authorization"> | string | null
     created_at?: DateTimeNullableFilter<"mst_authorization"> | Date | string | null
     created_by?: StringNullableFilter<"mst_authorization"> | string | null
     technician_level?: StringNullableFilter<"mst_authorization"> | string | null
@@ -22751,7 +22751,7 @@ export namespace Prisma {
     OR?: mst_authorizationWhereInput[]
     NOT?: mst_authorizationWhereInput | mst_authorizationWhereInput[]
     employee_code?: StringNullableFilter<"mst_authorization"> | string | null
-    is_active?: BoolNullableFilter<"mst_authorization"> | boolean | null
+    is_active?: StringNullableFilter<"mst_authorization"> | string | null
     created_at?: DateTimeNullableFilter<"mst_authorization"> | Date | string | null
     created_by?: StringNullableFilter<"mst_authorization"> | string | null
     technician_level?: StringNullableFilter<"mst_authorization"> | string | null
@@ -22783,7 +22783,7 @@ export namespace Prisma {
     NOT?: mst_authorizationScalarWhereWithAggregatesInput | mst_authorizationScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"mst_authorization"> | number
     employee_code?: StringNullableWithAggregatesFilter<"mst_authorization"> | string | null
-    is_active?: BoolNullableWithAggregatesFilter<"mst_authorization"> | boolean | null
+    is_active?: StringNullableWithAggregatesFilter<"mst_authorization"> | string | null
     created_at?: DateTimeNullableWithAggregatesFilter<"mst_authorization"> | Date | string | null
     created_by?: StringNullableWithAggregatesFilter<"mst_authorization"> | string | null
     technician_level?: StringNullableWithAggregatesFilter<"mst_authorization"> | string | null
@@ -24226,7 +24226,7 @@ export namespace Prisma {
 
   export type mst_authorizationCreateInput = {
     employee_code?: string | null
-    is_active?: boolean | null
+    is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
     technician_level?: string | null
@@ -24237,7 +24237,7 @@ export namespace Prisma {
   export type mst_authorizationUncheckedCreateInput = {
     id?: number
     employee_code?: string | null
-    is_active?: boolean | null
+    is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
     technician_level?: string | null
@@ -24247,7 +24247,7 @@ export namespace Prisma {
 
   export type mst_authorizationUpdateInput = {
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
-    is_active?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     technician_level?: NullableStringFieldUpdateOperationsInput | string | null
@@ -24258,7 +24258,7 @@ export namespace Prisma {
   export type mst_authorizationUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
-    is_active?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     technician_level?: NullableStringFieldUpdateOperationsInput | string | null
@@ -24269,7 +24269,7 @@ export namespace Prisma {
   export type mst_authorizationCreateManyInput = {
     id?: number
     employee_code?: string | null
-    is_active?: boolean | null
+    is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
     technician_level?: string | null
@@ -24279,7 +24279,7 @@ export namespace Prisma {
 
   export type mst_authorizationUpdateManyMutationInput = {
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
-    is_active?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     technician_level?: NullableStringFieldUpdateOperationsInput | string | null
@@ -24288,7 +24288,7 @@ export namespace Prisma {
   export type mst_authorizationUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
-    is_active?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     technician_level?: NullableStringFieldUpdateOperationsInput | string | null
@@ -27553,7 +27553,7 @@ export namespace Prisma {
 
   export type mst_authorizationCreateWithoutMst_entitiesInput = {
     employee_code?: string | null
-    is_active?: boolean | null
+    is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
     technician_level?: string | null
@@ -27563,7 +27563,7 @@ export namespace Prisma {
   export type mst_authorizationUncheckedCreateWithoutMst_entitiesInput = {
     id?: number
     employee_code?: string | null
-    is_active?: boolean | null
+    is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
     technician_level?: string | null
@@ -27602,7 +27602,7 @@ export namespace Prisma {
     NOT?: mst_authorizationScalarWhereInput | mst_authorizationScalarWhereInput[]
     id?: IntFilter<"mst_authorization"> | number
     employee_code?: StringNullableFilter<"mst_authorization"> | string | null
-    is_active?: BoolNullableFilter<"mst_authorization"> | boolean | null
+    is_active?: StringNullableFilter<"mst_authorization"> | string | null
     created_at?: DateTimeNullableFilter<"mst_authorization"> | Date | string | null
     created_by?: StringNullableFilter<"mst_authorization"> | string | null
     technician_level?: StringNullableFilter<"mst_authorization"> | string | null
@@ -27665,7 +27665,7 @@ export namespace Prisma {
 
   export type mst_authorizationCreateWithoutMst_profileInput = {
     employee_code?: string | null
-    is_active?: boolean | null
+    is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
     technician_level?: string | null
@@ -27675,7 +27675,7 @@ export namespace Prisma {
   export type mst_authorizationUncheckedCreateWithoutMst_profileInput = {
     id?: number
     employee_code?: string | null
-    is_active?: boolean | null
+    is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
     technician_level?: string | null
@@ -27916,7 +27916,7 @@ export namespace Prisma {
   export type mst_authorizationCreateManyMst_entitiesInput = {
     id?: number
     employee_code?: string | null
-    is_active?: boolean | null
+    is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
     technician_level?: string | null
@@ -27925,7 +27925,7 @@ export namespace Prisma {
 
   export type mst_authorizationUpdateWithoutMst_entitiesInput = {
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
-    is_active?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     technician_level?: NullableStringFieldUpdateOperationsInput | string | null
@@ -27935,7 +27935,7 @@ export namespace Prisma {
   export type mst_authorizationUncheckedUpdateWithoutMst_entitiesInput = {
     id?: IntFieldUpdateOperationsInput | number
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
-    is_active?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     technician_level?: NullableStringFieldUpdateOperationsInput | string | null
@@ -27945,7 +27945,7 @@ export namespace Prisma {
   export type mst_authorizationUncheckedUpdateManyWithoutMst_entitiesInput = {
     id?: IntFieldUpdateOperationsInput | number
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
-    is_active?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     technician_level?: NullableStringFieldUpdateOperationsInput | string | null
@@ -27986,7 +27986,7 @@ export namespace Prisma {
   export type mst_authorizationCreateManyMst_profileInput = {
     id?: number
     employee_code?: string | null
-    is_active?: boolean | null
+    is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
     technician_level?: string | null
@@ -28003,7 +28003,7 @@ export namespace Prisma {
 
   export type mst_authorizationUpdateWithoutMst_profileInput = {
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
-    is_active?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     technician_level?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28013,7 +28013,7 @@ export namespace Prisma {
   export type mst_authorizationUncheckedUpdateWithoutMst_profileInput = {
     id?: IntFieldUpdateOperationsInput | number
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
-    is_active?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     technician_level?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28023,7 +28023,7 @@ export namespace Prisma {
   export type mst_authorizationUncheckedUpdateManyWithoutMst_profileInput = {
     id?: IntFieldUpdateOperationsInput | number
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
-    is_active?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     technician_level?: NullableStringFieldUpdateOperationsInput | string | null

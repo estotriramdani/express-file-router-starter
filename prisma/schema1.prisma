@@ -32,7 +32,7 @@ model mst_application_version {
 model mst_authorization {
   id               Int           @id @default(autoincrement())
   employee_code    String?       @db.VarChar(255)
-  is_active        Boolean?
+  is_active        String?       @db.VarChar(1)
   created_at       DateTime?     @default(now()) @db.DateTime(0)
   created_by       String?       @db.VarChar(255)
   technician_level String?       @db.VarChar(255)
