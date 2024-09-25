@@ -1,6 +1,6 @@
 import { Response, Request } from "express";
-import { db2 } from "../../utils/db2";
-import { db1 } from "../../utils/db1";
+import { db2 } from "../../../utils/db2";
+import { db1 } from "../../../utils/db1";
 import jwt from "jsonwebtoken";
 import md5 from "md5";
 
@@ -26,33 +26,26 @@ export const post = async (req: Request, res: Response) => {
         lg_password: md5(password),
       },
     });
-console.log(req.body)
+
     if (datas === null) {
       return res.status(200).json({ message: "Incorrect username or password" });
     } else {
       console.log(datas)
 
-      const role = await db1.mst_authorization.findMany({
+      const role = await db1.mst_authorization.findFirst({
         select: {
-          technician_level: true,
-          mst_entities: true,
-          mst_profile: true
+          technician_level: true
         },
         where: {
-          employee_code: datas.lg_nik,
-          is_active : true
+          employee_code: datas.lg_nik
         },
       });
-
-      console.log(role)
       
       let dataUser = {
         nik: datas.lg_nik,
         name: datas.lg_name,
         email: datas.lg_email_aio,
-        role: role.length > 0 ? role[0].technician_level : null,
-        active_profile: role.length > 0 ? role[0].mst_profile.profile_name : null,
-        active_entities: role.length > 0 ? role[0].mst_entities.entities_name : null,
+        role: role.technician_level
       }
 
       const token = jwt.sign(dataUser, JWT_SECRET, {
