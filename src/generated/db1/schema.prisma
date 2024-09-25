@@ -31,7 +31,7 @@ model mst_authorization {
   id               Int       @id @default(autoincrement())
   employee_code    String?   @db.VarChar(255)
   is_active        String?   @db.VarChar(255)
-  created_at       DateTime? @db.DateTime(0)
+  created_at       DateTime? @default(now()) @db.DateTime(0)
   created_by       String?   @db.VarChar(255)
   technician_level String?   @db.VarChar(255)
 }
@@ -64,16 +64,16 @@ model mst_entities {
 }
 
 model mst_group {
-  id          Int       @id
+  id          Int       @id @default(autoincrement())
   entities_id Int?
   group_name  String?   @db.VarChar(255)
   parent_id   Int?
-  created_at  DateTime? @db.DateTime(0)
+  created_at  DateTime? @default(now()) @db.DateTime(0)
   created_by  String?   @db.VarChar(255)
 }
 
 model mst_manpower_cost {
-  id               Int       @id
+  id               Int       @id @default(autoincrement())
   technician_level String?   @db.VarChar(255)
   hourly           String?   @db.VarChar(255)
   monthly          String?   @db.VarChar(255)

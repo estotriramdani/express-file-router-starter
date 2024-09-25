@@ -8530,7 +8530,7 @@ export namespace Prisma {
     /**
      * The data needed to create a mst_group.
      */
-    data: XOR<mst_groupCreateInput, mst_groupUncheckedCreateInput>
+    data?: XOR<mst_groupCreateInput, mst_groupUncheckedCreateInput>
   }
 
   /**
@@ -9407,7 +9407,7 @@ export namespace Prisma {
     /**
      * The data needed to create a mst_manpower_cost.
      */
-    data: XOR<mst_manpower_costCreateInput, mst_manpower_costUncheckedCreateInput>
+    data?: XOR<mst_manpower_costCreateInput, mst_manpower_costUncheckedCreateInput>
   }
 
   /**
@@ -23618,7 +23618,6 @@ export namespace Prisma {
   }
 
   export type mst_groupCreateInput = {
-    id: number
     entities_id?: number | null
     group_name?: string | null
     parent_id?: number | null
@@ -23627,7 +23626,7 @@ export namespace Prisma {
   }
 
   export type mst_groupUncheckedCreateInput = {
-    id: number
+    id?: number
     entities_id?: number | null
     group_name?: string | null
     parent_id?: number | null
@@ -23636,7 +23635,6 @@ export namespace Prisma {
   }
 
   export type mst_groupUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
     entities_id?: NullableIntFieldUpdateOperationsInput | number | null
     group_name?: NullableStringFieldUpdateOperationsInput | string | null
     parent_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -23654,7 +23652,7 @@ export namespace Prisma {
   }
 
   export type mst_groupCreateManyInput = {
-    id: number
+    id?: number
     entities_id?: number | null
     group_name?: string | null
     parent_id?: number | null
@@ -23663,7 +23661,6 @@ export namespace Prisma {
   }
 
   export type mst_groupUpdateManyMutationInput = {
-    id?: IntFieldUpdateOperationsInput | number
     entities_id?: NullableIntFieldUpdateOperationsInput | number | null
     group_name?: NullableStringFieldUpdateOperationsInput | string | null
     parent_id?: NullableIntFieldUpdateOperationsInput | number | null
@@ -23681,7 +23678,6 @@ export namespace Prisma {
   }
 
   export type mst_manpower_costCreateInput = {
-    id: number
     technician_level?: string | null
     hourly?: string | null
     monthly?: string | null
@@ -23690,7 +23686,7 @@ export namespace Prisma {
   }
 
   export type mst_manpower_costUncheckedCreateInput = {
-    id: number
+    id?: number
     technician_level?: string | null
     hourly?: string | null
     monthly?: string | null
@@ -23699,7 +23695,6 @@ export namespace Prisma {
   }
 
   export type mst_manpower_costUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
     technician_level?: NullableStringFieldUpdateOperationsInput | string | null
     hourly?: NullableStringFieldUpdateOperationsInput | string | null
     monthly?: NullableStringFieldUpdateOperationsInput | string | null
@@ -23717,7 +23712,7 @@ export namespace Prisma {
   }
 
   export type mst_manpower_costCreateManyInput = {
-    id: number
+    id?: number
     technician_level?: string | null
     hourly?: string | null
     monthly?: string | null
@@ -23726,7 +23721,6 @@ export namespace Prisma {
   }
 
   export type mst_manpower_costUpdateManyMutationInput = {
-    id?: IntFieldUpdateOperationsInput | number
     technician_level?: NullableStringFieldUpdateOperationsInput | string | null
     hourly?: NullableStringFieldUpdateOperationsInput | string | null
     monthly?: NullableStringFieldUpdateOperationsInput | string | null

@@ -30,6 +30,7 @@ export const post = async (req: Request, res: Response) => {
     if (datas === null) {
       return res.status(200).json({ message: "Incorrect username or password" });
     } else {
+      console.log(datas)
 
       const role = await db1.mst_authorization.findFirst({
         select: {

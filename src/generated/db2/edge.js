@@ -183,7 +183,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\framdani\\Documents\\Project\\Project Management\\project-management-api\\src\\generated\\db2",
+      "value": "D:\\Project\\PM\\project-management-api\\src\\generated\\db2",
       "fromEnvVar": null
     },
     "config": {
@@ -197,11 +197,11 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\framdani\\Documents\\Project\\Project Management\\project-management-api\\prisma\\schema2.prisma",
+    "sourceFilePath": "D:\\Project\\PM\\project-management-api\\prisma\\schema2.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../../.env"
   },
   "relativePath": "../../../prisma",
