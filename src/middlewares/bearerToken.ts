@@ -10,7 +10,7 @@ export const authenticateJWT = (req: Request, res: Response, next: NextFunction)
       return res.status(401).json({ message: 'Authorization header missing' });
     }
   
-    const token = authHeader.split(' ')[1];
+    const token = authHeader
     try {
       const payload = jwt.verify(token, SECRET_KEY);
       (req as any).user = payload; 
