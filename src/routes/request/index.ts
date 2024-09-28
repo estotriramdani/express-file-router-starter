@@ -14,7 +14,7 @@ export const post = async (req: Request, res: Response) => {
       error: "Method Not Allowed",
     });
 
-  const { title, nik, issue_description, expected_completion_date, business_impact, background, category, urgency, type, department, approvals, files } = req.body;
+  const { title, nik, issue_description, expected_completion_date, business_impact, background, category, urgency, type, department, department_name, approvals, files } = req.body;
 
   try {
     const tr_request = await db1.tr_request.create({
@@ -32,7 +32,8 @@ export const post = async (req: Request, res: Response) => {
         background: background,
         issue_description: issue_description,
         business_impact: business_impact,
-        created_by: nik
+        created_by: nik,
+        department_name: department_name
       }
     })
 
