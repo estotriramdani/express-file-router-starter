@@ -90,6 +90,7 @@ model mst_group {
   created_at                  DateTime?                     @default(now()) @db.DateTime(0)
   created_by                  String?                       @db.VarChar(255)
   mst_authorization_usergroup mst_authorization_usergroup[]
+  tr_project                  tr_project[]
 }
 
 model mst_manpower_cost {
@@ -139,24 +140,31 @@ model tr_history {
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model tr_project {
+<<<<<<< HEAD
   id                Int       @id @default(autoincrement())
+=======
+  id                Int        @id @default(autoincrement())
+>>>>>>> 5fa1a175691145993ca1ff45463e3e0baab93ce8
   request_id        Int?
   application_id    Int?
-  project_code      String?   @db.VarChar(255)
-  background        String?   @db.VarChar(255)
-  issue_description String?   @db.VarChar(255)
-  business_impact   String?   @db.VarChar(255)
+  project_code      String?    @db.VarChar(255)
+  background        String?    @db.LongText
+  issue_description String?    @db.LongText
+  business_impact   String?    @db.VarChar(255)
   group_id          Int?
-  plan_start_date   DateTime? @db.DateTime(0)
-  plant_end_date    DateTime? @db.DateTime(0)
-  real_start_date   DateTime? @db.DateTime(0)
-  real_end_date     DateTime? @db.DateTime(0)
-  percent_done      String?   @db.VarChar(255)
-  auto_percent_done String?   @db.VarChar(255)
-  status            String?   @db.VarChar(255)
-  is_deleted        String?   @db.VarChar(255)
-  created_at        DateTime? @db.DateTime(0)
-  created_by        String?   @db.VarChar(255)
+  plan_start_date   DateTime?  @db.DateTime(0)
+  plant_end_date    DateTime?  @db.DateTime(0)
+  real_start_date   DateTime?  @db.DateTime(0)
+  real_end_date     DateTime?  @db.DateTime(0)
+  percent_done      String?    @db.VarChar(255)
+  auto_percent_done String?    @db.VarChar(255)
+  status            String?    @db.VarChar(255)
+  is_deleted        String?    @db.VarChar(255)
+  created_at        DateTime?  @db.DateTime(0)
+  created_by        String?    @db.VarChar(255)
+  mst_group         mst_group? @relation(fields: [group_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_master_group")
+
+  @@index([group_id], map: "fk_master_group")
 }
 
 model tr_project_activity {
@@ -270,7 +278,7 @@ model tr_request_validation {
   comment_submission String?     @db.VarChar(255)
   comment_validation String?     @db.VarChar(255)
   status             String?     @db.VarChar(255)
-  submission_date    DateTime?   @db.DateTime(0)
+  submission_date    DateTime?   @default(now()) @db.DateTime(0)
   validation_date    DateTime?   @db.DateTime(0)
   tr_request         tr_request? @relation(fields: [request_id], references: [id], onUpdate: SetNull, map: "FK_REQUEST")
 

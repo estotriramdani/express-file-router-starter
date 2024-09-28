@@ -31,12 +31,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 5.19.1
- * Query Engine version: 69d742ee20b815d88e17e54db4a2a7a3b30324e3
+ * Prisma Client JS version: 5.19.0
+ * Query Engine version: 5fe21811a6ba0b952a3bc71400666511fe3b902f
  */
 Prisma.prismaVersion = {
-  client: "5.19.1",
-  engine: "69d742ee20b815d88e17e54db4a2a7a3b30324e3"
+  client: "5.19.0",
+  engine: "5fe21811a6ba0b952a3bc71400666511fe3b902f"
 }
 
 Prisma.PrismaClientKnownRequestError = PrismaClientKnownRequestError;
@@ -489,7 +489,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\hachmad\\Project\\project management\\project-management-api\\src\\generated\\db3",
+      "value": "D:\\Project\\PM\\project-management-api\\src\\generated\\db3",
       "fromEnvVar": null
     },
     "config": {
@@ -503,7 +503,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\hachmad\\Project\\project management\\project-management-api\\prisma\\schema3.prisma",
+    "sourceFilePath": "D:\\Project\\PM\\project-management-api\\prisma\\schema3.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -511,8 +511,8 @@ const config = {
     "schemaEnvPath": "../../../.env"
   },
   "relativePath": "../../../prisma",
-  "clientVersion": "5.19.1",
-  "engineVersion": "69d742ee20b815d88e17e54db4a2a7a3b30324e3",
+  "clientVersion": "5.19.0",
+  "engineVersion": "5fe21811a6ba0b952a3bc71400666511fe3b902f",
   "datasourceNames": [
     "db"
   ],
