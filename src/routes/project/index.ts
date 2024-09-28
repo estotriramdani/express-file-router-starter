@@ -4,7 +4,7 @@ import { authenticateJWT } from '../../middlewares/bearerToken';
 import { ok } from '../../tools/common';
 
 
-export const get = [ async (req: Request, res: Response) => {
+export const get = [authenticateJWT,  async (req: Request, res: Response) => {
   if (req.method !== "GET") return res.status(405);
   
   const data = await db1.tr_project.findMany({
