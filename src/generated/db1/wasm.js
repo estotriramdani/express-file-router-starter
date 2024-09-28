@@ -141,12 +141,14 @@ exports.Prisma.Mst_application_versionScalarFieldEnum = {
 exports.Prisma.Mst_authorizationScalarFieldEnum = {
   id: 'id',
   employee_code: 'employee_code',
+  employee_name: 'employee_name',
   is_active: 'is_active',
   created_at: 'created_at',
   created_by: 'created_by',
   technician_level: 'technician_level',
   active_profile: 'active_profile',
-  active_entities: 'active_entities'
+  active_entities: 'active_entities',
+  is_deleted: 'is_deleted'
 };
 
 exports.Prisma.Mst_authorization_profileScalarFieldEnum = {
@@ -336,9 +338,11 @@ exports.Prisma.Tr_requestScalarFieldEnum = {
   expected_completion_date: 'expected_completion_date',
   category: 'category',
   type: 'type',
-  description: 'description',
   department_code: 'department_code',
   is_project: 'is_project',
+  background: 'background',
+  issue_description: 'issue_description',
+  business_impact: 'business_impact',
   created_at: 'created_at',
   created_by: 'created_by'
 };
@@ -353,6 +357,11 @@ exports.Prisma.Tr_request_validationScalarFieldEnum = {
   status: 'status',
   submission_date: 'submission_date',
   validation_date: 'validation_date'
+};
+
+exports.Prisma.Mst_roleScalarFieldEnum = {
+  id: 'id',
+  role: 'role'
 };
 
 exports.Prisma.SortOrder = {
@@ -387,7 +396,8 @@ exports.Prisma.ModelName = {
   tr_project_task: 'tr_project_task',
   tr_project_team: 'tr_project_team',
   tr_request: 'tr_request',
-  tr_request_validation: 'tr_request_validation'
+  tr_request_validation: 'tr_request_validation',
+  mst_role: 'mst_role'
 };
 
 /**

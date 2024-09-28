@@ -118,6 +118,11 @@ export type tr_request = $Result.DefaultSelection<Prisma.$tr_requestPayload>
  * 
  */
 export type tr_request_validation = $Result.DefaultSelection<Prisma.$tr_request_validationPayload>
+/**
+ * Model mst_role
+ * 
+ */
+export type mst_role = $Result.DefaultSelection<Prisma.$mst_rolePayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -451,6 +456,16 @@ export class PrismaClient<
     * ```
     */
   get tr_request_validation(): Prisma.tr_request_validationDelegate<ExtArgs>;
+
+  /**
+   * `prisma.mst_role`: Exposes CRUD operations for the **mst_role** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Mst_roles
+    * const mst_roles = await prisma.mst_role.findMany()
+    * ```
+    */
+  get mst_role(): Prisma.mst_roleDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -910,7 +925,8 @@ export namespace Prisma {
     tr_project_task: 'tr_project_task',
     tr_project_team: 'tr_project_team',
     tr_request: 'tr_request',
-    tr_request_validation: 'tr_request_validation'
+    tr_request_validation: 'tr_request_validation',
+    mst_role: 'mst_role'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -926,7 +942,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "mst_application" | "mst_application_version" | "mst_authorization" | "mst_authorization_profile" | "mst_authorization_usergroup" | "mst_entities" | "mst_group" | "mst_manpower_cost" | "mst_profile" | "tr_document" | "tr_history" | "tr_project" | "tr_project_activity" | "tr_project_overview" | "tr_project_participant" | "tr_project_risk_mitigation" | "tr_project_scope" | "tr_project_task" | "tr_project_team" | "tr_request" | "tr_request_validation"
+      modelProps: "mst_application" | "mst_application_version" | "mst_authorization" | "mst_authorization_profile" | "mst_authorization_usergroup" | "mst_entities" | "mst_group" | "mst_manpower_cost" | "mst_profile" | "tr_document" | "tr_history" | "tr_project" | "tr_project_activity" | "tr_project_overview" | "tr_project_participant" | "tr_project_risk_mitigation" | "tr_project_scope" | "tr_project_task" | "tr_project_team" | "tr_request" | "tr_request_validation" | "mst_role"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2316,6 +2332,72 @@ export namespace Prisma {
           }
         }
       }
+      mst_role: {
+        payload: Prisma.$mst_rolePayload<ExtArgs>
+        fields: Prisma.mst_roleFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.mst_roleFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.mst_roleFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
+          }
+          findFirst: {
+            args: Prisma.mst_roleFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.mst_roleFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
+          }
+          findMany: {
+            args: Prisma.mst_roleFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>[]
+          }
+          create: {
+            args: Prisma.mst_roleCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
+          }
+          createMany: {
+            args: Prisma.mst_roleCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.mst_roleDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
+          }
+          update: {
+            args: Prisma.mst_roleUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
+          }
+          deleteMany: {
+            args: Prisma.mst_roleDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.mst_roleUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.mst_roleUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
+          }
+          aggregate: {
+            args: Prisma.Mst_roleAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMst_role>
+          }
+          groupBy: {
+            args: Prisma.mst_roleGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Mst_roleGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.mst_roleCountArgs<ExtArgs>
+            result: $Utils.Optional<Mst_roleCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -2470,6 +2552,117 @@ export namespace Prisma {
   /**
    * Count Types
    */
+
+
+  /**
+   * Count Type Mst_entitiesCountOutputType
+   */
+
+  export type Mst_entitiesCountOutputType = {
+    mst_authorization: number
+  }
+
+  export type Mst_entitiesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    mst_authorization?: boolean | Mst_entitiesCountOutputTypeCountMst_authorizationArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Mst_entitiesCountOutputType without action
+   */
+  export type Mst_entitiesCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mst_entitiesCountOutputType
+     */
+    select?: Mst_entitiesCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Mst_entitiesCountOutputType without action
+   */
+  export type Mst_entitiesCountOutputTypeCountMst_authorizationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: mst_authorizationWhereInput
+  }
+
+
+  /**
+   * Count Type Mst_groupCountOutputType
+   */
+
+  export type Mst_groupCountOutputType = {
+    mst_authorization_usergroup: number
+    tr_project: number
+  }
+
+  export type Mst_groupCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    mst_authorization_usergroup?: boolean | Mst_groupCountOutputTypeCountMst_authorization_usergroupArgs
+    tr_project?: boolean | Mst_groupCountOutputTypeCountTr_projectArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Mst_groupCountOutputType without action
+   */
+  export type Mst_groupCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mst_groupCountOutputType
+     */
+    select?: Mst_groupCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Mst_groupCountOutputType without action
+   */
+  export type Mst_groupCountOutputTypeCountMst_authorization_usergroupArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: mst_authorization_usergroupWhereInput
+  }
+
+  /**
+   * Mst_groupCountOutputType without action
+   */
+  export type Mst_groupCountOutputTypeCountTr_projectArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tr_projectWhereInput
+  }
+
+
+  /**
+   * Count Type Mst_profileCountOutputType
+   */
+
+  export type Mst_profileCountOutputType = {
+    mst_authorization: number
+    mst_authorization_profile: number
+  }
+
+  export type Mst_profileCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    mst_authorization?: boolean | Mst_profileCountOutputTypeCountMst_authorizationArgs
+    mst_authorization_profile?: boolean | Mst_profileCountOutputTypeCountMst_authorization_profileArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Mst_profileCountOutputType without action
+   */
+  export type Mst_profileCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mst_profileCountOutputType
+     */
+    select?: Mst_profileCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Mst_profileCountOutputType without action
+   */
+  export type Mst_profileCountOutputTypeCountMst_authorizationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: mst_authorizationWhereInput
+  }
+
+  /**
+   * Mst_profileCountOutputType without action
+   */
+  export type Mst_profileCountOutputTypeCountMst_authorization_profileArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: mst_authorization_profileWhereInput
+  }
 
 
   /**
@@ -4307,34 +4500,40 @@ export namespace Prisma {
   export type Mst_authorizationMinAggregateOutputType = {
     id: number | null
     employee_code: string | null
+    employee_name: string | null
     is_active: string | null
     created_at: Date | null
     created_by: string | null
     technician_level: string | null
     active_profile: number | null
     active_entities: number | null
+    is_deleted: boolean | null
   }
 
   export type Mst_authorizationMaxAggregateOutputType = {
     id: number | null
     employee_code: string | null
+    employee_name: string | null
     is_active: string | null
     created_at: Date | null
     created_by: string | null
     technician_level: string | null
     active_profile: number | null
     active_entities: number | null
+    is_deleted: boolean | null
   }
 
   export type Mst_authorizationCountAggregateOutputType = {
     id: number
     employee_code: number
+    employee_name: number
     is_active: number
     created_at: number
     created_by: number
     technician_level: number
     active_profile: number
     active_entities: number
+    is_deleted: number
     _all: number
   }
 
@@ -4354,34 +4553,40 @@ export namespace Prisma {
   export type Mst_authorizationMinAggregateInputType = {
     id?: true
     employee_code?: true
+    employee_name?: true
     is_active?: true
     created_at?: true
     created_by?: true
     technician_level?: true
     active_profile?: true
     active_entities?: true
+    is_deleted?: true
   }
 
   export type Mst_authorizationMaxAggregateInputType = {
     id?: true
     employee_code?: true
+    employee_name?: true
     is_active?: true
     created_at?: true
     created_by?: true
     technician_level?: true
     active_profile?: true
     active_entities?: true
+    is_deleted?: true
   }
 
   export type Mst_authorizationCountAggregateInputType = {
     id?: true
     employee_code?: true
+    employee_name?: true
     is_active?: true
     created_at?: true
     created_by?: true
     technician_level?: true
     active_profile?: true
     active_entities?: true
+    is_deleted?: true
     _all?: true
   }
 
@@ -4474,12 +4679,14 @@ export namespace Prisma {
   export type Mst_authorizationGroupByOutputType = {
     id: number
     employee_code: string | null
+    employee_name: string | null
     is_active: string | null
     created_at: Date | null
     created_by: string | null
     technician_level: string | null
     active_profile: number | null
     active_entities: number | null
+    is_deleted: boolean | null
     _count: Mst_authorizationCountAggregateOutputType | null
     _avg: Mst_authorizationAvgAggregateOutputType | null
     _sum: Mst_authorizationSumAggregateOutputType | null
@@ -4504,39 +4711,54 @@ export namespace Prisma {
   export type mst_authorizationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     employee_code?: boolean
+    employee_name?: boolean
     is_active?: boolean
     created_at?: boolean
     created_by?: boolean
     technician_level?: boolean
     active_profile?: boolean
     active_entities?: boolean
+    is_deleted?: boolean
+    mst_entities?: boolean | mst_authorization$mst_entitiesArgs<ExtArgs>
+    mst_profile?: boolean | mst_authorization$mst_profileArgs<ExtArgs>
   }, ExtArgs["result"]["mst_authorization"]>
 
 
   export type mst_authorizationSelectScalar = {
     id?: boolean
     employee_code?: boolean
+    employee_name?: boolean
     is_active?: boolean
     created_at?: boolean
     created_by?: boolean
     technician_level?: boolean
     active_profile?: boolean
     active_entities?: boolean
+    is_deleted?: boolean
   }
 
+  export type mst_authorizationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    mst_entities?: boolean | mst_authorization$mst_entitiesArgs<ExtArgs>
+    mst_profile?: boolean | mst_authorization$mst_profileArgs<ExtArgs>
+  }
 
   export type $mst_authorizationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "mst_authorization"
-    objects: {}
+    objects: {
+      mst_entities: Prisma.$mst_entitiesPayload<ExtArgs> | null
+      mst_profile: Prisma.$mst_profilePayload<ExtArgs> | null
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       employee_code: string | null
+      employee_name: string | null
       is_active: string | null
       created_at: Date | null
       created_by: string | null
       technician_level: string | null
       active_profile: number | null
       active_entities: number | null
+      is_deleted: boolean | null
     }, ExtArgs["result"]["mst_authorization"]>
     composites: {}
   }
@@ -4877,6 +5099,8 @@ export namespace Prisma {
    */
   export interface Prisma__mst_authorizationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    mst_entities<T extends mst_authorization$mst_entitiesArgs<ExtArgs> = {}>(args?: Subset<T, mst_authorization$mst_entitiesArgs<ExtArgs>>): Prisma__mst_entitiesClient<$Result.GetResult<Prisma.$mst_entitiesPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    mst_profile<T extends mst_authorization$mst_profileArgs<ExtArgs> = {}>(args?: Subset<T, mst_authorization$mst_profileArgs<ExtArgs>>): Prisma__mst_profileClient<$Result.GetResult<Prisma.$mst_profilePayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4908,12 +5132,14 @@ export namespace Prisma {
   interface mst_authorizationFieldRefs {
     readonly id: FieldRef<"mst_authorization", 'Int'>
     readonly employee_code: FieldRef<"mst_authorization", 'String'>
+    readonly employee_name: FieldRef<"mst_authorization", 'String'>
     readonly is_active: FieldRef<"mst_authorization", 'String'>
     readonly created_at: FieldRef<"mst_authorization", 'DateTime'>
     readonly created_by: FieldRef<"mst_authorization", 'String'>
     readonly technician_level: FieldRef<"mst_authorization", 'String'>
     readonly active_profile: FieldRef<"mst_authorization", 'Int'>
     readonly active_entities: FieldRef<"mst_authorization", 'Int'>
+    readonly is_deleted: FieldRef<"mst_authorization", 'Boolean'>
   }
     
 
@@ -4926,6 +5152,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_authorization
      */
     select?: mst_authorizationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorizationInclude<ExtArgs> | null
     /**
      * Filter, which mst_authorization to fetch.
      */
@@ -4941,6 +5171,10 @@ export namespace Prisma {
      */
     select?: mst_authorizationSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorizationInclude<ExtArgs> | null
+    /**
      * Filter, which mst_authorization to fetch.
      */
     where: mst_authorizationWhereUniqueInput
@@ -4954,6 +5188,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_authorization
      */
     select?: mst_authorizationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorizationInclude<ExtArgs> | null
     /**
      * Filter, which mst_authorization to fetch.
      */
@@ -4999,6 +5237,10 @@ export namespace Prisma {
      */
     select?: mst_authorizationSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorizationInclude<ExtArgs> | null
+    /**
      * Filter, which mst_authorization to fetch.
      */
     where?: mst_authorizationWhereInput
@@ -5043,6 +5285,10 @@ export namespace Prisma {
      */
     select?: mst_authorizationSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorizationInclude<ExtArgs> | null
+    /**
      * Filter, which mst_authorizations to fetch.
      */
     where?: mst_authorizationWhereInput
@@ -5082,6 +5328,10 @@ export namespace Prisma {
      */
     select?: mst_authorizationSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorizationInclude<ExtArgs> | null
+    /**
      * The data needed to create a mst_authorization.
      */
     data?: XOR<mst_authorizationCreateInput, mst_authorizationUncheckedCreateInput>
@@ -5106,6 +5356,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_authorization
      */
     select?: mst_authorizationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorizationInclude<ExtArgs> | null
     /**
      * The data needed to update a mst_authorization.
      */
@@ -5139,6 +5393,10 @@ export namespace Prisma {
      */
     select?: mst_authorizationSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorizationInclude<ExtArgs> | null
+    /**
      * The filter to search for the mst_authorization to update in case it exists.
      */
     where: mst_authorizationWhereUniqueInput
@@ -5161,6 +5419,10 @@ export namespace Prisma {
      */
     select?: mst_authorizationSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorizationInclude<ExtArgs> | null
+    /**
      * Filter which mst_authorization to delete.
      */
     where: mst_authorizationWhereUniqueInput
@@ -5177,6 +5439,36 @@ export namespace Prisma {
   }
 
   /**
+   * mst_authorization.mst_entities
+   */
+  export type mst_authorization$mst_entitiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_entities
+     */
+    select?: mst_entitiesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_entitiesInclude<ExtArgs> | null
+    where?: mst_entitiesWhereInput
+  }
+
+  /**
+   * mst_authorization.mst_profile
+   */
+  export type mst_authorization$mst_profileArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_profile
+     */
+    select?: mst_profileSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_profileInclude<ExtArgs> | null
+    where?: mst_profileWhereInput
+  }
+
+  /**
    * mst_authorization without action
    */
   export type mst_authorizationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5184,6 +5476,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_authorization
      */
     select?: mst_authorizationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorizationInclude<ExtArgs> | null
   }
 
 
@@ -5401,6 +5697,7 @@ export namespace Prisma {
     entities_id?: boolean
     created_at?: boolean
     created_by?: boolean
+    mst_profile?: boolean | mst_authorization_profile$mst_profileArgs<ExtArgs>
   }, ExtArgs["result"]["mst_authorization_profile"]>
 
 
@@ -5413,10 +5710,15 @@ export namespace Prisma {
     created_by?: boolean
   }
 
+  export type mst_authorization_profileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    mst_profile?: boolean | mst_authorization_profile$mst_profileArgs<ExtArgs>
+  }
 
   export type $mst_authorization_profilePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "mst_authorization_profile"
-    objects: {}
+    objects: {
+      mst_profile: Prisma.$mst_profilePayload<ExtArgs> | null
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       employee_code: string | null
@@ -5764,6 +6066,7 @@ export namespace Prisma {
    */
   export interface Prisma__mst_authorization_profileClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    mst_profile<T extends mst_authorization_profile$mst_profileArgs<ExtArgs> = {}>(args?: Subset<T, mst_authorization_profile$mst_profileArgs<ExtArgs>>): Prisma__mst_profileClient<$Result.GetResult<Prisma.$mst_profilePayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5812,6 +6115,10 @@ export namespace Prisma {
      */
     select?: mst_authorization_profileSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_profileInclude<ExtArgs> | null
+    /**
      * Filter, which mst_authorization_profile to fetch.
      */
     where: mst_authorization_profileWhereUniqueInput
@@ -5826,6 +6133,10 @@ export namespace Prisma {
      */
     select?: mst_authorization_profileSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_profileInclude<ExtArgs> | null
+    /**
      * Filter, which mst_authorization_profile to fetch.
      */
     where: mst_authorization_profileWhereUniqueInput
@@ -5839,6 +6150,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_authorization_profile
      */
     select?: mst_authorization_profileSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_profileInclude<ExtArgs> | null
     /**
      * Filter, which mst_authorization_profile to fetch.
      */
@@ -5884,6 +6199,10 @@ export namespace Prisma {
      */
     select?: mst_authorization_profileSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_profileInclude<ExtArgs> | null
+    /**
      * Filter, which mst_authorization_profile to fetch.
      */
     where?: mst_authorization_profileWhereInput
@@ -5928,6 +6247,10 @@ export namespace Prisma {
      */
     select?: mst_authorization_profileSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_profileInclude<ExtArgs> | null
+    /**
      * Filter, which mst_authorization_profiles to fetch.
      */
     where?: mst_authorization_profileWhereInput
@@ -5967,6 +6290,10 @@ export namespace Prisma {
      */
     select?: mst_authorization_profileSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_profileInclude<ExtArgs> | null
+    /**
      * The data needed to create a mst_authorization_profile.
      */
     data?: XOR<mst_authorization_profileCreateInput, mst_authorization_profileUncheckedCreateInput>
@@ -5991,6 +6318,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_authorization_profile
      */
     select?: mst_authorization_profileSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_profileInclude<ExtArgs> | null
     /**
      * The data needed to update a mst_authorization_profile.
      */
@@ -6024,6 +6355,10 @@ export namespace Prisma {
      */
     select?: mst_authorization_profileSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_profileInclude<ExtArgs> | null
+    /**
      * The filter to search for the mst_authorization_profile to update in case it exists.
      */
     where: mst_authorization_profileWhereUniqueInput
@@ -6046,6 +6381,10 @@ export namespace Prisma {
      */
     select?: mst_authorization_profileSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_profileInclude<ExtArgs> | null
+    /**
      * Filter which mst_authorization_profile to delete.
      */
     where: mst_authorization_profileWhereUniqueInput
@@ -6062,6 +6401,21 @@ export namespace Prisma {
   }
 
   /**
+   * mst_authorization_profile.mst_profile
+   */
+  export type mst_authorization_profile$mst_profileArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_profile
+     */
+    select?: mst_profileSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_profileInclude<ExtArgs> | null
+    where?: mst_profileWhereInput
+  }
+
+  /**
    * mst_authorization_profile without action
    */
   export type mst_authorization_profileDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6069,6 +6423,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_authorization_profile
      */
     select?: mst_authorization_profileSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_profileInclude<ExtArgs> | null
   }
 
 
@@ -6282,6 +6640,7 @@ export namespace Prisma {
     is_manager?: boolean
     created_at?: boolean
     created_by?: boolean
+    mst_group?: boolean | mst_authorization_usergroup$mst_groupArgs<ExtArgs>
   }, ExtArgs["result"]["mst_authorization_usergroup"]>
 
 
@@ -6294,10 +6653,15 @@ export namespace Prisma {
     created_by?: boolean
   }
 
+  export type mst_authorization_usergroupInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    mst_group?: boolean | mst_authorization_usergroup$mst_groupArgs<ExtArgs>
+  }
 
   export type $mst_authorization_usergroupPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "mst_authorization_usergroup"
-    objects: {}
+    objects: {
+      mst_group: Prisma.$mst_groupPayload<ExtArgs> | null
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       employee_code: string | null
@@ -6645,6 +7009,7 @@ export namespace Prisma {
    */
   export interface Prisma__mst_authorization_usergroupClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    mst_group<T extends mst_authorization_usergroup$mst_groupArgs<ExtArgs> = {}>(args?: Subset<T, mst_authorization_usergroup$mst_groupArgs<ExtArgs>>): Prisma__mst_groupClient<$Result.GetResult<Prisma.$mst_groupPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6693,6 +7058,10 @@ export namespace Prisma {
      */
     select?: mst_authorization_usergroupSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_usergroupInclude<ExtArgs> | null
+    /**
      * Filter, which mst_authorization_usergroup to fetch.
      */
     where: mst_authorization_usergroupWhereUniqueInput
@@ -6707,6 +7076,10 @@ export namespace Prisma {
      */
     select?: mst_authorization_usergroupSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_usergroupInclude<ExtArgs> | null
+    /**
      * Filter, which mst_authorization_usergroup to fetch.
      */
     where: mst_authorization_usergroupWhereUniqueInput
@@ -6720,6 +7093,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_authorization_usergroup
      */
     select?: mst_authorization_usergroupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_usergroupInclude<ExtArgs> | null
     /**
      * Filter, which mst_authorization_usergroup to fetch.
      */
@@ -6765,6 +7142,10 @@ export namespace Prisma {
      */
     select?: mst_authorization_usergroupSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_usergroupInclude<ExtArgs> | null
+    /**
      * Filter, which mst_authorization_usergroup to fetch.
      */
     where?: mst_authorization_usergroupWhereInput
@@ -6809,6 +7190,10 @@ export namespace Prisma {
      */
     select?: mst_authorization_usergroupSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_usergroupInclude<ExtArgs> | null
+    /**
      * Filter, which mst_authorization_usergroups to fetch.
      */
     where?: mst_authorization_usergroupWhereInput
@@ -6848,6 +7233,10 @@ export namespace Prisma {
      */
     select?: mst_authorization_usergroupSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_usergroupInclude<ExtArgs> | null
+    /**
      * The data needed to create a mst_authorization_usergroup.
      */
     data?: XOR<mst_authorization_usergroupCreateInput, mst_authorization_usergroupUncheckedCreateInput>
@@ -6872,6 +7261,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_authorization_usergroup
      */
     select?: mst_authorization_usergroupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_usergroupInclude<ExtArgs> | null
     /**
      * The data needed to update a mst_authorization_usergroup.
      */
@@ -6905,6 +7298,10 @@ export namespace Prisma {
      */
     select?: mst_authorization_usergroupSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_usergroupInclude<ExtArgs> | null
+    /**
      * The filter to search for the mst_authorization_usergroup to update in case it exists.
      */
     where: mst_authorization_usergroupWhereUniqueInput
@@ -6927,6 +7324,10 @@ export namespace Prisma {
      */
     select?: mst_authorization_usergroupSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_usergroupInclude<ExtArgs> | null
+    /**
      * Filter which mst_authorization_usergroup to delete.
      */
     where: mst_authorization_usergroupWhereUniqueInput
@@ -6943,6 +7344,21 @@ export namespace Prisma {
   }
 
   /**
+   * mst_authorization_usergroup.mst_group
+   */
+  export type mst_authorization_usergroup$mst_groupArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_group
+     */
+    select?: mst_groupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_groupInclude<ExtArgs> | null
+    where?: mst_groupWhereInput
+  }
+
+  /**
    * mst_authorization_usergroup without action
    */
   export type mst_authorization_usergroupDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6950,6 +7366,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_authorization_usergroup
      */
     select?: mst_authorization_usergroupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_usergroupInclude<ExtArgs> | null
   }
 
 
@@ -7155,6 +7575,8 @@ export namespace Prisma {
     parent_id?: boolean
     created_at?: boolean
     created_by?: boolean
+    mst_authorization?: boolean | mst_entities$mst_authorizationArgs<ExtArgs>
+    _count?: boolean | Mst_entitiesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["mst_entities"]>
 
 
@@ -7166,10 +7588,16 @@ export namespace Prisma {
     created_by?: boolean
   }
 
+  export type mst_entitiesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    mst_authorization?: boolean | mst_entities$mst_authorizationArgs<ExtArgs>
+    _count?: boolean | Mst_entitiesCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
   export type $mst_entitiesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "mst_entities"
-    objects: {}
+    objects: {
+      mst_authorization: Prisma.$mst_authorizationPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       entities_name: string | null
@@ -7516,6 +7944,7 @@ export namespace Prisma {
    */
   export interface Prisma__mst_entitiesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    mst_authorization<T extends mst_entities$mst_authorizationArgs<ExtArgs> = {}>(args?: Subset<T, mst_entities$mst_authorizationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$mst_authorizationPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7563,6 +7992,10 @@ export namespace Prisma {
      */
     select?: mst_entitiesSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_entitiesInclude<ExtArgs> | null
+    /**
      * Filter, which mst_entities to fetch.
      */
     where: mst_entitiesWhereUniqueInput
@@ -7577,6 +8010,10 @@ export namespace Prisma {
      */
     select?: mst_entitiesSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_entitiesInclude<ExtArgs> | null
+    /**
      * Filter, which mst_entities to fetch.
      */
     where: mst_entitiesWhereUniqueInput
@@ -7590,6 +8027,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_entities
      */
     select?: mst_entitiesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_entitiesInclude<ExtArgs> | null
     /**
      * Filter, which mst_entities to fetch.
      */
@@ -7635,6 +8076,10 @@ export namespace Prisma {
      */
     select?: mst_entitiesSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_entitiesInclude<ExtArgs> | null
+    /**
      * Filter, which mst_entities to fetch.
      */
     where?: mst_entitiesWhereInput
@@ -7679,6 +8124,10 @@ export namespace Prisma {
      */
     select?: mst_entitiesSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_entitiesInclude<ExtArgs> | null
+    /**
      * Filter, which mst_entities to fetch.
      */
     where?: mst_entitiesWhereInput
@@ -7718,6 +8167,10 @@ export namespace Prisma {
      */
     select?: mst_entitiesSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_entitiesInclude<ExtArgs> | null
+    /**
      * The data needed to create a mst_entities.
      */
     data?: XOR<mst_entitiesCreateInput, mst_entitiesUncheckedCreateInput>
@@ -7742,6 +8195,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_entities
      */
     select?: mst_entitiesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_entitiesInclude<ExtArgs> | null
     /**
      * The data needed to update a mst_entities.
      */
@@ -7775,6 +8232,10 @@ export namespace Prisma {
      */
     select?: mst_entitiesSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_entitiesInclude<ExtArgs> | null
+    /**
      * The filter to search for the mst_entities to update in case it exists.
      */
     where: mst_entitiesWhereUniqueInput
@@ -7797,6 +8258,10 @@ export namespace Prisma {
      */
     select?: mst_entitiesSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_entitiesInclude<ExtArgs> | null
+    /**
      * Filter which mst_entities to delete.
      */
     where: mst_entitiesWhereUniqueInput
@@ -7813,6 +8278,26 @@ export namespace Prisma {
   }
 
   /**
+   * mst_entities.mst_authorization
+   */
+  export type mst_entities$mst_authorizationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_authorization
+     */
+    select?: mst_authorizationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorizationInclude<ExtArgs> | null
+    where?: mst_authorizationWhereInput
+    orderBy?: mst_authorizationOrderByWithRelationInput | mst_authorizationOrderByWithRelationInput[]
+    cursor?: mst_authorizationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Mst_authorizationScalarFieldEnum | Mst_authorizationScalarFieldEnum[]
+  }
+
+  /**
    * mst_entities without action
    */
   export type mst_entitiesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7820,6 +8305,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_entities
      */
     select?: mst_entitiesSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_entitiesInclude<ExtArgs> | null
   }
 
 
@@ -8045,6 +8534,9 @@ export namespace Prisma {
     is_deleted?: boolean
     created_at?: boolean
     created_by?: boolean
+    mst_authorization_usergroup?: boolean | mst_group$mst_authorization_usergroupArgs<ExtArgs>
+    tr_project?: boolean | mst_group$tr_projectArgs<ExtArgs>
+    _count?: boolean | Mst_groupCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["mst_group"]>
 
 
@@ -8058,10 +8550,18 @@ export namespace Prisma {
     created_by?: boolean
   }
 
+  export type mst_groupInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    mst_authorization_usergroup?: boolean | mst_group$mst_authorization_usergroupArgs<ExtArgs>
+    tr_project?: boolean | mst_group$tr_projectArgs<ExtArgs>
+    _count?: boolean | Mst_groupCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
   export type $mst_groupPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "mst_group"
-    objects: {}
+    objects: {
+      mst_authorization_usergroup: Prisma.$mst_authorization_usergroupPayload<ExtArgs>[]
+      tr_project: Prisma.$tr_projectPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       entities_id: number | null
@@ -8410,6 +8910,8 @@ export namespace Prisma {
    */
   export interface Prisma__mst_groupClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    mst_authorization_usergroup<T extends mst_group$mst_authorization_usergroupArgs<ExtArgs> = {}>(args?: Subset<T, mst_group$mst_authorization_usergroupArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$mst_authorization_usergroupPayload<ExtArgs>, T, "findMany"> | Null>
+    tr_project<T extends mst_group$tr_projectArgs<ExtArgs> = {}>(args?: Subset<T, mst_group$tr_projectArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tr_projectPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8459,6 +8961,10 @@ export namespace Prisma {
      */
     select?: mst_groupSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_groupInclude<ExtArgs> | null
+    /**
      * Filter, which mst_group to fetch.
      */
     where: mst_groupWhereUniqueInput
@@ -8473,6 +8979,10 @@ export namespace Prisma {
      */
     select?: mst_groupSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_groupInclude<ExtArgs> | null
+    /**
      * Filter, which mst_group to fetch.
      */
     where: mst_groupWhereUniqueInput
@@ -8486,6 +8996,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_group
      */
     select?: mst_groupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_groupInclude<ExtArgs> | null
     /**
      * Filter, which mst_group to fetch.
      */
@@ -8531,6 +9045,10 @@ export namespace Prisma {
      */
     select?: mst_groupSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_groupInclude<ExtArgs> | null
+    /**
      * Filter, which mst_group to fetch.
      */
     where?: mst_groupWhereInput
@@ -8575,6 +9093,10 @@ export namespace Prisma {
      */
     select?: mst_groupSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_groupInclude<ExtArgs> | null
+    /**
      * Filter, which mst_groups to fetch.
      */
     where?: mst_groupWhereInput
@@ -8614,6 +9136,10 @@ export namespace Prisma {
      */
     select?: mst_groupSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_groupInclude<ExtArgs> | null
+    /**
      * The data needed to create a mst_group.
      */
     data?: XOR<mst_groupCreateInput, mst_groupUncheckedCreateInput>
@@ -8638,6 +9164,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_group
      */
     select?: mst_groupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_groupInclude<ExtArgs> | null
     /**
      * The data needed to update a mst_group.
      */
@@ -8671,6 +9201,10 @@ export namespace Prisma {
      */
     select?: mst_groupSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_groupInclude<ExtArgs> | null
+    /**
      * The filter to search for the mst_group to update in case it exists.
      */
     where: mst_groupWhereUniqueInput
@@ -8693,6 +9227,10 @@ export namespace Prisma {
      */
     select?: mst_groupSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_groupInclude<ExtArgs> | null
+    /**
      * Filter which mst_group to delete.
      */
     where: mst_groupWhereUniqueInput
@@ -8709,6 +9247,46 @@ export namespace Prisma {
   }
 
   /**
+   * mst_group.mst_authorization_usergroup
+   */
+  export type mst_group$mst_authorization_usergroupArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_authorization_usergroup
+     */
+    select?: mst_authorization_usergroupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_usergroupInclude<ExtArgs> | null
+    where?: mst_authorization_usergroupWhereInput
+    orderBy?: mst_authorization_usergroupOrderByWithRelationInput | mst_authorization_usergroupOrderByWithRelationInput[]
+    cursor?: mst_authorization_usergroupWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Mst_authorization_usergroupScalarFieldEnum | Mst_authorization_usergroupScalarFieldEnum[]
+  }
+
+  /**
+   * mst_group.tr_project
+   */
+  export type mst_group$tr_projectArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project
+     */
+    select?: tr_projectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_projectInclude<ExtArgs> | null
+    where?: tr_projectWhereInput
+    orderBy?: tr_projectOrderByWithRelationInput | tr_projectOrderByWithRelationInput[]
+    cursor?: tr_projectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Tr_projectScalarFieldEnum | Tr_projectScalarFieldEnum[]
+  }
+
+  /**
    * mst_group without action
    */
   export type mst_groupDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -8716,6 +9294,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_group
      */
     select?: mst_groupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_groupInclude<ExtArgs> | null
   }
 
 
@@ -9794,6 +10376,9 @@ export namespace Prisma {
     is_deleted?: boolean
     created_at?: boolean
     created_by?: boolean
+    mst_authorization?: boolean | mst_profile$mst_authorizationArgs<ExtArgs>
+    mst_authorization_profile?: boolean | mst_profile$mst_authorization_profileArgs<ExtArgs>
+    _count?: boolean | Mst_profileCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["mst_profile"]>
 
 
@@ -9805,10 +10390,18 @@ export namespace Prisma {
     created_by?: boolean
   }
 
+  export type mst_profileInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    mst_authorization?: boolean | mst_profile$mst_authorizationArgs<ExtArgs>
+    mst_authorization_profile?: boolean | mst_profile$mst_authorization_profileArgs<ExtArgs>
+    _count?: boolean | Mst_profileCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
   export type $mst_profilePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "mst_profile"
-    objects: {}
+    objects: {
+      mst_authorization: Prisma.$mst_authorizationPayload<ExtArgs>[]
+      mst_authorization_profile: Prisma.$mst_authorization_profilePayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       profile_name: string | null
@@ -10155,6 +10748,8 @@ export namespace Prisma {
    */
   export interface Prisma__mst_profileClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    mst_authorization<T extends mst_profile$mst_authorizationArgs<ExtArgs> = {}>(args?: Subset<T, mst_profile$mst_authorizationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$mst_authorizationPayload<ExtArgs>, T, "findMany"> | Null>
+    mst_authorization_profile<T extends mst_profile$mst_authorization_profileArgs<ExtArgs> = {}>(args?: Subset<T, mst_profile$mst_authorization_profileArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$mst_authorization_profilePayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -10202,6 +10797,10 @@ export namespace Prisma {
      */
     select?: mst_profileSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_profileInclude<ExtArgs> | null
+    /**
      * Filter, which mst_profile to fetch.
      */
     where: mst_profileWhereUniqueInput
@@ -10216,6 +10815,10 @@ export namespace Prisma {
      */
     select?: mst_profileSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_profileInclude<ExtArgs> | null
+    /**
      * Filter, which mst_profile to fetch.
      */
     where: mst_profileWhereUniqueInput
@@ -10229,6 +10832,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_profile
      */
     select?: mst_profileSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_profileInclude<ExtArgs> | null
     /**
      * Filter, which mst_profile to fetch.
      */
@@ -10274,6 +10881,10 @@ export namespace Prisma {
      */
     select?: mst_profileSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_profileInclude<ExtArgs> | null
+    /**
      * Filter, which mst_profile to fetch.
      */
     where?: mst_profileWhereInput
@@ -10318,6 +10929,10 @@ export namespace Prisma {
      */
     select?: mst_profileSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_profileInclude<ExtArgs> | null
+    /**
      * Filter, which mst_profiles to fetch.
      */
     where?: mst_profileWhereInput
@@ -10357,6 +10972,10 @@ export namespace Prisma {
      */
     select?: mst_profileSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_profileInclude<ExtArgs> | null
+    /**
      * The data needed to create a mst_profile.
      */
     data?: XOR<mst_profileCreateInput, mst_profileUncheckedCreateInput>
@@ -10381,6 +11000,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_profile
      */
     select?: mst_profileSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_profileInclude<ExtArgs> | null
     /**
      * The data needed to update a mst_profile.
      */
@@ -10414,6 +11037,10 @@ export namespace Prisma {
      */
     select?: mst_profileSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_profileInclude<ExtArgs> | null
+    /**
      * The filter to search for the mst_profile to update in case it exists.
      */
     where: mst_profileWhereUniqueInput
@@ -10436,6 +11063,10 @@ export namespace Prisma {
      */
     select?: mst_profileSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_profileInclude<ExtArgs> | null
+    /**
      * Filter which mst_profile to delete.
      */
     where: mst_profileWhereUniqueInput
@@ -10452,6 +11083,46 @@ export namespace Prisma {
   }
 
   /**
+   * mst_profile.mst_authorization
+   */
+  export type mst_profile$mst_authorizationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_authorization
+     */
+    select?: mst_authorizationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorizationInclude<ExtArgs> | null
+    where?: mst_authorizationWhereInput
+    orderBy?: mst_authorizationOrderByWithRelationInput | mst_authorizationOrderByWithRelationInput[]
+    cursor?: mst_authorizationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Mst_authorizationScalarFieldEnum | Mst_authorizationScalarFieldEnum[]
+  }
+
+  /**
+   * mst_profile.mst_authorization_profile
+   */
+  export type mst_profile$mst_authorization_profileArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_authorization_profile
+     */
+    select?: mst_authorization_profileSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorization_profileInclude<ExtArgs> | null
+    where?: mst_authorization_profileWhereInput
+    orderBy?: mst_authorization_profileOrderByWithRelationInput | mst_authorization_profileOrderByWithRelationInput[]
+    cursor?: mst_authorization_profileWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Mst_authorization_profileScalarFieldEnum | Mst_authorization_profileScalarFieldEnum[]
+  }
+
+  /**
    * mst_profile without action
    */
   export type mst_profileDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -10459,6 +11130,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_profile
      */
     select?: mst_profileSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_profileInclude<ExtArgs> | null
   }
 
 
@@ -12597,6 +13272,7 @@ export namespace Prisma {
     is_deleted?: boolean
     created_at?: boolean
     created_by?: boolean
+    mst_group?: boolean | tr_project$mst_groupArgs<ExtArgs>
   }, ExtArgs["result"]["tr_project"]>
 
 
@@ -12621,10 +13297,15 @@ export namespace Prisma {
     created_by?: boolean
   }
 
+  export type tr_projectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    mst_group?: boolean | tr_project$mst_groupArgs<ExtArgs>
+  }
 
   export type $tr_projectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "tr_project"
-    objects: {}
+    objects: {
+      mst_group: Prisma.$mst_groupPayload<ExtArgs> | null
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       request_id: number | null
@@ -12984,6 +13665,7 @@ export namespace Prisma {
    */
   export interface Prisma__tr_projectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    mst_group<T extends tr_project$mst_groupArgs<ExtArgs> = {}>(args?: Subset<T, tr_project$mst_groupArgs<ExtArgs>>): Prisma__mst_groupClient<$Result.GetResult<Prisma.$mst_groupPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -13044,6 +13726,10 @@ export namespace Prisma {
      */
     select?: tr_projectSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_projectInclude<ExtArgs> | null
+    /**
      * Filter, which tr_project to fetch.
      */
     where: tr_projectWhereUniqueInput
@@ -13058,6 +13744,10 @@ export namespace Prisma {
      */
     select?: tr_projectSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_projectInclude<ExtArgs> | null
+    /**
      * Filter, which tr_project to fetch.
      */
     where: tr_projectWhereUniqueInput
@@ -13071,6 +13761,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the tr_project
      */
     select?: tr_projectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_projectInclude<ExtArgs> | null
     /**
      * Filter, which tr_project to fetch.
      */
@@ -13116,6 +13810,10 @@ export namespace Prisma {
      */
     select?: tr_projectSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_projectInclude<ExtArgs> | null
+    /**
      * Filter, which tr_project to fetch.
      */
     where?: tr_projectWhereInput
@@ -13160,6 +13858,10 @@ export namespace Prisma {
      */
     select?: tr_projectSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_projectInclude<ExtArgs> | null
+    /**
      * Filter, which tr_projects to fetch.
      */
     where?: tr_projectWhereInput
@@ -13199,9 +13901,13 @@ export namespace Prisma {
      */
     select?: tr_projectSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_projectInclude<ExtArgs> | null
+    /**
      * The data needed to create a tr_project.
      */
-    data: XOR<tr_projectCreateInput, tr_projectUncheckedCreateInput>
+    data?: XOR<tr_projectCreateInput, tr_projectUncheckedCreateInput>
   }
 
   /**
@@ -13223,6 +13929,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the tr_project
      */
     select?: tr_projectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_projectInclude<ExtArgs> | null
     /**
      * The data needed to update a tr_project.
      */
@@ -13256,6 +13966,10 @@ export namespace Prisma {
      */
     select?: tr_projectSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_projectInclude<ExtArgs> | null
+    /**
      * The filter to search for the tr_project to update in case it exists.
      */
     where: tr_projectWhereUniqueInput
@@ -13278,6 +13992,10 @@ export namespace Prisma {
      */
     select?: tr_projectSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_projectInclude<ExtArgs> | null
+    /**
      * Filter which tr_project to delete.
      */
     where: tr_projectWhereUniqueInput
@@ -13294,6 +14012,21 @@ export namespace Prisma {
   }
 
   /**
+   * tr_project.mst_group
+   */
+  export type tr_project$mst_groupArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_group
+     */
+    select?: mst_groupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_groupInclude<ExtArgs> | null
+    where?: mst_groupWhereInput
+  }
+
+  /**
    * tr_project without action
    */
   export type tr_projectDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -13301,6 +14034,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the tr_project
      */
     select?: tr_projectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_projectInclude<ExtArgs> | null
   }
 
 
@@ -19674,9 +20411,11 @@ export namespace Prisma {
     expected_completion_date: Date | null
     category: string | null
     type: string | null
-    description: string | null
     department_code: string | null
     is_project: string | null
+    background: string | null
+    issue_description: string | null
+    business_impact: string | null
     created_at: Date | null
     created_by: string | null
   }
@@ -19693,9 +20432,11 @@ export namespace Prisma {
     expected_completion_date: Date | null
     category: string | null
     type: string | null
-    description: string | null
     department_code: string | null
     is_project: string | null
+    background: string | null
+    issue_description: string | null
+    business_impact: string | null
     created_at: Date | null
     created_by: string | null
   }
@@ -19712,9 +20453,11 @@ export namespace Prisma {
     expected_completion_date: number
     category: number
     type: number
-    description: number
     department_code: number
     is_project: number
+    background: number
+    issue_description: number
+    business_impact: number
     created_at: number
     created_by: number
     _all: number
@@ -19743,9 +20486,11 @@ export namespace Prisma {
     expected_completion_date?: true
     category?: true
     type?: true
-    description?: true
     department_code?: true
     is_project?: true
+    background?: true
+    issue_description?: true
+    business_impact?: true
     created_at?: true
     created_by?: true
   }
@@ -19762,9 +20507,11 @@ export namespace Prisma {
     expected_completion_date?: true
     category?: true
     type?: true
-    description?: true
     department_code?: true
     is_project?: true
+    background?: true
+    issue_description?: true
+    business_impact?: true
     created_at?: true
     created_by?: true
   }
@@ -19781,9 +20528,11 @@ export namespace Prisma {
     expected_completion_date?: true
     category?: true
     type?: true
-    description?: true
     department_code?: true
     is_project?: true
+    background?: true
+    issue_description?: true
+    business_impact?: true
     created_at?: true
     created_by?: true
     _all?: true
@@ -19887,9 +20636,11 @@ export namespace Prisma {
     expected_completion_date: Date | null
     category: string | null
     type: string | null
-    description: string | null
     department_code: string | null
     is_project: string | null
+    background: string | null
+    issue_description: string | null
+    business_impact: string | null
     created_at: Date | null
     created_by: string | null
     _count: Tr_requestCountAggregateOutputType | null
@@ -19925,9 +20676,11 @@ export namespace Prisma {
     expected_completion_date?: boolean
     category?: boolean
     type?: boolean
-    description?: boolean
     department_code?: boolean
     is_project?: boolean
+    background?: boolean
+    issue_description?: boolean
+    business_impact?: boolean
     created_at?: boolean
     created_by?: boolean
     tr_request_validation?: boolean | tr_request$tr_request_validationArgs<ExtArgs>
@@ -19947,9 +20700,11 @@ export namespace Prisma {
     expected_completion_date?: boolean
     category?: boolean
     type?: boolean
-    description?: boolean
     department_code?: boolean
     is_project?: boolean
+    background?: boolean
+    issue_description?: boolean
+    business_impact?: boolean
     created_at?: boolean
     created_by?: boolean
   }
@@ -19976,9 +20731,11 @@ export namespace Prisma {
       expected_completion_date: Date | null
       category: string | null
       type: string | null
-      description: string | null
       department_code: string | null
       is_project: string | null
+      background: string | null
+      issue_description: string | null
+      business_impact: string | null
       created_at: Date | null
       created_by: string | null
     }, ExtArgs["result"]["tr_request"]>
@@ -20362,9 +21119,11 @@ export namespace Prisma {
     readonly expected_completion_date: FieldRef<"tr_request", 'DateTime'>
     readonly category: FieldRef<"tr_request", 'String'>
     readonly type: FieldRef<"tr_request", 'String'>
-    readonly description: FieldRef<"tr_request", 'String'>
     readonly department_code: FieldRef<"tr_request", 'String'>
     readonly is_project: FieldRef<"tr_request", 'String'>
+    readonly background: FieldRef<"tr_request", 'String'>
+    readonly issue_description: FieldRef<"tr_request", 'String'>
+    readonly business_impact: FieldRef<"tr_request", 'String'>
     readonly created_at: FieldRef<"tr_request", 'DateTime'>
     readonly created_by: FieldRef<"tr_request", 'String'>
   }
@@ -21677,6 +22436,839 @@ export namespace Prisma {
 
 
   /**
+   * Model mst_role
+   */
+
+  export type AggregateMst_role = {
+    _count: Mst_roleCountAggregateOutputType | null
+    _avg: Mst_roleAvgAggregateOutputType | null
+    _sum: Mst_roleSumAggregateOutputType | null
+    _min: Mst_roleMinAggregateOutputType | null
+    _max: Mst_roleMaxAggregateOutputType | null
+  }
+
+  export type Mst_roleAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type Mst_roleSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type Mst_roleMinAggregateOutputType = {
+    id: number | null
+    role: string | null
+  }
+
+  export type Mst_roleMaxAggregateOutputType = {
+    id: number | null
+    role: string | null
+  }
+
+  export type Mst_roleCountAggregateOutputType = {
+    id: number
+    role: number
+    _all: number
+  }
+
+
+  export type Mst_roleAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type Mst_roleSumAggregateInputType = {
+    id?: true
+  }
+
+  export type Mst_roleMinAggregateInputType = {
+    id?: true
+    role?: true
+  }
+
+  export type Mst_roleMaxAggregateInputType = {
+    id?: true
+    role?: true
+  }
+
+  export type Mst_roleCountAggregateInputType = {
+    id?: true
+    role?: true
+    _all?: true
+  }
+
+  export type Mst_roleAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which mst_role to aggregate.
+     */
+    where?: mst_roleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of mst_roles to fetch.
+     */
+    orderBy?: mst_roleOrderByWithRelationInput | mst_roleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: mst_roleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` mst_roles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` mst_roles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned mst_roles
+    **/
+    _count?: true | Mst_roleCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Mst_roleAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Mst_roleSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Mst_roleMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Mst_roleMaxAggregateInputType
+  }
+
+  export type GetMst_roleAggregateType<T extends Mst_roleAggregateArgs> = {
+        [P in keyof T & keyof AggregateMst_role]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMst_role[P]>
+      : GetScalarType<T[P], AggregateMst_role[P]>
+  }
+
+
+
+
+  export type mst_roleGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: mst_roleWhereInput
+    orderBy?: mst_roleOrderByWithAggregationInput | mst_roleOrderByWithAggregationInput[]
+    by: Mst_roleScalarFieldEnum[] | Mst_roleScalarFieldEnum
+    having?: mst_roleScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Mst_roleCountAggregateInputType | true
+    _avg?: Mst_roleAvgAggregateInputType
+    _sum?: Mst_roleSumAggregateInputType
+    _min?: Mst_roleMinAggregateInputType
+    _max?: Mst_roleMaxAggregateInputType
+  }
+
+  export type Mst_roleGroupByOutputType = {
+    id: number
+    role: string | null
+    _count: Mst_roleCountAggregateOutputType | null
+    _avg: Mst_roleAvgAggregateOutputType | null
+    _sum: Mst_roleSumAggregateOutputType | null
+    _min: Mst_roleMinAggregateOutputType | null
+    _max: Mst_roleMaxAggregateOutputType | null
+  }
+
+  type GetMst_roleGroupByPayload<T extends mst_roleGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Mst_roleGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Mst_roleGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Mst_roleGroupByOutputType[P]>
+            : GetScalarType<T[P], Mst_roleGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type mst_roleSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    role?: boolean
+  }, ExtArgs["result"]["mst_role"]>
+
+
+  export type mst_roleSelectScalar = {
+    id?: boolean
+    role?: boolean
+  }
+
+
+  export type $mst_rolePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "mst_role"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      role: string | null
+    }, ExtArgs["result"]["mst_role"]>
+    composites: {}
+  }
+
+  type mst_roleGetPayload<S extends boolean | null | undefined | mst_roleDefaultArgs> = $Result.GetResult<Prisma.$mst_rolePayload, S>
+
+  type mst_roleCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<mst_roleFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: Mst_roleCountAggregateInputType | true
+    }
+
+  export interface mst_roleDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['mst_role'], meta: { name: 'mst_role' } }
+    /**
+     * Find zero or one Mst_role that matches the filter.
+     * @param {mst_roleFindUniqueArgs} args - Arguments to find a Mst_role
+     * @example
+     * // Get one Mst_role
+     * const mst_role = await prisma.mst_role.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends mst_roleFindUniqueArgs>(args: SelectSubset<T, mst_roleFindUniqueArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Mst_role that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {mst_roleFindUniqueOrThrowArgs} args - Arguments to find a Mst_role
+     * @example
+     * // Get one Mst_role
+     * const mst_role = await prisma.mst_role.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends mst_roleFindUniqueOrThrowArgs>(args: SelectSubset<T, mst_roleFindUniqueOrThrowArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Mst_role that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_roleFindFirstArgs} args - Arguments to find a Mst_role
+     * @example
+     * // Get one Mst_role
+     * const mst_role = await prisma.mst_role.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends mst_roleFindFirstArgs>(args?: SelectSubset<T, mst_roleFindFirstArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Mst_role that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_roleFindFirstOrThrowArgs} args - Arguments to find a Mst_role
+     * @example
+     * // Get one Mst_role
+     * const mst_role = await prisma.mst_role.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends mst_roleFindFirstOrThrowArgs>(args?: SelectSubset<T, mst_roleFindFirstOrThrowArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Mst_roles that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_roleFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Mst_roles
+     * const mst_roles = await prisma.mst_role.findMany()
+     * 
+     * // Get first 10 Mst_roles
+     * const mst_roles = await prisma.mst_role.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const mst_roleWithIdOnly = await prisma.mst_role.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends mst_roleFindManyArgs>(args?: SelectSubset<T, mst_roleFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Mst_role.
+     * @param {mst_roleCreateArgs} args - Arguments to create a Mst_role.
+     * @example
+     * // Create one Mst_role
+     * const Mst_role = await prisma.mst_role.create({
+     *   data: {
+     *     // ... data to create a Mst_role
+     *   }
+     * })
+     * 
+     */
+    create<T extends mst_roleCreateArgs>(args: SelectSubset<T, mst_roleCreateArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Mst_roles.
+     * @param {mst_roleCreateManyArgs} args - Arguments to create many Mst_roles.
+     * @example
+     * // Create many Mst_roles
+     * const mst_role = await prisma.mst_role.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends mst_roleCreateManyArgs>(args?: SelectSubset<T, mst_roleCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Mst_role.
+     * @param {mst_roleDeleteArgs} args - Arguments to delete one Mst_role.
+     * @example
+     * // Delete one Mst_role
+     * const Mst_role = await prisma.mst_role.delete({
+     *   where: {
+     *     // ... filter to delete one Mst_role
+     *   }
+     * })
+     * 
+     */
+    delete<T extends mst_roleDeleteArgs>(args: SelectSubset<T, mst_roleDeleteArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Mst_role.
+     * @param {mst_roleUpdateArgs} args - Arguments to update one Mst_role.
+     * @example
+     * // Update one Mst_role
+     * const mst_role = await prisma.mst_role.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends mst_roleUpdateArgs>(args: SelectSubset<T, mst_roleUpdateArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Mst_roles.
+     * @param {mst_roleDeleteManyArgs} args - Arguments to filter Mst_roles to delete.
+     * @example
+     * // Delete a few Mst_roles
+     * const { count } = await prisma.mst_role.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends mst_roleDeleteManyArgs>(args?: SelectSubset<T, mst_roleDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Mst_roles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_roleUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Mst_roles
+     * const mst_role = await prisma.mst_role.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends mst_roleUpdateManyArgs>(args: SelectSubset<T, mst_roleUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Mst_role.
+     * @param {mst_roleUpsertArgs} args - Arguments to update or create a Mst_role.
+     * @example
+     * // Update or create a Mst_role
+     * const mst_role = await prisma.mst_role.upsert({
+     *   create: {
+     *     // ... data to create a Mst_role
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Mst_role we want to update
+     *   }
+     * })
+     */
+    upsert<T extends mst_roleUpsertArgs>(args: SelectSubset<T, mst_roleUpsertArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Mst_roles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_roleCountArgs} args - Arguments to filter Mst_roles to count.
+     * @example
+     * // Count the number of Mst_roles
+     * const count = await prisma.mst_role.count({
+     *   where: {
+     *     // ... the filter for the Mst_roles we want to count
+     *   }
+     * })
+    **/
+    count<T extends mst_roleCountArgs>(
+      args?: Subset<T, mst_roleCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Mst_roleCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Mst_role.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Mst_roleAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Mst_roleAggregateArgs>(args: Subset<T, Mst_roleAggregateArgs>): Prisma.PrismaPromise<GetMst_roleAggregateType<T>>
+
+    /**
+     * Group by Mst_role.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_roleGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends mst_roleGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: mst_roleGroupByArgs['orderBy'] }
+        : { orderBy?: mst_roleGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, mst_roleGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMst_roleGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the mst_role model
+   */
+  readonly fields: mst_roleFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for mst_role.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__mst_roleClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the mst_role model
+   */ 
+  interface mst_roleFieldRefs {
+    readonly id: FieldRef<"mst_role", 'Int'>
+    readonly role: FieldRef<"mst_role", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * mst_role findUnique
+   */
+  export type mst_roleFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * Filter, which mst_role to fetch.
+     */
+    where: mst_roleWhereUniqueInput
+  }
+
+  /**
+   * mst_role findUniqueOrThrow
+   */
+  export type mst_roleFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * Filter, which mst_role to fetch.
+     */
+    where: mst_roleWhereUniqueInput
+  }
+
+  /**
+   * mst_role findFirst
+   */
+  export type mst_roleFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * Filter, which mst_role to fetch.
+     */
+    where?: mst_roleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of mst_roles to fetch.
+     */
+    orderBy?: mst_roleOrderByWithRelationInput | mst_roleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for mst_roles.
+     */
+    cursor?: mst_roleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` mst_roles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` mst_roles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of mst_roles.
+     */
+    distinct?: Mst_roleScalarFieldEnum | Mst_roleScalarFieldEnum[]
+  }
+
+  /**
+   * mst_role findFirstOrThrow
+   */
+  export type mst_roleFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * Filter, which mst_role to fetch.
+     */
+    where?: mst_roleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of mst_roles to fetch.
+     */
+    orderBy?: mst_roleOrderByWithRelationInput | mst_roleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for mst_roles.
+     */
+    cursor?: mst_roleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` mst_roles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` mst_roles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of mst_roles.
+     */
+    distinct?: Mst_roleScalarFieldEnum | Mst_roleScalarFieldEnum[]
+  }
+
+  /**
+   * mst_role findMany
+   */
+  export type mst_roleFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * Filter, which mst_roles to fetch.
+     */
+    where?: mst_roleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of mst_roles to fetch.
+     */
+    orderBy?: mst_roleOrderByWithRelationInput | mst_roleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing mst_roles.
+     */
+    cursor?: mst_roleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` mst_roles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` mst_roles.
+     */
+    skip?: number
+    distinct?: Mst_roleScalarFieldEnum | Mst_roleScalarFieldEnum[]
+  }
+
+  /**
+   * mst_role create
+   */
+  export type mst_roleCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * The data needed to create a mst_role.
+     */
+    data: XOR<mst_roleCreateInput, mst_roleUncheckedCreateInput>
+  }
+
+  /**
+   * mst_role createMany
+   */
+  export type mst_roleCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many mst_roles.
+     */
+    data: mst_roleCreateManyInput | mst_roleCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * mst_role update
+   */
+  export type mst_roleUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * The data needed to update a mst_role.
+     */
+    data: XOR<mst_roleUpdateInput, mst_roleUncheckedUpdateInput>
+    /**
+     * Choose, which mst_role to update.
+     */
+    where: mst_roleWhereUniqueInput
+  }
+
+  /**
+   * mst_role updateMany
+   */
+  export type mst_roleUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update mst_roles.
+     */
+    data: XOR<mst_roleUpdateManyMutationInput, mst_roleUncheckedUpdateManyInput>
+    /**
+     * Filter which mst_roles to update
+     */
+    where?: mst_roleWhereInput
+  }
+
+  /**
+   * mst_role upsert
+   */
+  export type mst_roleUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * The filter to search for the mst_role to update in case it exists.
+     */
+    where: mst_roleWhereUniqueInput
+    /**
+     * In case the mst_role found by the `where` argument doesn't exist, create a new mst_role with this data.
+     */
+    create: XOR<mst_roleCreateInput, mst_roleUncheckedCreateInput>
+    /**
+     * In case the mst_role was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<mst_roleUpdateInput, mst_roleUncheckedUpdateInput>
+  }
+
+  /**
+   * mst_role delete
+   */
+  export type mst_roleDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * Filter which mst_role to delete.
+     */
+    where: mst_roleWhereUniqueInput
+  }
+
+  /**
+   * mst_role deleteMany
+   */
+  export type mst_roleDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which mst_roles to delete
+     */
+    where?: mst_roleWhereInput
+  }
+
+  /**
+   * mst_role without action
+   */
+  export type mst_roleDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -21718,12 +23310,14 @@ export namespace Prisma {
   export const Mst_authorizationScalarFieldEnum: {
     id: 'id',
     employee_code: 'employee_code',
+    employee_name: 'employee_name',
     is_active: 'is_active',
     created_at: 'created_at',
     created_by: 'created_by',
     technician_level: 'technician_level',
     active_profile: 'active_profile',
-    active_entities: 'active_entities'
+    active_entities: 'active_entities',
+    is_deleted: 'is_deleted'
   };
 
   export type Mst_authorizationScalarFieldEnum = (typeof Mst_authorizationScalarFieldEnum)[keyof typeof Mst_authorizationScalarFieldEnum]
@@ -21964,9 +23558,11 @@ export namespace Prisma {
     expected_completion_date: 'expected_completion_date',
     category: 'category',
     type: 'type',
-    description: 'description',
     department_code: 'department_code',
     is_project: 'is_project',
+    background: 'background',
+    issue_description: 'issue_description',
+    business_impact: 'business_impact',
     created_at: 'created_at',
     created_by: 'created_by'
   };
@@ -21987,6 +23583,14 @@ export namespace Prisma {
   };
 
   export type Tr_request_validationScalarFieldEnum = (typeof Tr_request_validationScalarFieldEnum)[keyof typeof Tr_request_validationScalarFieldEnum]
+
+
+  export const Mst_roleScalarFieldEnum: {
+    id: 'id',
+    role: 'role'
+  };
+
+  export type Mst_roleScalarFieldEnum = (typeof Mst_roleScalarFieldEnum)[keyof typeof Mst_roleScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -22184,23 +23788,31 @@ export namespace Prisma {
     NOT?: mst_authorizationWhereInput | mst_authorizationWhereInput[]
     id?: IntFilter<"mst_authorization"> | number
     employee_code?: StringNullableFilter<"mst_authorization"> | string | null
+    employee_name?: StringNullableFilter<"mst_authorization"> | string | null
     is_active?: StringNullableFilter<"mst_authorization"> | string | null
     created_at?: DateTimeNullableFilter<"mst_authorization"> | Date | string | null
     created_by?: StringNullableFilter<"mst_authorization"> | string | null
     technician_level?: StringNullableFilter<"mst_authorization"> | string | null
     active_profile?: IntNullableFilter<"mst_authorization"> | number | null
     active_entities?: IntNullableFilter<"mst_authorization"> | number | null
+    is_deleted?: BoolNullableFilter<"mst_authorization"> | boolean | null
+    mst_entities?: XOR<Mst_entitiesNullableRelationFilter, mst_entitiesWhereInput> | null
+    mst_profile?: XOR<Mst_profileNullableRelationFilter, mst_profileWhereInput> | null
   }
 
   export type mst_authorizationOrderByWithRelationInput = {
     id?: SortOrder
     employee_code?: SortOrderInput | SortOrder
+    employee_name?: SortOrderInput | SortOrder
     is_active?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
     technician_level?: SortOrderInput | SortOrder
     active_profile?: SortOrderInput | SortOrder
     active_entities?: SortOrderInput | SortOrder
+    is_deleted?: SortOrderInput | SortOrder
+    mst_entities?: mst_entitiesOrderByWithRelationInput
+    mst_profile?: mst_profileOrderByWithRelationInput
   }
 
   export type mst_authorizationWhereUniqueInput = Prisma.AtLeast<{
@@ -22209,23 +23821,29 @@ export namespace Prisma {
     OR?: mst_authorizationWhereInput[]
     NOT?: mst_authorizationWhereInput | mst_authorizationWhereInput[]
     employee_code?: StringNullableFilter<"mst_authorization"> | string | null
+    employee_name?: StringNullableFilter<"mst_authorization"> | string | null
     is_active?: StringNullableFilter<"mst_authorization"> | string | null
     created_at?: DateTimeNullableFilter<"mst_authorization"> | Date | string | null
     created_by?: StringNullableFilter<"mst_authorization"> | string | null
     technician_level?: StringNullableFilter<"mst_authorization"> | string | null
     active_profile?: IntNullableFilter<"mst_authorization"> | number | null
     active_entities?: IntNullableFilter<"mst_authorization"> | number | null
+    is_deleted?: BoolNullableFilter<"mst_authorization"> | boolean | null
+    mst_entities?: XOR<Mst_entitiesNullableRelationFilter, mst_entitiesWhereInput> | null
+    mst_profile?: XOR<Mst_profileNullableRelationFilter, mst_profileWhereInput> | null
   }, "id">
 
   export type mst_authorizationOrderByWithAggregationInput = {
     id?: SortOrder
     employee_code?: SortOrderInput | SortOrder
+    employee_name?: SortOrderInput | SortOrder
     is_active?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
     technician_level?: SortOrderInput | SortOrder
     active_profile?: SortOrderInput | SortOrder
     active_entities?: SortOrderInput | SortOrder
+    is_deleted?: SortOrderInput | SortOrder
     _count?: mst_authorizationCountOrderByAggregateInput
     _avg?: mst_authorizationAvgOrderByAggregateInput
     _max?: mst_authorizationMaxOrderByAggregateInput
@@ -22239,12 +23857,14 @@ export namespace Prisma {
     NOT?: mst_authorizationScalarWhereWithAggregatesInput | mst_authorizationScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"mst_authorization"> | number
     employee_code?: StringNullableWithAggregatesFilter<"mst_authorization"> | string | null
+    employee_name?: StringNullableWithAggregatesFilter<"mst_authorization"> | string | null
     is_active?: StringNullableWithAggregatesFilter<"mst_authorization"> | string | null
     created_at?: DateTimeNullableWithAggregatesFilter<"mst_authorization"> | Date | string | null
     created_by?: StringNullableWithAggregatesFilter<"mst_authorization"> | string | null
     technician_level?: StringNullableWithAggregatesFilter<"mst_authorization"> | string | null
     active_profile?: IntNullableWithAggregatesFilter<"mst_authorization"> | number | null
     active_entities?: IntNullableWithAggregatesFilter<"mst_authorization"> | number | null
+    is_deleted?: BoolNullableWithAggregatesFilter<"mst_authorization"> | boolean | null
   }
 
   export type mst_authorization_profileWhereInput = {
@@ -22257,6 +23877,7 @@ export namespace Prisma {
     entities_id?: IntNullableFilter<"mst_authorization_profile"> | number | null
     created_at?: DateTimeNullableFilter<"mst_authorization_profile"> | Date | string | null
     created_by?: StringNullableFilter<"mst_authorization_profile"> | string | null
+    mst_profile?: XOR<Mst_profileNullableRelationFilter, mst_profileWhereInput> | null
   }
 
   export type mst_authorization_profileOrderByWithRelationInput = {
@@ -22266,6 +23887,7 @@ export namespace Prisma {
     entities_id?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    mst_profile?: mst_profileOrderByWithRelationInput
   }
 
   export type mst_authorization_profileWhereUniqueInput = Prisma.AtLeast<{
@@ -22278,6 +23900,7 @@ export namespace Prisma {
     entities_id?: IntNullableFilter<"mst_authorization_profile"> | number | null
     created_at?: DateTimeNullableFilter<"mst_authorization_profile"> | Date | string | null
     created_by?: StringNullableFilter<"mst_authorization_profile"> | string | null
+    mst_profile?: XOR<Mst_profileNullableRelationFilter, mst_profileWhereInput> | null
   }, "id">
 
   export type mst_authorization_profileOrderByWithAggregationInput = {
@@ -22316,6 +23939,7 @@ export namespace Prisma {
     is_manager?: StringNullableFilter<"mst_authorization_usergroup"> | string | null
     created_at?: DateTimeNullableFilter<"mst_authorization_usergroup"> | Date | string | null
     created_by?: StringNullableFilter<"mst_authorization_usergroup"> | string | null
+    mst_group?: XOR<Mst_groupNullableRelationFilter, mst_groupWhereInput> | null
   }
 
   export type mst_authorization_usergroupOrderByWithRelationInput = {
@@ -22325,6 +23949,7 @@ export namespace Prisma {
     is_manager?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    mst_group?: mst_groupOrderByWithRelationInput
   }
 
   export type mst_authorization_usergroupWhereUniqueInput = Prisma.AtLeast<{
@@ -22337,6 +23962,7 @@ export namespace Prisma {
     is_manager?: StringNullableFilter<"mst_authorization_usergroup"> | string | null
     created_at?: DateTimeNullableFilter<"mst_authorization_usergroup"> | Date | string | null
     created_by?: StringNullableFilter<"mst_authorization_usergroup"> | string | null
+    mst_group?: XOR<Mst_groupNullableRelationFilter, mst_groupWhereInput> | null
   }, "id">
 
   export type mst_authorization_usergroupOrderByWithAggregationInput = {
@@ -22374,6 +24000,7 @@ export namespace Prisma {
     parent_id?: IntNullableFilter<"mst_entities"> | number | null
     created_at?: DateTimeNullableFilter<"mst_entities"> | Date | string | null
     created_by?: StringNullableFilter<"mst_entities"> | string | null
+    mst_authorization?: Mst_authorizationListRelationFilter
   }
 
   export type mst_entitiesOrderByWithRelationInput = {
@@ -22382,6 +24009,7 @@ export namespace Prisma {
     parent_id?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    mst_authorization?: mst_authorizationOrderByRelationAggregateInput
   }
 
   export type mst_entitiesWhereUniqueInput = Prisma.AtLeast<{
@@ -22393,6 +24021,7 @@ export namespace Prisma {
     parent_id?: IntNullableFilter<"mst_entities"> | number | null
     created_at?: DateTimeNullableFilter<"mst_entities"> | Date | string | null
     created_by?: StringNullableFilter<"mst_entities"> | string | null
+    mst_authorization?: Mst_authorizationListRelationFilter
   }, "id">
 
   export type mst_entitiesOrderByWithAggregationInput = {
@@ -22430,6 +24059,8 @@ export namespace Prisma {
     is_deleted?: BoolNullableFilter<"mst_group"> | boolean | null
     created_at?: DateTimeNullableFilter<"mst_group"> | Date | string | null
     created_by?: StringNullableFilter<"mst_group"> | string | null
+    mst_authorization_usergroup?: Mst_authorization_usergroupListRelationFilter
+    tr_project?: Tr_projectListRelationFilter
   }
 
   export type mst_groupOrderByWithRelationInput = {
@@ -22440,6 +24071,8 @@ export namespace Prisma {
     is_deleted?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    mst_authorization_usergroup?: mst_authorization_usergroupOrderByRelationAggregateInput
+    tr_project?: tr_projectOrderByRelationAggregateInput
   }
 
   export type mst_groupWhereUniqueInput = Prisma.AtLeast<{
@@ -22453,6 +24086,8 @@ export namespace Prisma {
     is_deleted?: BoolNullableFilter<"mst_group"> | boolean | null
     created_at?: DateTimeNullableFilter<"mst_group"> | Date | string | null
     created_by?: StringNullableFilter<"mst_group"> | string | null
+    mst_authorization_usergroup?: Mst_authorization_usergroupListRelationFilter
+    tr_project?: Tr_projectListRelationFilter
   }, "id">
 
   export type mst_groupOrderByWithAggregationInput = {
@@ -22551,6 +24186,8 @@ export namespace Prisma {
     is_deleted?: BoolNullableFilter<"mst_profile"> | boolean | null
     created_at?: DateTimeNullableFilter<"mst_profile"> | Date | string | null
     created_by?: StringNullableFilter<"mst_profile"> | string | null
+    mst_authorization?: Mst_authorizationListRelationFilter
+    mst_authorization_profile?: Mst_authorization_profileListRelationFilter
   }
 
   export type mst_profileOrderByWithRelationInput = {
@@ -22559,6 +24196,8 @@ export namespace Prisma {
     is_deleted?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    mst_authorization?: mst_authorizationOrderByRelationAggregateInput
+    mst_authorization_profile?: mst_authorization_profileOrderByRelationAggregateInput
   }
 
   export type mst_profileWhereUniqueInput = Prisma.AtLeast<{
@@ -22570,6 +24209,8 @@ export namespace Prisma {
     is_deleted?: BoolNullableFilter<"mst_profile"> | boolean | null
     created_at?: DateTimeNullableFilter<"mst_profile"> | Date | string | null
     created_by?: StringNullableFilter<"mst_profile"> | string | null
+    mst_authorization?: Mst_authorizationListRelationFilter
+    mst_authorization_profile?: Mst_authorization_profileListRelationFilter
   }, "id">
 
   export type mst_profileOrderByWithAggregationInput = {
@@ -22761,6 +24402,7 @@ export namespace Prisma {
     is_deleted?: StringNullableFilter<"tr_project"> | string | null
     created_at?: DateTimeNullableFilter<"tr_project"> | Date | string | null
     created_by?: StringNullableFilter<"tr_project"> | string | null
+    mst_group?: XOR<Mst_groupNullableRelationFilter, mst_groupWhereInput> | null
   }
 
   export type tr_projectOrderByWithRelationInput = {
@@ -22782,6 +24424,7 @@ export namespace Prisma {
     is_deleted?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    mst_group?: mst_groupOrderByWithRelationInput
   }
 
   export type tr_projectWhereUniqueInput = Prisma.AtLeast<{
@@ -22806,6 +24449,7 @@ export namespace Prisma {
     is_deleted?: StringNullableFilter<"tr_project"> | string | null
     created_at?: DateTimeNullableFilter<"tr_project"> | Date | string | null
     created_by?: StringNullableFilter<"tr_project"> | string | null
+    mst_group?: XOR<Mst_groupNullableRelationFilter, mst_groupWhereInput> | null
   }, "id">
 
   export type tr_projectOrderByWithAggregationInput = {
@@ -23361,9 +25005,11 @@ export namespace Prisma {
     expected_completion_date?: DateTimeNullableFilter<"tr_request"> | Date | string | null
     category?: StringNullableFilter<"tr_request"> | string | null
     type?: StringNullableFilter<"tr_request"> | string | null
-    description?: StringNullableFilter<"tr_request"> | string | null
     department_code?: StringNullableFilter<"tr_request"> | string | null
     is_project?: StringNullableFilter<"tr_request"> | string | null
+    background?: StringNullableFilter<"tr_request"> | string | null
+    issue_description?: StringNullableFilter<"tr_request"> | string | null
+    business_impact?: StringNullableFilter<"tr_request"> | string | null
     created_at?: DateTimeNullableFilter<"tr_request"> | Date | string | null
     created_by?: StringNullableFilter<"tr_request"> | string | null
     tr_request_validation?: Tr_request_validationListRelationFilter
@@ -23381,9 +25027,11 @@ export namespace Prisma {
     expected_completion_date?: SortOrderInput | SortOrder
     category?: SortOrderInput | SortOrder
     type?: SortOrderInput | SortOrder
-    description?: SortOrderInput | SortOrder
     department_code?: SortOrderInput | SortOrder
     is_project?: SortOrderInput | SortOrder
+    background?: SortOrderInput | SortOrder
+    issue_description?: SortOrderInput | SortOrder
+    business_impact?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
     tr_request_validation?: tr_request_validationOrderByRelationAggregateInput
@@ -23404,9 +25052,11 @@ export namespace Prisma {
     expected_completion_date?: DateTimeNullableFilter<"tr_request"> | Date | string | null
     category?: StringNullableFilter<"tr_request"> | string | null
     type?: StringNullableFilter<"tr_request"> | string | null
-    description?: StringNullableFilter<"tr_request"> | string | null
     department_code?: StringNullableFilter<"tr_request"> | string | null
     is_project?: StringNullableFilter<"tr_request"> | string | null
+    background?: StringNullableFilter<"tr_request"> | string | null
+    issue_description?: StringNullableFilter<"tr_request"> | string | null
+    business_impact?: StringNullableFilter<"tr_request"> | string | null
     created_at?: DateTimeNullableFilter<"tr_request"> | Date | string | null
     created_by?: StringNullableFilter<"tr_request"> | string | null
     tr_request_validation?: Tr_request_validationListRelationFilter
@@ -23424,9 +25074,11 @@ export namespace Prisma {
     expected_completion_date?: SortOrderInput | SortOrder
     category?: SortOrderInput | SortOrder
     type?: SortOrderInput | SortOrder
-    description?: SortOrderInput | SortOrder
     department_code?: SortOrderInput | SortOrder
     is_project?: SortOrderInput | SortOrder
+    background?: SortOrderInput | SortOrder
+    issue_description?: SortOrderInput | SortOrder
+    business_impact?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
     _count?: tr_requestCountOrderByAggregateInput
@@ -23451,9 +25103,11 @@ export namespace Prisma {
     expected_completion_date?: DateTimeNullableWithAggregatesFilter<"tr_request"> | Date | string | null
     category?: StringNullableWithAggregatesFilter<"tr_request"> | string | null
     type?: StringNullableWithAggregatesFilter<"tr_request"> | string | null
-    description?: StringNullableWithAggregatesFilter<"tr_request"> | string | null
     department_code?: StringNullableWithAggregatesFilter<"tr_request"> | string | null
     is_project?: StringNullableWithAggregatesFilter<"tr_request"> | string | null
+    background?: StringNullableWithAggregatesFilter<"tr_request"> | string | null
+    issue_description?: StringNullableWithAggregatesFilter<"tr_request"> | string | null
+    business_impact?: StringNullableWithAggregatesFilter<"tr_request"> | string | null
     created_at?: DateTimeNullableWithAggregatesFilter<"tr_request"> | Date | string | null
     created_by?: StringNullableWithAggregatesFilter<"tr_request"> | string | null
   }
@@ -23533,6 +25187,45 @@ export namespace Prisma {
     status?: StringNullableWithAggregatesFilter<"tr_request_validation"> | string | null
     submission_date?: DateTimeNullableWithAggregatesFilter<"tr_request_validation"> | Date | string | null
     validation_date?: DateTimeNullableWithAggregatesFilter<"tr_request_validation"> | Date | string | null
+  }
+
+  export type mst_roleWhereInput = {
+    AND?: mst_roleWhereInput | mst_roleWhereInput[]
+    OR?: mst_roleWhereInput[]
+    NOT?: mst_roleWhereInput | mst_roleWhereInput[]
+    id?: IntFilter<"mst_role"> | number
+    role?: StringNullableFilter<"mst_role"> | string | null
+  }
+
+  export type mst_roleOrderByWithRelationInput = {
+    id?: SortOrder
+    role?: SortOrderInput | SortOrder
+  }
+
+  export type mst_roleWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: mst_roleWhereInput | mst_roleWhereInput[]
+    OR?: mst_roleWhereInput[]
+    NOT?: mst_roleWhereInput | mst_roleWhereInput[]
+    role?: StringNullableFilter<"mst_role"> | string | null
+  }, "id">
+
+  export type mst_roleOrderByWithAggregationInput = {
+    id?: SortOrder
+    role?: SortOrderInput | SortOrder
+    _count?: mst_roleCountOrderByAggregateInput
+    _avg?: mst_roleAvgOrderByAggregateInput
+    _max?: mst_roleMaxOrderByAggregateInput
+    _min?: mst_roleMinOrderByAggregateInput
+    _sum?: mst_roleSumOrderByAggregateInput
+  }
+
+  export type mst_roleScalarWhereWithAggregatesInput = {
+    AND?: mst_roleScalarWhereWithAggregatesInput | mst_roleScalarWhereWithAggregatesInput[]
+    OR?: mst_roleScalarWhereWithAggregatesInput[]
+    NOT?: mst_roleScalarWhereWithAggregatesInput | mst_roleScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"mst_role"> | number
+    role?: StringNullableWithAggregatesFilter<"mst_role"> | string | null
   }
 
   export type mst_applicationCreateInput = {
@@ -23664,84 +25357,96 @@ export namespace Prisma {
 
   export type mst_authorizationCreateInput = {
     employee_code?: string | null
+    employee_name?: string | null
     is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
     technician_level?: string | null
-    active_profile?: number | null
-    active_entities?: number | null
+    is_deleted?: boolean | null
+    mst_entities?: mst_entitiesCreateNestedOneWithoutMst_authorizationInput
+    mst_profile?: mst_profileCreateNestedOneWithoutMst_authorizationInput
   }
 
   export type mst_authorizationUncheckedCreateInput = {
     id?: number
     employee_code?: string | null
+    employee_name?: string | null
     is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
     technician_level?: string | null
     active_profile?: number | null
     active_entities?: number | null
+    is_deleted?: boolean | null
   }
 
   export type mst_authorizationUpdateInput = {
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_name?: NullableStringFieldUpdateOperationsInput | string | null
     is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     technician_level?: NullableStringFieldUpdateOperationsInput | string | null
-    active_profile?: NullableIntFieldUpdateOperationsInput | number | null
-    active_entities?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    mst_entities?: mst_entitiesUpdateOneWithoutMst_authorizationNestedInput
+    mst_profile?: mst_profileUpdateOneWithoutMst_authorizationNestedInput
   }
 
   export type mst_authorizationUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_name?: NullableStringFieldUpdateOperationsInput | string | null
     is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     technician_level?: NullableStringFieldUpdateOperationsInput | string | null
     active_profile?: NullableIntFieldUpdateOperationsInput | number | null
     active_entities?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type mst_authorizationCreateManyInput = {
     id?: number
     employee_code?: string | null
+    employee_name?: string | null
     is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
     technician_level?: string | null
     active_profile?: number | null
     active_entities?: number | null
+    is_deleted?: boolean | null
   }
 
   export type mst_authorizationUpdateManyMutationInput = {
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_name?: NullableStringFieldUpdateOperationsInput | string | null
     is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     technician_level?: NullableStringFieldUpdateOperationsInput | string | null
-    active_profile?: NullableIntFieldUpdateOperationsInput | number | null
-    active_entities?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type mst_authorizationUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_name?: NullableStringFieldUpdateOperationsInput | string | null
     is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     technician_level?: NullableStringFieldUpdateOperationsInput | string | null
     active_profile?: NullableIntFieldUpdateOperationsInput | number | null
     active_entities?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type mst_authorization_profileCreateInput = {
     employee_code?: string | null
-    profile_id?: number | null
     entities_id?: number | null
     created_at?: Date | string | null
     created_by?: string | null
+    mst_profile?: mst_profileCreateNestedOneWithoutMst_authorization_profileInput
   }
 
   export type mst_authorization_profileUncheckedCreateInput = {
@@ -23755,10 +25460,10 @@ export namespace Prisma {
 
   export type mst_authorization_profileUpdateInput = {
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
-    profile_id?: NullableIntFieldUpdateOperationsInput | number | null
     entities_id?: NullableIntFieldUpdateOperationsInput | number | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_profile?: mst_profileUpdateOneWithoutMst_authorization_profileNestedInput
   }
 
   export type mst_authorization_profileUncheckedUpdateInput = {
@@ -23781,7 +25486,6 @@ export namespace Prisma {
 
   export type mst_authorization_profileUpdateManyMutationInput = {
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
-    profile_id?: NullableIntFieldUpdateOperationsInput | number | null
     entities_id?: NullableIntFieldUpdateOperationsInput | number | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
@@ -23798,10 +25502,10 @@ export namespace Prisma {
 
   export type mst_authorization_usergroupCreateInput = {
     employee_code?: string | null
-    group_id?: number | null
     is_manager?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    mst_group?: mst_groupCreateNestedOneWithoutMst_authorization_usergroupInput
   }
 
   export type mst_authorization_usergroupUncheckedCreateInput = {
@@ -23815,10 +25519,10 @@ export namespace Prisma {
 
   export type mst_authorization_usergroupUpdateInput = {
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
-    group_id?: NullableIntFieldUpdateOperationsInput | number | null
     is_manager?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_group?: mst_groupUpdateOneWithoutMst_authorization_usergroupNestedInput
   }
 
   export type mst_authorization_usergroupUncheckedUpdateInput = {
@@ -23841,7 +25545,6 @@ export namespace Prisma {
 
   export type mst_authorization_usergroupUpdateManyMutationInput = {
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
-    group_id?: NullableIntFieldUpdateOperationsInput | number | null
     is_manager?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
@@ -23861,6 +25564,7 @@ export namespace Prisma {
     parent_id?: number | null
     created_at?: Date | string | null
     created_by?: string | null
+    mst_authorization?: mst_authorizationCreateNestedManyWithoutMst_entitiesInput
   }
 
   export type mst_entitiesUncheckedCreateInput = {
@@ -23869,6 +25573,7 @@ export namespace Prisma {
     parent_id?: number | null
     created_at?: Date | string | null
     created_by?: string | null
+    mst_authorization?: mst_authorizationUncheckedCreateNestedManyWithoutMst_entitiesInput
   }
 
   export type mst_entitiesUpdateInput = {
@@ -23876,6 +25581,7 @@ export namespace Prisma {
     parent_id?: NullableIntFieldUpdateOperationsInput | number | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_authorization?: mst_authorizationUpdateManyWithoutMst_entitiesNestedInput
   }
 
   export type mst_entitiesUncheckedUpdateInput = {
@@ -23884,6 +25590,7 @@ export namespace Prisma {
     parent_id?: NullableIntFieldUpdateOperationsInput | number | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_authorization?: mst_authorizationUncheckedUpdateManyWithoutMst_entitiesNestedInput
   }
 
   export type mst_entitiesCreateManyInput = {
@@ -23916,6 +25623,8 @@ export namespace Prisma {
     is_deleted?: boolean | null
     created_at?: Date | string | null
     created_by?: string | null
+    mst_authorization_usergroup?: mst_authorization_usergroupCreateNestedManyWithoutMst_groupInput
+    tr_project?: tr_projectCreateNestedManyWithoutMst_groupInput
   }
 
   export type mst_groupUncheckedCreateInput = {
@@ -23926,6 +25635,8 @@ export namespace Prisma {
     is_deleted?: boolean | null
     created_at?: Date | string | null
     created_by?: string | null
+    mst_authorization_usergroup?: mst_authorization_usergroupUncheckedCreateNestedManyWithoutMst_groupInput
+    tr_project?: tr_projectUncheckedCreateNestedManyWithoutMst_groupInput
   }
 
   export type mst_groupUpdateInput = {
@@ -23935,6 +25646,8 @@ export namespace Prisma {
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_authorization_usergroup?: mst_authorization_usergroupUpdateManyWithoutMst_groupNestedInput
+    tr_project?: tr_projectUpdateManyWithoutMst_groupNestedInput
   }
 
   export type mst_groupUncheckedUpdateInput = {
@@ -23945,6 +25658,8 @@ export namespace Prisma {
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_authorization_usergroup?: mst_authorization_usergroupUncheckedUpdateManyWithoutMst_groupNestedInput
+    tr_project?: tr_projectUncheckedUpdateManyWithoutMst_groupNestedInput
   }
 
   export type mst_groupCreateManyInput = {
@@ -24041,6 +25756,8 @@ export namespace Prisma {
     is_deleted?: boolean | null
     created_at?: Date | string | null
     created_by?: string | null
+    mst_authorization?: mst_authorizationCreateNestedManyWithoutMst_profileInput
+    mst_authorization_profile?: mst_authorization_profileCreateNestedManyWithoutMst_profileInput
   }
 
   export type mst_profileUncheckedCreateInput = {
@@ -24049,6 +25766,8 @@ export namespace Prisma {
     is_deleted?: boolean | null
     created_at?: Date | string | null
     created_by?: string | null
+    mst_authorization?: mst_authorizationUncheckedCreateNestedManyWithoutMst_profileInput
+    mst_authorization_profile?: mst_authorization_profileUncheckedCreateNestedManyWithoutMst_profileInput
   }
 
   export type mst_profileUpdateInput = {
@@ -24056,6 +25775,8 @@ export namespace Prisma {
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_authorization?: mst_authorizationUpdateManyWithoutMst_profileNestedInput
+    mst_authorization_profile?: mst_authorization_profileUpdateManyWithoutMst_profileNestedInput
   }
 
   export type mst_profileUncheckedUpdateInput = {
@@ -24064,6 +25785,8 @@ export namespace Prisma {
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_authorization?: mst_authorizationUncheckedUpdateManyWithoutMst_profileNestedInput
+    mst_authorization_profile?: mst_authorization_profileUncheckedUpdateManyWithoutMst_profileNestedInput
   }
 
   export type mst_profileCreateManyInput = {
@@ -24245,14 +25968,12 @@ export namespace Prisma {
   }
 
   export type tr_projectCreateInput = {
-    id: number
     request_id?: number | null
     application_id?: number | null
     project_code?: string | null
     background?: string | null
     issue_description?: string | null
     business_impact?: string | null
-    group_id?: number | null
     plan_start_date?: Date | string | null
     plant_end_date?: Date | string | null
     real_start_date?: Date | string | null
@@ -24263,10 +25984,11 @@ export namespace Prisma {
     is_deleted?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    mst_group?: mst_groupCreateNestedOneWithoutTr_projectInput
   }
 
   export type tr_projectUncheckedCreateInput = {
-    id: number
+    id?: number
     request_id?: number | null
     application_id?: number | null
     project_code?: string | null
@@ -24287,14 +26009,12 @@ export namespace Prisma {
   }
 
   export type tr_projectUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
     request_id?: NullableIntFieldUpdateOperationsInput | number | null
     application_id?: NullableIntFieldUpdateOperationsInput | number | null
     project_code?: NullableStringFieldUpdateOperationsInput | string | null
     background?: NullableStringFieldUpdateOperationsInput | string | null
     issue_description?: NullableStringFieldUpdateOperationsInput | string | null
     business_impact?: NullableStringFieldUpdateOperationsInput | string | null
-    group_id?: NullableIntFieldUpdateOperationsInput | number | null
     plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     plant_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -24305,6 +26025,7 @@ export namespace Prisma {
     is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_group?: mst_groupUpdateOneWithoutTr_projectNestedInput
   }
 
   export type tr_projectUncheckedUpdateInput = {
@@ -24329,7 +26050,7 @@ export namespace Prisma {
   }
 
   export type tr_projectCreateManyInput = {
-    id: number
+    id?: number
     request_id?: number | null
     application_id?: number | null
     project_code?: string | null
@@ -24350,14 +26071,12 @@ export namespace Prisma {
   }
 
   export type tr_projectUpdateManyMutationInput = {
-    id?: IntFieldUpdateOperationsInput | number
     request_id?: NullableIntFieldUpdateOperationsInput | number | null
     application_id?: NullableIntFieldUpdateOperationsInput | number | null
     project_code?: NullableStringFieldUpdateOperationsInput | string | null
     background?: NullableStringFieldUpdateOperationsInput | string | null
     issue_description?: NullableStringFieldUpdateOperationsInput | string | null
     business_impact?: NullableStringFieldUpdateOperationsInput | string | null
-    group_id?: NullableIntFieldUpdateOperationsInput | number | null
     plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     plant_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -24933,9 +26652,11 @@ export namespace Prisma {
     expected_completion_date?: Date | string | null
     category?: string | null
     type?: string | null
-    description?: string | null
     department_code?: string | null
     is_project?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
     created_at?: Date | string | null
     created_by?: string | null
     tr_request_validation?: tr_request_validationCreateNestedManyWithoutTr_requestInput
@@ -24953,9 +26674,11 @@ export namespace Prisma {
     expected_completion_date?: Date | string | null
     category?: string | null
     type?: string | null
-    description?: string | null
     department_code?: string | null
     is_project?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
     created_at?: Date | string | null
     created_by?: string | null
     tr_request_validation?: tr_request_validationUncheckedCreateNestedManyWithoutTr_requestInput
@@ -24972,9 +26695,11 @@ export namespace Prisma {
     expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
     department_code?: NullableStringFieldUpdateOperationsInput | string | null
     is_project?: NullableStringFieldUpdateOperationsInput | string | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    issue_description?: NullableStringFieldUpdateOperationsInput | string | null
+    business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     tr_request_validation?: tr_request_validationUpdateManyWithoutTr_requestNestedInput
@@ -24992,9 +26717,11 @@ export namespace Prisma {
     expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
     department_code?: NullableStringFieldUpdateOperationsInput | string | null
     is_project?: NullableStringFieldUpdateOperationsInput | string | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    issue_description?: NullableStringFieldUpdateOperationsInput | string | null
+    business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     tr_request_validation?: tr_request_validationUncheckedUpdateManyWithoutTr_requestNestedInput
@@ -25012,9 +26739,11 @@ export namespace Prisma {
     expected_completion_date?: Date | string | null
     category?: string | null
     type?: string | null
-    description?: string | null
     department_code?: string | null
     is_project?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
     created_at?: Date | string | null
     created_by?: string | null
   }
@@ -25030,9 +26759,11 @@ export namespace Prisma {
     expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
     department_code?: NullableStringFieldUpdateOperationsInput | string | null
     is_project?: NullableStringFieldUpdateOperationsInput | string | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    issue_description?: NullableStringFieldUpdateOperationsInput | string | null
+    business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -25049,9 +26780,11 @@ export namespace Prisma {
     expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
     department_code?: NullableStringFieldUpdateOperationsInput | string | null
     is_project?: NullableStringFieldUpdateOperationsInput | string | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    issue_description?: NullableStringFieldUpdateOperationsInput | string | null
+    business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -25134,6 +26867,41 @@ export namespace Prisma {
     status?: NullableStringFieldUpdateOperationsInput | string | null
     submission_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     validation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type mst_roleCreateInput = {
+    id: number
+    role?: string | null
+  }
+
+  export type mst_roleUncheckedCreateInput = {
+    id: number
+    role?: string | null
+  }
+
+  export type mst_roleUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type mst_roleUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type mst_roleCreateManyInput = {
+    id: number
+    role?: string | null
+  }
+
+  export type mst_roleUpdateManyMutationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type mst_roleUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    role?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -25341,15 +27109,27 @@ export namespace Prisma {
     application_id?: SortOrder
   }
 
+  export type Mst_entitiesNullableRelationFilter = {
+    is?: mst_entitiesWhereInput | null
+    isNot?: mst_entitiesWhereInput | null
+  }
+
+  export type Mst_profileNullableRelationFilter = {
+    is?: mst_profileWhereInput | null
+    isNot?: mst_profileWhereInput | null
+  }
+
   export type mst_authorizationCountOrderByAggregateInput = {
     id?: SortOrder
     employee_code?: SortOrder
+    employee_name?: SortOrder
     is_active?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
     technician_level?: SortOrder
     active_profile?: SortOrder
     active_entities?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type mst_authorizationAvgOrderByAggregateInput = {
@@ -25361,23 +27141,27 @@ export namespace Prisma {
   export type mst_authorizationMaxOrderByAggregateInput = {
     id?: SortOrder
     employee_code?: SortOrder
+    employee_name?: SortOrder
     is_active?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
     technician_level?: SortOrder
     active_profile?: SortOrder
     active_entities?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type mst_authorizationMinOrderByAggregateInput = {
     id?: SortOrder
     employee_code?: SortOrder
+    employee_name?: SortOrder
     is_active?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
     technician_level?: SortOrder
     active_profile?: SortOrder
     active_entities?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type mst_authorizationSumOrderByAggregateInput = {
@@ -25425,6 +27209,11 @@ export namespace Prisma {
     entities_id?: SortOrder
   }
 
+  export type Mst_groupNullableRelationFilter = {
+    is?: mst_groupWhereInput | null
+    isNot?: mst_groupWhereInput | null
+  }
+
   export type mst_authorization_usergroupCountOrderByAggregateInput = {
     id?: SortOrder
     employee_code?: SortOrder
@@ -25462,6 +27251,16 @@ export namespace Prisma {
     group_id?: SortOrder
   }
 
+  export type Mst_authorizationListRelationFilter = {
+    every?: mst_authorizationWhereInput
+    some?: mst_authorizationWhereInput
+    none?: mst_authorizationWhereInput
+  }
+
+  export type mst_authorizationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type mst_entitiesCountOrderByAggregateInput = {
     id?: SortOrder
     entities_name?: SortOrder
@@ -25494,6 +27293,26 @@ export namespace Prisma {
   export type mst_entitiesSumOrderByAggregateInput = {
     id?: SortOrder
     parent_id?: SortOrder
+  }
+
+  export type Mst_authorization_usergroupListRelationFilter = {
+    every?: mst_authorization_usergroupWhereInput
+    some?: mst_authorization_usergroupWhereInput
+    none?: mst_authorization_usergroupWhereInput
+  }
+
+  export type Tr_projectListRelationFilter = {
+    every?: tr_projectWhereInput
+    some?: tr_projectWhereInput
+    none?: tr_projectWhereInput
+  }
+
+  export type mst_authorization_usergroupOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type tr_projectOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type mst_groupCountOrderByAggregateInput = {
@@ -25571,6 +27390,16 @@ export namespace Prisma {
 
   export type mst_manpower_costSumOrderByAggregateInput = {
     id?: SortOrder
+  }
+
+  export type Mst_authorization_profileListRelationFilter = {
+    every?: mst_authorization_profileWhereInput
+    some?: mst_authorization_profileWhereInput
+    none?: mst_authorization_profileWhereInput
+  }
+
+  export type mst_authorization_profileOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type mst_profileCountOrderByAggregateInput = {
@@ -26128,9 +27957,11 @@ export namespace Prisma {
     expected_completion_date?: SortOrder
     category?: SortOrder
     type?: SortOrder
-    description?: SortOrder
     department_code?: SortOrder
     is_project?: SortOrder
+    background?: SortOrder
+    issue_description?: SortOrder
+    business_impact?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
   }
@@ -26152,9 +27983,11 @@ export namespace Prisma {
     expected_completion_date?: SortOrder
     category?: SortOrder
     type?: SortOrder
-    description?: SortOrder
     department_code?: SortOrder
     is_project?: SortOrder
+    background?: SortOrder
+    issue_description?: SortOrder
+    business_impact?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
   }
@@ -26171,9 +28004,11 @@ export namespace Prisma {
     expected_completion_date?: SortOrder
     category?: SortOrder
     type?: SortOrder
-    description?: SortOrder
     department_code?: SortOrder
     is_project?: SortOrder
+    background?: SortOrder
+    issue_description?: SortOrder
+    business_impact?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
   }
@@ -26234,6 +28069,29 @@ export namespace Prisma {
     request_id?: SortOrder
   }
 
+  export type mst_roleCountOrderByAggregateInput = {
+    id?: SortOrder
+    role?: SortOrder
+  }
+
+  export type mst_roleAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type mst_roleMaxOrderByAggregateInput = {
+    id?: SortOrder
+    role?: SortOrder
+  }
+
+  export type mst_roleMinOrderByAggregateInput = {
+    id?: SortOrder
+    role?: SortOrder
+  }
+
+  export type mst_roleSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
   }
@@ -26260,6 +28118,296 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type mst_entitiesCreateNestedOneWithoutMst_authorizationInput = {
+    create?: XOR<mst_entitiesCreateWithoutMst_authorizationInput, mst_entitiesUncheckedCreateWithoutMst_authorizationInput>
+    connectOrCreate?: mst_entitiesCreateOrConnectWithoutMst_authorizationInput
+    connect?: mst_entitiesWhereUniqueInput
+  }
+
+  export type mst_profileCreateNestedOneWithoutMst_authorizationInput = {
+    create?: XOR<mst_profileCreateWithoutMst_authorizationInput, mst_profileUncheckedCreateWithoutMst_authorizationInput>
+    connectOrCreate?: mst_profileCreateOrConnectWithoutMst_authorizationInput
+    connect?: mst_profileWhereUniqueInput
+  }
+
+  export type mst_entitiesUpdateOneWithoutMst_authorizationNestedInput = {
+    create?: XOR<mst_entitiesCreateWithoutMst_authorizationInput, mst_entitiesUncheckedCreateWithoutMst_authorizationInput>
+    connectOrCreate?: mst_entitiesCreateOrConnectWithoutMst_authorizationInput
+    upsert?: mst_entitiesUpsertWithoutMst_authorizationInput
+    disconnect?: mst_entitiesWhereInput | boolean
+    delete?: mst_entitiesWhereInput | boolean
+    connect?: mst_entitiesWhereUniqueInput
+    update?: XOR<XOR<mst_entitiesUpdateToOneWithWhereWithoutMst_authorizationInput, mst_entitiesUpdateWithoutMst_authorizationInput>, mst_entitiesUncheckedUpdateWithoutMst_authorizationInput>
+  }
+
+  export type mst_profileUpdateOneWithoutMst_authorizationNestedInput = {
+    create?: XOR<mst_profileCreateWithoutMst_authorizationInput, mst_profileUncheckedCreateWithoutMst_authorizationInput>
+    connectOrCreate?: mst_profileCreateOrConnectWithoutMst_authorizationInput
+    upsert?: mst_profileUpsertWithoutMst_authorizationInput
+    disconnect?: mst_profileWhereInput | boolean
+    delete?: mst_profileWhereInput | boolean
+    connect?: mst_profileWhereUniqueInput
+    update?: XOR<XOR<mst_profileUpdateToOneWithWhereWithoutMst_authorizationInput, mst_profileUpdateWithoutMst_authorizationInput>, mst_profileUncheckedUpdateWithoutMst_authorizationInput>
+  }
+
+  export type mst_profileCreateNestedOneWithoutMst_authorization_profileInput = {
+    create?: XOR<mst_profileCreateWithoutMst_authorization_profileInput, mst_profileUncheckedCreateWithoutMst_authorization_profileInput>
+    connectOrCreate?: mst_profileCreateOrConnectWithoutMst_authorization_profileInput
+    connect?: mst_profileWhereUniqueInput
+  }
+
+  export type mst_profileUpdateOneWithoutMst_authorization_profileNestedInput = {
+    create?: XOR<mst_profileCreateWithoutMst_authorization_profileInput, mst_profileUncheckedCreateWithoutMst_authorization_profileInput>
+    connectOrCreate?: mst_profileCreateOrConnectWithoutMst_authorization_profileInput
+    upsert?: mst_profileUpsertWithoutMst_authorization_profileInput
+    disconnect?: mst_profileWhereInput | boolean
+    delete?: mst_profileWhereInput | boolean
+    connect?: mst_profileWhereUniqueInput
+    update?: XOR<XOR<mst_profileUpdateToOneWithWhereWithoutMst_authorization_profileInput, mst_profileUpdateWithoutMst_authorization_profileInput>, mst_profileUncheckedUpdateWithoutMst_authorization_profileInput>
+  }
+
+  export type mst_groupCreateNestedOneWithoutMst_authorization_usergroupInput = {
+    create?: XOR<mst_groupCreateWithoutMst_authorization_usergroupInput, mst_groupUncheckedCreateWithoutMst_authorization_usergroupInput>
+    connectOrCreate?: mst_groupCreateOrConnectWithoutMst_authorization_usergroupInput
+    connect?: mst_groupWhereUniqueInput
+  }
+
+  export type mst_groupUpdateOneWithoutMst_authorization_usergroupNestedInput = {
+    create?: XOR<mst_groupCreateWithoutMst_authorization_usergroupInput, mst_groupUncheckedCreateWithoutMst_authorization_usergroupInput>
+    connectOrCreate?: mst_groupCreateOrConnectWithoutMst_authorization_usergroupInput
+    upsert?: mst_groupUpsertWithoutMst_authorization_usergroupInput
+    disconnect?: mst_groupWhereInput | boolean
+    delete?: mst_groupWhereInput | boolean
+    connect?: mst_groupWhereUniqueInput
+    update?: XOR<XOR<mst_groupUpdateToOneWithWhereWithoutMst_authorization_usergroupInput, mst_groupUpdateWithoutMst_authorization_usergroupInput>, mst_groupUncheckedUpdateWithoutMst_authorization_usergroupInput>
+  }
+
+  export type mst_authorizationCreateNestedManyWithoutMst_entitiesInput = {
+    create?: XOR<mst_authorizationCreateWithoutMst_entitiesInput, mst_authorizationUncheckedCreateWithoutMst_entitiesInput> | mst_authorizationCreateWithoutMst_entitiesInput[] | mst_authorizationUncheckedCreateWithoutMst_entitiesInput[]
+    connectOrCreate?: mst_authorizationCreateOrConnectWithoutMst_entitiesInput | mst_authorizationCreateOrConnectWithoutMst_entitiesInput[]
+    createMany?: mst_authorizationCreateManyMst_entitiesInputEnvelope
+    connect?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+  }
+
+  export type mst_authorizationUncheckedCreateNestedManyWithoutMst_entitiesInput = {
+    create?: XOR<mst_authorizationCreateWithoutMst_entitiesInput, mst_authorizationUncheckedCreateWithoutMst_entitiesInput> | mst_authorizationCreateWithoutMst_entitiesInput[] | mst_authorizationUncheckedCreateWithoutMst_entitiesInput[]
+    connectOrCreate?: mst_authorizationCreateOrConnectWithoutMst_entitiesInput | mst_authorizationCreateOrConnectWithoutMst_entitiesInput[]
+    createMany?: mst_authorizationCreateManyMst_entitiesInputEnvelope
+    connect?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+  }
+
+  export type mst_authorizationUpdateManyWithoutMst_entitiesNestedInput = {
+    create?: XOR<mst_authorizationCreateWithoutMst_entitiesInput, mst_authorizationUncheckedCreateWithoutMst_entitiesInput> | mst_authorizationCreateWithoutMst_entitiesInput[] | mst_authorizationUncheckedCreateWithoutMst_entitiesInput[]
+    connectOrCreate?: mst_authorizationCreateOrConnectWithoutMst_entitiesInput | mst_authorizationCreateOrConnectWithoutMst_entitiesInput[]
+    upsert?: mst_authorizationUpsertWithWhereUniqueWithoutMst_entitiesInput | mst_authorizationUpsertWithWhereUniqueWithoutMst_entitiesInput[]
+    createMany?: mst_authorizationCreateManyMst_entitiesInputEnvelope
+    set?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    disconnect?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    delete?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    connect?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    update?: mst_authorizationUpdateWithWhereUniqueWithoutMst_entitiesInput | mst_authorizationUpdateWithWhereUniqueWithoutMst_entitiesInput[]
+    updateMany?: mst_authorizationUpdateManyWithWhereWithoutMst_entitiesInput | mst_authorizationUpdateManyWithWhereWithoutMst_entitiesInput[]
+    deleteMany?: mst_authorizationScalarWhereInput | mst_authorizationScalarWhereInput[]
+  }
+
+  export type mst_authorizationUncheckedUpdateManyWithoutMst_entitiesNestedInput = {
+    create?: XOR<mst_authorizationCreateWithoutMst_entitiesInput, mst_authorizationUncheckedCreateWithoutMst_entitiesInput> | mst_authorizationCreateWithoutMst_entitiesInput[] | mst_authorizationUncheckedCreateWithoutMst_entitiesInput[]
+    connectOrCreate?: mst_authorizationCreateOrConnectWithoutMst_entitiesInput | mst_authorizationCreateOrConnectWithoutMst_entitiesInput[]
+    upsert?: mst_authorizationUpsertWithWhereUniqueWithoutMst_entitiesInput | mst_authorizationUpsertWithWhereUniqueWithoutMst_entitiesInput[]
+    createMany?: mst_authorizationCreateManyMst_entitiesInputEnvelope
+    set?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    disconnect?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    delete?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    connect?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    update?: mst_authorizationUpdateWithWhereUniqueWithoutMst_entitiesInput | mst_authorizationUpdateWithWhereUniqueWithoutMst_entitiesInput[]
+    updateMany?: mst_authorizationUpdateManyWithWhereWithoutMst_entitiesInput | mst_authorizationUpdateManyWithWhereWithoutMst_entitiesInput[]
+    deleteMany?: mst_authorizationScalarWhereInput | mst_authorizationScalarWhereInput[]
+  }
+
+  export type mst_authorization_usergroupCreateNestedManyWithoutMst_groupInput = {
+    create?: XOR<mst_authorization_usergroupCreateWithoutMst_groupInput, mst_authorization_usergroupUncheckedCreateWithoutMst_groupInput> | mst_authorization_usergroupCreateWithoutMst_groupInput[] | mst_authorization_usergroupUncheckedCreateWithoutMst_groupInput[]
+    connectOrCreate?: mst_authorization_usergroupCreateOrConnectWithoutMst_groupInput | mst_authorization_usergroupCreateOrConnectWithoutMst_groupInput[]
+    createMany?: mst_authorization_usergroupCreateManyMst_groupInputEnvelope
+    connect?: mst_authorization_usergroupWhereUniqueInput | mst_authorization_usergroupWhereUniqueInput[]
+  }
+
+  export type tr_projectCreateNestedManyWithoutMst_groupInput = {
+    create?: XOR<tr_projectCreateWithoutMst_groupInput, tr_projectUncheckedCreateWithoutMst_groupInput> | tr_projectCreateWithoutMst_groupInput[] | tr_projectUncheckedCreateWithoutMst_groupInput[]
+    connectOrCreate?: tr_projectCreateOrConnectWithoutMst_groupInput | tr_projectCreateOrConnectWithoutMst_groupInput[]
+    createMany?: tr_projectCreateManyMst_groupInputEnvelope
+    connect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+  }
+
+  export type mst_authorization_usergroupUncheckedCreateNestedManyWithoutMst_groupInput = {
+    create?: XOR<mst_authorization_usergroupCreateWithoutMst_groupInput, mst_authorization_usergroupUncheckedCreateWithoutMst_groupInput> | mst_authorization_usergroupCreateWithoutMst_groupInput[] | mst_authorization_usergroupUncheckedCreateWithoutMst_groupInput[]
+    connectOrCreate?: mst_authorization_usergroupCreateOrConnectWithoutMst_groupInput | mst_authorization_usergroupCreateOrConnectWithoutMst_groupInput[]
+    createMany?: mst_authorization_usergroupCreateManyMst_groupInputEnvelope
+    connect?: mst_authorization_usergroupWhereUniqueInput | mst_authorization_usergroupWhereUniqueInput[]
+  }
+
+  export type tr_projectUncheckedCreateNestedManyWithoutMst_groupInput = {
+    create?: XOR<tr_projectCreateWithoutMst_groupInput, tr_projectUncheckedCreateWithoutMst_groupInput> | tr_projectCreateWithoutMst_groupInput[] | tr_projectUncheckedCreateWithoutMst_groupInput[]
+    connectOrCreate?: tr_projectCreateOrConnectWithoutMst_groupInput | tr_projectCreateOrConnectWithoutMst_groupInput[]
+    createMany?: tr_projectCreateManyMst_groupInputEnvelope
+    connect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+  }
+
+  export type mst_authorization_usergroupUpdateManyWithoutMst_groupNestedInput = {
+    create?: XOR<mst_authorization_usergroupCreateWithoutMst_groupInput, mst_authorization_usergroupUncheckedCreateWithoutMst_groupInput> | mst_authorization_usergroupCreateWithoutMst_groupInput[] | mst_authorization_usergroupUncheckedCreateWithoutMst_groupInput[]
+    connectOrCreate?: mst_authorization_usergroupCreateOrConnectWithoutMst_groupInput | mst_authorization_usergroupCreateOrConnectWithoutMst_groupInput[]
+    upsert?: mst_authorization_usergroupUpsertWithWhereUniqueWithoutMst_groupInput | mst_authorization_usergroupUpsertWithWhereUniqueWithoutMst_groupInput[]
+    createMany?: mst_authorization_usergroupCreateManyMst_groupInputEnvelope
+    set?: mst_authorization_usergroupWhereUniqueInput | mst_authorization_usergroupWhereUniqueInput[]
+    disconnect?: mst_authorization_usergroupWhereUniqueInput | mst_authorization_usergroupWhereUniqueInput[]
+    delete?: mst_authorization_usergroupWhereUniqueInput | mst_authorization_usergroupWhereUniqueInput[]
+    connect?: mst_authorization_usergroupWhereUniqueInput | mst_authorization_usergroupWhereUniqueInput[]
+    update?: mst_authorization_usergroupUpdateWithWhereUniqueWithoutMst_groupInput | mst_authorization_usergroupUpdateWithWhereUniqueWithoutMst_groupInput[]
+    updateMany?: mst_authorization_usergroupUpdateManyWithWhereWithoutMst_groupInput | mst_authorization_usergroupUpdateManyWithWhereWithoutMst_groupInput[]
+    deleteMany?: mst_authorization_usergroupScalarWhereInput | mst_authorization_usergroupScalarWhereInput[]
+  }
+
+  export type tr_projectUpdateManyWithoutMst_groupNestedInput = {
+    create?: XOR<tr_projectCreateWithoutMst_groupInput, tr_projectUncheckedCreateWithoutMst_groupInput> | tr_projectCreateWithoutMst_groupInput[] | tr_projectUncheckedCreateWithoutMst_groupInput[]
+    connectOrCreate?: tr_projectCreateOrConnectWithoutMst_groupInput | tr_projectCreateOrConnectWithoutMst_groupInput[]
+    upsert?: tr_projectUpsertWithWhereUniqueWithoutMst_groupInput | tr_projectUpsertWithWhereUniqueWithoutMst_groupInput[]
+    createMany?: tr_projectCreateManyMst_groupInputEnvelope
+    set?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+    disconnect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+    delete?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+    connect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+    update?: tr_projectUpdateWithWhereUniqueWithoutMst_groupInput | tr_projectUpdateWithWhereUniqueWithoutMst_groupInput[]
+    updateMany?: tr_projectUpdateManyWithWhereWithoutMst_groupInput | tr_projectUpdateManyWithWhereWithoutMst_groupInput[]
+    deleteMany?: tr_projectScalarWhereInput | tr_projectScalarWhereInput[]
+  }
+
+  export type mst_authorization_usergroupUncheckedUpdateManyWithoutMst_groupNestedInput = {
+    create?: XOR<mst_authorization_usergroupCreateWithoutMst_groupInput, mst_authorization_usergroupUncheckedCreateWithoutMst_groupInput> | mst_authorization_usergroupCreateWithoutMst_groupInput[] | mst_authorization_usergroupUncheckedCreateWithoutMst_groupInput[]
+    connectOrCreate?: mst_authorization_usergroupCreateOrConnectWithoutMst_groupInput | mst_authorization_usergroupCreateOrConnectWithoutMst_groupInput[]
+    upsert?: mst_authorization_usergroupUpsertWithWhereUniqueWithoutMst_groupInput | mst_authorization_usergroupUpsertWithWhereUniqueWithoutMst_groupInput[]
+    createMany?: mst_authorization_usergroupCreateManyMst_groupInputEnvelope
+    set?: mst_authorization_usergroupWhereUniqueInput | mst_authorization_usergroupWhereUniqueInput[]
+    disconnect?: mst_authorization_usergroupWhereUniqueInput | mst_authorization_usergroupWhereUniqueInput[]
+    delete?: mst_authorization_usergroupWhereUniqueInput | mst_authorization_usergroupWhereUniqueInput[]
+    connect?: mst_authorization_usergroupWhereUniqueInput | mst_authorization_usergroupWhereUniqueInput[]
+    update?: mst_authorization_usergroupUpdateWithWhereUniqueWithoutMst_groupInput | mst_authorization_usergroupUpdateWithWhereUniqueWithoutMst_groupInput[]
+    updateMany?: mst_authorization_usergroupUpdateManyWithWhereWithoutMst_groupInput | mst_authorization_usergroupUpdateManyWithWhereWithoutMst_groupInput[]
+    deleteMany?: mst_authorization_usergroupScalarWhereInput | mst_authorization_usergroupScalarWhereInput[]
+  }
+
+  export type tr_projectUncheckedUpdateManyWithoutMst_groupNestedInput = {
+    create?: XOR<tr_projectCreateWithoutMst_groupInput, tr_projectUncheckedCreateWithoutMst_groupInput> | tr_projectCreateWithoutMst_groupInput[] | tr_projectUncheckedCreateWithoutMst_groupInput[]
+    connectOrCreate?: tr_projectCreateOrConnectWithoutMst_groupInput | tr_projectCreateOrConnectWithoutMst_groupInput[]
+    upsert?: tr_projectUpsertWithWhereUniqueWithoutMst_groupInput | tr_projectUpsertWithWhereUniqueWithoutMst_groupInput[]
+    createMany?: tr_projectCreateManyMst_groupInputEnvelope
+    set?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+    disconnect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+    delete?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+    connect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+    update?: tr_projectUpdateWithWhereUniqueWithoutMst_groupInput | tr_projectUpdateWithWhereUniqueWithoutMst_groupInput[]
+    updateMany?: tr_projectUpdateManyWithWhereWithoutMst_groupInput | tr_projectUpdateManyWithWhereWithoutMst_groupInput[]
+    deleteMany?: tr_projectScalarWhereInput | tr_projectScalarWhereInput[]
+  }
+
+  export type mst_authorizationCreateNestedManyWithoutMst_profileInput = {
+    create?: XOR<mst_authorizationCreateWithoutMst_profileInput, mst_authorizationUncheckedCreateWithoutMst_profileInput> | mst_authorizationCreateWithoutMst_profileInput[] | mst_authorizationUncheckedCreateWithoutMst_profileInput[]
+    connectOrCreate?: mst_authorizationCreateOrConnectWithoutMst_profileInput | mst_authorizationCreateOrConnectWithoutMst_profileInput[]
+    createMany?: mst_authorizationCreateManyMst_profileInputEnvelope
+    connect?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+  }
+
+  export type mst_authorization_profileCreateNestedManyWithoutMst_profileInput = {
+    create?: XOR<mst_authorization_profileCreateWithoutMst_profileInput, mst_authorization_profileUncheckedCreateWithoutMst_profileInput> | mst_authorization_profileCreateWithoutMst_profileInput[] | mst_authorization_profileUncheckedCreateWithoutMst_profileInput[]
+    connectOrCreate?: mst_authorization_profileCreateOrConnectWithoutMst_profileInput | mst_authorization_profileCreateOrConnectWithoutMst_profileInput[]
+    createMany?: mst_authorization_profileCreateManyMst_profileInputEnvelope
+    connect?: mst_authorization_profileWhereUniqueInput | mst_authorization_profileWhereUniqueInput[]
+  }
+
+  export type mst_authorizationUncheckedCreateNestedManyWithoutMst_profileInput = {
+    create?: XOR<mst_authorizationCreateWithoutMst_profileInput, mst_authorizationUncheckedCreateWithoutMst_profileInput> | mst_authorizationCreateWithoutMst_profileInput[] | mst_authorizationUncheckedCreateWithoutMst_profileInput[]
+    connectOrCreate?: mst_authorizationCreateOrConnectWithoutMst_profileInput | mst_authorizationCreateOrConnectWithoutMst_profileInput[]
+    createMany?: mst_authorizationCreateManyMst_profileInputEnvelope
+    connect?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+  }
+
+  export type mst_authorization_profileUncheckedCreateNestedManyWithoutMst_profileInput = {
+    create?: XOR<mst_authorization_profileCreateWithoutMst_profileInput, mst_authorization_profileUncheckedCreateWithoutMst_profileInput> | mst_authorization_profileCreateWithoutMst_profileInput[] | mst_authorization_profileUncheckedCreateWithoutMst_profileInput[]
+    connectOrCreate?: mst_authorization_profileCreateOrConnectWithoutMst_profileInput | mst_authorization_profileCreateOrConnectWithoutMst_profileInput[]
+    createMany?: mst_authorization_profileCreateManyMst_profileInputEnvelope
+    connect?: mst_authorization_profileWhereUniqueInput | mst_authorization_profileWhereUniqueInput[]
+  }
+
+  export type mst_authorizationUpdateManyWithoutMst_profileNestedInput = {
+    create?: XOR<mst_authorizationCreateWithoutMst_profileInput, mst_authorizationUncheckedCreateWithoutMst_profileInput> | mst_authorizationCreateWithoutMst_profileInput[] | mst_authorizationUncheckedCreateWithoutMst_profileInput[]
+    connectOrCreate?: mst_authorizationCreateOrConnectWithoutMst_profileInput | mst_authorizationCreateOrConnectWithoutMst_profileInput[]
+    upsert?: mst_authorizationUpsertWithWhereUniqueWithoutMst_profileInput | mst_authorizationUpsertWithWhereUniqueWithoutMst_profileInput[]
+    createMany?: mst_authorizationCreateManyMst_profileInputEnvelope
+    set?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    disconnect?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    delete?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    connect?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    update?: mst_authorizationUpdateWithWhereUniqueWithoutMst_profileInput | mst_authorizationUpdateWithWhereUniqueWithoutMst_profileInput[]
+    updateMany?: mst_authorizationUpdateManyWithWhereWithoutMst_profileInput | mst_authorizationUpdateManyWithWhereWithoutMst_profileInput[]
+    deleteMany?: mst_authorizationScalarWhereInput | mst_authorizationScalarWhereInput[]
+  }
+
+  export type mst_authorization_profileUpdateManyWithoutMst_profileNestedInput = {
+    create?: XOR<mst_authorization_profileCreateWithoutMst_profileInput, mst_authorization_profileUncheckedCreateWithoutMst_profileInput> | mst_authorization_profileCreateWithoutMst_profileInput[] | mst_authorization_profileUncheckedCreateWithoutMst_profileInput[]
+    connectOrCreate?: mst_authorization_profileCreateOrConnectWithoutMst_profileInput | mst_authorization_profileCreateOrConnectWithoutMst_profileInput[]
+    upsert?: mst_authorization_profileUpsertWithWhereUniqueWithoutMst_profileInput | mst_authorization_profileUpsertWithWhereUniqueWithoutMst_profileInput[]
+    createMany?: mst_authorization_profileCreateManyMst_profileInputEnvelope
+    set?: mst_authorization_profileWhereUniqueInput | mst_authorization_profileWhereUniqueInput[]
+    disconnect?: mst_authorization_profileWhereUniqueInput | mst_authorization_profileWhereUniqueInput[]
+    delete?: mst_authorization_profileWhereUniqueInput | mst_authorization_profileWhereUniqueInput[]
+    connect?: mst_authorization_profileWhereUniqueInput | mst_authorization_profileWhereUniqueInput[]
+    update?: mst_authorization_profileUpdateWithWhereUniqueWithoutMst_profileInput | mst_authorization_profileUpdateWithWhereUniqueWithoutMst_profileInput[]
+    updateMany?: mst_authorization_profileUpdateManyWithWhereWithoutMst_profileInput | mst_authorization_profileUpdateManyWithWhereWithoutMst_profileInput[]
+    deleteMany?: mst_authorization_profileScalarWhereInput | mst_authorization_profileScalarWhereInput[]
+  }
+
+  export type mst_authorizationUncheckedUpdateManyWithoutMst_profileNestedInput = {
+    create?: XOR<mst_authorizationCreateWithoutMst_profileInput, mst_authorizationUncheckedCreateWithoutMst_profileInput> | mst_authorizationCreateWithoutMst_profileInput[] | mst_authorizationUncheckedCreateWithoutMst_profileInput[]
+    connectOrCreate?: mst_authorizationCreateOrConnectWithoutMst_profileInput | mst_authorizationCreateOrConnectWithoutMst_profileInput[]
+    upsert?: mst_authorizationUpsertWithWhereUniqueWithoutMst_profileInput | mst_authorizationUpsertWithWhereUniqueWithoutMst_profileInput[]
+    createMany?: mst_authorizationCreateManyMst_profileInputEnvelope
+    set?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    disconnect?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    delete?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    connect?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    update?: mst_authorizationUpdateWithWhereUniqueWithoutMst_profileInput | mst_authorizationUpdateWithWhereUniqueWithoutMst_profileInput[]
+    updateMany?: mst_authorizationUpdateManyWithWhereWithoutMst_profileInput | mst_authorizationUpdateManyWithWhereWithoutMst_profileInput[]
+    deleteMany?: mst_authorizationScalarWhereInput | mst_authorizationScalarWhereInput[]
+  }
+
+  export type mst_authorization_profileUncheckedUpdateManyWithoutMst_profileNestedInput = {
+    create?: XOR<mst_authorization_profileCreateWithoutMst_profileInput, mst_authorization_profileUncheckedCreateWithoutMst_profileInput> | mst_authorization_profileCreateWithoutMst_profileInput[] | mst_authorization_profileUncheckedCreateWithoutMst_profileInput[]
+    connectOrCreate?: mst_authorization_profileCreateOrConnectWithoutMst_profileInput | mst_authorization_profileCreateOrConnectWithoutMst_profileInput[]
+    upsert?: mst_authorization_profileUpsertWithWhereUniqueWithoutMst_profileInput | mst_authorization_profileUpsertWithWhereUniqueWithoutMst_profileInput[]
+    createMany?: mst_authorization_profileCreateManyMst_profileInputEnvelope
+    set?: mst_authorization_profileWhereUniqueInput | mst_authorization_profileWhereUniqueInput[]
+    disconnect?: mst_authorization_profileWhereUniqueInput | mst_authorization_profileWhereUniqueInput[]
+    delete?: mst_authorization_profileWhereUniqueInput | mst_authorization_profileWhereUniqueInput[]
+    connect?: mst_authorization_profileWhereUniqueInput | mst_authorization_profileWhereUniqueInput[]
+    update?: mst_authorization_profileUpdateWithWhereUniqueWithoutMst_profileInput | mst_authorization_profileUpdateWithWhereUniqueWithoutMst_profileInput[]
+    updateMany?: mst_authorization_profileUpdateManyWithWhereWithoutMst_profileInput | mst_authorization_profileUpdateManyWithWhereWithoutMst_profileInput[]
+    deleteMany?: mst_authorization_profileScalarWhereInput | mst_authorization_profileScalarWhereInput[]
+  }
+
+  export type mst_groupCreateNestedOneWithoutTr_projectInput = {
+    create?: XOR<mst_groupCreateWithoutTr_projectInput, mst_groupUncheckedCreateWithoutTr_projectInput>
+    connectOrCreate?: mst_groupCreateOrConnectWithoutTr_projectInput
+    connect?: mst_groupWhereUniqueInput
+  }
+
+  export type mst_groupUpdateOneWithoutTr_projectNestedInput = {
+    create?: XOR<mst_groupCreateWithoutTr_projectInput, mst_groupUncheckedCreateWithoutTr_projectInput>
+    connectOrCreate?: mst_groupCreateOrConnectWithoutTr_projectInput
+    upsert?: mst_groupUpsertWithoutTr_projectInput
+    disconnect?: mst_groupWhereInput | boolean
+    delete?: mst_groupWhereInput | boolean
+    connect?: mst_groupWhereUniqueInput
+    update?: XOR<XOR<mst_groupUpdateToOneWithWhereWithoutTr_projectInput, mst_groupUpdateWithoutTr_projectInput>, mst_groupUncheckedUpdateWithoutTr_projectInput>
   }
 
   export type NullableDecimalFieldUpdateOperationsInput = {
@@ -26500,6 +28648,577 @@ export namespace Prisma {
     _max?: NestedDecimalNullableFilter<$PrismaModel>
   }
 
+  export type mst_entitiesCreateWithoutMst_authorizationInput = {
+    entities_name?: string | null
+    parent_id?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type mst_entitiesUncheckedCreateWithoutMst_authorizationInput = {
+    id?: number
+    entities_name?: string | null
+    parent_id?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type mst_entitiesCreateOrConnectWithoutMst_authorizationInput = {
+    where: mst_entitiesWhereUniqueInput
+    create: XOR<mst_entitiesCreateWithoutMst_authorizationInput, mst_entitiesUncheckedCreateWithoutMst_authorizationInput>
+  }
+
+  export type mst_profileCreateWithoutMst_authorizationInput = {
+    profile_name?: string | null
+    is_deleted?: boolean | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    mst_authorization_profile?: mst_authorization_profileCreateNestedManyWithoutMst_profileInput
+  }
+
+  export type mst_profileUncheckedCreateWithoutMst_authorizationInput = {
+    id?: number
+    profile_name?: string | null
+    is_deleted?: boolean | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    mst_authorization_profile?: mst_authorization_profileUncheckedCreateNestedManyWithoutMst_profileInput
+  }
+
+  export type mst_profileCreateOrConnectWithoutMst_authorizationInput = {
+    where: mst_profileWhereUniqueInput
+    create: XOR<mst_profileCreateWithoutMst_authorizationInput, mst_profileUncheckedCreateWithoutMst_authorizationInput>
+  }
+
+  export type mst_entitiesUpsertWithoutMst_authorizationInput = {
+    update: XOR<mst_entitiesUpdateWithoutMst_authorizationInput, mst_entitiesUncheckedUpdateWithoutMst_authorizationInput>
+    create: XOR<mst_entitiesCreateWithoutMst_authorizationInput, mst_entitiesUncheckedCreateWithoutMst_authorizationInput>
+    where?: mst_entitiesWhereInput
+  }
+
+  export type mst_entitiesUpdateToOneWithWhereWithoutMst_authorizationInput = {
+    where?: mst_entitiesWhereInput
+    data: XOR<mst_entitiesUpdateWithoutMst_authorizationInput, mst_entitiesUncheckedUpdateWithoutMst_authorizationInput>
+  }
+
+  export type mst_entitiesUpdateWithoutMst_authorizationInput = {
+    entities_name?: NullableStringFieldUpdateOperationsInput | string | null
+    parent_id?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type mst_entitiesUncheckedUpdateWithoutMst_authorizationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    entities_name?: NullableStringFieldUpdateOperationsInput | string | null
+    parent_id?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type mst_profileUpsertWithoutMst_authorizationInput = {
+    update: XOR<mst_profileUpdateWithoutMst_authorizationInput, mst_profileUncheckedUpdateWithoutMst_authorizationInput>
+    create: XOR<mst_profileCreateWithoutMst_authorizationInput, mst_profileUncheckedCreateWithoutMst_authorizationInput>
+    where?: mst_profileWhereInput
+  }
+
+  export type mst_profileUpdateToOneWithWhereWithoutMst_authorizationInput = {
+    where?: mst_profileWhereInput
+    data: XOR<mst_profileUpdateWithoutMst_authorizationInput, mst_profileUncheckedUpdateWithoutMst_authorizationInput>
+  }
+
+  export type mst_profileUpdateWithoutMst_authorizationInput = {
+    profile_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_authorization_profile?: mst_authorization_profileUpdateManyWithoutMst_profileNestedInput
+  }
+
+  export type mst_profileUncheckedUpdateWithoutMst_authorizationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    profile_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_authorization_profile?: mst_authorization_profileUncheckedUpdateManyWithoutMst_profileNestedInput
+  }
+
+  export type mst_profileCreateWithoutMst_authorization_profileInput = {
+    profile_name?: string | null
+    is_deleted?: boolean | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    mst_authorization?: mst_authorizationCreateNestedManyWithoutMst_profileInput
+  }
+
+  export type mst_profileUncheckedCreateWithoutMst_authorization_profileInput = {
+    id?: number
+    profile_name?: string | null
+    is_deleted?: boolean | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    mst_authorization?: mst_authorizationUncheckedCreateNestedManyWithoutMst_profileInput
+  }
+
+  export type mst_profileCreateOrConnectWithoutMst_authorization_profileInput = {
+    where: mst_profileWhereUniqueInput
+    create: XOR<mst_profileCreateWithoutMst_authorization_profileInput, mst_profileUncheckedCreateWithoutMst_authorization_profileInput>
+  }
+
+  export type mst_profileUpsertWithoutMst_authorization_profileInput = {
+    update: XOR<mst_profileUpdateWithoutMst_authorization_profileInput, mst_profileUncheckedUpdateWithoutMst_authorization_profileInput>
+    create: XOR<mst_profileCreateWithoutMst_authorization_profileInput, mst_profileUncheckedCreateWithoutMst_authorization_profileInput>
+    where?: mst_profileWhereInput
+  }
+
+  export type mst_profileUpdateToOneWithWhereWithoutMst_authorization_profileInput = {
+    where?: mst_profileWhereInput
+    data: XOR<mst_profileUpdateWithoutMst_authorization_profileInput, mst_profileUncheckedUpdateWithoutMst_authorization_profileInput>
+  }
+
+  export type mst_profileUpdateWithoutMst_authorization_profileInput = {
+    profile_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_authorization?: mst_authorizationUpdateManyWithoutMst_profileNestedInput
+  }
+
+  export type mst_profileUncheckedUpdateWithoutMst_authorization_profileInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    profile_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_authorization?: mst_authorizationUncheckedUpdateManyWithoutMst_profileNestedInput
+  }
+
+  export type mst_groupCreateWithoutMst_authorization_usergroupInput = {
+    entities_id?: number | null
+    group_name?: string | null
+    parent_id?: number | null
+    is_deleted?: boolean | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    tr_project?: tr_projectCreateNestedManyWithoutMst_groupInput
+  }
+
+  export type mst_groupUncheckedCreateWithoutMst_authorization_usergroupInput = {
+    id?: number
+    entities_id?: number | null
+    group_name?: string | null
+    parent_id?: number | null
+    is_deleted?: boolean | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    tr_project?: tr_projectUncheckedCreateNestedManyWithoutMst_groupInput
+  }
+
+  export type mst_groupCreateOrConnectWithoutMst_authorization_usergroupInput = {
+    where: mst_groupWhereUniqueInput
+    create: XOR<mst_groupCreateWithoutMst_authorization_usergroupInput, mst_groupUncheckedCreateWithoutMst_authorization_usergroupInput>
+  }
+
+  export type mst_groupUpsertWithoutMst_authorization_usergroupInput = {
+    update: XOR<mst_groupUpdateWithoutMst_authorization_usergroupInput, mst_groupUncheckedUpdateWithoutMst_authorization_usergroupInput>
+    create: XOR<mst_groupCreateWithoutMst_authorization_usergroupInput, mst_groupUncheckedCreateWithoutMst_authorization_usergroupInput>
+    where?: mst_groupWhereInput
+  }
+
+  export type mst_groupUpdateToOneWithWhereWithoutMst_authorization_usergroupInput = {
+    where?: mst_groupWhereInput
+    data: XOR<mst_groupUpdateWithoutMst_authorization_usergroupInput, mst_groupUncheckedUpdateWithoutMst_authorization_usergroupInput>
+  }
+
+  export type mst_groupUpdateWithoutMst_authorization_usergroupInput = {
+    entities_id?: NullableIntFieldUpdateOperationsInput | number | null
+    group_name?: NullableStringFieldUpdateOperationsInput | string | null
+    parent_id?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    tr_project?: tr_projectUpdateManyWithoutMst_groupNestedInput
+  }
+
+  export type mst_groupUncheckedUpdateWithoutMst_authorization_usergroupInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    entities_id?: NullableIntFieldUpdateOperationsInput | number | null
+    group_name?: NullableStringFieldUpdateOperationsInput | string | null
+    parent_id?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    tr_project?: tr_projectUncheckedUpdateManyWithoutMst_groupNestedInput
+  }
+
+  export type mst_authorizationCreateWithoutMst_entitiesInput = {
+    employee_code?: string | null
+    employee_name?: string | null
+    is_active?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    technician_level?: string | null
+    is_deleted?: boolean | null
+    mst_profile?: mst_profileCreateNestedOneWithoutMst_authorizationInput
+  }
+
+  export type mst_authorizationUncheckedCreateWithoutMst_entitiesInput = {
+    id?: number
+    employee_code?: string | null
+    employee_name?: string | null
+    is_active?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    technician_level?: string | null
+    active_profile?: number | null
+    is_deleted?: boolean | null
+  }
+
+  export type mst_authorizationCreateOrConnectWithoutMst_entitiesInput = {
+    where: mst_authorizationWhereUniqueInput
+    create: XOR<mst_authorizationCreateWithoutMst_entitiesInput, mst_authorizationUncheckedCreateWithoutMst_entitiesInput>
+  }
+
+  export type mst_authorizationCreateManyMst_entitiesInputEnvelope = {
+    data: mst_authorizationCreateManyMst_entitiesInput | mst_authorizationCreateManyMst_entitiesInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type mst_authorizationUpsertWithWhereUniqueWithoutMst_entitiesInput = {
+    where: mst_authorizationWhereUniqueInput
+    update: XOR<mst_authorizationUpdateWithoutMst_entitiesInput, mst_authorizationUncheckedUpdateWithoutMst_entitiesInput>
+    create: XOR<mst_authorizationCreateWithoutMst_entitiesInput, mst_authorizationUncheckedCreateWithoutMst_entitiesInput>
+  }
+
+  export type mst_authorizationUpdateWithWhereUniqueWithoutMst_entitiesInput = {
+    where: mst_authorizationWhereUniqueInput
+    data: XOR<mst_authorizationUpdateWithoutMst_entitiesInput, mst_authorizationUncheckedUpdateWithoutMst_entitiesInput>
+  }
+
+  export type mst_authorizationUpdateManyWithWhereWithoutMst_entitiesInput = {
+    where: mst_authorizationScalarWhereInput
+    data: XOR<mst_authorizationUpdateManyMutationInput, mst_authorizationUncheckedUpdateManyWithoutMst_entitiesInput>
+  }
+
+  export type mst_authorizationScalarWhereInput = {
+    AND?: mst_authorizationScalarWhereInput | mst_authorizationScalarWhereInput[]
+    OR?: mst_authorizationScalarWhereInput[]
+    NOT?: mst_authorizationScalarWhereInput | mst_authorizationScalarWhereInput[]
+    id?: IntFilter<"mst_authorization"> | number
+    employee_code?: StringNullableFilter<"mst_authorization"> | string | null
+    employee_name?: StringNullableFilter<"mst_authorization"> | string | null
+    is_active?: StringNullableFilter<"mst_authorization"> | string | null
+    created_at?: DateTimeNullableFilter<"mst_authorization"> | Date | string | null
+    created_by?: StringNullableFilter<"mst_authorization"> | string | null
+    technician_level?: StringNullableFilter<"mst_authorization"> | string | null
+    active_profile?: IntNullableFilter<"mst_authorization"> | number | null
+    active_entities?: IntNullableFilter<"mst_authorization"> | number | null
+    is_deleted?: BoolNullableFilter<"mst_authorization"> | boolean | null
+  }
+
+  export type mst_authorization_usergroupCreateWithoutMst_groupInput = {
+    employee_code?: string | null
+    is_manager?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type mst_authorization_usergroupUncheckedCreateWithoutMst_groupInput = {
+    id?: number
+    employee_code?: string | null
+    is_manager?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type mst_authorization_usergroupCreateOrConnectWithoutMst_groupInput = {
+    where: mst_authorization_usergroupWhereUniqueInput
+    create: XOR<mst_authorization_usergroupCreateWithoutMst_groupInput, mst_authorization_usergroupUncheckedCreateWithoutMst_groupInput>
+  }
+
+  export type mst_authorization_usergroupCreateManyMst_groupInputEnvelope = {
+    data: mst_authorization_usergroupCreateManyMst_groupInput | mst_authorization_usergroupCreateManyMst_groupInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type tr_projectCreateWithoutMst_groupInput = {
+    request_id?: number | null
+    application_id?: number | null
+    project_code?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
+    plan_start_date?: Date | string | null
+    plant_end_date?: Date | string | null
+    real_start_date?: Date | string | null
+    real_end_date?: Date | string | null
+    percent_done?: string | null
+    auto_percent_done?: string | null
+    status?: string | null
+    is_deleted?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type tr_projectUncheckedCreateWithoutMst_groupInput = {
+    id?: number
+    request_id?: number | null
+    application_id?: number | null
+    project_code?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
+    plan_start_date?: Date | string | null
+    plant_end_date?: Date | string | null
+    real_start_date?: Date | string | null
+    real_end_date?: Date | string | null
+    percent_done?: string | null
+    auto_percent_done?: string | null
+    status?: string | null
+    is_deleted?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type tr_projectCreateOrConnectWithoutMst_groupInput = {
+    where: tr_projectWhereUniqueInput
+    create: XOR<tr_projectCreateWithoutMst_groupInput, tr_projectUncheckedCreateWithoutMst_groupInput>
+  }
+
+  export type tr_projectCreateManyMst_groupInputEnvelope = {
+    data: tr_projectCreateManyMst_groupInput | tr_projectCreateManyMst_groupInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type mst_authorization_usergroupUpsertWithWhereUniqueWithoutMst_groupInput = {
+    where: mst_authorization_usergroupWhereUniqueInput
+    update: XOR<mst_authorization_usergroupUpdateWithoutMst_groupInput, mst_authorization_usergroupUncheckedUpdateWithoutMst_groupInput>
+    create: XOR<mst_authorization_usergroupCreateWithoutMst_groupInput, mst_authorization_usergroupUncheckedCreateWithoutMst_groupInput>
+  }
+
+  export type mst_authorization_usergroupUpdateWithWhereUniqueWithoutMst_groupInput = {
+    where: mst_authorization_usergroupWhereUniqueInput
+    data: XOR<mst_authorization_usergroupUpdateWithoutMst_groupInput, mst_authorization_usergroupUncheckedUpdateWithoutMst_groupInput>
+  }
+
+  export type mst_authorization_usergroupUpdateManyWithWhereWithoutMst_groupInput = {
+    where: mst_authorization_usergroupScalarWhereInput
+    data: XOR<mst_authorization_usergroupUpdateManyMutationInput, mst_authorization_usergroupUncheckedUpdateManyWithoutMst_groupInput>
+  }
+
+  export type mst_authorization_usergroupScalarWhereInput = {
+    AND?: mst_authorization_usergroupScalarWhereInput | mst_authorization_usergroupScalarWhereInput[]
+    OR?: mst_authorization_usergroupScalarWhereInput[]
+    NOT?: mst_authorization_usergroupScalarWhereInput | mst_authorization_usergroupScalarWhereInput[]
+    id?: IntFilter<"mst_authorization_usergroup"> | number
+    employee_code?: StringNullableFilter<"mst_authorization_usergroup"> | string | null
+    group_id?: IntNullableFilter<"mst_authorization_usergroup"> | number | null
+    is_manager?: StringNullableFilter<"mst_authorization_usergroup"> | string | null
+    created_at?: DateTimeNullableFilter<"mst_authorization_usergroup"> | Date | string | null
+    created_by?: StringNullableFilter<"mst_authorization_usergroup"> | string | null
+  }
+
+  export type tr_projectUpsertWithWhereUniqueWithoutMst_groupInput = {
+    where: tr_projectWhereUniqueInput
+    update: XOR<tr_projectUpdateWithoutMst_groupInput, tr_projectUncheckedUpdateWithoutMst_groupInput>
+    create: XOR<tr_projectCreateWithoutMst_groupInput, tr_projectUncheckedCreateWithoutMst_groupInput>
+  }
+
+  export type tr_projectUpdateWithWhereUniqueWithoutMst_groupInput = {
+    where: tr_projectWhereUniqueInput
+    data: XOR<tr_projectUpdateWithoutMst_groupInput, tr_projectUncheckedUpdateWithoutMst_groupInput>
+  }
+
+  export type tr_projectUpdateManyWithWhereWithoutMst_groupInput = {
+    where: tr_projectScalarWhereInput
+    data: XOR<tr_projectUpdateManyMutationInput, tr_projectUncheckedUpdateManyWithoutMst_groupInput>
+  }
+
+  export type tr_projectScalarWhereInput = {
+    AND?: tr_projectScalarWhereInput | tr_projectScalarWhereInput[]
+    OR?: tr_projectScalarWhereInput[]
+    NOT?: tr_projectScalarWhereInput | tr_projectScalarWhereInput[]
+    id?: IntFilter<"tr_project"> | number
+    request_id?: IntNullableFilter<"tr_project"> | number | null
+    application_id?: IntNullableFilter<"tr_project"> | number | null
+    project_code?: StringNullableFilter<"tr_project"> | string | null
+    background?: StringNullableFilter<"tr_project"> | string | null
+    issue_description?: StringNullableFilter<"tr_project"> | string | null
+    business_impact?: StringNullableFilter<"tr_project"> | string | null
+    group_id?: IntNullableFilter<"tr_project"> | number | null
+    plan_start_date?: DateTimeNullableFilter<"tr_project"> | Date | string | null
+    plant_end_date?: DateTimeNullableFilter<"tr_project"> | Date | string | null
+    real_start_date?: DateTimeNullableFilter<"tr_project"> | Date | string | null
+    real_end_date?: DateTimeNullableFilter<"tr_project"> | Date | string | null
+    percent_done?: StringNullableFilter<"tr_project"> | string | null
+    auto_percent_done?: StringNullableFilter<"tr_project"> | string | null
+    status?: StringNullableFilter<"tr_project"> | string | null
+    is_deleted?: StringNullableFilter<"tr_project"> | string | null
+    created_at?: DateTimeNullableFilter<"tr_project"> | Date | string | null
+    created_by?: StringNullableFilter<"tr_project"> | string | null
+  }
+
+  export type mst_authorizationCreateWithoutMst_profileInput = {
+    employee_code?: string | null
+    employee_name?: string | null
+    is_active?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    technician_level?: string | null
+    is_deleted?: boolean | null
+    mst_entities?: mst_entitiesCreateNestedOneWithoutMst_authorizationInput
+  }
+
+  export type mst_authorizationUncheckedCreateWithoutMst_profileInput = {
+    id?: number
+    employee_code?: string | null
+    employee_name?: string | null
+    is_active?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    technician_level?: string | null
+    active_entities?: number | null
+    is_deleted?: boolean | null
+  }
+
+  export type mst_authorizationCreateOrConnectWithoutMst_profileInput = {
+    where: mst_authorizationWhereUniqueInput
+    create: XOR<mst_authorizationCreateWithoutMst_profileInput, mst_authorizationUncheckedCreateWithoutMst_profileInput>
+  }
+
+  export type mst_authorizationCreateManyMst_profileInputEnvelope = {
+    data: mst_authorizationCreateManyMst_profileInput | mst_authorizationCreateManyMst_profileInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type mst_authorization_profileCreateWithoutMst_profileInput = {
+    employee_code?: string | null
+    entities_id?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type mst_authorization_profileUncheckedCreateWithoutMst_profileInput = {
+    id?: number
+    employee_code?: string | null
+    entities_id?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type mst_authorization_profileCreateOrConnectWithoutMst_profileInput = {
+    where: mst_authorization_profileWhereUniqueInput
+    create: XOR<mst_authorization_profileCreateWithoutMst_profileInput, mst_authorization_profileUncheckedCreateWithoutMst_profileInput>
+  }
+
+  export type mst_authorization_profileCreateManyMst_profileInputEnvelope = {
+    data: mst_authorization_profileCreateManyMst_profileInput | mst_authorization_profileCreateManyMst_profileInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type mst_authorizationUpsertWithWhereUniqueWithoutMst_profileInput = {
+    where: mst_authorizationWhereUniqueInput
+    update: XOR<mst_authorizationUpdateWithoutMst_profileInput, mst_authorizationUncheckedUpdateWithoutMst_profileInput>
+    create: XOR<mst_authorizationCreateWithoutMst_profileInput, mst_authorizationUncheckedCreateWithoutMst_profileInput>
+  }
+
+  export type mst_authorizationUpdateWithWhereUniqueWithoutMst_profileInput = {
+    where: mst_authorizationWhereUniqueInput
+    data: XOR<mst_authorizationUpdateWithoutMst_profileInput, mst_authorizationUncheckedUpdateWithoutMst_profileInput>
+  }
+
+  export type mst_authorizationUpdateManyWithWhereWithoutMst_profileInput = {
+    where: mst_authorizationScalarWhereInput
+    data: XOR<mst_authorizationUpdateManyMutationInput, mst_authorizationUncheckedUpdateManyWithoutMst_profileInput>
+  }
+
+  export type mst_authorization_profileUpsertWithWhereUniqueWithoutMst_profileInput = {
+    where: mst_authorization_profileWhereUniqueInput
+    update: XOR<mst_authorization_profileUpdateWithoutMst_profileInput, mst_authorization_profileUncheckedUpdateWithoutMst_profileInput>
+    create: XOR<mst_authorization_profileCreateWithoutMst_profileInput, mst_authorization_profileUncheckedCreateWithoutMst_profileInput>
+  }
+
+  export type mst_authorization_profileUpdateWithWhereUniqueWithoutMst_profileInput = {
+    where: mst_authorization_profileWhereUniqueInput
+    data: XOR<mst_authorization_profileUpdateWithoutMst_profileInput, mst_authorization_profileUncheckedUpdateWithoutMst_profileInput>
+  }
+
+  export type mst_authorization_profileUpdateManyWithWhereWithoutMst_profileInput = {
+    where: mst_authorization_profileScalarWhereInput
+    data: XOR<mst_authorization_profileUpdateManyMutationInput, mst_authorization_profileUncheckedUpdateManyWithoutMst_profileInput>
+  }
+
+  export type mst_authorization_profileScalarWhereInput = {
+    AND?: mst_authorization_profileScalarWhereInput | mst_authorization_profileScalarWhereInput[]
+    OR?: mst_authorization_profileScalarWhereInput[]
+    NOT?: mst_authorization_profileScalarWhereInput | mst_authorization_profileScalarWhereInput[]
+    id?: IntFilter<"mst_authorization_profile"> | number
+    employee_code?: StringNullableFilter<"mst_authorization_profile"> | string | null
+    profile_id?: IntNullableFilter<"mst_authorization_profile"> | number | null
+    entities_id?: IntNullableFilter<"mst_authorization_profile"> | number | null
+    created_at?: DateTimeNullableFilter<"mst_authorization_profile"> | Date | string | null
+    created_by?: StringNullableFilter<"mst_authorization_profile"> | string | null
+  }
+
+  export type mst_groupCreateWithoutTr_projectInput = {
+    entities_id?: number | null
+    group_name?: string | null
+    parent_id?: number | null
+    is_deleted?: boolean | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    mst_authorization_usergroup?: mst_authorization_usergroupCreateNestedManyWithoutMst_groupInput
+  }
+
+  export type mst_groupUncheckedCreateWithoutTr_projectInput = {
+    id?: number
+    entities_id?: number | null
+    group_name?: string | null
+    parent_id?: number | null
+    is_deleted?: boolean | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    mst_authorization_usergroup?: mst_authorization_usergroupUncheckedCreateNestedManyWithoutMst_groupInput
+  }
+
+  export type mst_groupCreateOrConnectWithoutTr_projectInput = {
+    where: mst_groupWhereUniqueInput
+    create: XOR<mst_groupCreateWithoutTr_projectInput, mst_groupUncheckedCreateWithoutTr_projectInput>
+  }
+
+  export type mst_groupUpsertWithoutTr_projectInput = {
+    update: XOR<mst_groupUpdateWithoutTr_projectInput, mst_groupUncheckedUpdateWithoutTr_projectInput>
+    create: XOR<mst_groupCreateWithoutTr_projectInput, mst_groupUncheckedCreateWithoutTr_projectInput>
+    where?: mst_groupWhereInput
+  }
+
+  export type mst_groupUpdateToOneWithWhereWithoutTr_projectInput = {
+    where?: mst_groupWhereInput
+    data: XOR<mst_groupUpdateWithoutTr_projectInput, mst_groupUncheckedUpdateWithoutTr_projectInput>
+  }
+
+  export type mst_groupUpdateWithoutTr_projectInput = {
+    entities_id?: NullableIntFieldUpdateOperationsInput | number | null
+    group_name?: NullableStringFieldUpdateOperationsInput | string | null
+    parent_id?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_authorization_usergroup?: mst_authorization_usergroupUpdateManyWithoutMst_groupNestedInput
+  }
+
+  export type mst_groupUncheckedUpdateWithoutTr_projectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    entities_id?: NullableIntFieldUpdateOperationsInput | number | null
+    group_name?: NullableStringFieldUpdateOperationsInput | string | null
+    parent_id?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_authorization_usergroup?: mst_authorization_usergroupUncheckedUpdateManyWithoutMst_groupNestedInput
+  }
+
   export type tr_request_validationCreateWithoutTr_requestInput = {
     user_id?: string | null
     user_id_validate?: string | null
@@ -26573,9 +29292,11 @@ export namespace Prisma {
     expected_completion_date?: Date | string | null
     category?: string | null
     type?: string | null
-    description?: string | null
     department_code?: string | null
     is_project?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
     created_at?: Date | string | null
     created_by?: string | null
   }
@@ -26592,9 +29313,11 @@ export namespace Prisma {
     expected_completion_date?: Date | string | null
     category?: string | null
     type?: string | null
-    description?: string | null
     department_code?: string | null
     is_project?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
     created_at?: Date | string | null
     created_by?: string | null
   }
@@ -26626,9 +29349,11 @@ export namespace Prisma {
     expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
     department_code?: NullableStringFieldUpdateOperationsInput | string | null
     is_project?: NullableStringFieldUpdateOperationsInput | string | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    issue_description?: NullableStringFieldUpdateOperationsInput | string | null
+    business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -26645,9 +29370,246 @@ export namespace Prisma {
     expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     category?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
     department_code?: NullableStringFieldUpdateOperationsInput | string | null
     is_project?: NullableStringFieldUpdateOperationsInput | string | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    issue_description?: NullableStringFieldUpdateOperationsInput | string | null
+    business_impact?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type mst_authorizationCreateManyMst_entitiesInput = {
+    id?: number
+    employee_code?: string | null
+    employee_name?: string | null
+    is_active?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    technician_level?: string | null
+    active_profile?: number | null
+    is_deleted?: boolean | null
+  }
+
+  export type mst_authorizationUpdateWithoutMst_entitiesInput = {
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    technician_level?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    mst_profile?: mst_profileUpdateOneWithoutMst_authorizationNestedInput
+  }
+
+  export type mst_authorizationUncheckedUpdateWithoutMst_entitiesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    technician_level?: NullableStringFieldUpdateOperationsInput | string | null
+    active_profile?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type mst_authorizationUncheckedUpdateManyWithoutMst_entitiesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    technician_level?: NullableStringFieldUpdateOperationsInput | string | null
+    active_profile?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type mst_authorization_usergroupCreateManyMst_groupInput = {
+    id?: number
+    employee_code?: string | null
+    is_manager?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type tr_projectCreateManyMst_groupInput = {
+    id?: number
+    request_id?: number | null
+    application_id?: number | null
+    project_code?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
+    plan_start_date?: Date | string | null
+    plant_end_date?: Date | string | null
+    real_start_date?: Date | string | null
+    real_end_date?: Date | string | null
+    percent_done?: string | null
+    auto_percent_done?: string | null
+    status?: string | null
+    is_deleted?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type mst_authorization_usergroupUpdateWithoutMst_groupInput = {
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    is_manager?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type mst_authorization_usergroupUncheckedUpdateWithoutMst_groupInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    is_manager?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type mst_authorization_usergroupUncheckedUpdateManyWithoutMst_groupInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    is_manager?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_projectUpdateWithoutMst_groupInput = {
+    request_id?: NullableIntFieldUpdateOperationsInput | number | null
+    application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_code?: NullableStringFieldUpdateOperationsInput | string | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    issue_description?: NullableStringFieldUpdateOperationsInput | string | null
+    business_impact?: NullableStringFieldUpdateOperationsInput | string | null
+    plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plant_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    percent_done?: NullableStringFieldUpdateOperationsInput | string | null
+    auto_percent_done?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_projectUncheckedUpdateWithoutMst_groupInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    request_id?: NullableIntFieldUpdateOperationsInput | number | null
+    application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_code?: NullableStringFieldUpdateOperationsInput | string | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    issue_description?: NullableStringFieldUpdateOperationsInput | string | null
+    business_impact?: NullableStringFieldUpdateOperationsInput | string | null
+    plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plant_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    percent_done?: NullableStringFieldUpdateOperationsInput | string | null
+    auto_percent_done?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_projectUncheckedUpdateManyWithoutMst_groupInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    request_id?: NullableIntFieldUpdateOperationsInput | number | null
+    application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_code?: NullableStringFieldUpdateOperationsInput | string | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    issue_description?: NullableStringFieldUpdateOperationsInput | string | null
+    business_impact?: NullableStringFieldUpdateOperationsInput | string | null
+    plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plant_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    percent_done?: NullableStringFieldUpdateOperationsInput | string | null
+    auto_percent_done?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type mst_authorizationCreateManyMst_profileInput = {
+    id?: number
+    employee_code?: string | null
+    employee_name?: string | null
+    is_active?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    technician_level?: string | null
+    active_entities?: number | null
+    is_deleted?: boolean | null
+  }
+
+  export type mst_authorization_profileCreateManyMst_profileInput = {
+    id?: number
+    employee_code?: string | null
+    entities_id?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type mst_authorizationUpdateWithoutMst_profileInput = {
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    technician_level?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    mst_entities?: mst_entitiesUpdateOneWithoutMst_authorizationNestedInput
+  }
+
+  export type mst_authorizationUncheckedUpdateWithoutMst_profileInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    technician_level?: NullableStringFieldUpdateOperationsInput | string | null
+    active_entities?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type mst_authorizationUncheckedUpdateManyWithoutMst_profileInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    technician_level?: NullableStringFieldUpdateOperationsInput | string | null
+    active_entities?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type mst_authorization_profileUpdateWithoutMst_profileInput = {
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    entities_id?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type mst_authorization_profileUncheckedUpdateWithoutMst_profileInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    entities_id?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type mst_authorization_profileUncheckedUpdateManyWithoutMst_profileInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    entities_id?: NullableIntFieldUpdateOperationsInput | number | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -26700,6 +29662,18 @@ export namespace Prisma {
   /**
    * Aliases for legacy arg types
    */
+    /**
+     * @deprecated Use Mst_entitiesCountOutputTypeDefaultArgs instead
+     */
+    export type Mst_entitiesCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Mst_entitiesCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use Mst_groupCountOutputTypeDefaultArgs instead
+     */
+    export type Mst_groupCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Mst_groupCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use Mst_profileCountOutputTypeDefaultArgs instead
+     */
+    export type Mst_profileCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Mst_profileCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use Tr_requestCountOutputTypeDefaultArgs instead
      */
@@ -26788,6 +29762,10 @@ export namespace Prisma {
      * @deprecated Use tr_request_validationDefaultArgs instead
      */
     export type tr_request_validationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = tr_request_validationDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use mst_roleDefaultArgs instead
+     */
+    export type mst_roleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = mst_roleDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

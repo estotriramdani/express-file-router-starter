@@ -2,7 +2,7 @@ import { db1 } from "../../../utils/db1";
 import { Response, Request } from "express";
 import { authenticateJWT } from '../../../middlewares/bearerToken';
 
-export const get =[authenticateJWT, async (req: Request, res: Response) => {
+export const get =[ async (req: Request, res: Response) => {
   if (req.method !== "GET") return res.status(405);
 
   const data = await db1.mst_authorization.findUnique({
