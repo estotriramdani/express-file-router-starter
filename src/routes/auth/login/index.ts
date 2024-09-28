@@ -83,7 +83,8 @@ export const post = async (req: Request, res: Response) => {
         authorization: authorization,
         profile: profile,
         group: group,
-        employment: employment
+        employment: employment,
+        department: employment.deparment_id
       }
 
       const token = jwt.sign(dataUser, JWT_SECRET, {

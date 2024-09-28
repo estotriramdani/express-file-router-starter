@@ -112,6 +112,20 @@ model mst_profile {
   mst_authorization_profile mst_authorization_profile[]
 }
 
+model mst_project_state {
+  id         Int          @id @default(autoincrement())
+  status     String?      @db.VarChar(255)
+  created_at DateTime?    @db.DateTime(0)
+  created_by String?      @db.VarChar(50)
+  tr_project tr_project[]
+}
+
+model mst_role {
+  id         Int      @id @default(autoincrement())
+  role       String?  @db.VarChar(100)
+  is_deleted Boolean? @default(false)
+}
+
 model tr_document {
   id         Int       @id @default(autoincrement())
   type       String?   @db.VarChar(11)
@@ -119,6 +133,7 @@ model tr_document {
   name       String?   @db.VarChar(255)
   filename   String?   @db.VarChar(255)
   filepath   String?   @db.VarChar(255)
+  filesize   Float?
   mime       String?   @db.VarChar(255)
   is_deleted String?   @default("0") @db.VarChar(255)
   created_at DateTime? @default(now()) @db.DateTime(0)
@@ -140,29 +155,30 @@ model tr_history {
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model tr_project {
-  id                Int                @id @default(autoincrement())
-  request_id        Int?
-  application_id    Int?
-  project_name      String?            @db.VarChar(255)
-  survey_id         Int?
-  project_code      String?            @db.VarChar(255)
-  thumbnail         String?            @db.VarChar(255)
-  background        String?            @db.LongText
-  issue_description String?            @db.LongText
-  business_impact   String?            @db.VarChar(255)
-  group_id          Int?
-  plan_start_date   DateTime?          @db.DateTime(0)
-  plant_end_date    DateTime?          @db.DateTime(0)
-  real_start_date   DateTime?          @db.DateTime(0)
-  real_end_date     DateTime?          @db.DateTime(0)
-  percent_done      String?            @db.VarChar(255)
-  auto_percent_done Boolean?
-  state             Int?
-  is_deleted        String?            @default("0") @db.VarChar(255)
-  created_at        DateTime?          @db.DateTime(0)
-  created_by        String?            @db.VarChar(255)
-  mst_group         mst_group?         @relation(fields: [group_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_master_group")
-  mst_project_state mst_project_state? @relation(fields: [state], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_master_state")
+  id                  Int                @id @default(autoincrement())
+  request_id          Int?
+  application_id      Int?
+  project_name        String?            @db.VarChar(255)
+  survey_id           Int?
+  project_code        String?            @db.VarChar(255)
+  thumbnail           String?            @db.VarChar(255)
+  background          String?            @db.LongText
+  issue_description   String?            @db.LongText
+  business_impact     String?            @db.LongText
+  group_id            Int?
+  plan_start_date     DateTime?          @db.DateTime(0)
+  plant_end_date      DateTime?          @db.DateTime(0)
+  real_start_date     DateTime?          @db.DateTime(0)
+  real_end_date       DateTime?          @db.DateTime(0)
+  expected_completion DateTime?          @db.DateTime(0)
+  percent_done        String?            @db.VarChar(255)
+  auto_percent_done   Boolean?
+  state               Int?
+  is_deleted          String?            @default("0") @db.VarChar(255)
+  created_at          DateTime?          @db.DateTime(0)
+  created_by          String?            @db.VarChar(255)
+  mst_group           mst_group?         @relation(fields: [group_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_master_group")
+  mst_project_state   mst_project_state? @relation(fields: [state], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_master_state")
 
   @@index([group_id], map: "fk_master_group")
   @@index([state], map: "fk_master_state")
@@ -196,7 +212,8 @@ model tr_project_participant {
   project_id    Int?
   employee_code String?   @db.VarChar(10)
   role          String?   @db.VarChar(255)
-  created_at    DateTime? @db.DateTime(0)
+  is_deleted    Boolean?  @default(false)
+  created_at    DateTime? @default(now()) @db.DateTime(0)
   created_by    String?   @db.VarChar(255)
 }
 
@@ -241,10 +258,11 @@ model tr_project_task {
 }
 
 model tr_project_team {
-  id            Int       @id
+  id            Int       @id @default(autoincrement())
   project_id    Int?
   employee_code String?   @db.VarChar(10)
-  created_at    DateTime? @db.DateTime(0)
+  is_deleted    Boolean?  @default(false)
+  created_at    DateTime? @default(now()) @db.DateTime(0)
   created_by    String?   @db.VarChar(255)
 }
 
@@ -272,6 +290,7 @@ model tr_request {
   tr_request_validation    tr_request_validation[]
 }
 
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model tr_request_validation {
   id                 Int         @id @default(autoincrement())
   request_id         Int?
@@ -285,18 +304,4 @@ model tr_request_validation {
   tr_request         tr_request? @relation(fields: [request_id], references: [id], onUpdate: SetNull, map: "FK_REQUEST")
 
   @@index([request_id], map: "FK_REQUEST")
-}
-
-model mst_role {
-  id         Int      @id @default(autoincrement())
-  role       String?  @db.VarChar(100)
-  is_deleted Boolean? @default(false)
-}
-
-model mst_project_state {
-  id         Int          @id @default(autoincrement())
-  status     String?      @db.VarChar(255)
-  created_at DateTime?    @db.DateTime(0)
-  created_by String?      @db.VarChar(50)
-  tr_project tr_project[]
 }
