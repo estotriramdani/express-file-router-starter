@@ -118,6 +118,11 @@ export type tr_request = $Result.DefaultSelection<Prisma.$tr_requestPayload>
  * 
  */
 export type tr_request_validation = $Result.DefaultSelection<Prisma.$tr_request_validationPayload>
+/**
+ * Model mst_role
+ * 
+ */
+export type mst_role = $Result.DefaultSelection<Prisma.$mst_rolePayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -451,6 +456,16 @@ export class PrismaClient<
     * ```
     */
   get tr_request_validation(): Prisma.tr_request_validationDelegate<ExtArgs>;
+
+  /**
+   * `prisma.mst_role`: Exposes CRUD operations for the **mst_role** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Mst_roles
+    * const mst_roles = await prisma.mst_role.findMany()
+    * ```
+    */
+  get mst_role(): Prisma.mst_roleDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -910,7 +925,8 @@ export namespace Prisma {
     tr_project_task: 'tr_project_task',
     tr_project_team: 'tr_project_team',
     tr_request: 'tr_request',
-    tr_request_validation: 'tr_request_validation'
+    tr_request_validation: 'tr_request_validation',
+    mst_role: 'mst_role'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -926,7 +942,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "mst_application" | "mst_application_version" | "mst_authorization" | "mst_authorization_profile" | "mst_authorization_usergroup" | "mst_entities" | "mst_group" | "mst_manpower_cost" | "mst_profile" | "tr_document" | "tr_history" | "tr_project" | "tr_project_activity" | "tr_project_overview" | "tr_project_participant" | "tr_project_risk_mitigation" | "tr_project_scope" | "tr_project_task" | "tr_project_team" | "tr_request" | "tr_request_validation"
+      modelProps: "mst_application" | "mst_application_version" | "mst_authorization" | "mst_authorization_profile" | "mst_authorization_usergroup" | "mst_entities" | "mst_group" | "mst_manpower_cost" | "mst_profile" | "tr_document" | "tr_history" | "tr_project" | "tr_project_activity" | "tr_project_overview" | "tr_project_participant" | "tr_project_risk_mitigation" | "tr_project_scope" | "tr_project_task" | "tr_project_team" | "tr_request" | "tr_request_validation" | "mst_role"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2313,6 +2329,72 @@ export namespace Prisma {
           count: {
             args: Prisma.tr_request_validationCountArgs<ExtArgs>
             result: $Utils.Optional<Tr_request_validationCountAggregateOutputType> | number
+          }
+        }
+      }
+      mst_role: {
+        payload: Prisma.$mst_rolePayload<ExtArgs>
+        fields: Prisma.mst_roleFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.mst_roleFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.mst_roleFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
+          }
+          findFirst: {
+            args: Prisma.mst_roleFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.mst_roleFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
+          }
+          findMany: {
+            args: Prisma.mst_roleFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>[]
+          }
+          create: {
+            args: Prisma.mst_roleCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
+          }
+          createMany: {
+            args: Prisma.mst_roleCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.mst_roleDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
+          }
+          update: {
+            args: Prisma.mst_roleUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
+          }
+          deleteMany: {
+            args: Prisma.mst_roleDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.mst_roleUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.mst_roleUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
+          }
+          aggregate: {
+            args: Prisma.Mst_roleAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMst_role>
+          }
+          groupBy: {
+            args: Prisma.mst_roleGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Mst_roleGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.mst_roleCountArgs<ExtArgs>
+            result: $Utils.Optional<Mst_roleCountAggregateOutputType> | number
           }
         }
       }
@@ -12892,6 +12974,7 @@ export namespace Prisma {
     id: number | null
     request_id: number | null
     application_id: number | null
+    survey_id: number | null
     group_id: number | null
   }
 
@@ -12899,6 +12982,7 @@ export namespace Prisma {
     id: number | null
     request_id: number | null
     application_id: number | null
+    survey_id: number | null
     group_id: number | null
   }
 
@@ -12906,6 +12990,7 @@ export namespace Prisma {
     id: number | null
     request_id: number | null
     application_id: number | null
+    survey_id: number | null
     project_code: string | null
     background: string | null
     issue_description: string | null
@@ -12927,6 +13012,7 @@ export namespace Prisma {
     id: number | null
     request_id: number | null
     application_id: number | null
+    survey_id: number | null
     project_code: string | null
     background: string | null
     issue_description: string | null
@@ -12948,6 +13034,7 @@ export namespace Prisma {
     id: number
     request_id: number
     application_id: number
+    survey_id: number
     project_code: number
     background: number
     issue_description: number
@@ -12971,6 +13058,7 @@ export namespace Prisma {
     id?: true
     request_id?: true
     application_id?: true
+    survey_id?: true
     group_id?: true
   }
 
@@ -12978,6 +13066,7 @@ export namespace Prisma {
     id?: true
     request_id?: true
     application_id?: true
+    survey_id?: true
     group_id?: true
   }
 
@@ -12985,6 +13074,7 @@ export namespace Prisma {
     id?: true
     request_id?: true
     application_id?: true
+    survey_id?: true
     project_code?: true
     background?: true
     issue_description?: true
@@ -13006,6 +13096,7 @@ export namespace Prisma {
     id?: true
     request_id?: true
     application_id?: true
+    survey_id?: true
     project_code?: true
     background?: true
     issue_description?: true
@@ -13027,6 +13118,7 @@ export namespace Prisma {
     id?: true
     request_id?: true
     application_id?: true
+    survey_id?: true
     project_code?: true
     background?: true
     issue_description?: true
@@ -13135,6 +13227,7 @@ export namespace Prisma {
     id: number
     request_id: number | null
     application_id: number | null
+    survey_id: number | null
     project_code: string | null
     background: string | null
     issue_description: string | null
@@ -13175,6 +13268,7 @@ export namespace Prisma {
     id?: boolean
     request_id?: boolean
     application_id?: boolean
+    survey_id?: boolean
     project_code?: boolean
     background?: boolean
     issue_description?: boolean
@@ -13198,6 +13292,7 @@ export namespace Prisma {
     id?: boolean
     request_id?: boolean
     application_id?: boolean
+    survey_id?: boolean
     project_code?: boolean
     background?: boolean
     issue_description?: boolean
@@ -13228,6 +13323,7 @@ export namespace Prisma {
       id: number
       request_id: number | null
       application_id: number | null
+      survey_id: number | null
       project_code: string | null
       background: string | null
       issue_description: string | null
@@ -13616,6 +13712,7 @@ export namespace Prisma {
     readonly id: FieldRef<"tr_project", 'Int'>
     readonly request_id: FieldRef<"tr_project", 'Int'>
     readonly application_id: FieldRef<"tr_project", 'Int'>
+    readonly survey_id: FieldRef<"tr_project", 'Int'>
     readonly project_code: FieldRef<"tr_project", 'String'>
     readonly background: FieldRef<"tr_project", 'String'>
     readonly issue_description: FieldRef<"tr_project", 'String'>
@@ -22354,6 +22451,839 @@ export namespace Prisma {
 
 
   /**
+   * Model mst_role
+   */
+
+  export type AggregateMst_role = {
+    _count: Mst_roleCountAggregateOutputType | null
+    _avg: Mst_roleAvgAggregateOutputType | null
+    _sum: Mst_roleSumAggregateOutputType | null
+    _min: Mst_roleMinAggregateOutputType | null
+    _max: Mst_roleMaxAggregateOutputType | null
+  }
+
+  export type Mst_roleAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type Mst_roleSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type Mst_roleMinAggregateOutputType = {
+    id: number | null
+    role: string | null
+  }
+
+  export type Mst_roleMaxAggregateOutputType = {
+    id: number | null
+    role: string | null
+  }
+
+  export type Mst_roleCountAggregateOutputType = {
+    id: number
+    role: number
+    _all: number
+  }
+
+
+  export type Mst_roleAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type Mst_roleSumAggregateInputType = {
+    id?: true
+  }
+
+  export type Mst_roleMinAggregateInputType = {
+    id?: true
+    role?: true
+  }
+
+  export type Mst_roleMaxAggregateInputType = {
+    id?: true
+    role?: true
+  }
+
+  export type Mst_roleCountAggregateInputType = {
+    id?: true
+    role?: true
+    _all?: true
+  }
+
+  export type Mst_roleAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which mst_role to aggregate.
+     */
+    where?: mst_roleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of mst_roles to fetch.
+     */
+    orderBy?: mst_roleOrderByWithRelationInput | mst_roleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: mst_roleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` mst_roles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` mst_roles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned mst_roles
+    **/
+    _count?: true | Mst_roleCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Mst_roleAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Mst_roleSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Mst_roleMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Mst_roleMaxAggregateInputType
+  }
+
+  export type GetMst_roleAggregateType<T extends Mst_roleAggregateArgs> = {
+        [P in keyof T & keyof AggregateMst_role]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMst_role[P]>
+      : GetScalarType<T[P], AggregateMst_role[P]>
+  }
+
+
+
+
+  export type mst_roleGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: mst_roleWhereInput
+    orderBy?: mst_roleOrderByWithAggregationInput | mst_roleOrderByWithAggregationInput[]
+    by: Mst_roleScalarFieldEnum[] | Mst_roleScalarFieldEnum
+    having?: mst_roleScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Mst_roleCountAggregateInputType | true
+    _avg?: Mst_roleAvgAggregateInputType
+    _sum?: Mst_roleSumAggregateInputType
+    _min?: Mst_roleMinAggregateInputType
+    _max?: Mst_roleMaxAggregateInputType
+  }
+
+  export type Mst_roleGroupByOutputType = {
+    id: number
+    role: string | null
+    _count: Mst_roleCountAggregateOutputType | null
+    _avg: Mst_roleAvgAggregateOutputType | null
+    _sum: Mst_roleSumAggregateOutputType | null
+    _min: Mst_roleMinAggregateOutputType | null
+    _max: Mst_roleMaxAggregateOutputType | null
+  }
+
+  type GetMst_roleGroupByPayload<T extends mst_roleGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Mst_roleGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Mst_roleGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Mst_roleGroupByOutputType[P]>
+            : GetScalarType<T[P], Mst_roleGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type mst_roleSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    role?: boolean
+  }, ExtArgs["result"]["mst_role"]>
+
+
+  export type mst_roleSelectScalar = {
+    id?: boolean
+    role?: boolean
+  }
+
+
+  export type $mst_rolePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "mst_role"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      role: string | null
+    }, ExtArgs["result"]["mst_role"]>
+    composites: {}
+  }
+
+  type mst_roleGetPayload<S extends boolean | null | undefined | mst_roleDefaultArgs> = $Result.GetResult<Prisma.$mst_rolePayload, S>
+
+  type mst_roleCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<mst_roleFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: Mst_roleCountAggregateInputType | true
+    }
+
+  export interface mst_roleDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['mst_role'], meta: { name: 'mst_role' } }
+    /**
+     * Find zero or one Mst_role that matches the filter.
+     * @param {mst_roleFindUniqueArgs} args - Arguments to find a Mst_role
+     * @example
+     * // Get one Mst_role
+     * const mst_role = await prisma.mst_role.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends mst_roleFindUniqueArgs>(args: SelectSubset<T, mst_roleFindUniqueArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Mst_role that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {mst_roleFindUniqueOrThrowArgs} args - Arguments to find a Mst_role
+     * @example
+     * // Get one Mst_role
+     * const mst_role = await prisma.mst_role.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends mst_roleFindUniqueOrThrowArgs>(args: SelectSubset<T, mst_roleFindUniqueOrThrowArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Mst_role that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_roleFindFirstArgs} args - Arguments to find a Mst_role
+     * @example
+     * // Get one Mst_role
+     * const mst_role = await prisma.mst_role.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends mst_roleFindFirstArgs>(args?: SelectSubset<T, mst_roleFindFirstArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Mst_role that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_roleFindFirstOrThrowArgs} args - Arguments to find a Mst_role
+     * @example
+     * // Get one Mst_role
+     * const mst_role = await prisma.mst_role.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends mst_roleFindFirstOrThrowArgs>(args?: SelectSubset<T, mst_roleFindFirstOrThrowArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Mst_roles that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_roleFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Mst_roles
+     * const mst_roles = await prisma.mst_role.findMany()
+     * 
+     * // Get first 10 Mst_roles
+     * const mst_roles = await prisma.mst_role.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const mst_roleWithIdOnly = await prisma.mst_role.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends mst_roleFindManyArgs>(args?: SelectSubset<T, mst_roleFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Mst_role.
+     * @param {mst_roleCreateArgs} args - Arguments to create a Mst_role.
+     * @example
+     * // Create one Mst_role
+     * const Mst_role = await prisma.mst_role.create({
+     *   data: {
+     *     // ... data to create a Mst_role
+     *   }
+     * })
+     * 
+     */
+    create<T extends mst_roleCreateArgs>(args: SelectSubset<T, mst_roleCreateArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Mst_roles.
+     * @param {mst_roleCreateManyArgs} args - Arguments to create many Mst_roles.
+     * @example
+     * // Create many Mst_roles
+     * const mst_role = await prisma.mst_role.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends mst_roleCreateManyArgs>(args?: SelectSubset<T, mst_roleCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Mst_role.
+     * @param {mst_roleDeleteArgs} args - Arguments to delete one Mst_role.
+     * @example
+     * // Delete one Mst_role
+     * const Mst_role = await prisma.mst_role.delete({
+     *   where: {
+     *     // ... filter to delete one Mst_role
+     *   }
+     * })
+     * 
+     */
+    delete<T extends mst_roleDeleteArgs>(args: SelectSubset<T, mst_roleDeleteArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Mst_role.
+     * @param {mst_roleUpdateArgs} args - Arguments to update one Mst_role.
+     * @example
+     * // Update one Mst_role
+     * const mst_role = await prisma.mst_role.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends mst_roleUpdateArgs>(args: SelectSubset<T, mst_roleUpdateArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Mst_roles.
+     * @param {mst_roleDeleteManyArgs} args - Arguments to filter Mst_roles to delete.
+     * @example
+     * // Delete a few Mst_roles
+     * const { count } = await prisma.mst_role.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends mst_roleDeleteManyArgs>(args?: SelectSubset<T, mst_roleDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Mst_roles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_roleUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Mst_roles
+     * const mst_role = await prisma.mst_role.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends mst_roleUpdateManyArgs>(args: SelectSubset<T, mst_roleUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Mst_role.
+     * @param {mst_roleUpsertArgs} args - Arguments to update or create a Mst_role.
+     * @example
+     * // Update or create a Mst_role
+     * const mst_role = await prisma.mst_role.upsert({
+     *   create: {
+     *     // ... data to create a Mst_role
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Mst_role we want to update
+     *   }
+     * })
+     */
+    upsert<T extends mst_roleUpsertArgs>(args: SelectSubset<T, mst_roleUpsertArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Mst_roles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_roleCountArgs} args - Arguments to filter Mst_roles to count.
+     * @example
+     * // Count the number of Mst_roles
+     * const count = await prisma.mst_role.count({
+     *   where: {
+     *     // ... the filter for the Mst_roles we want to count
+     *   }
+     * })
+    **/
+    count<T extends mst_roleCountArgs>(
+      args?: Subset<T, mst_roleCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Mst_roleCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Mst_role.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Mst_roleAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Mst_roleAggregateArgs>(args: Subset<T, Mst_roleAggregateArgs>): Prisma.PrismaPromise<GetMst_roleAggregateType<T>>
+
+    /**
+     * Group by Mst_role.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_roleGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends mst_roleGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: mst_roleGroupByArgs['orderBy'] }
+        : { orderBy?: mst_roleGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, mst_roleGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMst_roleGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the mst_role model
+   */
+  readonly fields: mst_roleFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for mst_role.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__mst_roleClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the mst_role model
+   */ 
+  interface mst_roleFieldRefs {
+    readonly id: FieldRef<"mst_role", 'Int'>
+    readonly role: FieldRef<"mst_role", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * mst_role findUnique
+   */
+  export type mst_roleFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * Filter, which mst_role to fetch.
+     */
+    where: mst_roleWhereUniqueInput
+  }
+
+  /**
+   * mst_role findUniqueOrThrow
+   */
+  export type mst_roleFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * Filter, which mst_role to fetch.
+     */
+    where: mst_roleWhereUniqueInput
+  }
+
+  /**
+   * mst_role findFirst
+   */
+  export type mst_roleFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * Filter, which mst_role to fetch.
+     */
+    where?: mst_roleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of mst_roles to fetch.
+     */
+    orderBy?: mst_roleOrderByWithRelationInput | mst_roleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for mst_roles.
+     */
+    cursor?: mst_roleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` mst_roles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` mst_roles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of mst_roles.
+     */
+    distinct?: Mst_roleScalarFieldEnum | Mst_roleScalarFieldEnum[]
+  }
+
+  /**
+   * mst_role findFirstOrThrow
+   */
+  export type mst_roleFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * Filter, which mst_role to fetch.
+     */
+    where?: mst_roleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of mst_roles to fetch.
+     */
+    orderBy?: mst_roleOrderByWithRelationInput | mst_roleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for mst_roles.
+     */
+    cursor?: mst_roleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` mst_roles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` mst_roles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of mst_roles.
+     */
+    distinct?: Mst_roleScalarFieldEnum | Mst_roleScalarFieldEnum[]
+  }
+
+  /**
+   * mst_role findMany
+   */
+  export type mst_roleFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * Filter, which mst_roles to fetch.
+     */
+    where?: mst_roleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of mst_roles to fetch.
+     */
+    orderBy?: mst_roleOrderByWithRelationInput | mst_roleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing mst_roles.
+     */
+    cursor?: mst_roleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` mst_roles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` mst_roles.
+     */
+    skip?: number
+    distinct?: Mst_roleScalarFieldEnum | Mst_roleScalarFieldEnum[]
+  }
+
+  /**
+   * mst_role create
+   */
+  export type mst_roleCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * The data needed to create a mst_role.
+     */
+    data: XOR<mst_roleCreateInput, mst_roleUncheckedCreateInput>
+  }
+
+  /**
+   * mst_role createMany
+   */
+  export type mst_roleCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many mst_roles.
+     */
+    data: mst_roleCreateManyInput | mst_roleCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * mst_role update
+   */
+  export type mst_roleUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * The data needed to update a mst_role.
+     */
+    data: XOR<mst_roleUpdateInput, mst_roleUncheckedUpdateInput>
+    /**
+     * Choose, which mst_role to update.
+     */
+    where: mst_roleWhereUniqueInput
+  }
+
+  /**
+   * mst_role updateMany
+   */
+  export type mst_roleUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update mst_roles.
+     */
+    data: XOR<mst_roleUpdateManyMutationInput, mst_roleUncheckedUpdateManyInput>
+    /**
+     * Filter which mst_roles to update
+     */
+    where?: mst_roleWhereInput
+  }
+
+  /**
+   * mst_role upsert
+   */
+  export type mst_roleUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * The filter to search for the mst_role to update in case it exists.
+     */
+    where: mst_roleWhereUniqueInput
+    /**
+     * In case the mst_role found by the `where` argument doesn't exist, create a new mst_role with this data.
+     */
+    create: XOR<mst_roleCreateInput, mst_roleUncheckedCreateInput>
+    /**
+     * In case the mst_role was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<mst_roleUpdateInput, mst_roleUncheckedUpdateInput>
+  }
+
+  /**
+   * mst_role delete
+   */
+  export type mst_roleDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * Filter which mst_role to delete.
+     */
+    where: mst_roleWhereUniqueInput
+  }
+
+  /**
+   * mst_role deleteMany
+   */
+  export type mst_roleDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which mst_roles to delete
+     */
+    where?: mst_roleWhereInput
+  }
+
+  /**
+   * mst_role without action
+   */
+  export type mst_roleDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -22512,6 +23442,7 @@ export namespace Prisma {
     id: 'id',
     request_id: 'request_id',
     application_id: 'application_id',
+    survey_id: 'survey_id',
     project_code: 'project_code',
     background: 'background',
     issue_description: 'issue_description',
@@ -22668,6 +23599,14 @@ export namespace Prisma {
   };
 
   export type Tr_request_validationScalarFieldEnum = (typeof Tr_request_validationScalarFieldEnum)[keyof typeof Tr_request_validationScalarFieldEnum]
+
+
+  export const Mst_roleScalarFieldEnum: {
+    id: 'id',
+    role: 'role'
+  };
+
+  export type Mst_roleScalarFieldEnum = (typeof Mst_roleScalarFieldEnum)[keyof typeof Mst_roleScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -23464,6 +24403,7 @@ export namespace Prisma {
     id?: IntFilter<"tr_project"> | number
     request_id?: IntNullableFilter<"tr_project"> | number | null
     application_id?: IntNullableFilter<"tr_project"> | number | null
+    survey_id?: IntNullableFilter<"tr_project"> | number | null
     project_code?: StringNullableFilter<"tr_project"> | string | null
     background?: StringNullableFilter<"tr_project"> | string | null
     issue_description?: StringNullableFilter<"tr_project"> | string | null
@@ -23486,6 +24426,7 @@ export namespace Prisma {
     id?: SortOrder
     request_id?: SortOrderInput | SortOrder
     application_id?: SortOrderInput | SortOrder
+    survey_id?: SortOrderInput | SortOrder
     project_code?: SortOrderInput | SortOrder
     background?: SortOrderInput | SortOrder
     issue_description?: SortOrderInput | SortOrder
@@ -23511,6 +24452,7 @@ export namespace Prisma {
     NOT?: tr_projectWhereInput | tr_projectWhereInput[]
     request_id?: IntNullableFilter<"tr_project"> | number | null
     application_id?: IntNullableFilter<"tr_project"> | number | null
+    survey_id?: IntNullableFilter<"tr_project"> | number | null
     project_code?: StringNullableFilter<"tr_project"> | string | null
     background?: StringNullableFilter<"tr_project"> | string | null
     issue_description?: StringNullableFilter<"tr_project"> | string | null
@@ -23533,6 +24475,7 @@ export namespace Prisma {
     id?: SortOrder
     request_id?: SortOrderInput | SortOrder
     application_id?: SortOrderInput | SortOrder
+    survey_id?: SortOrderInput | SortOrder
     project_code?: SortOrderInput | SortOrder
     background?: SortOrderInput | SortOrder
     issue_description?: SortOrderInput | SortOrder
@@ -23562,6 +24505,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"tr_project"> | number
     request_id?: IntNullableWithAggregatesFilter<"tr_project"> | number | null
     application_id?: IntNullableWithAggregatesFilter<"tr_project"> | number | null
+    survey_id?: IntNullableWithAggregatesFilter<"tr_project"> | number | null
     project_code?: StringNullableWithAggregatesFilter<"tr_project"> | string | null
     background?: StringNullableWithAggregatesFilter<"tr_project"> | string | null
     issue_description?: StringNullableWithAggregatesFilter<"tr_project"> | string | null
@@ -24264,6 +25208,45 @@ export namespace Prisma {
     status?: StringNullableWithAggregatesFilter<"tr_request_validation"> | string | null
     submission_date?: DateTimeNullableWithAggregatesFilter<"tr_request_validation"> | Date | string | null
     validation_date?: DateTimeNullableWithAggregatesFilter<"tr_request_validation"> | Date | string | null
+  }
+
+  export type mst_roleWhereInput = {
+    AND?: mst_roleWhereInput | mst_roleWhereInput[]
+    OR?: mst_roleWhereInput[]
+    NOT?: mst_roleWhereInput | mst_roleWhereInput[]
+    id?: IntFilter<"mst_role"> | number
+    role?: StringNullableFilter<"mst_role"> | string | null
+  }
+
+  export type mst_roleOrderByWithRelationInput = {
+    id?: SortOrder
+    role?: SortOrderInput | SortOrder
+  }
+
+  export type mst_roleWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: mst_roleWhereInput | mst_roleWhereInput[]
+    OR?: mst_roleWhereInput[]
+    NOT?: mst_roleWhereInput | mst_roleWhereInput[]
+    role?: StringNullableFilter<"mst_role"> | string | null
+  }, "id">
+
+  export type mst_roleOrderByWithAggregationInput = {
+    id?: SortOrder
+    role?: SortOrderInput | SortOrder
+    _count?: mst_roleCountOrderByAggregateInput
+    _avg?: mst_roleAvgOrderByAggregateInput
+    _max?: mst_roleMaxOrderByAggregateInput
+    _min?: mst_roleMinOrderByAggregateInput
+    _sum?: mst_roleSumOrderByAggregateInput
+  }
+
+  export type mst_roleScalarWhereWithAggregatesInput = {
+    AND?: mst_roleScalarWhereWithAggregatesInput | mst_roleScalarWhereWithAggregatesInput[]
+    OR?: mst_roleScalarWhereWithAggregatesInput[]
+    NOT?: mst_roleScalarWhereWithAggregatesInput | mst_roleScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"mst_role"> | number
+    role?: StringNullableWithAggregatesFilter<"mst_role"> | string | null
   }
 
   export type mst_applicationCreateInput = {
@@ -25008,6 +25991,7 @@ export namespace Prisma {
   export type tr_projectCreateInput = {
     request_id?: number | null
     application_id?: number | null
+    survey_id?: number | null
     project_code?: string | null
     background?: string | null
     issue_description?: string | null
@@ -25029,6 +26013,7 @@ export namespace Prisma {
     id?: number
     request_id?: number | null
     application_id?: number | null
+    survey_id?: number | null
     project_code?: string | null
     background?: string | null
     issue_description?: string | null
@@ -25049,6 +26034,7 @@ export namespace Prisma {
   export type tr_projectUpdateInput = {
     request_id?: NullableIntFieldUpdateOperationsInput | number | null
     application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    survey_id?: NullableIntFieldUpdateOperationsInput | number | null
     project_code?: NullableStringFieldUpdateOperationsInput | string | null
     background?: NullableStringFieldUpdateOperationsInput | string | null
     issue_description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -25070,6 +26056,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     request_id?: NullableIntFieldUpdateOperationsInput | number | null
     application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    survey_id?: NullableIntFieldUpdateOperationsInput | number | null
     project_code?: NullableStringFieldUpdateOperationsInput | string | null
     background?: NullableStringFieldUpdateOperationsInput | string | null
     issue_description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -25091,6 +26078,7 @@ export namespace Prisma {
     id?: number
     request_id?: number | null
     application_id?: number | null
+    survey_id?: number | null
     project_code?: string | null
     background?: string | null
     issue_description?: string | null
@@ -25111,6 +26099,7 @@ export namespace Prisma {
   export type tr_projectUpdateManyMutationInput = {
     request_id?: NullableIntFieldUpdateOperationsInput | number | null
     application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    survey_id?: NullableIntFieldUpdateOperationsInput | number | null
     project_code?: NullableStringFieldUpdateOperationsInput | string | null
     background?: NullableStringFieldUpdateOperationsInput | string | null
     issue_description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -25131,6 +26120,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     request_id?: NullableIntFieldUpdateOperationsInput | number | null
     application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    survey_id?: NullableIntFieldUpdateOperationsInput | number | null
     project_code?: NullableStringFieldUpdateOperationsInput | string | null
     background?: NullableStringFieldUpdateOperationsInput | string | null
     issue_description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -25907,6 +26897,41 @@ export namespace Prisma {
     validation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
+  export type mst_roleCreateInput = {
+    id: number
+    role?: string | null
+  }
+
+  export type mst_roleUncheckedCreateInput = {
+    id: number
+    role?: string | null
+  }
+
+  export type mst_roleUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type mst_roleUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type mst_roleCreateManyInput = {
+    id: number
+    role?: string | null
+  }
+
+  export type mst_roleUpdateManyMutationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type mst_roleUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -26532,6 +27557,7 @@ export namespace Prisma {
     id?: SortOrder
     request_id?: SortOrder
     application_id?: SortOrder
+    survey_id?: SortOrder
     project_code?: SortOrder
     background?: SortOrder
     issue_description?: SortOrder
@@ -26553,6 +27579,7 @@ export namespace Prisma {
     id?: SortOrder
     request_id?: SortOrder
     application_id?: SortOrder
+    survey_id?: SortOrder
     group_id?: SortOrder
   }
 
@@ -26560,6 +27587,7 @@ export namespace Prisma {
     id?: SortOrder
     request_id?: SortOrder
     application_id?: SortOrder
+    survey_id?: SortOrder
     project_code?: SortOrder
     background?: SortOrder
     issue_description?: SortOrder
@@ -26581,6 +27609,7 @@ export namespace Prisma {
     id?: SortOrder
     request_id?: SortOrder
     application_id?: SortOrder
+    survey_id?: SortOrder
     project_code?: SortOrder
     background?: SortOrder
     issue_description?: SortOrder
@@ -26602,6 +27631,7 @@ export namespace Prisma {
     id?: SortOrder
     request_id?: SortOrder
     application_id?: SortOrder
+    survey_id?: SortOrder
     group_id?: SortOrder
   }
 
@@ -27072,6 +28102,29 @@ export namespace Prisma {
     request_id?: SortOrder
   }
 
+  export type mst_roleCountOrderByAggregateInput = {
+    id?: SortOrder
+    role?: SortOrder
+  }
+
+  export type mst_roleAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type mst_roleMaxOrderByAggregateInput = {
+    id?: SortOrder
+    role?: SortOrder
+  }
+
+  export type mst_roleMinOrderByAggregateInput = {
+    id?: SortOrder
+    role?: SortOrder
+  }
+
+  export type mst_roleSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
   }
@@ -27276,8 +28329,6 @@ export namespace Prisma {
     deleteMany?: mst_authorization_usergroupScalarWhereInput | mst_authorization_usergroupScalarWhereInput[]
   }
 
-<<<<<<< HEAD
-=======
   export type tr_projectUncheckedUpdateManyWithoutMst_groupNestedInput = {
     create?: XOR<tr_projectCreateWithoutMst_groupInput, tr_projectUncheckedCreateWithoutMst_groupInput> | tr_projectCreateWithoutMst_groupInput[] | tr_projectUncheckedCreateWithoutMst_groupInput[]
     connectOrCreate?: tr_projectCreateOrConnectWithoutMst_groupInput | tr_projectCreateOrConnectWithoutMst_groupInput[]
@@ -27292,7 +28343,6 @@ export namespace Prisma {
     deleteMany?: tr_projectScalarWhereInput | tr_projectScalarWhereInput[]
   }
 
->>>>>>> 5fa1a175691145993ca1ff45463e3e0baab93ce8
   export type mst_authorizationCreateNestedManyWithoutMst_profileInput = {
     create?: XOR<mst_authorizationCreateWithoutMst_profileInput, mst_authorizationUncheckedCreateWithoutMst_profileInput> | mst_authorizationCreateWithoutMst_profileInput[] | mst_authorizationUncheckedCreateWithoutMst_profileInput[]
     connectOrCreate?: mst_authorizationCreateOrConnectWithoutMst_profileInput | mst_authorizationCreateOrConnectWithoutMst_profileInput[]
@@ -27900,71 +28950,6 @@ export namespace Prisma {
     is_deleted?: BoolNullableFilter<"mst_authorization"> | boolean | null
   }
 
-  export type mst_authorizationCreateWithoutMst_entitiesInput = {
-    employee_code?: string | null
-    employee_name?: string | null
-    is_active?: string | null
-    created_at?: Date | string | null
-    created_by?: string | null
-    technician_level?: string | null
-    is_deleted?: boolean | null
-    mst_profile?: mst_profileCreateNestedOneWithoutMst_authorizationInput
-  }
-
-  export type mst_authorizationUncheckedCreateWithoutMst_entitiesInput = {
-    id?: number
-    employee_code?: string | null
-    employee_name?: string | null
-    is_active?: string | null
-    created_at?: Date | string | null
-    created_by?: string | null
-    technician_level?: string | null
-    active_profile?: number | null
-    is_deleted?: boolean | null
-  }
-
-  export type mst_authorizationCreateOrConnectWithoutMst_entitiesInput = {
-    where: mst_authorizationWhereUniqueInput
-    create: XOR<mst_authorizationCreateWithoutMst_entitiesInput, mst_authorizationUncheckedCreateWithoutMst_entitiesInput>
-  }
-
-  export type mst_authorizationCreateManyMst_entitiesInputEnvelope = {
-    data: mst_authorizationCreateManyMst_entitiesInput | mst_authorizationCreateManyMst_entitiesInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type mst_authorizationUpsertWithWhereUniqueWithoutMst_entitiesInput = {
-    where: mst_authorizationWhereUniqueInput
-    update: XOR<mst_authorizationUpdateWithoutMst_entitiesInput, mst_authorizationUncheckedUpdateWithoutMst_entitiesInput>
-    create: XOR<mst_authorizationCreateWithoutMst_entitiesInput, mst_authorizationUncheckedCreateWithoutMst_entitiesInput>
-  }
-
-  export type mst_authorizationUpdateWithWhereUniqueWithoutMst_entitiesInput = {
-    where: mst_authorizationWhereUniqueInput
-    data: XOR<mst_authorizationUpdateWithoutMst_entitiesInput, mst_authorizationUncheckedUpdateWithoutMst_entitiesInput>
-  }
-
-  export type mst_authorizationUpdateManyWithWhereWithoutMst_entitiesInput = {
-    where: mst_authorizationScalarWhereInput
-    data: XOR<mst_authorizationUpdateManyMutationInput, mst_authorizationUncheckedUpdateManyWithoutMst_entitiesInput>
-  }
-
-  export type mst_authorizationScalarWhereInput = {
-    AND?: mst_authorizationScalarWhereInput | mst_authorizationScalarWhereInput[]
-    OR?: mst_authorizationScalarWhereInput[]
-    NOT?: mst_authorizationScalarWhereInput | mst_authorizationScalarWhereInput[]
-    id?: IntFilter<"mst_authorization"> | number
-    employee_code?: StringNullableFilter<"mst_authorization"> | string | null
-    employee_name?: StringNullableFilter<"mst_authorization"> | string | null
-    is_active?: StringNullableFilter<"mst_authorization"> | string | null
-    created_at?: DateTimeNullableFilter<"mst_authorization"> | Date | string | null
-    created_by?: StringNullableFilter<"mst_authorization"> | string | null
-    technician_level?: StringNullableFilter<"mst_authorization"> | string | null
-    active_profile?: IntNullableFilter<"mst_authorization"> | number | null
-    active_entities?: IntNullableFilter<"mst_authorization"> | number | null
-    is_deleted?: BoolNullableFilter<"mst_authorization"> | boolean | null
-  }
-
   export type mst_authorization_usergroupCreateWithoutMst_groupInput = {
     employee_code?: string | null
     is_manager?: string | null
@@ -27993,6 +28978,7 @@ export namespace Prisma {
   export type tr_projectCreateWithoutMst_groupInput = {
     request_id?: number | null
     application_id?: number | null
+    survey_id?: number | null
     project_code?: string | null
     background?: string | null
     issue_description?: string | null
@@ -28013,6 +28999,7 @@ export namespace Prisma {
     id?: number
     request_id?: number | null
     application_id?: number | null
+    survey_id?: number | null
     project_code?: string | null
     background?: string | null
     issue_description?: string | null
@@ -28067,8 +29054,6 @@ export namespace Prisma {
     created_by?: StringNullableFilter<"mst_authorization_usergroup"> | string | null
   }
 
-<<<<<<< HEAD
-=======
   export type tr_projectUpsertWithWhereUniqueWithoutMst_groupInput = {
     where: tr_projectWhereUniqueInput
     update: XOR<tr_projectUpdateWithoutMst_groupInput, tr_projectUncheckedUpdateWithoutMst_groupInput>
@@ -28092,6 +29077,7 @@ export namespace Prisma {
     id?: IntFilter<"tr_project"> | number
     request_id?: IntNullableFilter<"tr_project"> | number | null
     application_id?: IntNullableFilter<"tr_project"> | number | null
+    survey_id?: IntNullableFilter<"tr_project"> | number | null
     project_code?: StringNullableFilter<"tr_project"> | string | null
     background?: StringNullableFilter<"tr_project"> | string | null
     issue_description?: StringNullableFilter<"tr_project"> | string | null
@@ -28109,7 +29095,6 @@ export namespace Prisma {
     created_by?: StringNullableFilter<"tr_project"> | string | null
   }
 
->>>>>>> 5fa1a175691145993ca1ff45463e3e0baab93ce8
   export type mst_authorizationCreateWithoutMst_profileInput = {
     employee_code?: string | null
     employee_name?: string | null
@@ -28489,6 +29474,7 @@ export namespace Prisma {
     id?: number
     request_id?: number | null
     application_id?: number | null
+    survey_id?: number | null
     project_code?: string | null
     background?: string | null
     issue_description?: string | null
@@ -28528,11 +29514,10 @@ export namespace Prisma {
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-<<<<<<< HEAD
-=======
   export type tr_projectUpdateWithoutMst_groupInput = {
     request_id?: NullableIntFieldUpdateOperationsInput | number | null
     application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    survey_id?: NullableIntFieldUpdateOperationsInput | number | null
     project_code?: NullableStringFieldUpdateOperationsInput | string | null
     background?: NullableStringFieldUpdateOperationsInput | string | null
     issue_description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28553,6 +29538,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     request_id?: NullableIntFieldUpdateOperationsInput | number | null
     application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    survey_id?: NullableIntFieldUpdateOperationsInput | number | null
     project_code?: NullableStringFieldUpdateOperationsInput | string | null
     background?: NullableStringFieldUpdateOperationsInput | string | null
     issue_description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28573,6 +29559,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     request_id?: NullableIntFieldUpdateOperationsInput | number | null
     application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    survey_id?: NullableIntFieldUpdateOperationsInput | number | null
     project_code?: NullableStringFieldUpdateOperationsInput | string | null
     background?: NullableStringFieldUpdateOperationsInput | string | null
     issue_description?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28589,7 +29576,6 @@ export namespace Prisma {
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
->>>>>>> 5fa1a175691145993ca1ff45463e3e0baab93ce8
   export type mst_authorizationCreateManyMst_profileInput = {
     id?: number
     employee_code?: string | null
@@ -28816,6 +29802,10 @@ export namespace Prisma {
      * @deprecated Use tr_request_validationDefaultArgs instead
      */
     export type tr_request_validationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = tr_request_validationDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use mst_roleDefaultArgs instead
+     */
+    export type mst_roleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = mst_roleDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

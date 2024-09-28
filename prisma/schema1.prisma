@@ -143,6 +143,7 @@ model tr_project {
   id                Int        @id @default(autoincrement())
   request_id        Int?
   application_id    Int?
+  survey_id         Int?
   project_code      String?    @db.VarChar(255)
   background        String?    @db.LongText
   issue_description String?    @db.LongText
@@ -155,7 +156,7 @@ model tr_project {
   percent_done      String?    @db.VarChar(255)
   auto_percent_done String?    @db.VarChar(255)
   status            String?    @db.VarChar(255)
-  is_deleted        String?    @db.VarChar(255)
+  is_deleted        String?    @default("0") @db.VarChar(255)
   created_at        DateTime?  @db.DateTime(0)
   created_by        String?    @db.VarChar(255)
   mst_group         mst_group? @relation(fields: [group_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_master_group")
@@ -279,4 +280,9 @@ model tr_request_validation {
   tr_request         tr_request? @relation(fields: [request_id], references: [id], onUpdate: SetNull, map: "FK_REQUEST")
 
   @@index([request_id], map: "FK_REQUEST")
+}
+
+model mst_role {
+  id   Int     @id
+  role String? @db.VarChar(100)
 }

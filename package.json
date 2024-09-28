@@ -12,7 +12,7 @@
     "generate2": "npx prisma generate --schema=./prisma/schema2.prisma",
     "generate3": "npx prisma generate --schema=./prisma/schema3.prisma",
     "start": "bun run --watch src/app.ts",
-    "gas" : "nodemon src/app.ts"
+    "gas": "nodemon src/app.ts"
   },
   "author": "Fauzi Ramdani",
   "license": "ISC",
@@ -26,11 +26,8 @@
     "jsonwebtoken": "^9.0.2",
     "md5": "^2.3.0",
     "moment": "^2.30.1",
-<<<<<<< HEAD
+    "morgan": "^1.10.0",
     "nodemon": "^3.1.7"
-=======
-    "morgan": "^1.10.0"
->>>>>>> 5fa1a175691145993ca1ff45463e3e0baab93ce8
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",

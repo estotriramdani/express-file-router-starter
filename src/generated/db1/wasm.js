@@ -231,6 +231,7 @@ exports.Prisma.Tr_projectScalarFieldEnum = {
   id: 'id',
   request_id: 'request_id',
   application_id: 'application_id',
+  survey_id: 'survey_id',
   project_code: 'project_code',
   background: 'background',
   issue_description: 'issue_description',
@@ -359,6 +360,11 @@ exports.Prisma.Tr_request_validationScalarFieldEnum = {
   validation_date: 'validation_date'
 };
 
+exports.Prisma.Mst_roleScalarFieldEnum = {
+  id: 'id',
+  role: 'role'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -391,7 +397,8 @@ exports.Prisma.ModelName = {
   tr_project_task: 'tr_project_task',
   tr_project_team: 'tr_project_team',
   tr_request: 'tr_request',
-  tr_request_validation: 'tr_request_validation'
+  tr_request_validation: 'tr_request_validation',
+  mst_role: 'mst_role'
 };
 
 /**
