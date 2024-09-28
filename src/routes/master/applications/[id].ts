@@ -3,8 +3,6 @@ import { Response, Request } from "express";
 // import { authenticateJWT } from '../../../middlewares/bearerToken';
 
 export const put = [async (req: Request, res: Response) => {
-  console.log('idParam',req.params.id);
-  console.log('formEdit',req.body.form_data);
   
   try {
     const updateGroup = await db1.mst_application.update({
