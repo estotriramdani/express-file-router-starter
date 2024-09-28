@@ -28,11 +28,17 @@ export const put = [authenticateJWT, async (req: Request, res: Response) => {
 
 export const del = [authenticateJWT, async (req: Request, res: Response) => {
   try {
-    await db1.mst_authorization.delete({
+    console.log(req.params.id)
+    await db1.mst_authorization.update({
       where: { id: parseInt(req.params.id) },
+      data: { is_deleted: true }
     });
-    return res.status(204).end();
+    // return res.status(204).end();
+    return res.status(200).json({
+      success: true,
+    });
   } catch (error) {
+    console.log(error)
     return res.status(500).json({ error: "Failed to delete career area" });
   }
 }];
