@@ -2,12 +2,24 @@ import { Response, Request } from "express";
 import { db1 } from "../../../utils/db1";
 import { authenticateJWT } from '../../../middlewares/bearerToken';
 
-export const get = [authenticateJWT, async (req: Request, res: Response) => {
+export const get = [ authenticateJWT, async (req: Request, res: Response) => {
   if (req.method !== "GET") return res.status(405);
 
   const count = await db1.mst_authorization.count()
-  const users = await db1.mst_authorization.findMany()
-  
+  const users = await db1.mst_authorization.findMany({
+    select: {
+      id:true,
+      employee_code: true,
+      employee_name : true,
+      technician_level: true,
+      mst_entities: true,
+      mst_profile: true
+    },
+    where: {
+      is_deleted : false
+    },
+  });
+
   return res.json({ count, data:users });
 }];
 
@@ -18,7 +30,8 @@ export const post = [authenticateJWT, async (req: Request, res: Response) => {
     });
     
     return res.status(201).json(newUser);
+
   } catch (error) {
-    return res.status(500).json({ error: "Failed to create career area" });
+    return res.status(500).json({ error: "Failed to create user" });
   }
 }];

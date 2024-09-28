@@ -4,6 +4,7 @@ import express, { json, urlencoded } from "express";
 import createRouter, { router } from "express-file-routing";
 import dotenv from "dotenv";
 import fileUpload from "express-fileupload";
+import morgan from 'morgan';
 
 const main = async () => {
   dotenv.config();
@@ -14,6 +15,8 @@ const main = async () => {
   app.use(express.urlencoded({ extended: true }));
   app.use(cors());
   app.use(fileUpload());
+  app.use(morgan('dev')); // Add Morgan middleware
+
 
   const router = express.Router();
 

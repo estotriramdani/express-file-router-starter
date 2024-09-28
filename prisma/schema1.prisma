@@ -32,12 +32,14 @@ model mst_application_version {
 model mst_authorization {
   id               Int           @id @default(autoincrement())
   employee_code    String?       @db.VarChar(255)
+  employee_name    String?       @db.VarChar(255)
   is_active        String?       @db.VarChar(1)
   created_at       DateTime?     @default(now()) @db.DateTime(0)
   created_by       String?       @db.VarChar(255)
   technician_level String?       @db.VarChar(255)
   active_profile   Int?
   active_entities  Int?
+  is_deleted       Boolean?      @default(false)
   mst_entities     mst_entities? @relation(fields: [active_entities], references: [id], onDelete: Cascade, map: "fk_entities")
   mst_profile      mst_profile?  @relation(fields: [active_profile], references: [id], onDelete: Cascade, map: "fk_profile")
 
@@ -88,6 +90,7 @@ model mst_group {
   created_at                  DateTime?                     @default(now()) @db.DateTime(0)
   created_by                  String?                       @db.VarChar(255)
   mst_authorization_usergroup mst_authorization_usergroup[]
+  tr_project                  tr_project[]
 }
 
 model mst_manpower_cost {
@@ -117,7 +120,7 @@ model tr_document {
   filename   String?   @db.VarChar(255)
   filepath   String?   @db.VarChar(255)
   mime       String?   @db.VarChar(255)
-  is_deleted String?   @db.VarChar(255)
+  is_deleted String?   @default("0") @db.VarChar(255)
   created_at DateTime? @default(now()) @db.DateTime(0)
   created_by String?   @db.VarChar(255)
 
@@ -137,24 +140,27 @@ model tr_history {
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model tr_project {
-  id                Int       @id
+  id                Int        @id @default(autoincrement())
   request_id        Int?
   application_id    Int?
-  project_code      String?   @db.VarChar(255)
-  background        String?   @db.VarChar(255)
-  issue_description String?   @db.VarChar(255)
-  business_impact   String?   @db.VarChar(255)
+  project_code      String?    @db.VarChar(255)
+  background        String?    @db.LongText
+  issue_description String?    @db.LongText
+  business_impact   String?    @db.VarChar(255)
   group_id          Int?
-  plan_start_date   DateTime? @db.DateTime(0)
-  plant_end_date    DateTime? @db.DateTime(0)
-  real_start_date   DateTime? @db.DateTime(0)
-  real_end_date     DateTime? @db.DateTime(0)
-  percent_done      String?   @db.VarChar(255)
-  auto_percent_done String?   @db.VarChar(255)
-  status            String?   @db.VarChar(255)
-  is_deleted        String?   @db.VarChar(255)
-  created_at        DateTime? @db.DateTime(0)
-  created_by        String?   @db.VarChar(255)
+  plan_start_date   DateTime?  @db.DateTime(0)
+  plant_end_date    DateTime?  @db.DateTime(0)
+  real_start_date   DateTime?  @db.DateTime(0)
+  real_end_date     DateTime?  @db.DateTime(0)
+  percent_done      String?    @db.VarChar(255)
+  auto_percent_done String?    @db.VarChar(255)
+  status            String?    @db.VarChar(255)
+  is_deleted        String?    @db.VarChar(255)
+  created_at        DateTime?  @db.DateTime(0)
+  created_by        String?    @db.VarChar(255)
+  mst_group         mst_group? @relation(fields: [group_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_master_group")
+
+  @@index([group_id], map: "fk_master_group")
 }
 
 model tr_project_activity {
@@ -242,7 +248,7 @@ model tr_request {
   id                       Int                     @id @default(autoincrement())
   entities_id              Int?
   ticket_name              String?                 @db.VarChar(255)
-  creation_date            DateTime?               @db.Date
+  creation_date            DateTime?               @default(now()) @db.Date
   closed_date              DateTime?               @db.Date
   creator                  String?                 @db.VarChar(255)
   status                   String?                 @db.VarChar(255)
@@ -250,10 +256,12 @@ model tr_request {
   expected_completion_date DateTime?               @db.Date
   category                 String?                 @db.VarChar(255)
   type                     String?                 @db.VarChar(255)
-  description              String?                 @db.VarChar(255)
   department_code          String?                 @db.VarChar(255)
   is_project               String?                 @db.VarChar(255)
-  created_at               DateTime?               @db.DateTime(0)
+  background               String?                 @db.Text
+  issue_description        String?                 @db.Text
+  business_impact          String?                 @db.Text
+  created_at               DateTime?               @default(now()) @db.DateTime(0)
   created_by               String?                 @db.VarChar(255)
   tr_request_validation    tr_request_validation[]
 }
@@ -266,7 +274,7 @@ model tr_request_validation {
   comment_submission String?     @db.VarChar(255)
   comment_validation String?     @db.VarChar(255)
   status             String?     @db.VarChar(255)
-  submission_date    DateTime?   @db.DateTime(0)
+  submission_date    DateTime?   @default(now()) @db.DateTime(0)
   validation_date    DateTime?   @db.DateTime(0)
   tr_request         tr_request? @relation(fields: [request_id], references: [id], onUpdate: SetNull, map: "FK_REQUEST")
 

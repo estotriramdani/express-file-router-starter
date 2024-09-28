@@ -54,10 +54,12 @@ console.log(req.body)
         active_profile: role.length > 0 ? role[0].mst_profile.profile_name : null,
         active_entities: role.length > 0 ? role[0].mst_entities.entities_name : null,
       }
-
+      console.log(dataUser)
       const token = jwt.sign(dataUser, JWT_SECRET, {
         expiresIn: "24h",
       });
+
+      console.log(token)
 
       return res.status(200).json({
         data: dataUser,
