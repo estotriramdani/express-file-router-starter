@@ -59,6 +59,16 @@ export type mst_manpower_cost = $Result.DefaultSelection<Prisma.$mst_manpower_co
  */
 export type mst_profile = $Result.DefaultSelection<Prisma.$mst_profilePayload>
 /**
+ * Model mst_project_state
+ * 
+ */
+export type mst_project_state = $Result.DefaultSelection<Prisma.$mst_project_statePayload>
+/**
+ * Model mst_role
+ * 
+ */
+export type mst_role = $Result.DefaultSelection<Prisma.$mst_rolePayload>
+/**
  * Model tr_document
  * 
  */
@@ -115,19 +125,9 @@ export type tr_project_team = $Result.DefaultSelection<Prisma.$tr_project_teamPa
 export type tr_request = $Result.DefaultSelection<Prisma.$tr_requestPayload>
 /**
  * Model tr_request_validation
- * 
+ * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
  */
 export type tr_request_validation = $Result.DefaultSelection<Prisma.$tr_request_validationPayload>
-/**
- * Model mst_role
- * 
- */
-export type mst_role = $Result.DefaultSelection<Prisma.$mst_rolePayload>
-/**
- * Model mst_project_state
- * 
- */
-export type mst_project_state = $Result.DefaultSelection<Prisma.$mst_project_statePayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -343,6 +343,26 @@ export class PrismaClient<
   get mst_profile(): Prisma.mst_profileDelegate<ExtArgs>;
 
   /**
+   * `prisma.mst_project_state`: Exposes CRUD operations for the **mst_project_state** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Mst_project_states
+    * const mst_project_states = await prisma.mst_project_state.findMany()
+    * ```
+    */
+  get mst_project_state(): Prisma.mst_project_stateDelegate<ExtArgs>;
+
+  /**
+   * `prisma.mst_role`: Exposes CRUD operations for the **mst_role** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Mst_roles
+    * const mst_roles = await prisma.mst_role.findMany()
+    * ```
+    */
+  get mst_role(): Prisma.mst_roleDelegate<ExtArgs>;
+
+  /**
    * `prisma.tr_document`: Exposes CRUD operations for the **tr_document** model.
     * Example usage:
     * ```ts
@@ -461,26 +481,6 @@ export class PrismaClient<
     * ```
     */
   get tr_request_validation(): Prisma.tr_request_validationDelegate<ExtArgs>;
-
-  /**
-   * `prisma.mst_role`: Exposes CRUD operations for the **mst_role** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Mst_roles
-    * const mst_roles = await prisma.mst_role.findMany()
-    * ```
-    */
-  get mst_role(): Prisma.mst_roleDelegate<ExtArgs>;
-
-  /**
-   * `prisma.mst_project_state`: Exposes CRUD operations for the **mst_project_state** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Mst_project_states
-    * const mst_project_states = await prisma.mst_project_state.findMany()
-    * ```
-    */
-  get mst_project_state(): Prisma.mst_project_stateDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -929,6 +929,8 @@ export namespace Prisma {
     mst_group: 'mst_group',
     mst_manpower_cost: 'mst_manpower_cost',
     mst_profile: 'mst_profile',
+    mst_project_state: 'mst_project_state',
+    mst_role: 'mst_role',
     tr_document: 'tr_document',
     tr_history: 'tr_history',
     tr_project: 'tr_project',
@@ -940,9 +942,7 @@ export namespace Prisma {
     tr_project_task: 'tr_project_task',
     tr_project_team: 'tr_project_team',
     tr_request: 'tr_request',
-    tr_request_validation: 'tr_request_validation',
-    mst_role: 'mst_role',
-    mst_project_state: 'mst_project_state'
+    tr_request_validation: 'tr_request_validation'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -958,7 +958,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "mst_application" | "mst_application_version" | "mst_authorization" | "mst_authorization_profile" | "mst_authorization_usergroup" | "mst_entities" | "mst_group" | "mst_manpower_cost" | "mst_profile" | "tr_document" | "tr_history" | "tr_project" | "tr_project_activity" | "tr_project_overview" | "tr_project_participant" | "tr_project_risk_mitigation" | "tr_project_scope" | "tr_project_task" | "tr_project_team" | "tr_request" | "tr_request_validation" | "mst_role" | "mst_project_state"
+      modelProps: "mst_application" | "mst_application_version" | "mst_authorization" | "mst_authorization_profile" | "mst_authorization_usergroup" | "mst_entities" | "mst_group" | "mst_manpower_cost" | "mst_profile" | "mst_project_state" | "mst_role" | "tr_document" | "tr_history" | "tr_project" | "tr_project_activity" | "tr_project_overview" | "tr_project_participant" | "tr_project_risk_mitigation" | "tr_project_scope" | "tr_project_task" | "tr_project_team" | "tr_request" | "tr_request_validation"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1553,6 +1553,138 @@ export namespace Prisma {
           count: {
             args: Prisma.mst_profileCountArgs<ExtArgs>
             result: $Utils.Optional<Mst_profileCountAggregateOutputType> | number
+          }
+        }
+      }
+      mst_project_state: {
+        payload: Prisma.$mst_project_statePayload<ExtArgs>
+        fields: Prisma.mst_project_stateFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.mst_project_stateFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_project_statePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.mst_project_stateFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_project_statePayload>
+          }
+          findFirst: {
+            args: Prisma.mst_project_stateFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_project_statePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.mst_project_stateFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_project_statePayload>
+          }
+          findMany: {
+            args: Prisma.mst_project_stateFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_project_statePayload>[]
+          }
+          create: {
+            args: Prisma.mst_project_stateCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_project_statePayload>
+          }
+          createMany: {
+            args: Prisma.mst_project_stateCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.mst_project_stateDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_project_statePayload>
+          }
+          update: {
+            args: Prisma.mst_project_stateUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_project_statePayload>
+          }
+          deleteMany: {
+            args: Prisma.mst_project_stateDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.mst_project_stateUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.mst_project_stateUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_project_statePayload>
+          }
+          aggregate: {
+            args: Prisma.Mst_project_stateAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMst_project_state>
+          }
+          groupBy: {
+            args: Prisma.mst_project_stateGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Mst_project_stateGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.mst_project_stateCountArgs<ExtArgs>
+            result: $Utils.Optional<Mst_project_stateCountAggregateOutputType> | number
+          }
+        }
+      }
+      mst_role: {
+        payload: Prisma.$mst_rolePayload<ExtArgs>
+        fields: Prisma.mst_roleFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.mst_roleFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.mst_roleFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
+          }
+          findFirst: {
+            args: Prisma.mst_roleFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.mst_roleFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
+          }
+          findMany: {
+            args: Prisma.mst_roleFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>[]
+          }
+          create: {
+            args: Prisma.mst_roleCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
+          }
+          createMany: {
+            args: Prisma.mst_roleCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.mst_roleDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
+          }
+          update: {
+            args: Prisma.mst_roleUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
+          }
+          deleteMany: {
+            args: Prisma.mst_roleDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.mst_roleUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.mst_roleUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
+          }
+          aggregate: {
+            args: Prisma.Mst_roleAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMst_role>
+          }
+          groupBy: {
+            args: Prisma.mst_roleGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Mst_roleGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.mst_roleCountArgs<ExtArgs>
+            result: $Utils.Optional<Mst_roleCountAggregateOutputType> | number
           }
         }
       }
@@ -2348,138 +2480,6 @@ export namespace Prisma {
           }
         }
       }
-      mst_role: {
-        payload: Prisma.$mst_rolePayload<ExtArgs>
-        fields: Prisma.mst_roleFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.mst_roleFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.mst_roleFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
-          }
-          findFirst: {
-            args: Prisma.mst_roleFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.mst_roleFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
-          }
-          findMany: {
-            args: Prisma.mst_roleFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>[]
-          }
-          create: {
-            args: Prisma.mst_roleCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
-          }
-          createMany: {
-            args: Prisma.mst_roleCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          delete: {
-            args: Prisma.mst_roleDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
-          }
-          update: {
-            args: Prisma.mst_roleUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
-          }
-          deleteMany: {
-            args: Prisma.mst_roleDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.mst_roleUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          upsert: {
-            args: Prisma.mst_roleUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$mst_rolePayload>
-          }
-          aggregate: {
-            args: Prisma.Mst_roleAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateMst_role>
-          }
-          groupBy: {
-            args: Prisma.mst_roleGroupByArgs<ExtArgs>
-            result: $Utils.Optional<Mst_roleGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.mst_roleCountArgs<ExtArgs>
-            result: $Utils.Optional<Mst_roleCountAggregateOutputType> | number
-          }
-        }
-      }
-      mst_project_state: {
-        payload: Prisma.$mst_project_statePayload<ExtArgs>
-        fields: Prisma.mst_project_stateFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.mst_project_stateFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$mst_project_statePayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.mst_project_stateFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$mst_project_statePayload>
-          }
-          findFirst: {
-            args: Prisma.mst_project_stateFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$mst_project_statePayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.mst_project_stateFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$mst_project_statePayload>
-          }
-          findMany: {
-            args: Prisma.mst_project_stateFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$mst_project_statePayload>[]
-          }
-          create: {
-            args: Prisma.mst_project_stateCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$mst_project_statePayload>
-          }
-          createMany: {
-            args: Prisma.mst_project_stateCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          delete: {
-            args: Prisma.mst_project_stateDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$mst_project_statePayload>
-          }
-          update: {
-            args: Prisma.mst_project_stateUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$mst_project_statePayload>
-          }
-          deleteMany: {
-            args: Prisma.mst_project_stateDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.mst_project_stateUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          upsert: {
-            args: Prisma.mst_project_stateUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$mst_project_statePayload>
-          }
-          aggregate: {
-            args: Prisma.Mst_project_stateAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateMst_project_state>
-          }
-          groupBy: {
-            args: Prisma.mst_project_stateGroupByArgs<ExtArgs>
-            result: $Utils.Optional<Mst_project_stateGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.mst_project_stateCountArgs<ExtArgs>
-            result: $Utils.Optional<Mst_project_stateCountAggregateOutputType> | number
-          }
-        }
-      }
     }
   } & {
     other: {
@@ -2748,37 +2748,6 @@ export namespace Prisma {
 
 
   /**
-   * Count Type Tr_requestCountOutputType
-   */
-
-  export type Tr_requestCountOutputType = {
-    tr_request_validation: number
-  }
-
-  export type Tr_requestCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    tr_request_validation?: boolean | Tr_requestCountOutputTypeCountTr_request_validationArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * Tr_requestCountOutputType without action
-   */
-  export type Tr_requestCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Tr_requestCountOutputType
-     */
-    select?: Tr_requestCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * Tr_requestCountOutputType without action
-   */
-  export type Tr_requestCountOutputTypeCountTr_request_validationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: tr_request_validationWhereInput
-  }
-
-
-  /**
    * Count Type Mst_project_stateCountOutputType
    */
 
@@ -2806,6 +2775,37 @@ export namespace Prisma {
    */
   export type Mst_project_stateCountOutputTypeCountTr_projectArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: tr_projectWhereInput
+  }
+
+
+  /**
+   * Count Type Tr_requestCountOutputType
+   */
+
+  export type Tr_requestCountOutputType = {
+    tr_request_validation: number
+  }
+
+  export type Tr_requestCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tr_request_validation?: boolean | Tr_requestCountOutputTypeCountTr_request_validationArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Tr_requestCountOutputType without action
+   */
+  export type Tr_requestCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tr_requestCountOutputType
+     */
+    select?: Tr_requestCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Tr_requestCountOutputType without action
+   */
+  export type Tr_requestCountOutputTypeCountTr_request_validationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tr_request_validationWhereInput
   }
 
 
@@ -11247,6 +11247,1774 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: mst_profileInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model mst_project_state
+   */
+
+  export type AggregateMst_project_state = {
+    _count: Mst_project_stateCountAggregateOutputType | null
+    _avg: Mst_project_stateAvgAggregateOutputType | null
+    _sum: Mst_project_stateSumAggregateOutputType | null
+    _min: Mst_project_stateMinAggregateOutputType | null
+    _max: Mst_project_stateMaxAggregateOutputType | null
+  }
+
+  export type Mst_project_stateAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type Mst_project_stateSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type Mst_project_stateMinAggregateOutputType = {
+    id: number | null
+    status: string | null
+    created_at: Date | null
+    created_by: string | null
+  }
+
+  export type Mst_project_stateMaxAggregateOutputType = {
+    id: number | null
+    status: string | null
+    created_at: Date | null
+    created_by: string | null
+  }
+
+  export type Mst_project_stateCountAggregateOutputType = {
+    id: number
+    status: number
+    created_at: number
+    created_by: number
+    _all: number
+  }
+
+
+  export type Mst_project_stateAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type Mst_project_stateSumAggregateInputType = {
+    id?: true
+  }
+
+  export type Mst_project_stateMinAggregateInputType = {
+    id?: true
+    status?: true
+    created_at?: true
+    created_by?: true
+  }
+
+  export type Mst_project_stateMaxAggregateInputType = {
+    id?: true
+    status?: true
+    created_at?: true
+    created_by?: true
+  }
+
+  export type Mst_project_stateCountAggregateInputType = {
+    id?: true
+    status?: true
+    created_at?: true
+    created_by?: true
+    _all?: true
+  }
+
+  export type Mst_project_stateAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which mst_project_state to aggregate.
+     */
+    where?: mst_project_stateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of mst_project_states to fetch.
+     */
+    orderBy?: mst_project_stateOrderByWithRelationInput | mst_project_stateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: mst_project_stateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` mst_project_states from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` mst_project_states.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned mst_project_states
+    **/
+    _count?: true | Mst_project_stateCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Mst_project_stateAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Mst_project_stateSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Mst_project_stateMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Mst_project_stateMaxAggregateInputType
+  }
+
+  export type GetMst_project_stateAggregateType<T extends Mst_project_stateAggregateArgs> = {
+        [P in keyof T & keyof AggregateMst_project_state]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMst_project_state[P]>
+      : GetScalarType<T[P], AggregateMst_project_state[P]>
+  }
+
+
+
+
+  export type mst_project_stateGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: mst_project_stateWhereInput
+    orderBy?: mst_project_stateOrderByWithAggregationInput | mst_project_stateOrderByWithAggregationInput[]
+    by: Mst_project_stateScalarFieldEnum[] | Mst_project_stateScalarFieldEnum
+    having?: mst_project_stateScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Mst_project_stateCountAggregateInputType | true
+    _avg?: Mst_project_stateAvgAggregateInputType
+    _sum?: Mst_project_stateSumAggregateInputType
+    _min?: Mst_project_stateMinAggregateInputType
+    _max?: Mst_project_stateMaxAggregateInputType
+  }
+
+  export type Mst_project_stateGroupByOutputType = {
+    id: number
+    status: string | null
+    created_at: Date | null
+    created_by: string | null
+    _count: Mst_project_stateCountAggregateOutputType | null
+    _avg: Mst_project_stateAvgAggregateOutputType | null
+    _sum: Mst_project_stateSumAggregateOutputType | null
+    _min: Mst_project_stateMinAggregateOutputType | null
+    _max: Mst_project_stateMaxAggregateOutputType | null
+  }
+
+  type GetMst_project_stateGroupByPayload<T extends mst_project_stateGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Mst_project_stateGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Mst_project_stateGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Mst_project_stateGroupByOutputType[P]>
+            : GetScalarType<T[P], Mst_project_stateGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type mst_project_stateSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    status?: boolean
+    created_at?: boolean
+    created_by?: boolean
+    tr_project?: boolean | mst_project_state$tr_projectArgs<ExtArgs>
+    _count?: boolean | Mst_project_stateCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["mst_project_state"]>
+
+
+  export type mst_project_stateSelectScalar = {
+    id?: boolean
+    status?: boolean
+    created_at?: boolean
+    created_by?: boolean
+  }
+
+  export type mst_project_stateInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tr_project?: boolean | mst_project_state$tr_projectArgs<ExtArgs>
+    _count?: boolean | Mst_project_stateCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $mst_project_statePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "mst_project_state"
+    objects: {
+      tr_project: Prisma.$tr_projectPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      status: string | null
+      created_at: Date | null
+      created_by: string | null
+    }, ExtArgs["result"]["mst_project_state"]>
+    composites: {}
+  }
+
+  type mst_project_stateGetPayload<S extends boolean | null | undefined | mst_project_stateDefaultArgs> = $Result.GetResult<Prisma.$mst_project_statePayload, S>
+
+  type mst_project_stateCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<mst_project_stateFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: Mst_project_stateCountAggregateInputType | true
+    }
+
+  export interface mst_project_stateDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['mst_project_state'], meta: { name: 'mst_project_state' } }
+    /**
+     * Find zero or one Mst_project_state that matches the filter.
+     * @param {mst_project_stateFindUniqueArgs} args - Arguments to find a Mst_project_state
+     * @example
+     * // Get one Mst_project_state
+     * const mst_project_state = await prisma.mst_project_state.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends mst_project_stateFindUniqueArgs>(args: SelectSubset<T, mst_project_stateFindUniqueArgs<ExtArgs>>): Prisma__mst_project_stateClient<$Result.GetResult<Prisma.$mst_project_statePayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Mst_project_state that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {mst_project_stateFindUniqueOrThrowArgs} args - Arguments to find a Mst_project_state
+     * @example
+     * // Get one Mst_project_state
+     * const mst_project_state = await prisma.mst_project_state.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends mst_project_stateFindUniqueOrThrowArgs>(args: SelectSubset<T, mst_project_stateFindUniqueOrThrowArgs<ExtArgs>>): Prisma__mst_project_stateClient<$Result.GetResult<Prisma.$mst_project_statePayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Mst_project_state that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_project_stateFindFirstArgs} args - Arguments to find a Mst_project_state
+     * @example
+     * // Get one Mst_project_state
+     * const mst_project_state = await prisma.mst_project_state.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends mst_project_stateFindFirstArgs>(args?: SelectSubset<T, mst_project_stateFindFirstArgs<ExtArgs>>): Prisma__mst_project_stateClient<$Result.GetResult<Prisma.$mst_project_statePayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Mst_project_state that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_project_stateFindFirstOrThrowArgs} args - Arguments to find a Mst_project_state
+     * @example
+     * // Get one Mst_project_state
+     * const mst_project_state = await prisma.mst_project_state.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends mst_project_stateFindFirstOrThrowArgs>(args?: SelectSubset<T, mst_project_stateFindFirstOrThrowArgs<ExtArgs>>): Prisma__mst_project_stateClient<$Result.GetResult<Prisma.$mst_project_statePayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Mst_project_states that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_project_stateFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Mst_project_states
+     * const mst_project_states = await prisma.mst_project_state.findMany()
+     * 
+     * // Get first 10 Mst_project_states
+     * const mst_project_states = await prisma.mst_project_state.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const mst_project_stateWithIdOnly = await prisma.mst_project_state.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends mst_project_stateFindManyArgs>(args?: SelectSubset<T, mst_project_stateFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$mst_project_statePayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Mst_project_state.
+     * @param {mst_project_stateCreateArgs} args - Arguments to create a Mst_project_state.
+     * @example
+     * // Create one Mst_project_state
+     * const Mst_project_state = await prisma.mst_project_state.create({
+     *   data: {
+     *     // ... data to create a Mst_project_state
+     *   }
+     * })
+     * 
+     */
+    create<T extends mst_project_stateCreateArgs>(args: SelectSubset<T, mst_project_stateCreateArgs<ExtArgs>>): Prisma__mst_project_stateClient<$Result.GetResult<Prisma.$mst_project_statePayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Mst_project_states.
+     * @param {mst_project_stateCreateManyArgs} args - Arguments to create many Mst_project_states.
+     * @example
+     * // Create many Mst_project_states
+     * const mst_project_state = await prisma.mst_project_state.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends mst_project_stateCreateManyArgs>(args?: SelectSubset<T, mst_project_stateCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Mst_project_state.
+     * @param {mst_project_stateDeleteArgs} args - Arguments to delete one Mst_project_state.
+     * @example
+     * // Delete one Mst_project_state
+     * const Mst_project_state = await prisma.mst_project_state.delete({
+     *   where: {
+     *     // ... filter to delete one Mst_project_state
+     *   }
+     * })
+     * 
+     */
+    delete<T extends mst_project_stateDeleteArgs>(args: SelectSubset<T, mst_project_stateDeleteArgs<ExtArgs>>): Prisma__mst_project_stateClient<$Result.GetResult<Prisma.$mst_project_statePayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Mst_project_state.
+     * @param {mst_project_stateUpdateArgs} args - Arguments to update one Mst_project_state.
+     * @example
+     * // Update one Mst_project_state
+     * const mst_project_state = await prisma.mst_project_state.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends mst_project_stateUpdateArgs>(args: SelectSubset<T, mst_project_stateUpdateArgs<ExtArgs>>): Prisma__mst_project_stateClient<$Result.GetResult<Prisma.$mst_project_statePayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Mst_project_states.
+     * @param {mst_project_stateDeleteManyArgs} args - Arguments to filter Mst_project_states to delete.
+     * @example
+     * // Delete a few Mst_project_states
+     * const { count } = await prisma.mst_project_state.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends mst_project_stateDeleteManyArgs>(args?: SelectSubset<T, mst_project_stateDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Mst_project_states.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_project_stateUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Mst_project_states
+     * const mst_project_state = await prisma.mst_project_state.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends mst_project_stateUpdateManyArgs>(args: SelectSubset<T, mst_project_stateUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Mst_project_state.
+     * @param {mst_project_stateUpsertArgs} args - Arguments to update or create a Mst_project_state.
+     * @example
+     * // Update or create a Mst_project_state
+     * const mst_project_state = await prisma.mst_project_state.upsert({
+     *   create: {
+     *     // ... data to create a Mst_project_state
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Mst_project_state we want to update
+     *   }
+     * })
+     */
+    upsert<T extends mst_project_stateUpsertArgs>(args: SelectSubset<T, mst_project_stateUpsertArgs<ExtArgs>>): Prisma__mst_project_stateClient<$Result.GetResult<Prisma.$mst_project_statePayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Mst_project_states.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_project_stateCountArgs} args - Arguments to filter Mst_project_states to count.
+     * @example
+     * // Count the number of Mst_project_states
+     * const count = await prisma.mst_project_state.count({
+     *   where: {
+     *     // ... the filter for the Mst_project_states we want to count
+     *   }
+     * })
+    **/
+    count<T extends mst_project_stateCountArgs>(
+      args?: Subset<T, mst_project_stateCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Mst_project_stateCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Mst_project_state.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Mst_project_stateAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Mst_project_stateAggregateArgs>(args: Subset<T, Mst_project_stateAggregateArgs>): Prisma.PrismaPromise<GetMst_project_stateAggregateType<T>>
+
+    /**
+     * Group by Mst_project_state.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_project_stateGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends mst_project_stateGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: mst_project_stateGroupByArgs['orderBy'] }
+        : { orderBy?: mst_project_stateGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, mst_project_stateGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMst_project_stateGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the mst_project_state model
+   */
+  readonly fields: mst_project_stateFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for mst_project_state.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__mst_project_stateClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    tr_project<T extends mst_project_state$tr_projectArgs<ExtArgs> = {}>(args?: Subset<T, mst_project_state$tr_projectArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tr_projectPayload<ExtArgs>, T, "findMany"> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the mst_project_state model
+   */ 
+  interface mst_project_stateFieldRefs {
+    readonly id: FieldRef<"mst_project_state", 'Int'>
+    readonly status: FieldRef<"mst_project_state", 'String'>
+    readonly created_at: FieldRef<"mst_project_state", 'DateTime'>
+    readonly created_by: FieldRef<"mst_project_state", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * mst_project_state findUnique
+   */
+  export type mst_project_stateFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_project_state
+     */
+    select?: mst_project_stateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_project_stateInclude<ExtArgs> | null
+    /**
+     * Filter, which mst_project_state to fetch.
+     */
+    where: mst_project_stateWhereUniqueInput
+  }
+
+  /**
+   * mst_project_state findUniqueOrThrow
+   */
+  export type mst_project_stateFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_project_state
+     */
+    select?: mst_project_stateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_project_stateInclude<ExtArgs> | null
+    /**
+     * Filter, which mst_project_state to fetch.
+     */
+    where: mst_project_stateWhereUniqueInput
+  }
+
+  /**
+   * mst_project_state findFirst
+   */
+  export type mst_project_stateFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_project_state
+     */
+    select?: mst_project_stateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_project_stateInclude<ExtArgs> | null
+    /**
+     * Filter, which mst_project_state to fetch.
+     */
+    where?: mst_project_stateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of mst_project_states to fetch.
+     */
+    orderBy?: mst_project_stateOrderByWithRelationInput | mst_project_stateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for mst_project_states.
+     */
+    cursor?: mst_project_stateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` mst_project_states from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` mst_project_states.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of mst_project_states.
+     */
+    distinct?: Mst_project_stateScalarFieldEnum | Mst_project_stateScalarFieldEnum[]
+  }
+
+  /**
+   * mst_project_state findFirstOrThrow
+   */
+  export type mst_project_stateFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_project_state
+     */
+    select?: mst_project_stateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_project_stateInclude<ExtArgs> | null
+    /**
+     * Filter, which mst_project_state to fetch.
+     */
+    where?: mst_project_stateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of mst_project_states to fetch.
+     */
+    orderBy?: mst_project_stateOrderByWithRelationInput | mst_project_stateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for mst_project_states.
+     */
+    cursor?: mst_project_stateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` mst_project_states from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` mst_project_states.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of mst_project_states.
+     */
+    distinct?: Mst_project_stateScalarFieldEnum | Mst_project_stateScalarFieldEnum[]
+  }
+
+  /**
+   * mst_project_state findMany
+   */
+  export type mst_project_stateFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_project_state
+     */
+    select?: mst_project_stateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_project_stateInclude<ExtArgs> | null
+    /**
+     * Filter, which mst_project_states to fetch.
+     */
+    where?: mst_project_stateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of mst_project_states to fetch.
+     */
+    orderBy?: mst_project_stateOrderByWithRelationInput | mst_project_stateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing mst_project_states.
+     */
+    cursor?: mst_project_stateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` mst_project_states from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` mst_project_states.
+     */
+    skip?: number
+    distinct?: Mst_project_stateScalarFieldEnum | Mst_project_stateScalarFieldEnum[]
+  }
+
+  /**
+   * mst_project_state create
+   */
+  export type mst_project_stateCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_project_state
+     */
+    select?: mst_project_stateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_project_stateInclude<ExtArgs> | null
+    /**
+     * The data needed to create a mst_project_state.
+     */
+    data?: XOR<mst_project_stateCreateInput, mst_project_stateUncheckedCreateInput>
+  }
+
+  /**
+   * mst_project_state createMany
+   */
+  export type mst_project_stateCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many mst_project_states.
+     */
+    data: mst_project_stateCreateManyInput | mst_project_stateCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * mst_project_state update
+   */
+  export type mst_project_stateUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_project_state
+     */
+    select?: mst_project_stateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_project_stateInclude<ExtArgs> | null
+    /**
+     * The data needed to update a mst_project_state.
+     */
+    data: XOR<mst_project_stateUpdateInput, mst_project_stateUncheckedUpdateInput>
+    /**
+     * Choose, which mst_project_state to update.
+     */
+    where: mst_project_stateWhereUniqueInput
+  }
+
+  /**
+   * mst_project_state updateMany
+   */
+  export type mst_project_stateUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update mst_project_states.
+     */
+    data: XOR<mst_project_stateUpdateManyMutationInput, mst_project_stateUncheckedUpdateManyInput>
+    /**
+     * Filter which mst_project_states to update
+     */
+    where?: mst_project_stateWhereInput
+  }
+
+  /**
+   * mst_project_state upsert
+   */
+  export type mst_project_stateUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_project_state
+     */
+    select?: mst_project_stateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_project_stateInclude<ExtArgs> | null
+    /**
+     * The filter to search for the mst_project_state to update in case it exists.
+     */
+    where: mst_project_stateWhereUniqueInput
+    /**
+     * In case the mst_project_state found by the `where` argument doesn't exist, create a new mst_project_state with this data.
+     */
+    create: XOR<mst_project_stateCreateInput, mst_project_stateUncheckedCreateInput>
+    /**
+     * In case the mst_project_state was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<mst_project_stateUpdateInput, mst_project_stateUncheckedUpdateInput>
+  }
+
+  /**
+   * mst_project_state delete
+   */
+  export type mst_project_stateDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_project_state
+     */
+    select?: mst_project_stateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_project_stateInclude<ExtArgs> | null
+    /**
+     * Filter which mst_project_state to delete.
+     */
+    where: mst_project_stateWhereUniqueInput
+  }
+
+  /**
+   * mst_project_state deleteMany
+   */
+  export type mst_project_stateDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which mst_project_states to delete
+     */
+    where?: mst_project_stateWhereInput
+  }
+
+  /**
+   * mst_project_state.tr_project
+   */
+  export type mst_project_state$tr_projectArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project
+     */
+    select?: tr_projectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_projectInclude<ExtArgs> | null
+    where?: tr_projectWhereInput
+    orderBy?: tr_projectOrderByWithRelationInput | tr_projectOrderByWithRelationInput[]
+    cursor?: tr_projectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Tr_projectScalarFieldEnum | Tr_projectScalarFieldEnum[]
+  }
+
+  /**
+   * mst_project_state without action
+   */
+  export type mst_project_stateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_project_state
+     */
+    select?: mst_project_stateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_project_stateInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model mst_role
+   */
+
+  export type AggregateMst_role = {
+    _count: Mst_roleCountAggregateOutputType | null
+    _avg: Mst_roleAvgAggregateOutputType | null
+    _sum: Mst_roleSumAggregateOutputType | null
+    _min: Mst_roleMinAggregateOutputType | null
+    _max: Mst_roleMaxAggregateOutputType | null
+  }
+
+  export type Mst_roleAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type Mst_roleSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type Mst_roleMinAggregateOutputType = {
+    id: number | null
+    role: string | null
+    is_deleted: boolean | null
+  }
+
+  export type Mst_roleMaxAggregateOutputType = {
+    id: number | null
+    role: string | null
+    is_deleted: boolean | null
+  }
+
+  export type Mst_roleCountAggregateOutputType = {
+    id: number
+    role: number
+    is_deleted: number
+    _all: number
+  }
+
+
+  export type Mst_roleAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type Mst_roleSumAggregateInputType = {
+    id?: true
+  }
+
+  export type Mst_roleMinAggregateInputType = {
+    id?: true
+    role?: true
+    is_deleted?: true
+  }
+
+  export type Mst_roleMaxAggregateInputType = {
+    id?: true
+    role?: true
+    is_deleted?: true
+  }
+
+  export type Mst_roleCountAggregateInputType = {
+    id?: true
+    role?: true
+    is_deleted?: true
+    _all?: true
+  }
+
+  export type Mst_roleAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which mst_role to aggregate.
+     */
+    where?: mst_roleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of mst_roles to fetch.
+     */
+    orderBy?: mst_roleOrderByWithRelationInput | mst_roleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: mst_roleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` mst_roles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` mst_roles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned mst_roles
+    **/
+    _count?: true | Mst_roleCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Mst_roleAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Mst_roleSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Mst_roleMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Mst_roleMaxAggregateInputType
+  }
+
+  export type GetMst_roleAggregateType<T extends Mst_roleAggregateArgs> = {
+        [P in keyof T & keyof AggregateMst_role]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMst_role[P]>
+      : GetScalarType<T[P], AggregateMst_role[P]>
+  }
+
+
+
+
+  export type mst_roleGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: mst_roleWhereInput
+    orderBy?: mst_roleOrderByWithAggregationInput | mst_roleOrderByWithAggregationInput[]
+    by: Mst_roleScalarFieldEnum[] | Mst_roleScalarFieldEnum
+    having?: mst_roleScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Mst_roleCountAggregateInputType | true
+    _avg?: Mst_roleAvgAggregateInputType
+    _sum?: Mst_roleSumAggregateInputType
+    _min?: Mst_roleMinAggregateInputType
+    _max?: Mst_roleMaxAggregateInputType
+  }
+
+  export type Mst_roleGroupByOutputType = {
+    id: number
+    role: string | null
+    is_deleted: boolean | null
+    _count: Mst_roleCountAggregateOutputType | null
+    _avg: Mst_roleAvgAggregateOutputType | null
+    _sum: Mst_roleSumAggregateOutputType | null
+    _min: Mst_roleMinAggregateOutputType | null
+    _max: Mst_roleMaxAggregateOutputType | null
+  }
+
+  type GetMst_roleGroupByPayload<T extends mst_roleGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Mst_roleGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Mst_roleGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Mst_roleGroupByOutputType[P]>
+            : GetScalarType<T[P], Mst_roleGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type mst_roleSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    role?: boolean
+    is_deleted?: boolean
+  }, ExtArgs["result"]["mst_role"]>
+
+
+  export type mst_roleSelectScalar = {
+    id?: boolean
+    role?: boolean
+    is_deleted?: boolean
+  }
+
+
+  export type $mst_rolePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "mst_role"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      role: string | null
+      is_deleted: boolean | null
+    }, ExtArgs["result"]["mst_role"]>
+    composites: {}
+  }
+
+  type mst_roleGetPayload<S extends boolean | null | undefined | mst_roleDefaultArgs> = $Result.GetResult<Prisma.$mst_rolePayload, S>
+
+  type mst_roleCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<mst_roleFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: Mst_roleCountAggregateInputType | true
+    }
+
+  export interface mst_roleDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['mst_role'], meta: { name: 'mst_role' } }
+    /**
+     * Find zero or one Mst_role that matches the filter.
+     * @param {mst_roleFindUniqueArgs} args - Arguments to find a Mst_role
+     * @example
+     * // Get one Mst_role
+     * const mst_role = await prisma.mst_role.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends mst_roleFindUniqueArgs>(args: SelectSubset<T, mst_roleFindUniqueArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Mst_role that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {mst_roleFindUniqueOrThrowArgs} args - Arguments to find a Mst_role
+     * @example
+     * // Get one Mst_role
+     * const mst_role = await prisma.mst_role.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends mst_roleFindUniqueOrThrowArgs>(args: SelectSubset<T, mst_roleFindUniqueOrThrowArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Mst_role that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_roleFindFirstArgs} args - Arguments to find a Mst_role
+     * @example
+     * // Get one Mst_role
+     * const mst_role = await prisma.mst_role.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends mst_roleFindFirstArgs>(args?: SelectSubset<T, mst_roleFindFirstArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Mst_role that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_roleFindFirstOrThrowArgs} args - Arguments to find a Mst_role
+     * @example
+     * // Get one Mst_role
+     * const mst_role = await prisma.mst_role.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends mst_roleFindFirstOrThrowArgs>(args?: SelectSubset<T, mst_roleFindFirstOrThrowArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Mst_roles that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_roleFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Mst_roles
+     * const mst_roles = await prisma.mst_role.findMany()
+     * 
+     * // Get first 10 Mst_roles
+     * const mst_roles = await prisma.mst_role.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const mst_roleWithIdOnly = await prisma.mst_role.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends mst_roleFindManyArgs>(args?: SelectSubset<T, mst_roleFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Mst_role.
+     * @param {mst_roleCreateArgs} args - Arguments to create a Mst_role.
+     * @example
+     * // Create one Mst_role
+     * const Mst_role = await prisma.mst_role.create({
+     *   data: {
+     *     // ... data to create a Mst_role
+     *   }
+     * })
+     * 
+     */
+    create<T extends mst_roleCreateArgs>(args: SelectSubset<T, mst_roleCreateArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Mst_roles.
+     * @param {mst_roleCreateManyArgs} args - Arguments to create many Mst_roles.
+     * @example
+     * // Create many Mst_roles
+     * const mst_role = await prisma.mst_role.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends mst_roleCreateManyArgs>(args?: SelectSubset<T, mst_roleCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Mst_role.
+     * @param {mst_roleDeleteArgs} args - Arguments to delete one Mst_role.
+     * @example
+     * // Delete one Mst_role
+     * const Mst_role = await prisma.mst_role.delete({
+     *   where: {
+     *     // ... filter to delete one Mst_role
+     *   }
+     * })
+     * 
+     */
+    delete<T extends mst_roleDeleteArgs>(args: SelectSubset<T, mst_roleDeleteArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Mst_role.
+     * @param {mst_roleUpdateArgs} args - Arguments to update one Mst_role.
+     * @example
+     * // Update one Mst_role
+     * const mst_role = await prisma.mst_role.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends mst_roleUpdateArgs>(args: SelectSubset<T, mst_roleUpdateArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Mst_roles.
+     * @param {mst_roleDeleteManyArgs} args - Arguments to filter Mst_roles to delete.
+     * @example
+     * // Delete a few Mst_roles
+     * const { count } = await prisma.mst_role.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends mst_roleDeleteManyArgs>(args?: SelectSubset<T, mst_roleDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Mst_roles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_roleUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Mst_roles
+     * const mst_role = await prisma.mst_role.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends mst_roleUpdateManyArgs>(args: SelectSubset<T, mst_roleUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Mst_role.
+     * @param {mst_roleUpsertArgs} args - Arguments to update or create a Mst_role.
+     * @example
+     * // Update or create a Mst_role
+     * const mst_role = await prisma.mst_role.upsert({
+     *   create: {
+     *     // ... data to create a Mst_role
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Mst_role we want to update
+     *   }
+     * })
+     */
+    upsert<T extends mst_roleUpsertArgs>(args: SelectSubset<T, mst_roleUpsertArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Mst_roles.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_roleCountArgs} args - Arguments to filter Mst_roles to count.
+     * @example
+     * // Count the number of Mst_roles
+     * const count = await prisma.mst_role.count({
+     *   where: {
+     *     // ... the filter for the Mst_roles we want to count
+     *   }
+     * })
+    **/
+    count<T extends mst_roleCountArgs>(
+      args?: Subset<T, mst_roleCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Mst_roleCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Mst_role.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Mst_roleAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Mst_roleAggregateArgs>(args: Subset<T, Mst_roleAggregateArgs>): Prisma.PrismaPromise<GetMst_roleAggregateType<T>>
+
+    /**
+     * Group by Mst_role.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_roleGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends mst_roleGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: mst_roleGroupByArgs['orderBy'] }
+        : { orderBy?: mst_roleGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, mst_roleGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMst_roleGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the mst_role model
+   */
+  readonly fields: mst_roleFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for mst_role.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__mst_roleClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the mst_role model
+   */ 
+  interface mst_roleFieldRefs {
+    readonly id: FieldRef<"mst_role", 'Int'>
+    readonly role: FieldRef<"mst_role", 'String'>
+    readonly is_deleted: FieldRef<"mst_role", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * mst_role findUnique
+   */
+  export type mst_roleFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * Filter, which mst_role to fetch.
+     */
+    where: mst_roleWhereUniqueInput
+  }
+
+  /**
+   * mst_role findUniqueOrThrow
+   */
+  export type mst_roleFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * Filter, which mst_role to fetch.
+     */
+    where: mst_roleWhereUniqueInput
+  }
+
+  /**
+   * mst_role findFirst
+   */
+  export type mst_roleFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * Filter, which mst_role to fetch.
+     */
+    where?: mst_roleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of mst_roles to fetch.
+     */
+    orderBy?: mst_roleOrderByWithRelationInput | mst_roleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for mst_roles.
+     */
+    cursor?: mst_roleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` mst_roles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` mst_roles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of mst_roles.
+     */
+    distinct?: Mst_roleScalarFieldEnum | Mst_roleScalarFieldEnum[]
+  }
+
+  /**
+   * mst_role findFirstOrThrow
+   */
+  export type mst_roleFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * Filter, which mst_role to fetch.
+     */
+    where?: mst_roleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of mst_roles to fetch.
+     */
+    orderBy?: mst_roleOrderByWithRelationInput | mst_roleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for mst_roles.
+     */
+    cursor?: mst_roleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` mst_roles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` mst_roles.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of mst_roles.
+     */
+    distinct?: Mst_roleScalarFieldEnum | Mst_roleScalarFieldEnum[]
+  }
+
+  /**
+   * mst_role findMany
+   */
+  export type mst_roleFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * Filter, which mst_roles to fetch.
+     */
+    where?: mst_roleWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of mst_roles to fetch.
+     */
+    orderBy?: mst_roleOrderByWithRelationInput | mst_roleOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing mst_roles.
+     */
+    cursor?: mst_roleWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` mst_roles from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` mst_roles.
+     */
+    skip?: number
+    distinct?: Mst_roleScalarFieldEnum | Mst_roleScalarFieldEnum[]
+  }
+
+  /**
+   * mst_role create
+   */
+  export type mst_roleCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * The data needed to create a mst_role.
+     */
+    data?: XOR<mst_roleCreateInput, mst_roleUncheckedCreateInput>
+  }
+
+  /**
+   * mst_role createMany
+   */
+  export type mst_roleCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many mst_roles.
+     */
+    data: mst_roleCreateManyInput | mst_roleCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * mst_role update
+   */
+  export type mst_roleUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * The data needed to update a mst_role.
+     */
+    data: XOR<mst_roleUpdateInput, mst_roleUncheckedUpdateInput>
+    /**
+     * Choose, which mst_role to update.
+     */
+    where: mst_roleWhereUniqueInput
+  }
+
+  /**
+   * mst_role updateMany
+   */
+  export type mst_roleUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update mst_roles.
+     */
+    data: XOR<mst_roleUpdateManyMutationInput, mst_roleUncheckedUpdateManyInput>
+    /**
+     * Filter which mst_roles to update
+     */
+    where?: mst_roleWhereInput
+  }
+
+  /**
+   * mst_role upsert
+   */
+  export type mst_roleUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * The filter to search for the mst_role to update in case it exists.
+     */
+    where: mst_roleWhereUniqueInput
+    /**
+     * In case the mst_role found by the `where` argument doesn't exist, create a new mst_role with this data.
+     */
+    create: XOR<mst_roleCreateInput, mst_roleUncheckedCreateInput>
+    /**
+     * In case the mst_role was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<mst_roleUpdateInput, mst_roleUncheckedUpdateInput>
+  }
+
+  /**
+   * mst_role delete
+   */
+  export type mst_roleDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
+    /**
+     * Filter which mst_role to delete.
+     */
+    where: mst_roleWhereUniqueInput
+  }
+
+  /**
+   * mst_role deleteMany
+   */
+  export type mst_roleDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which mst_roles to delete
+     */
+    where?: mst_roleWhereInput
+  }
+
+  /**
+   * mst_role without action
+   */
+  export type mst_roleDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_role
+     */
+    select?: mst_roleSelect<ExtArgs> | null
   }
 
 
@@ -22668,1774 +24436,6 @@ export namespace Prisma {
 
 
   /**
-   * Model mst_role
-   */
-
-  export type AggregateMst_role = {
-    _count: Mst_roleCountAggregateOutputType | null
-    _avg: Mst_roleAvgAggregateOutputType | null
-    _sum: Mst_roleSumAggregateOutputType | null
-    _min: Mst_roleMinAggregateOutputType | null
-    _max: Mst_roleMaxAggregateOutputType | null
-  }
-
-  export type Mst_roleAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type Mst_roleSumAggregateOutputType = {
-    id: number | null
-  }
-
-  export type Mst_roleMinAggregateOutputType = {
-    id: number | null
-    role: string | null
-    is_deleted: boolean | null
-  }
-
-  export type Mst_roleMaxAggregateOutputType = {
-    id: number | null
-    role: string | null
-    is_deleted: boolean | null
-  }
-
-  export type Mst_roleCountAggregateOutputType = {
-    id: number
-    role: number
-    is_deleted: number
-    _all: number
-  }
-
-
-  export type Mst_roleAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type Mst_roleSumAggregateInputType = {
-    id?: true
-  }
-
-  export type Mst_roleMinAggregateInputType = {
-    id?: true
-    role?: true
-    is_deleted?: true
-  }
-
-  export type Mst_roleMaxAggregateInputType = {
-    id?: true
-    role?: true
-    is_deleted?: true
-  }
-
-  export type Mst_roleCountAggregateInputType = {
-    id?: true
-    role?: true
-    is_deleted?: true
-    _all?: true
-  }
-
-  export type Mst_roleAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which mst_role to aggregate.
-     */
-    where?: mst_roleWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of mst_roles to fetch.
-     */
-    orderBy?: mst_roleOrderByWithRelationInput | mst_roleOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: mst_roleWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` mst_roles from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` mst_roles.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned mst_roles
-    **/
-    _count?: true | Mst_roleCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: Mst_roleAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Mst_roleSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: Mst_roleMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: Mst_roleMaxAggregateInputType
-  }
-
-  export type GetMst_roleAggregateType<T extends Mst_roleAggregateArgs> = {
-        [P in keyof T & keyof AggregateMst_role]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateMst_role[P]>
-      : GetScalarType<T[P], AggregateMst_role[P]>
-  }
-
-
-
-
-  export type mst_roleGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: mst_roleWhereInput
-    orderBy?: mst_roleOrderByWithAggregationInput | mst_roleOrderByWithAggregationInput[]
-    by: Mst_roleScalarFieldEnum[] | Mst_roleScalarFieldEnum
-    having?: mst_roleScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: Mst_roleCountAggregateInputType | true
-    _avg?: Mst_roleAvgAggregateInputType
-    _sum?: Mst_roleSumAggregateInputType
-    _min?: Mst_roleMinAggregateInputType
-    _max?: Mst_roleMaxAggregateInputType
-  }
-
-  export type Mst_roleGroupByOutputType = {
-    id: number
-    role: string | null
-    is_deleted: boolean | null
-    _count: Mst_roleCountAggregateOutputType | null
-    _avg: Mst_roleAvgAggregateOutputType | null
-    _sum: Mst_roleSumAggregateOutputType | null
-    _min: Mst_roleMinAggregateOutputType | null
-    _max: Mst_roleMaxAggregateOutputType | null
-  }
-
-  type GetMst_roleGroupByPayload<T extends mst_roleGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<Mst_roleGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof Mst_roleGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], Mst_roleGroupByOutputType[P]>
-            : GetScalarType<T[P], Mst_roleGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type mst_roleSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    role?: boolean
-    is_deleted?: boolean
-  }, ExtArgs["result"]["mst_role"]>
-
-
-  export type mst_roleSelectScalar = {
-    id?: boolean
-    role?: boolean
-    is_deleted?: boolean
-  }
-
-
-  export type $mst_rolePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "mst_role"
-    objects: {}
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      role: string | null
-      is_deleted: boolean | null
-    }, ExtArgs["result"]["mst_role"]>
-    composites: {}
-  }
-
-  type mst_roleGetPayload<S extends boolean | null | undefined | mst_roleDefaultArgs> = $Result.GetResult<Prisma.$mst_rolePayload, S>
-
-  type mst_roleCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<mst_roleFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: Mst_roleCountAggregateInputType | true
-    }
-
-  export interface mst_roleDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['mst_role'], meta: { name: 'mst_role' } }
-    /**
-     * Find zero or one Mst_role that matches the filter.
-     * @param {mst_roleFindUniqueArgs} args - Arguments to find a Mst_role
-     * @example
-     * // Get one Mst_role
-     * const mst_role = await prisma.mst_role.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends mst_roleFindUniqueArgs>(args: SelectSubset<T, mst_roleFindUniqueArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
-
-    /**
-     * Find one Mst_role that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
-     * @param {mst_roleFindUniqueOrThrowArgs} args - Arguments to find a Mst_role
-     * @example
-     * // Get one Mst_role
-     * const mst_role = await prisma.mst_role.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends mst_roleFindUniqueOrThrowArgs>(args: SelectSubset<T, mst_roleFindUniqueOrThrowArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
-
-    /**
-     * Find the first Mst_role that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {mst_roleFindFirstArgs} args - Arguments to find a Mst_role
-     * @example
-     * // Get one Mst_role
-     * const mst_role = await prisma.mst_role.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends mst_roleFindFirstArgs>(args?: SelectSubset<T, mst_roleFindFirstArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
-
-    /**
-     * Find the first Mst_role that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {mst_roleFindFirstOrThrowArgs} args - Arguments to find a Mst_role
-     * @example
-     * // Get one Mst_role
-     * const mst_role = await prisma.mst_role.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends mst_roleFindFirstOrThrowArgs>(args?: SelectSubset<T, mst_roleFindFirstOrThrowArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
-
-    /**
-     * Find zero or more Mst_roles that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {mst_roleFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Mst_roles
-     * const mst_roles = await prisma.mst_role.findMany()
-     * 
-     * // Get first 10 Mst_roles
-     * const mst_roles = await prisma.mst_role.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const mst_roleWithIdOnly = await prisma.mst_role.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends mst_roleFindManyArgs>(args?: SelectSubset<T, mst_roleFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "findMany">>
-
-    /**
-     * Create a Mst_role.
-     * @param {mst_roleCreateArgs} args - Arguments to create a Mst_role.
-     * @example
-     * // Create one Mst_role
-     * const Mst_role = await prisma.mst_role.create({
-     *   data: {
-     *     // ... data to create a Mst_role
-     *   }
-     * })
-     * 
-     */
-    create<T extends mst_roleCreateArgs>(args: SelectSubset<T, mst_roleCreateArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "create">, never, ExtArgs>
-
-    /**
-     * Create many Mst_roles.
-     * @param {mst_roleCreateManyArgs} args - Arguments to create many Mst_roles.
-     * @example
-     * // Create many Mst_roles
-     * const mst_role = await prisma.mst_role.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends mst_roleCreateManyArgs>(args?: SelectSubset<T, mst_roleCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a Mst_role.
-     * @param {mst_roleDeleteArgs} args - Arguments to delete one Mst_role.
-     * @example
-     * // Delete one Mst_role
-     * const Mst_role = await prisma.mst_role.delete({
-     *   where: {
-     *     // ... filter to delete one Mst_role
-     *   }
-     * })
-     * 
-     */
-    delete<T extends mst_roleDeleteArgs>(args: SelectSubset<T, mst_roleDeleteArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "delete">, never, ExtArgs>
-
-    /**
-     * Update one Mst_role.
-     * @param {mst_roleUpdateArgs} args - Arguments to update one Mst_role.
-     * @example
-     * // Update one Mst_role
-     * const mst_role = await prisma.mst_role.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends mst_roleUpdateArgs>(args: SelectSubset<T, mst_roleUpdateArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "update">, never, ExtArgs>
-
-    /**
-     * Delete zero or more Mst_roles.
-     * @param {mst_roleDeleteManyArgs} args - Arguments to filter Mst_roles to delete.
-     * @example
-     * // Delete a few Mst_roles
-     * const { count } = await prisma.mst_role.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends mst_roleDeleteManyArgs>(args?: SelectSubset<T, mst_roleDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Mst_roles.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {mst_roleUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Mst_roles
-     * const mst_role = await prisma.mst_role.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends mst_roleUpdateManyArgs>(args: SelectSubset<T, mst_roleUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one Mst_role.
-     * @param {mst_roleUpsertArgs} args - Arguments to update or create a Mst_role.
-     * @example
-     * // Update or create a Mst_role
-     * const mst_role = await prisma.mst_role.upsert({
-     *   create: {
-     *     // ... data to create a Mst_role
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Mst_role we want to update
-     *   }
-     * })
-     */
-    upsert<T extends mst_roleUpsertArgs>(args: SelectSubset<T, mst_roleUpsertArgs<ExtArgs>>): Prisma__mst_roleClient<$Result.GetResult<Prisma.$mst_rolePayload<ExtArgs>, T, "upsert">, never, ExtArgs>
-
-
-    /**
-     * Count the number of Mst_roles.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {mst_roleCountArgs} args - Arguments to filter Mst_roles to count.
-     * @example
-     * // Count the number of Mst_roles
-     * const count = await prisma.mst_role.count({
-     *   where: {
-     *     // ... the filter for the Mst_roles we want to count
-     *   }
-     * })
-    **/
-    count<T extends mst_roleCountArgs>(
-      args?: Subset<T, mst_roleCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], Mst_roleCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Mst_role.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {Mst_roleAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends Mst_roleAggregateArgs>(args: Subset<T, Mst_roleAggregateArgs>): Prisma.PrismaPromise<GetMst_roleAggregateType<T>>
-
-    /**
-     * Group by Mst_role.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {mst_roleGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends mst_roleGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: mst_roleGroupByArgs['orderBy'] }
-        : { orderBy?: mst_roleGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, mst_roleGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMst_roleGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the mst_role model
-   */
-  readonly fields: mst_roleFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for mst_role.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__mst_roleClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the mst_role model
-   */ 
-  interface mst_roleFieldRefs {
-    readonly id: FieldRef<"mst_role", 'Int'>
-    readonly role: FieldRef<"mst_role", 'String'>
-    readonly is_deleted: FieldRef<"mst_role", 'Boolean'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * mst_role findUnique
-   */
-  export type mst_roleFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the mst_role
-     */
-    select?: mst_roleSelect<ExtArgs> | null
-    /**
-     * Filter, which mst_role to fetch.
-     */
-    where: mst_roleWhereUniqueInput
-  }
-
-  /**
-   * mst_role findUniqueOrThrow
-   */
-  export type mst_roleFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the mst_role
-     */
-    select?: mst_roleSelect<ExtArgs> | null
-    /**
-     * Filter, which mst_role to fetch.
-     */
-    where: mst_roleWhereUniqueInput
-  }
-
-  /**
-   * mst_role findFirst
-   */
-  export type mst_roleFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the mst_role
-     */
-    select?: mst_roleSelect<ExtArgs> | null
-    /**
-     * Filter, which mst_role to fetch.
-     */
-    where?: mst_roleWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of mst_roles to fetch.
-     */
-    orderBy?: mst_roleOrderByWithRelationInput | mst_roleOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for mst_roles.
-     */
-    cursor?: mst_roleWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` mst_roles from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` mst_roles.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of mst_roles.
-     */
-    distinct?: Mst_roleScalarFieldEnum | Mst_roleScalarFieldEnum[]
-  }
-
-  /**
-   * mst_role findFirstOrThrow
-   */
-  export type mst_roleFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the mst_role
-     */
-    select?: mst_roleSelect<ExtArgs> | null
-    /**
-     * Filter, which mst_role to fetch.
-     */
-    where?: mst_roleWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of mst_roles to fetch.
-     */
-    orderBy?: mst_roleOrderByWithRelationInput | mst_roleOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for mst_roles.
-     */
-    cursor?: mst_roleWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` mst_roles from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` mst_roles.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of mst_roles.
-     */
-    distinct?: Mst_roleScalarFieldEnum | Mst_roleScalarFieldEnum[]
-  }
-
-  /**
-   * mst_role findMany
-   */
-  export type mst_roleFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the mst_role
-     */
-    select?: mst_roleSelect<ExtArgs> | null
-    /**
-     * Filter, which mst_roles to fetch.
-     */
-    where?: mst_roleWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of mst_roles to fetch.
-     */
-    orderBy?: mst_roleOrderByWithRelationInput | mst_roleOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing mst_roles.
-     */
-    cursor?: mst_roleWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` mst_roles from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` mst_roles.
-     */
-    skip?: number
-    distinct?: Mst_roleScalarFieldEnum | Mst_roleScalarFieldEnum[]
-  }
-
-  /**
-   * mst_role create
-   */
-  export type mst_roleCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the mst_role
-     */
-    select?: mst_roleSelect<ExtArgs> | null
-    /**
-     * The data needed to create a mst_role.
-     */
-    data?: XOR<mst_roleCreateInput, mst_roleUncheckedCreateInput>
-  }
-
-  /**
-   * mst_role createMany
-   */
-  export type mst_roleCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many mst_roles.
-     */
-    data: mst_roleCreateManyInput | mst_roleCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * mst_role update
-   */
-  export type mst_roleUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the mst_role
-     */
-    select?: mst_roleSelect<ExtArgs> | null
-    /**
-     * The data needed to update a mst_role.
-     */
-    data: XOR<mst_roleUpdateInput, mst_roleUncheckedUpdateInput>
-    /**
-     * Choose, which mst_role to update.
-     */
-    where: mst_roleWhereUniqueInput
-  }
-
-  /**
-   * mst_role updateMany
-   */
-  export type mst_roleUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update mst_roles.
-     */
-    data: XOR<mst_roleUpdateManyMutationInput, mst_roleUncheckedUpdateManyInput>
-    /**
-     * Filter which mst_roles to update
-     */
-    where?: mst_roleWhereInput
-  }
-
-  /**
-   * mst_role upsert
-   */
-  export type mst_roleUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the mst_role
-     */
-    select?: mst_roleSelect<ExtArgs> | null
-    /**
-     * The filter to search for the mst_role to update in case it exists.
-     */
-    where: mst_roleWhereUniqueInput
-    /**
-     * In case the mst_role found by the `where` argument doesn't exist, create a new mst_role with this data.
-     */
-    create: XOR<mst_roleCreateInput, mst_roleUncheckedCreateInput>
-    /**
-     * In case the mst_role was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<mst_roleUpdateInput, mst_roleUncheckedUpdateInput>
-  }
-
-  /**
-   * mst_role delete
-   */
-  export type mst_roleDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the mst_role
-     */
-    select?: mst_roleSelect<ExtArgs> | null
-    /**
-     * Filter which mst_role to delete.
-     */
-    where: mst_roleWhereUniqueInput
-  }
-
-  /**
-   * mst_role deleteMany
-   */
-  export type mst_roleDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which mst_roles to delete
-     */
-    where?: mst_roleWhereInput
-  }
-
-  /**
-   * mst_role without action
-   */
-  export type mst_roleDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the mst_role
-     */
-    select?: mst_roleSelect<ExtArgs> | null
-  }
-
-
-  /**
-   * Model mst_project_state
-   */
-
-  export type AggregateMst_project_state = {
-    _count: Mst_project_stateCountAggregateOutputType | null
-    _avg: Mst_project_stateAvgAggregateOutputType | null
-    _sum: Mst_project_stateSumAggregateOutputType | null
-    _min: Mst_project_stateMinAggregateOutputType | null
-    _max: Mst_project_stateMaxAggregateOutputType | null
-  }
-
-  export type Mst_project_stateAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type Mst_project_stateSumAggregateOutputType = {
-    id: number | null
-  }
-
-  export type Mst_project_stateMinAggregateOutputType = {
-    id: number | null
-    status: string | null
-    created_at: Date | null
-    created_by: string | null
-  }
-
-  export type Mst_project_stateMaxAggregateOutputType = {
-    id: number | null
-    status: string | null
-    created_at: Date | null
-    created_by: string | null
-  }
-
-  export type Mst_project_stateCountAggregateOutputType = {
-    id: number
-    status: number
-    created_at: number
-    created_by: number
-    _all: number
-  }
-
-
-  export type Mst_project_stateAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type Mst_project_stateSumAggregateInputType = {
-    id?: true
-  }
-
-  export type Mst_project_stateMinAggregateInputType = {
-    id?: true
-    status?: true
-    created_at?: true
-    created_by?: true
-  }
-
-  export type Mst_project_stateMaxAggregateInputType = {
-    id?: true
-    status?: true
-    created_at?: true
-    created_by?: true
-  }
-
-  export type Mst_project_stateCountAggregateInputType = {
-    id?: true
-    status?: true
-    created_at?: true
-    created_by?: true
-    _all?: true
-  }
-
-  export type Mst_project_stateAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which mst_project_state to aggregate.
-     */
-    where?: mst_project_stateWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of mst_project_states to fetch.
-     */
-    orderBy?: mst_project_stateOrderByWithRelationInput | mst_project_stateOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: mst_project_stateWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` mst_project_states from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` mst_project_states.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned mst_project_states
-    **/
-    _count?: true | Mst_project_stateCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: Mst_project_stateAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: Mst_project_stateSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: Mst_project_stateMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: Mst_project_stateMaxAggregateInputType
-  }
-
-  export type GetMst_project_stateAggregateType<T extends Mst_project_stateAggregateArgs> = {
-        [P in keyof T & keyof AggregateMst_project_state]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateMst_project_state[P]>
-      : GetScalarType<T[P], AggregateMst_project_state[P]>
-  }
-
-
-
-
-  export type mst_project_stateGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: mst_project_stateWhereInput
-    orderBy?: mst_project_stateOrderByWithAggregationInput | mst_project_stateOrderByWithAggregationInput[]
-    by: Mst_project_stateScalarFieldEnum[] | Mst_project_stateScalarFieldEnum
-    having?: mst_project_stateScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: Mst_project_stateCountAggregateInputType | true
-    _avg?: Mst_project_stateAvgAggregateInputType
-    _sum?: Mst_project_stateSumAggregateInputType
-    _min?: Mst_project_stateMinAggregateInputType
-    _max?: Mst_project_stateMaxAggregateInputType
-  }
-
-  export type Mst_project_stateGroupByOutputType = {
-    id: number
-    status: string | null
-    created_at: Date | null
-    created_by: string | null
-    _count: Mst_project_stateCountAggregateOutputType | null
-    _avg: Mst_project_stateAvgAggregateOutputType | null
-    _sum: Mst_project_stateSumAggregateOutputType | null
-    _min: Mst_project_stateMinAggregateOutputType | null
-    _max: Mst_project_stateMaxAggregateOutputType | null
-  }
-
-  type GetMst_project_stateGroupByPayload<T extends mst_project_stateGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<Mst_project_stateGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof Mst_project_stateGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], Mst_project_stateGroupByOutputType[P]>
-            : GetScalarType<T[P], Mst_project_stateGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type mst_project_stateSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    status?: boolean
-    created_at?: boolean
-    created_by?: boolean
-    tr_project?: boolean | mst_project_state$tr_projectArgs<ExtArgs>
-    _count?: boolean | Mst_project_stateCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["mst_project_state"]>
-
-
-  export type mst_project_stateSelectScalar = {
-    id?: boolean
-    status?: boolean
-    created_at?: boolean
-    created_by?: boolean
-  }
-
-  export type mst_project_stateInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    tr_project?: boolean | mst_project_state$tr_projectArgs<ExtArgs>
-    _count?: boolean | Mst_project_stateCountOutputTypeDefaultArgs<ExtArgs>
-  }
-
-  export type $mst_project_statePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "mst_project_state"
-    objects: {
-      tr_project: Prisma.$tr_projectPayload<ExtArgs>[]
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      status: string | null
-      created_at: Date | null
-      created_by: string | null
-    }, ExtArgs["result"]["mst_project_state"]>
-    composites: {}
-  }
-
-  type mst_project_stateGetPayload<S extends boolean | null | undefined | mst_project_stateDefaultArgs> = $Result.GetResult<Prisma.$mst_project_statePayload, S>
-
-  type mst_project_stateCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<mst_project_stateFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: Mst_project_stateCountAggregateInputType | true
-    }
-
-  export interface mst_project_stateDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['mst_project_state'], meta: { name: 'mst_project_state' } }
-    /**
-     * Find zero or one Mst_project_state that matches the filter.
-     * @param {mst_project_stateFindUniqueArgs} args - Arguments to find a Mst_project_state
-     * @example
-     * // Get one Mst_project_state
-     * const mst_project_state = await prisma.mst_project_state.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends mst_project_stateFindUniqueArgs>(args: SelectSubset<T, mst_project_stateFindUniqueArgs<ExtArgs>>): Prisma__mst_project_stateClient<$Result.GetResult<Prisma.$mst_project_statePayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
-
-    /**
-     * Find one Mst_project_state that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
-     * @param {mst_project_stateFindUniqueOrThrowArgs} args - Arguments to find a Mst_project_state
-     * @example
-     * // Get one Mst_project_state
-     * const mst_project_state = await prisma.mst_project_state.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends mst_project_stateFindUniqueOrThrowArgs>(args: SelectSubset<T, mst_project_stateFindUniqueOrThrowArgs<ExtArgs>>): Prisma__mst_project_stateClient<$Result.GetResult<Prisma.$mst_project_statePayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
-
-    /**
-     * Find the first Mst_project_state that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {mst_project_stateFindFirstArgs} args - Arguments to find a Mst_project_state
-     * @example
-     * // Get one Mst_project_state
-     * const mst_project_state = await prisma.mst_project_state.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends mst_project_stateFindFirstArgs>(args?: SelectSubset<T, mst_project_stateFindFirstArgs<ExtArgs>>): Prisma__mst_project_stateClient<$Result.GetResult<Prisma.$mst_project_statePayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
-
-    /**
-     * Find the first Mst_project_state that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {mst_project_stateFindFirstOrThrowArgs} args - Arguments to find a Mst_project_state
-     * @example
-     * // Get one Mst_project_state
-     * const mst_project_state = await prisma.mst_project_state.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends mst_project_stateFindFirstOrThrowArgs>(args?: SelectSubset<T, mst_project_stateFindFirstOrThrowArgs<ExtArgs>>): Prisma__mst_project_stateClient<$Result.GetResult<Prisma.$mst_project_statePayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
-
-    /**
-     * Find zero or more Mst_project_states that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {mst_project_stateFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Mst_project_states
-     * const mst_project_states = await prisma.mst_project_state.findMany()
-     * 
-     * // Get first 10 Mst_project_states
-     * const mst_project_states = await prisma.mst_project_state.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const mst_project_stateWithIdOnly = await prisma.mst_project_state.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends mst_project_stateFindManyArgs>(args?: SelectSubset<T, mst_project_stateFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$mst_project_statePayload<ExtArgs>, T, "findMany">>
-
-    /**
-     * Create a Mst_project_state.
-     * @param {mst_project_stateCreateArgs} args - Arguments to create a Mst_project_state.
-     * @example
-     * // Create one Mst_project_state
-     * const Mst_project_state = await prisma.mst_project_state.create({
-     *   data: {
-     *     // ... data to create a Mst_project_state
-     *   }
-     * })
-     * 
-     */
-    create<T extends mst_project_stateCreateArgs>(args: SelectSubset<T, mst_project_stateCreateArgs<ExtArgs>>): Prisma__mst_project_stateClient<$Result.GetResult<Prisma.$mst_project_statePayload<ExtArgs>, T, "create">, never, ExtArgs>
-
-    /**
-     * Create many Mst_project_states.
-     * @param {mst_project_stateCreateManyArgs} args - Arguments to create many Mst_project_states.
-     * @example
-     * // Create many Mst_project_states
-     * const mst_project_state = await prisma.mst_project_state.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends mst_project_stateCreateManyArgs>(args?: SelectSubset<T, mst_project_stateCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Delete a Mst_project_state.
-     * @param {mst_project_stateDeleteArgs} args - Arguments to delete one Mst_project_state.
-     * @example
-     * // Delete one Mst_project_state
-     * const Mst_project_state = await prisma.mst_project_state.delete({
-     *   where: {
-     *     // ... filter to delete one Mst_project_state
-     *   }
-     * })
-     * 
-     */
-    delete<T extends mst_project_stateDeleteArgs>(args: SelectSubset<T, mst_project_stateDeleteArgs<ExtArgs>>): Prisma__mst_project_stateClient<$Result.GetResult<Prisma.$mst_project_statePayload<ExtArgs>, T, "delete">, never, ExtArgs>
-
-    /**
-     * Update one Mst_project_state.
-     * @param {mst_project_stateUpdateArgs} args - Arguments to update one Mst_project_state.
-     * @example
-     * // Update one Mst_project_state
-     * const mst_project_state = await prisma.mst_project_state.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends mst_project_stateUpdateArgs>(args: SelectSubset<T, mst_project_stateUpdateArgs<ExtArgs>>): Prisma__mst_project_stateClient<$Result.GetResult<Prisma.$mst_project_statePayload<ExtArgs>, T, "update">, never, ExtArgs>
-
-    /**
-     * Delete zero or more Mst_project_states.
-     * @param {mst_project_stateDeleteManyArgs} args - Arguments to filter Mst_project_states to delete.
-     * @example
-     * // Delete a few Mst_project_states
-     * const { count } = await prisma.mst_project_state.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends mst_project_stateDeleteManyArgs>(args?: SelectSubset<T, mst_project_stateDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Mst_project_states.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {mst_project_stateUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Mst_project_states
-     * const mst_project_state = await prisma.mst_project_state.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends mst_project_stateUpdateManyArgs>(args: SelectSubset<T, mst_project_stateUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one Mst_project_state.
-     * @param {mst_project_stateUpsertArgs} args - Arguments to update or create a Mst_project_state.
-     * @example
-     * // Update or create a Mst_project_state
-     * const mst_project_state = await prisma.mst_project_state.upsert({
-     *   create: {
-     *     // ... data to create a Mst_project_state
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Mst_project_state we want to update
-     *   }
-     * })
-     */
-    upsert<T extends mst_project_stateUpsertArgs>(args: SelectSubset<T, mst_project_stateUpsertArgs<ExtArgs>>): Prisma__mst_project_stateClient<$Result.GetResult<Prisma.$mst_project_statePayload<ExtArgs>, T, "upsert">, never, ExtArgs>
-
-
-    /**
-     * Count the number of Mst_project_states.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {mst_project_stateCountArgs} args - Arguments to filter Mst_project_states to count.
-     * @example
-     * // Count the number of Mst_project_states
-     * const count = await prisma.mst_project_state.count({
-     *   where: {
-     *     // ... the filter for the Mst_project_states we want to count
-     *   }
-     * })
-    **/
-    count<T extends mst_project_stateCountArgs>(
-      args?: Subset<T, mst_project_stateCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], Mst_project_stateCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Mst_project_state.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {Mst_project_stateAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends Mst_project_stateAggregateArgs>(args: Subset<T, Mst_project_stateAggregateArgs>): Prisma.PrismaPromise<GetMst_project_stateAggregateType<T>>
-
-    /**
-     * Group by Mst_project_state.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {mst_project_stateGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends mst_project_stateGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: mst_project_stateGroupByArgs['orderBy'] }
-        : { orderBy?: mst_project_stateGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, mst_project_stateGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMst_project_stateGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the mst_project_state model
-   */
-  readonly fields: mst_project_stateFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for mst_project_state.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__mst_project_stateClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    tr_project<T extends mst_project_state$tr_projectArgs<ExtArgs> = {}>(args?: Subset<T, mst_project_state$tr_projectArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tr_projectPayload<ExtArgs>, T, "findMany"> | Null>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the mst_project_state model
-   */ 
-  interface mst_project_stateFieldRefs {
-    readonly id: FieldRef<"mst_project_state", 'Int'>
-    readonly status: FieldRef<"mst_project_state", 'String'>
-    readonly created_at: FieldRef<"mst_project_state", 'DateTime'>
-    readonly created_by: FieldRef<"mst_project_state", 'String'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * mst_project_state findUnique
-   */
-  export type mst_project_stateFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the mst_project_state
-     */
-    select?: mst_project_stateSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: mst_project_stateInclude<ExtArgs> | null
-    /**
-     * Filter, which mst_project_state to fetch.
-     */
-    where: mst_project_stateWhereUniqueInput
-  }
-
-  /**
-   * mst_project_state findUniqueOrThrow
-   */
-  export type mst_project_stateFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the mst_project_state
-     */
-    select?: mst_project_stateSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: mst_project_stateInclude<ExtArgs> | null
-    /**
-     * Filter, which mst_project_state to fetch.
-     */
-    where: mst_project_stateWhereUniqueInput
-  }
-
-  /**
-   * mst_project_state findFirst
-   */
-  export type mst_project_stateFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the mst_project_state
-     */
-    select?: mst_project_stateSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: mst_project_stateInclude<ExtArgs> | null
-    /**
-     * Filter, which mst_project_state to fetch.
-     */
-    where?: mst_project_stateWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of mst_project_states to fetch.
-     */
-    orderBy?: mst_project_stateOrderByWithRelationInput | mst_project_stateOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for mst_project_states.
-     */
-    cursor?: mst_project_stateWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` mst_project_states from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` mst_project_states.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of mst_project_states.
-     */
-    distinct?: Mst_project_stateScalarFieldEnum | Mst_project_stateScalarFieldEnum[]
-  }
-
-  /**
-   * mst_project_state findFirstOrThrow
-   */
-  export type mst_project_stateFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the mst_project_state
-     */
-    select?: mst_project_stateSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: mst_project_stateInclude<ExtArgs> | null
-    /**
-     * Filter, which mst_project_state to fetch.
-     */
-    where?: mst_project_stateWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of mst_project_states to fetch.
-     */
-    orderBy?: mst_project_stateOrderByWithRelationInput | mst_project_stateOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for mst_project_states.
-     */
-    cursor?: mst_project_stateWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` mst_project_states from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` mst_project_states.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of mst_project_states.
-     */
-    distinct?: Mst_project_stateScalarFieldEnum | Mst_project_stateScalarFieldEnum[]
-  }
-
-  /**
-   * mst_project_state findMany
-   */
-  export type mst_project_stateFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the mst_project_state
-     */
-    select?: mst_project_stateSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: mst_project_stateInclude<ExtArgs> | null
-    /**
-     * Filter, which mst_project_states to fetch.
-     */
-    where?: mst_project_stateWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of mst_project_states to fetch.
-     */
-    orderBy?: mst_project_stateOrderByWithRelationInput | mst_project_stateOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing mst_project_states.
-     */
-    cursor?: mst_project_stateWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` mst_project_states from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` mst_project_states.
-     */
-    skip?: number
-    distinct?: Mst_project_stateScalarFieldEnum | Mst_project_stateScalarFieldEnum[]
-  }
-
-  /**
-   * mst_project_state create
-   */
-  export type mst_project_stateCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the mst_project_state
-     */
-    select?: mst_project_stateSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: mst_project_stateInclude<ExtArgs> | null
-    /**
-     * The data needed to create a mst_project_state.
-     */
-    data?: XOR<mst_project_stateCreateInput, mst_project_stateUncheckedCreateInput>
-  }
-
-  /**
-   * mst_project_state createMany
-   */
-  export type mst_project_stateCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many mst_project_states.
-     */
-    data: mst_project_stateCreateManyInput | mst_project_stateCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * mst_project_state update
-   */
-  export type mst_project_stateUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the mst_project_state
-     */
-    select?: mst_project_stateSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: mst_project_stateInclude<ExtArgs> | null
-    /**
-     * The data needed to update a mst_project_state.
-     */
-    data: XOR<mst_project_stateUpdateInput, mst_project_stateUncheckedUpdateInput>
-    /**
-     * Choose, which mst_project_state to update.
-     */
-    where: mst_project_stateWhereUniqueInput
-  }
-
-  /**
-   * mst_project_state updateMany
-   */
-  export type mst_project_stateUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update mst_project_states.
-     */
-    data: XOR<mst_project_stateUpdateManyMutationInput, mst_project_stateUncheckedUpdateManyInput>
-    /**
-     * Filter which mst_project_states to update
-     */
-    where?: mst_project_stateWhereInput
-  }
-
-  /**
-   * mst_project_state upsert
-   */
-  export type mst_project_stateUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the mst_project_state
-     */
-    select?: mst_project_stateSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: mst_project_stateInclude<ExtArgs> | null
-    /**
-     * The filter to search for the mst_project_state to update in case it exists.
-     */
-    where: mst_project_stateWhereUniqueInput
-    /**
-     * In case the mst_project_state found by the `where` argument doesn't exist, create a new mst_project_state with this data.
-     */
-    create: XOR<mst_project_stateCreateInput, mst_project_stateUncheckedCreateInput>
-    /**
-     * In case the mst_project_state was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<mst_project_stateUpdateInput, mst_project_stateUncheckedUpdateInput>
-  }
-
-  /**
-   * mst_project_state delete
-   */
-  export type mst_project_stateDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the mst_project_state
-     */
-    select?: mst_project_stateSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: mst_project_stateInclude<ExtArgs> | null
-    /**
-     * Filter which mst_project_state to delete.
-     */
-    where: mst_project_stateWhereUniqueInput
-  }
-
-  /**
-   * mst_project_state deleteMany
-   */
-  export type mst_project_stateDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which mst_project_states to delete
-     */
-    where?: mst_project_stateWhereInput
-  }
-
-  /**
-   * mst_project_state.tr_project
-   */
-  export type mst_project_state$tr_projectArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the tr_project
-     */
-    select?: tr_projectSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: tr_projectInclude<ExtArgs> | null
-    where?: tr_projectWhereInput
-    orderBy?: tr_projectOrderByWithRelationInput | tr_projectOrderByWithRelationInput[]
-    cursor?: tr_projectWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: Tr_projectScalarFieldEnum | Tr_projectScalarFieldEnum[]
-  }
-
-  /**
-   * mst_project_state without action
-   */
-  export type mst_project_stateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the mst_project_state
-     */
-    select?: mst_project_stateSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: mst_project_stateInclude<ExtArgs> | null
-  }
-
-
-  /**
    * Enums
    */
 
@@ -24559,6 +24559,25 @@ export namespace Prisma {
   };
 
   export type Mst_profileScalarFieldEnum = (typeof Mst_profileScalarFieldEnum)[keyof typeof Mst_profileScalarFieldEnum]
+
+
+  export const Mst_project_stateScalarFieldEnum: {
+    id: 'id',
+    status: 'status',
+    created_at: 'created_at',
+    created_by: 'created_by'
+  };
+
+  export type Mst_project_stateScalarFieldEnum = (typeof Mst_project_stateScalarFieldEnum)[keyof typeof Mst_project_stateScalarFieldEnum]
+
+
+  export const Mst_roleScalarFieldEnum: {
+    id: 'id',
+    role: 'role',
+    is_deleted: 'is_deleted'
+  };
+
+  export type Mst_roleScalarFieldEnum = (typeof Mst_roleScalarFieldEnum)[keyof typeof Mst_roleScalarFieldEnum]
 
 
   export const Tr_documentScalarFieldEnum: {
@@ -24758,25 +24777,6 @@ export namespace Prisma {
   };
 
   export type Tr_request_validationScalarFieldEnum = (typeof Tr_request_validationScalarFieldEnum)[keyof typeof Tr_request_validationScalarFieldEnum]
-
-
-  export const Mst_roleScalarFieldEnum: {
-    id: 'id',
-    role: 'role',
-    is_deleted: 'is_deleted'
-  };
-
-  export type Mst_roleScalarFieldEnum = (typeof Mst_roleScalarFieldEnum)[keyof typeof Mst_roleScalarFieldEnum]
-
-
-  export const Mst_project_stateScalarFieldEnum: {
-    id: 'id',
-    status: 'status',
-    created_at: 'created_at',
-    created_by: 'created_by'
-  };
-
-  export type Mst_project_stateScalarFieldEnum = (typeof Mst_project_stateScalarFieldEnum)[keyof typeof Mst_project_stateScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -25421,6 +25421,102 @@ export namespace Prisma {
     is_deleted?: BoolNullableWithAggregatesFilter<"mst_profile"> | boolean | null
     created_at?: DateTimeNullableWithAggregatesFilter<"mst_profile"> | Date | string | null
     created_by?: StringNullableWithAggregatesFilter<"mst_profile"> | string | null
+  }
+
+  export type mst_project_stateWhereInput = {
+    AND?: mst_project_stateWhereInput | mst_project_stateWhereInput[]
+    OR?: mst_project_stateWhereInput[]
+    NOT?: mst_project_stateWhereInput | mst_project_stateWhereInput[]
+    id?: IntFilter<"mst_project_state"> | number
+    status?: StringNullableFilter<"mst_project_state"> | string | null
+    created_at?: DateTimeNullableFilter<"mst_project_state"> | Date | string | null
+    created_by?: StringNullableFilter<"mst_project_state"> | string | null
+    tr_project?: Tr_projectListRelationFilter
+  }
+
+  export type mst_project_stateOrderByWithRelationInput = {
+    id?: SortOrder
+    status?: SortOrderInput | SortOrder
+    created_at?: SortOrderInput | SortOrder
+    created_by?: SortOrderInput | SortOrder
+    tr_project?: tr_projectOrderByRelationAggregateInput
+  }
+
+  export type mst_project_stateWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: mst_project_stateWhereInput | mst_project_stateWhereInput[]
+    OR?: mst_project_stateWhereInput[]
+    NOT?: mst_project_stateWhereInput | mst_project_stateWhereInput[]
+    status?: StringNullableFilter<"mst_project_state"> | string | null
+    created_at?: DateTimeNullableFilter<"mst_project_state"> | Date | string | null
+    created_by?: StringNullableFilter<"mst_project_state"> | string | null
+    tr_project?: Tr_projectListRelationFilter
+  }, "id">
+
+  export type mst_project_stateOrderByWithAggregationInput = {
+    id?: SortOrder
+    status?: SortOrderInput | SortOrder
+    created_at?: SortOrderInput | SortOrder
+    created_by?: SortOrderInput | SortOrder
+    _count?: mst_project_stateCountOrderByAggregateInput
+    _avg?: mst_project_stateAvgOrderByAggregateInput
+    _max?: mst_project_stateMaxOrderByAggregateInput
+    _min?: mst_project_stateMinOrderByAggregateInput
+    _sum?: mst_project_stateSumOrderByAggregateInput
+  }
+
+  export type mst_project_stateScalarWhereWithAggregatesInput = {
+    AND?: mst_project_stateScalarWhereWithAggregatesInput | mst_project_stateScalarWhereWithAggregatesInput[]
+    OR?: mst_project_stateScalarWhereWithAggregatesInput[]
+    NOT?: mst_project_stateScalarWhereWithAggregatesInput | mst_project_stateScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"mst_project_state"> | number
+    status?: StringNullableWithAggregatesFilter<"mst_project_state"> | string | null
+    created_at?: DateTimeNullableWithAggregatesFilter<"mst_project_state"> | Date | string | null
+    created_by?: StringNullableWithAggregatesFilter<"mst_project_state"> | string | null
+  }
+
+  export type mst_roleWhereInput = {
+    AND?: mst_roleWhereInput | mst_roleWhereInput[]
+    OR?: mst_roleWhereInput[]
+    NOT?: mst_roleWhereInput | mst_roleWhereInput[]
+    id?: IntFilter<"mst_role"> | number
+    role?: StringNullableFilter<"mst_role"> | string | null
+    is_deleted?: BoolNullableFilter<"mst_role"> | boolean | null
+  }
+
+  export type mst_roleOrderByWithRelationInput = {
+    id?: SortOrder
+    role?: SortOrderInput | SortOrder
+    is_deleted?: SortOrderInput | SortOrder
+  }
+
+  export type mst_roleWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: mst_roleWhereInput | mst_roleWhereInput[]
+    OR?: mst_roleWhereInput[]
+    NOT?: mst_roleWhereInput | mst_roleWhereInput[]
+    role?: StringNullableFilter<"mst_role"> | string | null
+    is_deleted?: BoolNullableFilter<"mst_role"> | boolean | null
+  }, "id">
+
+  export type mst_roleOrderByWithAggregationInput = {
+    id?: SortOrder
+    role?: SortOrderInput | SortOrder
+    is_deleted?: SortOrderInput | SortOrder
+    _count?: mst_roleCountOrderByAggregateInput
+    _avg?: mst_roleAvgOrderByAggregateInput
+    _max?: mst_roleMaxOrderByAggregateInput
+    _min?: mst_roleMinOrderByAggregateInput
+    _sum?: mst_roleSumOrderByAggregateInput
+  }
+
+  export type mst_roleScalarWhereWithAggregatesInput = {
+    AND?: mst_roleScalarWhereWithAggregatesInput | mst_roleScalarWhereWithAggregatesInput[]
+    OR?: mst_roleScalarWhereWithAggregatesInput[]
+    NOT?: mst_roleScalarWhereWithAggregatesInput | mst_roleScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"mst_role"> | number
+    role?: StringNullableWithAggregatesFilter<"mst_role"> | string | null
+    is_deleted?: BoolNullableWithAggregatesFilter<"mst_role"> | boolean | null
   }
 
   export type tr_documentWhereInput = {
@@ -26418,102 +26514,6 @@ export namespace Prisma {
     validation_date?: DateTimeNullableWithAggregatesFilter<"tr_request_validation"> | Date | string | null
   }
 
-  export type mst_roleWhereInput = {
-    AND?: mst_roleWhereInput | mst_roleWhereInput[]
-    OR?: mst_roleWhereInput[]
-    NOT?: mst_roleWhereInput | mst_roleWhereInput[]
-    id?: IntFilter<"mst_role"> | number
-    role?: StringNullableFilter<"mst_role"> | string | null
-    is_deleted?: BoolNullableFilter<"mst_role"> | boolean | null
-  }
-
-  export type mst_roleOrderByWithRelationInput = {
-    id?: SortOrder
-    role?: SortOrderInput | SortOrder
-    is_deleted?: SortOrderInput | SortOrder
-  }
-
-  export type mst_roleWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    AND?: mst_roleWhereInput | mst_roleWhereInput[]
-    OR?: mst_roleWhereInput[]
-    NOT?: mst_roleWhereInput | mst_roleWhereInput[]
-    role?: StringNullableFilter<"mst_role"> | string | null
-    is_deleted?: BoolNullableFilter<"mst_role"> | boolean | null
-  }, "id">
-
-  export type mst_roleOrderByWithAggregationInput = {
-    id?: SortOrder
-    role?: SortOrderInput | SortOrder
-    is_deleted?: SortOrderInput | SortOrder
-    _count?: mst_roleCountOrderByAggregateInput
-    _avg?: mst_roleAvgOrderByAggregateInput
-    _max?: mst_roleMaxOrderByAggregateInput
-    _min?: mst_roleMinOrderByAggregateInput
-    _sum?: mst_roleSumOrderByAggregateInput
-  }
-
-  export type mst_roleScalarWhereWithAggregatesInput = {
-    AND?: mst_roleScalarWhereWithAggregatesInput | mst_roleScalarWhereWithAggregatesInput[]
-    OR?: mst_roleScalarWhereWithAggregatesInput[]
-    NOT?: mst_roleScalarWhereWithAggregatesInput | mst_roleScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"mst_role"> | number
-    role?: StringNullableWithAggregatesFilter<"mst_role"> | string | null
-    is_deleted?: BoolNullableWithAggregatesFilter<"mst_role"> | boolean | null
-  }
-
-  export type mst_project_stateWhereInput = {
-    AND?: mst_project_stateWhereInput | mst_project_stateWhereInput[]
-    OR?: mst_project_stateWhereInput[]
-    NOT?: mst_project_stateWhereInput | mst_project_stateWhereInput[]
-    id?: IntFilter<"mst_project_state"> | number
-    status?: StringNullableFilter<"mst_project_state"> | string | null
-    created_at?: DateTimeNullableFilter<"mst_project_state"> | Date | string | null
-    created_by?: StringNullableFilter<"mst_project_state"> | string | null
-    tr_project?: Tr_projectListRelationFilter
-  }
-
-  export type mst_project_stateOrderByWithRelationInput = {
-    id?: SortOrder
-    status?: SortOrderInput | SortOrder
-    created_at?: SortOrderInput | SortOrder
-    created_by?: SortOrderInput | SortOrder
-    tr_project?: tr_projectOrderByRelationAggregateInput
-  }
-
-  export type mst_project_stateWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    AND?: mst_project_stateWhereInput | mst_project_stateWhereInput[]
-    OR?: mst_project_stateWhereInput[]
-    NOT?: mst_project_stateWhereInput | mst_project_stateWhereInput[]
-    status?: StringNullableFilter<"mst_project_state"> | string | null
-    created_at?: DateTimeNullableFilter<"mst_project_state"> | Date | string | null
-    created_by?: StringNullableFilter<"mst_project_state"> | string | null
-    tr_project?: Tr_projectListRelationFilter
-  }, "id">
-
-  export type mst_project_stateOrderByWithAggregationInput = {
-    id?: SortOrder
-    status?: SortOrderInput | SortOrder
-    created_at?: SortOrderInput | SortOrder
-    created_by?: SortOrderInput | SortOrder
-    _count?: mst_project_stateCountOrderByAggregateInput
-    _avg?: mst_project_stateAvgOrderByAggregateInput
-    _max?: mst_project_stateMaxOrderByAggregateInput
-    _min?: mst_project_stateMinOrderByAggregateInput
-    _sum?: mst_project_stateSumOrderByAggregateInput
-  }
-
-  export type mst_project_stateScalarWhereWithAggregatesInput = {
-    AND?: mst_project_stateScalarWhereWithAggregatesInput | mst_project_stateScalarWhereWithAggregatesInput[]
-    OR?: mst_project_stateScalarWhereWithAggregatesInput[]
-    NOT?: mst_project_stateScalarWhereWithAggregatesInput | mst_project_stateScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"mst_project_state"> | number
-    status?: StringNullableWithAggregatesFilter<"mst_project_state"> | string | null
-    created_at?: DateTimeNullableWithAggregatesFilter<"mst_project_state"> | Date | string | null
-    created_by?: StringNullableWithAggregatesFilter<"mst_project_state"> | string | null
-  }
-
   export type mst_applicationCreateInput = {
     application_name?: string | null
     group_id_technician?: string | null
@@ -27096,6 +27096,95 @@ export namespace Prisma {
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type mst_project_stateCreateInput = {
+    status?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    tr_project?: tr_projectCreateNestedManyWithoutMst_project_stateInput
+  }
+
+  export type mst_project_stateUncheckedCreateInput = {
+    id?: number
+    status?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    tr_project?: tr_projectUncheckedCreateNestedManyWithoutMst_project_stateInput
+  }
+
+  export type mst_project_stateUpdateInput = {
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    tr_project?: tr_projectUpdateManyWithoutMst_project_stateNestedInput
+  }
+
+  export type mst_project_stateUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    tr_project?: tr_projectUncheckedUpdateManyWithoutMst_project_stateNestedInput
+  }
+
+  export type mst_project_stateCreateManyInput = {
+    id?: number
+    status?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type mst_project_stateUpdateManyMutationInput = {
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type mst_project_stateUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type mst_roleCreateInput = {
+    role?: string | null
+    is_deleted?: boolean | null
+  }
+
+  export type mst_roleUncheckedCreateInput = {
+    id?: number
+    role?: string | null
+    is_deleted?: boolean | null
+  }
+
+  export type mst_roleUpdateInput = {
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type mst_roleUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type mst_roleCreateManyInput = {
+    id?: number
+    role?: string | null
+    is_deleted?: boolean | null
+  }
+
+  export type mst_roleUpdateManyMutationInput = {
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type mst_roleUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type tr_documentCreateInput = {
@@ -28207,95 +28296,6 @@ export namespace Prisma {
     validation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type mst_roleCreateInput = {
-    role?: string | null
-    is_deleted?: boolean | null
-  }
-
-  export type mst_roleUncheckedCreateInput = {
-    id?: number
-    role?: string | null
-    is_deleted?: boolean | null
-  }
-
-  export type mst_roleUpdateInput = {
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
-  }
-
-  export type mst_roleUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
-  }
-
-  export type mst_roleCreateManyInput = {
-    id?: number
-    role?: string | null
-    is_deleted?: boolean | null
-  }
-
-  export type mst_roleUpdateManyMutationInput = {
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
-  }
-
-  export type mst_roleUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    role?: NullableStringFieldUpdateOperationsInput | string | null
-    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
-  }
-
-  export type mst_project_stateCreateInput = {
-    status?: string | null
-    created_at?: Date | string | null
-    created_by?: string | null
-    tr_project?: tr_projectCreateNestedManyWithoutMst_project_stateInput
-  }
-
-  export type mst_project_stateUncheckedCreateInput = {
-    id?: number
-    status?: string | null
-    created_at?: Date | string | null
-    created_by?: string | null
-    tr_project?: tr_projectUncheckedCreateNestedManyWithoutMst_project_stateInput
-  }
-
-  export type mst_project_stateUpdateInput = {
-    status?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_by?: NullableStringFieldUpdateOperationsInput | string | null
-    tr_project?: tr_projectUpdateManyWithoutMst_project_stateNestedInput
-  }
-
-  export type mst_project_stateUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    status?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_by?: NullableStringFieldUpdateOperationsInput | string | null
-    tr_project?: tr_projectUncheckedUpdateManyWithoutMst_project_stateNestedInput
-  }
-
-  export type mst_project_stateCreateManyInput = {
-    id?: number
-    status?: string | null
-    created_at?: Date | string | null
-    created_by?: string | null
-  }
-
-  export type mst_project_stateUpdateManyMutationInput = {
-    status?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_by?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
-  export type mst_project_stateUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    status?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_by?: NullableStringFieldUpdateOperationsInput | string | null
-  }
-
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -28823,6 +28823,61 @@ export namespace Prisma {
   }
 
   export type mst_profileSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type mst_project_stateCountOrderByAggregateInput = {
+    id?: SortOrder
+    status?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+  }
+
+  export type mst_project_stateAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type mst_project_stateMaxOrderByAggregateInput = {
+    id?: SortOrder
+    status?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+  }
+
+  export type mst_project_stateMinOrderByAggregateInput = {
+    id?: SortOrder
+    status?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+  }
+
+  export type mst_project_stateSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type mst_roleCountOrderByAggregateInput = {
+    id?: SortOrder
+    role?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type mst_roleAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type mst_roleMaxOrderByAggregateInput = {
+    id?: SortOrder
+    role?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type mst_roleMinOrderByAggregateInput = {
+    id?: SortOrder
+    role?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type mst_roleSumOrderByAggregateInput = {
     id?: SortOrder
   }
 
@@ -29523,61 +29578,6 @@ export namespace Prisma {
     request_id?: SortOrder
   }
 
-  export type mst_roleCountOrderByAggregateInput = {
-    id?: SortOrder
-    role?: SortOrder
-    is_deleted?: SortOrder
-  }
-
-  export type mst_roleAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type mst_roleMaxOrderByAggregateInput = {
-    id?: SortOrder
-    role?: SortOrder
-    is_deleted?: SortOrder
-  }
-
-  export type mst_roleMinOrderByAggregateInput = {
-    id?: SortOrder
-    role?: SortOrder
-    is_deleted?: SortOrder
-  }
-
-  export type mst_roleSumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type mst_project_stateCountOrderByAggregateInput = {
-    id?: SortOrder
-    status?: SortOrder
-    created_at?: SortOrder
-    created_by?: SortOrder
-  }
-
-  export type mst_project_stateAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type mst_project_stateMaxOrderByAggregateInput = {
-    id?: SortOrder
-    status?: SortOrder
-    created_at?: SortOrder
-    created_by?: SortOrder
-  }
-
-  export type mst_project_stateMinOrderByAggregateInput = {
-    id?: SortOrder
-    status?: SortOrder
-    created_at?: SortOrder
-    created_by?: SortOrder
-  }
-
-  export type mst_project_stateSumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
   }
@@ -29880,6 +29880,48 @@ export namespace Prisma {
     deleteMany?: mst_authorization_profileScalarWhereInput | mst_authorization_profileScalarWhereInput[]
   }
 
+  export type tr_projectCreateNestedManyWithoutMst_project_stateInput = {
+    create?: XOR<tr_projectCreateWithoutMst_project_stateInput, tr_projectUncheckedCreateWithoutMst_project_stateInput> | tr_projectCreateWithoutMst_project_stateInput[] | tr_projectUncheckedCreateWithoutMst_project_stateInput[]
+    connectOrCreate?: tr_projectCreateOrConnectWithoutMst_project_stateInput | tr_projectCreateOrConnectWithoutMst_project_stateInput[]
+    createMany?: tr_projectCreateManyMst_project_stateInputEnvelope
+    connect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+  }
+
+  export type tr_projectUncheckedCreateNestedManyWithoutMst_project_stateInput = {
+    create?: XOR<tr_projectCreateWithoutMst_project_stateInput, tr_projectUncheckedCreateWithoutMst_project_stateInput> | tr_projectCreateWithoutMst_project_stateInput[] | tr_projectUncheckedCreateWithoutMst_project_stateInput[]
+    connectOrCreate?: tr_projectCreateOrConnectWithoutMst_project_stateInput | tr_projectCreateOrConnectWithoutMst_project_stateInput[]
+    createMany?: tr_projectCreateManyMst_project_stateInputEnvelope
+    connect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+  }
+
+  export type tr_projectUpdateManyWithoutMst_project_stateNestedInput = {
+    create?: XOR<tr_projectCreateWithoutMst_project_stateInput, tr_projectUncheckedCreateWithoutMst_project_stateInput> | tr_projectCreateWithoutMst_project_stateInput[] | tr_projectUncheckedCreateWithoutMst_project_stateInput[]
+    connectOrCreate?: tr_projectCreateOrConnectWithoutMst_project_stateInput | tr_projectCreateOrConnectWithoutMst_project_stateInput[]
+    upsert?: tr_projectUpsertWithWhereUniqueWithoutMst_project_stateInput | tr_projectUpsertWithWhereUniqueWithoutMst_project_stateInput[]
+    createMany?: tr_projectCreateManyMst_project_stateInputEnvelope
+    set?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+    disconnect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+    delete?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+    connect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+    update?: tr_projectUpdateWithWhereUniqueWithoutMst_project_stateInput | tr_projectUpdateWithWhereUniqueWithoutMst_project_stateInput[]
+    updateMany?: tr_projectUpdateManyWithWhereWithoutMst_project_stateInput | tr_projectUpdateManyWithWhereWithoutMst_project_stateInput[]
+    deleteMany?: tr_projectScalarWhereInput | tr_projectScalarWhereInput[]
+  }
+
+  export type tr_projectUncheckedUpdateManyWithoutMst_project_stateNestedInput = {
+    create?: XOR<tr_projectCreateWithoutMst_project_stateInput, tr_projectUncheckedCreateWithoutMst_project_stateInput> | tr_projectCreateWithoutMst_project_stateInput[] | tr_projectUncheckedCreateWithoutMst_project_stateInput[]
+    connectOrCreate?: tr_projectCreateOrConnectWithoutMst_project_stateInput | tr_projectCreateOrConnectWithoutMst_project_stateInput[]
+    upsert?: tr_projectUpsertWithWhereUniqueWithoutMst_project_stateInput | tr_projectUpsertWithWhereUniqueWithoutMst_project_stateInput[]
+    createMany?: tr_projectCreateManyMst_project_stateInputEnvelope
+    set?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+    disconnect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+    delete?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+    connect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+    update?: tr_projectUpdateWithWhereUniqueWithoutMst_project_stateInput | tr_projectUpdateWithWhereUniqueWithoutMst_project_stateInput[]
+    updateMany?: tr_projectUpdateManyWithWhereWithoutMst_project_stateInput | tr_projectUpdateManyWithWhereWithoutMst_project_stateInput[]
+    deleteMany?: tr_projectScalarWhereInput | tr_projectScalarWhereInput[]
+  }
+
   export type NullableFloatFieldUpdateOperationsInput = {
     set?: number | null
     increment?: number
@@ -29984,48 +30026,6 @@ export namespace Prisma {
     delete?: tr_requestWhereInput | boolean
     connect?: tr_requestWhereUniqueInput
     update?: XOR<XOR<tr_requestUpdateToOneWithWhereWithoutTr_request_validationInput, tr_requestUpdateWithoutTr_request_validationInput>, tr_requestUncheckedUpdateWithoutTr_request_validationInput>
-  }
-
-  export type tr_projectCreateNestedManyWithoutMst_project_stateInput = {
-    create?: XOR<tr_projectCreateWithoutMst_project_stateInput, tr_projectUncheckedCreateWithoutMst_project_stateInput> | tr_projectCreateWithoutMst_project_stateInput[] | tr_projectUncheckedCreateWithoutMst_project_stateInput[]
-    connectOrCreate?: tr_projectCreateOrConnectWithoutMst_project_stateInput | tr_projectCreateOrConnectWithoutMst_project_stateInput[]
-    createMany?: tr_projectCreateManyMst_project_stateInputEnvelope
-    connect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
-  }
-
-  export type tr_projectUncheckedCreateNestedManyWithoutMst_project_stateInput = {
-    create?: XOR<tr_projectCreateWithoutMst_project_stateInput, tr_projectUncheckedCreateWithoutMst_project_stateInput> | tr_projectCreateWithoutMst_project_stateInput[] | tr_projectUncheckedCreateWithoutMst_project_stateInput[]
-    connectOrCreate?: tr_projectCreateOrConnectWithoutMst_project_stateInput | tr_projectCreateOrConnectWithoutMst_project_stateInput[]
-    createMany?: tr_projectCreateManyMst_project_stateInputEnvelope
-    connect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
-  }
-
-  export type tr_projectUpdateManyWithoutMst_project_stateNestedInput = {
-    create?: XOR<tr_projectCreateWithoutMst_project_stateInput, tr_projectUncheckedCreateWithoutMst_project_stateInput> | tr_projectCreateWithoutMst_project_stateInput[] | tr_projectUncheckedCreateWithoutMst_project_stateInput[]
-    connectOrCreate?: tr_projectCreateOrConnectWithoutMst_project_stateInput | tr_projectCreateOrConnectWithoutMst_project_stateInput[]
-    upsert?: tr_projectUpsertWithWhereUniqueWithoutMst_project_stateInput | tr_projectUpsertWithWhereUniqueWithoutMst_project_stateInput[]
-    createMany?: tr_projectCreateManyMst_project_stateInputEnvelope
-    set?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
-    disconnect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
-    delete?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
-    connect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
-    update?: tr_projectUpdateWithWhereUniqueWithoutMst_project_stateInput | tr_projectUpdateWithWhereUniqueWithoutMst_project_stateInput[]
-    updateMany?: tr_projectUpdateManyWithWhereWithoutMst_project_stateInput | tr_projectUpdateManyWithWhereWithoutMst_project_stateInput[]
-    deleteMany?: tr_projectScalarWhereInput | tr_projectScalarWhereInput[]
-  }
-
-  export type tr_projectUncheckedUpdateManyWithoutMst_project_stateNestedInput = {
-    create?: XOR<tr_projectCreateWithoutMst_project_stateInput, tr_projectUncheckedCreateWithoutMst_project_stateInput> | tr_projectCreateWithoutMst_project_stateInput[] | tr_projectUncheckedCreateWithoutMst_project_stateInput[]
-    connectOrCreate?: tr_projectCreateOrConnectWithoutMst_project_stateInput | tr_projectCreateOrConnectWithoutMst_project_stateInput[]
-    upsert?: tr_projectUpsertWithWhereUniqueWithoutMst_project_stateInput | tr_projectUpsertWithWhereUniqueWithoutMst_project_stateInput[]
-    createMany?: tr_projectCreateManyMst_project_stateInputEnvelope
-    set?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
-    disconnect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
-    delete?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
-    connect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
-    update?: tr_projectUpdateWithWhereUniqueWithoutMst_project_stateInput | tr_projectUpdateWithWhereUniqueWithoutMst_project_stateInput[]
-    updateMany?: tr_projectUpdateManyWithWhereWithoutMst_project_stateInput | tr_projectUpdateManyWithWhereWithoutMst_project_stateInput[]
-    deleteMany?: tr_projectScalarWhereInput | tr_projectScalarWhereInput[]
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -30741,6 +30741,79 @@ export namespace Prisma {
     created_by?: StringNullableFilter<"mst_authorization_profile"> | string | null
   }
 
+  export type tr_projectCreateWithoutMst_project_stateInput = {
+    request_id?: number | null
+    application_id?: number | null
+    project_name?: string | null
+    survey_id?: number | null
+    project_code?: string | null
+    thumbnail?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
+    plan_start_date?: Date | string | null
+    plant_end_date?: Date | string | null
+    real_start_date?: Date | string | null
+    real_end_date?: Date | string | null
+    expected_completion?: Date | string | null
+    percent_done?: string | null
+    auto_percent_done?: boolean | null
+    is_deleted?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    mst_group?: mst_groupCreateNestedOneWithoutTr_projectInput
+  }
+
+  export type tr_projectUncheckedCreateWithoutMst_project_stateInput = {
+    id?: number
+    request_id?: number | null
+    application_id?: number | null
+    project_name?: string | null
+    survey_id?: number | null
+    project_code?: string | null
+    thumbnail?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
+    group_id?: number | null
+    plan_start_date?: Date | string | null
+    plant_end_date?: Date | string | null
+    real_start_date?: Date | string | null
+    real_end_date?: Date | string | null
+    expected_completion?: Date | string | null
+    percent_done?: string | null
+    auto_percent_done?: boolean | null
+    is_deleted?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type tr_projectCreateOrConnectWithoutMst_project_stateInput = {
+    where: tr_projectWhereUniqueInput
+    create: XOR<tr_projectCreateWithoutMst_project_stateInput, tr_projectUncheckedCreateWithoutMst_project_stateInput>
+  }
+
+  export type tr_projectCreateManyMst_project_stateInputEnvelope = {
+    data: tr_projectCreateManyMst_project_stateInput | tr_projectCreateManyMst_project_stateInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type tr_projectUpsertWithWhereUniqueWithoutMst_project_stateInput = {
+    where: tr_projectWhereUniqueInput
+    update: XOR<tr_projectUpdateWithoutMst_project_stateInput, tr_projectUncheckedUpdateWithoutMst_project_stateInput>
+    create: XOR<tr_projectCreateWithoutMst_project_stateInput, tr_projectUncheckedCreateWithoutMst_project_stateInput>
+  }
+
+  export type tr_projectUpdateWithWhereUniqueWithoutMst_project_stateInput = {
+    where: tr_projectWhereUniqueInput
+    data: XOR<tr_projectUpdateWithoutMst_project_stateInput, tr_projectUncheckedUpdateWithoutMst_project_stateInput>
+  }
+
+  export type tr_projectUpdateManyWithWhereWithoutMst_project_stateInput = {
+    where: tr_projectScalarWhereInput
+    data: XOR<tr_projectUpdateManyMutationInput, tr_projectUncheckedUpdateManyWithoutMst_project_stateInput>
+  }
+
   export type mst_groupCreateWithoutTr_projectInput = {
     entities_id?: number | null
     group_name?: string | null
@@ -31005,79 +31078,6 @@ export namespace Prisma {
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type tr_projectCreateWithoutMst_project_stateInput = {
-    request_id?: number | null
-    application_id?: number | null
-    project_name?: string | null
-    survey_id?: number | null
-    project_code?: string | null
-    thumbnail?: string | null
-    background?: string | null
-    issue_description?: string | null
-    business_impact?: string | null
-    plan_start_date?: Date | string | null
-    plant_end_date?: Date | string | null
-    real_start_date?: Date | string | null
-    real_end_date?: Date | string | null
-    expected_completion?: Date | string | null
-    percent_done?: string | null
-    auto_percent_done?: boolean | null
-    is_deleted?: string | null
-    created_at?: Date | string | null
-    created_by?: string | null
-    mst_group?: mst_groupCreateNestedOneWithoutTr_projectInput
-  }
-
-  export type tr_projectUncheckedCreateWithoutMst_project_stateInput = {
-    id?: number
-    request_id?: number | null
-    application_id?: number | null
-    project_name?: string | null
-    survey_id?: number | null
-    project_code?: string | null
-    thumbnail?: string | null
-    background?: string | null
-    issue_description?: string | null
-    business_impact?: string | null
-    group_id?: number | null
-    plan_start_date?: Date | string | null
-    plant_end_date?: Date | string | null
-    real_start_date?: Date | string | null
-    real_end_date?: Date | string | null
-    expected_completion?: Date | string | null
-    percent_done?: string | null
-    auto_percent_done?: boolean | null
-    is_deleted?: string | null
-    created_at?: Date | string | null
-    created_by?: string | null
-  }
-
-  export type tr_projectCreateOrConnectWithoutMst_project_stateInput = {
-    where: tr_projectWhereUniqueInput
-    create: XOR<tr_projectCreateWithoutMst_project_stateInput, tr_projectUncheckedCreateWithoutMst_project_stateInput>
-  }
-
-  export type tr_projectCreateManyMst_project_stateInputEnvelope = {
-    data: tr_projectCreateManyMst_project_stateInput | tr_projectCreateManyMst_project_stateInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type tr_projectUpsertWithWhereUniqueWithoutMst_project_stateInput = {
-    where: tr_projectWhereUniqueInput
-    update: XOR<tr_projectUpdateWithoutMst_project_stateInput, tr_projectUncheckedUpdateWithoutMst_project_stateInput>
-    create: XOR<tr_projectCreateWithoutMst_project_stateInput, tr_projectUncheckedCreateWithoutMst_project_stateInput>
-  }
-
-  export type tr_projectUpdateWithWhereUniqueWithoutMst_project_stateInput = {
-    where: tr_projectWhereUniqueInput
-    data: XOR<tr_projectUpdateWithoutMst_project_stateInput, tr_projectUncheckedUpdateWithoutMst_project_stateInput>
-  }
-
-  export type tr_projectUpdateManyWithWhereWithoutMst_project_stateInput = {
-    where: tr_projectScalarWhereInput
-    data: XOR<tr_projectUpdateManyMutationInput, tr_projectUncheckedUpdateManyWithoutMst_project_stateInput>
-  }
-
   export type mst_authorizationCreateManyMst_entitiesInput = {
     id?: number
     employee_code?: string | null
@@ -31329,49 +31329,6 @@ export namespace Prisma {
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type tr_request_validationCreateManyTr_requestInput = {
-    id?: number
-    user_id?: string | null
-    user_id_validate?: string | null
-    comment_submission?: string | null
-    comment_validation?: string | null
-    status?: string | null
-    submission_date?: Date | string | null
-    validation_date?: Date | string | null
-  }
-
-  export type tr_request_validationUpdateWithoutTr_requestInput = {
-    user_id?: NullableStringFieldUpdateOperationsInput | string | null
-    user_id_validate?: NullableStringFieldUpdateOperationsInput | string | null
-    comment_submission?: NullableStringFieldUpdateOperationsInput | string | null
-    comment_validation?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: NullableStringFieldUpdateOperationsInput | string | null
-    submission_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    validation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type tr_request_validationUncheckedUpdateWithoutTr_requestInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: NullableStringFieldUpdateOperationsInput | string | null
-    user_id_validate?: NullableStringFieldUpdateOperationsInput | string | null
-    comment_submission?: NullableStringFieldUpdateOperationsInput | string | null
-    comment_validation?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: NullableStringFieldUpdateOperationsInput | string | null
-    submission_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    validation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type tr_request_validationUncheckedUpdateManyWithoutTr_requestInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    user_id?: NullableStringFieldUpdateOperationsInput | string | null
-    user_id_validate?: NullableStringFieldUpdateOperationsInput | string | null
-    comment_submission?: NullableStringFieldUpdateOperationsInput | string | null
-    comment_validation?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: NullableStringFieldUpdateOperationsInput | string | null
-    submission_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    validation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
   export type tr_projectCreateManyMst_project_stateInput = {
     id?: number
     request_id?: number | null
@@ -31467,6 +31424,49 @@ export namespace Prisma {
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type tr_request_validationCreateManyTr_requestInput = {
+    id?: number
+    user_id?: string | null
+    user_id_validate?: string | null
+    comment_submission?: string | null
+    comment_validation?: string | null
+    status?: string | null
+    submission_date?: Date | string | null
+    validation_date?: Date | string | null
+  }
+
+  export type tr_request_validationUpdateWithoutTr_requestInput = {
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    user_id_validate?: NullableStringFieldUpdateOperationsInput | string | null
+    comment_submission?: NullableStringFieldUpdateOperationsInput | string | null
+    comment_validation?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    submission_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    validation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type tr_request_validationUncheckedUpdateWithoutTr_requestInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    user_id_validate?: NullableStringFieldUpdateOperationsInput | string | null
+    comment_submission?: NullableStringFieldUpdateOperationsInput | string | null
+    comment_validation?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    submission_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    validation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type tr_request_validationUncheckedUpdateManyWithoutTr_requestInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    user_id_validate?: NullableStringFieldUpdateOperationsInput | string | null
+    comment_submission?: NullableStringFieldUpdateOperationsInput | string | null
+    comment_validation?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    submission_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    validation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
 
 
   /**
@@ -31485,13 +31485,13 @@ export namespace Prisma {
      */
     export type Mst_profileCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Mst_profileCountOutputTypeDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use Tr_requestCountOutputTypeDefaultArgs instead
-     */
-    export type Tr_requestCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Tr_requestCountOutputTypeDefaultArgs<ExtArgs>
-    /**
      * @deprecated Use Mst_project_stateCountOutputTypeDefaultArgs instead
      */
     export type Mst_project_stateCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Mst_project_stateCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use Tr_requestCountOutputTypeDefaultArgs instead
+     */
+    export type Tr_requestCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Tr_requestCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use mst_applicationDefaultArgs instead
      */
@@ -31528,6 +31528,14 @@ export namespace Prisma {
      * @deprecated Use mst_profileDefaultArgs instead
      */
     export type mst_profileArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = mst_profileDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use mst_project_stateDefaultArgs instead
+     */
+    export type mst_project_stateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = mst_project_stateDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use mst_roleDefaultArgs instead
+     */
+    export type mst_roleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = mst_roleDefaultArgs<ExtArgs>
     /**
      * @deprecated Use tr_documentDefaultArgs instead
      */
@@ -31576,14 +31584,6 @@ export namespace Prisma {
      * @deprecated Use tr_request_validationDefaultArgs instead
      */
     export type tr_request_validationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = tr_request_validationDefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use mst_roleDefaultArgs instead
-     */
-    export type mst_roleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = mst_roleDefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use mst_project_stateDefaultArgs instead
-     */
-    export type mst_project_stateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = mst_project_stateDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

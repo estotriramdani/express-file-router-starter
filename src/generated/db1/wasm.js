@@ -204,6 +204,19 @@ exports.Prisma.Mst_profileScalarFieldEnum = {
   created_by: 'created_by'
 };
 
+exports.Prisma.Mst_project_stateScalarFieldEnum = {
+  id: 'id',
+  status: 'status',
+  created_at: 'created_at',
+  created_by: 'created_by'
+};
+
+exports.Prisma.Mst_roleScalarFieldEnum = {
+  id: 'id',
+  role: 'role',
+  is_deleted: 'is_deleted'
+};
+
 exports.Prisma.Tr_documentScalarFieldEnum = {
   id: 'id',
   type: 'type',
@@ -367,19 +380,6 @@ exports.Prisma.Tr_request_validationScalarFieldEnum = {
   validation_date: 'validation_date'
 };
 
-exports.Prisma.Mst_roleScalarFieldEnum = {
-  id: 'id',
-  role: 'role',
-  is_deleted: 'is_deleted'
-};
-
-exports.Prisma.Mst_project_stateScalarFieldEnum = {
-  id: 'id',
-  status: 'status',
-  created_at: 'created_at',
-  created_by: 'created_by'
-};
-
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -401,6 +401,8 @@ exports.Prisma.ModelName = {
   mst_group: 'mst_group',
   mst_manpower_cost: 'mst_manpower_cost',
   mst_profile: 'mst_profile',
+  mst_project_state: 'mst_project_state',
+  mst_role: 'mst_role',
   tr_document: 'tr_document',
   tr_history: 'tr_history',
   tr_project: 'tr_project',
@@ -412,9 +414,7 @@ exports.Prisma.ModelName = {
   tr_project_task: 'tr_project_task',
   tr_project_team: 'tr_project_team',
   tr_request: 'tr_request',
-  tr_request_validation: 'tr_request_validation',
-  mst_role: 'mst_role',
-  mst_project_state: 'mst_project_state'
+  tr_request_validation: 'tr_request_validation'
 };
 
 /**
