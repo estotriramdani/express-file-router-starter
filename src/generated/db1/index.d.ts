@@ -19743,6 +19743,7 @@ export namespace Prisma {
     id: number | null
     project_id: number | null
     employee_code: string | null
+    is_deleted: boolean | null
     created_at: Date | null
     created_by: string | null
   }
@@ -19751,6 +19752,7 @@ export namespace Prisma {
     id: number | null
     project_id: number | null
     employee_code: string | null
+    is_deleted: boolean | null
     created_at: Date | null
     created_by: string | null
   }
@@ -19759,6 +19761,7 @@ export namespace Prisma {
     id: number
     project_id: number
     employee_code: number
+    is_deleted: number
     created_at: number
     created_by: number
     _all: number
@@ -19779,6 +19782,7 @@ export namespace Prisma {
     id?: true
     project_id?: true
     employee_code?: true
+    is_deleted?: true
     created_at?: true
     created_by?: true
   }
@@ -19787,6 +19791,7 @@ export namespace Prisma {
     id?: true
     project_id?: true
     employee_code?: true
+    is_deleted?: true
     created_at?: true
     created_by?: true
   }
@@ -19795,6 +19800,7 @@ export namespace Prisma {
     id?: true
     project_id?: true
     employee_code?: true
+    is_deleted?: true
     created_at?: true
     created_by?: true
     _all?: true
@@ -19890,6 +19896,7 @@ export namespace Prisma {
     id: number
     project_id: number | null
     employee_code: string | null
+    is_deleted: boolean | null
     created_at: Date | null
     created_by: string | null
     _count: Tr_project_teamCountAggregateOutputType | null
@@ -19917,6 +19924,7 @@ export namespace Prisma {
     id?: boolean
     project_id?: boolean
     employee_code?: boolean
+    is_deleted?: boolean
     created_at?: boolean
     created_by?: boolean
   }, ExtArgs["result"]["tr_project_team"]>
@@ -19926,6 +19934,7 @@ export namespace Prisma {
     id?: boolean
     project_id?: boolean
     employee_code?: boolean
+    is_deleted?: boolean
     created_at?: boolean
     created_by?: boolean
   }
@@ -19938,6 +19947,7 @@ export namespace Prisma {
       id: number
       project_id: number | null
       employee_code: string | null
+      is_deleted: boolean | null
       created_at: Date | null
       created_by: string | null
     }, ExtArgs["result"]["tr_project_team"]>
@@ -20312,6 +20322,7 @@ export namespace Prisma {
     readonly id: FieldRef<"tr_project_team", 'Int'>
     readonly project_id: FieldRef<"tr_project_team", 'Int'>
     readonly employee_code: FieldRef<"tr_project_team", 'String'>
+    readonly is_deleted: FieldRef<"tr_project_team", 'Boolean'>
     readonly created_at: FieldRef<"tr_project_team", 'DateTime'>
     readonly created_by: FieldRef<"tr_project_team", 'String'>
   }
@@ -20484,7 +20495,7 @@ export namespace Prisma {
     /**
      * The data needed to create a tr_project_team.
      */
-    data: XOR<tr_project_teamCreateInput, tr_project_teamUncheckedCreateInput>
+    data?: XOR<tr_project_teamCreateInput, tr_project_teamUncheckedCreateInput>
   }
 
   /**
@@ -24701,6 +24712,7 @@ export namespace Prisma {
     id: 'id',
     project_id: 'project_id',
     employee_code: 'employee_code',
+    is_deleted: 'is_deleted',
     created_at: 'created_at',
     created_by: 'created_by'
   };
@@ -26150,6 +26162,7 @@ export namespace Prisma {
     id?: IntFilter<"tr_project_team"> | number
     project_id?: IntNullableFilter<"tr_project_team"> | number | null
     employee_code?: StringNullableFilter<"tr_project_team"> | string | null
+    is_deleted?: BoolNullableFilter<"tr_project_team"> | boolean | null
     created_at?: DateTimeNullableFilter<"tr_project_team"> | Date | string | null
     created_by?: StringNullableFilter<"tr_project_team"> | string | null
   }
@@ -26158,6 +26171,7 @@ export namespace Prisma {
     id?: SortOrder
     project_id?: SortOrderInput | SortOrder
     employee_code?: SortOrderInput | SortOrder
+    is_deleted?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
   }
@@ -26169,6 +26183,7 @@ export namespace Prisma {
     NOT?: tr_project_teamWhereInput | tr_project_teamWhereInput[]
     project_id?: IntNullableFilter<"tr_project_team"> | number | null
     employee_code?: StringNullableFilter<"tr_project_team"> | string | null
+    is_deleted?: BoolNullableFilter<"tr_project_team"> | boolean | null
     created_at?: DateTimeNullableFilter<"tr_project_team"> | Date | string | null
     created_by?: StringNullableFilter<"tr_project_team"> | string | null
   }, "id">
@@ -26177,6 +26192,7 @@ export namespace Prisma {
     id?: SortOrder
     project_id?: SortOrderInput | SortOrder
     employee_code?: SortOrderInput | SortOrder
+    is_deleted?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
     _count?: tr_project_teamCountOrderByAggregateInput
@@ -26193,6 +26209,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"tr_project_team"> | number
     project_id?: IntNullableWithAggregatesFilter<"tr_project_team"> | number | null
     employee_code?: StringNullableWithAggregatesFilter<"tr_project_team"> | string | null
+    is_deleted?: BoolNullableWithAggregatesFilter<"tr_project_team"> | boolean | null
     created_at?: DateTimeNullableWithAggregatesFilter<"tr_project_team"> | Date | string | null
     created_by?: StringNullableWithAggregatesFilter<"tr_project_team"> | string | null
   }
@@ -27896,25 +27913,26 @@ export namespace Prisma {
   }
 
   export type tr_project_teamCreateInput = {
-    id: number
     project_id?: number | null
     employee_code?: string | null
+    is_deleted?: boolean | null
     created_at?: Date | string | null
     created_by?: string | null
   }
 
   export type tr_project_teamUncheckedCreateInput = {
-    id: number
+    id?: number
     project_id?: number | null
     employee_code?: string | null
+    is_deleted?: boolean | null
     created_at?: Date | string | null
     created_by?: string | null
   }
 
   export type tr_project_teamUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
     project_id?: NullableIntFieldUpdateOperationsInput | number | null
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -27923,22 +27941,24 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     project_id?: NullableIntFieldUpdateOperationsInput | number | null
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type tr_project_teamCreateManyInput = {
-    id: number
+    id?: number
     project_id?: number | null
     employee_code?: string | null
+    is_deleted?: boolean | null
     created_at?: Date | string | null
     created_by?: string | null
   }
 
   export type tr_project_teamUpdateManyMutationInput = {
-    id?: IntFieldUpdateOperationsInput | number
     project_id?: NullableIntFieldUpdateOperationsInput | number | null
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -27947,6 +27967,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     project_id?: NullableIntFieldUpdateOperationsInput | number | null
     employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -29332,6 +29353,7 @@ export namespace Prisma {
     id?: SortOrder
     project_id?: SortOrder
     employee_code?: SortOrder
+    is_deleted?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
   }
@@ -29345,6 +29367,7 @@ export namespace Prisma {
     id?: SortOrder
     project_id?: SortOrder
     employee_code?: SortOrder
+    is_deleted?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
   }
@@ -29353,6 +29376,7 @@ export namespace Prisma {
     id?: SortOrder
     project_id?: SortOrder
     employee_code?: SortOrder
+    is_deleted?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
   }

@@ -328,6 +328,7 @@ exports.Prisma.Tr_project_teamScalarFieldEnum = {
   id: 'id',
   project_id: 'project_id',
   employee_code: 'employee_code',
+  is_deleted: 'is_deleted',
   created_at: 'created_at',
   created_by: 'created_by'
 };

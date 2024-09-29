@@ -89,7 +89,7 @@ export const post = async (req: Request, res: Response) => {
 
 
       let dataUser = {
-        nik: datas.lg_nik,
+        nik: employment.employee_code,
         name: datas.lg_name,
         email: datas.lg_email_aio,
         authorization: authorization,
