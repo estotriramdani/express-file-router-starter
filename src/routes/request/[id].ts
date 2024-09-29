@@ -50,3 +50,31 @@ export const del = [authenticateJWT, async (req: Request, res: Response) => {
     return res.status(500).json({ error: "Internal Server Error" });
   }
 }];
+
+
+
+export const put = [authenticateJWT, async (req: Request, res: Response) => {
+  if (req.method !== "PUT")
+    return res.status(405).json({
+      error: "Method Not Allowed",
+    });
+
+  try {
+    await db1.tr_request.update({
+      where: { id: parseInt(req.params.id) },
+      data: {
+        ...req.body
+      },
+    });
+
+    return res.json({ status: true, data: 'Succeed' });
+
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+}];
+
+
+
+

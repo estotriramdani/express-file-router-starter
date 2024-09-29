@@ -128,6 +128,16 @@ export type tr_request = $Result.DefaultSelection<Prisma.$tr_requestPayload>
  * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
  */
 export type tr_request_validation = $Result.DefaultSelection<Prisma.$tr_request_validationPayload>
+/**
+ * Model tr_request_technician
+ * 
+ */
+export type tr_request_technician = $Result.DefaultSelection<Prisma.$tr_request_technicianPayload>
+/**
+ * Model tr_project_task_team
+ * 
+ */
+export type tr_project_task_team = $Result.DefaultSelection<Prisma.$tr_project_task_teamPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -481,6 +491,26 @@ export class PrismaClient<
     * ```
     */
   get tr_request_validation(): Prisma.tr_request_validationDelegate<ExtArgs>;
+
+  /**
+   * `prisma.tr_request_technician`: Exposes CRUD operations for the **tr_request_technician** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Tr_request_technicians
+    * const tr_request_technicians = await prisma.tr_request_technician.findMany()
+    * ```
+    */
+  get tr_request_technician(): Prisma.tr_request_technicianDelegate<ExtArgs>;
+
+  /**
+   * `prisma.tr_project_task_team`: Exposes CRUD operations for the **tr_project_task_team** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Tr_project_task_teams
+    * const tr_project_task_teams = await prisma.tr_project_task_team.findMany()
+    * ```
+    */
+  get tr_project_task_team(): Prisma.tr_project_task_teamDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -942,7 +972,9 @@ export namespace Prisma {
     tr_project_task: 'tr_project_task',
     tr_project_team: 'tr_project_team',
     tr_request: 'tr_request',
-    tr_request_validation: 'tr_request_validation'
+    tr_request_validation: 'tr_request_validation',
+    tr_request_technician: 'tr_request_technician',
+    tr_project_task_team: 'tr_project_task_team'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -958,7 +990,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "mst_application" | "mst_application_version" | "mst_authorization" | "mst_authorization_profile" | "mst_authorization_usergroup" | "mst_entities" | "mst_group" | "mst_manpower_cost" | "mst_profile" | "mst_project_state" | "mst_role" | "tr_document" | "tr_history" | "tr_project" | "tr_project_activity" | "tr_project_overview" | "tr_project_participant" | "tr_project_risk_mitigation" | "tr_project_scope" | "tr_project_task" | "tr_project_team" | "tr_request" | "tr_request_validation"
+      modelProps: "mst_application" | "mst_application_version" | "mst_authorization" | "mst_authorization_profile" | "mst_authorization_usergroup" | "mst_entities" | "mst_group" | "mst_manpower_cost" | "mst_profile" | "mst_project_state" | "mst_role" | "tr_document" | "tr_history" | "tr_project" | "tr_project_activity" | "tr_project_overview" | "tr_project_participant" | "tr_project_risk_mitigation" | "tr_project_scope" | "tr_project_task" | "tr_project_team" | "tr_request" | "tr_request_validation" | "tr_request_technician" | "tr_project_task_team"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2480,6 +2512,138 @@ export namespace Prisma {
           }
         }
       }
+      tr_request_technician: {
+        payload: Prisma.$tr_request_technicianPayload<ExtArgs>
+        fields: Prisma.tr_request_technicianFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.tr_request_technicianFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_request_technicianPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.tr_request_technicianFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_request_technicianPayload>
+          }
+          findFirst: {
+            args: Prisma.tr_request_technicianFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_request_technicianPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.tr_request_technicianFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_request_technicianPayload>
+          }
+          findMany: {
+            args: Prisma.tr_request_technicianFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_request_technicianPayload>[]
+          }
+          create: {
+            args: Prisma.tr_request_technicianCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_request_technicianPayload>
+          }
+          createMany: {
+            args: Prisma.tr_request_technicianCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.tr_request_technicianDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_request_technicianPayload>
+          }
+          update: {
+            args: Prisma.tr_request_technicianUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_request_technicianPayload>
+          }
+          deleteMany: {
+            args: Prisma.tr_request_technicianDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.tr_request_technicianUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.tr_request_technicianUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_request_technicianPayload>
+          }
+          aggregate: {
+            args: Prisma.Tr_request_technicianAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTr_request_technician>
+          }
+          groupBy: {
+            args: Prisma.tr_request_technicianGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Tr_request_technicianGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.tr_request_technicianCountArgs<ExtArgs>
+            result: $Utils.Optional<Tr_request_technicianCountAggregateOutputType> | number
+          }
+        }
+      }
+      tr_project_task_team: {
+        payload: Prisma.$tr_project_task_teamPayload<ExtArgs>
+        fields: Prisma.tr_project_task_teamFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.tr_project_task_teamFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_task_teamPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.tr_project_task_teamFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_task_teamPayload>
+          }
+          findFirst: {
+            args: Prisma.tr_project_task_teamFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_task_teamPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.tr_project_task_teamFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_task_teamPayload>
+          }
+          findMany: {
+            args: Prisma.tr_project_task_teamFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_task_teamPayload>[]
+          }
+          create: {
+            args: Prisma.tr_project_task_teamCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_task_teamPayload>
+          }
+          createMany: {
+            args: Prisma.tr_project_task_teamCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.tr_project_task_teamDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_task_teamPayload>
+          }
+          update: {
+            args: Prisma.tr_project_task_teamUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_task_teamPayload>
+          }
+          deleteMany: {
+            args: Prisma.tr_project_task_teamDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.tr_project_task_teamUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.tr_project_task_teamUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_task_teamPayload>
+          }
+          aggregate: {
+            args: Prisma.Tr_project_task_teamAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTr_project_task_team>
+          }
+          groupBy: {
+            args: Prisma.tr_project_task_teamGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Tr_project_task_teamGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.tr_project_task_teamCountArgs<ExtArgs>
+            result: $Utils.Optional<Tr_project_task_teamCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -2637,6 +2801,46 @@ export namespace Prisma {
 
 
   /**
+   * Count Type Mst_authorizationCountOutputType
+   */
+
+  export type Mst_authorizationCountOutputType = {
+    tr_project_task_team: number
+    tr_project_team: number
+  }
+
+  export type Mst_authorizationCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tr_project_task_team?: boolean | Mst_authorizationCountOutputTypeCountTr_project_task_teamArgs
+    tr_project_team?: boolean | Mst_authorizationCountOutputTypeCountTr_project_teamArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Mst_authorizationCountOutputType without action
+   */
+  export type Mst_authorizationCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mst_authorizationCountOutputType
+     */
+    select?: Mst_authorizationCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Mst_authorizationCountOutputType without action
+   */
+  export type Mst_authorizationCountOutputTypeCountTr_project_task_teamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tr_project_task_teamWhereInput
+  }
+
+  /**
+   * Mst_authorizationCountOutputType without action
+   */
+  export type Mst_authorizationCountOutputTypeCountTr_project_teamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tr_project_teamWhereInput
+  }
+
+
+  /**
    * Count Type Mst_entitiesCountOutputType
    */
 
@@ -2708,6 +2912,37 @@ export namespace Prisma {
 
 
   /**
+   * Count Type Mst_manpower_costCountOutputType
+   */
+
+  export type Mst_manpower_costCountOutputType = {
+    mst_authorization: number
+  }
+
+  export type Mst_manpower_costCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    mst_authorization?: boolean | Mst_manpower_costCountOutputTypeCountMst_authorizationArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Mst_manpower_costCountOutputType without action
+   */
+  export type Mst_manpower_costCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mst_manpower_costCountOutputType
+     */
+    select?: Mst_manpower_costCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Mst_manpower_costCountOutputType without action
+   */
+  export type Mst_manpower_costCountOutputTypeCountMst_authorizationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: mst_authorizationWhereInput
+  }
+
+
+  /**
    * Count Type Mst_profileCountOutputType
    */
 
@@ -2775,6 +3010,68 @@ export namespace Prisma {
    */
   export type Mst_project_stateCountOutputTypeCountTr_projectArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: tr_projectWhereInput
+  }
+
+
+  /**
+   * Count Type Tr_projectCountOutputType
+   */
+
+  export type Tr_projectCountOutputType = {
+    tr_project_task: number
+  }
+
+  export type Tr_projectCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tr_project_task?: boolean | Tr_projectCountOutputTypeCountTr_project_taskArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Tr_projectCountOutputType without action
+   */
+  export type Tr_projectCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tr_projectCountOutputType
+     */
+    select?: Tr_projectCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Tr_projectCountOutputType without action
+   */
+  export type Tr_projectCountOutputTypeCountTr_project_taskArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tr_project_taskWhereInput
+  }
+
+
+  /**
+   * Count Type Tr_project_taskCountOutputType
+   */
+
+  export type Tr_project_taskCountOutputType = {
+    tr_project_task_team: number
+  }
+
+  export type Tr_project_taskCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tr_project_task_team?: boolean | Tr_project_taskCountOutputTypeCountTr_project_task_teamArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Tr_project_taskCountOutputType without action
+   */
+  export type Tr_project_taskCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tr_project_taskCountOutputType
+     */
+    select?: Tr_project_taskCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Tr_project_taskCountOutputType without action
+   */
+  export type Tr_project_taskCountOutputTypeCountTr_project_task_teamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tr_project_task_teamWhereInput
   }
 
 
@@ -4600,12 +4897,14 @@ export namespace Prisma {
 
   export type Mst_authorizationAvgAggregateOutputType = {
     id: number | null
+    technician_level: number | null
     active_profile: number | null
     active_entities: number | null
   }
 
   export type Mst_authorizationSumAggregateOutputType = {
     id: number | null
+    technician_level: number | null
     active_profile: number | null
     active_entities: number | null
   }
@@ -4617,7 +4916,7 @@ export namespace Prisma {
     is_active: string | null
     created_at: Date | null
     created_by: string | null
-    technician_level: string | null
+    technician_level: number | null
     active_profile: number | null
     active_entities: number | null
     is_deleted: boolean | null
@@ -4630,7 +4929,7 @@ export namespace Prisma {
     is_active: string | null
     created_at: Date | null
     created_by: string | null
-    technician_level: string | null
+    technician_level: number | null
     active_profile: number | null
     active_entities: number | null
     is_deleted: boolean | null
@@ -4653,12 +4952,14 @@ export namespace Prisma {
 
   export type Mst_authorizationAvgAggregateInputType = {
     id?: true
+    technician_level?: true
     active_profile?: true
     active_entities?: true
   }
 
   export type Mst_authorizationSumAggregateInputType = {
     id?: true
+    technician_level?: true
     active_profile?: true
     active_entities?: true
   }
@@ -4796,7 +5097,7 @@ export namespace Prisma {
     is_active: string | null
     created_at: Date | null
     created_by: string | null
-    technician_level: string | null
+    technician_level: number | null
     active_profile: number | null
     active_entities: number | null
     is_deleted: boolean | null
@@ -4834,6 +5135,10 @@ export namespace Prisma {
     is_deleted?: boolean
     mst_entities?: boolean | mst_authorization$mst_entitiesArgs<ExtArgs>
     mst_profile?: boolean | mst_authorization$mst_profileArgs<ExtArgs>
+    mst_manpower_cost?: boolean | mst_authorization$mst_manpower_costArgs<ExtArgs>
+    tr_project_task_team?: boolean | mst_authorization$tr_project_task_teamArgs<ExtArgs>
+    tr_project_team?: boolean | mst_authorization$tr_project_teamArgs<ExtArgs>
+    _count?: boolean | Mst_authorizationCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["mst_authorization"]>
 
 
@@ -4853,6 +5158,10 @@ export namespace Prisma {
   export type mst_authorizationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     mst_entities?: boolean | mst_authorization$mst_entitiesArgs<ExtArgs>
     mst_profile?: boolean | mst_authorization$mst_profileArgs<ExtArgs>
+    mst_manpower_cost?: boolean | mst_authorization$mst_manpower_costArgs<ExtArgs>
+    tr_project_task_team?: boolean | mst_authorization$tr_project_task_teamArgs<ExtArgs>
+    tr_project_team?: boolean | mst_authorization$tr_project_teamArgs<ExtArgs>
+    _count?: boolean | Mst_authorizationCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $mst_authorizationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4860,6 +5169,9 @@ export namespace Prisma {
     objects: {
       mst_entities: Prisma.$mst_entitiesPayload<ExtArgs> | null
       mst_profile: Prisma.$mst_profilePayload<ExtArgs> | null
+      mst_manpower_cost: Prisma.$mst_manpower_costPayload<ExtArgs> | null
+      tr_project_task_team: Prisma.$tr_project_task_teamPayload<ExtArgs>[]
+      tr_project_team: Prisma.$tr_project_teamPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4868,7 +5180,7 @@ export namespace Prisma {
       is_active: string | null
       created_at: Date | null
       created_by: string | null
-      technician_level: string | null
+      technician_level: number | null
       active_profile: number | null
       active_entities: number | null
       is_deleted: boolean | null
@@ -5214,6 +5526,9 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     mst_entities<T extends mst_authorization$mst_entitiesArgs<ExtArgs> = {}>(args?: Subset<T, mst_authorization$mst_entitiesArgs<ExtArgs>>): Prisma__mst_entitiesClient<$Result.GetResult<Prisma.$mst_entitiesPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     mst_profile<T extends mst_authorization$mst_profileArgs<ExtArgs> = {}>(args?: Subset<T, mst_authorization$mst_profileArgs<ExtArgs>>): Prisma__mst_profileClient<$Result.GetResult<Prisma.$mst_profilePayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    mst_manpower_cost<T extends mst_authorization$mst_manpower_costArgs<ExtArgs> = {}>(args?: Subset<T, mst_authorization$mst_manpower_costArgs<ExtArgs>>): Prisma__mst_manpower_costClient<$Result.GetResult<Prisma.$mst_manpower_costPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    tr_project_task_team<T extends mst_authorization$tr_project_task_teamArgs<ExtArgs> = {}>(args?: Subset<T, mst_authorization$tr_project_task_teamArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tr_project_task_teamPayload<ExtArgs>, T, "findMany"> | Null>
+    tr_project_team<T extends mst_authorization$tr_project_teamArgs<ExtArgs> = {}>(args?: Subset<T, mst_authorization$tr_project_teamArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tr_project_teamPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5249,7 +5564,7 @@ export namespace Prisma {
     readonly is_active: FieldRef<"mst_authorization", 'String'>
     readonly created_at: FieldRef<"mst_authorization", 'DateTime'>
     readonly created_by: FieldRef<"mst_authorization", 'String'>
-    readonly technician_level: FieldRef<"mst_authorization", 'String'>
+    readonly technician_level: FieldRef<"mst_authorization", 'Int'>
     readonly active_profile: FieldRef<"mst_authorization", 'Int'>
     readonly active_entities: FieldRef<"mst_authorization", 'Int'>
     readonly is_deleted: FieldRef<"mst_authorization", 'Boolean'>
@@ -5579,6 +5894,61 @@ export namespace Prisma {
      */
     include?: mst_profileInclude<ExtArgs> | null
     where?: mst_profileWhereInput
+  }
+
+  /**
+   * mst_authorization.mst_manpower_cost
+   */
+  export type mst_authorization$mst_manpower_costArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_manpower_cost
+     */
+    select?: mst_manpower_costSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_manpower_costInclude<ExtArgs> | null
+    where?: mst_manpower_costWhereInput
+  }
+
+  /**
+   * mst_authorization.tr_project_task_team
+   */
+  export type mst_authorization$tr_project_task_teamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_task_team
+     */
+    select?: tr_project_task_teamSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_task_teamInclude<ExtArgs> | null
+    where?: tr_project_task_teamWhereInput
+    orderBy?: tr_project_task_teamOrderByWithRelationInput | tr_project_task_teamOrderByWithRelationInput[]
+    cursor?: tr_project_task_teamWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Tr_project_task_teamScalarFieldEnum | Tr_project_task_teamScalarFieldEnum[]
+  }
+
+  /**
+   * mst_authorization.tr_project_team
+   */
+  export type mst_authorization$tr_project_teamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_team
+     */
+    select?: tr_project_teamSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_teamInclude<ExtArgs> | null
+    where?: tr_project_teamWhereInput
+    orderBy?: tr_project_teamOrderByWithRelationInput | tr_project_teamOrderByWithRelationInput[]
+    cursor?: tr_project_teamWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Tr_project_teamScalarFieldEnum | Tr_project_teamScalarFieldEnum[]
   }
 
   /**
@@ -9428,17 +9798,21 @@ export namespace Prisma {
 
   export type Mst_manpower_costAvgAggregateOutputType = {
     id: number | null
+    hourly: number | null
+    monthly: number | null
   }
 
   export type Mst_manpower_costSumAggregateOutputType = {
     id: number | null
+    hourly: number | null
+    monthly: number | null
   }
 
   export type Mst_manpower_costMinAggregateOutputType = {
     id: number | null
     technician_level: string | null
-    hourly: string | null
-    monthly: string | null
+    hourly: number | null
+    monthly: number | null
     created_at: Date | null
     created_by: string | null
   }
@@ -9446,8 +9820,8 @@ export namespace Prisma {
   export type Mst_manpower_costMaxAggregateOutputType = {
     id: number | null
     technician_level: string | null
-    hourly: string | null
-    monthly: string | null
+    hourly: number | null
+    monthly: number | null
     created_at: Date | null
     created_by: string | null
   }
@@ -9465,10 +9839,14 @@ export namespace Prisma {
 
   export type Mst_manpower_costAvgAggregateInputType = {
     id?: true
+    hourly?: true
+    monthly?: true
   }
 
   export type Mst_manpower_costSumAggregateInputType = {
     id?: true
+    hourly?: true
+    monthly?: true
   }
 
   export type Mst_manpower_costMinAggregateInputType = {
@@ -9588,8 +9966,8 @@ export namespace Prisma {
   export type Mst_manpower_costGroupByOutputType = {
     id: number
     technician_level: string | null
-    hourly: string | null
-    monthly: string | null
+    hourly: number | null
+    monthly: number | null
     created_at: Date | null
     created_by: string | null
     _count: Mst_manpower_costCountAggregateOutputType | null
@@ -9620,6 +9998,8 @@ export namespace Prisma {
     monthly?: boolean
     created_at?: boolean
     created_by?: boolean
+    mst_authorization?: boolean | mst_manpower_cost$mst_authorizationArgs<ExtArgs>
+    _count?: boolean | Mst_manpower_costCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["mst_manpower_cost"]>
 
 
@@ -9632,15 +10012,21 @@ export namespace Prisma {
     created_by?: boolean
   }
 
+  export type mst_manpower_costInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    mst_authorization?: boolean | mst_manpower_cost$mst_authorizationArgs<ExtArgs>
+    _count?: boolean | Mst_manpower_costCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
   export type $mst_manpower_costPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "mst_manpower_cost"
-    objects: {}
+    objects: {
+      mst_authorization: Prisma.$mst_authorizationPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       technician_level: string | null
-      hourly: string | null
-      monthly: string | null
+      hourly: number | null
+      monthly: number | null
       created_at: Date | null
       created_by: string | null
     }, ExtArgs["result"]["mst_manpower_cost"]>
@@ -9983,6 +10369,7 @@ export namespace Prisma {
    */
   export interface Prisma__mst_manpower_costClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    mst_authorization<T extends mst_manpower_cost$mst_authorizationArgs<ExtArgs> = {}>(args?: Subset<T, mst_manpower_cost$mst_authorizationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$mst_authorizationPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -10014,8 +10401,8 @@ export namespace Prisma {
   interface mst_manpower_costFieldRefs {
     readonly id: FieldRef<"mst_manpower_cost", 'Int'>
     readonly technician_level: FieldRef<"mst_manpower_cost", 'String'>
-    readonly hourly: FieldRef<"mst_manpower_cost", 'String'>
-    readonly monthly: FieldRef<"mst_manpower_cost", 'String'>
+    readonly hourly: FieldRef<"mst_manpower_cost", 'Float'>
+    readonly monthly: FieldRef<"mst_manpower_cost", 'Float'>
     readonly created_at: FieldRef<"mst_manpower_cost", 'DateTime'>
     readonly created_by: FieldRef<"mst_manpower_cost", 'String'>
   }
@@ -10031,6 +10418,10 @@ export namespace Prisma {
      */
     select?: mst_manpower_costSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_manpower_costInclude<ExtArgs> | null
+    /**
      * Filter, which mst_manpower_cost to fetch.
      */
     where: mst_manpower_costWhereUniqueInput
@@ -10045,6 +10436,10 @@ export namespace Prisma {
      */
     select?: mst_manpower_costSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_manpower_costInclude<ExtArgs> | null
+    /**
      * Filter, which mst_manpower_cost to fetch.
      */
     where: mst_manpower_costWhereUniqueInput
@@ -10058,6 +10453,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_manpower_cost
      */
     select?: mst_manpower_costSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_manpower_costInclude<ExtArgs> | null
     /**
      * Filter, which mst_manpower_cost to fetch.
      */
@@ -10103,6 +10502,10 @@ export namespace Prisma {
      */
     select?: mst_manpower_costSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_manpower_costInclude<ExtArgs> | null
+    /**
      * Filter, which mst_manpower_cost to fetch.
      */
     where?: mst_manpower_costWhereInput
@@ -10147,6 +10550,10 @@ export namespace Prisma {
      */
     select?: mst_manpower_costSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_manpower_costInclude<ExtArgs> | null
+    /**
      * Filter, which mst_manpower_costs to fetch.
      */
     where?: mst_manpower_costWhereInput
@@ -10186,6 +10593,10 @@ export namespace Prisma {
      */
     select?: mst_manpower_costSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_manpower_costInclude<ExtArgs> | null
+    /**
      * The data needed to create a mst_manpower_cost.
      */
     data?: XOR<mst_manpower_costCreateInput, mst_manpower_costUncheckedCreateInput>
@@ -10210,6 +10621,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_manpower_cost
      */
     select?: mst_manpower_costSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_manpower_costInclude<ExtArgs> | null
     /**
      * The data needed to update a mst_manpower_cost.
      */
@@ -10243,6 +10658,10 @@ export namespace Prisma {
      */
     select?: mst_manpower_costSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_manpower_costInclude<ExtArgs> | null
+    /**
      * The filter to search for the mst_manpower_cost to update in case it exists.
      */
     where: mst_manpower_costWhereUniqueInput
@@ -10265,6 +10684,10 @@ export namespace Prisma {
      */
     select?: mst_manpower_costSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_manpower_costInclude<ExtArgs> | null
+    /**
      * Filter which mst_manpower_cost to delete.
      */
     where: mst_manpower_costWhereUniqueInput
@@ -10281,6 +10704,26 @@ export namespace Prisma {
   }
 
   /**
+   * mst_manpower_cost.mst_authorization
+   */
+  export type mst_manpower_cost$mst_authorizationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_authorization
+     */
+    select?: mst_authorizationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorizationInclude<ExtArgs> | null
+    where?: mst_authorizationWhereInput
+    orderBy?: mst_authorizationOrderByWithRelationInput | mst_authorizationOrderByWithRelationInput[]
+    cursor?: mst_authorizationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Mst_authorizationScalarFieldEnum | Mst_authorizationScalarFieldEnum[]
+  }
+
+  /**
    * mst_manpower_cost without action
    */
   export type mst_manpower_costDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -10288,6 +10731,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the mst_manpower_cost
      */
     select?: mst_manpower_costSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_manpower_costInclude<ExtArgs> | null
   }
 
 
@@ -14897,7 +15344,7 @@ export namespace Prisma {
     business_impact: string | null
     group_id: number | null
     plan_start_date: Date | null
-    plant_end_date: Date | null
+    plan_end_date: Date | null
     real_start_date: Date | null
     real_end_date: Date | null
     expected_completion: Date | null
@@ -14922,7 +15369,7 @@ export namespace Prisma {
     business_impact: string | null
     group_id: number | null
     plan_start_date: Date | null
-    plant_end_date: Date | null
+    plan_end_date: Date | null
     real_start_date: Date | null
     real_end_date: Date | null
     expected_completion: Date | null
@@ -14947,7 +15394,7 @@ export namespace Prisma {
     business_impact: number
     group_id: number
     plan_start_date: number
-    plant_end_date: number
+    plan_end_date: number
     real_start_date: number
     real_end_date: number
     expected_completion: number
@@ -14992,7 +15439,7 @@ export namespace Prisma {
     business_impact?: true
     group_id?: true
     plan_start_date?: true
-    plant_end_date?: true
+    plan_end_date?: true
     real_start_date?: true
     real_end_date?: true
     expected_completion?: true
@@ -15017,7 +15464,7 @@ export namespace Prisma {
     business_impact?: true
     group_id?: true
     plan_start_date?: true
-    plant_end_date?: true
+    plan_end_date?: true
     real_start_date?: true
     real_end_date?: true
     expected_completion?: true
@@ -15042,7 +15489,7 @@ export namespace Prisma {
     business_impact?: true
     group_id?: true
     plan_start_date?: true
-    plant_end_date?: true
+    plan_end_date?: true
     real_start_date?: true
     real_end_date?: true
     expected_completion?: true
@@ -15154,7 +15601,7 @@ export namespace Prisma {
     business_impact: string | null
     group_id: number | null
     plan_start_date: Date | null
-    plant_end_date: Date | null
+    plan_end_date: Date | null
     real_start_date: Date | null
     real_end_date: Date | null
     expected_completion: Date | null
@@ -15198,7 +15645,7 @@ export namespace Prisma {
     business_impact?: boolean
     group_id?: boolean
     plan_start_date?: boolean
-    plant_end_date?: boolean
+    plan_end_date?: boolean
     real_start_date?: boolean
     real_end_date?: boolean
     expected_completion?: boolean
@@ -15210,6 +15657,8 @@ export namespace Prisma {
     created_by?: boolean
     mst_group?: boolean | tr_project$mst_groupArgs<ExtArgs>
     mst_project_state?: boolean | tr_project$mst_project_stateArgs<ExtArgs>
+    tr_project_task?: boolean | tr_project$tr_project_taskArgs<ExtArgs>
+    _count?: boolean | Tr_projectCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tr_project"]>
 
 
@@ -15226,7 +15675,7 @@ export namespace Prisma {
     business_impact?: boolean
     group_id?: boolean
     plan_start_date?: boolean
-    plant_end_date?: boolean
+    plan_end_date?: boolean
     real_start_date?: boolean
     real_end_date?: boolean
     expected_completion?: boolean
@@ -15241,6 +15690,8 @@ export namespace Prisma {
   export type tr_projectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     mst_group?: boolean | tr_project$mst_groupArgs<ExtArgs>
     mst_project_state?: boolean | tr_project$mst_project_stateArgs<ExtArgs>
+    tr_project_task?: boolean | tr_project$tr_project_taskArgs<ExtArgs>
+    _count?: boolean | Tr_projectCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $tr_projectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -15248,6 +15699,7 @@ export namespace Prisma {
     objects: {
       mst_group: Prisma.$mst_groupPayload<ExtArgs> | null
       mst_project_state: Prisma.$mst_project_statePayload<ExtArgs> | null
+      tr_project_task: Prisma.$tr_project_taskPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -15262,7 +15714,7 @@ export namespace Prisma {
       business_impact: string | null
       group_id: number | null
       plan_start_date: Date | null
-      plant_end_date: Date | null
+      plan_end_date: Date | null
       real_start_date: Date | null
       real_end_date: Date | null
       expected_completion: Date | null
@@ -15614,6 +16066,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     mst_group<T extends tr_project$mst_groupArgs<ExtArgs> = {}>(args?: Subset<T, tr_project$mst_groupArgs<ExtArgs>>): Prisma__mst_groupClient<$Result.GetResult<Prisma.$mst_groupPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     mst_project_state<T extends tr_project$mst_project_stateArgs<ExtArgs> = {}>(args?: Subset<T, tr_project$mst_project_stateArgs<ExtArgs>>): Prisma__mst_project_stateClient<$Result.GetResult<Prisma.$mst_project_statePayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    tr_project_task<T extends tr_project$tr_project_taskArgs<ExtArgs> = {}>(args?: Subset<T, tr_project$tr_project_taskArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tr_project_taskPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -15655,7 +16108,7 @@ export namespace Prisma {
     readonly business_impact: FieldRef<"tr_project", 'String'>
     readonly group_id: FieldRef<"tr_project", 'Int'>
     readonly plan_start_date: FieldRef<"tr_project", 'DateTime'>
-    readonly plant_end_date: FieldRef<"tr_project", 'DateTime'>
+    readonly plan_end_date: FieldRef<"tr_project", 'DateTime'>
     readonly real_start_date: FieldRef<"tr_project", 'DateTime'>
     readonly real_end_date: FieldRef<"tr_project", 'DateTime'>
     readonly expected_completion: FieldRef<"tr_project", 'DateTime'>
@@ -15991,6 +16444,26 @@ export namespace Prisma {
      */
     include?: mst_project_stateInclude<ExtArgs> | null
     where?: mst_project_stateWhereInput
+  }
+
+  /**
+   * tr_project.tr_project_task
+   */
+  export type tr_project$tr_project_taskArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_task
+     */
+    select?: tr_project_taskSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_taskInclude<ExtArgs> | null
+    where?: tr_project_taskWhereInput
+    orderBy?: tr_project_taskOrderByWithRelationInput | tr_project_taskOrderByWithRelationInput[]
+    cursor?: tr_project_taskWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Tr_project_taskScalarFieldEnum | Tr_project_taskScalarFieldEnum[]
   }
 
   /**
@@ -20505,13 +20978,19 @@ export namespace Prisma {
   export type Tr_project_taskAvgAggregateOutputType = {
     id: number | null
     project_id: number | null
-    cost: Decimal | null
+    plan_duration: number | null
+    real_duration: number | null
+    percent_done: number | null
+    cost: number | null
   }
 
   export type Tr_project_taskSumAggregateOutputType = {
     id: number | null
     project_id: number | null
-    cost: Decimal | null
+    plan_duration: number | null
+    real_duration: number | null
+    percent_done: number | null
+    cost: number | null
   }
 
   export type Tr_project_taskMinAggregateOutputType = {
@@ -20523,14 +21002,15 @@ export namespace Prisma {
     plan_end_date: Date | null
     real_start_date: Date | null
     real_end_date: Date | null
-    planned_duration: string | null
-    real_duration: string | null
-    percent_done: string | null
-    cost: Decimal | null
+    plan_duration: number | null
+    real_duration: number | null
+    percent_done: number | null
+    cost: number | null
     task_type: string | null
     created_at: Date | null
     created_by: string | null
     task_category: string | null
+    is_deleted: boolean | null
   }
 
   export type Tr_project_taskMaxAggregateOutputType = {
@@ -20542,14 +21022,15 @@ export namespace Prisma {
     plan_end_date: Date | null
     real_start_date: Date | null
     real_end_date: Date | null
-    planned_duration: string | null
-    real_duration: string | null
-    percent_done: string | null
-    cost: Decimal | null
+    plan_duration: number | null
+    real_duration: number | null
+    percent_done: number | null
+    cost: number | null
     task_type: string | null
     created_at: Date | null
     created_by: string | null
     task_category: string | null
+    is_deleted: boolean | null
   }
 
   export type Tr_project_taskCountAggregateOutputType = {
@@ -20561,7 +21042,7 @@ export namespace Prisma {
     plan_end_date: number
     real_start_date: number
     real_end_date: number
-    planned_duration: number
+    plan_duration: number
     real_duration: number
     percent_done: number
     cost: number
@@ -20569,6 +21050,7 @@ export namespace Prisma {
     created_at: number
     created_by: number
     task_category: number
+    is_deleted: number
     _all: number
   }
 
@@ -20576,12 +21058,18 @@ export namespace Prisma {
   export type Tr_project_taskAvgAggregateInputType = {
     id?: true
     project_id?: true
+    plan_duration?: true
+    real_duration?: true
+    percent_done?: true
     cost?: true
   }
 
   export type Tr_project_taskSumAggregateInputType = {
     id?: true
     project_id?: true
+    plan_duration?: true
+    real_duration?: true
+    percent_done?: true
     cost?: true
   }
 
@@ -20594,7 +21082,7 @@ export namespace Prisma {
     plan_end_date?: true
     real_start_date?: true
     real_end_date?: true
-    planned_duration?: true
+    plan_duration?: true
     real_duration?: true
     percent_done?: true
     cost?: true
@@ -20602,6 +21090,7 @@ export namespace Prisma {
     created_at?: true
     created_by?: true
     task_category?: true
+    is_deleted?: true
   }
 
   export type Tr_project_taskMaxAggregateInputType = {
@@ -20613,7 +21102,7 @@ export namespace Prisma {
     plan_end_date?: true
     real_start_date?: true
     real_end_date?: true
-    planned_duration?: true
+    plan_duration?: true
     real_duration?: true
     percent_done?: true
     cost?: true
@@ -20621,6 +21110,7 @@ export namespace Prisma {
     created_at?: true
     created_by?: true
     task_category?: true
+    is_deleted?: true
   }
 
   export type Tr_project_taskCountAggregateInputType = {
@@ -20632,7 +21122,7 @@ export namespace Prisma {
     plan_end_date?: true
     real_start_date?: true
     real_end_date?: true
-    planned_duration?: true
+    plan_duration?: true
     real_duration?: true
     percent_done?: true
     cost?: true
@@ -20640,6 +21130,7 @@ export namespace Prisma {
     created_at?: true
     created_by?: true
     task_category?: true
+    is_deleted?: true
     _all?: true
   }
 
@@ -20738,14 +21229,15 @@ export namespace Prisma {
     plan_end_date: Date | null
     real_start_date: Date | null
     real_end_date: Date | null
-    planned_duration: string | null
-    real_duration: string | null
-    percent_done: string | null
-    cost: Decimal | null
+    plan_duration: number | null
+    real_duration: number | null
+    percent_done: number | null
+    cost: number | null
     task_type: string | null
     created_at: Date | null
     created_by: string | null
     task_category: string | null
+    is_deleted: boolean | null
     _count: Tr_project_taskCountAggregateOutputType | null
     _avg: Tr_project_taskAvgAggregateOutputType | null
     _sum: Tr_project_taskSumAggregateOutputType | null
@@ -20776,7 +21268,7 @@ export namespace Prisma {
     plan_end_date?: boolean
     real_start_date?: boolean
     real_end_date?: boolean
-    planned_duration?: boolean
+    plan_duration?: boolean
     real_duration?: boolean
     percent_done?: boolean
     cost?: boolean
@@ -20784,6 +21276,10 @@ export namespace Prisma {
     created_at?: boolean
     created_by?: boolean
     task_category?: boolean
+    is_deleted?: boolean
+    tr_project?: boolean | tr_project_task$tr_projectArgs<ExtArgs>
+    tr_project_task_team?: boolean | tr_project_task$tr_project_task_teamArgs<ExtArgs>
+    _count?: boolean | Tr_project_taskCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tr_project_task"]>
 
 
@@ -20796,7 +21292,7 @@ export namespace Prisma {
     plan_end_date?: boolean
     real_start_date?: boolean
     real_end_date?: boolean
-    planned_duration?: boolean
+    plan_duration?: boolean
     real_duration?: boolean
     percent_done?: boolean
     cost?: boolean
@@ -20804,12 +21300,21 @@ export namespace Prisma {
     created_at?: boolean
     created_by?: boolean
     task_category?: boolean
+    is_deleted?: boolean
   }
 
+  export type tr_project_taskInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tr_project?: boolean | tr_project_task$tr_projectArgs<ExtArgs>
+    tr_project_task_team?: boolean | tr_project_task$tr_project_task_teamArgs<ExtArgs>
+    _count?: boolean | Tr_project_taskCountOutputTypeDefaultArgs<ExtArgs>
+  }
 
   export type $tr_project_taskPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "tr_project_task"
-    objects: {}
+    objects: {
+      tr_project: Prisma.$tr_projectPayload<ExtArgs> | null
+      tr_project_task_team: Prisma.$tr_project_task_teamPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       project_id: number | null
@@ -20819,14 +21324,15 @@ export namespace Prisma {
       plan_end_date: Date | null
       real_start_date: Date | null
       real_end_date: Date | null
-      planned_duration: string | null
-      real_duration: string | null
-      percent_done: string | null
-      cost: Prisma.Decimal | null
+      plan_duration: number | null
+      real_duration: number | null
+      percent_done: number | null
+      cost: number | null
       task_type: string | null
       created_at: Date | null
       created_by: string | null
       task_category: string | null
+      is_deleted: boolean | null
     }, ExtArgs["result"]["tr_project_task"]>
     composites: {}
   }
@@ -21167,6 +21673,8 @@ export namespace Prisma {
    */
   export interface Prisma__tr_project_taskClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    tr_project<T extends tr_project_task$tr_projectArgs<ExtArgs> = {}>(args?: Subset<T, tr_project_task$tr_projectArgs<ExtArgs>>): Prisma__tr_projectClient<$Result.GetResult<Prisma.$tr_projectPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    tr_project_task_team<T extends tr_project_task$tr_project_task_teamArgs<ExtArgs> = {}>(args?: Subset<T, tr_project_task$tr_project_task_teamArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tr_project_task_teamPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -21204,14 +21712,15 @@ export namespace Prisma {
     readonly plan_end_date: FieldRef<"tr_project_task", 'DateTime'>
     readonly real_start_date: FieldRef<"tr_project_task", 'DateTime'>
     readonly real_end_date: FieldRef<"tr_project_task", 'DateTime'>
-    readonly planned_duration: FieldRef<"tr_project_task", 'String'>
-    readonly real_duration: FieldRef<"tr_project_task", 'String'>
-    readonly percent_done: FieldRef<"tr_project_task", 'String'>
-    readonly cost: FieldRef<"tr_project_task", 'Decimal'>
+    readonly plan_duration: FieldRef<"tr_project_task", 'Int'>
+    readonly real_duration: FieldRef<"tr_project_task", 'Int'>
+    readonly percent_done: FieldRef<"tr_project_task", 'Int'>
+    readonly cost: FieldRef<"tr_project_task", 'Float'>
     readonly task_type: FieldRef<"tr_project_task", 'String'>
     readonly created_at: FieldRef<"tr_project_task", 'DateTime'>
     readonly created_by: FieldRef<"tr_project_task", 'String'>
     readonly task_category: FieldRef<"tr_project_task", 'String'>
+    readonly is_deleted: FieldRef<"tr_project_task", 'Boolean'>
   }
     
 
@@ -21224,6 +21733,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the tr_project_task
      */
     select?: tr_project_taskSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_taskInclude<ExtArgs> | null
     /**
      * Filter, which tr_project_task to fetch.
      */
@@ -21239,6 +21752,10 @@ export namespace Prisma {
      */
     select?: tr_project_taskSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_taskInclude<ExtArgs> | null
+    /**
      * Filter, which tr_project_task to fetch.
      */
     where: tr_project_taskWhereUniqueInput
@@ -21252,6 +21769,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the tr_project_task
      */
     select?: tr_project_taskSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_taskInclude<ExtArgs> | null
     /**
      * Filter, which tr_project_task to fetch.
      */
@@ -21297,6 +21818,10 @@ export namespace Prisma {
      */
     select?: tr_project_taskSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_taskInclude<ExtArgs> | null
+    /**
      * Filter, which tr_project_task to fetch.
      */
     where?: tr_project_taskWhereInput
@@ -21341,6 +21866,10 @@ export namespace Prisma {
      */
     select?: tr_project_taskSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_taskInclude<ExtArgs> | null
+    /**
      * Filter, which tr_project_tasks to fetch.
      */
     where?: tr_project_taskWhereInput
@@ -21380,6 +21909,10 @@ export namespace Prisma {
      */
     select?: tr_project_taskSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_taskInclude<ExtArgs> | null
+    /**
      * The data needed to create a tr_project_task.
      */
     data?: XOR<tr_project_taskCreateInput, tr_project_taskUncheckedCreateInput>
@@ -21404,6 +21937,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the tr_project_task
      */
     select?: tr_project_taskSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_taskInclude<ExtArgs> | null
     /**
      * The data needed to update a tr_project_task.
      */
@@ -21437,6 +21974,10 @@ export namespace Prisma {
      */
     select?: tr_project_taskSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_taskInclude<ExtArgs> | null
+    /**
      * The filter to search for the tr_project_task to update in case it exists.
      */
     where: tr_project_taskWhereUniqueInput
@@ -21459,6 +22000,10 @@ export namespace Prisma {
      */
     select?: tr_project_taskSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_taskInclude<ExtArgs> | null
+    /**
      * Filter which tr_project_task to delete.
      */
     where: tr_project_taskWhereUniqueInput
@@ -21475,6 +22020,41 @@ export namespace Prisma {
   }
 
   /**
+   * tr_project_task.tr_project
+   */
+  export type tr_project_task$tr_projectArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project
+     */
+    select?: tr_projectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_projectInclude<ExtArgs> | null
+    where?: tr_projectWhereInput
+  }
+
+  /**
+   * tr_project_task.tr_project_task_team
+   */
+  export type tr_project_task$tr_project_task_teamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_task_team
+     */
+    select?: tr_project_task_teamSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_task_teamInclude<ExtArgs> | null
+    where?: tr_project_task_teamWhereInput
+    orderBy?: tr_project_task_teamOrderByWithRelationInput | tr_project_task_teamOrderByWithRelationInput[]
+    cursor?: tr_project_task_teamWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Tr_project_task_teamScalarFieldEnum | Tr_project_task_teamScalarFieldEnum[]
+  }
+
+  /**
    * tr_project_task without action
    */
   export type tr_project_taskDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -21482,6 +22062,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the tr_project_task
      */
     select?: tr_project_taskSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_taskInclude<ExtArgs> | null
   }
 
 
@@ -21695,6 +22279,7 @@ export namespace Prisma {
     is_deleted?: boolean
     created_at?: boolean
     created_by?: boolean
+    mst_authorization?: boolean | tr_project_team$mst_authorizationArgs<ExtArgs>
   }, ExtArgs["result"]["tr_project_team"]>
 
 
@@ -21707,10 +22292,15 @@ export namespace Prisma {
     created_by?: boolean
   }
 
+  export type tr_project_teamInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    mst_authorization?: boolean | tr_project_team$mst_authorizationArgs<ExtArgs>
+  }
 
   export type $tr_project_teamPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "tr_project_team"
-    objects: {}
+    objects: {
+      mst_authorization: Prisma.$mst_authorizationPayload<ExtArgs> | null
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       project_id: number | null
@@ -22058,6 +22648,7 @@ export namespace Prisma {
    */
   export interface Prisma__tr_project_teamClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    mst_authorization<T extends tr_project_team$mst_authorizationArgs<ExtArgs> = {}>(args?: Subset<T, tr_project_team$mst_authorizationArgs<ExtArgs>>): Prisma__mst_authorizationClient<$Result.GetResult<Prisma.$mst_authorizationPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -22106,6 +22697,10 @@ export namespace Prisma {
      */
     select?: tr_project_teamSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_teamInclude<ExtArgs> | null
+    /**
      * Filter, which tr_project_team to fetch.
      */
     where: tr_project_teamWhereUniqueInput
@@ -22120,6 +22715,10 @@ export namespace Prisma {
      */
     select?: tr_project_teamSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_teamInclude<ExtArgs> | null
+    /**
      * Filter, which tr_project_team to fetch.
      */
     where: tr_project_teamWhereUniqueInput
@@ -22133,6 +22732,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the tr_project_team
      */
     select?: tr_project_teamSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_teamInclude<ExtArgs> | null
     /**
      * Filter, which tr_project_team to fetch.
      */
@@ -22178,6 +22781,10 @@ export namespace Prisma {
      */
     select?: tr_project_teamSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_teamInclude<ExtArgs> | null
+    /**
      * Filter, which tr_project_team to fetch.
      */
     where?: tr_project_teamWhereInput
@@ -22222,6 +22829,10 @@ export namespace Prisma {
      */
     select?: tr_project_teamSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_teamInclude<ExtArgs> | null
+    /**
      * Filter, which tr_project_teams to fetch.
      */
     where?: tr_project_teamWhereInput
@@ -22261,6 +22872,10 @@ export namespace Prisma {
      */
     select?: tr_project_teamSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_teamInclude<ExtArgs> | null
+    /**
      * The data needed to create a tr_project_team.
      */
     data?: XOR<tr_project_teamCreateInput, tr_project_teamUncheckedCreateInput>
@@ -22285,6 +22900,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the tr_project_team
      */
     select?: tr_project_teamSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_teamInclude<ExtArgs> | null
     /**
      * The data needed to update a tr_project_team.
      */
@@ -22318,6 +22937,10 @@ export namespace Prisma {
      */
     select?: tr_project_teamSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_teamInclude<ExtArgs> | null
+    /**
      * The filter to search for the tr_project_team to update in case it exists.
      */
     where: tr_project_teamWhereUniqueInput
@@ -22340,6 +22963,10 @@ export namespace Prisma {
      */
     select?: tr_project_teamSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_teamInclude<ExtArgs> | null
+    /**
      * Filter which tr_project_team to delete.
      */
     where: tr_project_teamWhereUniqueInput
@@ -22356,6 +22983,21 @@ export namespace Prisma {
   }
 
   /**
+   * tr_project_team.mst_authorization
+   */
+  export type tr_project_team$mst_authorizationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_authorization
+     */
+    select?: mst_authorizationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorizationInclude<ExtArgs> | null
+    where?: mst_authorizationWhereInput
+  }
+
+  /**
    * tr_project_team without action
    */
   export type tr_project_teamDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -22363,6 +23005,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the tr_project_team
      */
     select?: tr_project_teamSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_teamInclude<ExtArgs> | null
   }
 
 
@@ -22408,6 +23054,8 @@ export namespace Prisma {
     business_impact: string | null
     created_at: Date | null
     created_by: string | null
+    impact: string | null
+    priority: string | null
   }
 
   export type Tr_requestMaxAggregateOutputType = {
@@ -22430,6 +23078,8 @@ export namespace Prisma {
     business_impact: string | null
     created_at: Date | null
     created_by: string | null
+    impact: string | null
+    priority: string | null
   }
 
   export type Tr_requestCountAggregateOutputType = {
@@ -22452,6 +23102,8 @@ export namespace Prisma {
     business_impact: number
     created_at: number
     created_by: number
+    impact: number
+    priority: number
     _all: number
   }
 
@@ -22486,6 +23138,8 @@ export namespace Prisma {
     business_impact?: true
     created_at?: true
     created_by?: true
+    impact?: true
+    priority?: true
   }
 
   export type Tr_requestMaxAggregateInputType = {
@@ -22508,6 +23162,8 @@ export namespace Prisma {
     business_impact?: true
     created_at?: true
     created_by?: true
+    impact?: true
+    priority?: true
   }
 
   export type Tr_requestCountAggregateInputType = {
@@ -22530,6 +23186,8 @@ export namespace Prisma {
     business_impact?: true
     created_at?: true
     created_by?: true
+    impact?: true
+    priority?: true
     _all?: true
   }
 
@@ -22639,6 +23297,8 @@ export namespace Prisma {
     business_impact: string | null
     created_at: Date | null
     created_by: string | null
+    impact: string | null
+    priority: string | null
     _count: Tr_requestCountAggregateOutputType | null
     _avg: Tr_requestAvgAggregateOutputType | null
     _sum: Tr_requestSumAggregateOutputType | null
@@ -22680,6 +23340,8 @@ export namespace Prisma {
     business_impact?: boolean
     created_at?: boolean
     created_by?: boolean
+    impact?: boolean
+    priority?: boolean
     tr_request_validation?: boolean | tr_request$tr_request_validationArgs<ExtArgs>
     _count?: boolean | Tr_requestCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tr_request"]>
@@ -22705,6 +23367,8 @@ export namespace Prisma {
     business_impact?: boolean
     created_at?: boolean
     created_by?: boolean
+    impact?: boolean
+    priority?: boolean
   }
 
   export type tr_requestInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -22737,6 +23401,8 @@ export namespace Prisma {
       business_impact: string | null
       created_at: Date | null
       created_by: string | null
+      impact: string | null
+      priority: string | null
     }, ExtArgs["result"]["tr_request"]>
     composites: {}
   }
@@ -23126,6 +23792,8 @@ export namespace Prisma {
     readonly business_impact: FieldRef<"tr_request", 'String'>
     readonly created_at: FieldRef<"tr_request", 'DateTime'>
     readonly created_by: FieldRef<"tr_request", 'String'>
+    readonly impact: FieldRef<"tr_request", 'String'>
+    readonly priority: FieldRef<"tr_request", 'String'>
   }
     
 
@@ -23491,6 +24159,7 @@ export namespace Prisma {
     status: string | null
     submission_date: Date | null
     validation_date: Date | null
+    state: string | null
   }
 
   export type Tr_request_validationMaxAggregateOutputType = {
@@ -23503,6 +24172,7 @@ export namespace Prisma {
     status: string | null
     submission_date: Date | null
     validation_date: Date | null
+    state: string | null
   }
 
   export type Tr_request_validationCountAggregateOutputType = {
@@ -23515,6 +24185,7 @@ export namespace Prisma {
     status: number
     submission_date: number
     validation_date: number
+    state: number
     _all: number
   }
 
@@ -23539,6 +24210,7 @@ export namespace Prisma {
     status?: true
     submission_date?: true
     validation_date?: true
+    state?: true
   }
 
   export type Tr_request_validationMaxAggregateInputType = {
@@ -23551,6 +24223,7 @@ export namespace Prisma {
     status?: true
     submission_date?: true
     validation_date?: true
+    state?: true
   }
 
   export type Tr_request_validationCountAggregateInputType = {
@@ -23563,6 +24236,7 @@ export namespace Prisma {
     status?: true
     submission_date?: true
     validation_date?: true
+    state?: true
     _all?: true
   }
 
@@ -23662,6 +24336,7 @@ export namespace Prisma {
     status: string | null
     submission_date: Date | null
     validation_date: Date | null
+    state: string | null
     _count: Tr_request_validationCountAggregateOutputType | null
     _avg: Tr_request_validationAvgAggregateOutputType | null
     _sum: Tr_request_validationSumAggregateOutputType | null
@@ -23693,6 +24368,7 @@ export namespace Prisma {
     status?: boolean
     submission_date?: boolean
     validation_date?: boolean
+    state?: boolean
     tr_request?: boolean | tr_request_validation$tr_requestArgs<ExtArgs>
   }, ExtArgs["result"]["tr_request_validation"]>
 
@@ -23707,6 +24383,7 @@ export namespace Prisma {
     status?: boolean
     submission_date?: boolean
     validation_date?: boolean
+    state?: boolean
   }
 
   export type tr_request_validationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -23728,6 +24405,7 @@ export namespace Prisma {
       status: string | null
       submission_date: Date | null
       validation_date: Date | null
+      state: string | null
     }, ExtArgs["result"]["tr_request_validation"]>
     composites: {}
   }
@@ -24107,6 +24785,7 @@ export namespace Prisma {
     readonly status: FieldRef<"tr_request_validation", 'String'>
     readonly submission_date: FieldRef<"tr_request_validation", 'DateTime'>
     readonly validation_date: FieldRef<"tr_request_validation", 'DateTime'>
+    readonly state: FieldRef<"tr_request_validation", 'String'>
   }
     
 
@@ -24436,6 +25115,1853 @@ export namespace Prisma {
 
 
   /**
+   * Model tr_request_technician
+   */
+
+  export type AggregateTr_request_technician = {
+    _count: Tr_request_technicianCountAggregateOutputType | null
+    _avg: Tr_request_technicianAvgAggregateOutputType | null
+    _sum: Tr_request_technicianSumAggregateOutputType | null
+    _min: Tr_request_technicianMinAggregateOutputType | null
+    _max: Tr_request_technicianMaxAggregateOutputType | null
+  }
+
+  export type Tr_request_technicianAvgAggregateOutputType = {
+    id: number | null
+    request_id: number | null
+  }
+
+  export type Tr_request_technicianSumAggregateOutputType = {
+    id: number | null
+    request_id: number | null
+  }
+
+  export type Tr_request_technicianMinAggregateOutputType = {
+    id: number | null
+    request_id: number | null
+    employee_code: string | null
+    is_deleted: boolean | null
+    created_at: Date | null
+    created_by: string | null
+  }
+
+  export type Tr_request_technicianMaxAggregateOutputType = {
+    id: number | null
+    request_id: number | null
+    employee_code: string | null
+    is_deleted: boolean | null
+    created_at: Date | null
+    created_by: string | null
+  }
+
+  export type Tr_request_technicianCountAggregateOutputType = {
+    id: number
+    request_id: number
+    employee_code: number
+    is_deleted: number
+    created_at: number
+    created_by: number
+    _all: number
+  }
+
+
+  export type Tr_request_technicianAvgAggregateInputType = {
+    id?: true
+    request_id?: true
+  }
+
+  export type Tr_request_technicianSumAggregateInputType = {
+    id?: true
+    request_id?: true
+  }
+
+  export type Tr_request_technicianMinAggregateInputType = {
+    id?: true
+    request_id?: true
+    employee_code?: true
+    is_deleted?: true
+    created_at?: true
+    created_by?: true
+  }
+
+  export type Tr_request_technicianMaxAggregateInputType = {
+    id?: true
+    request_id?: true
+    employee_code?: true
+    is_deleted?: true
+    created_at?: true
+    created_by?: true
+  }
+
+  export type Tr_request_technicianCountAggregateInputType = {
+    id?: true
+    request_id?: true
+    employee_code?: true
+    is_deleted?: true
+    created_at?: true
+    created_by?: true
+    _all?: true
+  }
+
+  export type Tr_request_technicianAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which tr_request_technician to aggregate.
+     */
+    where?: tr_request_technicianWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tr_request_technicians to fetch.
+     */
+    orderBy?: tr_request_technicianOrderByWithRelationInput | tr_request_technicianOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: tr_request_technicianWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tr_request_technicians from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tr_request_technicians.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned tr_request_technicians
+    **/
+    _count?: true | Tr_request_technicianCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Tr_request_technicianAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Tr_request_technicianSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Tr_request_technicianMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Tr_request_technicianMaxAggregateInputType
+  }
+
+  export type GetTr_request_technicianAggregateType<T extends Tr_request_technicianAggregateArgs> = {
+        [P in keyof T & keyof AggregateTr_request_technician]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTr_request_technician[P]>
+      : GetScalarType<T[P], AggregateTr_request_technician[P]>
+  }
+
+
+
+
+  export type tr_request_technicianGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tr_request_technicianWhereInput
+    orderBy?: tr_request_technicianOrderByWithAggregationInput | tr_request_technicianOrderByWithAggregationInput[]
+    by: Tr_request_technicianScalarFieldEnum[] | Tr_request_technicianScalarFieldEnum
+    having?: tr_request_technicianScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Tr_request_technicianCountAggregateInputType | true
+    _avg?: Tr_request_technicianAvgAggregateInputType
+    _sum?: Tr_request_technicianSumAggregateInputType
+    _min?: Tr_request_technicianMinAggregateInputType
+    _max?: Tr_request_technicianMaxAggregateInputType
+  }
+
+  export type Tr_request_technicianGroupByOutputType = {
+    id: number
+    request_id: number | null
+    employee_code: string | null
+    is_deleted: boolean | null
+    created_at: Date | null
+    created_by: string | null
+    _count: Tr_request_technicianCountAggregateOutputType | null
+    _avg: Tr_request_technicianAvgAggregateOutputType | null
+    _sum: Tr_request_technicianSumAggregateOutputType | null
+    _min: Tr_request_technicianMinAggregateOutputType | null
+    _max: Tr_request_technicianMaxAggregateOutputType | null
+  }
+
+  type GetTr_request_technicianGroupByPayload<T extends tr_request_technicianGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Tr_request_technicianGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Tr_request_technicianGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Tr_request_technicianGroupByOutputType[P]>
+            : GetScalarType<T[P], Tr_request_technicianGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type tr_request_technicianSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    request_id?: boolean
+    employee_code?: boolean
+    is_deleted?: boolean
+    created_at?: boolean
+    created_by?: boolean
+  }, ExtArgs["result"]["tr_request_technician"]>
+
+
+  export type tr_request_technicianSelectScalar = {
+    id?: boolean
+    request_id?: boolean
+    employee_code?: boolean
+    is_deleted?: boolean
+    created_at?: boolean
+    created_by?: boolean
+  }
+
+
+  export type $tr_request_technicianPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "tr_request_technician"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      request_id: number | null
+      employee_code: string | null
+      is_deleted: boolean | null
+      created_at: Date | null
+      created_by: string | null
+    }, ExtArgs["result"]["tr_request_technician"]>
+    composites: {}
+  }
+
+  type tr_request_technicianGetPayload<S extends boolean | null | undefined | tr_request_technicianDefaultArgs> = $Result.GetResult<Prisma.$tr_request_technicianPayload, S>
+
+  type tr_request_technicianCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<tr_request_technicianFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: Tr_request_technicianCountAggregateInputType | true
+    }
+
+  export interface tr_request_technicianDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['tr_request_technician'], meta: { name: 'tr_request_technician' } }
+    /**
+     * Find zero or one Tr_request_technician that matches the filter.
+     * @param {tr_request_technicianFindUniqueArgs} args - Arguments to find a Tr_request_technician
+     * @example
+     * // Get one Tr_request_technician
+     * const tr_request_technician = await prisma.tr_request_technician.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends tr_request_technicianFindUniqueArgs>(args: SelectSubset<T, tr_request_technicianFindUniqueArgs<ExtArgs>>): Prisma__tr_request_technicianClient<$Result.GetResult<Prisma.$tr_request_technicianPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Tr_request_technician that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {tr_request_technicianFindUniqueOrThrowArgs} args - Arguments to find a Tr_request_technician
+     * @example
+     * // Get one Tr_request_technician
+     * const tr_request_technician = await prisma.tr_request_technician.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends tr_request_technicianFindUniqueOrThrowArgs>(args: SelectSubset<T, tr_request_technicianFindUniqueOrThrowArgs<ExtArgs>>): Prisma__tr_request_technicianClient<$Result.GetResult<Prisma.$tr_request_technicianPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Tr_request_technician that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_request_technicianFindFirstArgs} args - Arguments to find a Tr_request_technician
+     * @example
+     * // Get one Tr_request_technician
+     * const tr_request_technician = await prisma.tr_request_technician.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends tr_request_technicianFindFirstArgs>(args?: SelectSubset<T, tr_request_technicianFindFirstArgs<ExtArgs>>): Prisma__tr_request_technicianClient<$Result.GetResult<Prisma.$tr_request_technicianPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Tr_request_technician that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_request_technicianFindFirstOrThrowArgs} args - Arguments to find a Tr_request_technician
+     * @example
+     * // Get one Tr_request_technician
+     * const tr_request_technician = await prisma.tr_request_technician.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends tr_request_technicianFindFirstOrThrowArgs>(args?: SelectSubset<T, tr_request_technicianFindFirstOrThrowArgs<ExtArgs>>): Prisma__tr_request_technicianClient<$Result.GetResult<Prisma.$tr_request_technicianPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Tr_request_technicians that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_request_technicianFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Tr_request_technicians
+     * const tr_request_technicians = await prisma.tr_request_technician.findMany()
+     * 
+     * // Get first 10 Tr_request_technicians
+     * const tr_request_technicians = await prisma.tr_request_technician.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const tr_request_technicianWithIdOnly = await prisma.tr_request_technician.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends tr_request_technicianFindManyArgs>(args?: SelectSubset<T, tr_request_technicianFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tr_request_technicianPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Tr_request_technician.
+     * @param {tr_request_technicianCreateArgs} args - Arguments to create a Tr_request_technician.
+     * @example
+     * // Create one Tr_request_technician
+     * const Tr_request_technician = await prisma.tr_request_technician.create({
+     *   data: {
+     *     // ... data to create a Tr_request_technician
+     *   }
+     * })
+     * 
+     */
+    create<T extends tr_request_technicianCreateArgs>(args: SelectSubset<T, tr_request_technicianCreateArgs<ExtArgs>>): Prisma__tr_request_technicianClient<$Result.GetResult<Prisma.$tr_request_technicianPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Tr_request_technicians.
+     * @param {tr_request_technicianCreateManyArgs} args - Arguments to create many Tr_request_technicians.
+     * @example
+     * // Create many Tr_request_technicians
+     * const tr_request_technician = await prisma.tr_request_technician.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends tr_request_technicianCreateManyArgs>(args?: SelectSubset<T, tr_request_technicianCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Tr_request_technician.
+     * @param {tr_request_technicianDeleteArgs} args - Arguments to delete one Tr_request_technician.
+     * @example
+     * // Delete one Tr_request_technician
+     * const Tr_request_technician = await prisma.tr_request_technician.delete({
+     *   where: {
+     *     // ... filter to delete one Tr_request_technician
+     *   }
+     * })
+     * 
+     */
+    delete<T extends tr_request_technicianDeleteArgs>(args: SelectSubset<T, tr_request_technicianDeleteArgs<ExtArgs>>): Prisma__tr_request_technicianClient<$Result.GetResult<Prisma.$tr_request_technicianPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Tr_request_technician.
+     * @param {tr_request_technicianUpdateArgs} args - Arguments to update one Tr_request_technician.
+     * @example
+     * // Update one Tr_request_technician
+     * const tr_request_technician = await prisma.tr_request_technician.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends tr_request_technicianUpdateArgs>(args: SelectSubset<T, tr_request_technicianUpdateArgs<ExtArgs>>): Prisma__tr_request_technicianClient<$Result.GetResult<Prisma.$tr_request_technicianPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Tr_request_technicians.
+     * @param {tr_request_technicianDeleteManyArgs} args - Arguments to filter Tr_request_technicians to delete.
+     * @example
+     * // Delete a few Tr_request_technicians
+     * const { count } = await prisma.tr_request_technician.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends tr_request_technicianDeleteManyArgs>(args?: SelectSubset<T, tr_request_technicianDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Tr_request_technicians.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_request_technicianUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Tr_request_technicians
+     * const tr_request_technician = await prisma.tr_request_technician.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends tr_request_technicianUpdateManyArgs>(args: SelectSubset<T, tr_request_technicianUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Tr_request_technician.
+     * @param {tr_request_technicianUpsertArgs} args - Arguments to update or create a Tr_request_technician.
+     * @example
+     * // Update or create a Tr_request_technician
+     * const tr_request_technician = await prisma.tr_request_technician.upsert({
+     *   create: {
+     *     // ... data to create a Tr_request_technician
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Tr_request_technician we want to update
+     *   }
+     * })
+     */
+    upsert<T extends tr_request_technicianUpsertArgs>(args: SelectSubset<T, tr_request_technicianUpsertArgs<ExtArgs>>): Prisma__tr_request_technicianClient<$Result.GetResult<Prisma.$tr_request_technicianPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Tr_request_technicians.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_request_technicianCountArgs} args - Arguments to filter Tr_request_technicians to count.
+     * @example
+     * // Count the number of Tr_request_technicians
+     * const count = await prisma.tr_request_technician.count({
+     *   where: {
+     *     // ... the filter for the Tr_request_technicians we want to count
+     *   }
+     * })
+    **/
+    count<T extends tr_request_technicianCountArgs>(
+      args?: Subset<T, tr_request_technicianCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Tr_request_technicianCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Tr_request_technician.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Tr_request_technicianAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Tr_request_technicianAggregateArgs>(args: Subset<T, Tr_request_technicianAggregateArgs>): Prisma.PrismaPromise<GetTr_request_technicianAggregateType<T>>
+
+    /**
+     * Group by Tr_request_technician.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_request_technicianGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends tr_request_technicianGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: tr_request_technicianGroupByArgs['orderBy'] }
+        : { orderBy?: tr_request_technicianGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, tr_request_technicianGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTr_request_technicianGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the tr_request_technician model
+   */
+  readonly fields: tr_request_technicianFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for tr_request_technician.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__tr_request_technicianClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the tr_request_technician model
+   */ 
+  interface tr_request_technicianFieldRefs {
+    readonly id: FieldRef<"tr_request_technician", 'Int'>
+    readonly request_id: FieldRef<"tr_request_technician", 'Int'>
+    readonly employee_code: FieldRef<"tr_request_technician", 'String'>
+    readonly is_deleted: FieldRef<"tr_request_technician", 'Boolean'>
+    readonly created_at: FieldRef<"tr_request_technician", 'DateTime'>
+    readonly created_by: FieldRef<"tr_request_technician", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * tr_request_technician findUnique
+   */
+  export type tr_request_technicianFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_request_technician
+     */
+    select?: tr_request_technicianSelect<ExtArgs> | null
+    /**
+     * Filter, which tr_request_technician to fetch.
+     */
+    where: tr_request_technicianWhereUniqueInput
+  }
+
+  /**
+   * tr_request_technician findUniqueOrThrow
+   */
+  export type tr_request_technicianFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_request_technician
+     */
+    select?: tr_request_technicianSelect<ExtArgs> | null
+    /**
+     * Filter, which tr_request_technician to fetch.
+     */
+    where: tr_request_technicianWhereUniqueInput
+  }
+
+  /**
+   * tr_request_technician findFirst
+   */
+  export type tr_request_technicianFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_request_technician
+     */
+    select?: tr_request_technicianSelect<ExtArgs> | null
+    /**
+     * Filter, which tr_request_technician to fetch.
+     */
+    where?: tr_request_technicianWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tr_request_technicians to fetch.
+     */
+    orderBy?: tr_request_technicianOrderByWithRelationInput | tr_request_technicianOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for tr_request_technicians.
+     */
+    cursor?: tr_request_technicianWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tr_request_technicians from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tr_request_technicians.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of tr_request_technicians.
+     */
+    distinct?: Tr_request_technicianScalarFieldEnum | Tr_request_technicianScalarFieldEnum[]
+  }
+
+  /**
+   * tr_request_technician findFirstOrThrow
+   */
+  export type tr_request_technicianFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_request_technician
+     */
+    select?: tr_request_technicianSelect<ExtArgs> | null
+    /**
+     * Filter, which tr_request_technician to fetch.
+     */
+    where?: tr_request_technicianWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tr_request_technicians to fetch.
+     */
+    orderBy?: tr_request_technicianOrderByWithRelationInput | tr_request_technicianOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for tr_request_technicians.
+     */
+    cursor?: tr_request_technicianWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tr_request_technicians from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tr_request_technicians.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of tr_request_technicians.
+     */
+    distinct?: Tr_request_technicianScalarFieldEnum | Tr_request_technicianScalarFieldEnum[]
+  }
+
+  /**
+   * tr_request_technician findMany
+   */
+  export type tr_request_technicianFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_request_technician
+     */
+    select?: tr_request_technicianSelect<ExtArgs> | null
+    /**
+     * Filter, which tr_request_technicians to fetch.
+     */
+    where?: tr_request_technicianWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tr_request_technicians to fetch.
+     */
+    orderBy?: tr_request_technicianOrderByWithRelationInput | tr_request_technicianOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing tr_request_technicians.
+     */
+    cursor?: tr_request_technicianWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tr_request_technicians from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tr_request_technicians.
+     */
+    skip?: number
+    distinct?: Tr_request_technicianScalarFieldEnum | Tr_request_technicianScalarFieldEnum[]
+  }
+
+  /**
+   * tr_request_technician create
+   */
+  export type tr_request_technicianCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_request_technician
+     */
+    select?: tr_request_technicianSelect<ExtArgs> | null
+    /**
+     * The data needed to create a tr_request_technician.
+     */
+    data?: XOR<tr_request_technicianCreateInput, tr_request_technicianUncheckedCreateInput>
+  }
+
+  /**
+   * tr_request_technician createMany
+   */
+  export type tr_request_technicianCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many tr_request_technicians.
+     */
+    data: tr_request_technicianCreateManyInput | tr_request_technicianCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * tr_request_technician update
+   */
+  export type tr_request_technicianUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_request_technician
+     */
+    select?: tr_request_technicianSelect<ExtArgs> | null
+    /**
+     * The data needed to update a tr_request_technician.
+     */
+    data: XOR<tr_request_technicianUpdateInput, tr_request_technicianUncheckedUpdateInput>
+    /**
+     * Choose, which tr_request_technician to update.
+     */
+    where: tr_request_technicianWhereUniqueInput
+  }
+
+  /**
+   * tr_request_technician updateMany
+   */
+  export type tr_request_technicianUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update tr_request_technicians.
+     */
+    data: XOR<tr_request_technicianUpdateManyMutationInput, tr_request_technicianUncheckedUpdateManyInput>
+    /**
+     * Filter which tr_request_technicians to update
+     */
+    where?: tr_request_technicianWhereInput
+  }
+
+  /**
+   * tr_request_technician upsert
+   */
+  export type tr_request_technicianUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_request_technician
+     */
+    select?: tr_request_technicianSelect<ExtArgs> | null
+    /**
+     * The filter to search for the tr_request_technician to update in case it exists.
+     */
+    where: tr_request_technicianWhereUniqueInput
+    /**
+     * In case the tr_request_technician found by the `where` argument doesn't exist, create a new tr_request_technician with this data.
+     */
+    create: XOR<tr_request_technicianCreateInput, tr_request_technicianUncheckedCreateInput>
+    /**
+     * In case the tr_request_technician was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<tr_request_technicianUpdateInput, tr_request_technicianUncheckedUpdateInput>
+  }
+
+  /**
+   * tr_request_technician delete
+   */
+  export type tr_request_technicianDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_request_technician
+     */
+    select?: tr_request_technicianSelect<ExtArgs> | null
+    /**
+     * Filter which tr_request_technician to delete.
+     */
+    where: tr_request_technicianWhereUniqueInput
+  }
+
+  /**
+   * tr_request_technician deleteMany
+   */
+  export type tr_request_technicianDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which tr_request_technicians to delete
+     */
+    where?: tr_request_technicianWhereInput
+  }
+
+  /**
+   * tr_request_technician without action
+   */
+  export type tr_request_technicianDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_request_technician
+     */
+    select?: tr_request_technicianSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model tr_project_task_team
+   */
+
+  export type AggregateTr_project_task_team = {
+    _count: Tr_project_task_teamCountAggregateOutputType | null
+    _avg: Tr_project_task_teamAvgAggregateOutputType | null
+    _sum: Tr_project_task_teamSumAggregateOutputType | null
+    _min: Tr_project_task_teamMinAggregateOutputType | null
+    _max: Tr_project_task_teamMaxAggregateOutputType | null
+  }
+
+  export type Tr_project_task_teamAvgAggregateOutputType = {
+    id: number | null
+    project_task_id: number | null
+    is_deleted: number | null
+  }
+
+  export type Tr_project_task_teamSumAggregateOutputType = {
+    id: number | null
+    project_task_id: number | null
+    is_deleted: number | null
+  }
+
+  export type Tr_project_task_teamMinAggregateOutputType = {
+    id: number | null
+    project_task_id: number | null
+    employee_code: string | null
+    is_deleted: number | null
+    created_at: Date | null
+    created_by: string | null
+  }
+
+  export type Tr_project_task_teamMaxAggregateOutputType = {
+    id: number | null
+    project_task_id: number | null
+    employee_code: string | null
+    is_deleted: number | null
+    created_at: Date | null
+    created_by: string | null
+  }
+
+  export type Tr_project_task_teamCountAggregateOutputType = {
+    id: number
+    project_task_id: number
+    employee_code: number
+    is_deleted: number
+    created_at: number
+    created_by: number
+    _all: number
+  }
+
+
+  export type Tr_project_task_teamAvgAggregateInputType = {
+    id?: true
+    project_task_id?: true
+    is_deleted?: true
+  }
+
+  export type Tr_project_task_teamSumAggregateInputType = {
+    id?: true
+    project_task_id?: true
+    is_deleted?: true
+  }
+
+  export type Tr_project_task_teamMinAggregateInputType = {
+    id?: true
+    project_task_id?: true
+    employee_code?: true
+    is_deleted?: true
+    created_at?: true
+    created_by?: true
+  }
+
+  export type Tr_project_task_teamMaxAggregateInputType = {
+    id?: true
+    project_task_id?: true
+    employee_code?: true
+    is_deleted?: true
+    created_at?: true
+    created_by?: true
+  }
+
+  export type Tr_project_task_teamCountAggregateInputType = {
+    id?: true
+    project_task_id?: true
+    employee_code?: true
+    is_deleted?: true
+    created_at?: true
+    created_by?: true
+    _all?: true
+  }
+
+  export type Tr_project_task_teamAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which tr_project_task_team to aggregate.
+     */
+    where?: tr_project_task_teamWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tr_project_task_teams to fetch.
+     */
+    orderBy?: tr_project_task_teamOrderByWithRelationInput | tr_project_task_teamOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: tr_project_task_teamWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tr_project_task_teams from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tr_project_task_teams.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned tr_project_task_teams
+    **/
+    _count?: true | Tr_project_task_teamCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Tr_project_task_teamAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Tr_project_task_teamSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Tr_project_task_teamMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Tr_project_task_teamMaxAggregateInputType
+  }
+
+  export type GetTr_project_task_teamAggregateType<T extends Tr_project_task_teamAggregateArgs> = {
+        [P in keyof T & keyof AggregateTr_project_task_team]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTr_project_task_team[P]>
+      : GetScalarType<T[P], AggregateTr_project_task_team[P]>
+  }
+
+
+
+
+  export type tr_project_task_teamGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tr_project_task_teamWhereInput
+    orderBy?: tr_project_task_teamOrderByWithAggregationInput | tr_project_task_teamOrderByWithAggregationInput[]
+    by: Tr_project_task_teamScalarFieldEnum[] | Tr_project_task_teamScalarFieldEnum
+    having?: tr_project_task_teamScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Tr_project_task_teamCountAggregateInputType | true
+    _avg?: Tr_project_task_teamAvgAggregateInputType
+    _sum?: Tr_project_task_teamSumAggregateInputType
+    _min?: Tr_project_task_teamMinAggregateInputType
+    _max?: Tr_project_task_teamMaxAggregateInputType
+  }
+
+  export type Tr_project_task_teamGroupByOutputType = {
+    id: number
+    project_task_id: number | null
+    employee_code: string | null
+    is_deleted: number | null
+    created_at: Date | null
+    created_by: string | null
+    _count: Tr_project_task_teamCountAggregateOutputType | null
+    _avg: Tr_project_task_teamAvgAggregateOutputType | null
+    _sum: Tr_project_task_teamSumAggregateOutputType | null
+    _min: Tr_project_task_teamMinAggregateOutputType | null
+    _max: Tr_project_task_teamMaxAggregateOutputType | null
+  }
+
+  type GetTr_project_task_teamGroupByPayload<T extends tr_project_task_teamGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Tr_project_task_teamGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Tr_project_task_teamGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Tr_project_task_teamGroupByOutputType[P]>
+            : GetScalarType<T[P], Tr_project_task_teamGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type tr_project_task_teamSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    project_task_id?: boolean
+    employee_code?: boolean
+    is_deleted?: boolean
+    created_at?: boolean
+    created_by?: boolean
+    tr_project_task?: boolean | tr_project_task_team$tr_project_taskArgs<ExtArgs>
+    mst_authorization?: boolean | tr_project_task_team$mst_authorizationArgs<ExtArgs>
+  }, ExtArgs["result"]["tr_project_task_team"]>
+
+
+  export type tr_project_task_teamSelectScalar = {
+    id?: boolean
+    project_task_id?: boolean
+    employee_code?: boolean
+    is_deleted?: boolean
+    created_at?: boolean
+    created_by?: boolean
+  }
+
+  export type tr_project_task_teamInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tr_project_task?: boolean | tr_project_task_team$tr_project_taskArgs<ExtArgs>
+    mst_authorization?: boolean | tr_project_task_team$mst_authorizationArgs<ExtArgs>
+  }
+
+  export type $tr_project_task_teamPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "tr_project_task_team"
+    objects: {
+      tr_project_task: Prisma.$tr_project_taskPayload<ExtArgs> | null
+      mst_authorization: Prisma.$mst_authorizationPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      project_task_id: number | null
+      employee_code: string | null
+      is_deleted: number | null
+      created_at: Date | null
+      created_by: string | null
+    }, ExtArgs["result"]["tr_project_task_team"]>
+    composites: {}
+  }
+
+  type tr_project_task_teamGetPayload<S extends boolean | null | undefined | tr_project_task_teamDefaultArgs> = $Result.GetResult<Prisma.$tr_project_task_teamPayload, S>
+
+  type tr_project_task_teamCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<tr_project_task_teamFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: Tr_project_task_teamCountAggregateInputType | true
+    }
+
+  export interface tr_project_task_teamDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['tr_project_task_team'], meta: { name: 'tr_project_task_team' } }
+    /**
+     * Find zero or one Tr_project_task_team that matches the filter.
+     * @param {tr_project_task_teamFindUniqueArgs} args - Arguments to find a Tr_project_task_team
+     * @example
+     * // Get one Tr_project_task_team
+     * const tr_project_task_team = await prisma.tr_project_task_team.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends tr_project_task_teamFindUniqueArgs>(args: SelectSubset<T, tr_project_task_teamFindUniqueArgs<ExtArgs>>): Prisma__tr_project_task_teamClient<$Result.GetResult<Prisma.$tr_project_task_teamPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Tr_project_task_team that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {tr_project_task_teamFindUniqueOrThrowArgs} args - Arguments to find a Tr_project_task_team
+     * @example
+     * // Get one Tr_project_task_team
+     * const tr_project_task_team = await prisma.tr_project_task_team.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends tr_project_task_teamFindUniqueOrThrowArgs>(args: SelectSubset<T, tr_project_task_teamFindUniqueOrThrowArgs<ExtArgs>>): Prisma__tr_project_task_teamClient<$Result.GetResult<Prisma.$tr_project_task_teamPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Tr_project_task_team that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_project_task_teamFindFirstArgs} args - Arguments to find a Tr_project_task_team
+     * @example
+     * // Get one Tr_project_task_team
+     * const tr_project_task_team = await prisma.tr_project_task_team.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends tr_project_task_teamFindFirstArgs>(args?: SelectSubset<T, tr_project_task_teamFindFirstArgs<ExtArgs>>): Prisma__tr_project_task_teamClient<$Result.GetResult<Prisma.$tr_project_task_teamPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Tr_project_task_team that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_project_task_teamFindFirstOrThrowArgs} args - Arguments to find a Tr_project_task_team
+     * @example
+     * // Get one Tr_project_task_team
+     * const tr_project_task_team = await prisma.tr_project_task_team.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends tr_project_task_teamFindFirstOrThrowArgs>(args?: SelectSubset<T, tr_project_task_teamFindFirstOrThrowArgs<ExtArgs>>): Prisma__tr_project_task_teamClient<$Result.GetResult<Prisma.$tr_project_task_teamPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Tr_project_task_teams that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_project_task_teamFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Tr_project_task_teams
+     * const tr_project_task_teams = await prisma.tr_project_task_team.findMany()
+     * 
+     * // Get first 10 Tr_project_task_teams
+     * const tr_project_task_teams = await prisma.tr_project_task_team.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const tr_project_task_teamWithIdOnly = await prisma.tr_project_task_team.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends tr_project_task_teamFindManyArgs>(args?: SelectSubset<T, tr_project_task_teamFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tr_project_task_teamPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Tr_project_task_team.
+     * @param {tr_project_task_teamCreateArgs} args - Arguments to create a Tr_project_task_team.
+     * @example
+     * // Create one Tr_project_task_team
+     * const Tr_project_task_team = await prisma.tr_project_task_team.create({
+     *   data: {
+     *     // ... data to create a Tr_project_task_team
+     *   }
+     * })
+     * 
+     */
+    create<T extends tr_project_task_teamCreateArgs>(args: SelectSubset<T, tr_project_task_teamCreateArgs<ExtArgs>>): Prisma__tr_project_task_teamClient<$Result.GetResult<Prisma.$tr_project_task_teamPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Tr_project_task_teams.
+     * @param {tr_project_task_teamCreateManyArgs} args - Arguments to create many Tr_project_task_teams.
+     * @example
+     * // Create many Tr_project_task_teams
+     * const tr_project_task_team = await prisma.tr_project_task_team.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends tr_project_task_teamCreateManyArgs>(args?: SelectSubset<T, tr_project_task_teamCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Tr_project_task_team.
+     * @param {tr_project_task_teamDeleteArgs} args - Arguments to delete one Tr_project_task_team.
+     * @example
+     * // Delete one Tr_project_task_team
+     * const Tr_project_task_team = await prisma.tr_project_task_team.delete({
+     *   where: {
+     *     // ... filter to delete one Tr_project_task_team
+     *   }
+     * })
+     * 
+     */
+    delete<T extends tr_project_task_teamDeleteArgs>(args: SelectSubset<T, tr_project_task_teamDeleteArgs<ExtArgs>>): Prisma__tr_project_task_teamClient<$Result.GetResult<Prisma.$tr_project_task_teamPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Tr_project_task_team.
+     * @param {tr_project_task_teamUpdateArgs} args - Arguments to update one Tr_project_task_team.
+     * @example
+     * // Update one Tr_project_task_team
+     * const tr_project_task_team = await prisma.tr_project_task_team.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends tr_project_task_teamUpdateArgs>(args: SelectSubset<T, tr_project_task_teamUpdateArgs<ExtArgs>>): Prisma__tr_project_task_teamClient<$Result.GetResult<Prisma.$tr_project_task_teamPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Tr_project_task_teams.
+     * @param {tr_project_task_teamDeleteManyArgs} args - Arguments to filter Tr_project_task_teams to delete.
+     * @example
+     * // Delete a few Tr_project_task_teams
+     * const { count } = await prisma.tr_project_task_team.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends tr_project_task_teamDeleteManyArgs>(args?: SelectSubset<T, tr_project_task_teamDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Tr_project_task_teams.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_project_task_teamUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Tr_project_task_teams
+     * const tr_project_task_team = await prisma.tr_project_task_team.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends tr_project_task_teamUpdateManyArgs>(args: SelectSubset<T, tr_project_task_teamUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Tr_project_task_team.
+     * @param {tr_project_task_teamUpsertArgs} args - Arguments to update or create a Tr_project_task_team.
+     * @example
+     * // Update or create a Tr_project_task_team
+     * const tr_project_task_team = await prisma.tr_project_task_team.upsert({
+     *   create: {
+     *     // ... data to create a Tr_project_task_team
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Tr_project_task_team we want to update
+     *   }
+     * })
+     */
+    upsert<T extends tr_project_task_teamUpsertArgs>(args: SelectSubset<T, tr_project_task_teamUpsertArgs<ExtArgs>>): Prisma__tr_project_task_teamClient<$Result.GetResult<Prisma.$tr_project_task_teamPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Tr_project_task_teams.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_project_task_teamCountArgs} args - Arguments to filter Tr_project_task_teams to count.
+     * @example
+     * // Count the number of Tr_project_task_teams
+     * const count = await prisma.tr_project_task_team.count({
+     *   where: {
+     *     // ... the filter for the Tr_project_task_teams we want to count
+     *   }
+     * })
+    **/
+    count<T extends tr_project_task_teamCountArgs>(
+      args?: Subset<T, tr_project_task_teamCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Tr_project_task_teamCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Tr_project_task_team.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Tr_project_task_teamAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Tr_project_task_teamAggregateArgs>(args: Subset<T, Tr_project_task_teamAggregateArgs>): Prisma.PrismaPromise<GetTr_project_task_teamAggregateType<T>>
+
+    /**
+     * Group by Tr_project_task_team.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_project_task_teamGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends tr_project_task_teamGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: tr_project_task_teamGroupByArgs['orderBy'] }
+        : { orderBy?: tr_project_task_teamGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, tr_project_task_teamGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTr_project_task_teamGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the tr_project_task_team model
+   */
+  readonly fields: tr_project_task_teamFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for tr_project_task_team.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__tr_project_task_teamClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    tr_project_task<T extends tr_project_task_team$tr_project_taskArgs<ExtArgs> = {}>(args?: Subset<T, tr_project_task_team$tr_project_taskArgs<ExtArgs>>): Prisma__tr_project_taskClient<$Result.GetResult<Prisma.$tr_project_taskPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    mst_authorization<T extends tr_project_task_team$mst_authorizationArgs<ExtArgs> = {}>(args?: Subset<T, tr_project_task_team$mst_authorizationArgs<ExtArgs>>): Prisma__mst_authorizationClient<$Result.GetResult<Prisma.$mst_authorizationPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the tr_project_task_team model
+   */ 
+  interface tr_project_task_teamFieldRefs {
+    readonly id: FieldRef<"tr_project_task_team", 'Int'>
+    readonly project_task_id: FieldRef<"tr_project_task_team", 'Int'>
+    readonly employee_code: FieldRef<"tr_project_task_team", 'String'>
+    readonly is_deleted: FieldRef<"tr_project_task_team", 'Int'>
+    readonly created_at: FieldRef<"tr_project_task_team", 'DateTime'>
+    readonly created_by: FieldRef<"tr_project_task_team", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * tr_project_task_team findUnique
+   */
+  export type tr_project_task_teamFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_task_team
+     */
+    select?: tr_project_task_teamSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_task_teamInclude<ExtArgs> | null
+    /**
+     * Filter, which tr_project_task_team to fetch.
+     */
+    where: tr_project_task_teamWhereUniqueInput
+  }
+
+  /**
+   * tr_project_task_team findUniqueOrThrow
+   */
+  export type tr_project_task_teamFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_task_team
+     */
+    select?: tr_project_task_teamSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_task_teamInclude<ExtArgs> | null
+    /**
+     * Filter, which tr_project_task_team to fetch.
+     */
+    where: tr_project_task_teamWhereUniqueInput
+  }
+
+  /**
+   * tr_project_task_team findFirst
+   */
+  export type tr_project_task_teamFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_task_team
+     */
+    select?: tr_project_task_teamSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_task_teamInclude<ExtArgs> | null
+    /**
+     * Filter, which tr_project_task_team to fetch.
+     */
+    where?: tr_project_task_teamWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tr_project_task_teams to fetch.
+     */
+    orderBy?: tr_project_task_teamOrderByWithRelationInput | tr_project_task_teamOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for tr_project_task_teams.
+     */
+    cursor?: tr_project_task_teamWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tr_project_task_teams from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tr_project_task_teams.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of tr_project_task_teams.
+     */
+    distinct?: Tr_project_task_teamScalarFieldEnum | Tr_project_task_teamScalarFieldEnum[]
+  }
+
+  /**
+   * tr_project_task_team findFirstOrThrow
+   */
+  export type tr_project_task_teamFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_task_team
+     */
+    select?: tr_project_task_teamSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_task_teamInclude<ExtArgs> | null
+    /**
+     * Filter, which tr_project_task_team to fetch.
+     */
+    where?: tr_project_task_teamWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tr_project_task_teams to fetch.
+     */
+    orderBy?: tr_project_task_teamOrderByWithRelationInput | tr_project_task_teamOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for tr_project_task_teams.
+     */
+    cursor?: tr_project_task_teamWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tr_project_task_teams from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tr_project_task_teams.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of tr_project_task_teams.
+     */
+    distinct?: Tr_project_task_teamScalarFieldEnum | Tr_project_task_teamScalarFieldEnum[]
+  }
+
+  /**
+   * tr_project_task_team findMany
+   */
+  export type tr_project_task_teamFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_task_team
+     */
+    select?: tr_project_task_teamSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_task_teamInclude<ExtArgs> | null
+    /**
+     * Filter, which tr_project_task_teams to fetch.
+     */
+    where?: tr_project_task_teamWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tr_project_task_teams to fetch.
+     */
+    orderBy?: tr_project_task_teamOrderByWithRelationInput | tr_project_task_teamOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing tr_project_task_teams.
+     */
+    cursor?: tr_project_task_teamWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tr_project_task_teams from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tr_project_task_teams.
+     */
+    skip?: number
+    distinct?: Tr_project_task_teamScalarFieldEnum | Tr_project_task_teamScalarFieldEnum[]
+  }
+
+  /**
+   * tr_project_task_team create
+   */
+  export type tr_project_task_teamCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_task_team
+     */
+    select?: tr_project_task_teamSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_task_teamInclude<ExtArgs> | null
+    /**
+     * The data needed to create a tr_project_task_team.
+     */
+    data?: XOR<tr_project_task_teamCreateInput, tr_project_task_teamUncheckedCreateInput>
+  }
+
+  /**
+   * tr_project_task_team createMany
+   */
+  export type tr_project_task_teamCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many tr_project_task_teams.
+     */
+    data: tr_project_task_teamCreateManyInput | tr_project_task_teamCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * tr_project_task_team update
+   */
+  export type tr_project_task_teamUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_task_team
+     */
+    select?: tr_project_task_teamSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_task_teamInclude<ExtArgs> | null
+    /**
+     * The data needed to update a tr_project_task_team.
+     */
+    data: XOR<tr_project_task_teamUpdateInput, tr_project_task_teamUncheckedUpdateInput>
+    /**
+     * Choose, which tr_project_task_team to update.
+     */
+    where: tr_project_task_teamWhereUniqueInput
+  }
+
+  /**
+   * tr_project_task_team updateMany
+   */
+  export type tr_project_task_teamUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update tr_project_task_teams.
+     */
+    data: XOR<tr_project_task_teamUpdateManyMutationInput, tr_project_task_teamUncheckedUpdateManyInput>
+    /**
+     * Filter which tr_project_task_teams to update
+     */
+    where?: tr_project_task_teamWhereInput
+  }
+
+  /**
+   * tr_project_task_team upsert
+   */
+  export type tr_project_task_teamUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_task_team
+     */
+    select?: tr_project_task_teamSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_task_teamInclude<ExtArgs> | null
+    /**
+     * The filter to search for the tr_project_task_team to update in case it exists.
+     */
+    where: tr_project_task_teamWhereUniqueInput
+    /**
+     * In case the tr_project_task_team found by the `where` argument doesn't exist, create a new tr_project_task_team with this data.
+     */
+    create: XOR<tr_project_task_teamCreateInput, tr_project_task_teamUncheckedCreateInput>
+    /**
+     * In case the tr_project_task_team was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<tr_project_task_teamUpdateInput, tr_project_task_teamUncheckedUpdateInput>
+  }
+
+  /**
+   * tr_project_task_team delete
+   */
+  export type tr_project_task_teamDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_task_team
+     */
+    select?: tr_project_task_teamSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_task_teamInclude<ExtArgs> | null
+    /**
+     * Filter which tr_project_task_team to delete.
+     */
+    where: tr_project_task_teamWhereUniqueInput
+  }
+
+  /**
+   * tr_project_task_team deleteMany
+   */
+  export type tr_project_task_teamDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which tr_project_task_teams to delete
+     */
+    where?: tr_project_task_teamWhereInput
+  }
+
+  /**
+   * tr_project_task_team.tr_project_task
+   */
+  export type tr_project_task_team$tr_project_taskArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_task
+     */
+    select?: tr_project_taskSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_taskInclude<ExtArgs> | null
+    where?: tr_project_taskWhereInput
+  }
+
+  /**
+   * tr_project_task_team.mst_authorization
+   */
+  export type tr_project_task_team$mst_authorizationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_authorization
+     */
+    select?: mst_authorizationSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_authorizationInclude<ExtArgs> | null
+    where?: mst_authorizationWhereInput
+  }
+
+  /**
+   * tr_project_task_team without action
+   */
+  export type tr_project_task_teamDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_task_team
+     */
+    select?: tr_project_task_teamSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_task_teamInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -24623,7 +27149,7 @@ export namespace Prisma {
     business_impact: 'business_impact',
     group_id: 'group_id',
     plan_start_date: 'plan_start_date',
-    plant_end_date: 'plant_end_date',
+    plan_end_date: 'plan_end_date',
     real_start_date: 'real_start_date',
     real_end_date: 'real_end_date',
     expected_completion: 'expected_completion',
@@ -24714,14 +27240,15 @@ export namespace Prisma {
     plan_end_date: 'plan_end_date',
     real_start_date: 'real_start_date',
     real_end_date: 'real_end_date',
-    planned_duration: 'planned_duration',
+    plan_duration: 'plan_duration',
     real_duration: 'real_duration',
     percent_done: 'percent_done',
     cost: 'cost',
     task_type: 'task_type',
     created_at: 'created_at',
     created_by: 'created_by',
-    task_category: 'task_category'
+    task_category: 'task_category',
+    is_deleted: 'is_deleted'
   };
 
   export type Tr_project_taskScalarFieldEnum = (typeof Tr_project_taskScalarFieldEnum)[keyof typeof Tr_project_taskScalarFieldEnum]
@@ -24758,7 +27285,9 @@ export namespace Prisma {
     issue_description: 'issue_description',
     business_impact: 'business_impact',
     created_at: 'created_at',
-    created_by: 'created_by'
+    created_by: 'created_by',
+    impact: 'impact',
+    priority: 'priority'
   };
 
   export type Tr_requestScalarFieldEnum = (typeof Tr_requestScalarFieldEnum)[keyof typeof Tr_requestScalarFieldEnum]
@@ -24773,10 +27302,35 @@ export namespace Prisma {
     comment_validation: 'comment_validation',
     status: 'status',
     submission_date: 'submission_date',
-    validation_date: 'validation_date'
+    validation_date: 'validation_date',
+    state: 'state'
   };
 
   export type Tr_request_validationScalarFieldEnum = (typeof Tr_request_validationScalarFieldEnum)[keyof typeof Tr_request_validationScalarFieldEnum]
+
+
+  export const Tr_request_technicianScalarFieldEnum: {
+    id: 'id',
+    request_id: 'request_id',
+    employee_code: 'employee_code',
+    is_deleted: 'is_deleted',
+    created_at: 'created_at',
+    created_by: 'created_by'
+  };
+
+  export type Tr_request_technicianScalarFieldEnum = (typeof Tr_request_technicianScalarFieldEnum)[keyof typeof Tr_request_technicianScalarFieldEnum]
+
+
+  export const Tr_project_task_teamScalarFieldEnum: {
+    id: 'id',
+    project_task_id: 'project_task_id',
+    employee_code: 'employee_code',
+    is_deleted: 'is_deleted',
+    created_at: 'created_at',
+    created_by: 'created_by'
+  };
+
+  export type Tr_project_task_teamScalarFieldEnum = (typeof Tr_project_task_teamScalarFieldEnum)[keyof typeof Tr_project_task_teamScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -24832,13 +27386,6 @@ export namespace Prisma {
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
-    
-
-
-  /**
-   * Reference to a field of type 'Decimal'
-   */
-  export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
     
   /**
    * Deep Input Types
@@ -24978,12 +27525,15 @@ export namespace Prisma {
     is_active?: StringNullableFilter<"mst_authorization"> | string | null
     created_at?: DateTimeNullableFilter<"mst_authorization"> | Date | string | null
     created_by?: StringNullableFilter<"mst_authorization"> | string | null
-    technician_level?: StringNullableFilter<"mst_authorization"> | string | null
+    technician_level?: IntNullableFilter<"mst_authorization"> | number | null
     active_profile?: IntNullableFilter<"mst_authorization"> | number | null
     active_entities?: IntNullableFilter<"mst_authorization"> | number | null
     is_deleted?: BoolNullableFilter<"mst_authorization"> | boolean | null
     mst_entities?: XOR<Mst_entitiesNullableRelationFilter, mst_entitiesWhereInput> | null
     mst_profile?: XOR<Mst_profileNullableRelationFilter, mst_profileWhereInput> | null
+    mst_manpower_cost?: XOR<Mst_manpower_costNullableRelationFilter, mst_manpower_costWhereInput> | null
+    tr_project_task_team?: Tr_project_task_teamListRelationFilter
+    tr_project_team?: Tr_project_teamListRelationFilter
   }
 
   export type mst_authorizationOrderByWithRelationInput = {
@@ -24999,25 +27549,31 @@ export namespace Prisma {
     is_deleted?: SortOrderInput | SortOrder
     mst_entities?: mst_entitiesOrderByWithRelationInput
     mst_profile?: mst_profileOrderByWithRelationInput
+    mst_manpower_cost?: mst_manpower_costOrderByWithRelationInput
+    tr_project_task_team?: tr_project_task_teamOrderByRelationAggregateInput
+    tr_project_team?: tr_project_teamOrderByRelationAggregateInput
   }
 
   export type mst_authorizationWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    employee_code?: string
     AND?: mst_authorizationWhereInput | mst_authorizationWhereInput[]
     OR?: mst_authorizationWhereInput[]
     NOT?: mst_authorizationWhereInput | mst_authorizationWhereInput[]
-    employee_code?: StringNullableFilter<"mst_authorization"> | string | null
     employee_name?: StringNullableFilter<"mst_authorization"> | string | null
     is_active?: StringNullableFilter<"mst_authorization"> | string | null
     created_at?: DateTimeNullableFilter<"mst_authorization"> | Date | string | null
     created_by?: StringNullableFilter<"mst_authorization"> | string | null
-    technician_level?: StringNullableFilter<"mst_authorization"> | string | null
+    technician_level?: IntNullableFilter<"mst_authorization"> | number | null
     active_profile?: IntNullableFilter<"mst_authorization"> | number | null
     active_entities?: IntNullableFilter<"mst_authorization"> | number | null
     is_deleted?: BoolNullableFilter<"mst_authorization"> | boolean | null
     mst_entities?: XOR<Mst_entitiesNullableRelationFilter, mst_entitiesWhereInput> | null
     mst_profile?: XOR<Mst_profileNullableRelationFilter, mst_profileWhereInput> | null
-  }, "id">
+    mst_manpower_cost?: XOR<Mst_manpower_costNullableRelationFilter, mst_manpower_costWhereInput> | null
+    tr_project_task_team?: Tr_project_task_teamListRelationFilter
+    tr_project_team?: Tr_project_teamListRelationFilter
+  }, "id" | "employee_code">
 
   export type mst_authorizationOrderByWithAggregationInput = {
     id?: SortOrder
@@ -25047,7 +27603,7 @@ export namespace Prisma {
     is_active?: StringNullableWithAggregatesFilter<"mst_authorization"> | string | null
     created_at?: DateTimeNullableWithAggregatesFilter<"mst_authorization"> | Date | string | null
     created_by?: StringNullableWithAggregatesFilter<"mst_authorization"> | string | null
-    technician_level?: StringNullableWithAggregatesFilter<"mst_authorization"> | string | null
+    technician_level?: IntNullableWithAggregatesFilter<"mst_authorization"> | number | null
     active_profile?: IntNullableWithAggregatesFilter<"mst_authorization"> | number | null
     active_entities?: IntNullableWithAggregatesFilter<"mst_authorization"> | number | null
     is_deleted?: BoolNullableWithAggregatesFilter<"mst_authorization"> | boolean | null
@@ -25310,10 +27866,11 @@ export namespace Prisma {
     NOT?: mst_manpower_costWhereInput | mst_manpower_costWhereInput[]
     id?: IntFilter<"mst_manpower_cost"> | number
     technician_level?: StringNullableFilter<"mst_manpower_cost"> | string | null
-    hourly?: StringNullableFilter<"mst_manpower_cost"> | string | null
-    monthly?: StringNullableFilter<"mst_manpower_cost"> | string | null
+    hourly?: FloatNullableFilter<"mst_manpower_cost"> | number | null
+    monthly?: FloatNullableFilter<"mst_manpower_cost"> | number | null
     created_at?: DateTimeNullableFilter<"mst_manpower_cost"> | Date | string | null
     created_by?: StringNullableFilter<"mst_manpower_cost"> | string | null
+    mst_authorization?: Mst_authorizationListRelationFilter
   }
 
   export type mst_manpower_costOrderByWithRelationInput = {
@@ -25323,19 +27880,21 @@ export namespace Prisma {
     monthly?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    mst_authorization?: mst_authorizationOrderByRelationAggregateInput
   }
 
   export type mst_manpower_costWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    technician_level?: string
     AND?: mst_manpower_costWhereInput | mst_manpower_costWhereInput[]
     OR?: mst_manpower_costWhereInput[]
     NOT?: mst_manpower_costWhereInput | mst_manpower_costWhereInput[]
-    technician_level?: StringNullableFilter<"mst_manpower_cost"> | string | null
-    hourly?: StringNullableFilter<"mst_manpower_cost"> | string | null
-    monthly?: StringNullableFilter<"mst_manpower_cost"> | string | null
+    hourly?: FloatNullableFilter<"mst_manpower_cost"> | number | null
+    monthly?: FloatNullableFilter<"mst_manpower_cost"> | number | null
     created_at?: DateTimeNullableFilter<"mst_manpower_cost"> | Date | string | null
     created_by?: StringNullableFilter<"mst_manpower_cost"> | string | null
-  }, "id">
+    mst_authorization?: Mst_authorizationListRelationFilter
+  }, "id" | "technician_level">
 
   export type mst_manpower_costOrderByWithAggregationInput = {
     id?: SortOrder
@@ -25357,8 +27916,8 @@ export namespace Prisma {
     NOT?: mst_manpower_costScalarWhereWithAggregatesInput | mst_manpower_costScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"mst_manpower_cost"> | number
     technician_level?: StringNullableWithAggregatesFilter<"mst_manpower_cost"> | string | null
-    hourly?: StringNullableWithAggregatesFilter<"mst_manpower_cost"> | string | null
-    monthly?: StringNullableWithAggregatesFilter<"mst_manpower_cost"> | string | null
+    hourly?: FloatNullableWithAggregatesFilter<"mst_manpower_cost"> | number | null
+    monthly?: FloatNullableWithAggregatesFilter<"mst_manpower_cost"> | number | null
     created_at?: DateTimeNullableWithAggregatesFilter<"mst_manpower_cost"> | Date | string | null
     created_by?: StringNullableWithAggregatesFilter<"mst_manpower_cost"> | string | null
   }
@@ -25683,7 +28242,7 @@ export namespace Prisma {
     business_impact?: StringNullableFilter<"tr_project"> | string | null
     group_id?: IntNullableFilter<"tr_project"> | number | null
     plan_start_date?: DateTimeNullableFilter<"tr_project"> | Date | string | null
-    plant_end_date?: DateTimeNullableFilter<"tr_project"> | Date | string | null
+    plan_end_date?: DateTimeNullableFilter<"tr_project"> | Date | string | null
     real_start_date?: DateTimeNullableFilter<"tr_project"> | Date | string | null
     real_end_date?: DateTimeNullableFilter<"tr_project"> | Date | string | null
     expected_completion?: DateTimeNullableFilter<"tr_project"> | Date | string | null
@@ -25695,6 +28254,7 @@ export namespace Prisma {
     created_by?: StringNullableFilter<"tr_project"> | string | null
     mst_group?: XOR<Mst_groupNullableRelationFilter, mst_groupWhereInput> | null
     mst_project_state?: XOR<Mst_project_stateNullableRelationFilter, mst_project_stateWhereInput> | null
+    tr_project_task?: Tr_project_taskListRelationFilter
   }
 
   export type tr_projectOrderByWithRelationInput = {
@@ -25710,7 +28270,7 @@ export namespace Prisma {
     business_impact?: SortOrderInput | SortOrder
     group_id?: SortOrderInput | SortOrder
     plan_start_date?: SortOrderInput | SortOrder
-    plant_end_date?: SortOrderInput | SortOrder
+    plan_end_date?: SortOrderInput | SortOrder
     real_start_date?: SortOrderInput | SortOrder
     real_end_date?: SortOrderInput | SortOrder
     expected_completion?: SortOrderInput | SortOrder
@@ -25722,6 +28282,7 @@ export namespace Prisma {
     created_by?: SortOrderInput | SortOrder
     mst_group?: mst_groupOrderByWithRelationInput
     mst_project_state?: mst_project_stateOrderByWithRelationInput
+    tr_project_task?: tr_project_taskOrderByRelationAggregateInput
   }
 
   export type tr_projectWhereUniqueInput = Prisma.AtLeast<{
@@ -25740,7 +28301,7 @@ export namespace Prisma {
     business_impact?: StringNullableFilter<"tr_project"> | string | null
     group_id?: IntNullableFilter<"tr_project"> | number | null
     plan_start_date?: DateTimeNullableFilter<"tr_project"> | Date | string | null
-    plant_end_date?: DateTimeNullableFilter<"tr_project"> | Date | string | null
+    plan_end_date?: DateTimeNullableFilter<"tr_project"> | Date | string | null
     real_start_date?: DateTimeNullableFilter<"tr_project"> | Date | string | null
     real_end_date?: DateTimeNullableFilter<"tr_project"> | Date | string | null
     expected_completion?: DateTimeNullableFilter<"tr_project"> | Date | string | null
@@ -25752,6 +28313,7 @@ export namespace Prisma {
     created_by?: StringNullableFilter<"tr_project"> | string | null
     mst_group?: XOR<Mst_groupNullableRelationFilter, mst_groupWhereInput> | null
     mst_project_state?: XOR<Mst_project_stateNullableRelationFilter, mst_project_stateWhereInput> | null
+    tr_project_task?: Tr_project_taskListRelationFilter
   }, "id">
 
   export type tr_projectOrderByWithAggregationInput = {
@@ -25767,7 +28329,7 @@ export namespace Prisma {
     business_impact?: SortOrderInput | SortOrder
     group_id?: SortOrderInput | SortOrder
     plan_start_date?: SortOrderInput | SortOrder
-    plant_end_date?: SortOrderInput | SortOrder
+    plan_end_date?: SortOrderInput | SortOrder
     real_start_date?: SortOrderInput | SortOrder
     real_end_date?: SortOrderInput | SortOrder
     expected_completion?: SortOrderInput | SortOrder
@@ -25800,7 +28362,7 @@ export namespace Prisma {
     business_impact?: StringNullableWithAggregatesFilter<"tr_project"> | string | null
     group_id?: IntNullableWithAggregatesFilter<"tr_project"> | number | null
     plan_start_date?: DateTimeNullableWithAggregatesFilter<"tr_project"> | Date | string | null
-    plant_end_date?: DateTimeNullableWithAggregatesFilter<"tr_project"> | Date | string | null
+    plan_end_date?: DateTimeNullableWithAggregatesFilter<"tr_project"> | Date | string | null
     real_start_date?: DateTimeNullableWithAggregatesFilter<"tr_project"> | Date | string | null
     real_end_date?: DateTimeNullableWithAggregatesFilter<"tr_project"> | Date | string | null
     expected_completion?: DateTimeNullableWithAggregatesFilter<"tr_project"> | Date | string | null
@@ -26154,14 +28716,17 @@ export namespace Prisma {
     plan_end_date?: DateTimeNullableFilter<"tr_project_task"> | Date | string | null
     real_start_date?: DateTimeNullableFilter<"tr_project_task"> | Date | string | null
     real_end_date?: DateTimeNullableFilter<"tr_project_task"> | Date | string | null
-    planned_duration?: StringNullableFilter<"tr_project_task"> | string | null
-    real_duration?: StringNullableFilter<"tr_project_task"> | string | null
-    percent_done?: StringNullableFilter<"tr_project_task"> | string | null
-    cost?: DecimalNullableFilter<"tr_project_task"> | Decimal | DecimalJsLike | number | string | null
+    plan_duration?: IntNullableFilter<"tr_project_task"> | number | null
+    real_duration?: IntNullableFilter<"tr_project_task"> | number | null
+    percent_done?: IntNullableFilter<"tr_project_task"> | number | null
+    cost?: FloatNullableFilter<"tr_project_task"> | number | null
     task_type?: StringNullableFilter<"tr_project_task"> | string | null
     created_at?: DateTimeNullableFilter<"tr_project_task"> | Date | string | null
     created_by?: StringNullableFilter<"tr_project_task"> | string | null
     task_category?: StringNullableFilter<"tr_project_task"> | string | null
+    is_deleted?: BoolNullableFilter<"tr_project_task"> | boolean | null
+    tr_project?: XOR<Tr_projectNullableRelationFilter, tr_projectWhereInput> | null
+    tr_project_task_team?: Tr_project_task_teamListRelationFilter
   }
 
   export type tr_project_taskOrderByWithRelationInput = {
@@ -26173,7 +28738,7 @@ export namespace Prisma {
     plan_end_date?: SortOrderInput | SortOrder
     real_start_date?: SortOrderInput | SortOrder
     real_end_date?: SortOrderInput | SortOrder
-    planned_duration?: SortOrderInput | SortOrder
+    plan_duration?: SortOrderInput | SortOrder
     real_duration?: SortOrderInput | SortOrder
     percent_done?: SortOrderInput | SortOrder
     cost?: SortOrderInput | SortOrder
@@ -26181,6 +28746,9 @@ export namespace Prisma {
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
     task_category?: SortOrderInput | SortOrder
+    is_deleted?: SortOrderInput | SortOrder
+    tr_project?: tr_projectOrderByWithRelationInput
+    tr_project_task_team?: tr_project_task_teamOrderByRelationAggregateInput
   }
 
   export type tr_project_taskWhereUniqueInput = Prisma.AtLeast<{
@@ -26195,14 +28763,17 @@ export namespace Prisma {
     plan_end_date?: DateTimeNullableFilter<"tr_project_task"> | Date | string | null
     real_start_date?: DateTimeNullableFilter<"tr_project_task"> | Date | string | null
     real_end_date?: DateTimeNullableFilter<"tr_project_task"> | Date | string | null
-    planned_duration?: StringNullableFilter<"tr_project_task"> | string | null
-    real_duration?: StringNullableFilter<"tr_project_task"> | string | null
-    percent_done?: StringNullableFilter<"tr_project_task"> | string | null
-    cost?: DecimalNullableFilter<"tr_project_task"> | Decimal | DecimalJsLike | number | string | null
+    plan_duration?: IntNullableFilter<"tr_project_task"> | number | null
+    real_duration?: IntNullableFilter<"tr_project_task"> | number | null
+    percent_done?: IntNullableFilter<"tr_project_task"> | number | null
+    cost?: FloatNullableFilter<"tr_project_task"> | number | null
     task_type?: StringNullableFilter<"tr_project_task"> | string | null
     created_at?: DateTimeNullableFilter<"tr_project_task"> | Date | string | null
     created_by?: StringNullableFilter<"tr_project_task"> | string | null
     task_category?: StringNullableFilter<"tr_project_task"> | string | null
+    is_deleted?: BoolNullableFilter<"tr_project_task"> | boolean | null
+    tr_project?: XOR<Tr_projectNullableRelationFilter, tr_projectWhereInput> | null
+    tr_project_task_team?: Tr_project_task_teamListRelationFilter
   }, "id">
 
   export type tr_project_taskOrderByWithAggregationInput = {
@@ -26214,7 +28785,7 @@ export namespace Prisma {
     plan_end_date?: SortOrderInput | SortOrder
     real_start_date?: SortOrderInput | SortOrder
     real_end_date?: SortOrderInput | SortOrder
-    planned_duration?: SortOrderInput | SortOrder
+    plan_duration?: SortOrderInput | SortOrder
     real_duration?: SortOrderInput | SortOrder
     percent_done?: SortOrderInput | SortOrder
     cost?: SortOrderInput | SortOrder
@@ -26222,6 +28793,7 @@ export namespace Prisma {
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
     task_category?: SortOrderInput | SortOrder
+    is_deleted?: SortOrderInput | SortOrder
     _count?: tr_project_taskCountOrderByAggregateInput
     _avg?: tr_project_taskAvgOrderByAggregateInput
     _max?: tr_project_taskMaxOrderByAggregateInput
@@ -26241,14 +28813,15 @@ export namespace Prisma {
     plan_end_date?: DateTimeNullableWithAggregatesFilter<"tr_project_task"> | Date | string | null
     real_start_date?: DateTimeNullableWithAggregatesFilter<"tr_project_task"> | Date | string | null
     real_end_date?: DateTimeNullableWithAggregatesFilter<"tr_project_task"> | Date | string | null
-    planned_duration?: StringNullableWithAggregatesFilter<"tr_project_task"> | string | null
-    real_duration?: StringNullableWithAggregatesFilter<"tr_project_task"> | string | null
-    percent_done?: StringNullableWithAggregatesFilter<"tr_project_task"> | string | null
-    cost?: DecimalNullableWithAggregatesFilter<"tr_project_task"> | Decimal | DecimalJsLike | number | string | null
+    plan_duration?: IntNullableWithAggregatesFilter<"tr_project_task"> | number | null
+    real_duration?: IntNullableWithAggregatesFilter<"tr_project_task"> | number | null
+    percent_done?: IntNullableWithAggregatesFilter<"tr_project_task"> | number | null
+    cost?: FloatNullableWithAggregatesFilter<"tr_project_task"> | number | null
     task_type?: StringNullableWithAggregatesFilter<"tr_project_task"> | string | null
     created_at?: DateTimeNullableWithAggregatesFilter<"tr_project_task"> | Date | string | null
     created_by?: StringNullableWithAggregatesFilter<"tr_project_task"> | string | null
     task_category?: StringNullableWithAggregatesFilter<"tr_project_task"> | string | null
+    is_deleted?: BoolNullableWithAggregatesFilter<"tr_project_task"> | boolean | null
   }
 
   export type tr_project_teamWhereInput = {
@@ -26261,6 +28834,7 @@ export namespace Prisma {
     is_deleted?: BoolNullableFilter<"tr_project_team"> | boolean | null
     created_at?: DateTimeNullableFilter<"tr_project_team"> | Date | string | null
     created_by?: StringNullableFilter<"tr_project_team"> | string | null
+    mst_authorization?: XOR<Mst_authorizationNullableRelationFilter, mst_authorizationWhereInput> | null
   }
 
   export type tr_project_teamOrderByWithRelationInput = {
@@ -26270,6 +28844,7 @@ export namespace Prisma {
     is_deleted?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    mst_authorization?: mst_authorizationOrderByWithRelationInput
   }
 
   export type tr_project_teamWhereUniqueInput = Prisma.AtLeast<{
@@ -26282,6 +28857,7 @@ export namespace Prisma {
     is_deleted?: BoolNullableFilter<"tr_project_team"> | boolean | null
     created_at?: DateTimeNullableFilter<"tr_project_team"> | Date | string | null
     created_by?: StringNullableFilter<"tr_project_team"> | string | null
+    mst_authorization?: XOR<Mst_authorizationNullableRelationFilter, mst_authorizationWhereInput> | null
   }, "id">
 
   export type tr_project_teamOrderByWithAggregationInput = {
@@ -26333,6 +28909,8 @@ export namespace Prisma {
     business_impact?: StringNullableFilter<"tr_request"> | string | null
     created_at?: DateTimeNullableFilter<"tr_request"> | Date | string | null
     created_by?: StringNullableFilter<"tr_request"> | string | null
+    impact?: StringNullableFilter<"tr_request"> | string | null
+    priority?: StringNullableFilter<"tr_request"> | string | null
     tr_request_validation?: Tr_request_validationListRelationFilter
   }
 
@@ -26356,6 +28934,8 @@ export namespace Prisma {
     business_impact?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    impact?: SortOrderInput | SortOrder
+    priority?: SortOrderInput | SortOrder
     tr_request_validation?: tr_request_validationOrderByRelationAggregateInput
   }
 
@@ -26382,6 +28962,8 @@ export namespace Prisma {
     business_impact?: StringNullableFilter<"tr_request"> | string | null
     created_at?: DateTimeNullableFilter<"tr_request"> | Date | string | null
     created_by?: StringNullableFilter<"tr_request"> | string | null
+    impact?: StringNullableFilter<"tr_request"> | string | null
+    priority?: StringNullableFilter<"tr_request"> | string | null
     tr_request_validation?: Tr_request_validationListRelationFilter
   }, "id">
 
@@ -26405,6 +28987,8 @@ export namespace Prisma {
     business_impact?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    impact?: SortOrderInput | SortOrder
+    priority?: SortOrderInput | SortOrder
     _count?: tr_requestCountOrderByAggregateInput
     _avg?: tr_requestAvgOrderByAggregateInput
     _max?: tr_requestMaxOrderByAggregateInput
@@ -26435,6 +29019,8 @@ export namespace Prisma {
     business_impact?: StringNullableWithAggregatesFilter<"tr_request"> | string | null
     created_at?: DateTimeNullableWithAggregatesFilter<"tr_request"> | Date | string | null
     created_by?: StringNullableWithAggregatesFilter<"tr_request"> | string | null
+    impact?: StringNullableWithAggregatesFilter<"tr_request"> | string | null
+    priority?: StringNullableWithAggregatesFilter<"tr_request"> | string | null
   }
 
   export type tr_request_validationWhereInput = {
@@ -26450,6 +29036,7 @@ export namespace Prisma {
     status?: StringNullableFilter<"tr_request_validation"> | string | null
     submission_date?: DateTimeNullableFilter<"tr_request_validation"> | Date | string | null
     validation_date?: DateTimeNullableFilter<"tr_request_validation"> | Date | string | null
+    state?: StringNullableFilter<"tr_request_validation"> | string | null
     tr_request?: XOR<Tr_requestNullableRelationFilter, tr_requestWhereInput> | null
   }
 
@@ -26463,6 +29050,7 @@ export namespace Prisma {
     status?: SortOrderInput | SortOrder
     submission_date?: SortOrderInput | SortOrder
     validation_date?: SortOrderInput | SortOrder
+    state?: SortOrderInput | SortOrder
     tr_request?: tr_requestOrderByWithRelationInput
   }
 
@@ -26479,6 +29067,7 @@ export namespace Prisma {
     status?: StringNullableFilter<"tr_request_validation"> | string | null
     submission_date?: DateTimeNullableFilter<"tr_request_validation"> | Date | string | null
     validation_date?: DateTimeNullableFilter<"tr_request_validation"> | Date | string | null
+    state?: StringNullableFilter<"tr_request_validation"> | string | null
     tr_request?: XOR<Tr_requestNullableRelationFilter, tr_requestWhereInput> | null
   }, "id">
 
@@ -26492,6 +29081,7 @@ export namespace Prisma {
     status?: SortOrderInput | SortOrder
     submission_date?: SortOrderInput | SortOrder
     validation_date?: SortOrderInput | SortOrder
+    state?: SortOrderInput | SortOrder
     _count?: tr_request_validationCountOrderByAggregateInput
     _avg?: tr_request_validationAvgOrderByAggregateInput
     _max?: tr_request_validationMaxOrderByAggregateInput
@@ -26512,6 +29102,131 @@ export namespace Prisma {
     status?: StringNullableWithAggregatesFilter<"tr_request_validation"> | string | null
     submission_date?: DateTimeNullableWithAggregatesFilter<"tr_request_validation"> | Date | string | null
     validation_date?: DateTimeNullableWithAggregatesFilter<"tr_request_validation"> | Date | string | null
+    state?: StringNullableWithAggregatesFilter<"tr_request_validation"> | string | null
+  }
+
+  export type tr_request_technicianWhereInput = {
+    AND?: tr_request_technicianWhereInput | tr_request_technicianWhereInput[]
+    OR?: tr_request_technicianWhereInput[]
+    NOT?: tr_request_technicianWhereInput | tr_request_technicianWhereInput[]
+    id?: IntFilter<"tr_request_technician"> | number
+    request_id?: IntNullableFilter<"tr_request_technician"> | number | null
+    employee_code?: StringNullableFilter<"tr_request_technician"> | string | null
+    is_deleted?: BoolNullableFilter<"tr_request_technician"> | boolean | null
+    created_at?: DateTimeNullableFilter<"tr_request_technician"> | Date | string | null
+    created_by?: StringNullableFilter<"tr_request_technician"> | string | null
+  }
+
+  export type tr_request_technicianOrderByWithRelationInput = {
+    id?: SortOrder
+    request_id?: SortOrderInput | SortOrder
+    employee_code?: SortOrderInput | SortOrder
+    is_deleted?: SortOrderInput | SortOrder
+    created_at?: SortOrderInput | SortOrder
+    created_by?: SortOrderInput | SortOrder
+  }
+
+  export type tr_request_technicianWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: tr_request_technicianWhereInput | tr_request_technicianWhereInput[]
+    OR?: tr_request_technicianWhereInput[]
+    NOT?: tr_request_technicianWhereInput | tr_request_technicianWhereInput[]
+    request_id?: IntNullableFilter<"tr_request_technician"> | number | null
+    employee_code?: StringNullableFilter<"tr_request_technician"> | string | null
+    is_deleted?: BoolNullableFilter<"tr_request_technician"> | boolean | null
+    created_at?: DateTimeNullableFilter<"tr_request_technician"> | Date | string | null
+    created_by?: StringNullableFilter<"tr_request_technician"> | string | null
+  }, "id">
+
+  export type tr_request_technicianOrderByWithAggregationInput = {
+    id?: SortOrder
+    request_id?: SortOrderInput | SortOrder
+    employee_code?: SortOrderInput | SortOrder
+    is_deleted?: SortOrderInput | SortOrder
+    created_at?: SortOrderInput | SortOrder
+    created_by?: SortOrderInput | SortOrder
+    _count?: tr_request_technicianCountOrderByAggregateInput
+    _avg?: tr_request_technicianAvgOrderByAggregateInput
+    _max?: tr_request_technicianMaxOrderByAggregateInput
+    _min?: tr_request_technicianMinOrderByAggregateInput
+    _sum?: tr_request_technicianSumOrderByAggregateInput
+  }
+
+  export type tr_request_technicianScalarWhereWithAggregatesInput = {
+    AND?: tr_request_technicianScalarWhereWithAggregatesInput | tr_request_technicianScalarWhereWithAggregatesInput[]
+    OR?: tr_request_technicianScalarWhereWithAggregatesInput[]
+    NOT?: tr_request_technicianScalarWhereWithAggregatesInput | tr_request_technicianScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"tr_request_technician"> | number
+    request_id?: IntNullableWithAggregatesFilter<"tr_request_technician"> | number | null
+    employee_code?: StringNullableWithAggregatesFilter<"tr_request_technician"> | string | null
+    is_deleted?: BoolNullableWithAggregatesFilter<"tr_request_technician"> | boolean | null
+    created_at?: DateTimeNullableWithAggregatesFilter<"tr_request_technician"> | Date | string | null
+    created_by?: StringNullableWithAggregatesFilter<"tr_request_technician"> | string | null
+  }
+
+  export type tr_project_task_teamWhereInput = {
+    AND?: tr_project_task_teamWhereInput | tr_project_task_teamWhereInput[]
+    OR?: tr_project_task_teamWhereInput[]
+    NOT?: tr_project_task_teamWhereInput | tr_project_task_teamWhereInput[]
+    id?: IntFilter<"tr_project_task_team"> | number
+    project_task_id?: IntNullableFilter<"tr_project_task_team"> | number | null
+    employee_code?: StringNullableFilter<"tr_project_task_team"> | string | null
+    is_deleted?: IntNullableFilter<"tr_project_task_team"> | number | null
+    created_at?: DateTimeNullableFilter<"tr_project_task_team"> | Date | string | null
+    created_by?: StringNullableFilter<"tr_project_task_team"> | string | null
+    tr_project_task?: XOR<Tr_project_taskNullableRelationFilter, tr_project_taskWhereInput> | null
+    mst_authorization?: XOR<Mst_authorizationNullableRelationFilter, mst_authorizationWhereInput> | null
+  }
+
+  export type tr_project_task_teamOrderByWithRelationInput = {
+    id?: SortOrder
+    project_task_id?: SortOrderInput | SortOrder
+    employee_code?: SortOrderInput | SortOrder
+    is_deleted?: SortOrderInput | SortOrder
+    created_at?: SortOrderInput | SortOrder
+    created_by?: SortOrderInput | SortOrder
+    tr_project_task?: tr_project_taskOrderByWithRelationInput
+    mst_authorization?: mst_authorizationOrderByWithRelationInput
+  }
+
+  export type tr_project_task_teamWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: tr_project_task_teamWhereInput | tr_project_task_teamWhereInput[]
+    OR?: tr_project_task_teamWhereInput[]
+    NOT?: tr_project_task_teamWhereInput | tr_project_task_teamWhereInput[]
+    project_task_id?: IntNullableFilter<"tr_project_task_team"> | number | null
+    employee_code?: StringNullableFilter<"tr_project_task_team"> | string | null
+    is_deleted?: IntNullableFilter<"tr_project_task_team"> | number | null
+    created_at?: DateTimeNullableFilter<"tr_project_task_team"> | Date | string | null
+    created_by?: StringNullableFilter<"tr_project_task_team"> | string | null
+    tr_project_task?: XOR<Tr_project_taskNullableRelationFilter, tr_project_taskWhereInput> | null
+    mst_authorization?: XOR<Mst_authorizationNullableRelationFilter, mst_authorizationWhereInput> | null
+  }, "id">
+
+  export type tr_project_task_teamOrderByWithAggregationInput = {
+    id?: SortOrder
+    project_task_id?: SortOrderInput | SortOrder
+    employee_code?: SortOrderInput | SortOrder
+    is_deleted?: SortOrderInput | SortOrder
+    created_at?: SortOrderInput | SortOrder
+    created_by?: SortOrderInput | SortOrder
+    _count?: tr_project_task_teamCountOrderByAggregateInput
+    _avg?: tr_project_task_teamAvgOrderByAggregateInput
+    _max?: tr_project_task_teamMaxOrderByAggregateInput
+    _min?: tr_project_task_teamMinOrderByAggregateInput
+    _sum?: tr_project_task_teamSumOrderByAggregateInput
+  }
+
+  export type tr_project_task_teamScalarWhereWithAggregatesInput = {
+    AND?: tr_project_task_teamScalarWhereWithAggregatesInput | tr_project_task_teamScalarWhereWithAggregatesInput[]
+    OR?: tr_project_task_teamScalarWhereWithAggregatesInput[]
+    NOT?: tr_project_task_teamScalarWhereWithAggregatesInput | tr_project_task_teamScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"tr_project_task_team"> | number
+    project_task_id?: IntNullableWithAggregatesFilter<"tr_project_task_team"> | number | null
+    employee_code?: StringNullableWithAggregatesFilter<"tr_project_task_team"> | string | null
+    is_deleted?: IntNullableWithAggregatesFilter<"tr_project_task_team"> | number | null
+    created_at?: DateTimeNullableWithAggregatesFilter<"tr_project_task_team"> | Date | string | null
+    created_by?: StringNullableWithAggregatesFilter<"tr_project_task_team"> | string | null
   }
 
   export type mst_applicationCreateInput = {
@@ -26647,10 +29362,12 @@ export namespace Prisma {
     is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
-    technician_level?: string | null
     is_deleted?: boolean | null
     mst_entities?: mst_entitiesCreateNestedOneWithoutMst_authorizationInput
     mst_profile?: mst_profileCreateNestedOneWithoutMst_authorizationInput
+    mst_manpower_cost?: mst_manpower_costCreateNestedOneWithoutMst_authorizationInput
+    tr_project_task_team?: tr_project_task_teamCreateNestedManyWithoutMst_authorizationInput
+    tr_project_team?: tr_project_teamCreateNestedManyWithoutMst_authorizationInput
   }
 
   export type mst_authorizationUncheckedCreateInput = {
@@ -26660,10 +29377,12 @@ export namespace Prisma {
     is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
-    technician_level?: string | null
+    technician_level?: number | null
     active_profile?: number | null
     active_entities?: number | null
     is_deleted?: boolean | null
+    tr_project_task_team?: tr_project_task_teamUncheckedCreateNestedManyWithoutMst_authorizationInput
+    tr_project_team?: tr_project_teamUncheckedCreateNestedManyWithoutMst_authorizationInput
   }
 
   export type mst_authorizationUpdateInput = {
@@ -26672,10 +29391,12 @@ export namespace Prisma {
     is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
-    technician_level?: NullableStringFieldUpdateOperationsInput | string | null
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     mst_entities?: mst_entitiesUpdateOneWithoutMst_authorizationNestedInput
     mst_profile?: mst_profileUpdateOneWithoutMst_authorizationNestedInput
+    mst_manpower_cost?: mst_manpower_costUpdateOneWithoutMst_authorizationNestedInput
+    tr_project_task_team?: tr_project_task_teamUpdateManyWithoutMst_authorizationNestedInput
+    tr_project_team?: tr_project_teamUpdateManyWithoutMst_authorizationNestedInput
   }
 
   export type mst_authorizationUncheckedUpdateInput = {
@@ -26685,10 +29406,12 @@ export namespace Prisma {
     is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
-    technician_level?: NullableStringFieldUpdateOperationsInput | string | null
+    technician_level?: NullableIntFieldUpdateOperationsInput | number | null
     active_profile?: NullableIntFieldUpdateOperationsInput | number | null
     active_entities?: NullableIntFieldUpdateOperationsInput | number | null
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    tr_project_task_team?: tr_project_task_teamUncheckedUpdateManyWithoutMst_authorizationNestedInput
+    tr_project_team?: tr_project_teamUncheckedUpdateManyWithoutMst_authorizationNestedInput
   }
 
   export type mst_authorizationCreateManyInput = {
@@ -26698,7 +29421,7 @@ export namespace Prisma {
     is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
-    technician_level?: string | null
+    technician_level?: number | null
     active_profile?: number | null
     active_entities?: number | null
     is_deleted?: boolean | null
@@ -26710,7 +29433,6 @@ export namespace Prisma {
     is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
-    technician_level?: NullableStringFieldUpdateOperationsInput | string | null
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
@@ -26721,7 +29443,7 @@ export namespace Prisma {
     is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
-    technician_level?: NullableStringFieldUpdateOperationsInput | string | null
+    technician_level?: NullableIntFieldUpdateOperationsInput | number | null
     active_profile?: NullableIntFieldUpdateOperationsInput | number | null
     active_entities?: NullableIntFieldUpdateOperationsInput | number | null
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
@@ -26979,51 +29701,55 @@ export namespace Prisma {
 
   export type mst_manpower_costCreateInput = {
     technician_level?: string | null
-    hourly?: string | null
-    monthly?: string | null
+    hourly?: number | null
+    monthly?: number | null
     created_at?: Date | string | null
     created_by?: string | null
+    mst_authorization?: mst_authorizationCreateNestedManyWithoutMst_manpower_costInput
   }
 
   export type mst_manpower_costUncheckedCreateInput = {
     id?: number
     technician_level?: string | null
-    hourly?: string | null
-    monthly?: string | null
+    hourly?: number | null
+    monthly?: number | null
     created_at?: Date | string | null
     created_by?: string | null
+    mst_authorization?: mst_authorizationUncheckedCreateNestedManyWithoutMst_manpower_costInput
   }
 
   export type mst_manpower_costUpdateInput = {
     technician_level?: NullableStringFieldUpdateOperationsInput | string | null
-    hourly?: NullableStringFieldUpdateOperationsInput | string | null
-    monthly?: NullableStringFieldUpdateOperationsInput | string | null
+    hourly?: NullableFloatFieldUpdateOperationsInput | number | null
+    monthly?: NullableFloatFieldUpdateOperationsInput | number | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_authorization?: mst_authorizationUpdateManyWithoutMst_manpower_costNestedInput
   }
 
   export type mst_manpower_costUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     technician_level?: NullableStringFieldUpdateOperationsInput | string | null
-    hourly?: NullableStringFieldUpdateOperationsInput | string | null
-    monthly?: NullableStringFieldUpdateOperationsInput | string | null
+    hourly?: NullableFloatFieldUpdateOperationsInput | number | null
+    monthly?: NullableFloatFieldUpdateOperationsInput | number | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_authorization?: mst_authorizationUncheckedUpdateManyWithoutMst_manpower_costNestedInput
   }
 
   export type mst_manpower_costCreateManyInput = {
     id?: number
     technician_level?: string | null
-    hourly?: string | null
-    monthly?: string | null
+    hourly?: number | null
+    monthly?: number | null
     created_at?: Date | string | null
     created_by?: string | null
   }
 
   export type mst_manpower_costUpdateManyMutationInput = {
     technician_level?: NullableStringFieldUpdateOperationsInput | string | null
-    hourly?: NullableStringFieldUpdateOperationsInput | string | null
-    monthly?: NullableStringFieldUpdateOperationsInput | string | null
+    hourly?: NullableFloatFieldUpdateOperationsInput | number | null
+    monthly?: NullableFloatFieldUpdateOperationsInput | number | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -27031,8 +29757,8 @@ export namespace Prisma {
   export type mst_manpower_costUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     technician_level?: NullableStringFieldUpdateOperationsInput | string | null
-    hourly?: NullableStringFieldUpdateOperationsInput | string | null
-    monthly?: NullableStringFieldUpdateOperationsInput | string | null
+    hourly?: NullableFloatFieldUpdateOperationsInput | number | null
+    monthly?: NullableFloatFieldUpdateOperationsInput | number | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -27360,7 +30086,7 @@ export namespace Prisma {
     issue_description?: string | null
     business_impact?: string | null
     plan_start_date?: Date | string | null
-    plant_end_date?: Date | string | null
+    plan_end_date?: Date | string | null
     real_start_date?: Date | string | null
     real_end_date?: Date | string | null
     expected_completion?: Date | string | null
@@ -27371,6 +30097,7 @@ export namespace Prisma {
     created_by?: string | null
     mst_group?: mst_groupCreateNestedOneWithoutTr_projectInput
     mst_project_state?: mst_project_stateCreateNestedOneWithoutTr_projectInput
+    tr_project_task?: tr_project_taskCreateNestedManyWithoutTr_projectInput
   }
 
   export type tr_projectUncheckedCreateInput = {
@@ -27386,7 +30113,7 @@ export namespace Prisma {
     business_impact?: string | null
     group_id?: number | null
     plan_start_date?: Date | string | null
-    plant_end_date?: Date | string | null
+    plan_end_date?: Date | string | null
     real_start_date?: Date | string | null
     real_end_date?: Date | string | null
     expected_completion?: Date | string | null
@@ -27396,6 +30123,7 @@ export namespace Prisma {
     is_deleted?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    tr_project_task?: tr_project_taskUncheckedCreateNestedManyWithoutTr_projectInput
   }
 
   export type tr_projectUpdateInput = {
@@ -27409,7 +30137,7 @@ export namespace Prisma {
     issue_description?: NullableStringFieldUpdateOperationsInput | string | null
     business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    plant_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expected_completion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -27420,6 +30148,7 @@ export namespace Prisma {
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     mst_group?: mst_groupUpdateOneWithoutTr_projectNestedInput
     mst_project_state?: mst_project_stateUpdateOneWithoutTr_projectNestedInput
+    tr_project_task?: tr_project_taskUpdateManyWithoutTr_projectNestedInput
   }
 
   export type tr_projectUncheckedUpdateInput = {
@@ -27435,7 +30164,7 @@ export namespace Prisma {
     business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     group_id?: NullableIntFieldUpdateOperationsInput | number | null
     plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    plant_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expected_completion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -27445,6 +30174,7 @@ export namespace Prisma {
     is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    tr_project_task?: tr_project_taskUncheckedUpdateManyWithoutTr_projectNestedInput
   }
 
   export type tr_projectCreateManyInput = {
@@ -27460,7 +30190,7 @@ export namespace Prisma {
     business_impact?: string | null
     group_id?: number | null
     plan_start_date?: Date | string | null
-    plant_end_date?: Date | string | null
+    plan_end_date?: Date | string | null
     real_start_date?: Date | string | null
     real_end_date?: Date | string | null
     expected_completion?: Date | string | null
@@ -27483,7 +30213,7 @@ export namespace Prisma {
     issue_description?: NullableStringFieldUpdateOperationsInput | string | null
     business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    plant_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expected_completion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -27507,7 +30237,7 @@ export namespace Prisma {
     business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     group_id?: NullableIntFieldUpdateOperationsInput | number | null
     plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    plant_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expected_completion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -27872,21 +30602,23 @@ export namespace Prisma {
   }
 
   export type tr_project_taskCreateInput = {
-    project_id?: number | null
     task_name?: string | null
     content?: string | null
     plan_start_date?: Date | string | null
     plan_end_date?: Date | string | null
     real_start_date?: Date | string | null
     real_end_date?: Date | string | null
-    planned_duration?: string | null
-    real_duration?: string | null
-    percent_done?: string | null
-    cost?: Decimal | DecimalJsLike | number | string | null
+    plan_duration?: number | null
+    real_duration?: number | null
+    percent_done?: number | null
+    cost?: number | null
     task_type?: string | null
     created_at?: Date | string | null
     created_by?: string | null
     task_category?: string | null
+    is_deleted?: boolean | null
+    tr_project?: tr_projectCreateNestedOneWithoutTr_project_taskInput
+    tr_project_task_team?: tr_project_task_teamCreateNestedManyWithoutTr_project_taskInput
   }
 
   export type tr_project_taskUncheckedCreateInput = {
@@ -27898,32 +30630,36 @@ export namespace Prisma {
     plan_end_date?: Date | string | null
     real_start_date?: Date | string | null
     real_end_date?: Date | string | null
-    planned_duration?: string | null
-    real_duration?: string | null
-    percent_done?: string | null
-    cost?: Decimal | DecimalJsLike | number | string | null
+    plan_duration?: number | null
+    real_duration?: number | null
+    percent_done?: number | null
+    cost?: number | null
     task_type?: string | null
     created_at?: Date | string | null
     created_by?: string | null
     task_category?: string | null
+    is_deleted?: boolean | null
+    tr_project_task_team?: tr_project_task_teamUncheckedCreateNestedManyWithoutTr_project_taskInput
   }
 
   export type tr_project_taskUpdateInput = {
-    project_id?: NullableIntFieldUpdateOperationsInput | number | null
     task_name?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    planned_duration?: NullableStringFieldUpdateOperationsInput | string | null
-    real_duration?: NullableStringFieldUpdateOperationsInput | string | null
-    percent_done?: NullableStringFieldUpdateOperationsInput | string | null
-    cost?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
+    real_duration?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
     task_type?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     task_category?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    tr_project?: tr_projectUpdateOneWithoutTr_project_taskNestedInput
+    tr_project_task_team?: tr_project_task_teamUpdateManyWithoutTr_project_taskNestedInput
   }
 
   export type tr_project_taskUncheckedUpdateInput = {
@@ -27935,14 +30671,16 @@ export namespace Prisma {
     plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    planned_duration?: NullableStringFieldUpdateOperationsInput | string | null
-    real_duration?: NullableStringFieldUpdateOperationsInput | string | null
-    percent_done?: NullableStringFieldUpdateOperationsInput | string | null
-    cost?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
+    real_duration?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
     task_type?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     task_category?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    tr_project_task_team?: tr_project_task_teamUncheckedUpdateManyWithoutTr_project_taskNestedInput
   }
 
   export type tr_project_taskCreateManyInput = {
@@ -27954,32 +30692,33 @@ export namespace Prisma {
     plan_end_date?: Date | string | null
     real_start_date?: Date | string | null
     real_end_date?: Date | string | null
-    planned_duration?: string | null
-    real_duration?: string | null
-    percent_done?: string | null
-    cost?: Decimal | DecimalJsLike | number | string | null
+    plan_duration?: number | null
+    real_duration?: number | null
+    percent_done?: number | null
+    cost?: number | null
     task_type?: string | null
     created_at?: Date | string | null
     created_by?: string | null
     task_category?: string | null
+    is_deleted?: boolean | null
   }
 
   export type tr_project_taskUpdateManyMutationInput = {
-    project_id?: NullableIntFieldUpdateOperationsInput | number | null
     task_name?: NullableStringFieldUpdateOperationsInput | string | null
     content?: NullableStringFieldUpdateOperationsInput | string | null
     plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    planned_duration?: NullableStringFieldUpdateOperationsInput | string | null
-    real_duration?: NullableStringFieldUpdateOperationsInput | string | null
-    percent_done?: NullableStringFieldUpdateOperationsInput | string | null
-    cost?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
+    real_duration?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
     task_type?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     task_category?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type tr_project_taskUncheckedUpdateManyInput = {
@@ -27991,22 +30730,23 @@ export namespace Prisma {
     plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    planned_duration?: NullableStringFieldUpdateOperationsInput | string | null
-    real_duration?: NullableStringFieldUpdateOperationsInput | string | null
-    percent_done?: NullableStringFieldUpdateOperationsInput | string | null
-    cost?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
+    real_duration?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
     task_type?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     task_category?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type tr_project_teamCreateInput = {
     project_id?: number | null
-    employee_code?: string | null
     is_deleted?: boolean | null
     created_at?: Date | string | null
     created_by?: string | null
+    mst_authorization?: mst_authorizationCreateNestedOneWithoutTr_project_teamInput
   }
 
   export type tr_project_teamUncheckedCreateInput = {
@@ -28020,10 +30760,10 @@ export namespace Prisma {
 
   export type tr_project_teamUpdateInput = {
     project_id?: NullableIntFieldUpdateOperationsInput | number | null
-    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_authorization?: mst_authorizationUpdateOneWithoutTr_project_teamNestedInput
   }
 
   export type tr_project_teamUncheckedUpdateInput = {
@@ -28046,7 +30786,6 @@ export namespace Prisma {
 
   export type tr_project_teamUpdateManyMutationInput = {
     project_id?: NullableIntFieldUpdateOperationsInput | number | null
-    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28080,6 +30819,8 @@ export namespace Prisma {
     business_impact?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    impact?: string | null
+    priority?: string | null
     tr_request_validation?: tr_request_validationCreateNestedManyWithoutTr_requestInput
   }
 
@@ -28103,6 +30844,8 @@ export namespace Prisma {
     business_impact?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    impact?: string | null
+    priority?: string | null
     tr_request_validation?: tr_request_validationUncheckedCreateNestedManyWithoutTr_requestInput
   }
 
@@ -28125,6 +30868,8 @@ export namespace Prisma {
     business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    impact?: NullableStringFieldUpdateOperationsInput | string | null
+    priority?: NullableStringFieldUpdateOperationsInput | string | null
     tr_request_validation?: tr_request_validationUpdateManyWithoutTr_requestNestedInput
   }
 
@@ -28148,6 +30893,8 @@ export namespace Prisma {
     business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    impact?: NullableStringFieldUpdateOperationsInput | string | null
+    priority?: NullableStringFieldUpdateOperationsInput | string | null
     tr_request_validation?: tr_request_validationUncheckedUpdateManyWithoutTr_requestNestedInput
   }
 
@@ -28171,6 +30918,8 @@ export namespace Prisma {
     business_impact?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    impact?: string | null
+    priority?: string | null
   }
 
   export type tr_requestUpdateManyMutationInput = {
@@ -28192,6 +30941,8 @@ export namespace Prisma {
     business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    impact?: NullableStringFieldUpdateOperationsInput | string | null
+    priority?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type tr_requestUncheckedUpdateManyInput = {
@@ -28214,6 +30965,8 @@ export namespace Prisma {
     business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    impact?: NullableStringFieldUpdateOperationsInput | string | null
+    priority?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type tr_request_validationCreateInput = {
@@ -28224,6 +30977,7 @@ export namespace Prisma {
     status?: string | null
     submission_date?: Date | string | null
     validation_date?: Date | string | null
+    state?: string | null
     tr_request?: tr_requestCreateNestedOneWithoutTr_request_validationInput
   }
 
@@ -28237,6 +30991,7 @@ export namespace Prisma {
     status?: string | null
     submission_date?: Date | string | null
     validation_date?: Date | string | null
+    state?: string | null
   }
 
   export type tr_request_validationUpdateInput = {
@@ -28247,6 +31002,7 @@ export namespace Prisma {
     status?: NullableStringFieldUpdateOperationsInput | string | null
     submission_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     validation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    state?: NullableStringFieldUpdateOperationsInput | string | null
     tr_request?: tr_requestUpdateOneWithoutTr_request_validationNestedInput
   }
 
@@ -28260,6 +31016,7 @@ export namespace Prisma {
     status?: NullableStringFieldUpdateOperationsInput | string | null
     submission_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     validation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    state?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type tr_request_validationCreateManyInput = {
@@ -28272,6 +31029,7 @@ export namespace Prisma {
     status?: string | null
     submission_date?: Date | string | null
     validation_date?: Date | string | null
+    state?: string | null
   }
 
   export type tr_request_validationUpdateManyMutationInput = {
@@ -28282,6 +31040,7 @@ export namespace Prisma {
     status?: NullableStringFieldUpdateOperationsInput | string | null
     submission_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     validation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    state?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type tr_request_validationUncheckedUpdateManyInput = {
@@ -28294,6 +31053,125 @@ export namespace Prisma {
     status?: NullableStringFieldUpdateOperationsInput | string | null
     submission_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     validation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    state?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_request_technicianCreateInput = {
+    request_id?: number | null
+    employee_code?: string | null
+    is_deleted?: boolean | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type tr_request_technicianUncheckedCreateInput = {
+    id?: number
+    request_id?: number | null
+    employee_code?: string | null
+    is_deleted?: boolean | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type tr_request_technicianUpdateInput = {
+    request_id?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_request_technicianUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    request_id?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_request_technicianCreateManyInput = {
+    id?: number
+    request_id?: number | null
+    employee_code?: string | null
+    is_deleted?: boolean | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type tr_request_technicianUpdateManyMutationInput = {
+    request_id?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_request_technicianUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    request_id?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_project_task_teamCreateInput = {
+    is_deleted?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    tr_project_task?: tr_project_taskCreateNestedOneWithoutTr_project_task_teamInput
+    mst_authorization?: mst_authorizationCreateNestedOneWithoutTr_project_task_teamInput
+  }
+
+  export type tr_project_task_teamUncheckedCreateInput = {
+    id?: number
+    project_task_id?: number | null
+    employee_code?: string | null
+    is_deleted?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type tr_project_task_teamUpdateInput = {
+    is_deleted?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    tr_project_task?: tr_project_taskUpdateOneWithoutTr_project_task_teamNestedInput
+    mst_authorization?: mst_authorizationUpdateOneWithoutTr_project_task_teamNestedInput
+  }
+
+  export type tr_project_task_teamUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    project_task_id?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_project_task_teamCreateManyInput = {
+    id?: number
+    project_task_id?: number | null
+    employee_code?: string | null
+    is_deleted?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type tr_project_task_teamUpdateManyMutationInput = {
+    is_deleted?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_project_task_teamUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    project_task_id?: NullableIntFieldUpdateOperationsInput | number | null
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -28511,6 +31389,31 @@ export namespace Prisma {
     isNot?: mst_profileWhereInput | null
   }
 
+  export type Mst_manpower_costNullableRelationFilter = {
+    is?: mst_manpower_costWhereInput | null
+    isNot?: mst_manpower_costWhereInput | null
+  }
+
+  export type Tr_project_task_teamListRelationFilter = {
+    every?: tr_project_task_teamWhereInput
+    some?: tr_project_task_teamWhereInput
+    none?: tr_project_task_teamWhereInput
+  }
+
+  export type Tr_project_teamListRelationFilter = {
+    every?: tr_project_teamWhereInput
+    some?: tr_project_teamWhereInput
+    none?: tr_project_teamWhereInput
+  }
+
+  export type tr_project_task_teamOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type tr_project_teamOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type mst_authorizationCountOrderByAggregateInput = {
     id?: SortOrder
     employee_code?: SortOrder
@@ -28526,6 +31429,7 @@ export namespace Prisma {
 
   export type mst_authorizationAvgOrderByAggregateInput = {
     id?: SortOrder
+    technician_level?: SortOrder
     active_profile?: SortOrder
     active_entities?: SortOrder
   }
@@ -28558,6 +31462,7 @@ export namespace Prisma {
 
   export type mst_authorizationSumOrderByAggregateInput = {
     id?: SortOrder
+    technician_level?: SortOrder
     active_profile?: SortOrder
     active_entities?: SortOrder
   }
@@ -28749,6 +31654,17 @@ export namespace Prisma {
     parent_id?: SortOrder
   }
 
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type mst_manpower_costCountOrderByAggregateInput = {
     id?: SortOrder
     technician_level?: SortOrder
@@ -28760,6 +31676,8 @@ export namespace Prisma {
 
   export type mst_manpower_costAvgOrderByAggregateInput = {
     id?: SortOrder
+    hourly?: SortOrder
+    monthly?: SortOrder
   }
 
   export type mst_manpower_costMaxOrderByAggregateInput = {
@@ -28782,6 +31700,24 @@ export namespace Prisma {
 
   export type mst_manpower_costSumOrderByAggregateInput = {
     id?: SortOrder
+    hourly?: SortOrder
+    monthly?: SortOrder
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | null
+    notIn?: number[] | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
   export type Mst_authorization_profileListRelationFilter = {
@@ -28881,17 +31817,6 @@ export namespace Prisma {
     id?: SortOrder
   }
 
-  export type FloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
-  }
-
   export type tr_documentCountOrderByAggregateInput = {
     id?: SortOrder
     type?: SortOrder
@@ -28946,22 +31871,6 @@ export namespace Prisma {
     filesize?: SortOrder
   }
 
-  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | null
-    notIn?: number[] | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedFloatNullableFilter<$PrismaModel>
-    _min?: NestedFloatNullableFilter<$PrismaModel>
-    _max?: NestedFloatNullableFilter<$PrismaModel>
-  }
-
   export type tr_historyCountOrderByAggregateInput = {
     id?: SortOrder
     type?: SortOrder
@@ -29009,6 +31918,16 @@ export namespace Prisma {
     isNot?: mst_project_stateWhereInput | null
   }
 
+  export type Tr_project_taskListRelationFilter = {
+    every?: tr_project_taskWhereInput
+    some?: tr_project_taskWhereInput
+    none?: tr_project_taskWhereInput
+  }
+
+  export type tr_project_taskOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type tr_projectCountOrderByAggregateInput = {
     id?: SortOrder
     request_id?: SortOrder
@@ -29022,7 +31941,7 @@ export namespace Prisma {
     business_impact?: SortOrder
     group_id?: SortOrder
     plan_start_date?: SortOrder
-    plant_end_date?: SortOrder
+    plan_end_date?: SortOrder
     real_start_date?: SortOrder
     real_end_date?: SortOrder
     expected_completion?: SortOrder
@@ -29056,7 +31975,7 @@ export namespace Prisma {
     business_impact?: SortOrder
     group_id?: SortOrder
     plan_start_date?: SortOrder
-    plant_end_date?: SortOrder
+    plan_end_date?: SortOrder
     real_start_date?: SortOrder
     real_end_date?: SortOrder
     expected_completion?: SortOrder
@@ -29081,7 +32000,7 @@ export namespace Prisma {
     business_impact?: SortOrder
     group_id?: SortOrder
     plan_start_date?: SortOrder
-    plant_end_date?: SortOrder
+    plan_end_date?: SortOrder
     real_start_date?: SortOrder
     real_end_date?: SortOrder
     expected_completion?: SortOrder
@@ -29308,15 +32227,9 @@ export namespace Prisma {
     project_id?: SortOrder
   }
 
-  export type DecimalNullableFilter<$PrismaModel = never> = {
-    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | null
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | null
-    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+  export type Tr_projectNullableRelationFilter = {
+    is?: tr_projectWhereInput | null
+    isNot?: tr_projectWhereInput | null
   }
 
   export type tr_project_taskCountOrderByAggregateInput = {
@@ -29328,7 +32241,7 @@ export namespace Prisma {
     plan_end_date?: SortOrder
     real_start_date?: SortOrder
     real_end_date?: SortOrder
-    planned_duration?: SortOrder
+    plan_duration?: SortOrder
     real_duration?: SortOrder
     percent_done?: SortOrder
     cost?: SortOrder
@@ -29336,11 +32249,15 @@ export namespace Prisma {
     created_at?: SortOrder
     created_by?: SortOrder
     task_category?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type tr_project_taskAvgOrderByAggregateInput = {
     id?: SortOrder
     project_id?: SortOrder
+    plan_duration?: SortOrder
+    real_duration?: SortOrder
+    percent_done?: SortOrder
     cost?: SortOrder
   }
 
@@ -29353,7 +32270,7 @@ export namespace Prisma {
     plan_end_date?: SortOrder
     real_start_date?: SortOrder
     real_end_date?: SortOrder
-    planned_duration?: SortOrder
+    plan_duration?: SortOrder
     real_duration?: SortOrder
     percent_done?: SortOrder
     cost?: SortOrder
@@ -29361,6 +32278,7 @@ export namespace Prisma {
     created_at?: SortOrder
     created_by?: SortOrder
     task_category?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type tr_project_taskMinOrderByAggregateInput = {
@@ -29372,7 +32290,7 @@ export namespace Prisma {
     plan_end_date?: SortOrder
     real_start_date?: SortOrder
     real_end_date?: SortOrder
-    planned_duration?: SortOrder
+    plan_duration?: SortOrder
     real_duration?: SortOrder
     percent_done?: SortOrder
     cost?: SortOrder
@@ -29380,28 +32298,21 @@ export namespace Prisma {
     created_at?: SortOrder
     created_by?: SortOrder
     task_category?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type tr_project_taskSumOrderByAggregateInput = {
     id?: SortOrder
     project_id?: SortOrder
+    plan_duration?: SortOrder
+    real_duration?: SortOrder
+    percent_done?: SortOrder
     cost?: SortOrder
   }
 
-  export type DecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | null
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | null
-    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    not?: NestedDecimalNullableWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedDecimalNullableFilter<$PrismaModel>
-    _sum?: NestedDecimalNullableFilter<$PrismaModel>
-    _min?: NestedDecimalNullableFilter<$PrismaModel>
-    _max?: NestedDecimalNullableFilter<$PrismaModel>
+  export type Mst_authorizationNullableRelationFilter = {
+    is?: mst_authorizationWhereInput | null
+    isNot?: mst_authorizationWhereInput | null
   }
 
   export type tr_project_teamCountOrderByAggregateInput = {
@@ -29471,6 +32382,8 @@ export namespace Prisma {
     business_impact?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
+    impact?: SortOrder
+    priority?: SortOrder
   }
 
   export type tr_requestAvgOrderByAggregateInput = {
@@ -29498,6 +32411,8 @@ export namespace Prisma {
     business_impact?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
+    impact?: SortOrder
+    priority?: SortOrder
   }
 
   export type tr_requestMinOrderByAggregateInput = {
@@ -29520,6 +32435,8 @@ export namespace Prisma {
     business_impact?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
+    impact?: SortOrder
+    priority?: SortOrder
   }
 
   export type tr_requestSumOrderByAggregateInput = {
@@ -29542,6 +32459,7 @@ export namespace Prisma {
     status?: SortOrder
     submission_date?: SortOrder
     validation_date?: SortOrder
+    state?: SortOrder
   }
 
   export type tr_request_validationAvgOrderByAggregateInput = {
@@ -29559,6 +32477,7 @@ export namespace Prisma {
     status?: SortOrder
     submission_date?: SortOrder
     validation_date?: SortOrder
+    state?: SortOrder
   }
 
   export type tr_request_validationMinOrderByAggregateInput = {
@@ -29571,11 +32490,93 @@ export namespace Prisma {
     status?: SortOrder
     submission_date?: SortOrder
     validation_date?: SortOrder
+    state?: SortOrder
   }
 
   export type tr_request_validationSumOrderByAggregateInput = {
     id?: SortOrder
     request_id?: SortOrder
+  }
+
+  export type tr_request_technicianCountOrderByAggregateInput = {
+    id?: SortOrder
+    request_id?: SortOrder
+    employee_code?: SortOrder
+    is_deleted?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+  }
+
+  export type tr_request_technicianAvgOrderByAggregateInput = {
+    id?: SortOrder
+    request_id?: SortOrder
+  }
+
+  export type tr_request_technicianMaxOrderByAggregateInput = {
+    id?: SortOrder
+    request_id?: SortOrder
+    employee_code?: SortOrder
+    is_deleted?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+  }
+
+  export type tr_request_technicianMinOrderByAggregateInput = {
+    id?: SortOrder
+    request_id?: SortOrder
+    employee_code?: SortOrder
+    is_deleted?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+  }
+
+  export type tr_request_technicianSumOrderByAggregateInput = {
+    id?: SortOrder
+    request_id?: SortOrder
+  }
+
+  export type Tr_project_taskNullableRelationFilter = {
+    is?: tr_project_taskWhereInput | null
+    isNot?: tr_project_taskWhereInput | null
+  }
+
+  export type tr_project_task_teamCountOrderByAggregateInput = {
+    id?: SortOrder
+    project_task_id?: SortOrder
+    employee_code?: SortOrder
+    is_deleted?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+  }
+
+  export type tr_project_task_teamAvgOrderByAggregateInput = {
+    id?: SortOrder
+    project_task_id?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type tr_project_task_teamMaxOrderByAggregateInput = {
+    id?: SortOrder
+    project_task_id?: SortOrder
+    employee_code?: SortOrder
+    is_deleted?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+  }
+
+  export type tr_project_task_teamMinOrderByAggregateInput = {
+    id?: SortOrder
+    project_task_id?: SortOrder
+    employee_code?: SortOrder
+    is_deleted?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+  }
+
+  export type tr_project_task_teamSumOrderByAggregateInput = {
+    id?: SortOrder
+    project_task_id?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -29618,6 +32619,40 @@ export namespace Prisma {
     connect?: mst_profileWhereUniqueInput
   }
 
+  export type mst_manpower_costCreateNestedOneWithoutMst_authorizationInput = {
+    create?: XOR<mst_manpower_costCreateWithoutMst_authorizationInput, mst_manpower_costUncheckedCreateWithoutMst_authorizationInput>
+    connectOrCreate?: mst_manpower_costCreateOrConnectWithoutMst_authorizationInput
+    connect?: mst_manpower_costWhereUniqueInput
+  }
+
+  export type tr_project_task_teamCreateNestedManyWithoutMst_authorizationInput = {
+    create?: XOR<tr_project_task_teamCreateWithoutMst_authorizationInput, tr_project_task_teamUncheckedCreateWithoutMst_authorizationInput> | tr_project_task_teamCreateWithoutMst_authorizationInput[] | tr_project_task_teamUncheckedCreateWithoutMst_authorizationInput[]
+    connectOrCreate?: tr_project_task_teamCreateOrConnectWithoutMst_authorizationInput | tr_project_task_teamCreateOrConnectWithoutMst_authorizationInput[]
+    createMany?: tr_project_task_teamCreateManyMst_authorizationInputEnvelope
+    connect?: tr_project_task_teamWhereUniqueInput | tr_project_task_teamWhereUniqueInput[]
+  }
+
+  export type tr_project_teamCreateNestedManyWithoutMst_authorizationInput = {
+    create?: XOR<tr_project_teamCreateWithoutMst_authorizationInput, tr_project_teamUncheckedCreateWithoutMst_authorizationInput> | tr_project_teamCreateWithoutMst_authorizationInput[] | tr_project_teamUncheckedCreateWithoutMst_authorizationInput[]
+    connectOrCreate?: tr_project_teamCreateOrConnectWithoutMst_authorizationInput | tr_project_teamCreateOrConnectWithoutMst_authorizationInput[]
+    createMany?: tr_project_teamCreateManyMst_authorizationInputEnvelope
+    connect?: tr_project_teamWhereUniqueInput | tr_project_teamWhereUniqueInput[]
+  }
+
+  export type tr_project_task_teamUncheckedCreateNestedManyWithoutMst_authorizationInput = {
+    create?: XOR<tr_project_task_teamCreateWithoutMst_authorizationInput, tr_project_task_teamUncheckedCreateWithoutMst_authorizationInput> | tr_project_task_teamCreateWithoutMst_authorizationInput[] | tr_project_task_teamUncheckedCreateWithoutMst_authorizationInput[]
+    connectOrCreate?: tr_project_task_teamCreateOrConnectWithoutMst_authorizationInput | tr_project_task_teamCreateOrConnectWithoutMst_authorizationInput[]
+    createMany?: tr_project_task_teamCreateManyMst_authorizationInputEnvelope
+    connect?: tr_project_task_teamWhereUniqueInput | tr_project_task_teamWhereUniqueInput[]
+  }
+
+  export type tr_project_teamUncheckedCreateNestedManyWithoutMst_authorizationInput = {
+    create?: XOR<tr_project_teamCreateWithoutMst_authorizationInput, tr_project_teamUncheckedCreateWithoutMst_authorizationInput> | tr_project_teamCreateWithoutMst_authorizationInput[] | tr_project_teamUncheckedCreateWithoutMst_authorizationInput[]
+    connectOrCreate?: tr_project_teamCreateOrConnectWithoutMst_authorizationInput | tr_project_teamCreateOrConnectWithoutMst_authorizationInput[]
+    createMany?: tr_project_teamCreateManyMst_authorizationInputEnvelope
+    connect?: tr_project_teamWhereUniqueInput | tr_project_teamWhereUniqueInput[]
+  }
+
   export type mst_entitiesUpdateOneWithoutMst_authorizationNestedInput = {
     create?: XOR<mst_entitiesCreateWithoutMst_authorizationInput, mst_entitiesUncheckedCreateWithoutMst_authorizationInput>
     connectOrCreate?: mst_entitiesCreateOrConnectWithoutMst_authorizationInput
@@ -29636,6 +32671,72 @@ export namespace Prisma {
     delete?: mst_profileWhereInput | boolean
     connect?: mst_profileWhereUniqueInput
     update?: XOR<XOR<mst_profileUpdateToOneWithWhereWithoutMst_authorizationInput, mst_profileUpdateWithoutMst_authorizationInput>, mst_profileUncheckedUpdateWithoutMst_authorizationInput>
+  }
+
+  export type mst_manpower_costUpdateOneWithoutMst_authorizationNestedInput = {
+    create?: XOR<mst_manpower_costCreateWithoutMst_authorizationInput, mst_manpower_costUncheckedCreateWithoutMst_authorizationInput>
+    connectOrCreate?: mst_manpower_costCreateOrConnectWithoutMst_authorizationInput
+    upsert?: mst_manpower_costUpsertWithoutMst_authorizationInput
+    disconnect?: mst_manpower_costWhereInput | boolean
+    delete?: mst_manpower_costWhereInput | boolean
+    connect?: mst_manpower_costWhereUniqueInput
+    update?: XOR<XOR<mst_manpower_costUpdateToOneWithWhereWithoutMst_authorizationInput, mst_manpower_costUpdateWithoutMst_authorizationInput>, mst_manpower_costUncheckedUpdateWithoutMst_authorizationInput>
+  }
+
+  export type tr_project_task_teamUpdateManyWithoutMst_authorizationNestedInput = {
+    create?: XOR<tr_project_task_teamCreateWithoutMst_authorizationInput, tr_project_task_teamUncheckedCreateWithoutMst_authorizationInput> | tr_project_task_teamCreateWithoutMst_authorizationInput[] | tr_project_task_teamUncheckedCreateWithoutMst_authorizationInput[]
+    connectOrCreate?: tr_project_task_teamCreateOrConnectWithoutMst_authorizationInput | tr_project_task_teamCreateOrConnectWithoutMst_authorizationInput[]
+    upsert?: tr_project_task_teamUpsertWithWhereUniqueWithoutMst_authorizationInput | tr_project_task_teamUpsertWithWhereUniqueWithoutMst_authorizationInput[]
+    createMany?: tr_project_task_teamCreateManyMst_authorizationInputEnvelope
+    set?: tr_project_task_teamWhereUniqueInput | tr_project_task_teamWhereUniqueInput[]
+    disconnect?: tr_project_task_teamWhereUniqueInput | tr_project_task_teamWhereUniqueInput[]
+    delete?: tr_project_task_teamWhereUniqueInput | tr_project_task_teamWhereUniqueInput[]
+    connect?: tr_project_task_teamWhereUniqueInput | tr_project_task_teamWhereUniqueInput[]
+    update?: tr_project_task_teamUpdateWithWhereUniqueWithoutMst_authorizationInput | tr_project_task_teamUpdateWithWhereUniqueWithoutMst_authorizationInput[]
+    updateMany?: tr_project_task_teamUpdateManyWithWhereWithoutMst_authorizationInput | tr_project_task_teamUpdateManyWithWhereWithoutMst_authorizationInput[]
+    deleteMany?: tr_project_task_teamScalarWhereInput | tr_project_task_teamScalarWhereInput[]
+  }
+
+  export type tr_project_teamUpdateManyWithoutMst_authorizationNestedInput = {
+    create?: XOR<tr_project_teamCreateWithoutMst_authorizationInput, tr_project_teamUncheckedCreateWithoutMst_authorizationInput> | tr_project_teamCreateWithoutMst_authorizationInput[] | tr_project_teamUncheckedCreateWithoutMst_authorizationInput[]
+    connectOrCreate?: tr_project_teamCreateOrConnectWithoutMst_authorizationInput | tr_project_teamCreateOrConnectWithoutMst_authorizationInput[]
+    upsert?: tr_project_teamUpsertWithWhereUniqueWithoutMst_authorizationInput | tr_project_teamUpsertWithWhereUniqueWithoutMst_authorizationInput[]
+    createMany?: tr_project_teamCreateManyMst_authorizationInputEnvelope
+    set?: tr_project_teamWhereUniqueInput | tr_project_teamWhereUniqueInput[]
+    disconnect?: tr_project_teamWhereUniqueInput | tr_project_teamWhereUniqueInput[]
+    delete?: tr_project_teamWhereUniqueInput | tr_project_teamWhereUniqueInput[]
+    connect?: tr_project_teamWhereUniqueInput | tr_project_teamWhereUniqueInput[]
+    update?: tr_project_teamUpdateWithWhereUniqueWithoutMst_authorizationInput | tr_project_teamUpdateWithWhereUniqueWithoutMst_authorizationInput[]
+    updateMany?: tr_project_teamUpdateManyWithWhereWithoutMst_authorizationInput | tr_project_teamUpdateManyWithWhereWithoutMst_authorizationInput[]
+    deleteMany?: tr_project_teamScalarWhereInput | tr_project_teamScalarWhereInput[]
+  }
+
+  export type tr_project_task_teamUncheckedUpdateManyWithoutMst_authorizationNestedInput = {
+    create?: XOR<tr_project_task_teamCreateWithoutMst_authorizationInput, tr_project_task_teamUncheckedCreateWithoutMst_authorizationInput> | tr_project_task_teamCreateWithoutMst_authorizationInput[] | tr_project_task_teamUncheckedCreateWithoutMst_authorizationInput[]
+    connectOrCreate?: tr_project_task_teamCreateOrConnectWithoutMst_authorizationInput | tr_project_task_teamCreateOrConnectWithoutMst_authorizationInput[]
+    upsert?: tr_project_task_teamUpsertWithWhereUniqueWithoutMst_authorizationInput | tr_project_task_teamUpsertWithWhereUniqueWithoutMst_authorizationInput[]
+    createMany?: tr_project_task_teamCreateManyMst_authorizationInputEnvelope
+    set?: tr_project_task_teamWhereUniqueInput | tr_project_task_teamWhereUniqueInput[]
+    disconnect?: tr_project_task_teamWhereUniqueInput | tr_project_task_teamWhereUniqueInput[]
+    delete?: tr_project_task_teamWhereUniqueInput | tr_project_task_teamWhereUniqueInput[]
+    connect?: tr_project_task_teamWhereUniqueInput | tr_project_task_teamWhereUniqueInput[]
+    update?: tr_project_task_teamUpdateWithWhereUniqueWithoutMst_authorizationInput | tr_project_task_teamUpdateWithWhereUniqueWithoutMst_authorizationInput[]
+    updateMany?: tr_project_task_teamUpdateManyWithWhereWithoutMst_authorizationInput | tr_project_task_teamUpdateManyWithWhereWithoutMst_authorizationInput[]
+    deleteMany?: tr_project_task_teamScalarWhereInput | tr_project_task_teamScalarWhereInput[]
+  }
+
+  export type tr_project_teamUncheckedUpdateManyWithoutMst_authorizationNestedInput = {
+    create?: XOR<tr_project_teamCreateWithoutMst_authorizationInput, tr_project_teamUncheckedCreateWithoutMst_authorizationInput> | tr_project_teamCreateWithoutMst_authorizationInput[] | tr_project_teamUncheckedCreateWithoutMst_authorizationInput[]
+    connectOrCreate?: tr_project_teamCreateOrConnectWithoutMst_authorizationInput | tr_project_teamCreateOrConnectWithoutMst_authorizationInput[]
+    upsert?: tr_project_teamUpsertWithWhereUniqueWithoutMst_authorizationInput | tr_project_teamUpsertWithWhereUniqueWithoutMst_authorizationInput[]
+    createMany?: tr_project_teamCreateManyMst_authorizationInputEnvelope
+    set?: tr_project_teamWhereUniqueInput | tr_project_teamWhereUniqueInput[]
+    disconnect?: tr_project_teamWhereUniqueInput | tr_project_teamWhereUniqueInput[]
+    delete?: tr_project_teamWhereUniqueInput | tr_project_teamWhereUniqueInput[]
+    connect?: tr_project_teamWhereUniqueInput | tr_project_teamWhereUniqueInput[]
+    update?: tr_project_teamUpdateWithWhereUniqueWithoutMst_authorizationInput | tr_project_teamUpdateWithWhereUniqueWithoutMst_authorizationInput[]
+    updateMany?: tr_project_teamUpdateManyWithWhereWithoutMst_authorizationInput | tr_project_teamUpdateManyWithWhereWithoutMst_authorizationInput[]
+    deleteMany?: tr_project_teamScalarWhereInput | tr_project_teamScalarWhereInput[]
   }
 
   export type mst_profileCreateNestedOneWithoutMst_authorization_profileInput = {
@@ -29796,6 +32897,56 @@ export namespace Prisma {
     deleteMany?: tr_projectScalarWhereInput | tr_projectScalarWhereInput[]
   }
 
+  export type mst_authorizationCreateNestedManyWithoutMst_manpower_costInput = {
+    create?: XOR<mst_authorizationCreateWithoutMst_manpower_costInput, mst_authorizationUncheckedCreateWithoutMst_manpower_costInput> | mst_authorizationCreateWithoutMst_manpower_costInput[] | mst_authorizationUncheckedCreateWithoutMst_manpower_costInput[]
+    connectOrCreate?: mst_authorizationCreateOrConnectWithoutMst_manpower_costInput | mst_authorizationCreateOrConnectWithoutMst_manpower_costInput[]
+    createMany?: mst_authorizationCreateManyMst_manpower_costInputEnvelope
+    connect?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+  }
+
+  export type mst_authorizationUncheckedCreateNestedManyWithoutMst_manpower_costInput = {
+    create?: XOR<mst_authorizationCreateWithoutMst_manpower_costInput, mst_authorizationUncheckedCreateWithoutMst_manpower_costInput> | mst_authorizationCreateWithoutMst_manpower_costInput[] | mst_authorizationUncheckedCreateWithoutMst_manpower_costInput[]
+    connectOrCreate?: mst_authorizationCreateOrConnectWithoutMst_manpower_costInput | mst_authorizationCreateOrConnectWithoutMst_manpower_costInput[]
+    createMany?: mst_authorizationCreateManyMst_manpower_costInputEnvelope
+    connect?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+  }
+
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type mst_authorizationUpdateManyWithoutMst_manpower_costNestedInput = {
+    create?: XOR<mst_authorizationCreateWithoutMst_manpower_costInput, mst_authorizationUncheckedCreateWithoutMst_manpower_costInput> | mst_authorizationCreateWithoutMst_manpower_costInput[] | mst_authorizationUncheckedCreateWithoutMst_manpower_costInput[]
+    connectOrCreate?: mst_authorizationCreateOrConnectWithoutMst_manpower_costInput | mst_authorizationCreateOrConnectWithoutMst_manpower_costInput[]
+    upsert?: mst_authorizationUpsertWithWhereUniqueWithoutMst_manpower_costInput | mst_authorizationUpsertWithWhereUniqueWithoutMst_manpower_costInput[]
+    createMany?: mst_authorizationCreateManyMst_manpower_costInputEnvelope
+    set?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    disconnect?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    delete?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    connect?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    update?: mst_authorizationUpdateWithWhereUniqueWithoutMst_manpower_costInput | mst_authorizationUpdateWithWhereUniqueWithoutMst_manpower_costInput[]
+    updateMany?: mst_authorizationUpdateManyWithWhereWithoutMst_manpower_costInput | mst_authorizationUpdateManyWithWhereWithoutMst_manpower_costInput[]
+    deleteMany?: mst_authorizationScalarWhereInput | mst_authorizationScalarWhereInput[]
+  }
+
+  export type mst_authorizationUncheckedUpdateManyWithoutMst_manpower_costNestedInput = {
+    create?: XOR<mst_authorizationCreateWithoutMst_manpower_costInput, mst_authorizationUncheckedCreateWithoutMst_manpower_costInput> | mst_authorizationCreateWithoutMst_manpower_costInput[] | mst_authorizationUncheckedCreateWithoutMst_manpower_costInput[]
+    connectOrCreate?: mst_authorizationCreateOrConnectWithoutMst_manpower_costInput | mst_authorizationCreateOrConnectWithoutMst_manpower_costInput[]
+    upsert?: mst_authorizationUpsertWithWhereUniqueWithoutMst_manpower_costInput | mst_authorizationUpsertWithWhereUniqueWithoutMst_manpower_costInput[]
+    createMany?: mst_authorizationCreateManyMst_manpower_costInputEnvelope
+    set?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    disconnect?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    delete?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    connect?: mst_authorizationWhereUniqueInput | mst_authorizationWhereUniqueInput[]
+    update?: mst_authorizationUpdateWithWhereUniqueWithoutMst_manpower_costInput | mst_authorizationUpdateWithWhereUniqueWithoutMst_manpower_costInput[]
+    updateMany?: mst_authorizationUpdateManyWithWhereWithoutMst_manpower_costInput | mst_authorizationUpdateManyWithWhereWithoutMst_manpower_costInput[]
+    deleteMany?: mst_authorizationScalarWhereInput | mst_authorizationScalarWhereInput[]
+  }
+
   export type mst_authorizationCreateNestedManyWithoutMst_profileInput = {
     create?: XOR<mst_authorizationCreateWithoutMst_profileInput, mst_authorizationUncheckedCreateWithoutMst_profileInput> | mst_authorizationCreateWithoutMst_profileInput[] | mst_authorizationUncheckedCreateWithoutMst_profileInput[]
     connectOrCreate?: mst_authorizationCreateOrConnectWithoutMst_profileInput | mst_authorizationCreateOrConnectWithoutMst_profileInput[]
@@ -29922,14 +33073,6 @@ export namespace Prisma {
     deleteMany?: tr_projectScalarWhereInput | tr_projectScalarWhereInput[]
   }
 
-  export type NullableFloatFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
   export type mst_groupCreateNestedOneWithoutTr_projectInput = {
     create?: XOR<mst_groupCreateWithoutTr_projectInput, mst_groupUncheckedCreateWithoutTr_projectInput>
     connectOrCreate?: mst_groupCreateOrConnectWithoutTr_projectInput
@@ -29940,6 +33083,20 @@ export namespace Prisma {
     create?: XOR<mst_project_stateCreateWithoutTr_projectInput, mst_project_stateUncheckedCreateWithoutTr_projectInput>
     connectOrCreate?: mst_project_stateCreateOrConnectWithoutTr_projectInput
     connect?: mst_project_stateWhereUniqueInput
+  }
+
+  export type tr_project_taskCreateNestedManyWithoutTr_projectInput = {
+    create?: XOR<tr_project_taskCreateWithoutTr_projectInput, tr_project_taskUncheckedCreateWithoutTr_projectInput> | tr_project_taskCreateWithoutTr_projectInput[] | tr_project_taskUncheckedCreateWithoutTr_projectInput[]
+    connectOrCreate?: tr_project_taskCreateOrConnectWithoutTr_projectInput | tr_project_taskCreateOrConnectWithoutTr_projectInput[]
+    createMany?: tr_project_taskCreateManyTr_projectInputEnvelope
+    connect?: tr_project_taskWhereUniqueInput | tr_project_taskWhereUniqueInput[]
+  }
+
+  export type tr_project_taskUncheckedCreateNestedManyWithoutTr_projectInput = {
+    create?: XOR<tr_project_taskCreateWithoutTr_projectInput, tr_project_taskUncheckedCreateWithoutTr_projectInput> | tr_project_taskCreateWithoutTr_projectInput[] | tr_project_taskUncheckedCreateWithoutTr_projectInput[]
+    connectOrCreate?: tr_project_taskCreateOrConnectWithoutTr_projectInput | tr_project_taskCreateOrConnectWithoutTr_projectInput[]
+    createMany?: tr_project_taskCreateManyTr_projectInputEnvelope
+    connect?: tr_project_taskWhereUniqueInput | tr_project_taskWhereUniqueInput[]
   }
 
   export type mst_groupUpdateOneWithoutTr_projectNestedInput = {
@@ -29962,12 +33119,106 @@ export namespace Prisma {
     update?: XOR<XOR<mst_project_stateUpdateToOneWithWhereWithoutTr_projectInput, mst_project_stateUpdateWithoutTr_projectInput>, mst_project_stateUncheckedUpdateWithoutTr_projectInput>
   }
 
-  export type NullableDecimalFieldUpdateOperationsInput = {
-    set?: Decimal | DecimalJsLike | number | string | null
-    increment?: Decimal | DecimalJsLike | number | string
-    decrement?: Decimal | DecimalJsLike | number | string
-    multiply?: Decimal | DecimalJsLike | number | string
-    divide?: Decimal | DecimalJsLike | number | string
+  export type tr_project_taskUpdateManyWithoutTr_projectNestedInput = {
+    create?: XOR<tr_project_taskCreateWithoutTr_projectInput, tr_project_taskUncheckedCreateWithoutTr_projectInput> | tr_project_taskCreateWithoutTr_projectInput[] | tr_project_taskUncheckedCreateWithoutTr_projectInput[]
+    connectOrCreate?: tr_project_taskCreateOrConnectWithoutTr_projectInput | tr_project_taskCreateOrConnectWithoutTr_projectInput[]
+    upsert?: tr_project_taskUpsertWithWhereUniqueWithoutTr_projectInput | tr_project_taskUpsertWithWhereUniqueWithoutTr_projectInput[]
+    createMany?: tr_project_taskCreateManyTr_projectInputEnvelope
+    set?: tr_project_taskWhereUniqueInput | tr_project_taskWhereUniqueInput[]
+    disconnect?: tr_project_taskWhereUniqueInput | tr_project_taskWhereUniqueInput[]
+    delete?: tr_project_taskWhereUniqueInput | tr_project_taskWhereUniqueInput[]
+    connect?: tr_project_taskWhereUniqueInput | tr_project_taskWhereUniqueInput[]
+    update?: tr_project_taskUpdateWithWhereUniqueWithoutTr_projectInput | tr_project_taskUpdateWithWhereUniqueWithoutTr_projectInput[]
+    updateMany?: tr_project_taskUpdateManyWithWhereWithoutTr_projectInput | tr_project_taskUpdateManyWithWhereWithoutTr_projectInput[]
+    deleteMany?: tr_project_taskScalarWhereInput | tr_project_taskScalarWhereInput[]
+  }
+
+  export type tr_project_taskUncheckedUpdateManyWithoutTr_projectNestedInput = {
+    create?: XOR<tr_project_taskCreateWithoutTr_projectInput, tr_project_taskUncheckedCreateWithoutTr_projectInput> | tr_project_taskCreateWithoutTr_projectInput[] | tr_project_taskUncheckedCreateWithoutTr_projectInput[]
+    connectOrCreate?: tr_project_taskCreateOrConnectWithoutTr_projectInput | tr_project_taskCreateOrConnectWithoutTr_projectInput[]
+    upsert?: tr_project_taskUpsertWithWhereUniqueWithoutTr_projectInput | tr_project_taskUpsertWithWhereUniqueWithoutTr_projectInput[]
+    createMany?: tr_project_taskCreateManyTr_projectInputEnvelope
+    set?: tr_project_taskWhereUniqueInput | tr_project_taskWhereUniqueInput[]
+    disconnect?: tr_project_taskWhereUniqueInput | tr_project_taskWhereUniqueInput[]
+    delete?: tr_project_taskWhereUniqueInput | tr_project_taskWhereUniqueInput[]
+    connect?: tr_project_taskWhereUniqueInput | tr_project_taskWhereUniqueInput[]
+    update?: tr_project_taskUpdateWithWhereUniqueWithoutTr_projectInput | tr_project_taskUpdateWithWhereUniqueWithoutTr_projectInput[]
+    updateMany?: tr_project_taskUpdateManyWithWhereWithoutTr_projectInput | tr_project_taskUpdateManyWithWhereWithoutTr_projectInput[]
+    deleteMany?: tr_project_taskScalarWhereInput | tr_project_taskScalarWhereInput[]
+  }
+
+  export type tr_projectCreateNestedOneWithoutTr_project_taskInput = {
+    create?: XOR<tr_projectCreateWithoutTr_project_taskInput, tr_projectUncheckedCreateWithoutTr_project_taskInput>
+    connectOrCreate?: tr_projectCreateOrConnectWithoutTr_project_taskInput
+    connect?: tr_projectWhereUniqueInput
+  }
+
+  export type tr_project_task_teamCreateNestedManyWithoutTr_project_taskInput = {
+    create?: XOR<tr_project_task_teamCreateWithoutTr_project_taskInput, tr_project_task_teamUncheckedCreateWithoutTr_project_taskInput> | tr_project_task_teamCreateWithoutTr_project_taskInput[] | tr_project_task_teamUncheckedCreateWithoutTr_project_taskInput[]
+    connectOrCreate?: tr_project_task_teamCreateOrConnectWithoutTr_project_taskInput | tr_project_task_teamCreateOrConnectWithoutTr_project_taskInput[]
+    createMany?: tr_project_task_teamCreateManyTr_project_taskInputEnvelope
+    connect?: tr_project_task_teamWhereUniqueInput | tr_project_task_teamWhereUniqueInput[]
+  }
+
+  export type tr_project_task_teamUncheckedCreateNestedManyWithoutTr_project_taskInput = {
+    create?: XOR<tr_project_task_teamCreateWithoutTr_project_taskInput, tr_project_task_teamUncheckedCreateWithoutTr_project_taskInput> | tr_project_task_teamCreateWithoutTr_project_taskInput[] | tr_project_task_teamUncheckedCreateWithoutTr_project_taskInput[]
+    connectOrCreate?: tr_project_task_teamCreateOrConnectWithoutTr_project_taskInput | tr_project_task_teamCreateOrConnectWithoutTr_project_taskInput[]
+    createMany?: tr_project_task_teamCreateManyTr_project_taskInputEnvelope
+    connect?: tr_project_task_teamWhereUniqueInput | tr_project_task_teamWhereUniqueInput[]
+  }
+
+  export type tr_projectUpdateOneWithoutTr_project_taskNestedInput = {
+    create?: XOR<tr_projectCreateWithoutTr_project_taskInput, tr_projectUncheckedCreateWithoutTr_project_taskInput>
+    connectOrCreate?: tr_projectCreateOrConnectWithoutTr_project_taskInput
+    upsert?: tr_projectUpsertWithoutTr_project_taskInput
+    disconnect?: tr_projectWhereInput | boolean
+    delete?: tr_projectWhereInput | boolean
+    connect?: tr_projectWhereUniqueInput
+    update?: XOR<XOR<tr_projectUpdateToOneWithWhereWithoutTr_project_taskInput, tr_projectUpdateWithoutTr_project_taskInput>, tr_projectUncheckedUpdateWithoutTr_project_taskInput>
+  }
+
+  export type tr_project_task_teamUpdateManyWithoutTr_project_taskNestedInput = {
+    create?: XOR<tr_project_task_teamCreateWithoutTr_project_taskInput, tr_project_task_teamUncheckedCreateWithoutTr_project_taskInput> | tr_project_task_teamCreateWithoutTr_project_taskInput[] | tr_project_task_teamUncheckedCreateWithoutTr_project_taskInput[]
+    connectOrCreate?: tr_project_task_teamCreateOrConnectWithoutTr_project_taskInput | tr_project_task_teamCreateOrConnectWithoutTr_project_taskInput[]
+    upsert?: tr_project_task_teamUpsertWithWhereUniqueWithoutTr_project_taskInput | tr_project_task_teamUpsertWithWhereUniqueWithoutTr_project_taskInput[]
+    createMany?: tr_project_task_teamCreateManyTr_project_taskInputEnvelope
+    set?: tr_project_task_teamWhereUniqueInput | tr_project_task_teamWhereUniqueInput[]
+    disconnect?: tr_project_task_teamWhereUniqueInput | tr_project_task_teamWhereUniqueInput[]
+    delete?: tr_project_task_teamWhereUniqueInput | tr_project_task_teamWhereUniqueInput[]
+    connect?: tr_project_task_teamWhereUniqueInput | tr_project_task_teamWhereUniqueInput[]
+    update?: tr_project_task_teamUpdateWithWhereUniqueWithoutTr_project_taskInput | tr_project_task_teamUpdateWithWhereUniqueWithoutTr_project_taskInput[]
+    updateMany?: tr_project_task_teamUpdateManyWithWhereWithoutTr_project_taskInput | tr_project_task_teamUpdateManyWithWhereWithoutTr_project_taskInput[]
+    deleteMany?: tr_project_task_teamScalarWhereInput | tr_project_task_teamScalarWhereInput[]
+  }
+
+  export type tr_project_task_teamUncheckedUpdateManyWithoutTr_project_taskNestedInput = {
+    create?: XOR<tr_project_task_teamCreateWithoutTr_project_taskInput, tr_project_task_teamUncheckedCreateWithoutTr_project_taskInput> | tr_project_task_teamCreateWithoutTr_project_taskInput[] | tr_project_task_teamUncheckedCreateWithoutTr_project_taskInput[]
+    connectOrCreate?: tr_project_task_teamCreateOrConnectWithoutTr_project_taskInput | tr_project_task_teamCreateOrConnectWithoutTr_project_taskInput[]
+    upsert?: tr_project_task_teamUpsertWithWhereUniqueWithoutTr_project_taskInput | tr_project_task_teamUpsertWithWhereUniqueWithoutTr_project_taskInput[]
+    createMany?: tr_project_task_teamCreateManyTr_project_taskInputEnvelope
+    set?: tr_project_task_teamWhereUniqueInput | tr_project_task_teamWhereUniqueInput[]
+    disconnect?: tr_project_task_teamWhereUniqueInput | tr_project_task_teamWhereUniqueInput[]
+    delete?: tr_project_task_teamWhereUniqueInput | tr_project_task_teamWhereUniqueInput[]
+    connect?: tr_project_task_teamWhereUniqueInput | tr_project_task_teamWhereUniqueInput[]
+    update?: tr_project_task_teamUpdateWithWhereUniqueWithoutTr_project_taskInput | tr_project_task_teamUpdateWithWhereUniqueWithoutTr_project_taskInput[]
+    updateMany?: tr_project_task_teamUpdateManyWithWhereWithoutTr_project_taskInput | tr_project_task_teamUpdateManyWithWhereWithoutTr_project_taskInput[]
+    deleteMany?: tr_project_task_teamScalarWhereInput | tr_project_task_teamScalarWhereInput[]
+  }
+
+  export type mst_authorizationCreateNestedOneWithoutTr_project_teamInput = {
+    create?: XOR<mst_authorizationCreateWithoutTr_project_teamInput, mst_authorizationUncheckedCreateWithoutTr_project_teamInput>
+    connectOrCreate?: mst_authorizationCreateOrConnectWithoutTr_project_teamInput
+    connect?: mst_authorizationWhereUniqueInput
+  }
+
+  export type mst_authorizationUpdateOneWithoutTr_project_teamNestedInput = {
+    create?: XOR<mst_authorizationCreateWithoutTr_project_teamInput, mst_authorizationUncheckedCreateWithoutTr_project_teamInput>
+    connectOrCreate?: mst_authorizationCreateOrConnectWithoutTr_project_teamInput
+    upsert?: mst_authorizationUpsertWithoutTr_project_teamInput
+    disconnect?: mst_authorizationWhereInput | boolean
+    delete?: mst_authorizationWhereInput | boolean
+    connect?: mst_authorizationWhereUniqueInput
+    update?: XOR<XOR<mst_authorizationUpdateToOneWithWhereWithoutTr_project_teamInput, mst_authorizationUpdateWithoutTr_project_teamInput>, mst_authorizationUncheckedUpdateWithoutTr_project_teamInput>
   }
 
   export type tr_request_validationCreateNestedManyWithoutTr_requestInput = {
@@ -30026,6 +33277,38 @@ export namespace Prisma {
     delete?: tr_requestWhereInput | boolean
     connect?: tr_requestWhereUniqueInput
     update?: XOR<XOR<tr_requestUpdateToOneWithWhereWithoutTr_request_validationInput, tr_requestUpdateWithoutTr_request_validationInput>, tr_requestUncheckedUpdateWithoutTr_request_validationInput>
+  }
+
+  export type tr_project_taskCreateNestedOneWithoutTr_project_task_teamInput = {
+    create?: XOR<tr_project_taskCreateWithoutTr_project_task_teamInput, tr_project_taskUncheckedCreateWithoutTr_project_task_teamInput>
+    connectOrCreate?: tr_project_taskCreateOrConnectWithoutTr_project_task_teamInput
+    connect?: tr_project_taskWhereUniqueInput
+  }
+
+  export type mst_authorizationCreateNestedOneWithoutTr_project_task_teamInput = {
+    create?: XOR<mst_authorizationCreateWithoutTr_project_task_teamInput, mst_authorizationUncheckedCreateWithoutTr_project_task_teamInput>
+    connectOrCreate?: mst_authorizationCreateOrConnectWithoutTr_project_task_teamInput
+    connect?: mst_authorizationWhereUniqueInput
+  }
+
+  export type tr_project_taskUpdateOneWithoutTr_project_task_teamNestedInput = {
+    create?: XOR<tr_project_taskCreateWithoutTr_project_task_teamInput, tr_project_taskUncheckedCreateWithoutTr_project_task_teamInput>
+    connectOrCreate?: tr_project_taskCreateOrConnectWithoutTr_project_task_teamInput
+    upsert?: tr_project_taskUpsertWithoutTr_project_task_teamInput
+    disconnect?: tr_project_taskWhereInput | boolean
+    delete?: tr_project_taskWhereInput | boolean
+    connect?: tr_project_taskWhereUniqueInput
+    update?: XOR<XOR<tr_project_taskUpdateToOneWithWhereWithoutTr_project_task_teamInput, tr_project_taskUpdateWithoutTr_project_task_teamInput>, tr_project_taskUncheckedUpdateWithoutTr_project_task_teamInput>
+  }
+
+  export type mst_authorizationUpdateOneWithoutTr_project_task_teamNestedInput = {
+    create?: XOR<mst_authorizationCreateWithoutTr_project_task_teamInput, mst_authorizationUncheckedCreateWithoutTr_project_task_teamInput>
+    connectOrCreate?: mst_authorizationCreateOrConnectWithoutTr_project_task_teamInput
+    upsert?: mst_authorizationUpsertWithoutTr_project_task_teamInput
+    disconnect?: mst_authorizationWhereInput | boolean
+    delete?: mst_authorizationWhereInput | boolean
+    connect?: mst_authorizationWhereUniqueInput
+    update?: XOR<XOR<mst_authorizationUpdateToOneWithWhereWithoutTr_project_task_teamInput, mst_authorizationUpdateWithoutTr_project_task_teamInput>, mst_authorizationUncheckedUpdateWithoutTr_project_task_teamInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -30189,33 +33472,6 @@ export namespace Prisma {
     _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
-  export type NestedDecimalNullableFilter<$PrismaModel = never> = {
-    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | null
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | null
-    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
-  }
-
-  export type NestedDecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
-    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | null
-    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | null
-    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
-    not?: NestedDecimalNullableWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedDecimalNullableFilter<$PrismaModel>
-    _sum?: NestedDecimalNullableFilter<$PrismaModel>
-    _min?: NestedDecimalNullableFilter<$PrismaModel>
-    _max?: NestedDecimalNullableFilter<$PrismaModel>
-  }
-
   export type mst_entitiesCreateWithoutMst_authorizationInput = {
     entities_name?: string | null
     parent_id?: number | null
@@ -30256,6 +33512,78 @@ export namespace Prisma {
   export type mst_profileCreateOrConnectWithoutMst_authorizationInput = {
     where: mst_profileWhereUniqueInput
     create: XOR<mst_profileCreateWithoutMst_authorizationInput, mst_profileUncheckedCreateWithoutMst_authorizationInput>
+  }
+
+  export type mst_manpower_costCreateWithoutMst_authorizationInput = {
+    technician_level?: string | null
+    hourly?: number | null
+    monthly?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type mst_manpower_costUncheckedCreateWithoutMst_authorizationInput = {
+    id?: number
+    technician_level?: string | null
+    hourly?: number | null
+    monthly?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type mst_manpower_costCreateOrConnectWithoutMst_authorizationInput = {
+    where: mst_manpower_costWhereUniqueInput
+    create: XOR<mst_manpower_costCreateWithoutMst_authorizationInput, mst_manpower_costUncheckedCreateWithoutMst_authorizationInput>
+  }
+
+  export type tr_project_task_teamCreateWithoutMst_authorizationInput = {
+    is_deleted?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    tr_project_task?: tr_project_taskCreateNestedOneWithoutTr_project_task_teamInput
+  }
+
+  export type tr_project_task_teamUncheckedCreateWithoutMst_authorizationInput = {
+    id?: number
+    project_task_id?: number | null
+    is_deleted?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type tr_project_task_teamCreateOrConnectWithoutMst_authorizationInput = {
+    where: tr_project_task_teamWhereUniqueInput
+    create: XOR<tr_project_task_teamCreateWithoutMst_authorizationInput, tr_project_task_teamUncheckedCreateWithoutMst_authorizationInput>
+  }
+
+  export type tr_project_task_teamCreateManyMst_authorizationInputEnvelope = {
+    data: tr_project_task_teamCreateManyMst_authorizationInput | tr_project_task_teamCreateManyMst_authorizationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type tr_project_teamCreateWithoutMst_authorizationInput = {
+    project_id?: number | null
+    is_deleted?: boolean | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type tr_project_teamUncheckedCreateWithoutMst_authorizationInput = {
+    id?: number
+    project_id?: number | null
+    is_deleted?: boolean | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type tr_project_teamCreateOrConnectWithoutMst_authorizationInput = {
+    where: tr_project_teamWhereUniqueInput
+    create: XOR<tr_project_teamCreateWithoutMst_authorizationInput, tr_project_teamUncheckedCreateWithoutMst_authorizationInput>
+  }
+
+  export type tr_project_teamCreateManyMst_authorizationInputEnvelope = {
+    data: tr_project_teamCreateManyMst_authorizationInput | tr_project_teamCreateManyMst_authorizationInput[]
+    skipDuplicates?: boolean
   }
 
   export type mst_entitiesUpsertWithoutMst_authorizationInput = {
@@ -30310,6 +33638,90 @@ export namespace Prisma {
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     mst_authorization_profile?: mst_authorization_profileUncheckedUpdateManyWithoutMst_profileNestedInput
+  }
+
+  export type mst_manpower_costUpsertWithoutMst_authorizationInput = {
+    update: XOR<mst_manpower_costUpdateWithoutMst_authorizationInput, mst_manpower_costUncheckedUpdateWithoutMst_authorizationInput>
+    create: XOR<mst_manpower_costCreateWithoutMst_authorizationInput, mst_manpower_costUncheckedCreateWithoutMst_authorizationInput>
+    where?: mst_manpower_costWhereInput
+  }
+
+  export type mst_manpower_costUpdateToOneWithWhereWithoutMst_authorizationInput = {
+    where?: mst_manpower_costWhereInput
+    data: XOR<mst_manpower_costUpdateWithoutMst_authorizationInput, mst_manpower_costUncheckedUpdateWithoutMst_authorizationInput>
+  }
+
+  export type mst_manpower_costUpdateWithoutMst_authorizationInput = {
+    technician_level?: NullableStringFieldUpdateOperationsInput | string | null
+    hourly?: NullableFloatFieldUpdateOperationsInput | number | null
+    monthly?: NullableFloatFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type mst_manpower_costUncheckedUpdateWithoutMst_authorizationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    technician_level?: NullableStringFieldUpdateOperationsInput | string | null
+    hourly?: NullableFloatFieldUpdateOperationsInput | number | null
+    monthly?: NullableFloatFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_project_task_teamUpsertWithWhereUniqueWithoutMst_authorizationInput = {
+    where: tr_project_task_teamWhereUniqueInput
+    update: XOR<tr_project_task_teamUpdateWithoutMst_authorizationInput, tr_project_task_teamUncheckedUpdateWithoutMst_authorizationInput>
+    create: XOR<tr_project_task_teamCreateWithoutMst_authorizationInput, tr_project_task_teamUncheckedCreateWithoutMst_authorizationInput>
+  }
+
+  export type tr_project_task_teamUpdateWithWhereUniqueWithoutMst_authorizationInput = {
+    where: tr_project_task_teamWhereUniqueInput
+    data: XOR<tr_project_task_teamUpdateWithoutMst_authorizationInput, tr_project_task_teamUncheckedUpdateWithoutMst_authorizationInput>
+  }
+
+  export type tr_project_task_teamUpdateManyWithWhereWithoutMst_authorizationInput = {
+    where: tr_project_task_teamScalarWhereInput
+    data: XOR<tr_project_task_teamUpdateManyMutationInput, tr_project_task_teamUncheckedUpdateManyWithoutMst_authorizationInput>
+  }
+
+  export type tr_project_task_teamScalarWhereInput = {
+    AND?: tr_project_task_teamScalarWhereInput | tr_project_task_teamScalarWhereInput[]
+    OR?: tr_project_task_teamScalarWhereInput[]
+    NOT?: tr_project_task_teamScalarWhereInput | tr_project_task_teamScalarWhereInput[]
+    id?: IntFilter<"tr_project_task_team"> | number
+    project_task_id?: IntNullableFilter<"tr_project_task_team"> | number | null
+    employee_code?: StringNullableFilter<"tr_project_task_team"> | string | null
+    is_deleted?: IntNullableFilter<"tr_project_task_team"> | number | null
+    created_at?: DateTimeNullableFilter<"tr_project_task_team"> | Date | string | null
+    created_by?: StringNullableFilter<"tr_project_task_team"> | string | null
+  }
+
+  export type tr_project_teamUpsertWithWhereUniqueWithoutMst_authorizationInput = {
+    where: tr_project_teamWhereUniqueInput
+    update: XOR<tr_project_teamUpdateWithoutMst_authorizationInput, tr_project_teamUncheckedUpdateWithoutMst_authorizationInput>
+    create: XOR<tr_project_teamCreateWithoutMst_authorizationInput, tr_project_teamUncheckedCreateWithoutMst_authorizationInput>
+  }
+
+  export type tr_project_teamUpdateWithWhereUniqueWithoutMst_authorizationInput = {
+    where: tr_project_teamWhereUniqueInput
+    data: XOR<tr_project_teamUpdateWithoutMst_authorizationInput, tr_project_teamUncheckedUpdateWithoutMst_authorizationInput>
+  }
+
+  export type tr_project_teamUpdateManyWithWhereWithoutMst_authorizationInput = {
+    where: tr_project_teamScalarWhereInput
+    data: XOR<tr_project_teamUpdateManyMutationInput, tr_project_teamUncheckedUpdateManyWithoutMst_authorizationInput>
+  }
+
+  export type tr_project_teamScalarWhereInput = {
+    AND?: tr_project_teamScalarWhereInput | tr_project_teamScalarWhereInput[]
+    OR?: tr_project_teamScalarWhereInput[]
+    NOT?: tr_project_teamScalarWhereInput | tr_project_teamScalarWhereInput[]
+    id?: IntFilter<"tr_project_team"> | number
+    project_id?: IntNullableFilter<"tr_project_team"> | number | null
+    employee_code?: StringNullableFilter<"tr_project_team"> | string | null
+    is_deleted?: BoolNullableFilter<"tr_project_team"> | boolean | null
+    created_at?: DateTimeNullableFilter<"tr_project_team"> | Date | string | null
+    created_by?: StringNullableFilter<"tr_project_team"> | string | null
   }
 
   export type mst_profileCreateWithoutMst_authorization_profileInput = {
@@ -30426,9 +33838,11 @@ export namespace Prisma {
     is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
-    technician_level?: string | null
     is_deleted?: boolean | null
     mst_profile?: mst_profileCreateNestedOneWithoutMst_authorizationInput
+    mst_manpower_cost?: mst_manpower_costCreateNestedOneWithoutMst_authorizationInput
+    tr_project_task_team?: tr_project_task_teamCreateNestedManyWithoutMst_authorizationInput
+    tr_project_team?: tr_project_teamCreateNestedManyWithoutMst_authorizationInput
   }
 
   export type mst_authorizationUncheckedCreateWithoutMst_entitiesInput = {
@@ -30438,9 +33852,11 @@ export namespace Prisma {
     is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
-    technician_level?: string | null
+    technician_level?: number | null
     active_profile?: number | null
     is_deleted?: boolean | null
+    tr_project_task_team?: tr_project_task_teamUncheckedCreateNestedManyWithoutMst_authorizationInput
+    tr_project_team?: tr_project_teamUncheckedCreateNestedManyWithoutMst_authorizationInput
   }
 
   export type mst_authorizationCreateOrConnectWithoutMst_entitiesInput = {
@@ -30479,7 +33895,7 @@ export namespace Prisma {
     is_active?: StringNullableFilter<"mst_authorization"> | string | null
     created_at?: DateTimeNullableFilter<"mst_authorization"> | Date | string | null
     created_by?: StringNullableFilter<"mst_authorization"> | string | null
-    technician_level?: StringNullableFilter<"mst_authorization"> | string | null
+    technician_level?: IntNullableFilter<"mst_authorization"> | number | null
     active_profile?: IntNullableFilter<"mst_authorization"> | number | null
     active_entities?: IntNullableFilter<"mst_authorization"> | number | null
     is_deleted?: BoolNullableFilter<"mst_authorization"> | boolean | null
@@ -30521,7 +33937,7 @@ export namespace Prisma {
     issue_description?: string | null
     business_impact?: string | null
     plan_start_date?: Date | string | null
-    plant_end_date?: Date | string | null
+    plan_end_date?: Date | string | null
     real_start_date?: Date | string | null
     real_end_date?: Date | string | null
     expected_completion?: Date | string | null
@@ -30531,6 +33947,7 @@ export namespace Prisma {
     created_at?: Date | string | null
     created_by?: string | null
     mst_project_state?: mst_project_stateCreateNestedOneWithoutTr_projectInput
+    tr_project_task?: tr_project_taskCreateNestedManyWithoutTr_projectInput
   }
 
   export type tr_projectUncheckedCreateWithoutMst_groupInput = {
@@ -30545,7 +33962,7 @@ export namespace Prisma {
     issue_description?: string | null
     business_impact?: string | null
     plan_start_date?: Date | string | null
-    plant_end_date?: Date | string | null
+    plan_end_date?: Date | string | null
     real_start_date?: Date | string | null
     real_end_date?: Date | string | null
     expected_completion?: Date | string | null
@@ -30555,6 +33972,7 @@ export namespace Prisma {
     is_deleted?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    tr_project_task?: tr_project_taskUncheckedCreateNestedManyWithoutTr_projectInput
   }
 
   export type tr_projectCreateOrConnectWithoutMst_groupInput = {
@@ -30627,7 +34045,7 @@ export namespace Prisma {
     business_impact?: StringNullableFilter<"tr_project"> | string | null
     group_id?: IntNullableFilter<"tr_project"> | number | null
     plan_start_date?: DateTimeNullableFilter<"tr_project"> | Date | string | null
-    plant_end_date?: DateTimeNullableFilter<"tr_project"> | Date | string | null
+    plan_end_date?: DateTimeNullableFilter<"tr_project"> | Date | string | null
     real_start_date?: DateTimeNullableFilter<"tr_project"> | Date | string | null
     real_end_date?: DateTimeNullableFilter<"tr_project"> | Date | string | null
     expected_completion?: DateTimeNullableFilter<"tr_project"> | Date | string | null
@@ -30639,15 +34057,70 @@ export namespace Prisma {
     created_by?: StringNullableFilter<"tr_project"> | string | null
   }
 
+  export type mst_authorizationCreateWithoutMst_manpower_costInput = {
+    employee_code?: string | null
+    employee_name?: string | null
+    is_active?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    is_deleted?: boolean | null
+    mst_entities?: mst_entitiesCreateNestedOneWithoutMst_authorizationInput
+    mst_profile?: mst_profileCreateNestedOneWithoutMst_authorizationInput
+    tr_project_task_team?: tr_project_task_teamCreateNestedManyWithoutMst_authorizationInput
+    tr_project_team?: tr_project_teamCreateNestedManyWithoutMst_authorizationInput
+  }
+
+  export type mst_authorizationUncheckedCreateWithoutMst_manpower_costInput = {
+    id?: number
+    employee_code?: string | null
+    employee_name?: string | null
+    is_active?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    active_profile?: number | null
+    active_entities?: number | null
+    is_deleted?: boolean | null
+    tr_project_task_team?: tr_project_task_teamUncheckedCreateNestedManyWithoutMst_authorizationInput
+    tr_project_team?: tr_project_teamUncheckedCreateNestedManyWithoutMst_authorizationInput
+  }
+
+  export type mst_authorizationCreateOrConnectWithoutMst_manpower_costInput = {
+    where: mst_authorizationWhereUniqueInput
+    create: XOR<mst_authorizationCreateWithoutMst_manpower_costInput, mst_authorizationUncheckedCreateWithoutMst_manpower_costInput>
+  }
+
+  export type mst_authorizationCreateManyMst_manpower_costInputEnvelope = {
+    data: mst_authorizationCreateManyMst_manpower_costInput | mst_authorizationCreateManyMst_manpower_costInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type mst_authorizationUpsertWithWhereUniqueWithoutMst_manpower_costInput = {
+    where: mst_authorizationWhereUniqueInput
+    update: XOR<mst_authorizationUpdateWithoutMst_manpower_costInput, mst_authorizationUncheckedUpdateWithoutMst_manpower_costInput>
+    create: XOR<mst_authorizationCreateWithoutMst_manpower_costInput, mst_authorizationUncheckedCreateWithoutMst_manpower_costInput>
+  }
+
+  export type mst_authorizationUpdateWithWhereUniqueWithoutMst_manpower_costInput = {
+    where: mst_authorizationWhereUniqueInput
+    data: XOR<mst_authorizationUpdateWithoutMst_manpower_costInput, mst_authorizationUncheckedUpdateWithoutMst_manpower_costInput>
+  }
+
+  export type mst_authorizationUpdateManyWithWhereWithoutMst_manpower_costInput = {
+    where: mst_authorizationScalarWhereInput
+    data: XOR<mst_authorizationUpdateManyMutationInput, mst_authorizationUncheckedUpdateManyWithoutMst_manpower_costInput>
+  }
+
   export type mst_authorizationCreateWithoutMst_profileInput = {
     employee_code?: string | null
     employee_name?: string | null
     is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
-    technician_level?: string | null
     is_deleted?: boolean | null
     mst_entities?: mst_entitiesCreateNestedOneWithoutMst_authorizationInput
+    mst_manpower_cost?: mst_manpower_costCreateNestedOneWithoutMst_authorizationInput
+    tr_project_task_team?: tr_project_task_teamCreateNestedManyWithoutMst_authorizationInput
+    tr_project_team?: tr_project_teamCreateNestedManyWithoutMst_authorizationInput
   }
 
   export type mst_authorizationUncheckedCreateWithoutMst_profileInput = {
@@ -30657,9 +34130,11 @@ export namespace Prisma {
     is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
-    technician_level?: string | null
+    technician_level?: number | null
     active_entities?: number | null
     is_deleted?: boolean | null
+    tr_project_task_team?: tr_project_task_teamUncheckedCreateNestedManyWithoutMst_authorizationInput
+    tr_project_team?: tr_project_teamUncheckedCreateNestedManyWithoutMst_authorizationInput
   }
 
   export type mst_authorizationCreateOrConnectWithoutMst_profileInput = {
@@ -30752,7 +34227,7 @@ export namespace Prisma {
     issue_description?: string | null
     business_impact?: string | null
     plan_start_date?: Date | string | null
-    plant_end_date?: Date | string | null
+    plan_end_date?: Date | string | null
     real_start_date?: Date | string | null
     real_end_date?: Date | string | null
     expected_completion?: Date | string | null
@@ -30762,6 +34237,7 @@ export namespace Prisma {
     created_at?: Date | string | null
     created_by?: string | null
     mst_group?: mst_groupCreateNestedOneWithoutTr_projectInput
+    tr_project_task?: tr_project_taskCreateNestedManyWithoutTr_projectInput
   }
 
   export type tr_projectUncheckedCreateWithoutMst_project_stateInput = {
@@ -30777,7 +34253,7 @@ export namespace Prisma {
     business_impact?: string | null
     group_id?: number | null
     plan_start_date?: Date | string | null
-    plant_end_date?: Date | string | null
+    plan_end_date?: Date | string | null
     real_start_date?: Date | string | null
     real_end_date?: Date | string | null
     expected_completion?: Date | string | null
@@ -30786,6 +34262,7 @@ export namespace Prisma {
     is_deleted?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    tr_project_task?: tr_project_taskUncheckedCreateNestedManyWithoutTr_projectInput
   }
 
   export type tr_projectCreateOrConnectWithoutMst_project_stateInput = {
@@ -30858,6 +34335,55 @@ export namespace Prisma {
     create: XOR<mst_project_stateCreateWithoutTr_projectInput, mst_project_stateUncheckedCreateWithoutTr_projectInput>
   }
 
+  export type tr_project_taskCreateWithoutTr_projectInput = {
+    task_name?: string | null
+    content?: string | null
+    plan_start_date?: Date | string | null
+    plan_end_date?: Date | string | null
+    real_start_date?: Date | string | null
+    real_end_date?: Date | string | null
+    plan_duration?: number | null
+    real_duration?: number | null
+    percent_done?: number | null
+    cost?: number | null
+    task_type?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    task_category?: string | null
+    is_deleted?: boolean | null
+    tr_project_task_team?: tr_project_task_teamCreateNestedManyWithoutTr_project_taskInput
+  }
+
+  export type tr_project_taskUncheckedCreateWithoutTr_projectInput = {
+    id?: number
+    task_name?: string | null
+    content?: string | null
+    plan_start_date?: Date | string | null
+    plan_end_date?: Date | string | null
+    real_start_date?: Date | string | null
+    real_end_date?: Date | string | null
+    plan_duration?: number | null
+    real_duration?: number | null
+    percent_done?: number | null
+    cost?: number | null
+    task_type?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    task_category?: string | null
+    is_deleted?: boolean | null
+    tr_project_task_team?: tr_project_task_teamUncheckedCreateNestedManyWithoutTr_project_taskInput
+  }
+
+  export type tr_project_taskCreateOrConnectWithoutTr_projectInput = {
+    where: tr_project_taskWhereUniqueInput
+    create: XOR<tr_project_taskCreateWithoutTr_projectInput, tr_project_taskUncheckedCreateWithoutTr_projectInput>
+  }
+
+  export type tr_project_taskCreateManyTr_projectInputEnvelope = {
+    data: tr_project_taskCreateManyTr_projectInput | tr_project_taskCreateManyTr_projectInput[]
+    skipDuplicates?: boolean
+  }
+
   export type mst_groupUpsertWithoutTr_projectInput = {
     update: XOR<mst_groupUpdateWithoutTr_projectInput, mst_groupUncheckedUpdateWithoutTr_projectInput>
     create: XOR<mst_groupCreateWithoutTr_projectInput, mst_groupUncheckedCreateWithoutTr_projectInput>
@@ -30914,6 +34440,270 @@ export namespace Prisma {
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type tr_project_taskUpsertWithWhereUniqueWithoutTr_projectInput = {
+    where: tr_project_taskWhereUniqueInput
+    update: XOR<tr_project_taskUpdateWithoutTr_projectInput, tr_project_taskUncheckedUpdateWithoutTr_projectInput>
+    create: XOR<tr_project_taskCreateWithoutTr_projectInput, tr_project_taskUncheckedCreateWithoutTr_projectInput>
+  }
+
+  export type tr_project_taskUpdateWithWhereUniqueWithoutTr_projectInput = {
+    where: tr_project_taskWhereUniqueInput
+    data: XOR<tr_project_taskUpdateWithoutTr_projectInput, tr_project_taskUncheckedUpdateWithoutTr_projectInput>
+  }
+
+  export type tr_project_taskUpdateManyWithWhereWithoutTr_projectInput = {
+    where: tr_project_taskScalarWhereInput
+    data: XOR<tr_project_taskUpdateManyMutationInput, tr_project_taskUncheckedUpdateManyWithoutTr_projectInput>
+  }
+
+  export type tr_project_taskScalarWhereInput = {
+    AND?: tr_project_taskScalarWhereInput | tr_project_taskScalarWhereInput[]
+    OR?: tr_project_taskScalarWhereInput[]
+    NOT?: tr_project_taskScalarWhereInput | tr_project_taskScalarWhereInput[]
+    id?: IntFilter<"tr_project_task"> | number
+    project_id?: IntNullableFilter<"tr_project_task"> | number | null
+    task_name?: StringNullableFilter<"tr_project_task"> | string | null
+    content?: StringNullableFilter<"tr_project_task"> | string | null
+    plan_start_date?: DateTimeNullableFilter<"tr_project_task"> | Date | string | null
+    plan_end_date?: DateTimeNullableFilter<"tr_project_task"> | Date | string | null
+    real_start_date?: DateTimeNullableFilter<"tr_project_task"> | Date | string | null
+    real_end_date?: DateTimeNullableFilter<"tr_project_task"> | Date | string | null
+    plan_duration?: IntNullableFilter<"tr_project_task"> | number | null
+    real_duration?: IntNullableFilter<"tr_project_task"> | number | null
+    percent_done?: IntNullableFilter<"tr_project_task"> | number | null
+    cost?: FloatNullableFilter<"tr_project_task"> | number | null
+    task_type?: StringNullableFilter<"tr_project_task"> | string | null
+    created_at?: DateTimeNullableFilter<"tr_project_task"> | Date | string | null
+    created_by?: StringNullableFilter<"tr_project_task"> | string | null
+    task_category?: StringNullableFilter<"tr_project_task"> | string | null
+    is_deleted?: BoolNullableFilter<"tr_project_task"> | boolean | null
+  }
+
+  export type tr_projectCreateWithoutTr_project_taskInput = {
+    request_id?: number | null
+    application_id?: number | null
+    project_name?: string | null
+    survey_id?: number | null
+    project_code?: string | null
+    thumbnail?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
+    plan_start_date?: Date | string | null
+    plan_end_date?: Date | string | null
+    real_start_date?: Date | string | null
+    real_end_date?: Date | string | null
+    expected_completion?: Date | string | null
+    percent_done?: string | null
+    auto_percent_done?: boolean | null
+    is_deleted?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    mst_group?: mst_groupCreateNestedOneWithoutTr_projectInput
+    mst_project_state?: mst_project_stateCreateNestedOneWithoutTr_projectInput
+  }
+
+  export type tr_projectUncheckedCreateWithoutTr_project_taskInput = {
+    id?: number
+    request_id?: number | null
+    application_id?: number | null
+    project_name?: string | null
+    survey_id?: number | null
+    project_code?: string | null
+    thumbnail?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
+    group_id?: number | null
+    plan_start_date?: Date | string | null
+    plan_end_date?: Date | string | null
+    real_start_date?: Date | string | null
+    real_end_date?: Date | string | null
+    expected_completion?: Date | string | null
+    percent_done?: string | null
+    auto_percent_done?: boolean | null
+    state?: number | null
+    is_deleted?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type tr_projectCreateOrConnectWithoutTr_project_taskInput = {
+    where: tr_projectWhereUniqueInput
+    create: XOR<tr_projectCreateWithoutTr_project_taskInput, tr_projectUncheckedCreateWithoutTr_project_taskInput>
+  }
+
+  export type tr_project_task_teamCreateWithoutTr_project_taskInput = {
+    is_deleted?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    mst_authorization?: mst_authorizationCreateNestedOneWithoutTr_project_task_teamInput
+  }
+
+  export type tr_project_task_teamUncheckedCreateWithoutTr_project_taskInput = {
+    id?: number
+    employee_code?: string | null
+    is_deleted?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type tr_project_task_teamCreateOrConnectWithoutTr_project_taskInput = {
+    where: tr_project_task_teamWhereUniqueInput
+    create: XOR<tr_project_task_teamCreateWithoutTr_project_taskInput, tr_project_task_teamUncheckedCreateWithoutTr_project_taskInput>
+  }
+
+  export type tr_project_task_teamCreateManyTr_project_taskInputEnvelope = {
+    data: tr_project_task_teamCreateManyTr_project_taskInput | tr_project_task_teamCreateManyTr_project_taskInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type tr_projectUpsertWithoutTr_project_taskInput = {
+    update: XOR<tr_projectUpdateWithoutTr_project_taskInput, tr_projectUncheckedUpdateWithoutTr_project_taskInput>
+    create: XOR<tr_projectCreateWithoutTr_project_taskInput, tr_projectUncheckedCreateWithoutTr_project_taskInput>
+    where?: tr_projectWhereInput
+  }
+
+  export type tr_projectUpdateToOneWithWhereWithoutTr_project_taskInput = {
+    where?: tr_projectWhereInput
+    data: XOR<tr_projectUpdateWithoutTr_project_taskInput, tr_projectUncheckedUpdateWithoutTr_project_taskInput>
+  }
+
+  export type tr_projectUpdateWithoutTr_project_taskInput = {
+    request_id?: NullableIntFieldUpdateOperationsInput | number | null
+    application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
+    survey_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_code?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    issue_description?: NullableStringFieldUpdateOperationsInput | string | null
+    business_impact?: NullableStringFieldUpdateOperationsInput | string | null
+    plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expected_completion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    percent_done?: NullableStringFieldUpdateOperationsInput | string | null
+    auto_percent_done?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_group?: mst_groupUpdateOneWithoutTr_projectNestedInput
+    mst_project_state?: mst_project_stateUpdateOneWithoutTr_projectNestedInput
+  }
+
+  export type tr_projectUncheckedUpdateWithoutTr_project_taskInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    request_id?: NullableIntFieldUpdateOperationsInput | number | null
+    application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
+    survey_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_code?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    issue_description?: NullableStringFieldUpdateOperationsInput | string | null
+    business_impact?: NullableStringFieldUpdateOperationsInput | string | null
+    group_id?: NullableIntFieldUpdateOperationsInput | number | null
+    plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expected_completion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    percent_done?: NullableStringFieldUpdateOperationsInput | string | null
+    auto_percent_done?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    state?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_project_task_teamUpsertWithWhereUniqueWithoutTr_project_taskInput = {
+    where: tr_project_task_teamWhereUniqueInput
+    update: XOR<tr_project_task_teamUpdateWithoutTr_project_taskInput, tr_project_task_teamUncheckedUpdateWithoutTr_project_taskInput>
+    create: XOR<tr_project_task_teamCreateWithoutTr_project_taskInput, tr_project_task_teamUncheckedCreateWithoutTr_project_taskInput>
+  }
+
+  export type tr_project_task_teamUpdateWithWhereUniqueWithoutTr_project_taskInput = {
+    where: tr_project_task_teamWhereUniqueInput
+    data: XOR<tr_project_task_teamUpdateWithoutTr_project_taskInput, tr_project_task_teamUncheckedUpdateWithoutTr_project_taskInput>
+  }
+
+  export type tr_project_task_teamUpdateManyWithWhereWithoutTr_project_taskInput = {
+    where: tr_project_task_teamScalarWhereInput
+    data: XOR<tr_project_task_teamUpdateManyMutationInput, tr_project_task_teamUncheckedUpdateManyWithoutTr_project_taskInput>
+  }
+
+  export type mst_authorizationCreateWithoutTr_project_teamInput = {
+    employee_code?: string | null
+    employee_name?: string | null
+    is_active?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    is_deleted?: boolean | null
+    mst_entities?: mst_entitiesCreateNestedOneWithoutMst_authorizationInput
+    mst_profile?: mst_profileCreateNestedOneWithoutMst_authorizationInput
+    mst_manpower_cost?: mst_manpower_costCreateNestedOneWithoutMst_authorizationInput
+    tr_project_task_team?: tr_project_task_teamCreateNestedManyWithoutMst_authorizationInput
+  }
+
+  export type mst_authorizationUncheckedCreateWithoutTr_project_teamInput = {
+    id?: number
+    employee_code?: string | null
+    employee_name?: string | null
+    is_active?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    technician_level?: number | null
+    active_profile?: number | null
+    active_entities?: number | null
+    is_deleted?: boolean | null
+    tr_project_task_team?: tr_project_task_teamUncheckedCreateNestedManyWithoutMst_authorizationInput
+  }
+
+  export type mst_authorizationCreateOrConnectWithoutTr_project_teamInput = {
+    where: mst_authorizationWhereUniqueInput
+    create: XOR<mst_authorizationCreateWithoutTr_project_teamInput, mst_authorizationUncheckedCreateWithoutTr_project_teamInput>
+  }
+
+  export type mst_authorizationUpsertWithoutTr_project_teamInput = {
+    update: XOR<mst_authorizationUpdateWithoutTr_project_teamInput, mst_authorizationUncheckedUpdateWithoutTr_project_teamInput>
+    create: XOR<mst_authorizationCreateWithoutTr_project_teamInput, mst_authorizationUncheckedCreateWithoutTr_project_teamInput>
+    where?: mst_authorizationWhereInput
+  }
+
+  export type mst_authorizationUpdateToOneWithWhereWithoutTr_project_teamInput = {
+    where?: mst_authorizationWhereInput
+    data: XOR<mst_authorizationUpdateWithoutTr_project_teamInput, mst_authorizationUncheckedUpdateWithoutTr_project_teamInput>
+  }
+
+  export type mst_authorizationUpdateWithoutTr_project_teamInput = {
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    mst_entities?: mst_entitiesUpdateOneWithoutMst_authorizationNestedInput
+    mst_profile?: mst_profileUpdateOneWithoutMst_authorizationNestedInput
+    mst_manpower_cost?: mst_manpower_costUpdateOneWithoutMst_authorizationNestedInput
+    tr_project_task_team?: tr_project_task_teamUpdateManyWithoutMst_authorizationNestedInput
+  }
+
+  export type mst_authorizationUncheckedUpdateWithoutTr_project_teamInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    technician_level?: NullableIntFieldUpdateOperationsInput | number | null
+    active_profile?: NullableIntFieldUpdateOperationsInput | number | null
+    active_entities?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    tr_project_task_team?: tr_project_task_teamUncheckedUpdateManyWithoutMst_authorizationNestedInput
+  }
+
   export type tr_request_validationCreateWithoutTr_requestInput = {
     user_id?: string | null
     user_id_validate?: string | null
@@ -30922,6 +34712,7 @@ export namespace Prisma {
     status?: string | null
     submission_date?: Date | string | null
     validation_date?: Date | string | null
+    state?: string | null
   }
 
   export type tr_request_validationUncheckedCreateWithoutTr_requestInput = {
@@ -30933,6 +34724,7 @@ export namespace Prisma {
     status?: string | null
     submission_date?: Date | string | null
     validation_date?: Date | string | null
+    state?: string | null
   }
 
   export type tr_request_validationCreateOrConnectWithoutTr_requestInput = {
@@ -30974,6 +34766,7 @@ export namespace Prisma {
     status?: StringNullableFilter<"tr_request_validation"> | string | null
     submission_date?: DateTimeNullableFilter<"tr_request_validation"> | Date | string | null
     validation_date?: DateTimeNullableFilter<"tr_request_validation"> | Date | string | null
+    state?: StringNullableFilter<"tr_request_validation"> | string | null
   }
 
   export type tr_requestCreateWithoutTr_request_validationInput = {
@@ -30995,6 +34788,8 @@ export namespace Prisma {
     business_impact?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    impact?: string | null
+    priority?: string | null
   }
 
   export type tr_requestUncheckedCreateWithoutTr_request_validationInput = {
@@ -31017,6 +34812,8 @@ export namespace Prisma {
     business_impact?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    impact?: string | null
+    priority?: string | null
   }
 
   export type tr_requestCreateOrConnectWithoutTr_request_validationInput = {
@@ -31054,6 +34851,8 @@ export namespace Prisma {
     business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    impact?: NullableStringFieldUpdateOperationsInput | string | null
+    priority?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type tr_requestUncheckedUpdateWithoutTr_request_validationInput = {
@@ -31076,6 +34875,234 @@ export namespace Prisma {
     business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    impact?: NullableStringFieldUpdateOperationsInput | string | null
+    priority?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_project_taskCreateWithoutTr_project_task_teamInput = {
+    task_name?: string | null
+    content?: string | null
+    plan_start_date?: Date | string | null
+    plan_end_date?: Date | string | null
+    real_start_date?: Date | string | null
+    real_end_date?: Date | string | null
+    plan_duration?: number | null
+    real_duration?: number | null
+    percent_done?: number | null
+    cost?: number | null
+    task_type?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    task_category?: string | null
+    is_deleted?: boolean | null
+    tr_project?: tr_projectCreateNestedOneWithoutTr_project_taskInput
+  }
+
+  export type tr_project_taskUncheckedCreateWithoutTr_project_task_teamInput = {
+    id?: number
+    project_id?: number | null
+    task_name?: string | null
+    content?: string | null
+    plan_start_date?: Date | string | null
+    plan_end_date?: Date | string | null
+    real_start_date?: Date | string | null
+    real_end_date?: Date | string | null
+    plan_duration?: number | null
+    real_duration?: number | null
+    percent_done?: number | null
+    cost?: number | null
+    task_type?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    task_category?: string | null
+    is_deleted?: boolean | null
+  }
+
+  export type tr_project_taskCreateOrConnectWithoutTr_project_task_teamInput = {
+    where: tr_project_taskWhereUniqueInput
+    create: XOR<tr_project_taskCreateWithoutTr_project_task_teamInput, tr_project_taskUncheckedCreateWithoutTr_project_task_teamInput>
+  }
+
+  export type mst_authorizationCreateWithoutTr_project_task_teamInput = {
+    employee_code?: string | null
+    employee_name?: string | null
+    is_active?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    is_deleted?: boolean | null
+    mst_entities?: mst_entitiesCreateNestedOneWithoutMst_authorizationInput
+    mst_profile?: mst_profileCreateNestedOneWithoutMst_authorizationInput
+    mst_manpower_cost?: mst_manpower_costCreateNestedOneWithoutMst_authorizationInput
+    tr_project_team?: tr_project_teamCreateNestedManyWithoutMst_authorizationInput
+  }
+
+  export type mst_authorizationUncheckedCreateWithoutTr_project_task_teamInput = {
+    id?: number
+    employee_code?: string | null
+    employee_name?: string | null
+    is_active?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    technician_level?: number | null
+    active_profile?: number | null
+    active_entities?: number | null
+    is_deleted?: boolean | null
+    tr_project_team?: tr_project_teamUncheckedCreateNestedManyWithoutMst_authorizationInput
+  }
+
+  export type mst_authorizationCreateOrConnectWithoutTr_project_task_teamInput = {
+    where: mst_authorizationWhereUniqueInput
+    create: XOR<mst_authorizationCreateWithoutTr_project_task_teamInput, mst_authorizationUncheckedCreateWithoutTr_project_task_teamInput>
+  }
+
+  export type tr_project_taskUpsertWithoutTr_project_task_teamInput = {
+    update: XOR<tr_project_taskUpdateWithoutTr_project_task_teamInput, tr_project_taskUncheckedUpdateWithoutTr_project_task_teamInput>
+    create: XOR<tr_project_taskCreateWithoutTr_project_task_teamInput, tr_project_taskUncheckedCreateWithoutTr_project_task_teamInput>
+    where?: tr_project_taskWhereInput
+  }
+
+  export type tr_project_taskUpdateToOneWithWhereWithoutTr_project_task_teamInput = {
+    where?: tr_project_taskWhereInput
+    data: XOR<tr_project_taskUpdateWithoutTr_project_task_teamInput, tr_project_taskUncheckedUpdateWithoutTr_project_task_teamInput>
+  }
+
+  export type tr_project_taskUpdateWithoutTr_project_task_teamInput = {
+    task_name?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
+    real_duration?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    task_type?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    task_category?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    tr_project?: tr_projectUpdateOneWithoutTr_project_taskNestedInput
+  }
+
+  export type tr_project_taskUncheckedUpdateWithoutTr_project_task_teamInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    task_name?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
+    real_duration?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    task_type?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    task_category?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type mst_authorizationUpsertWithoutTr_project_task_teamInput = {
+    update: XOR<mst_authorizationUpdateWithoutTr_project_task_teamInput, mst_authorizationUncheckedUpdateWithoutTr_project_task_teamInput>
+    create: XOR<mst_authorizationCreateWithoutTr_project_task_teamInput, mst_authorizationUncheckedCreateWithoutTr_project_task_teamInput>
+    where?: mst_authorizationWhereInput
+  }
+
+  export type mst_authorizationUpdateToOneWithWhereWithoutTr_project_task_teamInput = {
+    where?: mst_authorizationWhereInput
+    data: XOR<mst_authorizationUpdateWithoutTr_project_task_teamInput, mst_authorizationUncheckedUpdateWithoutTr_project_task_teamInput>
+  }
+
+  export type mst_authorizationUpdateWithoutTr_project_task_teamInput = {
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    mst_entities?: mst_entitiesUpdateOneWithoutMst_authorizationNestedInput
+    mst_profile?: mst_profileUpdateOneWithoutMst_authorizationNestedInput
+    mst_manpower_cost?: mst_manpower_costUpdateOneWithoutMst_authorizationNestedInput
+    tr_project_team?: tr_project_teamUpdateManyWithoutMst_authorizationNestedInput
+  }
+
+  export type mst_authorizationUncheckedUpdateWithoutTr_project_task_teamInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    technician_level?: NullableIntFieldUpdateOperationsInput | number | null
+    active_profile?: NullableIntFieldUpdateOperationsInput | number | null
+    active_entities?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    tr_project_team?: tr_project_teamUncheckedUpdateManyWithoutMst_authorizationNestedInput
+  }
+
+  export type tr_project_task_teamCreateManyMst_authorizationInput = {
+    id?: number
+    project_task_id?: number | null
+    is_deleted?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type tr_project_teamCreateManyMst_authorizationInput = {
+    id?: number
+    project_id?: number | null
+    is_deleted?: boolean | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type tr_project_task_teamUpdateWithoutMst_authorizationInput = {
+    is_deleted?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    tr_project_task?: tr_project_taskUpdateOneWithoutTr_project_task_teamNestedInput
+  }
+
+  export type tr_project_task_teamUncheckedUpdateWithoutMst_authorizationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    project_task_id?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_project_task_teamUncheckedUpdateManyWithoutMst_authorizationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    project_task_id?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_project_teamUpdateWithoutMst_authorizationInput = {
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_project_teamUncheckedUpdateWithoutMst_authorizationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_project_teamUncheckedUpdateManyWithoutMst_authorizationInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type mst_authorizationCreateManyMst_entitiesInput = {
@@ -31085,7 +35112,7 @@ export namespace Prisma {
     is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
-    technician_level?: string | null
+    technician_level?: number | null
     active_profile?: number | null
     is_deleted?: boolean | null
   }
@@ -31096,9 +35123,11 @@ export namespace Prisma {
     is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
-    technician_level?: NullableStringFieldUpdateOperationsInput | string | null
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     mst_profile?: mst_profileUpdateOneWithoutMst_authorizationNestedInput
+    mst_manpower_cost?: mst_manpower_costUpdateOneWithoutMst_authorizationNestedInput
+    tr_project_task_team?: tr_project_task_teamUpdateManyWithoutMst_authorizationNestedInput
+    tr_project_team?: tr_project_teamUpdateManyWithoutMst_authorizationNestedInput
   }
 
   export type mst_authorizationUncheckedUpdateWithoutMst_entitiesInput = {
@@ -31108,9 +35137,11 @@ export namespace Prisma {
     is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
-    technician_level?: NullableStringFieldUpdateOperationsInput | string | null
+    technician_level?: NullableIntFieldUpdateOperationsInput | number | null
     active_profile?: NullableIntFieldUpdateOperationsInput | number | null
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    tr_project_task_team?: tr_project_task_teamUncheckedUpdateManyWithoutMst_authorizationNestedInput
+    tr_project_team?: tr_project_teamUncheckedUpdateManyWithoutMst_authorizationNestedInput
   }
 
   export type mst_authorizationUncheckedUpdateManyWithoutMst_entitiesInput = {
@@ -31120,7 +35151,7 @@ export namespace Prisma {
     is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
-    technician_level?: NullableStringFieldUpdateOperationsInput | string | null
+    technician_level?: NullableIntFieldUpdateOperationsInput | number | null
     active_profile?: NullableIntFieldUpdateOperationsInput | number | null
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
@@ -31145,7 +35176,7 @@ export namespace Prisma {
     issue_description?: string | null
     business_impact?: string | null
     plan_start_date?: Date | string | null
-    plant_end_date?: Date | string | null
+    plan_end_date?: Date | string | null
     real_start_date?: Date | string | null
     real_end_date?: Date | string | null
     expected_completion?: Date | string | null
@@ -31191,7 +35222,7 @@ export namespace Prisma {
     issue_description?: NullableStringFieldUpdateOperationsInput | string | null
     business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    plant_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expected_completion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -31201,6 +35232,7 @@ export namespace Prisma {
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     mst_project_state?: mst_project_stateUpdateOneWithoutTr_projectNestedInput
+    tr_project_task?: tr_project_taskUpdateManyWithoutTr_projectNestedInput
   }
 
   export type tr_projectUncheckedUpdateWithoutMst_groupInput = {
@@ -31215,7 +35247,7 @@ export namespace Prisma {
     issue_description?: NullableStringFieldUpdateOperationsInput | string | null
     business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    plant_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expected_completion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -31225,6 +35257,7 @@ export namespace Prisma {
     is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    tr_project_task?: tr_project_taskUncheckedUpdateManyWithoutTr_projectNestedInput
   }
 
   export type tr_projectUncheckedUpdateManyWithoutMst_groupInput = {
@@ -31239,7 +35272,7 @@ export namespace Prisma {
     issue_description?: NullableStringFieldUpdateOperationsInput | string | null
     business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    plant_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expected_completion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -31251,6 +35284,57 @@ export namespace Prisma {
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type mst_authorizationCreateManyMst_manpower_costInput = {
+    id?: number
+    employee_code?: string | null
+    employee_name?: string | null
+    is_active?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    active_profile?: number | null
+    active_entities?: number | null
+    is_deleted?: boolean | null
+  }
+
+  export type mst_authorizationUpdateWithoutMst_manpower_costInput = {
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    mst_entities?: mst_entitiesUpdateOneWithoutMst_authorizationNestedInput
+    mst_profile?: mst_profileUpdateOneWithoutMst_authorizationNestedInput
+    tr_project_task_team?: tr_project_task_teamUpdateManyWithoutMst_authorizationNestedInput
+    tr_project_team?: tr_project_teamUpdateManyWithoutMst_authorizationNestedInput
+  }
+
+  export type mst_authorizationUncheckedUpdateWithoutMst_manpower_costInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    active_profile?: NullableIntFieldUpdateOperationsInput | number | null
+    active_entities?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    tr_project_task_team?: tr_project_task_teamUncheckedUpdateManyWithoutMst_authorizationNestedInput
+    tr_project_team?: tr_project_teamUncheckedUpdateManyWithoutMst_authorizationNestedInput
+  }
+
+  export type mst_authorizationUncheckedUpdateManyWithoutMst_manpower_costInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    employee_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    active_profile?: NullableIntFieldUpdateOperationsInput | number | null
+    active_entities?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
   export type mst_authorizationCreateManyMst_profileInput = {
     id?: number
     employee_code?: string | null
@@ -31258,7 +35342,7 @@ export namespace Prisma {
     is_active?: string | null
     created_at?: Date | string | null
     created_by?: string | null
-    technician_level?: string | null
+    technician_level?: number | null
     active_entities?: number | null
     is_deleted?: boolean | null
   }
@@ -31277,9 +35361,11 @@ export namespace Prisma {
     is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
-    technician_level?: NullableStringFieldUpdateOperationsInput | string | null
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     mst_entities?: mst_entitiesUpdateOneWithoutMst_authorizationNestedInput
+    mst_manpower_cost?: mst_manpower_costUpdateOneWithoutMst_authorizationNestedInput
+    tr_project_task_team?: tr_project_task_teamUpdateManyWithoutMst_authorizationNestedInput
+    tr_project_team?: tr_project_teamUpdateManyWithoutMst_authorizationNestedInput
   }
 
   export type mst_authorizationUncheckedUpdateWithoutMst_profileInput = {
@@ -31289,9 +35375,11 @@ export namespace Prisma {
     is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
-    technician_level?: NullableStringFieldUpdateOperationsInput | string | null
+    technician_level?: NullableIntFieldUpdateOperationsInput | number | null
     active_entities?: NullableIntFieldUpdateOperationsInput | number | null
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    tr_project_task_team?: tr_project_task_teamUncheckedUpdateManyWithoutMst_authorizationNestedInput
+    tr_project_team?: tr_project_teamUncheckedUpdateManyWithoutMst_authorizationNestedInput
   }
 
   export type mst_authorizationUncheckedUpdateManyWithoutMst_profileInput = {
@@ -31301,7 +35389,7 @@ export namespace Prisma {
     is_active?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
-    technician_level?: NullableStringFieldUpdateOperationsInput | string | null
+    technician_level?: NullableIntFieldUpdateOperationsInput | number | null
     active_entities?: NullableIntFieldUpdateOperationsInput | number | null
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
@@ -31342,7 +35430,7 @@ export namespace Prisma {
     business_impact?: string | null
     group_id?: number | null
     plan_start_date?: Date | string | null
-    plant_end_date?: Date | string | null
+    plan_end_date?: Date | string | null
     real_start_date?: Date | string | null
     real_end_date?: Date | string | null
     expected_completion?: Date | string | null
@@ -31364,7 +35452,7 @@ export namespace Prisma {
     issue_description?: NullableStringFieldUpdateOperationsInput | string | null
     business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    plant_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expected_completion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -31374,6 +35462,7 @@ export namespace Prisma {
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     mst_group?: mst_groupUpdateOneWithoutTr_projectNestedInput
+    tr_project_task?: tr_project_taskUpdateManyWithoutTr_projectNestedInput
   }
 
   export type tr_projectUncheckedUpdateWithoutMst_project_stateInput = {
@@ -31389,7 +35478,7 @@ export namespace Prisma {
     business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     group_id?: NullableIntFieldUpdateOperationsInput | number | null
     plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    plant_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expected_completion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -31398,6 +35487,7 @@ export namespace Prisma {
     is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    tr_project_task?: tr_project_taskUncheckedUpdateManyWithoutTr_projectNestedInput
   }
 
   export type tr_projectUncheckedUpdateManyWithoutMst_project_stateInput = {
@@ -31413,13 +35503,121 @@ export namespace Prisma {
     business_impact?: NullableStringFieldUpdateOperationsInput | string | null
     group_id?: NullableIntFieldUpdateOperationsInput | number | null
     plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    plant_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     expected_completion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     percent_done?: NullableStringFieldUpdateOperationsInput | string | null
     auto_percent_done?: NullableBoolFieldUpdateOperationsInput | boolean | null
     is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_project_taskCreateManyTr_projectInput = {
+    id?: number
+    task_name?: string | null
+    content?: string | null
+    plan_start_date?: Date | string | null
+    plan_end_date?: Date | string | null
+    real_start_date?: Date | string | null
+    real_end_date?: Date | string | null
+    plan_duration?: number | null
+    real_duration?: number | null
+    percent_done?: number | null
+    cost?: number | null
+    task_type?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    task_category?: string | null
+    is_deleted?: boolean | null
+  }
+
+  export type tr_project_taskUpdateWithoutTr_projectInput = {
+    task_name?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
+    real_duration?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    task_type?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    task_category?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    tr_project_task_team?: tr_project_task_teamUpdateManyWithoutTr_project_taskNestedInput
+  }
+
+  export type tr_project_taskUncheckedUpdateWithoutTr_projectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    task_name?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
+    real_duration?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    task_type?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    task_category?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    tr_project_task_team?: tr_project_task_teamUncheckedUpdateManyWithoutTr_project_taskNestedInput
+  }
+
+  export type tr_project_taskUncheckedUpdateManyWithoutTr_projectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    task_name?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: NullableStringFieldUpdateOperationsInput | string | null
+    plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
+    real_duration?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    cost?: NullableFloatFieldUpdateOperationsInput | number | null
+    task_type?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    task_category?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type tr_project_task_teamCreateManyTr_project_taskInput = {
+    id?: number
+    employee_code?: string | null
+    is_deleted?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type tr_project_task_teamUpdateWithoutTr_project_taskInput = {
+    is_deleted?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_authorization?: mst_authorizationUpdateOneWithoutTr_project_task_teamNestedInput
+  }
+
+  export type tr_project_task_teamUncheckedUpdateWithoutTr_project_taskInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_project_task_teamUncheckedUpdateManyWithoutTr_project_taskInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    employee_code?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableIntFieldUpdateOperationsInput | number | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
@@ -31433,6 +35631,7 @@ export namespace Prisma {
     status?: string | null
     submission_date?: Date | string | null
     validation_date?: Date | string | null
+    state?: string | null
   }
 
   export type tr_request_validationUpdateWithoutTr_requestInput = {
@@ -31443,6 +35642,7 @@ export namespace Prisma {
     status?: NullableStringFieldUpdateOperationsInput | string | null
     submission_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     validation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    state?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type tr_request_validationUncheckedUpdateWithoutTr_requestInput = {
@@ -31454,6 +35654,7 @@ export namespace Prisma {
     status?: NullableStringFieldUpdateOperationsInput | string | null
     submission_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     validation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    state?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type tr_request_validationUncheckedUpdateManyWithoutTr_requestInput = {
@@ -31465,6 +35666,7 @@ export namespace Prisma {
     status?: NullableStringFieldUpdateOperationsInput | string | null
     submission_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     validation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    state?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 
@@ -31472,6 +35674,10 @@ export namespace Prisma {
   /**
    * Aliases for legacy arg types
    */
+    /**
+     * @deprecated Use Mst_authorizationCountOutputTypeDefaultArgs instead
+     */
+    export type Mst_authorizationCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Mst_authorizationCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use Mst_entitiesCountOutputTypeDefaultArgs instead
      */
@@ -31481,6 +35687,10 @@ export namespace Prisma {
      */
     export type Mst_groupCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Mst_groupCountOutputTypeDefaultArgs<ExtArgs>
     /**
+     * @deprecated Use Mst_manpower_costCountOutputTypeDefaultArgs instead
+     */
+    export type Mst_manpower_costCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Mst_manpower_costCountOutputTypeDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use Mst_profileCountOutputTypeDefaultArgs instead
      */
     export type Mst_profileCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Mst_profileCountOutputTypeDefaultArgs<ExtArgs>
@@ -31488,6 +35698,14 @@ export namespace Prisma {
      * @deprecated Use Mst_project_stateCountOutputTypeDefaultArgs instead
      */
     export type Mst_project_stateCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Mst_project_stateCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use Tr_projectCountOutputTypeDefaultArgs instead
+     */
+    export type Tr_projectCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Tr_projectCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use Tr_project_taskCountOutputTypeDefaultArgs instead
+     */
+    export type Tr_project_taskCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Tr_project_taskCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use Tr_requestCountOutputTypeDefaultArgs instead
      */
@@ -31584,6 +35802,14 @@ export namespace Prisma {
      * @deprecated Use tr_request_validationDefaultArgs instead
      */
     export type tr_request_validationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = tr_request_validationDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use tr_request_technicianDefaultArgs instead
+     */
+    export type tr_request_technicianArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = tr_request_technicianDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use tr_project_task_teamDefaultArgs instead
+     */
+    export type tr_project_task_teamArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = tr_project_task_teamDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

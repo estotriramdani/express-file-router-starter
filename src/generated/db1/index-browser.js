@@ -254,7 +254,7 @@ exports.Prisma.Tr_projectScalarFieldEnum = {
   business_impact: 'business_impact',
   group_id: 'group_id',
   plan_start_date: 'plan_start_date',
-  plant_end_date: 'plant_end_date',
+  plan_end_date: 'plan_end_date',
   real_start_date: 'real_start_date',
   real_end_date: 'real_end_date',
   expected_completion: 'expected_completion',
@@ -327,14 +327,15 @@ exports.Prisma.Tr_project_taskScalarFieldEnum = {
   plan_end_date: 'plan_end_date',
   real_start_date: 'real_start_date',
   real_end_date: 'real_end_date',
-  planned_duration: 'planned_duration',
+  plan_duration: 'plan_duration',
   real_duration: 'real_duration',
   percent_done: 'percent_done',
   cost: 'cost',
   task_type: 'task_type',
   created_at: 'created_at',
   created_by: 'created_by',
-  task_category: 'task_category'
+  task_category: 'task_category',
+  is_deleted: 'is_deleted'
 };
 
 exports.Prisma.Tr_project_teamScalarFieldEnum = {
@@ -365,7 +366,9 @@ exports.Prisma.Tr_requestScalarFieldEnum = {
   issue_description: 'issue_description',
   business_impact: 'business_impact',
   created_at: 'created_at',
-  created_by: 'created_by'
+  created_by: 'created_by',
+  impact: 'impact',
+  priority: 'priority'
 };
 
 exports.Prisma.Tr_request_validationScalarFieldEnum = {
@@ -377,7 +380,26 @@ exports.Prisma.Tr_request_validationScalarFieldEnum = {
   comment_validation: 'comment_validation',
   status: 'status',
   submission_date: 'submission_date',
-  validation_date: 'validation_date'
+  validation_date: 'validation_date',
+  state: 'state'
+};
+
+exports.Prisma.Tr_request_technicianScalarFieldEnum = {
+  id: 'id',
+  request_id: 'request_id',
+  employee_code: 'employee_code',
+  is_deleted: 'is_deleted',
+  created_at: 'created_at',
+  created_by: 'created_by'
+};
+
+exports.Prisma.Tr_project_task_teamScalarFieldEnum = {
+  id: 'id',
+  project_task_id: 'project_task_id',
+  employee_code: 'employee_code',
+  is_deleted: 'is_deleted',
+  created_at: 'created_at',
+  created_by: 'created_by'
 };
 
 exports.Prisma.SortOrder = {
@@ -414,7 +436,9 @@ exports.Prisma.ModelName = {
   tr_project_task: 'tr_project_task',
   tr_project_team: 'tr_project_team',
   tr_request: 'tr_request',
-  tr_request_validation: 'tr_request_validation'
+  tr_request_validation: 'tr_request_validation',
+  tr_request_technician: 'tr_request_technician',
+  tr_project_task_team: 'tr_project_task_team'
 };
 
 /**

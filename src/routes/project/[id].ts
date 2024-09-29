@@ -37,7 +37,7 @@ export const del = [authenticateJWT, async (req: Request, res: Response) => {
         business_impact: true,
         group_id: true,
         plan_start_date: true,
-        plant_end_date: true,
+        plan_end_date: true,
         real_start_date: true,
         real_end_date: true,
         percent_done: true,
