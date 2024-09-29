@@ -49,6 +49,7 @@ model mst_authorization {
   @@index([active_entities], map: "fk_entities")
   @@index([active_profile], map: "fk_profile")
   @@index([technician_level], map: "technician_level")
+  @@index([technician_level], map: "technician_level")
 }
 
 model mst_authorization_profile {
@@ -75,6 +76,7 @@ model mst_authorization_usergroup {
 
   @@index([group_id], map: "group_id")
   @@index([employee_code], map: "employee_code")
+  @@index([employee_code], map: "employee_code")
 }
 
 model mst_entities {
@@ -99,6 +101,13 @@ model mst_group {
 }
 
 model mst_manpower_cost {
+  id                Int                 @id @default(autoincrement())
+  technician_level  String?             @unique(map: "technician_level") @db.VarChar(255)
+  hourly            Float?              @default(0)
+  monthly           Float?              @default(0)
+  created_at        DateTime?           @default(now()) @db.Timestamp(0)
+  created_by        String?             @db.VarChar(255)
+  mst_authorization mst_authorization[]
   id                Int                 @id @default(autoincrement())
   technician_level  String?             @unique(map: "technician_level") @db.VarChar(255)
   hourly            Float?              @default(0)
@@ -174,6 +183,7 @@ model tr_project {
   group_id            Int?
   plan_start_date     DateTime?          @db.DateTime(0)
   plan_end_date       DateTime?          @db.DateTime(0)
+  plan_end_date       DateTime?          @db.DateTime(0)
   real_start_date     DateTime?          @db.DateTime(0)
   real_end_date       DateTime?          @db.DateTime(0)
   expected_completion DateTime?          @db.DateTime(0)
@@ -185,6 +195,7 @@ model tr_project {
   created_by          String?            @db.VarChar(255)
   mst_group           mst_group?         @relation(fields: [group_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_master_group")
   mst_project_state   mst_project_state? @relation(fields: [state], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_master_state")
+  tr_project_task     tr_project_task[]
   tr_project_task     tr_project_task[]
 
   @@index([group_id], map: "fk_master_group")
@@ -288,6 +299,15 @@ model tr_project_team {
   mst_authorization mst_authorization? @relation(fields: [employee_code], references: [employee_code], onUpdate: SetNull, map: "tr_project_team_ibfk_1")
 
   @@index([employee_code], map: "tr_project_team_ibfk_1")
+  id                Int                @id @default(autoincrement())
+  project_id        Int?
+  employee_code     String?            @db.VarChar(10)
+  is_deleted        Boolean?           @default(false)
+  created_at        DateTime?          @default(now()) @db.DateTime(0)
+  created_by        String?            @db.VarChar(255)
+  mst_authorization mst_authorization? @relation(fields: [employee_code], references: [employee_code], onUpdate: SetNull, map: "tr_project_team_ibfk_1")
+
+  @@index([employee_code], map: "tr_project_team_ibfk_1")
 }
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
@@ -313,6 +333,8 @@ model tr_request {
   created_by               String?                 @db.VarChar(255)
   impact                   String?                 @db.VarChar(255)
   priority                 String?                 @db.VarChar(255)
+  impact                   String?                 @db.VarChar(255)
+  priority                 String?                 @db.VarChar(255)
   tr_request_validation    tr_request_validation[]
 }
 
@@ -327,6 +349,7 @@ model tr_request_validation {
   status             String?     @db.VarChar(255)
   submission_date    DateTime?   @default(now()) @db.DateTime(0)
   validation_date    DateTime?   @db.DateTime(0)
+  state              String?     @db.VarChar(255)
   state              String?     @db.VarChar(255)
   tr_request         tr_request? @relation(fields: [request_id], references: [id], onUpdate: SetNull, map: "FK_REQUEST")
 

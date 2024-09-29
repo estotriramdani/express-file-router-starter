@@ -30833,6 +30833,16 @@ export namespace Prisma {
     isNot?: mst_project_stateWhereInput | null
   }
 
+  export type Tr_project_taskListRelationFilter = {
+    every?: tr_project_taskWhereInput
+    some?: tr_project_taskWhereInput
+    none?: tr_project_taskWhereInput
+  }
+
+  export type tr_project_taskOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type tr_projectCountOrderByAggregateInput = {
     id?: SortOrder
     request_id?: SortOrder
@@ -32185,6 +32195,38 @@ export namespace Prisma {
     delete?: tr_requestWhereInput | boolean
     connect?: tr_requestWhereUniqueInput
     update?: XOR<XOR<tr_requestUpdateToOneWithWhereWithoutTr_request_validationInput, tr_requestUpdateWithoutTr_request_validationInput>, tr_requestUncheckedUpdateWithoutTr_request_validationInput>
+  }
+
+  export type tr_project_taskCreateNestedOneWithoutTr_project_task_teamInput = {
+    create?: XOR<tr_project_taskCreateWithoutTr_project_task_teamInput, tr_project_taskUncheckedCreateWithoutTr_project_task_teamInput>
+    connectOrCreate?: tr_project_taskCreateOrConnectWithoutTr_project_task_teamInput
+    connect?: tr_project_taskWhereUniqueInput
+  }
+
+  export type mst_authorizationCreateNestedOneWithoutTr_project_task_teamInput = {
+    create?: XOR<mst_authorizationCreateWithoutTr_project_task_teamInput, mst_authorizationUncheckedCreateWithoutTr_project_task_teamInput>
+    connectOrCreate?: mst_authorizationCreateOrConnectWithoutTr_project_task_teamInput
+    connect?: mst_authorizationWhereUniqueInput
+  }
+
+  export type tr_project_taskUpdateOneWithoutTr_project_task_teamNestedInput = {
+    create?: XOR<tr_project_taskCreateWithoutTr_project_task_teamInput, tr_project_taskUncheckedCreateWithoutTr_project_task_teamInput>
+    connectOrCreate?: tr_project_taskCreateOrConnectWithoutTr_project_task_teamInput
+    upsert?: tr_project_taskUpsertWithoutTr_project_task_teamInput
+    disconnect?: tr_project_taskWhereInput | boolean
+    delete?: tr_project_taskWhereInput | boolean
+    connect?: tr_project_taskWhereUniqueInput
+    update?: XOR<XOR<tr_project_taskUpdateToOneWithWhereWithoutTr_project_task_teamInput, tr_project_taskUpdateWithoutTr_project_task_teamInput>, tr_project_taskUncheckedUpdateWithoutTr_project_task_teamInput>
+  }
+
+  export type mst_authorizationUpdateOneWithoutTr_project_task_teamNestedInput = {
+    create?: XOR<mst_authorizationCreateWithoutTr_project_task_teamInput, mst_authorizationUncheckedCreateWithoutTr_project_task_teamInput>
+    connectOrCreate?: mst_authorizationCreateOrConnectWithoutTr_project_task_teamInput
+    upsert?: mst_authorizationUpsertWithoutTr_project_task_teamInput
+    disconnect?: mst_authorizationWhereInput | boolean
+    delete?: mst_authorizationWhereInput | boolean
+    connect?: mst_authorizationWhereUniqueInput
+    update?: XOR<XOR<mst_authorizationUpdateToOneWithWhereWithoutTr_project_task_teamInput, mst_authorizationUpdateWithoutTr_project_task_teamInput>, mst_authorizationUncheckedUpdateWithoutTr_project_task_teamInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {

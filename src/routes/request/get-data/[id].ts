@@ -44,12 +44,36 @@ export const get = async (req: Request, res: Response) => {
     });
 
 
+    const technician = await db1.$queryRaw`
+    SELECT
+      a.*,
+      b.employee_name,
+      b.profile_pic 
+    FROM
+      tr_request_technician a
+      JOIN aio_employee.mst_employment b 
+      ON a.employee_code COLLATE utf8mb4_unicode_ci = b.employee_code COLLATE utf8mb4_unicode_ci
+    WHERE
+      a.request_id = ${parseInt(req.params.id)}
+      AND a.is_deleted != 1
+      `
+
+
+      const project = await db1.tr_project.findMany({
+        where: {
+          request_id: parseInt(req.params.id)
+        }
+      });
+
+
 
     return res.json({
       status: true, data: {
         request: request,
         validation: validation,
-        document: document
+        document: document,
+        technician: technician,
+        project:project
       }
     });
 

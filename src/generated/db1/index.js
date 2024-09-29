@@ -224,6 +224,7 @@ exports.Prisma.Tr_projectScalarFieldEnum = {
   group_id: 'group_id',
   plan_start_date: 'plan_start_date',
   plan_end_date: 'plan_end_date',
+  plan_end_date: 'plan_end_date',
   real_start_date: 'real_start_date',
   real_end_date: 'real_end_date',
   expected_completion: 'expected_completion',
@@ -296,6 +297,7 @@ exports.Prisma.Tr_project_taskScalarFieldEnum = {
   plan_end_date: 'plan_end_date',
   real_start_date: 'real_start_date',
   real_end_date: 'real_end_date',
+  plan_duration: 'plan_duration',
   plan_duration: 'plan_duration',
   real_duration: 'real_duration',
   percent_done: 'percent_done',
@@ -430,6 +432,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
+    "rootEnvPath": null,
     "rootEnvPath": null,
     "schemaEnvPath": "../../../.env"
   },

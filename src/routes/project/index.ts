@@ -42,11 +42,14 @@ export const get = [authenticateJWT,  async (req: Request, res: Response) => {
 export const post = [async (req: Request, res: Response) => {
   console.log('formAdd',req.body.form_data);
   try {
-    const newUser = await db1.mst_application.create({
+    const tr_project = await db1.tr_project.create({
       data: req.body.form_data,
     });
     
-    return res.status(201).json(newUser);
+    return res.status(201).json({
+      status: true,
+      data:tr_project
+    });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: error });
