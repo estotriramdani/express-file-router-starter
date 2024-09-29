@@ -99,7 +99,7 @@ function errorHandle(res, message, code) {
     });
 }
 
-module.exports = {
+export default {
     ok,
     error,
     badRequest,
