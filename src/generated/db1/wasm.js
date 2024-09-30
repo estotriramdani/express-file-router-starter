@@ -255,7 +255,6 @@ exports.Prisma.Tr_projectScalarFieldEnum = {
   group_id: 'group_id',
   plan_start_date: 'plan_start_date',
   plan_end_date: 'plan_end_date',
-  plan_end_date: 'plan_end_date',
   real_start_date: 'real_start_date',
   real_end_date: 'real_end_date',
   expected_completion: 'expected_completion',
@@ -329,7 +328,6 @@ exports.Prisma.Tr_project_taskScalarFieldEnum = {
   real_start_date: 'real_start_date',
   real_end_date: 'real_end_date',
   plan_duration: 'plan_duration',
-  plan_duration: 'plan_duration',
   real_duration: 'real_duration',
   percent_done: 'percent_done',
   cost: 'cost',
@@ -339,7 +337,8 @@ exports.Prisma.Tr_project_taskScalarFieldEnum = {
   task_category: 'task_category',
   is_deleted: 'is_deleted',
   parent_id: 'parent_id',
-  pic: 'pic'
+  pic: 'pic',
+  status: 'status'
 };
 
 exports.Prisma.Tr_project_teamScalarFieldEnum = {
@@ -370,9 +369,6 @@ exports.Prisma.Tr_requestScalarFieldEnum = {
   issue_description: 'issue_description',
   business_impact: 'business_impact',
   created_at: 'created_at',
-  created_by: 'created_by',
-  impact: 'impact',
-  priority: 'priority'
   created_by: 'created_by',
   impact: 'impact',
   priority: 'priority'

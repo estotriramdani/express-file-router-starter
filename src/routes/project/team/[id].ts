@@ -10,6 +10,13 @@ export const get =[ async (req: Request, res: Response) => {
       project_id: parseInt(req.params.id) as number,
       is_deleted: false,
     },
+    include: {
+      mst_authorization: {
+        include: {
+          mst_manpower_cost: true,
+        }
+      }
+    }
   });
 
   return res.json({data});

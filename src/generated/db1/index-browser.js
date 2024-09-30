@@ -337,7 +337,8 @@ exports.Prisma.Tr_project_taskScalarFieldEnum = {
   task_category: 'task_category',
   is_deleted: 'is_deleted',
   parent_id: 'parent_id',
-  pic: 'pic'
+  pic: 'pic',
+  status: 'status'
 };
 
 exports.Prisma.Tr_project_teamScalarFieldEnum = {
