@@ -1,9 +1,0 @@
-node_modules
-# Keep environment variables out of version control
-.env
-public
-src/generated
-
-prisma/schema1.prisma
-prisma/schema2.prisma
-prisma/schema3.prisma
