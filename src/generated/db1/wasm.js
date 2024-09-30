@@ -231,6 +231,7 @@ exports.Prisma.Tr_projectScalarFieldEnum = {
   id: 'id',
   request_id: 'request_id',
   application_id: 'application_id',
+  project_name: 'project_name',
   survey_id: 'survey_id',
   project_code: 'project_code',
   background: 'background',

@@ -12990,6 +12990,7 @@ export namespace Prisma {
     id: number | null
     request_id: number | null
     application_id: number | null
+    project_name: string | null
     survey_id: number | null
     project_code: string | null
     background: string | null
@@ -13012,6 +13013,7 @@ export namespace Prisma {
     id: number | null
     request_id: number | null
     application_id: number | null
+    project_name: string | null
     survey_id: number | null
     project_code: string | null
     background: string | null
@@ -13034,6 +13036,7 @@ export namespace Prisma {
     id: number
     request_id: number
     application_id: number
+    project_name: number
     survey_id: number
     project_code: number
     background: number
@@ -13074,6 +13077,7 @@ export namespace Prisma {
     id?: true
     request_id?: true
     application_id?: true
+    project_name?: true
     survey_id?: true
     project_code?: true
     background?: true
@@ -13096,6 +13100,7 @@ export namespace Prisma {
     id?: true
     request_id?: true
     application_id?: true
+    project_name?: true
     survey_id?: true
     project_code?: true
     background?: true
@@ -13118,6 +13123,7 @@ export namespace Prisma {
     id?: true
     request_id?: true
     application_id?: true
+    project_name?: true
     survey_id?: true
     project_code?: true
     background?: true
@@ -13227,6 +13233,7 @@ export namespace Prisma {
     id: number
     request_id: number | null
     application_id: number | null
+    project_name: string | null
     survey_id: number | null
     project_code: string | null
     background: string | null
@@ -13268,6 +13275,7 @@ export namespace Prisma {
     id?: boolean
     request_id?: boolean
     application_id?: boolean
+    project_name?: boolean
     survey_id?: boolean
     project_code?: boolean
     background?: boolean
@@ -13292,6 +13300,7 @@ export namespace Prisma {
     id?: boolean
     request_id?: boolean
     application_id?: boolean
+    project_name?: boolean
     survey_id?: boolean
     project_code?: boolean
     background?: boolean
@@ -13323,6 +13332,7 @@ export namespace Prisma {
       id: number
       request_id: number | null
       application_id: number | null
+      project_name: string | null
       survey_id: number | null
       project_code: string | null
       background: string | null
@@ -13712,6 +13722,7 @@ export namespace Prisma {
     readonly id: FieldRef<"tr_project", 'Int'>
     readonly request_id: FieldRef<"tr_project", 'Int'>
     readonly application_id: FieldRef<"tr_project", 'Int'>
+    readonly project_name: FieldRef<"tr_project", 'String'>
     readonly survey_id: FieldRef<"tr_project", 'Int'>
     readonly project_code: FieldRef<"tr_project", 'String'>
     readonly background: FieldRef<"tr_project", 'String'>
@@ -23442,6 +23453,7 @@ export namespace Prisma {
     id: 'id',
     request_id: 'request_id',
     application_id: 'application_id',
+    project_name: 'project_name',
     survey_id: 'survey_id',
     project_code: 'project_code',
     background: 'background',
@@ -24403,6 +24415,7 @@ export namespace Prisma {
     id?: IntFilter<"tr_project"> | number
     request_id?: IntNullableFilter<"tr_project"> | number | null
     application_id?: IntNullableFilter<"tr_project"> | number | null
+    project_name?: StringNullableFilter<"tr_project"> | string | null
     survey_id?: IntNullableFilter<"tr_project"> | number | null
     project_code?: StringNullableFilter<"tr_project"> | string | null
     background?: StringNullableFilter<"tr_project"> | string | null
@@ -24426,6 +24439,7 @@ export namespace Prisma {
     id?: SortOrder
     request_id?: SortOrderInput | SortOrder
     application_id?: SortOrderInput | SortOrder
+    project_name?: SortOrderInput | SortOrder
     survey_id?: SortOrderInput | SortOrder
     project_code?: SortOrderInput | SortOrder
     background?: SortOrderInput | SortOrder
@@ -24452,6 +24466,7 @@ export namespace Prisma {
     NOT?: tr_projectWhereInput | tr_projectWhereInput[]
     request_id?: IntNullableFilter<"tr_project"> | number | null
     application_id?: IntNullableFilter<"tr_project"> | number | null
+    project_name?: StringNullableFilter<"tr_project"> | string | null
     survey_id?: IntNullableFilter<"tr_project"> | number | null
     project_code?: StringNullableFilter<"tr_project"> | string | null
     background?: StringNullableFilter<"tr_project"> | string | null
@@ -24475,6 +24490,7 @@ export namespace Prisma {
     id?: SortOrder
     request_id?: SortOrderInput | SortOrder
     application_id?: SortOrderInput | SortOrder
+    project_name?: SortOrderInput | SortOrder
     survey_id?: SortOrderInput | SortOrder
     project_code?: SortOrderInput | SortOrder
     background?: SortOrderInput | SortOrder
@@ -24505,6 +24521,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"tr_project"> | number
     request_id?: IntNullableWithAggregatesFilter<"tr_project"> | number | null
     application_id?: IntNullableWithAggregatesFilter<"tr_project"> | number | null
+    project_name?: StringNullableWithAggregatesFilter<"tr_project"> | string | null
     survey_id?: IntNullableWithAggregatesFilter<"tr_project"> | number | null
     project_code?: StringNullableWithAggregatesFilter<"tr_project"> | string | null
     background?: StringNullableWithAggregatesFilter<"tr_project"> | string | null
@@ -25991,6 +26008,7 @@ export namespace Prisma {
   export type tr_projectCreateInput = {
     request_id?: number | null
     application_id?: number | null
+    project_name?: string | null
     survey_id?: number | null
     project_code?: string | null
     background?: string | null
@@ -26013,6 +26031,7 @@ export namespace Prisma {
     id?: number
     request_id?: number | null
     application_id?: number | null
+    project_name?: string | null
     survey_id?: number | null
     project_code?: string | null
     background?: string | null
@@ -26034,6 +26053,7 @@ export namespace Prisma {
   export type tr_projectUpdateInput = {
     request_id?: NullableIntFieldUpdateOperationsInput | number | null
     application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
     survey_id?: NullableIntFieldUpdateOperationsInput | number | null
     project_code?: NullableStringFieldUpdateOperationsInput | string | null
     background?: NullableStringFieldUpdateOperationsInput | string | null
@@ -26056,6 +26076,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     request_id?: NullableIntFieldUpdateOperationsInput | number | null
     application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
     survey_id?: NullableIntFieldUpdateOperationsInput | number | null
     project_code?: NullableStringFieldUpdateOperationsInput | string | null
     background?: NullableStringFieldUpdateOperationsInput | string | null
@@ -26078,6 +26099,7 @@ export namespace Prisma {
     id?: number
     request_id?: number | null
     application_id?: number | null
+    project_name?: string | null
     survey_id?: number | null
     project_code?: string | null
     background?: string | null
@@ -26099,6 +26121,7 @@ export namespace Prisma {
   export type tr_projectUpdateManyMutationInput = {
     request_id?: NullableIntFieldUpdateOperationsInput | number | null
     application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
     survey_id?: NullableIntFieldUpdateOperationsInput | number | null
     project_code?: NullableStringFieldUpdateOperationsInput | string | null
     background?: NullableStringFieldUpdateOperationsInput | string | null
@@ -26120,6 +26143,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     request_id?: NullableIntFieldUpdateOperationsInput | number | null
     application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
     survey_id?: NullableIntFieldUpdateOperationsInput | number | null
     project_code?: NullableStringFieldUpdateOperationsInput | string | null
     background?: NullableStringFieldUpdateOperationsInput | string | null
@@ -27557,6 +27581,7 @@ export namespace Prisma {
     id?: SortOrder
     request_id?: SortOrder
     application_id?: SortOrder
+    project_name?: SortOrder
     survey_id?: SortOrder
     project_code?: SortOrder
     background?: SortOrder
@@ -27587,6 +27612,7 @@ export namespace Prisma {
     id?: SortOrder
     request_id?: SortOrder
     application_id?: SortOrder
+    project_name?: SortOrder
     survey_id?: SortOrder
     project_code?: SortOrder
     background?: SortOrder
@@ -27609,6 +27635,7 @@ export namespace Prisma {
     id?: SortOrder
     request_id?: SortOrder
     application_id?: SortOrder
+    project_name?: SortOrder
     survey_id?: SortOrder
     project_code?: SortOrder
     background?: SortOrder
@@ -28978,6 +29005,7 @@ export namespace Prisma {
   export type tr_projectCreateWithoutMst_groupInput = {
     request_id?: number | null
     application_id?: number | null
+    project_name?: string | null
     survey_id?: number | null
     project_code?: string | null
     background?: string | null
@@ -28999,6 +29027,7 @@ export namespace Prisma {
     id?: number
     request_id?: number | null
     application_id?: number | null
+    project_name?: string | null
     survey_id?: number | null
     project_code?: string | null
     background?: string | null
@@ -29077,6 +29106,7 @@ export namespace Prisma {
     id?: IntFilter<"tr_project"> | number
     request_id?: IntNullableFilter<"tr_project"> | number | null
     application_id?: IntNullableFilter<"tr_project"> | number | null
+    project_name?: StringNullableFilter<"tr_project"> | string | null
     survey_id?: IntNullableFilter<"tr_project"> | number | null
     project_code?: StringNullableFilter<"tr_project"> | string | null
     background?: StringNullableFilter<"tr_project"> | string | null
@@ -29474,6 +29504,7 @@ export namespace Prisma {
     id?: number
     request_id?: number | null
     application_id?: number | null
+    project_name?: string | null
     survey_id?: number | null
     project_code?: string | null
     background?: string | null
@@ -29517,6 +29548,7 @@ export namespace Prisma {
   export type tr_projectUpdateWithoutMst_groupInput = {
     request_id?: NullableIntFieldUpdateOperationsInput | number | null
     application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
     survey_id?: NullableIntFieldUpdateOperationsInput | number | null
     project_code?: NullableStringFieldUpdateOperationsInput | string | null
     background?: NullableStringFieldUpdateOperationsInput | string | null
@@ -29538,6 +29570,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     request_id?: NullableIntFieldUpdateOperationsInput | number | null
     application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
     survey_id?: NullableIntFieldUpdateOperationsInput | number | null
     project_code?: NullableStringFieldUpdateOperationsInput | string | null
     background?: NullableStringFieldUpdateOperationsInput | string | null
@@ -29559,6 +29592,7 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     request_id?: NullableIntFieldUpdateOperationsInput | number | null
     application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
     survey_id?: NullableIntFieldUpdateOperationsInput | number | null
     project_code?: NullableStringFieldUpdateOperationsInput | string | null
     background?: NullableStringFieldUpdateOperationsInput | string | null

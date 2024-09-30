@@ -143,6 +143,7 @@ model tr_project {
   id                Int        @id @default(autoincrement())
   request_id        Int?
   application_id    Int?
+  project_name      String?    @db.VarChar(255)
   survey_id         Int?
   project_code      String?    @db.VarChar(255)
   background        String?    @db.LongText
