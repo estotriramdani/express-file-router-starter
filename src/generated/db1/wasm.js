@@ -263,7 +263,8 @@ exports.Prisma.Tr_projectScalarFieldEnum = {
   state: 'state',
   is_deleted: 'is_deleted',
   created_at: 'created_at',
-  created_by: 'created_by'
+  created_by: 'created_by',
+  type: 'type'
 };
 
 exports.Prisma.Tr_project_activityScalarFieldEnum = {

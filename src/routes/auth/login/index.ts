@@ -24,7 +24,7 @@ export const post = async (req: Request, res: Response) => {
           lg_name: true,
         },
         where: {
-          lg_nik: username
+          lg_nik: username.length === 4 ? username : username.substr(username.length - 4), 
         },
       });
     } else {
@@ -35,7 +35,7 @@ export const post = async (req: Request, res: Response) => {
           lg_name: true,
         },
         where: {
-          lg_nik: username,
+          lg_nik: username.length === 4 ? username : username.substr(username.length - 4), 
           lg_password: md5(password),
         },
       });
@@ -47,13 +47,13 @@ export const post = async (req: Request, res: Response) => {
     } else {
       const authorization = await db1.mst_authorization.findMany({
         where: {
-          employee_code: datas.lg_nik
+          employee_code: datas.lg_nik.length === 5 ? datas.lg_nik : "0" + datas.lg_nik,
         },
       });
 
       const profile = await db1.mst_authorization_profile.findMany({
         where: {
-          employee_code: datas.lg_nik
+          employee_code: datas.lg_nik.length === 5 ? datas.lg_nik : "0" + datas.lg_nik,
         },
         include: {
           mst_profile: true
@@ -62,7 +62,7 @@ export const post = async (req: Request, res: Response) => {
 
       const group = await db1.mst_authorization_usergroup.findMany({
         where: {
-          employee_code: datas.lg_nik
+          employee_code: datas.lg_nik.length === 5 ? datas.lg_nik : "0" + datas.lg_nik,
         },
         include: {
           mst_group: true
@@ -71,7 +71,7 @@ export const post = async (req: Request, res: Response) => {
 
       const employment = await db3.mst_employment.findFirst({
         where: {
-          employee_code: datas.lg_nik.length === 4 ? 0 + datas.lg_nik : datas.lg_nik
+          employee_code: datas.lg_nik.length === 5 ? datas.lg_nik : "0" + datas.lg_nik,
         },
       });
 
@@ -82,7 +82,7 @@ export const post = async (req: Request, res: Response) => {
           mst_profile: true
         },
         where: {
-          employee_code: datas.lg_nik,
+          employee_code: datas.lg_nik.length === 5 ? datas.lg_nik : "0" + datas.lg_nik,
           is_active: "1"
         },
       });

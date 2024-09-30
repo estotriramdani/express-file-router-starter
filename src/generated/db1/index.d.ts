@@ -15272,6 +15272,7 @@ export namespace Prisma {
     is_deleted: string | null
     created_at: Date | null
     created_by: string | null
+    type: string | null
   }
 
   export type Tr_projectMaxAggregateOutputType = {
@@ -15297,6 +15298,7 @@ export namespace Prisma {
     is_deleted: string | null
     created_at: Date | null
     created_by: string | null
+    type: string | null
   }
 
   export type Tr_projectCountAggregateOutputType = {
@@ -15322,6 +15324,7 @@ export namespace Prisma {
     is_deleted: number
     created_at: number
     created_by: number
+    type: number
     _all: number
   }
 
@@ -15367,6 +15370,7 @@ export namespace Prisma {
     is_deleted?: true
     created_at?: true
     created_by?: true
+    type?: true
   }
 
   export type Tr_projectMaxAggregateInputType = {
@@ -15392,6 +15396,7 @@ export namespace Prisma {
     is_deleted?: true
     created_at?: true
     created_by?: true
+    type?: true
   }
 
   export type Tr_projectCountAggregateInputType = {
@@ -15417,6 +15422,7 @@ export namespace Prisma {
     is_deleted?: true
     created_at?: true
     created_by?: true
+    type?: true
     _all?: true
   }
 
@@ -15529,6 +15535,7 @@ export namespace Prisma {
     is_deleted: string | null
     created_at: Date | null
     created_by: string | null
+    type: string | null
     _count: Tr_projectCountAggregateOutputType | null
     _avg: Tr_projectAvgAggregateOutputType | null
     _sum: Tr_projectSumAggregateOutputType | null
@@ -15573,6 +15580,7 @@ export namespace Prisma {
     is_deleted?: boolean
     created_at?: boolean
     created_by?: boolean
+    type?: boolean
     mst_group?: boolean | tr_project$mst_groupArgs<ExtArgs>
     mst_project_state?: boolean | tr_project$mst_project_stateArgs<ExtArgs>
     tr_project_task?: boolean | tr_project$tr_project_taskArgs<ExtArgs>
@@ -15603,6 +15611,7 @@ export namespace Prisma {
     is_deleted?: boolean
     created_at?: boolean
     created_by?: boolean
+    type?: boolean
   }
 
   export type tr_projectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -15642,6 +15651,7 @@ export namespace Prisma {
       is_deleted: string | null
       created_at: Date | null
       created_by: string | null
+      type: string | null
     }, ExtArgs["result"]["tr_project"]>
     composites: {}
   }
@@ -16036,6 +16046,7 @@ export namespace Prisma {
     readonly is_deleted: FieldRef<"tr_project", 'String'>
     readonly created_at: FieldRef<"tr_project", 'DateTime'>
     readonly created_by: FieldRef<"tr_project", 'String'>
+    readonly type: FieldRef<"tr_project", 'String'>
   }
     
 
@@ -20901,7 +20912,6 @@ export namespace Prisma {
     percent_done: number | null
     cost: number | null
     parent_id: number | null
-    pic: number | null
   }
 
   export type Tr_project_taskSumAggregateOutputType = {
@@ -20912,7 +20922,6 @@ export namespace Prisma {
     percent_done: number | null
     cost: number | null
     parent_id: number | null
-    pic: number | null
   }
 
   export type Tr_project_taskMinAggregateOutputType = {
@@ -20934,7 +20943,7 @@ export namespace Prisma {
     task_category: string | null
     is_deleted: boolean | null
     parent_id: number | null
-    pic: number | null
+    pic: string | null
     status: string | null
   }
 
@@ -20957,7 +20966,7 @@ export namespace Prisma {
     task_category: string | null
     is_deleted: boolean | null
     parent_id: number | null
-    pic: number | null
+    pic: string | null
     status: string | null
   }
 
@@ -20994,7 +21003,6 @@ export namespace Prisma {
     percent_done?: true
     cost?: true
     parent_id?: true
-    pic?: true
   }
 
   export type Tr_project_taskSumAggregateInputType = {
@@ -21005,7 +21013,6 @@ export namespace Prisma {
     percent_done?: true
     cost?: true
     parent_id?: true
-    pic?: true
   }
 
   export type Tr_project_taskMinAggregateInputType = {
@@ -21183,7 +21190,7 @@ export namespace Prisma {
     task_category: string | null
     is_deleted: boolean | null
     parent_id: number | null
-    pic: number | null
+    pic: string | null
     status: string | null
     _count: Tr_project_taskCountAggregateOutputType | null
     _avg: Tr_project_taskAvgAggregateOutputType | null
@@ -21293,7 +21300,7 @@ export namespace Prisma {
       task_category: string | null
       is_deleted: boolean | null
       parent_id: number | null
-      pic: number | null
+      pic: string | null
       status: string | null
     }, ExtArgs["result"]["tr_project_task"]>
     composites: {}
@@ -21686,7 +21693,7 @@ export namespace Prisma {
     readonly task_category: FieldRef<"tr_project_task", 'String'>
     readonly is_deleted: FieldRef<"tr_project_task", 'Boolean'>
     readonly parent_id: FieldRef<"tr_project_task", 'Int'>
-    readonly pic: FieldRef<"tr_project_task", 'Int'>
+    readonly pic: FieldRef<"tr_project_task", 'String'>
     readonly status: FieldRef<"tr_project_task", 'String'>
   }
     
@@ -26189,7 +26196,8 @@ export namespace Prisma {
     state: 'state',
     is_deleted: 'is_deleted',
     created_at: 'created_at',
-    created_by: 'created_by'
+    created_by: 'created_by',
+    type: 'type'
   };
 
   export type Tr_projectScalarFieldEnum = (typeof Tr_projectScalarFieldEnum)[keyof typeof Tr_projectScalarFieldEnum]
@@ -27274,6 +27282,7 @@ export namespace Prisma {
     is_deleted?: StringNullableFilter<"tr_project"> | string | null
     created_at?: DateTimeNullableFilter<"tr_project"> | Date | string | null
     created_by?: StringNullableFilter<"tr_project"> | string | null
+    type?: StringNullableFilter<"tr_project"> | string | null
     mst_group?: XOR<Mst_groupNullableRelationFilter, mst_groupWhereInput> | null
     mst_project_state?: XOR<Mst_project_stateNullableRelationFilter, mst_project_stateWhereInput> | null
     tr_project_task?: Tr_project_taskListRelationFilter
@@ -27302,6 +27311,7 @@ export namespace Prisma {
     is_deleted?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    type?: SortOrderInput | SortOrder
     mst_group?: mst_groupOrderByWithRelationInput
     mst_project_state?: mst_project_stateOrderByWithRelationInput
     tr_project_task?: tr_project_taskOrderByRelationAggregateInput
@@ -27333,6 +27343,7 @@ export namespace Prisma {
     is_deleted?: StringNullableFilter<"tr_project"> | string | null
     created_at?: DateTimeNullableFilter<"tr_project"> | Date | string | null
     created_by?: StringNullableFilter<"tr_project"> | string | null
+    type?: StringNullableFilter<"tr_project"> | string | null
     mst_group?: XOR<Mst_groupNullableRelationFilter, mst_groupWhereInput> | null
     mst_project_state?: XOR<Mst_project_stateNullableRelationFilter, mst_project_stateWhereInput> | null
     tr_project_task?: Tr_project_taskListRelationFilter
@@ -27361,6 +27372,7 @@ export namespace Prisma {
     is_deleted?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    type?: SortOrderInput | SortOrder
     _count?: tr_projectCountOrderByAggregateInput
     _avg?: tr_projectAvgOrderByAggregateInput
     _max?: tr_projectMaxOrderByAggregateInput
@@ -27394,6 +27406,7 @@ export namespace Prisma {
     is_deleted?: StringNullableWithAggregatesFilter<"tr_project"> | string | null
     created_at?: DateTimeNullableWithAggregatesFilter<"tr_project"> | Date | string | null
     created_by?: StringNullableWithAggregatesFilter<"tr_project"> | string | null
+    type?: StringNullableWithAggregatesFilter<"tr_project"> | string | null
   }
 
   export type tr_project_activityWhereInput = {
@@ -27748,7 +27761,7 @@ export namespace Prisma {
     task_category?: StringNullableFilter<"tr_project_task"> | string | null
     is_deleted?: BoolNullableFilter<"tr_project_task"> | boolean | null
     parent_id?: IntNullableFilter<"tr_project_task"> | number | null
-    pic?: IntNullableFilter<"tr_project_task"> | number | null
+    pic?: StringNullableFilter<"tr_project_task"> | string | null
     status?: StringNullableFilter<"tr_project_task"> | string | null
     tr_project?: XOR<Tr_projectNullableRelationFilter, tr_projectWhereInput> | null
     tr_project_task?: XOR<Tr_project_taskNullableRelationFilter, tr_project_taskWhereInput> | null
@@ -27805,7 +27818,7 @@ export namespace Prisma {
     task_category?: StringNullableFilter<"tr_project_task"> | string | null
     is_deleted?: BoolNullableFilter<"tr_project_task"> | boolean | null
     parent_id?: IntNullableFilter<"tr_project_task"> | number | null
-    pic?: IntNullableFilter<"tr_project_task"> | number | null
+    pic?: StringNullableFilter<"tr_project_task"> | string | null
     status?: StringNullableFilter<"tr_project_task"> | string | null
     tr_project?: XOR<Tr_projectNullableRelationFilter, tr_projectWhereInput> | null
     tr_project_task?: XOR<Tr_project_taskNullableRelationFilter, tr_project_taskWhereInput> | null
@@ -27863,7 +27876,7 @@ export namespace Prisma {
     task_category?: StringNullableWithAggregatesFilter<"tr_project_task"> | string | null
     is_deleted?: BoolNullableWithAggregatesFilter<"tr_project_task"> | boolean | null
     parent_id?: IntNullableWithAggregatesFilter<"tr_project_task"> | number | null
-    pic?: IntNullableWithAggregatesFilter<"tr_project_task"> | number | null
+    pic?: StringNullableWithAggregatesFilter<"tr_project_task"> | string | null
     status?: StringNullableWithAggregatesFilter<"tr_project_task"> | string | null
   }
 
@@ -29073,6 +29086,7 @@ export namespace Prisma {
     is_deleted?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    type?: string | null
     mst_group?: mst_groupCreateNestedOneWithoutTr_projectInput
     mst_project_state?: mst_project_stateCreateNestedOneWithoutTr_projectInput
     tr_project_task?: tr_project_taskCreateNestedManyWithoutTr_projectInput
@@ -29101,6 +29115,7 @@ export namespace Prisma {
     is_deleted?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    type?: string | null
     tr_project_task?: tr_project_taskUncheckedCreateNestedManyWithoutTr_projectInput
   }
 
@@ -29124,6 +29139,7 @@ export namespace Prisma {
     is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
     mst_group?: mst_groupUpdateOneWithoutTr_projectNestedInput
     mst_project_state?: mst_project_stateUpdateOneWithoutTr_projectNestedInput
     tr_project_task?: tr_project_taskUpdateManyWithoutTr_projectNestedInput
@@ -29152,6 +29168,7 @@ export namespace Prisma {
     is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
     tr_project_task?: tr_project_taskUncheckedUpdateManyWithoutTr_projectNestedInput
   }
 
@@ -29178,6 +29195,7 @@ export namespace Prisma {
     is_deleted?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    type?: string | null
   }
 
   export type tr_projectUpdateManyMutationInput = {
@@ -29200,6 +29218,7 @@ export namespace Prisma {
     is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type tr_projectUncheckedUpdateManyInput = {
@@ -29225,6 +29244,7 @@ export namespace Prisma {
     is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type tr_project_activityCreateInput = {
@@ -29621,7 +29641,7 @@ export namespace Prisma {
     task_category?: string | null
     is_deleted?: boolean | null
     parent_id?: number | null
-    pic?: number | null
+    pic?: string | null
     status?: string | null
     other_tr_project_task?: tr_project_taskUncheckedCreateNestedManyWithoutTr_project_taskInput
   }
@@ -29668,7 +29688,7 @@ export namespace Prisma {
     task_category?: NullableStringFieldUpdateOperationsInput | string | null
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     parent_id?: NullableIntFieldUpdateOperationsInput | number | null
-    pic?: NullableIntFieldUpdateOperationsInput | number | null
+    pic?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     other_tr_project_task?: tr_project_taskUncheckedUpdateManyWithoutTr_project_taskNestedInput
   }
@@ -29692,7 +29712,7 @@ export namespace Prisma {
     task_category?: string | null
     is_deleted?: boolean | null
     parent_id?: number | null
-    pic?: number | null
+    pic?: string | null
     status?: string | null
   }
 
@@ -29734,7 +29754,7 @@ export namespace Prisma {
     task_category?: NullableStringFieldUpdateOperationsInput | string | null
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     parent_id?: NullableIntFieldUpdateOperationsInput | number | null
-    pic?: NullableIntFieldUpdateOperationsInput | number | null
+    pic?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -30880,6 +30900,7 @@ export namespace Prisma {
     is_deleted?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
+    type?: SortOrder
   }
 
   export type tr_projectAvgOrderByAggregateInput = {
@@ -30914,6 +30935,7 @@ export namespace Prisma {
     is_deleted?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
+    type?: SortOrder
   }
 
   export type tr_projectMinOrderByAggregateInput = {
@@ -30939,6 +30961,7 @@ export namespace Prisma {
     is_deleted?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
+    type?: SortOrder
   }
 
   export type tr_projectSumOrderByAggregateInput = {
@@ -31202,7 +31225,6 @@ export namespace Prisma {
     percent_done?: SortOrder
     cost?: SortOrder
     parent_id?: SortOrder
-    pic?: SortOrder
   }
 
   export type tr_project_taskMaxOrderByAggregateInput = {
@@ -31259,7 +31281,6 @@ export namespace Prisma {
     percent_done?: SortOrder
     cost?: SortOrder
     parent_id?: SortOrder
-    pic?: SortOrder
   }
 
   export type tr_project_teamCountOrderByAggregateInput = {
@@ -32639,7 +32660,7 @@ export namespace Prisma {
     task_category?: StringNullableFilter<"tr_project_task"> | string | null
     is_deleted?: BoolNullableFilter<"tr_project_task"> | boolean | null
     parent_id?: IntNullableFilter<"tr_project_task"> | number | null
-    pic?: IntNullableFilter<"tr_project_task"> | number | null
+    pic?: StringNullableFilter<"tr_project_task"> | string | null
     status?: StringNullableFilter<"tr_project_task"> | string | null
   }
 
@@ -32893,6 +32914,7 @@ export namespace Prisma {
     is_deleted?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    type?: string | null
     mst_project_state?: mst_project_stateCreateNestedOneWithoutTr_projectInput
     tr_project_task?: tr_project_taskCreateNestedManyWithoutTr_projectInput
   }
@@ -32919,6 +32941,7 @@ export namespace Prisma {
     is_deleted?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    type?: string | null
     tr_project_task?: tr_project_taskUncheckedCreateNestedManyWithoutTr_projectInput
   }
 
@@ -33002,6 +33025,7 @@ export namespace Prisma {
     is_deleted?: StringNullableFilter<"tr_project"> | string | null
     created_at?: DateTimeNullableFilter<"tr_project"> | Date | string | null
     created_by?: StringNullableFilter<"tr_project"> | string | null
+    type?: StringNullableFilter<"tr_project"> | string | null
   }
 
   export type mst_authorizationCreateWithoutMst_manpower_costInput = {
@@ -33183,6 +33207,7 @@ export namespace Prisma {
     is_deleted?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    type?: string | null
     mst_group?: mst_groupCreateNestedOneWithoutTr_projectInput
     tr_project_task?: tr_project_taskCreateNestedManyWithoutTr_projectInput
   }
@@ -33209,6 +33234,7 @@ export namespace Prisma {
     is_deleted?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    type?: string | null
     tr_project_task?: tr_project_taskUncheckedCreateNestedManyWithoutTr_projectInput
   }
 
@@ -33322,7 +33348,7 @@ export namespace Prisma {
     task_category?: string | null
     is_deleted?: boolean | null
     parent_id?: number | null
-    pic?: number | null
+    pic?: string | null
     status?: string | null
     other_tr_project_task?: tr_project_taskUncheckedCreateNestedManyWithoutTr_project_taskInput
   }
@@ -33429,6 +33455,7 @@ export namespace Prisma {
     is_deleted?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    type?: string | null
     mst_group?: mst_groupCreateNestedOneWithoutTr_projectInput
     mst_project_state?: mst_project_stateCreateNestedOneWithoutTr_projectInput
   }
@@ -33456,6 +33483,7 @@ export namespace Prisma {
     is_deleted?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    type?: string | null
   }
 
   export type tr_projectCreateOrConnectWithoutTr_project_taskInput = {
@@ -33504,7 +33532,7 @@ export namespace Prisma {
     task_category?: string | null
     is_deleted?: boolean | null
     parent_id?: number | null
-    pic?: number | null
+    pic?: string | null
     status?: string | null
   }
 
@@ -33553,7 +33581,7 @@ export namespace Prisma {
     created_by?: string | null
     task_category?: string | null
     is_deleted?: boolean | null
-    pic?: number | null
+    pic?: string | null
     status?: string | null
     other_tr_project_task?: tr_project_taskUncheckedCreateNestedManyWithoutTr_project_taskInput
   }
@@ -33631,6 +33659,7 @@ export namespace Prisma {
     is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
     mst_group?: mst_groupUpdateOneWithoutTr_projectNestedInput
     mst_project_state?: mst_project_stateUpdateOneWithoutTr_projectNestedInput
   }
@@ -33658,6 +33687,7 @@ export namespace Prisma {
     is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type tr_project_taskUpsertWithoutOther_tr_project_taskInput = {
@@ -33712,7 +33742,7 @@ export namespace Prisma {
     task_category?: NullableStringFieldUpdateOperationsInput | string | null
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     parent_id?: NullableIntFieldUpdateOperationsInput | number | null
-    pic?: NullableIntFieldUpdateOperationsInput | number | null
+    pic?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -34216,6 +34246,7 @@ export namespace Prisma {
     is_deleted?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    type?: string | null
   }
 
   export type mst_authorization_usergroupUpdateWithoutMst_groupInput = {
@@ -34261,6 +34292,7 @@ export namespace Prisma {
     is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
     mst_project_state?: mst_project_stateUpdateOneWithoutTr_projectNestedInput
     tr_project_task?: tr_project_taskUpdateManyWithoutTr_projectNestedInput
   }
@@ -34287,6 +34319,7 @@ export namespace Prisma {
     is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
     tr_project_task?: tr_project_taskUncheckedUpdateManyWithoutTr_projectNestedInput
   }
 
@@ -34312,6 +34345,7 @@ export namespace Prisma {
     is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type mst_authorizationCreateManyMst_manpower_costInput = {
@@ -34469,6 +34503,7 @@ export namespace Prisma {
     is_deleted?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    type?: string | null
   }
 
   export type tr_projectUpdateWithoutMst_project_stateInput = {
@@ -34491,6 +34526,7 @@ export namespace Prisma {
     is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
     mst_group?: mst_groupUpdateOneWithoutTr_projectNestedInput
     tr_project_task?: tr_project_taskUpdateManyWithoutTr_projectNestedInput
   }
@@ -34517,6 +34553,7 @@ export namespace Prisma {
     is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
     tr_project_task?: tr_project_taskUncheckedUpdateManyWithoutTr_projectNestedInput
   }
 
@@ -34542,6 +34579,7 @@ export namespace Prisma {
     is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type tr_project_taskCreateManyTr_projectInput = {
@@ -34562,7 +34600,7 @@ export namespace Prisma {
     task_category?: string | null
     is_deleted?: boolean | null
     parent_id?: number | null
-    pic?: number | null
+    pic?: string | null
     status?: string | null
   }
 
@@ -34606,7 +34644,7 @@ export namespace Prisma {
     task_category?: NullableStringFieldUpdateOperationsInput | string | null
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     parent_id?: NullableIntFieldUpdateOperationsInput | number | null
-    pic?: NullableIntFieldUpdateOperationsInput | number | null
+    pic?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     other_tr_project_task?: tr_project_taskUncheckedUpdateManyWithoutTr_project_taskNestedInput
   }
@@ -34629,7 +34667,7 @@ export namespace Prisma {
     task_category?: NullableStringFieldUpdateOperationsInput | string | null
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     parent_id?: NullableIntFieldUpdateOperationsInput | number | null
-    pic?: NullableIntFieldUpdateOperationsInput | number | null
+    pic?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
@@ -34651,7 +34689,7 @@ export namespace Prisma {
     created_by?: string | null
     task_category?: string | null
     is_deleted?: boolean | null
-    pic?: number | null
+    pic?: string | null
     status?: string | null
   }
 
@@ -34695,7 +34733,7 @@ export namespace Prisma {
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     task_category?: NullableStringFieldUpdateOperationsInput | string | null
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    pic?: NullableIntFieldUpdateOperationsInput | number | null
+    pic?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
     other_tr_project_task?: tr_project_taskUncheckedUpdateManyWithoutTr_project_taskNestedInput
   }
@@ -34718,7 +34756,7 @@ export namespace Prisma {
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     task_category?: NullableStringFieldUpdateOperationsInput | string | null
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    pic?: NullableIntFieldUpdateOperationsInput | number | null
+    pic?: NullableStringFieldUpdateOperationsInput | string | null
     status?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
