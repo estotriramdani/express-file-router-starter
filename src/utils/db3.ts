@@ -1,3 +1,3 @@
-import { PrismaClient as  PrismaClient2} from "../generated/db3";
+import { PrismaClient as  PrismaClient3} from "../generated/db3";
 
-export const db3 = new PrismaClient2();
+export const db3 = new PrismaClient3();
