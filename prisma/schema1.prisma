@@ -257,7 +257,8 @@ model tr_project_task {
   real_end_date         DateTime?          @db.DateTime(0)
   plan_duration         Int?
   real_duration         Int?
-  percent_done          Int?
+  percent_done          Float?
+  auto_calculated       Boolean?
   cost                  Float?
   task_type             String?            @db.VarChar(255)
   created_at            DateTime?          @default(now()) @db.Timestamp(0)

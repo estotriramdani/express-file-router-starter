@@ -331,6 +331,7 @@ exports.Prisma.Tr_project_taskScalarFieldEnum = {
   plan_duration: 'plan_duration',
   real_duration: 'real_duration',
   percent_done: 'percent_done',
+  auto_calculated: 'auto_calculated',
   cost: 'cost',
   task_type: 'task_type',
   created_at: 'created_at',
