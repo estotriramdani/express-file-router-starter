@@ -8,7 +8,7 @@ export const post = [authenticateJWT, async (req: Request, res: Response) => {
 
   getEmployeeHierarchy(req.body.nik.length === 4 ? "0" + req.body.nik : req.body.nik)
     .then(data => {
-      console.log(data)
+      // console.log(data)
 
       const supervisorCodes = data.supervisor_codes
       const supervisorNames = data.supervisor_names

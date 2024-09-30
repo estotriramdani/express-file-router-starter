@@ -20936,6 +20936,7 @@ export namespace Prisma {
     plan_duration: number | null
     real_duration: number | null
     percent_done: number | null
+    auto_calculated: boolean | null
     cost: number | null
     task_type: string | null
     created_at: Date | null
@@ -20959,6 +20960,7 @@ export namespace Prisma {
     plan_duration: number | null
     real_duration: number | null
     percent_done: number | null
+    auto_calculated: boolean | null
     cost: number | null
     task_type: string | null
     created_at: Date | null
@@ -20982,6 +20984,7 @@ export namespace Prisma {
     plan_duration: number
     real_duration: number
     percent_done: number
+    auto_calculated: number
     cost: number
     task_type: number
     created_at: number
@@ -21027,6 +21030,7 @@ export namespace Prisma {
     plan_duration?: true
     real_duration?: true
     percent_done?: true
+    auto_calculated?: true
     cost?: true
     task_type?: true
     created_at?: true
@@ -21050,6 +21054,7 @@ export namespace Prisma {
     plan_duration?: true
     real_duration?: true
     percent_done?: true
+    auto_calculated?: true
     cost?: true
     task_type?: true
     created_at?: true
@@ -21073,6 +21078,7 @@ export namespace Prisma {
     plan_duration?: true
     real_duration?: true
     percent_done?: true
+    auto_calculated?: true
     cost?: true
     task_type?: true
     created_at?: true
@@ -21183,6 +21189,7 @@ export namespace Prisma {
     plan_duration: number | null
     real_duration: number | null
     percent_done: number | null
+    auto_calculated: boolean | null
     cost: number | null
     task_type: string | null
     created_at: Date | null
@@ -21225,6 +21232,7 @@ export namespace Prisma {
     plan_duration?: boolean
     real_duration?: boolean
     percent_done?: boolean
+    auto_calculated?: boolean
     cost?: boolean
     task_type?: boolean
     created_at?: boolean
@@ -21254,6 +21262,7 @@ export namespace Prisma {
     plan_duration?: boolean
     real_duration?: boolean
     percent_done?: boolean
+    auto_calculated?: boolean
     cost?: boolean
     task_type?: boolean
     created_at?: boolean
@@ -21293,6 +21302,7 @@ export namespace Prisma {
       plan_duration: number | null
       real_duration: number | null
       percent_done: number | null
+      auto_calculated: boolean | null
       cost: number | null
       task_type: string | null
       created_at: Date | null
@@ -21685,7 +21695,8 @@ export namespace Prisma {
     readonly real_end_date: FieldRef<"tr_project_task", 'DateTime'>
     readonly plan_duration: FieldRef<"tr_project_task", 'Int'>
     readonly real_duration: FieldRef<"tr_project_task", 'Int'>
-    readonly percent_done: FieldRef<"tr_project_task", 'Int'>
+    readonly percent_done: FieldRef<"tr_project_task", 'Float'>
+    readonly auto_calculated: FieldRef<"tr_project_task", 'Boolean'>
     readonly cost: FieldRef<"tr_project_task", 'Float'>
     readonly task_type: FieldRef<"tr_project_task", 'String'>
     readonly created_at: FieldRef<"tr_project_task", 'DateTime'>
@@ -26282,6 +26293,7 @@ export namespace Prisma {
     plan_duration: 'plan_duration',
     real_duration: 'real_duration',
     percent_done: 'percent_done',
+    auto_calculated: 'auto_calculated',
     cost: 'cost',
     task_type: 'task_type',
     created_at: 'created_at',
@@ -27753,7 +27765,8 @@ export namespace Prisma {
     real_end_date?: DateTimeNullableFilter<"tr_project_task"> | Date | string | null
     plan_duration?: IntNullableFilter<"tr_project_task"> | number | null
     real_duration?: IntNullableFilter<"tr_project_task"> | number | null
-    percent_done?: IntNullableFilter<"tr_project_task"> | number | null
+    percent_done?: FloatNullableFilter<"tr_project_task"> | number | null
+    auto_calculated?: BoolNullableFilter<"tr_project_task"> | boolean | null
     cost?: FloatNullableFilter<"tr_project_task"> | number | null
     task_type?: StringNullableFilter<"tr_project_task"> | string | null
     created_at?: DateTimeNullableFilter<"tr_project_task"> | Date | string | null
@@ -27781,6 +27794,7 @@ export namespace Prisma {
     plan_duration?: SortOrderInput | SortOrder
     real_duration?: SortOrderInput | SortOrder
     percent_done?: SortOrderInput | SortOrder
+    auto_calculated?: SortOrderInput | SortOrder
     cost?: SortOrderInput | SortOrder
     task_type?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
@@ -27810,7 +27824,8 @@ export namespace Prisma {
     real_end_date?: DateTimeNullableFilter<"tr_project_task"> | Date | string | null
     plan_duration?: IntNullableFilter<"tr_project_task"> | number | null
     real_duration?: IntNullableFilter<"tr_project_task"> | number | null
-    percent_done?: IntNullableFilter<"tr_project_task"> | number | null
+    percent_done?: FloatNullableFilter<"tr_project_task"> | number | null
+    auto_calculated?: BoolNullableFilter<"tr_project_task"> | boolean | null
     cost?: FloatNullableFilter<"tr_project_task"> | number | null
     task_type?: StringNullableFilter<"tr_project_task"> | string | null
     created_at?: DateTimeNullableFilter<"tr_project_task"> | Date | string | null
@@ -27838,6 +27853,7 @@ export namespace Prisma {
     plan_duration?: SortOrderInput | SortOrder
     real_duration?: SortOrderInput | SortOrder
     percent_done?: SortOrderInput | SortOrder
+    auto_calculated?: SortOrderInput | SortOrder
     cost?: SortOrderInput | SortOrder
     task_type?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
@@ -27868,7 +27884,8 @@ export namespace Prisma {
     real_end_date?: DateTimeNullableWithAggregatesFilter<"tr_project_task"> | Date | string | null
     plan_duration?: IntNullableWithAggregatesFilter<"tr_project_task"> | number | null
     real_duration?: IntNullableWithAggregatesFilter<"tr_project_task"> | number | null
-    percent_done?: IntNullableWithAggregatesFilter<"tr_project_task"> | number | null
+    percent_done?: FloatNullableWithAggregatesFilter<"tr_project_task"> | number | null
+    auto_calculated?: BoolNullableWithAggregatesFilter<"tr_project_task"> | boolean | null
     cost?: FloatNullableWithAggregatesFilter<"tr_project_task"> | number | null
     task_type?: StringNullableWithAggregatesFilter<"tr_project_task"> | string | null
     created_at?: DateTimeNullableWithAggregatesFilter<"tr_project_task"> | Date | string | null
@@ -29609,6 +29626,7 @@ export namespace Prisma {
     plan_duration?: number | null
     real_duration?: number | null
     percent_done?: number | null
+    auto_calculated?: boolean | null
     cost?: number | null
     task_type?: string | null
     created_at?: Date | string | null
@@ -29634,6 +29652,7 @@ export namespace Prisma {
     plan_duration?: number | null
     real_duration?: number | null
     percent_done?: number | null
+    auto_calculated?: boolean | null
     cost?: number | null
     task_type?: string | null
     created_at?: Date | string | null
@@ -29655,7 +29674,8 @@ export namespace Prisma {
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
     real_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableFloatFieldUpdateOperationsInput | number | null
+    auto_calculated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     task_type?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -29680,7 +29700,8 @@ export namespace Prisma {
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
     real_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableFloatFieldUpdateOperationsInput | number | null
+    auto_calculated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     task_type?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -29705,6 +29726,7 @@ export namespace Prisma {
     plan_duration?: number | null
     real_duration?: number | null
     percent_done?: number | null
+    auto_calculated?: boolean | null
     cost?: number | null
     task_type?: string | null
     created_at?: Date | string | null
@@ -29725,7 +29747,8 @@ export namespace Prisma {
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
     real_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableFloatFieldUpdateOperationsInput | number | null
+    auto_calculated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     task_type?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -29746,7 +29769,8 @@ export namespace Prisma {
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
     real_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableFloatFieldUpdateOperationsInput | number | null
+    auto_calculated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     task_type?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -31206,6 +31230,7 @@ export namespace Prisma {
     plan_duration?: SortOrder
     real_duration?: SortOrder
     percent_done?: SortOrder
+    auto_calculated?: SortOrder
     cost?: SortOrder
     task_type?: SortOrder
     created_at?: SortOrder
@@ -31239,6 +31264,7 @@ export namespace Prisma {
     plan_duration?: SortOrder
     real_duration?: SortOrder
     percent_done?: SortOrder
+    auto_calculated?: SortOrder
     cost?: SortOrder
     task_type?: SortOrder
     created_at?: SortOrder
@@ -31262,6 +31288,7 @@ export namespace Prisma {
     plan_duration?: SortOrder
     real_duration?: SortOrder
     percent_done?: SortOrder
+    auto_calculated?: SortOrder
     cost?: SortOrder
     task_type?: SortOrder
     created_at?: SortOrder
@@ -32470,6 +32497,7 @@ export namespace Prisma {
     plan_duration?: number | null
     real_duration?: number | null
     percent_done?: number | null
+    auto_calculated?: boolean | null
     cost?: number | null
     task_type?: string | null
     created_at?: Date | string | null
@@ -32494,6 +32522,7 @@ export namespace Prisma {
     plan_duration?: number | null
     real_duration?: number | null
     percent_done?: number | null
+    auto_calculated?: boolean | null
     cost?: number | null
     task_type?: string | null
     created_at?: Date | string | null
@@ -32652,7 +32681,8 @@ export namespace Prisma {
     real_end_date?: DateTimeNullableFilter<"tr_project_task"> | Date | string | null
     plan_duration?: IntNullableFilter<"tr_project_task"> | number | null
     real_duration?: IntNullableFilter<"tr_project_task"> | number | null
-    percent_done?: IntNullableFilter<"tr_project_task"> | number | null
+    percent_done?: FloatNullableFilter<"tr_project_task"> | number | null
+    auto_calculated?: BoolNullableFilter<"tr_project_task"> | boolean | null
     cost?: FloatNullableFilter<"tr_project_task"> | number | null
     task_type?: StringNullableFilter<"tr_project_task"> | string | null
     created_at?: DateTimeNullableFilter<"tr_project_task"> | Date | string | null
@@ -33318,6 +33348,7 @@ export namespace Prisma {
     plan_duration?: number | null
     real_duration?: number | null
     percent_done?: number | null
+    auto_calculated?: boolean | null
     cost?: number | null
     task_type?: string | null
     created_at?: Date | string | null
@@ -33341,6 +33372,7 @@ export namespace Prisma {
     plan_duration?: number | null
     real_duration?: number | null
     percent_done?: number | null
+    auto_calculated?: boolean | null
     cost?: number | null
     task_type?: string | null
     created_at?: Date | string | null
@@ -33501,6 +33533,7 @@ export namespace Prisma {
     plan_duration?: number | null
     real_duration?: number | null
     percent_done?: number | null
+    auto_calculated?: boolean | null
     cost?: number | null
     task_type?: string | null
     created_at?: Date | string | null
@@ -33525,6 +33558,7 @@ export namespace Prisma {
     plan_duration?: number | null
     real_duration?: number | null
     percent_done?: number | null
+    auto_calculated?: boolean | null
     cost?: number | null
     task_type?: string | null
     created_at?: Date | string | null
@@ -33551,6 +33585,7 @@ export namespace Prisma {
     plan_duration?: number | null
     real_duration?: number | null
     percent_done?: number | null
+    auto_calculated?: boolean | null
     cost?: number | null
     task_type?: string | null
     created_at?: Date | string | null
@@ -33575,6 +33610,7 @@ export namespace Prisma {
     plan_duration?: number | null
     real_duration?: number | null
     percent_done?: number | null
+    auto_calculated?: boolean | null
     cost?: number | null
     task_type?: string | null
     created_at?: Date | string | null
@@ -33710,7 +33746,8 @@ export namespace Prisma {
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
     real_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableFloatFieldUpdateOperationsInput | number | null
+    auto_calculated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     task_type?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -33734,7 +33771,8 @@ export namespace Prisma {
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
     real_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableFloatFieldUpdateOperationsInput | number | null
+    auto_calculated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     task_type?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -34057,6 +34095,7 @@ export namespace Prisma {
     plan_duration?: number | null
     real_duration?: number | null
     percent_done?: number | null
+    auto_calculated?: boolean | null
     cost?: number | null
     task_type?: string | null
     created_at?: Date | string | null
@@ -34084,7 +34123,8 @@ export namespace Prisma {
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
     real_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableFloatFieldUpdateOperationsInput | number | null
+    auto_calculated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     task_type?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -34108,7 +34148,8 @@ export namespace Prisma {
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
     real_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableFloatFieldUpdateOperationsInput | number | null
+    auto_calculated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     task_type?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -34131,7 +34172,8 @@ export namespace Prisma {
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
     real_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableFloatFieldUpdateOperationsInput | number | null
+    auto_calculated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     task_type?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -34593,6 +34635,7 @@ export namespace Prisma {
     plan_duration?: number | null
     real_duration?: number | null
     percent_done?: number | null
+    auto_calculated?: boolean | null
     cost?: number | null
     task_type?: string | null
     created_at?: Date | string | null
@@ -34613,7 +34656,8 @@ export namespace Prisma {
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
     real_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableFloatFieldUpdateOperationsInput | number | null
+    auto_calculated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     task_type?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -34636,7 +34680,8 @@ export namespace Prisma {
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
     real_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableFloatFieldUpdateOperationsInput | number | null
+    auto_calculated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     task_type?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -34659,7 +34704,8 @@ export namespace Prisma {
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
     real_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableFloatFieldUpdateOperationsInput | number | null
+    auto_calculated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     task_type?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -34683,6 +34729,7 @@ export namespace Prisma {
     plan_duration?: number | null
     real_duration?: number | null
     percent_done?: number | null
+    auto_calculated?: boolean | null
     cost?: number | null
     task_type?: string | null
     created_at?: Date | string | null
@@ -34702,7 +34749,8 @@ export namespace Prisma {
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
     real_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableFloatFieldUpdateOperationsInput | number | null
+    auto_calculated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     task_type?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -34726,7 +34774,8 @@ export namespace Prisma {
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
     real_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableFloatFieldUpdateOperationsInput | number | null
+    auto_calculated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     task_type?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -34749,7 +34798,8 @@ export namespace Prisma {
     real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     plan_duration?: NullableIntFieldUpdateOperationsInput | number | null
     real_duration?: NullableIntFieldUpdateOperationsInput | number | null
-    percent_done?: NullableIntFieldUpdateOperationsInput | number | null
+    percent_done?: NullableFloatFieldUpdateOperationsInput | number | null
+    auto_calculated?: NullableBoolFieldUpdateOperationsInput | boolean | null
     cost?: NullableFloatFieldUpdateOperationsInput | number | null
     task_type?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null

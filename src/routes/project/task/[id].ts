@@ -36,11 +36,28 @@ export const get =[ async (req: Request, res: Response) => {
 
 
 export const put = [authenticateJWT, async (req: Request, res: Response) => {
+  let {parent_id} = req.body
   try {
     const updateTask = await db1.tr_project_task.update({
       where: { id: parseInt(req.params.id) },
       data: req.body,
     });
+
+
+    ///if punya parent
+    if(parent_id) {
+      const data_sibling = await db1.tr_project_task.findMany({
+        where: { parent_id: parent_id },
+      });
+
+      let percentage_avg = data_sibling.reduce((acc, task) => acc + task.percent_done, 0) / data_sibling.length;
+
+      const updateTask = await db1.tr_project_task.update({
+        where: { id: parseInt(parent_id) },
+        data: {percent_done :percentage_avg },
+      });
+    }
+
     return res.json(updateTask);
   } catch (error) {
     return res.status(500).json({ error: "Failed to update task" });
