@@ -1,7 +1,7 @@
 import { Response, Request } from "express";
 import { db1 } from "../../utils/db1";
 import { authenticateJWT } from '../../middlewares/bearerToken';
-import { ok } from '../../tools/common';
+import { apiOk } from '../../tools/common';
 
 export const del = [authenticateJWT, async (req: Request, res: Response) => {
     try {
@@ -52,5 +52,5 @@ export const del = [authenticateJWT, async (req: Request, res: Response) => {
       },
       where: { id: parseInt(req.params.id) }
     })
-    ok(res, data);
+    apiOk(res, data);
   }];

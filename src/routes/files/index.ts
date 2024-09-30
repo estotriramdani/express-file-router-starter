@@ -57,13 +57,13 @@ export const post = async (req: CustomRequest, res: Response) => {
     const fileExt = path.extname(fileNameWithExt);
     const fileNameWithoutExt = path.basename(fileNameWithExt, fileExt);
 
-
     const updatedFile = await db1.tr_document.create({
       data: {
         name: fileNameWithoutExt,
         filename: fileNameWithExt,
         filepath: pathFile,
-        mime: req.files.file.mimetype
+        mime: req.files.file.mimetype,
+        filesize: file.size
       }
     });
 

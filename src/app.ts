@@ -16,7 +16,7 @@ const main = async () => {
   app.use(cors());
   app.use(fileUpload());
   app.use(morgan('dev')); // Add Morgan middleware
-
+  app.use(express.static(path.join(__dirname, '../public')));
 
   const router = express.Router();
 

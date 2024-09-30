@@ -1,7 +1,7 @@
 import { Response, Request } from "express";
 import { db1 } from "../../utils/db1";
 import { authenticateJWT } from '../../middlewares/bearerToken';
-import { ok } from '../../tools/common';
+import { apiOk } from '../../tools/common';
 
 
 export const get = [authenticateJWT,  async (req: Request, res: Response) => {
@@ -36,17 +36,20 @@ export const get = [authenticateJWT,  async (req: Request, res: Response) => {
       is_deleted: "0"
     }
   })
-  ok(res, data);
+  apiOk(res, data);
 }];
 
 export const post = [async (req: Request, res: Response) => {
   console.log('formAdd',req.body.form_data);
   try {
-    const newUser = await db1.mst_application.create({
+    const tr_project = await db1.tr_project.create({
       data: req.body.form_data,
     });
     
-    return res.status(201).json(newUser);
+    return res.status(201).json({
+      status: true,
+      data:tr_project
+    });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: error });

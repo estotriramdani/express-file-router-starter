@@ -31,12 +31,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 5.19.0
- * Query Engine version: 5fe21811a6ba0b952a3bc71400666511fe3b902f
+ * Prisma Client JS version: 5.19.1
+ * Query Engine version: 69d742ee20b815d88e17e54db4a2a7a3b30324e3
  */
 Prisma.prismaVersion = {
-  client: "5.19.0",
-  engine: "5fe21811a6ba0b952a3bc71400666511fe3b902f"
+  client: "5.19.1",
+  engine: "69d742ee20b815d88e17e54db4a2a7a3b30324e3"
 }
 
 Prisma.PrismaClientKnownRequestError = PrismaClientKnownRequestError;
@@ -76,7 +76,7 @@ Prisma.NullTypes = {
 }
 
 
-  const path = require('path')
+const path = require('path')
 
 /**
  * Enums
@@ -490,7 +490,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "D:\\Project\\PM\\project-management-api\\src\\generated\\db3",
+      "value": "C:\\Projects\\AIO\\project-management-api\\src\\generated\\db3",
       "fromEnvVar": null
     },
     "config": {
@@ -504,16 +504,16 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "D:\\Project\\PM\\project-management-api\\prisma\\schema3.prisma",
+    "sourceFilePath": "C:\\Projects\\AIO\\project-management-api\\prisma\\schema3.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../../.env"
   },
   "relativePath": "../../../prisma",
-  "clientVersion": "5.19.0",
-  "engineVersion": "5fe21811a6ba0b952a3bc71400666511fe3b902f",
+  "clientVersion": "5.19.1",
+  "engineVersion": "69d742ee20b815d88e17e54db4a2a7a3b30324e3",
   "datasourceNames": [
     "db"
   ],
@@ -540,7 +540,7 @@ if (!fs.existsSync(path.join(__dirname, 'schema.prisma'))) {
     "src/generated/db3",
     "generated/db3",
   ]
-  
+
   const alternativePath = alternativePaths.find((altPath) => {
     return fs.existsSync(path.join(process.cwd(), altPath, 'schema.prisma'))
   }) ?? alternativePaths[0]
@@ -557,8 +557,8 @@ config.engineWasm = undefined
 const { warnEnvConflicts } = require('./runtime/library.js')
 
 warnEnvConflicts({
-    rootEnvPath: config.relativeEnvPaths.rootEnvPath && path.resolve(config.dirname, config.relativeEnvPaths.rootEnvPath),
-    schemaEnvPath: config.relativeEnvPaths.schemaEnvPath && path.resolve(config.dirname, config.relativeEnvPaths.schemaEnvPath)
+  rootEnvPath: config.relativeEnvPaths.rootEnvPath && path.resolve(config.dirname, config.relativeEnvPaths.rootEnvPath),
+  schemaEnvPath: config.relativeEnvPaths.schemaEnvPath && path.resolve(config.dirname, config.relativeEnvPaths.schemaEnvPath)
 })
 
 const PrismaClient = getPrismaClient(config)
