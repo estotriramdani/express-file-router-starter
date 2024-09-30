@@ -1,7 +1,7 @@
 import { Response, Request } from "express";
 import { db1 } from "../../utils/db1";
 import { authenticateJWT } from '../../middlewares/bearerToken';
-import { ok } from '../../tools/common';
+import { apiOk } from '../../tools/common';
 
 
 export const get = [authenticateJWT,  async (req: Request, res: Response) => {
@@ -36,7 +36,7 @@ export const get = [authenticateJWT,  async (req: Request, res: Response) => {
       is_deleted: "0"
     }
   })
-  ok(res, data);
+  apiOk(res, data);
 }];
 
 export const post = [async (req: Request, res: Response) => {

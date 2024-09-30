@@ -1,4 +1,4 @@
-export const ok = (response: any, data: any) => {
+export const apiOk = (response: any, data: any) => {
     return response.status(200).json({
         success: true,
         status: 200,
@@ -6,7 +6,7 @@ export const ok = (response: any, data: any) => {
     });
 }
 
-function error(res, message, code) {
+function apiError(res, message, code) {
 
     return res.status(code).json({
         success: false,
@@ -100,8 +100,8 @@ function errorHandle(res, message, code) {
 }
 
 export default {
-    ok,
-    error,
+    apiOk,
+    apiError,
     badRequest,
     serverError,
     dataCreated,
