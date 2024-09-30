@@ -75,16 +75,31 @@ export const post = async (req: Request, res: Response) => {
         },
       });
 
+      const role = await db1.mst_authorization.findMany({
+        select: {
+          technician_level: true,
+          mst_entities: true,
+          mst_profile: true
+        },
+        where: {
+          employee_code: datas.lg_nik,
+          is_active: "1"
+        },
+      });
+
 
       let dataUser = {
-        nik: datas.lg_nik,
+        nik: employment.employee_code,
         name: datas.lg_name,
         email: datas.lg_email_aio,
         authorization: authorization,
         profile: profile,
         group: group,
         employment: employment,
-        department: employment.deparment_id
+        department: employment.deparment_id,
+        department_name: employment.department_desc,
+        active_profile: role.length > 0 ? role[0].mst_profile.profile_name : null,
+        active_entities: role.length > 0 ? role[0].mst_entities.entities_name : null,
       }
 
       const token = jwt.sign(dataUser, JWT_SECRET, {

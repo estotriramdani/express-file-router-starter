@@ -19,10 +19,15 @@ export const post = async (req: Request, res: Response) => {
   try {
     const request = await db1.tr_request.findMany({
       where: {
-        OR: [
-          ...(nik ? [{ creator: nik }] : []),
-          ...(department ? [{ department_code: department.toString() }] : [])
-        ]
+        status: {
+          not: 'Deleted'
+        },
+        ...(req.body.role ? {} : {
+          OR: [
+            ...(nik ? [{ creator: nik }] : []),
+            ...(department ? [{ department_code: department.toString() }] : [])
+          ]
+        })
       }
     });
 

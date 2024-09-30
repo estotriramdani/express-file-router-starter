@@ -13,11 +13,16 @@ export const get = [ authenticateJWT, async (req: Request, res: Response) => {
       employee_name : true,
       technician_level: true,
       mst_entities: true,
-      mst_profile: true
+      mst_profile: true,
+      mst_manpower_cost: {
+        select: {
+          hourly: true
+        }
+      }
     },
     where: {
       is_deleted : false
-    },
+    }
   });
 
   return res.json({ count, data:users });

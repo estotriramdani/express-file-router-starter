@@ -489,7 +489,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Project\\project-management-api\\src\\generated\\db3",
+      "value": "C:\\Projects\\AIO\\project-management-api\\src\\generated\\db3",
       "fromEnvVar": null
     },
     "config": {
@@ -503,7 +503,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Project\\project-management-api\\prisma\\schema3.prisma",
+    "sourceFilePath": "C:\\Projects\\AIO\\project-management-api\\prisma\\schema3.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
