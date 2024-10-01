@@ -8,6 +8,25 @@ export const post = [authenticateJWT, async (req: Request, res: Response) => {
   const { form_data } = req.body;
 
   try {
+
+    // calculate cost if plan_duration and pic exist
+    if (form_data.plan_duration && form_data.pic) {
+      const pic = await db1.mst_authorization.findUnique({
+        where: { employee_code: form_data.pic },
+        select: { employee_code: true },
+      });
+
+      const pic_hourly = await db1.mst_authorization.findUnique({
+        where: { employee_code: pic.employee_code },
+        select: { mst_manpower_cost: {
+          select: { hourly: true },
+        } },
+      });
+
+      form_data.cost = (form_data.plan_duration/3600) * pic_hourly.mst_manpower_cost.hourly;
+    }
+
+    // the actual insert
     const newTask = await db1.tr_project_task.create({
       data: {
         project_id: form_data.project_id,

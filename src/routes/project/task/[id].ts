@@ -37,13 +37,37 @@ export const get =[ async (req: Request, res: Response) => {
 
 export const put = [authenticateJWT, async (req: Request, res: Response) => {
   let {parent_id} = req.body
+  const form_data = req.body;
   try {
+
+    // calculate cost if plan_duration and pic exist
+    if (form_data.plan_duration && form_data.pic) {
+      const pic = await db1.mst_authorization.findUnique({
+        where: { employee_code: form_data.pic },
+        select: { employee_code: true },
+      });
+
+      const pic_hourly = await db1.mst_authorization.findUnique({
+        where: { employee_code: pic.employee_code },
+        select: { mst_manpower_cost: {
+          select: { hourly: true },
+        } },
+      });
+
+      form_data.cost = (form_data.plan_duration/3600) * pic_hourly.mst_manpower_cost.hourly;
+    }
+
+
+    //the actual update
     const updateTask = await db1.tr_project_task.update({
       where: { id: parseInt(req.params.id) },
       data: req.body,
     });
 
+    
 
+
+    
     ///if punya parent
     if(parent_id) {
       const data_sibling = await db1.tr_project_task.findMany({
@@ -60,6 +84,7 @@ export const put = [authenticateJWT, async (req: Request, res: Response) => {
 
     return res.json(updateTask);
   } catch (error) {
+    console.log(error)
     return res.status(500).json({ error: "Failed to update task" });
   }
 }];
