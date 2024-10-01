@@ -12,7 +12,7 @@ export const get = [async (req: Request, res: Response) => {
     }
   });
 
-  return res.json({ data: role });
+  return res.json({ status: true, data: role });
 }];
 
 export const post = [async (req: Request, res: Response) => {
