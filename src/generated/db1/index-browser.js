@@ -376,15 +376,6 @@ exports.Prisma.Tr_requestScalarFieldEnum = {
   priority: 'priority'
 };
 
-exports.Prisma.Tr_request_technicianScalarFieldEnum = {
-  id: 'id',
-  request_id: 'request_id',
-  employee_code: 'employee_code',
-  is_deleted: 'is_deleted',
-  created_at: 'created_at',
-  created_by: 'created_by'
-};
-
 exports.Prisma.Tr_request_validationScalarFieldEnum = {
   id: 'id',
   request_id: 'request_id',
@@ -396,6 +387,15 @@ exports.Prisma.Tr_request_validationScalarFieldEnum = {
   submission_date: 'submission_date',
   validation_date: 'validation_date',
   state: 'state'
+};
+
+exports.Prisma.Tr_request_technicianScalarFieldEnum = {
+  id: 'id',
+  request_id: 'request_id',
+  employee_code: 'employee_code',
+  is_deleted: 'is_deleted',
+  created_at: 'created_at',
+  created_by: 'created_by'
 };
 
 exports.Prisma.SortOrder = {
@@ -432,8 +432,8 @@ exports.Prisma.ModelName = {
   tr_project_task: 'tr_project_task',
   tr_project_team: 'tr_project_team',
   tr_request: 'tr_request',
-  tr_request_technician: 'tr_request_technician',
-  tr_request_validation: 'tr_request_validation'
+  tr_request_validation: 'tr_request_validation',
+  tr_request_technician: 'tr_request_technician'
 };
 
 /**

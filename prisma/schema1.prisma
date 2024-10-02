@@ -183,12 +183,15 @@ model tr_project {
   is_deleted          String?            @default("0") @db.VarChar(255)
   created_at          DateTime?          @db.DateTime(0)
   created_by          String?            @db.VarChar(255)
+  type                String?            @db.VarChar(255)
   mst_group           mst_group?         @relation(fields: [group_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_master_group")
   mst_project_state   mst_project_state? @relation(fields: [state], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_master_state")
+  tr_request          tr_request?        @relation(fields: [request_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "tr_project_ibfk_1")
   tr_project_task     tr_project_task[]
 
   @@index([group_id], map: "fk_master_group")
   @@index([state], map: "fk_master_state")
+  @@index([request_id], map: "request_id")
 }
 
 model tr_project_activity {
@@ -256,7 +259,8 @@ model tr_project_task {
   real_end_date         DateTime?          @db.DateTime(0)
   plan_duration         Int?
   real_duration         Int?
-  percent_done          Int?
+  percent_done          Float?
+  auto_calculated       Boolean?
   cost                  Float?
   task_type             String?            @db.VarChar(255)
   created_at            DateTime?          @default(now()) @db.Timestamp(0)
@@ -264,12 +268,12 @@ model tr_project_task {
   task_category         String?            @db.VarChar(50)
   is_deleted            Boolean?           @default(false)
   parent_id             Int?
-  pic                   Int?
+  pic                   String?            @db.VarChar(255)
   status                String?            @db.VarChar(50)
   tr_project            tr_project?        @relation(fields: [project_id], references: [id], onUpdate: SetNull, map: "tr_project_task_ibfk_1")
   tr_project_task       tr_project_task?   @relation("tr_project_taskTotr_project_task", fields: [parent_id], references: [id], onUpdate: SetNull, map: "tr_project_task_ibfk_2")
   other_tr_project_task tr_project_task[]  @relation("tr_project_taskTotr_project_task")
-  mst_authorization     mst_authorization? @relation(fields: [pic], references: [id], onUpdate: SetNull, map: "tr_project_task_ibfk_3")
+  mst_authorization     mst_authorization? @relation(fields: [pic], references: [employee_code], onUpdate: SetNull, map: "tr_project_task_ibfk_3")
 
   @@index([project_id], map: "project_id")
   @@index([is_deleted], map: "is_deleted")
@@ -314,6 +318,7 @@ model tr_request {
   created_by               String?                 @db.VarChar(255)
   impact                   String?                 @db.VarChar(255)
   priority                 String?                 @db.VarChar(255)
+  tr_project               tr_project[]
   tr_request_validation    tr_request_validation[]
 }
 

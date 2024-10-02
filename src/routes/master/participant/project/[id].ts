@@ -8,15 +8,14 @@ export const get = [async (req: Request, res: Response) => {
   const data = await db1.$queryRaw`
   SELECT
     a.*,
-    b.employee_name,
-    b.profile_pic 
+    b.category,
+    b.department_code,
+    c.cost
   FROM
-    tr_project_participant a
-    JOIN aio_employee.mst_employment b 
-    ON a.employee_code COLLATE utf8mb4_unicode_ci = b.employee_code COLLATE utf8mb4_unicode_ci
-  WHERE
-    a.project_id = ${parseInt(req.params.id)}
-    AND is_deleted = 0
+    tr_project a
+    JOIN tr_request b ON a.request_id = b.id
+    LEFT JOIN (SELECT SUM(cost) as cost, project_id FROM tr_project_task GROUP BY project_id) AS c ON c.project_id = a.id
+  WHERE b.department_code = ${parseInt(req.params.department_code)}
   `
   return res.json({ data });
 }];
