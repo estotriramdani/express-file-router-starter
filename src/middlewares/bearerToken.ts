@@ -14,7 +14,10 @@ export const authenticateJWT = (req: ExtendedRequest, res: Response, next: NextF
   }
 
   try {
-    jwt.verify(authHeader, SECRET_KEY, (err, decoded) => {
+    const splitted  = authHeader.split(' ');
+    const token = splitted?.[1];
+
+    jwt.verify(token || authHeader, SECRET_KEY, (err, decoded) => {
       if (err) {
         console.error('Token invalid:', err.message);
         res.status(400).json({
