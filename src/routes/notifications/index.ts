@@ -13,6 +13,10 @@ export const get = [
         employee_code: {
           endsWith: req?.user?.employment?.employee_code,
         },
+        is_read: false,
+      },
+      orderBy: {
+        created_at: 'desc',
       },
     });
     res.json({ status: true, data: data });

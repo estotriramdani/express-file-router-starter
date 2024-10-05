@@ -22,10 +22,22 @@ export const put = [
         return res.status(404).json({ status: false, message: 'Data not found' });
       }
 
-      const data = await db1.tr_notification.update({
+      await db1.tr_notification.update({
         where: { id: parseInt(id) },
         data: {
           is_read: true,
+        },
+      });
+
+      const data = await db1.tr_notification.findMany({
+        where: {
+          employee_code: {
+            endsWith: req?.user?.employment?.employee_code,
+          },
+          is_read: false,
+        },
+        orderBy: {
+          created_at: 'desc',
         },
       });
 
