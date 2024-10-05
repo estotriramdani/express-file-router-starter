@@ -347,3 +347,33 @@ model tr_request_technician {
   created_at    DateTime? @default(now()) @db.DateTime(0)
   created_by    String?   @db.VarChar(255)
 }
+
+model mst_project_flow {
+  id         Int       @id @default(autoincrement())
+  flow       String?   @db.VarChar(255)
+  desc       String?   @db.Text
+  pic        String?   @db.VarChar(255)
+  action     String?   @db.VarChar(255)
+  created_at DateTime? @default(now()) @db.DateTime(0)
+  created_by String?   @db.VarChar(255)
+}
+
+model tr_project_flow {
+  id         Int       @id @default(autoincrement())
+  project_id Int?
+  flow_id    Int?
+  status     Boolean?
+  updated_at DateTime? @db.DateTime(0)
+  updated_by String?   @db.VarChar(255)
+}
+
+model tr_notification {
+  id                Int       @id @default(autoincrement())
+  notification_type String?   @db.VarChar(255)
+  employee_code     String?   @db.VarChar(255)
+  message           String?   @db.VarChar(255)
+  action_url        String?   @db.VarChar(255)
+  is_read           Boolean?  @default(false)
+  created_at        DateTime? @default(now()) @db.DateTime(0)
+  created_by        String?   @db.VarChar(255)
+}
