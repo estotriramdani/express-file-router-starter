@@ -82,7 +82,8 @@ export const post = async (req: Request, res: Response) => {
       data: insertedValidators.map((validator) => ({
         notification_type: 'approval',
         employee_code: validator.user_id_validate,
-        message: `You have a new request to validate`,
+        title: `You have a new request to validate`,
+        message: `Ticket: ${title}.`,
         action_url: `${process.env.FE_URL}/request/detail?value=${urlEncodedValue}`,
         is_read: false,
         created_by: nik,
