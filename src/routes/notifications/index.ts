@@ -1,6 +1,6 @@
 import type { Response } from 'express';
-import { ExtendedRequest } from '../../../types/auth';
 import { authenticateJWT } from '@/middlewares/bearerToken';
+import { ExtendedRequest } from '@/types/auth';
 
 export const post = async (req: ExtendedRequest, res: Response) => {};
 

@@ -347,3 +347,21 @@ model tr_request_technician {
   created_at    DateTime? @default(now()) @db.DateTime(0)
   created_by    String?   @db.VarChar(255)
 }
+
+enum NotificationType {
+  INFO
+  WARNING
+  ERROR
+  APPROVAL
+}
+
+model tr_notification {
+  id            Int               @id @default(autoincrement())
+  type          NotificationType?
+  employee_code String?           @db.VarChar(255)
+  message       String?           @db.VarChar(255)
+  action_url    String?           @db.VarChar(255)
+  is_read       Boolean?          @default(false)
+  created_at    DateTime?         @default(now()) @db.DateTime(0)
+  created_by    String?           @db.VarChar(255)
+}

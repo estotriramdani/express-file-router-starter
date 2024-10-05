@@ -1,3 +1,5 @@
+import 'module-alias/register';
+
 import path from "path";
 import cors from "cors";
 import express, { json, urlencoded } from "express";
