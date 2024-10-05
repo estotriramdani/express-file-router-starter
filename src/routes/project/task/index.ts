@@ -35,6 +35,9 @@ export const post = [authenticateJWT, async (req: Request, res: Response) => {
         plan_start_date: moment(form_data.plan_start_date).toISOString(),
         plan_end_date: moment(form_data.plan_start_date).toISOString(),
         plan_duration: form_data.plan_duration,
+        real_start_date: moment(form_data.real_start_date).toISOString(),
+        real_end_date: moment(form_data.real_start_date).toISOString(),
+        real_duration: form_data.real_duration,
         percent_done: form_data.percent_done,
         cost: form_data.cost,
         task_type: form_data.task_type,
@@ -44,8 +47,6 @@ export const post = [authenticateJWT, async (req: Request, res: Response) => {
         pic: form_data.pic,
       }
     });
-
-    
     
     return res.status(201).json(newTask);
 

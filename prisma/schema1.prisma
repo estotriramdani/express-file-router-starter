@@ -187,6 +187,7 @@ model tr_project {
   mst_group           mst_group?         @relation(fields: [group_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_master_group")
   mst_project_state   mst_project_state? @relation(fields: [state], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_master_state")
   tr_request          tr_request?        @relation(fields: [request_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "tr_project_ibfk_1")
+  tr_project_flow     tr_project_flow[]
   tr_project_task     tr_project_task[]
 
   @@index([group_id], map: "fk_master_group")
@@ -346,4 +347,42 @@ model tr_request_technician {
   is_deleted    Boolean?  @default(false)
   created_at    DateTime? @default(now()) @db.DateTime(0)
   created_by    String?   @db.VarChar(255)
+}
+
+model mst_project_flow {
+  id              Int               @id @default(autoincrement())
+  flow            String?           @db.VarChar(255)
+  desc            String?           @db.Text
+  pic             String?           @db.VarChar(255)
+  action          String?           @db.VarChar(255)
+  icon            String?           @db.VarChar(255)
+  created_at      DateTime?         @default(now()) @db.DateTime(0)
+  created_by      String?           @db.VarChar(255)
+  tr_project_flow tr_project_flow[]
+}
+
+model tr_notification {
+  id                Int       @id @default(autoincrement())
+  notification_type String?   @db.VarChar(255)
+  employee_code     String?   @db.VarChar(255)
+  message           String?   @db.VarChar(255)
+  action_url        String?   @db.VarChar(255)
+  is_read           Boolean?  @default(false)
+  created_at        DateTime? @default(now()) @db.DateTime(0)
+  created_by        String?   @db.VarChar(255)
+  title             String?   @db.VarChar(255)
+}
+
+model tr_project_flow {
+  id               Int               @id @default(autoincrement())
+  project_id       Int?
+  flow_id          Int?
+  status           Boolean?
+  updated_at       DateTime?         @db.DateTime(0)
+  updated_by       String?           @db.VarChar(255)
+  mst_project_flow mst_project_flow? @relation(fields: [flow_id], references: [id], onUpdate: SetNull, map: "FK_flow")
+  tr_project       tr_project?       @relation(fields: [project_id], references: [id], onUpdate: SetNull, map: "FK_project")
+
+  @@index([flow_id], map: "FK_flow")
+  @@index([project_id], map: "FK_project")
 }
