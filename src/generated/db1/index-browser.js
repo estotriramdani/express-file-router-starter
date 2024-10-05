@@ -425,7 +425,8 @@ exports.Prisma.Tr_notificationScalarFieldEnum = {
   action_url: 'action_url',
   is_read: 'is_read',
   created_at: 'created_at',
-  created_by: 'created_by'
+  created_by: 'created_by',
+  title: 'title'
 };
 
 exports.Prisma.SortOrder = {
