@@ -1,12 +1,6 @@
 import { Response, Request } from "express";
-import { db1 } from "../../utils/db1";
-import { db2 } from "../../utils/db2";
-import { db3 } from "../../utils/db3";
-import jwt from "jsonwebtoken";
-import md5 from "md5";
 import moment from 'moment'
-
-const JWT_SECRET = process.env.JWT_SECRET || '';
+import { db1 } from "@/utils/db1";
 
 export const post = async (req: Request, res: Response) => {
   if (req.method !== "POST")
@@ -58,6 +52,24 @@ export const post = async (req: Request, res: Response) => {
 
     await db1.tr_request_validation.createMany({
       data: validationData
+    });
+
+    const insertedValidators = await db1.tr_request_validation.findMany({
+      where: {
+        request_id: idHeader,
+        status: "Open"
+      }
+    });
+
+    await db1.tr_notification.createMany({
+      data: insertedValidators.map((validator) => ({
+        notification_type: 'approval',
+        employee_code: validator.user_id_validate,
+        message: `You have a new request to validate`,
+        action_url: `${process.env.FE_URL}/request/detail?value=${idHeader}`,
+        is_read: false,
+        created_by: nik,
+      }))
     });
 
     return res.json({ status: true, data: 'Succeed' });
