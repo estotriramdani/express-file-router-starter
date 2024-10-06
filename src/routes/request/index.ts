@@ -1,6 +1,7 @@
 import { Response, Request } from 'express';
 import moment from 'moment';
 import { db1 } from '@/utils/db1';
+import { createNotification } from '@/services/notification';
 
 export const post = async (req: Request, res: Response) => {
   if (req.method !== 'POST')
@@ -78,17 +79,17 @@ export const post = async (req: Request, res: Response) => {
     const base64Value = Buffer.from(idHeader.toString()).toString('base64');
     const urlEncodedValue = encodeURIComponent(base64Value);
 
-    await db1.tr_notification.createMany({
-      data: insertedValidators.map((validator) => ({
-        notification_type: 'approval',
+    await createNotification(
+      insertedValidators.map((validator) => ({
+        notification_type: 'Need Action',
         employee_code: validator.user_id_validate,
-        title: `You have a new request to validate`,
-        message: `Ticket: ${title}.`,
+        message: `You have a new request to validate`,
+        title: `Ticket: ${title}.`,
         action_url: `${process.env.FE_URL}/request/detail?value=${urlEncodedValue}`,
         is_read: false,
         created_by: nik,
-      })),
-    });
+      }))
+    );
 
     return res.json({ status: true, data: 'Succeed' });
   } catch (error) {

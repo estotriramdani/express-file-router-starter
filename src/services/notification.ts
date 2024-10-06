@@ -5,6 +5,7 @@ interface NotificationPayload {
   title: string;
   message: string;
   employee_code: string;
+  notification_type?: 'Need Action' | 'Message';
 }
 
 export const createNotification = async (payload: NotificationPayload | NotificationPayload[]) => {

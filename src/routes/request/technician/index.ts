@@ -37,6 +37,7 @@ export const post = async (req: Request, res: Response) => {
       title: 'Ticket Technician',
       message: `You are being added as technician for request ID: ${id_header}`,
       employee_code: employee_code,
+      notification_type: 'Message',
     });
 
     return res.json({ status: true, data: tr_request_technician });
