@@ -40,12 +40,23 @@ export const get = [authenticateJWT,  async (req: Request, res: Response) => {
 }];
 
 export const post = [async (req: Request, res: Response) => {
-  console.log('formAdd',req.body.form_data);
   try {
     const tr_project = await db1.tr_project.create({
       data: req.body.form_data,
     });
+    const flows = await db1.mst_project_flow.findMany()
     
+    for(const item of flows){
+      await db1.tr_project_flow.create({
+        data: {
+          project_id: tr_project.id,
+          flow_id: item.id,
+          status: (item.id == 1 ? true:false),
+          updated_by: (item.id == 1 ? tr_project.created_by:null)
+        },
+      });
+    }
+
     return res.status(201).json({
       status: true,
       data:tr_project
