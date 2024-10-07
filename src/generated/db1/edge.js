@@ -414,7 +414,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\hachmad\\Project\\project-management\\project-management-api\\src\\generated\\db1",
+      "value": "C:\\Users\\mwafeeq\\Documents\\ITS Project\\Project Management\\project-management-api\\src\\generated\\db1",
       "fromEnvVar": null
     },
     "config": {
@@ -428,11 +428,11 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\hachmad\\Project\\project-management\\project-management-api\\prisma\\schema1.prisma",
+    "sourceFilePath": "C:\\Users\\mwafeeq\\Documents\\ITS Project\\Project Management\\project-management-api\\prisma\\schema1.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
+    "rootEnvPath": "../../../.env",
     "schemaEnvPath": "../../../.env"
   },
   "relativePath": "../../../prisma",
