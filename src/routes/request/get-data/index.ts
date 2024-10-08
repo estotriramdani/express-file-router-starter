@@ -1,12 +1,5 @@
 import { Response, Request } from "express";
-import { db1 } from "../../../utils/db1";
-import { db2 } from "../../../utils/db2";
-import { db3 } from "../../../utils/db3";
-import jwt from "jsonwebtoken";
-import md5 from "md5";
-import moment from 'moment'
-
-const JWT_SECRET = process.env.JWT_SECRET || '';
+import { db1 } from "@/utils/db1";
 
 export const post = async (req: Request, res: Response) => {
   if (req.method !== "POST")

@@ -1,6 +1,6 @@
-import { db1 } from "../../utils/db1";
+import { db1 } from "@/utils/db1";
 import { Response, Request } from "express";
-import { authenticateJWT } from '../../middlewares/bearerToken';
+import { authenticateJWT } from '@/middlewares/bearerToken';
 
 export const get =[ async (req: Request, res: Response) => {
   if (req.method !== "GET") return res.status(405);

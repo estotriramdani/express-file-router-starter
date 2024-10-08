@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
-import { db1 } from "../../utils/db1";
-import { authenticateJWT } from '../../middlewares/bearerToken';
-import { Prisma } from "@prisma/client";
+import { db1 } from "@/utils/db1";
+import { authenticateJWT } from '@/middlewares/bearerToken';
 
 export const post = [authenticateJWT, async (req: Request, res: Response) => {
   if (req.method !== "POST") return res.status(405).send("Method Not Allowed");

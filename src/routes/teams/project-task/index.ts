@@ -1,7 +1,5 @@
 import { Request, Response } from "express";
-import { db1 } from "../../../utils/db1";
-import { authenticateJWT } from '../../../middlewares/bearerToken';
-import { Prisma } from "@prisma/client";
+import { db1 } from "@/utils/db1";
 
 export const post = async (req: Request, res: Response) => {
     if (req.method !== "POST")
