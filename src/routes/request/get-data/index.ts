@@ -25,7 +25,7 @@ export const post = async (req: Request, res: Response) => {
         ...(req.body.role ? {} : {
           OR: [
             ...(nik ? [{ creator: nik }] : []),
-            ...(department ? [{ department_code: department.toString() }] : [])
+            ...(department ? [{ department_code: { contains: department.toString() } }] : [])
           ]
         })
       }
