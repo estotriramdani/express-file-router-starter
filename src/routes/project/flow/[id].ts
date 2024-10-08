@@ -111,7 +111,7 @@ export const get = [
 
     if (!project) return res.status(404).json({ message: 'Project not found' });
 
-    await projectApprovalFlow(project.id, data);
+    await projectApprovalFlow(project.request_id, data);
 
     const tasks = await db1.tr_project_task.findMany({
       where: {
