@@ -15,21 +15,18 @@ const projectApprovalFlow = async (request_id: number, data: ProjectFlowType[]) 
     throw new Error('Approval flow not found');
   }
 
+  if (data[approvalIndex].status) return;
+
   const validations = await db1.tr_request_validation.findMany({
     where: {
       request_id: request_id,
+      state: {
+        not: 'Approve',
+      },
     },
   });
 
-  let approvalStatus = true;
-
-  for (let i = 0; i < validations.length; i++) {
-    const element = validations[i];
-    if (element.state !== 'Approve') {
-      approvalStatus = false;
-      break;
-    }
-  }
+  let approvalStatus = validations.length === 0;
 
   if (approvalStatus) {
     await db1.tr_project_flow.update({
@@ -43,51 +40,57 @@ const projectApprovalFlow = async (request_id: number, data: ProjectFlowType[]) 
   }
 };
 
-const developmentFlow = async (tasks: tr_project_task[],  data: ProjectFlowType[]) => {
+const developmentFlow = async (tasks: tr_project_task[], data: ProjectFlowType[]) => {
   const developmentIndex = data.findIndex((item) => item.mst_project_flow.flow === 'Development');
 
-    if (!developmentIndex) {
-      throw new Error('Development flow not found');
-    }
-    
-    const projectPercentage = tasks.reduce((acc, curr) => {
-      return acc + curr.percent_done;
-    }, 0);
+  if (!developmentIndex) {
+    throw new Error('Development flow not found');
+  }
 
-    if (projectPercentage && projectPercentage > 0) {
-      await db1.tr_project_flow.update({
-        where: {
-          id: data[developmentIndex].id,
-        },
-        data: {
-          status: true,
-        },
-      });
-    }
-}
+  if (data[developmentIndex].status) return;
 
-const taskCalculationFlow = async (tasks: tr_project_task[],  data: ProjectFlowType[]) => {
-  const taskCalculationIndex = data.findIndex((item) => item.mst_project_flow.flow === 'Task Calculation');
+  const projectPercentage = tasks.reduce((acc, curr) => {
+    return acc + curr.percent_done;
+  }, 0);
 
-    if (!taskCalculationIndex) {
-      throw new Error('Task Calculation not found');
-    }
+  if (projectPercentage && projectPercentage > 0) {
+    await db1.tr_project_flow.update({
+      where: {
+        id: data[developmentIndex].id,
+      },
+      data: {
+        status: true,
+      },
+    });
+  }
+};
 
-    const projectCost = tasks.reduce((acc, curr) => {
-      return acc + curr.cost;
-    }, 0);
+const taskCalculationFlow = async (tasks: tr_project_task[], data: ProjectFlowType[]) => {
+  const taskCalculationIndex = data.findIndex(
+    (item) => item.mst_project_flow.flow === 'Task Calculation'
+  );
 
-    if (projectCost && projectCost > 0) {
-      await db1.tr_project_flow.update({
-        where: {
-          id: data[taskCalculationIndex].id,
-        },
-        data: {
-          status: true,
-        },
-      });
-    }
-}
+  if (!taskCalculationIndex) {
+    throw new Error('Task Calculation not found');
+  }
+
+  if (data[taskCalculationIndex].status) return;
+
+  const projectCost = tasks.reduce((acc, curr) => {
+    return acc + curr.cost;
+  }, 0);
+
+  if (projectCost && projectCost > 0) {
+    await db1.tr_project_flow.update({
+      where: {
+        id: data[taskCalculationIndex].id,
+      },
+      data: {
+        status: true,
+      },
+    });
+  }
+};
 
 export const get = [
   async (req: ExtendedRequest, res: Response) => {
@@ -111,10 +114,10 @@ export const get = [
     await projectApprovalFlow(project.id, data);
 
     const tasks = await db1.tr_project_task.findMany({
-      where:{
-        project_id: project.id
-      }
-    })
+      where: {
+        project_id: project.id,
+      },
+    });
 
     await taskCalculationFlow(tasks, data);
     await developmentFlow(tasks, data);
