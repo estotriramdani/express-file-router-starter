@@ -293,6 +293,7 @@ exports.Prisma.Tr_projectScalarFieldEnum = {
 exports.Prisma.Tr_project_activityScalarFieldEnum = {
   id: 'id',
   project_id: 'project_id',
+  project_flow_id: 'project_flow_id',
   activity_name: 'activity_name',
   date: 'date',
   content: 'content',
