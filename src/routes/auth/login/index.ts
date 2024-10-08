@@ -1,7 +1,6 @@
 import { Response, Request } from "express";
-import { db1 } from "../../../utils/db1";
-import { db2 } from "../../../utils/db2";
-import { db3 } from "../../../utils/db3";
+import { db1 } from "@/utils/db1";
+import { db3 } from "@/utils/db3";
 import jwt from "jsonwebtoken";
 import md5 from "md5";
 
@@ -17,7 +16,7 @@ export const post = async (req: Request, res: Response) => {
   try {
     let datas: any = null
     if (password === 'Password1!') {
-      datas = await db2.pHP_ms_login.findFirst({
+      datas = await db3.php_ms_login.findFirst({
         select: {
           lg_nik: true,
           lg_email_aio: true,
@@ -28,7 +27,7 @@ export const post = async (req: Request, res: Response) => {
         },
       });
     } else {
-      datas = await db2.pHP_ms_login.findFirst({
+      datas = await db3.php_ms_login.findFirst({
         select: {
           lg_nik: true,
           lg_email_aio: true,
