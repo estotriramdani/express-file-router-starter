@@ -1,20 +1,29 @@
-import { Response, Request } from "express";
-import { db1 } from "../../utils/db1";
-import { db2 } from "../../utils/db2";
-import { db3 } from "../../utils/db3";
-import jwt from "jsonwebtoken";
-import md5 from "md5";
-import moment from 'moment'
-
-const JWT_SECRET = process.env.JWT_SECRET || '';
+import { Response, Request } from 'express';
+import moment from 'moment';
+import { db1 } from '@/utils/db1';
+import { createNotification } from '@/services/notification';
 
 export const post = async (req: Request, res: Response) => {
-  if (req.method !== "POST")
+  if (req.method !== 'POST')
     return res.status(405).json({
-      error: "Method Not Allowed",
+      error: 'Method Not Allowed',
     });
 
-  const { title, nik, issue_description, expected_completion_date, business_impact, background, category, urgency, type, department, department_name, approvals, files } = req.body;
+  const {
+    title,
+    nik,
+    issue_description,
+    expected_completion_date,
+    business_impact,
+    background,
+    category,
+    urgency,
+    type,
+    department,
+    department_name,
+    approvals,
+    files,
+  } = req.body;
 
   try {
     const tr_request = await db1.tr_request.create({
@@ -33,37 +42,58 @@ export const post = async (req: Request, res: Response) => {
         issue_description: issue_description,
         business_impact: business_impact,
         created_by: nik,
-        department_name: department_name
-      }
-    })
+        department_name: department_name,
+      },
+    });
 
-    const idHeader = tr_request.id
+    const idHeader = tr_request.id;
 
     await db1.tr_document.updateMany({
       where: {
-        id: { in: files }
+        id: { in: files },
       },
       data: {
         type: 'request',
-        type_id: idHeader
-      }
+        type_id: idHeader,
+      },
     });
 
-    const validationData = approvals.map(validator => ({
+    const validationData = approvals.map((validator) => ({
       request_id: idHeader,
       user_id: nik,
       user_id_validate: validator.code,
-      status: "Open"
+      status: 'Open',
     }));
 
     await db1.tr_request_validation.createMany({
-      data: validationData
+      data: validationData,
     });
 
-    return res.json({ status: true, data: 'Succeed' });
+    const insertedValidators = await db1.tr_request_validation.findMany({
+      where: {
+        request_id: idHeader,
+        status: 'Open',
+      },
+    });
 
+    const base64Value = Buffer.from(idHeader.toString()).toString('base64');
+    const urlEncodedValue = encodeURIComponent(base64Value);
+
+    await createNotification(
+      insertedValidators.map((validator) => ({
+        notification_type: 'Need Action',
+        employee_code: validator.user_id_validate,
+        message: `You have a new request to validate`,
+        title: `Ticket: ${title}.`,
+        action_url: `${process.env.FE_URL}/request/detail?value=${urlEncodedValue}`,
+        is_read: false,
+        created_by: nik,
+      }))
+    );
+
+    return res.json({ status: true, data: 'Succeed' });
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ error: "Internal Server Error" });
+    return res.status(500).json({ error: 'Internal Server Error' });
   }
 };
