@@ -14,6 +14,7 @@ export const post = [authenticateJWT, async (req: Request, res: Response) => {
       const supervisorNames = data.supervisor_names
       const supervisorGrades = data.supervisor_grades
       const supervisor_position_desc = data.supervisor_position_desc
+      const supervisor_deparment_id = data.supervisor_deparment_id
       
 
       const supervisors = supervisorCodes.map((code, index) => {
@@ -21,7 +22,8 @@ export const post = [authenticateJWT, async (req: Request, res: Response) => {
           code: code,
           name: supervisorNames[index],
           grade: supervisorGrades[index],
-          position_desc: supervisor_position_desc[index]
+          position_desc: supervisor_position_desc[index],
+          deparment_id: supervisor_deparment_id[index]
         };
       });
 
@@ -52,7 +54,8 @@ async function getEmployeeHierarchy(employeeCode: string) {
       job_grade_code: true,
       supervisor: true,
       supervisor_name: true,
-      position_desc:true
+      position_desc:true,
+      deparment_id:true
     },
   });
 
@@ -63,7 +66,8 @@ async function getEmployeeHierarchy(employeeCode: string) {
       supervisor_codes: [],
       supervisor_names: [],
       supervisor_grades: [],
-      supervisor_position_desc: []
+      supervisor_position_desc: [],
+      supervisor_deparment_id: []
     }; // Employee not found
   }
 
@@ -74,10 +78,12 @@ async function getEmployeeHierarchy(employeeCode: string) {
     employee_name: employee.employee_name,
     job_grade_code: employee.job_grade_code,
     position_desc: employee.position_desc,
+    deparment_id: employee.deparment_id,
     supervisor_codes: [employee.supervisor, ...(supervisorData ? supervisorData.supervisor_codes : [])],
     supervisor_names: [employee.supervisor_name, ...(supervisorData ? supervisorData.supervisor_names : [])],
     supervisor_grades: [supervisorData?.job_grade_code, ...(supervisorData ? supervisorData.supervisor_grades : [])],
     supervisor_position_desc: [supervisorData?.position_desc, ...(supervisorData ? supervisorData.supervisor_position_desc : [])],
+    supervisor_deparment_id: [supervisorData?.deparment_id, ...(supervisorData ? supervisorData.supervisor_deparment_id : [])],
     
   };
 }
