@@ -1,37 +1,70 @@
-import { Response, Request } from "express";
-import { db1 } from "../../../utils/db1";
-import { db2 } from "../../../utils/db2";
-import { db3 } from "../../../utils/db3";
-import jwt from "jsonwebtoken";
-import md5 from "md5";
-import moment from 'moment'
-import { authenticateJWT } from '../../../middlewares/bearerToken';
+import { Response, Request } from 'express';
+import { db1 } from '@/utils/db1';
+import { authenticateJWT } from '@/middlewares/bearerToken';
 
-const JWT_SECRET = process.env.JWT_SECRET || '';
+const handleApproval = async (requestId: string) => {
+  const project = await db1.tr_project.findFirst({
+    where: {
+      request_id: parseInt(requestId),
+    },
+  });
 
+  if (!project) return;
 
-export const put = [authenticateJWT, async (req: Request, res: Response) => {
-  if (req.method !== "PUT")
-    return res.status(405).json({
-      error: "Method Not Allowed",
-    });
+  const validations = await db1.tr_request_validation.findMany({
+    where: {
+      request_id: parseInt(requestId),
+      state: {
+        not: 'Approve',
+      },
+    },
+  });
 
-  try {
-    await db1.tr_request_validation.update({
-      where: { id: parseInt(req.params.id) },
+  const flow = await db1.tr_project_flow.findFirst({
+    where: {
+      project_id: project.id,
+      mst_project_flow: {
+        flow: 'Approval',
+      },
+    },
+  });
+
+  let approvalStatus = validations.length === 0;
+
+  if (flow && !flow.status && approvalStatus) {
+    await db1.tr_project_flow.update({
+      where: {
+        id: flow.id,
+      },
       data: {
-        ...req.body
+        status: true,
       },
     });
-
-    return res.json({ status: true, data: 'Succeed' });
-
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: "Internal Server Error" });
   }
-}];
+};
 
+export const put = [
+  authenticateJWT,
+  async (req: Request, res: Response) => {
+    if (req.method !== 'PUT')
+      return res.status(405).json({
+        error: 'Method Not Allowed',
+      });
 
+    try {
+      await db1.tr_request_validation.update({
+        where: { id: parseInt(req.params.id) },
+        data: {
+          ...req.body,
+        },
+      });
 
+      await handleApproval(req.params.id);
 
+      return res.json({ status: true, data: 'Succeed' });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ error: 'Internal Server Error' });
+    }
+  },
+];
