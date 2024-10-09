@@ -15,7 +15,7 @@ const projectApprovalFlow = async (request_id: number, data: ProjectFlowType[]) 
     throw new Error('Approval flow not found');
   }
 
-  if (data[approvalIndex].status) return;
+  if (data[approvalIndex]?.status) return;
 
   const validations = await db1.tr_request_validation.findMany({
     where: {
@@ -28,7 +28,7 @@ const projectApprovalFlow = async (request_id: number, data: ProjectFlowType[]) 
 
   let approvalStatus = validations.length === 0;
 
-  if (approvalStatus) {
+  if (approvalStatus && data[approvalIndex]?.id) {
     await db1.tr_project_flow.update({
       where: {
         id: data[approvalIndex].id,
@@ -47,7 +47,7 @@ const developmentFlow = async (tasks: tr_project_task[], data: ProjectFlowType[]
     throw new Error('Development flow not found');
   }
 
-  if (data[developmentIndex].status) return;
+  if (data[developmentIndex]?.status) return;
 
   const projectPercentage = tasks.reduce((acc, curr) => {
     return acc + curr.percent_done;
@@ -74,7 +74,7 @@ const taskCalculationFlow = async (tasks: tr_project_task[], data: ProjectFlowTy
     throw new Error('Task Calculation not found');
   }
 
-  if (data[taskCalculationIndex].status) return;
+  if (data[taskCalculationIndex]?.status) return;
 
   const projectCost = tasks.reduce((acc, curr) => {
     return acc + curr.cost;
