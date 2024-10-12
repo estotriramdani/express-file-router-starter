@@ -1,7 +1,6 @@
 import { Response, Request } from "express";
-import { db1 } from "../../../utils/db1";
-import { authenticateJWT } from '../../../middlewares/bearerToken';
-import { apiOk } from '../../../tools/common';
+import { db1 } from "@/utils/db1";
+import { authenticateJWT } from '@/middlewares/bearerToken';
 import { sendEmailNotification } from "@/services/NotificationService";
 import moment from "moment";
 

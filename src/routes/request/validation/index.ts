@@ -1,6 +1,7 @@
 import { Response, Request } from 'express';
 import { db1 } from '@/utils/db1';
 import { createNotification } from '@/services/notification';
+import { sendEmailRequestValidation } from '@/services/NotificationService';
 
 export const post = async (req: Request, res: Response) => {
   if (req.method !== 'POST')
@@ -49,6 +50,11 @@ export const post = async (req: Request, res: Response) => {
       message: `You have a new request to validate`,
       title: `Ticket: ${findTitle.ticket_name}.`,
       action_url: `${process.env.FE_URL}/request/detail?value=${urlEncodedValue}`,
+    });
+
+    await sendEmailRequestValidation({
+      requestId: parseInt(id_header),
+      validator: user_id_validate,
     });
 
     return res.json({ status: true, data: validation });
