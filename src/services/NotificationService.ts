@@ -1,5 +1,6 @@
 import fs from 'fs';
 import { emailSender } from './EmailService';
+import { fillParameters } from '@/utils';
 
 interface Recipient {
     email: string;
@@ -42,10 +43,6 @@ const generateConfig = async (type: string, param: any): Promise<Config> => {
     }
 
     return { recipients, files, title };
-};
-
-const fillParameters = (template: string, param: any): string => {
-    return template.replace(/\{\{(\w+)\}\}/g, (match, key) => param[key] || match);
 };
 
 export const sendEmailNotification = async (
