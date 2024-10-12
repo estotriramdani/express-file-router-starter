@@ -97,15 +97,11 @@ export const sendEmailNotification = async (
   return true;
 };
 
-export const sendEmailRequestValidation = async (params: {
+export const getRequestValidationDetail = async (params: {
   requestId: number;
   /** 5 digit of employee_code */
   validator: string;
 }) => {
-  const encrypted = encryptRequestValidation(params.requestId, params.validator);
-
-  const validation_link = `${process.env.FE_URL}/request-validation?value=${encrypted}`;
-
   const requestData = await db1.tr_request.findFirst({
     where: {
       id: params.requestId,
@@ -121,12 +117,11 @@ export const sendEmailRequestValidation = async (params: {
     creatorName: '',
     ticket_name: requestData.ticket_name,
     type: requestData.type,
-    creation_date: moment(requestData.creation_date).format('LLLL'),
+    creation_date: moment(requestData.creation_date).format('DD MMMM YYYY'),
     department_name: requestData.department_name,
     background: newLineToBr(requestData.background),
     issue_description: newLineToBr(requestData.issue_description),
     business_impact: newLineToBr(requestData.business_impact),
-    validation_link,
   };
 
   let creator = requestData.creator;
@@ -160,12 +155,26 @@ export const sendEmailRequestValidation = async (params: {
   templateParams.creatorName = creatorName;
   templateParams.validatorName = validatorName;
 
+  return templateParams;
+};
+
+export const sendEmailRequestValidation = async (params: {
+  requestId: number;
+  /** 5 digit of employee_code */
+  validator: string;
+}) => {
+  const encrypted = encryptRequestValidation(params.requestId, params.validator);
+
+  const validation_link = `${process.env.FE_URL}/request-validation?value=${encrypted}`;
+
+  const templateParams = await getRequestValidationDetail(params);
+
   const template = fs.readFileSync(
     path.resolve(__dirname, '../views/email/bodyEmailRequestValidation.html'),
     'utf8'
   );
 
-  const html = fillParameters(template, templateParams);
+  const html = fillParameters(template, { ...templateParams, validation_link });
 
   await emailSender({
     subject: 'Request Validation',
