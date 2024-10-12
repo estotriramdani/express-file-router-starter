@@ -4,3 +4,7 @@
 export const fillParameters = (template: string, param: Record<string, any>): string => {
   return template.replace(/\{\{(\w+)\}\}/g, (match, key) => param[key] || match);
 };
+
+export const newLineToBr = (text: string): string => {
+  return text.replace(/\n/g, '<br>');
+};
