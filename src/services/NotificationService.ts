@@ -126,7 +126,8 @@ export const getRequestValidationDetail = async (params: {
 
   let creator = requestData.creator;
   if (creator.length < 5) {
-    creator = `0${creator}`;
+    const zeroes = 5 - creator.length;
+    creator = '0'.repeat(zeroes) + creator;
   }
 
   const employeeData = await db1.$queryRaw<
