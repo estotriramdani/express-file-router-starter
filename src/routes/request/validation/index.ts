@@ -57,6 +57,34 @@ export const post = async (req: Request, res: Response) => {
       validator: user_id_validate,
     });
 
+    const projectData = await db1.tr_project.findFirst({
+      where: {
+        request_id: parseInt(id_header),
+      },
+      include: {
+        tr_request: true,
+      },
+    });
+
+    if (projectData) {
+      const findFlow = await db1.tr_project_flow.findFirst({
+        where: {
+          project_id: projectData.id,
+          flow_id: 2,
+        },
+      });
+      if (findFlow) {
+        await db1.tr_project_flow.update({
+          where: {
+            id: findFlow.id,
+          },
+          data: {
+            status: false,
+          },
+        });
+      }
+    }
+
     return res.json({ status: true, data: validation });
   } catch (error) {
     console.error(error);
