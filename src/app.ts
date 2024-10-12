@@ -43,6 +43,12 @@ const main = async () => {
 
   app.use("/api", router);
 
+  await createRouter(router, {
+    directory: path.join(__dirname, "views"),
+  });
+
+  app.use("/views", router);
+
   app.listen(4999, () => {
     console.log("Server started on port 4999");
   });
