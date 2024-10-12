@@ -29,5 +29,5 @@ export const decryptRequestValidation = (
 ): { requestId: number; validator: string } => {
   const decrypted = Buffer.from(encrypted, 'base64').toString('utf8');
   const [requestId, validator] = decrypted.split('-');
-  return { requestId: parseInt(requestId), validator: validator.replace(random, '') };
+  return { requestId: parseInt(requestId), validator: validator.substring(0, 5) };
 };
