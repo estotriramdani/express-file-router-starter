@@ -11,7 +11,7 @@ type ProjectFlowType = Prisma.tr_project_flowGetPayload<{
 const projectApprovalFlow = async (request_id: number, data: ProjectFlowType[]) => {
   const approvalIndex = data.findIndex((item) => item.mst_project_flow.flow === 'Approval');
 
-  if (!approvalIndex) {
+  if (approvalIndex === -1) {
     throw new Error('Approval flow not found');
   }
 
@@ -28,13 +28,23 @@ const projectApprovalFlow = async (request_id: number, data: ProjectFlowType[]) 
 
   let approvalStatus = validations.length === 0;
 
-  if (approvalStatus) {
+  if (approvalStatus === true) {
+    const findLastValidation = await db1.tr_request_validation.findFirst({
+      where: {
+        request_id: request_id,
+      },
+      orderBy: {
+        validation_date: 'desc',
+      },
+    });
+    
     await db1.tr_project_flow.update({
       where: {
         id: data[approvalIndex].id,
       },
       data: {
         status: true,
+        updated_at: findLastValidation.validation_date,
       },
     });
   }
@@ -45,7 +55,7 @@ const flowByProjectActivity = async (data: ProjectFlowType[], flowName: string) 
     (item) => item.mst_project_flow.flow === flowName
   );
 
-  if (!flowIndex) {
+  if (flowIndex === -1) {
     throw new Error(`Flow for ${flowName} is not found`);
   }
 
