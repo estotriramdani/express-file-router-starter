@@ -5,7 +5,7 @@ import { authenticateJWT } from '@/middlewares/bearerToken';
 import { Prisma, tr_project_task } from '@/generated/db1';
 
 type ProjectFlowType = Prisma.tr_project_flowGetPayload<{
-  include: { mst_project_flow: true };
+  include: { mst_project_flow: true; tr_project_activity: true };
 }>;
 
 const projectApprovalFlow = async (request_id: number, data: ProjectFlowType[]) => {
@@ -65,7 +65,7 @@ const developmentFlow = async (tasks: tr_project_task[], data: ProjectFlowType[]
   }
 };
 
-const taskCalculationFlow = async (tasks: tr_project_task[], data: ProjectFlowType[]) => {
+const taskCalculationFlow = async (data: ProjectFlowType[], projectId: number) => {
   const taskCalculationIndex = data.findIndex(
     (item) => item.mst_project_flow.flow === 'Task Calculation'
   );
@@ -76,59 +76,71 @@ const taskCalculationFlow = async (tasks: tr_project_task[], data: ProjectFlowTy
 
   if (data[taskCalculationIndex].status) return;
 
-  const projectCost = tasks.reduce((acc, curr) => {
-    return acc + curr.cost;
-  }, 0);
+  const findActivity = await db1.tr_project_activity.findFirst({
+    where: {
+      project_flow_id: data[taskCalculationIndex].id,
+    },
+  });
 
-  if (projectCost && projectCost > 0) {
-    await db1.tr_project_flow.update({
-      where: {
-        id: data[taskCalculationIndex].id,
-      },
-      data: {
-        status: true,
-      },
-    });
-  }
+  if (!findActivity) return;
+
+  await db1.tr_project_flow.update({
+    data: {
+      status: true,
+      updated_at: findActivity.created_at,
+    },
+    where: {
+      id: data[taskCalculationIndex].id,
+    },
+  })
 };
 
 export const get = [
   async (req: ExtendedRequest, res: Response) => {
     if (req.method !== 'GET') return res.status(405);
 
-    const data = await db1.tr_project_flow.findMany({
-      where: { project_id: parseInt(req.params.id) },
-      include: {
-        mst_project_flow: true,
-      },
-    });
+    try {
+      const data = await db1.tr_project_flow.findMany({
+        where: { project_id: parseInt(req.params.id) },
+        include: {
+          mst_project_flow: true,
+          tr_project_activity: true,
+        },
+      });
 
-    const project = await db1.tr_project.findUnique({
-      where: {
-        id: parseInt(req.params.id),
-      },
-    });
+      const project = await db1.tr_project.findUnique({
+        where: {
+          id: parseInt(req.params.id),
+        },
+      });
 
-    if (!project) return res.status(404).json({ message: 'Project not found' });
+      if (!project) return res.status(404).json({ message: 'Project not found' });
 
-    await projectApprovalFlow(project.request_id, data);
+      await projectApprovalFlow(project.request_id, data);
 
-    const tasks = await db1.tr_project_task.findMany({
-      where: {
-        project_id: project.id,
-      },
-    });
+      const tasks = await db1.tr_project_task.findMany({
+        where: {
+          project_id: project.id,
+        },
+      });
 
-    await taskCalculationFlow(tasks, data);
-    await developmentFlow(tasks, data);
+      await taskCalculationFlow(data, project.id);
+      await developmentFlow(tasks, data);
 
-    const finalData = await db1.tr_project_flow.findMany({
-      where: { project_id: parseInt(req.params.id) },
-      include: {
-        mst_project_flow: true,
-      },
-    });
+      const finalData = await db1.tr_project_flow.findMany({
+        where: { project_id: parseInt(req.params.id) },
+        include: {
+          mst_project_flow: true,
+          tr_project_activity: true,
+        },
+      });
 
-    return res.json({ data: finalData });
+      return res.json({ data: finalData });
+    } catch (error) {
+      console.error(error);
+      return res
+        .status(500)
+        .json({ status: false, message: error?.message || 'Internal server error', error });
+    }
   },
 ];
