@@ -2,7 +2,7 @@ import { Response } from 'express';
 import { ExtendedRequest } from '@/types/auth';
 import { db1 } from '@/utils/db1';
 import { authenticateJWT } from '@/middlewares/bearerToken';
-import { Prisma, tr_project_task } from '@/generated/db1';
+import { Prisma } from '@/generated/db1';
 
 type ProjectFlowType = Prisma.tr_project_flowGetPayload<{
   include: { mst_project_flow: true; tr_project_activity: true };
@@ -40,45 +40,20 @@ const projectApprovalFlow = async (request_id: number, data: ProjectFlowType[]) 
   }
 };
 
-const developmentFlow = async (tasks: tr_project_task[], data: ProjectFlowType[]) => {
-  const developmentIndex = data.findIndex((item) => item.mst_project_flow.flow === 'Development');
-
-  if (!developmentIndex) {
-    throw new Error('Development flow not found');
-  }
-
-  if (data[developmentIndex].status) return;
-
-  const projectPercentage = tasks.reduce((acc, curr) => {
-    return acc + curr.percent_done;
-  }, 0);
-
-  if (projectPercentage && projectPercentage > 0) {
-    await db1.tr_project_flow.update({
-      where: {
-        id: data[developmentIndex].id,
-      },
-      data: {
-        status: true,
-      },
-    });
-  }
-};
-
-const taskCalculationFlow = async (data: ProjectFlowType[], projectId: number) => {
-  const taskCalculationIndex = data.findIndex(
-    (item) => item.mst_project_flow.flow === 'Task Calculation'
+const flowByProjectActivity = async (data: ProjectFlowType[], flowName: string) => {
+  const flowIndex = data.findIndex(
+    (item) => item.mst_project_flow.flow === flowName
   );
 
-  if (!taskCalculationIndex) {
-    throw new Error('Task Calculation not found');
+  if (!flowIndex) {
+    throw new Error(`Flow for ${flowName} is not found`);
   }
 
-  if (data[taskCalculationIndex].status) return;
+  if (data[flowIndex].status) return;
 
   const findActivity = await db1.tr_project_activity.findFirst({
     where: {
-      project_flow_id: data[taskCalculationIndex].id,
+      project_flow_id: data[flowIndex].id,
     },
   });
 
@@ -90,7 +65,7 @@ const taskCalculationFlow = async (data: ProjectFlowType[], projectId: number) =
       updated_at: findActivity.created_at,
     },
     where: {
-      id: data[taskCalculationIndex].id,
+      id: data[flowIndex].id,
     },
   })
 };
@@ -118,14 +93,12 @@ export const get = [
 
       await projectApprovalFlow(project.request_id, data);
 
-      const tasks = await db1.tr_project_task.findMany({
-        where: {
-          project_id: project.id,
-        },
-      });
-
-      await taskCalculationFlow(data, project.id);
-      await developmentFlow(tasks, data);
+      await flowByProjectActivity(data, 'Task Calculation');
+      await flowByProjectActivity(data, 'Development');
+      await flowByProjectActivity(data, 'UAT Testing');
+      await flowByProjectActivity(data, 'Security Testing');
+      await flowByProjectActivity(data, 'Deployment');
+      await flowByProjectActivity(data, 'Go Live');
 
       const finalData = await db1.tr_project_flow.findMany({
         where: { project_id: parseInt(req.params.id) },
