@@ -80,6 +80,7 @@ export const post = async (req: Request, res: Response) => {
           },
           data: {
             status: false,
+            updated_at: null,
           },
         });
       }
