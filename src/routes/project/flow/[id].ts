@@ -44,8 +44,17 @@ const projectApprovalFlow = async (request_id: number, data: ProjectFlowType[]) 
         id: data[approvalIndex].id,
       },
       data: {
-        status: true,
+        state: 'Done',
         updated_at: findLastValidation.validation_date,
+      },
+    });
+  } else {
+    await db1.tr_project_flow.update({
+      where: {
+        id: data[approvalIndex].id,
+      },
+      data: {
+        state: 'Pending',
       },
     });
   }
