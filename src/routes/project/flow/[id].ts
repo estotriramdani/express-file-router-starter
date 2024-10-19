@@ -3,6 +3,7 @@ import { ExtendedRequest } from '@/types/auth';
 import { db1 } from '@/utils/db1';
 import { authenticateJWT } from '@/middlewares/bearerToken';
 import { Prisma } from '@/generated/db1';
+import { sendProjectCalculationNotification } from '../send-notification/[id]';
 
 type ProjectFlowType = Prisma.tr_project_flowGetPayload<{
   include: { mst_project_flow: true; tr_project_activity: true };
@@ -37,7 +38,7 @@ const projectApprovalFlow = async (request_id: number, data: ProjectFlowType[]) 
         validation_date: 'desc',
       },
     });
-    
+
     await db1.tr_project_flow.update({
       where: {
         id: data[approvalIndex].id,
@@ -51,9 +52,7 @@ const projectApprovalFlow = async (request_id: number, data: ProjectFlowType[]) 
 };
 
 const flowByProjectActivity = async (data: ProjectFlowType[], flowName: string) => {
-  const flowIndex = data.findIndex(
-    (item) => item.mst_project_flow.flow === flowName
-  );
+  const flowIndex = data.findIndex((item) => item.mst_project_flow.flow === flowName);
 
   if (flowIndex === -1) {
     throw new Error(`Flow for ${flowName} is not found`);
@@ -77,7 +76,12 @@ const flowByProjectActivity = async (data: ProjectFlowType[], flowName: string) 
     where: {
       id: data[flowIndex].id,
     },
-  })
+  });
+
+  // TODO: Uncomment later
+  // if (flowName === 'Task Calculation' && data[flowIndex].status === 'Done') {
+  //   await sendProjectCalculationNotification(findActivity.project_id);
+  // }
 };
 
 export const get = [
