@@ -29,6 +29,7 @@ export const post = [
       const project_id = req.body.project_id;
       const project_flow_id = req.body.project_flow_id;
       const activity_name = req.body.activity_name;
+      const state = req.body.state;
       const date = new Date();
       const content = req.body.content;
       const created_at = new Date();
@@ -47,6 +48,7 @@ export const post = [
           project_flow_id: +project_flow_id,
           activity_name,
           date,
+          state,
           content,
           document,
           created_at,
