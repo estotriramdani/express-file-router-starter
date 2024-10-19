@@ -314,13 +314,18 @@ exports.Prisma.Tr_project_flowScalarFieldEnum = {
 exports.Prisma.Tr_project_overviewScalarFieldEnum = {
   id: 'id',
   project_id: 'project_id',
+  background: 'background',
   purpose: 'purpose',
-  goals: 'goals',
   success_measurement: 'success_measurement',
   intangible_benefit: 'intangible_benefit',
   impact_of_not_doing: 'impact_of_not_doing',
   created_at: 'created_at',
-  created_by: 'created_by'
+  created_by: 'created_by',
+  project_name: 'project_name',
+  department_name: 'department_name',
+  type: 'type',
+  expected_completion_date: 'expected_completion_date',
+  application: 'application'
 };
 
 exports.Prisma.Tr_project_participantScalarFieldEnum = {
@@ -337,19 +342,24 @@ exports.Prisma.Tr_project_risk_mitigationScalarFieldEnum = {
   id: 'id',
   project_id: 'project_id',
   risk: 'risk',
-  point_control: 'point_control',
+  risk_control: 'risk_control',
+  impact: 'impact',
+  probability: 'probability',
+  category: 'category',
   created_at: 'created_at',
-  created_by: 'created_by'
+  created_by: 'created_by',
+  is_deleted: 'is_deleted'
 };
 
 exports.Prisma.Tr_project_scopeScalarFieldEnum = {
   id: 'id',
   project_id: 'project_id',
-  features: 'features',
-  description: 'description',
+  module: 'module',
+  story_point: 'story_point',
   type: 'type',
   created_at: 'created_at',
-  created_by: 'created_by'
+  created_by: 'created_by',
+  is_deleted: 'is_deleted'
 };
 
 exports.Prisma.Tr_project_taskScalarFieldEnum = {
@@ -388,6 +398,7 @@ exports.Prisma.Tr_project_teamScalarFieldEnum = {
 exports.Prisma.Tr_requestScalarFieldEnum = {
   id: 'id',
   entities_id: 'entities_id',
+  category: 'category',
   ticket_name: 'ticket_name',
   creation_date: 'creation_date',
   closed_date: 'closed_date',
@@ -395,7 +406,6 @@ exports.Prisma.Tr_requestScalarFieldEnum = {
   status: 'status',
   urgency: 'urgency',
   expected_completion_date: 'expected_completion_date',
-  category: 'category',
   type: 'type',
   department_code: 'department_code',
   department_name: 'department_name',
@@ -429,6 +439,41 @@ exports.Prisma.Tr_request_validationScalarFieldEnum = {
   submission_date: 'submission_date',
   validation_date: 'validation_date',
   state: 'state'
+};
+
+exports.Prisma.Map_category_to_groupScalarFieldEnum = {
+  id: 'id',
+  category_id: 'category_id',
+  group_id: 'group_id',
+  created_at: 'created_at',
+  created_by: 'created_by'
+};
+
+exports.Prisma.Mst_categoryScalarFieldEnum = {
+  id: 'id',
+  category_code: 'category_code',
+  category_name: 'category_name',
+  is_active: 'is_active',
+  created_at: 'created_at',
+  created_by: 'created_by'
+};
+
+exports.Prisma.Tr_project_minimum_viableScalarFieldEnum = {
+  id: 'id',
+  project_id: 'project_id',
+  minimum_viable: 'minimum_viable',
+  created_at: 'created_at',
+  created_by: 'created_by',
+  is_deleted: 'is_deleted'
+};
+
+exports.Prisma.Tr_project_overview_goalsScalarFieldEnum = {
+  id: 'id',
+  project_id: 'project_id',
+  goal: 'goal',
+  created_at: 'created_at',
+  created_by: 'created_by',
+  is_deleted: 'is_deleted'
 };
 
 exports.Prisma.SortOrder = {
@@ -469,7 +514,11 @@ exports.Prisma.ModelName = {
   tr_project_team: 'tr_project_team',
   tr_request: 'tr_request',
   tr_request_technician: 'tr_request_technician',
-  tr_request_validation: 'tr_request_validation'
+  tr_request_validation: 'tr_request_validation',
+  map_category_to_group: 'map_category_to_group',
+  mst_category: 'mst_category',
+  tr_project_minimum_viable: 'tr_project_minimum_viable',
+  tr_project_overview_goals: 'tr_project_overview_goals'
 };
 
 /**

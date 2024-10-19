@@ -148,6 +148,26 @@ export type tr_request_technician = $Result.DefaultSelection<Prisma.$tr_request_
  * This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
  */
 export type tr_request_validation = $Result.DefaultSelection<Prisma.$tr_request_validationPayload>
+/**
+ * Model map_category_to_group
+ * 
+ */
+export type map_category_to_group = $Result.DefaultSelection<Prisma.$map_category_to_groupPayload>
+/**
+ * Model mst_category
+ * 
+ */
+export type mst_category = $Result.DefaultSelection<Prisma.$mst_categoryPayload>
+/**
+ * Model tr_project_minimum_viable
+ * 
+ */
+export type tr_project_minimum_viable = $Result.DefaultSelection<Prisma.$tr_project_minimum_viablePayload>
+/**
+ * Model tr_project_overview_goals
+ * 
+ */
+export type tr_project_overview_goals = $Result.DefaultSelection<Prisma.$tr_project_overview_goalsPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -541,6 +561,46 @@ export class PrismaClient<
     * ```
     */
   get tr_request_validation(): Prisma.tr_request_validationDelegate<ExtArgs>;
+
+  /**
+   * `prisma.map_category_to_group`: Exposes CRUD operations for the **map_category_to_group** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Map_category_to_groups
+    * const map_category_to_groups = await prisma.map_category_to_group.findMany()
+    * ```
+    */
+  get map_category_to_group(): Prisma.map_category_to_groupDelegate<ExtArgs>;
+
+  /**
+   * `prisma.mst_category`: Exposes CRUD operations for the **mst_category** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Mst_categories
+    * const mst_categories = await prisma.mst_category.findMany()
+    * ```
+    */
+  get mst_category(): Prisma.mst_categoryDelegate<ExtArgs>;
+
+  /**
+   * `prisma.tr_project_minimum_viable`: Exposes CRUD operations for the **tr_project_minimum_viable** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Tr_project_minimum_viables
+    * const tr_project_minimum_viables = await prisma.tr_project_minimum_viable.findMany()
+    * ```
+    */
+  get tr_project_minimum_viable(): Prisma.tr_project_minimum_viableDelegate<ExtArgs>;
+
+  /**
+   * `prisma.tr_project_overview_goals`: Exposes CRUD operations for the **tr_project_overview_goals** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Tr_project_overview_goals
+    * const tr_project_overview_goals = await prisma.tr_project_overview_goals.findMany()
+    * ```
+    */
+  get tr_project_overview_goals(): Prisma.tr_project_overview_goalsDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -1006,7 +1066,11 @@ export namespace Prisma {
     tr_project_team: 'tr_project_team',
     tr_request: 'tr_request',
     tr_request_technician: 'tr_request_technician',
-    tr_request_validation: 'tr_request_validation'
+    tr_request_validation: 'tr_request_validation',
+    map_category_to_group: 'map_category_to_group',
+    mst_category: 'mst_category',
+    tr_project_minimum_viable: 'tr_project_minimum_viable',
+    tr_project_overview_goals: 'tr_project_overview_goals'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1022,7 +1086,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "mst_application" | "mst_application_version" | "mst_authorization" | "mst_authorization_profile" | "mst_authorization_usergroup" | "mst_entities" | "mst_group" | "mst_manpower_cost" | "mst_profile" | "mst_project_flow" | "mst_project_state" | "mst_role" | "tr_document" | "tr_history" | "tr_notification" | "tr_project" | "tr_project_activity" | "tr_project_flow" | "tr_project_overview" | "tr_project_participant" | "tr_project_risk_mitigation" | "tr_project_scope" | "tr_project_task" | "tr_project_team" | "tr_request" | "tr_request_technician" | "tr_request_validation"
+      modelProps: "mst_application" | "mst_application_version" | "mst_authorization" | "mst_authorization_profile" | "mst_authorization_usergroup" | "mst_entities" | "mst_group" | "mst_manpower_cost" | "mst_profile" | "mst_project_flow" | "mst_project_state" | "mst_role" | "tr_document" | "tr_history" | "tr_notification" | "tr_project" | "tr_project_activity" | "tr_project_flow" | "tr_project_overview" | "tr_project_participant" | "tr_project_risk_mitigation" | "tr_project_scope" | "tr_project_task" | "tr_project_team" | "tr_request" | "tr_request_technician" | "tr_request_validation" | "map_category_to_group" | "mst_category" | "tr_project_minimum_viable" | "tr_project_overview_goals"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2808,6 +2872,270 @@ export namespace Prisma {
           }
         }
       }
+      map_category_to_group: {
+        payload: Prisma.$map_category_to_groupPayload<ExtArgs>
+        fields: Prisma.map_category_to_groupFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.map_category_to_groupFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$map_category_to_groupPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.map_category_to_groupFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$map_category_to_groupPayload>
+          }
+          findFirst: {
+            args: Prisma.map_category_to_groupFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$map_category_to_groupPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.map_category_to_groupFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$map_category_to_groupPayload>
+          }
+          findMany: {
+            args: Prisma.map_category_to_groupFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$map_category_to_groupPayload>[]
+          }
+          create: {
+            args: Prisma.map_category_to_groupCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$map_category_to_groupPayload>
+          }
+          createMany: {
+            args: Prisma.map_category_to_groupCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.map_category_to_groupDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$map_category_to_groupPayload>
+          }
+          update: {
+            args: Prisma.map_category_to_groupUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$map_category_to_groupPayload>
+          }
+          deleteMany: {
+            args: Prisma.map_category_to_groupDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.map_category_to_groupUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.map_category_to_groupUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$map_category_to_groupPayload>
+          }
+          aggregate: {
+            args: Prisma.Map_category_to_groupAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMap_category_to_group>
+          }
+          groupBy: {
+            args: Prisma.map_category_to_groupGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Map_category_to_groupGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.map_category_to_groupCountArgs<ExtArgs>
+            result: $Utils.Optional<Map_category_to_groupCountAggregateOutputType> | number
+          }
+        }
+      }
+      mst_category: {
+        payload: Prisma.$mst_categoryPayload<ExtArgs>
+        fields: Prisma.mst_categoryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.mst_categoryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_categoryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.mst_categoryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_categoryPayload>
+          }
+          findFirst: {
+            args: Prisma.mst_categoryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_categoryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.mst_categoryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_categoryPayload>
+          }
+          findMany: {
+            args: Prisma.mst_categoryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_categoryPayload>[]
+          }
+          create: {
+            args: Prisma.mst_categoryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_categoryPayload>
+          }
+          createMany: {
+            args: Prisma.mst_categoryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.mst_categoryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_categoryPayload>
+          }
+          update: {
+            args: Prisma.mst_categoryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_categoryPayload>
+          }
+          deleteMany: {
+            args: Prisma.mst_categoryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.mst_categoryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.mst_categoryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$mst_categoryPayload>
+          }
+          aggregate: {
+            args: Prisma.Mst_categoryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMst_category>
+          }
+          groupBy: {
+            args: Prisma.mst_categoryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Mst_categoryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.mst_categoryCountArgs<ExtArgs>
+            result: $Utils.Optional<Mst_categoryCountAggregateOutputType> | number
+          }
+        }
+      }
+      tr_project_minimum_viable: {
+        payload: Prisma.$tr_project_minimum_viablePayload<ExtArgs>
+        fields: Prisma.tr_project_minimum_viableFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.tr_project_minimum_viableFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_minimum_viablePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.tr_project_minimum_viableFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_minimum_viablePayload>
+          }
+          findFirst: {
+            args: Prisma.tr_project_minimum_viableFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_minimum_viablePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.tr_project_minimum_viableFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_minimum_viablePayload>
+          }
+          findMany: {
+            args: Prisma.tr_project_minimum_viableFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_minimum_viablePayload>[]
+          }
+          create: {
+            args: Prisma.tr_project_minimum_viableCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_minimum_viablePayload>
+          }
+          createMany: {
+            args: Prisma.tr_project_minimum_viableCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.tr_project_minimum_viableDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_minimum_viablePayload>
+          }
+          update: {
+            args: Prisma.tr_project_minimum_viableUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_minimum_viablePayload>
+          }
+          deleteMany: {
+            args: Prisma.tr_project_minimum_viableDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.tr_project_minimum_viableUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.tr_project_minimum_viableUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_minimum_viablePayload>
+          }
+          aggregate: {
+            args: Prisma.Tr_project_minimum_viableAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTr_project_minimum_viable>
+          }
+          groupBy: {
+            args: Prisma.tr_project_minimum_viableGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Tr_project_minimum_viableGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.tr_project_minimum_viableCountArgs<ExtArgs>
+            result: $Utils.Optional<Tr_project_minimum_viableCountAggregateOutputType> | number
+          }
+        }
+      }
+      tr_project_overview_goals: {
+        payload: Prisma.$tr_project_overview_goalsPayload<ExtArgs>
+        fields: Prisma.tr_project_overview_goalsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.tr_project_overview_goalsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_overview_goalsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.tr_project_overview_goalsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_overview_goalsPayload>
+          }
+          findFirst: {
+            args: Prisma.tr_project_overview_goalsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_overview_goalsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.tr_project_overview_goalsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_overview_goalsPayload>
+          }
+          findMany: {
+            args: Prisma.tr_project_overview_goalsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_overview_goalsPayload>[]
+          }
+          create: {
+            args: Prisma.tr_project_overview_goalsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_overview_goalsPayload>
+          }
+          createMany: {
+            args: Prisma.tr_project_overview_goalsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.tr_project_overview_goalsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_overview_goalsPayload>
+          }
+          update: {
+            args: Prisma.tr_project_overview_goalsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_overview_goalsPayload>
+          }
+          deleteMany: {
+            args: Prisma.tr_project_overview_goalsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.tr_project_overview_goalsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.tr_project_overview_goalsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tr_project_overview_goalsPayload>
+          }
+          aggregate: {
+            args: Prisma.Tr_project_overview_goalsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTr_project_overview_goals>
+          }
+          groupBy: {
+            args: Prisma.tr_project_overview_goalsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Tr_project_overview_goalsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.tr_project_overview_goalsCountArgs<ExtArgs>
+            result: $Utils.Optional<Tr_project_overview_goalsCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -3040,11 +3368,13 @@ export namespace Prisma {
    */
 
   export type Mst_groupCountOutputType = {
+    map_category_to_group: number
     mst_authorization_usergroup: number
     tr_project: number
   }
 
   export type Mst_groupCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    map_category_to_group?: boolean | Mst_groupCountOutputTypeCountMap_category_to_groupArgs
     mst_authorization_usergroup?: boolean | Mst_groupCountOutputTypeCountMst_authorization_usergroupArgs
     tr_project?: boolean | Mst_groupCountOutputTypeCountTr_projectArgs
   }
@@ -3058,6 +3388,13 @@ export namespace Prisma {
      * Select specific fields to fetch from the Mst_groupCountOutputType
      */
     select?: Mst_groupCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Mst_groupCountOutputType without action
+   */
+  export type Mst_groupCountOutputTypeCountMap_category_to_groupArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: map_category_to_groupWhereInput
   }
 
   /**
@@ -3214,11 +3551,17 @@ export namespace Prisma {
 
   export type Tr_projectCountOutputType = {
     tr_project_flow: number
+    tr_project_minimum_viable: number
+    tr_project_overview: number
+    tr_project_overview_goals: number
     tr_project_task: number
   }
 
   export type Tr_projectCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     tr_project_flow?: boolean | Tr_projectCountOutputTypeCountTr_project_flowArgs
+    tr_project_minimum_viable?: boolean | Tr_projectCountOutputTypeCountTr_project_minimum_viableArgs
+    tr_project_overview?: boolean | Tr_projectCountOutputTypeCountTr_project_overviewArgs
+    tr_project_overview_goals?: boolean | Tr_projectCountOutputTypeCountTr_project_overview_goalsArgs
     tr_project_task?: boolean | Tr_projectCountOutputTypeCountTr_project_taskArgs
   }
 
@@ -3238,6 +3581,27 @@ export namespace Prisma {
    */
   export type Tr_projectCountOutputTypeCountTr_project_flowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: tr_project_flowWhereInput
+  }
+
+  /**
+   * Tr_projectCountOutputType without action
+   */
+  export type Tr_projectCountOutputTypeCountTr_project_minimum_viableArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tr_project_minimum_viableWhereInput
+  }
+
+  /**
+   * Tr_projectCountOutputType without action
+   */
+  export type Tr_projectCountOutputTypeCountTr_project_overviewArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tr_project_overviewWhereInput
+  }
+
+  /**
+   * Tr_projectCountOutputType without action
+   */
+  export type Tr_projectCountOutputTypeCountTr_project_overview_goalsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tr_project_overview_goalsWhereInput
   }
 
   /**
@@ -3347,6 +3711,46 @@ export namespace Prisma {
    */
   export type Tr_requestCountOutputTypeCountTr_request_validationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: tr_request_validationWhereInput
+  }
+
+
+  /**
+   * Count Type Mst_categoryCountOutputType
+   */
+
+  export type Mst_categoryCountOutputType = {
+    map_category_to_group: number
+    tr_request: number
+  }
+
+  export type Mst_categoryCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    map_category_to_group?: boolean | Mst_categoryCountOutputTypeCountMap_category_to_groupArgs
+    tr_request?: boolean | Mst_categoryCountOutputTypeCountTr_requestArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Mst_categoryCountOutputType without action
+   */
+  export type Mst_categoryCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Mst_categoryCountOutputType
+     */
+    select?: Mst_categoryCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Mst_categoryCountOutputType without action
+   */
+  export type Mst_categoryCountOutputTypeCountMap_category_to_groupArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: map_category_to_groupWhereInput
+  }
+
+  /**
+   * Mst_categoryCountOutputType without action
+   */
+  export type Mst_categoryCountOutputTypeCountTr_requestArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tr_requestWhereInput
   }
 
 
@@ -9261,6 +9665,7 @@ export namespace Prisma {
     is_deleted?: boolean
     created_at?: boolean
     created_by?: boolean
+    map_category_to_group?: boolean | mst_group$map_category_to_groupArgs<ExtArgs>
     mst_authorization_usergroup?: boolean | mst_group$mst_authorization_usergroupArgs<ExtArgs>
     tr_project?: boolean | mst_group$tr_projectArgs<ExtArgs>
     _count?: boolean | Mst_groupCountOutputTypeDefaultArgs<ExtArgs>
@@ -9278,6 +9683,7 @@ export namespace Prisma {
   }
 
   export type mst_groupInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    map_category_to_group?: boolean | mst_group$map_category_to_groupArgs<ExtArgs>
     mst_authorization_usergroup?: boolean | mst_group$mst_authorization_usergroupArgs<ExtArgs>
     tr_project?: boolean | mst_group$tr_projectArgs<ExtArgs>
     _count?: boolean | Mst_groupCountOutputTypeDefaultArgs<ExtArgs>
@@ -9286,6 +9692,7 @@ export namespace Prisma {
   export type $mst_groupPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "mst_group"
     objects: {
+      map_category_to_group: Prisma.$map_category_to_groupPayload<ExtArgs>[]
       mst_authorization_usergroup: Prisma.$mst_authorization_usergroupPayload<ExtArgs>[]
       tr_project: Prisma.$tr_projectPayload<ExtArgs>[]
     }
@@ -9637,6 +10044,7 @@ export namespace Prisma {
    */
   export interface Prisma__mst_groupClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    map_category_to_group<T extends mst_group$map_category_to_groupArgs<ExtArgs> = {}>(args?: Subset<T, mst_group$map_category_to_groupArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$map_category_to_groupPayload<ExtArgs>, T, "findMany"> | Null>
     mst_authorization_usergroup<T extends mst_group$mst_authorization_usergroupArgs<ExtArgs> = {}>(args?: Subset<T, mst_group$mst_authorization_usergroupArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$mst_authorization_usergroupPayload<ExtArgs>, T, "findMany"> | Null>
     tr_project<T extends mst_group$tr_projectArgs<ExtArgs> = {}>(args?: Subset<T, mst_group$tr_projectArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tr_projectPayload<ExtArgs>, T, "findMany"> | Null>
     /**
@@ -9971,6 +10379,26 @@ export namespace Prisma {
      * Filter which mst_groups to delete
      */
     where?: mst_groupWhereInput
+  }
+
+  /**
+   * mst_group.map_category_to_group
+   */
+  export type mst_group$map_category_to_groupArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the map_category_to_group
+     */
+    select?: map_category_to_groupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: map_category_to_groupInclude<ExtArgs> | null
+    where?: map_category_to_groupWhereInput
+    orderBy?: map_category_to_groupOrderByWithRelationInput | map_category_to_groupOrderByWithRelationInput[]
+    cursor?: map_category_to_groupWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Map_category_to_groupScalarFieldEnum | Map_category_to_groupScalarFieldEnum[]
   }
 
   /**
@@ -17789,6 +18217,9 @@ export namespace Prisma {
     mst_project_state?: boolean | tr_project$mst_project_stateArgs<ExtArgs>
     tr_request?: boolean | tr_project$tr_requestArgs<ExtArgs>
     tr_project_flow?: boolean | tr_project$tr_project_flowArgs<ExtArgs>
+    tr_project_minimum_viable?: boolean | tr_project$tr_project_minimum_viableArgs<ExtArgs>
+    tr_project_overview?: boolean | tr_project$tr_project_overviewArgs<ExtArgs>
+    tr_project_overview_goals?: boolean | tr_project$tr_project_overview_goalsArgs<ExtArgs>
     tr_project_task?: boolean | tr_project$tr_project_taskArgs<ExtArgs>
     _count?: boolean | Tr_projectCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tr_project"]>
@@ -17825,6 +18256,9 @@ export namespace Prisma {
     mst_project_state?: boolean | tr_project$mst_project_stateArgs<ExtArgs>
     tr_request?: boolean | tr_project$tr_requestArgs<ExtArgs>
     tr_project_flow?: boolean | tr_project$tr_project_flowArgs<ExtArgs>
+    tr_project_minimum_viable?: boolean | tr_project$tr_project_minimum_viableArgs<ExtArgs>
+    tr_project_overview?: boolean | tr_project$tr_project_overviewArgs<ExtArgs>
+    tr_project_overview_goals?: boolean | tr_project$tr_project_overview_goalsArgs<ExtArgs>
     tr_project_task?: boolean | tr_project$tr_project_taskArgs<ExtArgs>
     _count?: boolean | Tr_projectCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -17836,6 +18270,9 @@ export namespace Prisma {
       mst_project_state: Prisma.$mst_project_statePayload<ExtArgs> | null
       tr_request: Prisma.$tr_requestPayload<ExtArgs> | null
       tr_project_flow: Prisma.$tr_project_flowPayload<ExtArgs>[]
+      tr_project_minimum_viable: Prisma.$tr_project_minimum_viablePayload<ExtArgs>[]
+      tr_project_overview: Prisma.$tr_project_overviewPayload<ExtArgs>[]
+      tr_project_overview_goals: Prisma.$tr_project_overview_goalsPayload<ExtArgs>[]
       tr_project_task: Prisma.$tr_project_taskPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -18206,6 +18643,9 @@ export namespace Prisma {
     mst_project_state<T extends tr_project$mst_project_stateArgs<ExtArgs> = {}>(args?: Subset<T, tr_project$mst_project_stateArgs<ExtArgs>>): Prisma__mst_project_stateClient<$Result.GetResult<Prisma.$mst_project_statePayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     tr_request<T extends tr_project$tr_requestArgs<ExtArgs> = {}>(args?: Subset<T, tr_project$tr_requestArgs<ExtArgs>>): Prisma__tr_requestClient<$Result.GetResult<Prisma.$tr_requestPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     tr_project_flow<T extends tr_project$tr_project_flowArgs<ExtArgs> = {}>(args?: Subset<T, tr_project$tr_project_flowArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tr_project_flowPayload<ExtArgs>, T, "findMany"> | Null>
+    tr_project_minimum_viable<T extends tr_project$tr_project_minimum_viableArgs<ExtArgs> = {}>(args?: Subset<T, tr_project$tr_project_minimum_viableArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tr_project_minimum_viablePayload<ExtArgs>, T, "findMany"> | Null>
+    tr_project_overview<T extends tr_project$tr_project_overviewArgs<ExtArgs> = {}>(args?: Subset<T, tr_project$tr_project_overviewArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tr_project_overviewPayload<ExtArgs>, T, "findMany"> | Null>
+    tr_project_overview_goals<T extends tr_project$tr_project_overview_goalsArgs<ExtArgs> = {}>(args?: Subset<T, tr_project$tr_project_overview_goalsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tr_project_overview_goalsPayload<ExtArgs>, T, "findMany"> | Null>
     tr_project_task<T extends tr_project$tr_project_taskArgs<ExtArgs> = {}>(args?: Subset<T, tr_project$tr_project_taskArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tr_project_taskPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -18620,6 +19060,66 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Tr_project_flowScalarFieldEnum | Tr_project_flowScalarFieldEnum[]
+  }
+
+  /**
+   * tr_project.tr_project_minimum_viable
+   */
+  export type tr_project$tr_project_minimum_viableArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_minimum_viable
+     */
+    select?: tr_project_minimum_viableSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_minimum_viableInclude<ExtArgs> | null
+    where?: tr_project_minimum_viableWhereInput
+    orderBy?: tr_project_minimum_viableOrderByWithRelationInput | tr_project_minimum_viableOrderByWithRelationInput[]
+    cursor?: tr_project_minimum_viableWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Tr_project_minimum_viableScalarFieldEnum | Tr_project_minimum_viableScalarFieldEnum[]
+  }
+
+  /**
+   * tr_project.tr_project_overview
+   */
+  export type tr_project$tr_project_overviewArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_overview
+     */
+    select?: tr_project_overviewSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overviewInclude<ExtArgs> | null
+    where?: tr_project_overviewWhereInput
+    orderBy?: tr_project_overviewOrderByWithRelationInput | tr_project_overviewOrderByWithRelationInput[]
+    cursor?: tr_project_overviewWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Tr_project_overviewScalarFieldEnum | Tr_project_overviewScalarFieldEnum[]
+  }
+
+  /**
+   * tr_project.tr_project_overview_goals
+   */
+  export type tr_project$tr_project_overview_goalsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_overview_goals
+     */
+    select?: tr_project_overview_goalsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overview_goalsInclude<ExtArgs> | null
+    where?: tr_project_overview_goalsWhereInput
+    orderBy?: tr_project_overview_goalsOrderByWithRelationInput | tr_project_overview_goalsOrderByWithRelationInput[]
+    cursor?: tr_project_overview_goalsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Tr_project_overview_goalsScalarFieldEnum | Tr_project_overview_goalsScalarFieldEnum[]
   }
 
   /**
@@ -20654,37 +21154,52 @@ export namespace Prisma {
   export type Tr_project_overviewMinAggregateOutputType = {
     id: number | null
     project_id: number | null
+    background: string | null
     purpose: string | null
-    goals: string | null
     success_measurement: string | null
     intangible_benefit: string | null
     impact_of_not_doing: string | null
     created_at: Date | null
     created_by: string | null
+    project_name: string | null
+    department_name: string | null
+    type: string | null
+    expected_completion_date: Date | null
+    application: string | null
   }
 
   export type Tr_project_overviewMaxAggregateOutputType = {
     id: number | null
     project_id: number | null
+    background: string | null
     purpose: string | null
-    goals: string | null
     success_measurement: string | null
     intangible_benefit: string | null
     impact_of_not_doing: string | null
     created_at: Date | null
     created_by: string | null
+    project_name: string | null
+    department_name: string | null
+    type: string | null
+    expected_completion_date: Date | null
+    application: string | null
   }
 
   export type Tr_project_overviewCountAggregateOutputType = {
     id: number
     project_id: number
+    background: number
     purpose: number
-    goals: number
     success_measurement: number
     intangible_benefit: number
     impact_of_not_doing: number
     created_at: number
     created_by: number
+    project_name: number
+    department_name: number
+    type: number
+    expected_completion_date: number
+    application: number
     _all: number
   }
 
@@ -20702,37 +21217,52 @@ export namespace Prisma {
   export type Tr_project_overviewMinAggregateInputType = {
     id?: true
     project_id?: true
+    background?: true
     purpose?: true
-    goals?: true
     success_measurement?: true
     intangible_benefit?: true
     impact_of_not_doing?: true
     created_at?: true
     created_by?: true
+    project_name?: true
+    department_name?: true
+    type?: true
+    expected_completion_date?: true
+    application?: true
   }
 
   export type Tr_project_overviewMaxAggregateInputType = {
     id?: true
     project_id?: true
+    background?: true
     purpose?: true
-    goals?: true
     success_measurement?: true
     intangible_benefit?: true
     impact_of_not_doing?: true
     created_at?: true
     created_by?: true
+    project_name?: true
+    department_name?: true
+    type?: true
+    expected_completion_date?: true
+    application?: true
   }
 
   export type Tr_project_overviewCountAggregateInputType = {
     id?: true
     project_id?: true
+    background?: true
     purpose?: true
-    goals?: true
     success_measurement?: true
     intangible_benefit?: true
     impact_of_not_doing?: true
     created_at?: true
     created_by?: true
+    project_name?: true
+    department_name?: true
+    type?: true
+    expected_completion_date?: true
+    application?: true
     _all?: true
   }
 
@@ -20825,13 +21355,18 @@ export namespace Prisma {
   export type Tr_project_overviewGroupByOutputType = {
     id: number
     project_id: number | null
+    background: string | null
     purpose: string | null
-    goals: string | null
     success_measurement: string | null
     intangible_benefit: string | null
     impact_of_not_doing: string | null
     created_at: Date | null
     created_by: string | null
+    project_name: string | null
+    department_name: string | null
+    type: string | null
+    expected_completion_date: Date | null
+    application: string | null
     _count: Tr_project_overviewCountAggregateOutputType | null
     _avg: Tr_project_overviewAvgAggregateOutputType | null
     _sum: Tr_project_overviewSumAggregateOutputType | null
@@ -20856,42 +21391,63 @@ export namespace Prisma {
   export type tr_project_overviewSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     project_id?: boolean
+    background?: boolean
     purpose?: boolean
-    goals?: boolean
     success_measurement?: boolean
     intangible_benefit?: boolean
     impact_of_not_doing?: boolean
     created_at?: boolean
     created_by?: boolean
+    project_name?: boolean
+    department_name?: boolean
+    type?: boolean
+    expected_completion_date?: boolean
+    application?: boolean
+    tr_project?: boolean | tr_project_overview$tr_projectArgs<ExtArgs>
   }, ExtArgs["result"]["tr_project_overview"]>
 
 
   export type tr_project_overviewSelectScalar = {
     id?: boolean
     project_id?: boolean
+    background?: boolean
     purpose?: boolean
-    goals?: boolean
     success_measurement?: boolean
     intangible_benefit?: boolean
     impact_of_not_doing?: boolean
     created_at?: boolean
     created_by?: boolean
+    project_name?: boolean
+    department_name?: boolean
+    type?: boolean
+    expected_completion_date?: boolean
+    application?: boolean
   }
 
+  export type tr_project_overviewInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tr_project?: boolean | tr_project_overview$tr_projectArgs<ExtArgs>
+  }
 
   export type $tr_project_overviewPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "tr_project_overview"
-    objects: {}
+    objects: {
+      tr_project: Prisma.$tr_projectPayload<ExtArgs> | null
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       project_id: number | null
+      background: string | null
       purpose: string | null
-      goals: string | null
       success_measurement: string | null
       intangible_benefit: string | null
       impact_of_not_doing: string | null
       created_at: Date | null
       created_by: string | null
+      project_name: string | null
+      department_name: string | null
+      type: string | null
+      expected_completion_date: Date | null
+      application: string | null
     }, ExtArgs["result"]["tr_project_overview"]>
     composites: {}
   }
@@ -21232,6 +21788,7 @@ export namespace Prisma {
    */
   export interface Prisma__tr_project_overviewClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    tr_project<T extends tr_project_overview$tr_projectArgs<ExtArgs> = {}>(args?: Subset<T, tr_project_overview$tr_projectArgs<ExtArgs>>): Prisma__tr_projectClient<$Result.GetResult<Prisma.$tr_projectPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -21263,13 +21820,18 @@ export namespace Prisma {
   interface tr_project_overviewFieldRefs {
     readonly id: FieldRef<"tr_project_overview", 'Int'>
     readonly project_id: FieldRef<"tr_project_overview", 'Int'>
+    readonly background: FieldRef<"tr_project_overview", 'String'>
     readonly purpose: FieldRef<"tr_project_overview", 'String'>
-    readonly goals: FieldRef<"tr_project_overview", 'String'>
     readonly success_measurement: FieldRef<"tr_project_overview", 'String'>
     readonly intangible_benefit: FieldRef<"tr_project_overview", 'String'>
     readonly impact_of_not_doing: FieldRef<"tr_project_overview", 'String'>
     readonly created_at: FieldRef<"tr_project_overview", 'DateTime'>
     readonly created_by: FieldRef<"tr_project_overview", 'String'>
+    readonly project_name: FieldRef<"tr_project_overview", 'String'>
+    readonly department_name: FieldRef<"tr_project_overview", 'String'>
+    readonly type: FieldRef<"tr_project_overview", 'String'>
+    readonly expected_completion_date: FieldRef<"tr_project_overview", 'DateTime'>
+    readonly application: FieldRef<"tr_project_overview", 'String'>
   }
     
 
@@ -21282,6 +21844,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the tr_project_overview
      */
     select?: tr_project_overviewSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overviewInclude<ExtArgs> | null
     /**
      * Filter, which tr_project_overview to fetch.
      */
@@ -21297,6 +21863,10 @@ export namespace Prisma {
      */
     select?: tr_project_overviewSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overviewInclude<ExtArgs> | null
+    /**
      * Filter, which tr_project_overview to fetch.
      */
     where: tr_project_overviewWhereUniqueInput
@@ -21310,6 +21880,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the tr_project_overview
      */
     select?: tr_project_overviewSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overviewInclude<ExtArgs> | null
     /**
      * Filter, which tr_project_overview to fetch.
      */
@@ -21355,6 +21929,10 @@ export namespace Prisma {
      */
     select?: tr_project_overviewSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overviewInclude<ExtArgs> | null
+    /**
      * Filter, which tr_project_overview to fetch.
      */
     where?: tr_project_overviewWhereInput
@@ -21399,6 +21977,10 @@ export namespace Prisma {
      */
     select?: tr_project_overviewSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overviewInclude<ExtArgs> | null
+    /**
      * Filter, which tr_project_overviews to fetch.
      */
     where?: tr_project_overviewWhereInput
@@ -21438,6 +22020,10 @@ export namespace Prisma {
      */
     select?: tr_project_overviewSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overviewInclude<ExtArgs> | null
+    /**
      * The data needed to create a tr_project_overview.
      */
     data?: XOR<tr_project_overviewCreateInput, tr_project_overviewUncheckedCreateInput>
@@ -21462,6 +22048,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the tr_project_overview
      */
     select?: tr_project_overviewSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overviewInclude<ExtArgs> | null
     /**
      * The data needed to update a tr_project_overview.
      */
@@ -21495,6 +22085,10 @@ export namespace Prisma {
      */
     select?: tr_project_overviewSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overviewInclude<ExtArgs> | null
+    /**
      * The filter to search for the tr_project_overview to update in case it exists.
      */
     where: tr_project_overviewWhereUniqueInput
@@ -21517,6 +22111,10 @@ export namespace Prisma {
      */
     select?: tr_project_overviewSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overviewInclude<ExtArgs> | null
+    /**
      * Filter which tr_project_overview to delete.
      */
     where: tr_project_overviewWhereUniqueInput
@@ -21533,6 +22131,21 @@ export namespace Prisma {
   }
 
   /**
+   * tr_project_overview.tr_project
+   */
+  export type tr_project_overview$tr_projectArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project
+     */
+    select?: tr_projectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_projectInclude<ExtArgs> | null
+    where?: tr_projectWhereInput
+  }
+
+  /**
    * tr_project_overview without action
    */
   export type tr_project_overviewDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -21540,6 +22153,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the tr_project_overview
      */
     select?: tr_project_overviewSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overviewInclude<ExtArgs> | null
   }
 
 
@@ -22461,27 +23078,39 @@ export namespace Prisma {
     id: number | null
     project_id: number | null
     risk: string | null
-    point_control: string | null
+    risk_control: string | null
+    impact: string | null
+    probability: string | null
+    category: string | null
     created_at: Date | null
     created_by: string | null
+    is_deleted: boolean | null
   }
 
   export type Tr_project_risk_mitigationMaxAggregateOutputType = {
     id: number | null
     project_id: number | null
     risk: string | null
-    point_control: string | null
+    risk_control: string | null
+    impact: string | null
+    probability: string | null
+    category: string | null
     created_at: Date | null
     created_by: string | null
+    is_deleted: boolean | null
   }
 
   export type Tr_project_risk_mitigationCountAggregateOutputType = {
     id: number
     project_id: number
     risk: number
-    point_control: number
+    risk_control: number
+    impact: number
+    probability: number
+    category: number
     created_at: number
     created_by: number
+    is_deleted: number
     _all: number
   }
 
@@ -22500,27 +23129,39 @@ export namespace Prisma {
     id?: true
     project_id?: true
     risk?: true
-    point_control?: true
+    risk_control?: true
+    impact?: true
+    probability?: true
+    category?: true
     created_at?: true
     created_by?: true
+    is_deleted?: true
   }
 
   export type Tr_project_risk_mitigationMaxAggregateInputType = {
     id?: true
     project_id?: true
     risk?: true
-    point_control?: true
+    risk_control?: true
+    impact?: true
+    probability?: true
+    category?: true
     created_at?: true
     created_by?: true
+    is_deleted?: true
   }
 
   export type Tr_project_risk_mitigationCountAggregateInputType = {
     id?: true
     project_id?: true
     risk?: true
-    point_control?: true
+    risk_control?: true
+    impact?: true
+    probability?: true
+    category?: true
     created_at?: true
     created_by?: true
+    is_deleted?: true
     _all?: true
   }
 
@@ -22614,9 +23255,13 @@ export namespace Prisma {
     id: number
     project_id: number | null
     risk: string | null
-    point_control: string | null
+    risk_control: string | null
+    impact: string | null
+    probability: string | null
+    category: string | null
     created_at: Date | null
     created_by: string | null
+    is_deleted: boolean | null
     _count: Tr_project_risk_mitigationCountAggregateOutputType | null
     _avg: Tr_project_risk_mitigationAvgAggregateOutputType | null
     _sum: Tr_project_risk_mitigationSumAggregateOutputType | null
@@ -22642,9 +23287,13 @@ export namespace Prisma {
     id?: boolean
     project_id?: boolean
     risk?: boolean
-    point_control?: boolean
+    risk_control?: boolean
+    impact?: boolean
+    probability?: boolean
+    category?: boolean
     created_at?: boolean
     created_by?: boolean
+    is_deleted?: boolean
   }, ExtArgs["result"]["tr_project_risk_mitigation"]>
 
 
@@ -22652,9 +23301,13 @@ export namespace Prisma {
     id?: boolean
     project_id?: boolean
     risk?: boolean
-    point_control?: boolean
+    risk_control?: boolean
+    impact?: boolean
+    probability?: boolean
+    category?: boolean
     created_at?: boolean
     created_by?: boolean
+    is_deleted?: boolean
   }
 
 
@@ -22665,9 +23318,13 @@ export namespace Prisma {
       id: number
       project_id: number | null
       risk: string | null
-      point_control: string | null
+      risk_control: string | null
+      impact: string | null
+      probability: string | null
+      category: string | null
       created_at: Date | null
       created_by: string | null
+      is_deleted: boolean | null
     }, ExtArgs["result"]["tr_project_risk_mitigation"]>
     composites: {}
   }
@@ -23040,9 +23697,13 @@ export namespace Prisma {
     readonly id: FieldRef<"tr_project_risk_mitigation", 'Int'>
     readonly project_id: FieldRef<"tr_project_risk_mitigation", 'Int'>
     readonly risk: FieldRef<"tr_project_risk_mitigation", 'String'>
-    readonly point_control: FieldRef<"tr_project_risk_mitigation", 'String'>
+    readonly risk_control: FieldRef<"tr_project_risk_mitigation", 'String'>
+    readonly impact: FieldRef<"tr_project_risk_mitigation", 'String'>
+    readonly probability: FieldRef<"tr_project_risk_mitigation", 'String'>
+    readonly category: FieldRef<"tr_project_risk_mitigation", 'String'>
     readonly created_at: FieldRef<"tr_project_risk_mitigation", 'DateTime'>
     readonly created_by: FieldRef<"tr_project_risk_mitigation", 'String'>
+    readonly is_deleted: FieldRef<"tr_project_risk_mitigation", 'Boolean'>
   }
     
 
@@ -23213,7 +23874,7 @@ export namespace Prisma {
     /**
      * The data needed to create a tr_project_risk_mitigation.
      */
-    data: XOR<tr_project_risk_mitigationCreateInput, tr_project_risk_mitigationUncheckedCreateInput>
+    data?: XOR<tr_project_risk_mitigationCreateInput, tr_project_risk_mitigationUncheckedCreateInput>
   }
 
   /**
@@ -23341,31 +24002,34 @@ export namespace Prisma {
   export type Tr_project_scopeMinAggregateOutputType = {
     id: number | null
     project_id: number | null
-    features: string | null
-    description: string | null
+    module: string | null
+    story_point: string | null
     type: string | null
-    created_at: string | null
+    created_at: Date | null
     created_by: string | null
+    is_deleted: boolean | null
   }
 
   export type Tr_project_scopeMaxAggregateOutputType = {
     id: number | null
     project_id: number | null
-    features: string | null
-    description: string | null
+    module: string | null
+    story_point: string | null
     type: string | null
-    created_at: string | null
+    created_at: Date | null
     created_by: string | null
+    is_deleted: boolean | null
   }
 
   export type Tr_project_scopeCountAggregateOutputType = {
     id: number
     project_id: number
-    features: number
-    description: number
+    module: number
+    story_point: number
     type: number
     created_at: number
     created_by: number
+    is_deleted: number
     _all: number
   }
 
@@ -23383,31 +24047,34 @@ export namespace Prisma {
   export type Tr_project_scopeMinAggregateInputType = {
     id?: true
     project_id?: true
-    features?: true
-    description?: true
+    module?: true
+    story_point?: true
     type?: true
     created_at?: true
     created_by?: true
+    is_deleted?: true
   }
 
   export type Tr_project_scopeMaxAggregateInputType = {
     id?: true
     project_id?: true
-    features?: true
-    description?: true
+    module?: true
+    story_point?: true
     type?: true
     created_at?: true
     created_by?: true
+    is_deleted?: true
   }
 
   export type Tr_project_scopeCountAggregateInputType = {
     id?: true
     project_id?: true
-    features?: true
-    description?: true
+    module?: true
+    story_point?: true
     type?: true
     created_at?: true
     created_by?: true
+    is_deleted?: true
     _all?: true
   }
 
@@ -23500,11 +24167,12 @@ export namespace Prisma {
   export type Tr_project_scopeGroupByOutputType = {
     id: number
     project_id: number | null
-    features: string | null
-    description: string | null
+    module: string | null
+    story_point: string | null
     type: string | null
-    created_at: string | null
+    created_at: Date | null
     created_by: string | null
+    is_deleted: boolean | null
     _count: Tr_project_scopeCountAggregateOutputType | null
     _avg: Tr_project_scopeAvgAggregateOutputType | null
     _sum: Tr_project_scopeSumAggregateOutputType | null
@@ -23529,22 +24197,24 @@ export namespace Prisma {
   export type tr_project_scopeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     project_id?: boolean
-    features?: boolean
-    description?: boolean
+    module?: boolean
+    story_point?: boolean
     type?: boolean
     created_at?: boolean
     created_by?: boolean
+    is_deleted?: boolean
   }, ExtArgs["result"]["tr_project_scope"]>
 
 
   export type tr_project_scopeSelectScalar = {
     id?: boolean
     project_id?: boolean
-    features?: boolean
-    description?: boolean
+    module?: boolean
+    story_point?: boolean
     type?: boolean
     created_at?: boolean
     created_by?: boolean
+    is_deleted?: boolean
   }
 
 
@@ -23554,11 +24224,12 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       project_id: number | null
-      features: string | null
-      description: string | null
+      module: string | null
+      story_point: string | null
       type: string | null
-      created_at: string | null
+      created_at: Date | null
       created_by: string | null
+      is_deleted: boolean | null
     }, ExtArgs["result"]["tr_project_scope"]>
     composites: {}
   }
@@ -23930,11 +24601,12 @@ export namespace Prisma {
   interface tr_project_scopeFieldRefs {
     readonly id: FieldRef<"tr_project_scope", 'Int'>
     readonly project_id: FieldRef<"tr_project_scope", 'Int'>
-    readonly features: FieldRef<"tr_project_scope", 'String'>
-    readonly description: FieldRef<"tr_project_scope", 'String'>
+    readonly module: FieldRef<"tr_project_scope", 'String'>
+    readonly story_point: FieldRef<"tr_project_scope", 'String'>
     readonly type: FieldRef<"tr_project_scope", 'String'>
-    readonly created_at: FieldRef<"tr_project_scope", 'String'>
+    readonly created_at: FieldRef<"tr_project_scope", 'DateTime'>
     readonly created_by: FieldRef<"tr_project_scope", 'String'>
+    readonly is_deleted: FieldRef<"tr_project_scope", 'Boolean'>
   }
     
 
@@ -26358,16 +27030,19 @@ export namespace Prisma {
   export type Tr_requestAvgAggregateOutputType = {
     id: number | null
     entities_id: number | null
+    category: number | null
   }
 
   export type Tr_requestSumAggregateOutputType = {
     id: number | null
     entities_id: number | null
+    category: number | null
   }
 
   export type Tr_requestMinAggregateOutputType = {
     id: number | null
     entities_id: number | null
+    category: number | null
     ticket_name: string | null
     creation_date: Date | null
     closed_date: Date | null
@@ -26375,7 +27050,6 @@ export namespace Prisma {
     status: string | null
     urgency: string | null
     expected_completion_date: Date | null
-    category: string | null
     type: string | null
     department_code: string | null
     department_name: string | null
@@ -26392,6 +27066,7 @@ export namespace Prisma {
   export type Tr_requestMaxAggregateOutputType = {
     id: number | null
     entities_id: number | null
+    category: number | null
     ticket_name: string | null
     creation_date: Date | null
     closed_date: Date | null
@@ -26399,7 +27074,6 @@ export namespace Prisma {
     status: string | null
     urgency: string | null
     expected_completion_date: Date | null
-    category: string | null
     type: string | null
     department_code: string | null
     department_name: string | null
@@ -26416,6 +27090,7 @@ export namespace Prisma {
   export type Tr_requestCountAggregateOutputType = {
     id: number
     entities_id: number
+    category: number
     ticket_name: number
     creation_date: number
     closed_date: number
@@ -26423,7 +27098,6 @@ export namespace Prisma {
     status: number
     urgency: number
     expected_completion_date: number
-    category: number
     type: number
     department_code: number
     department_name: number
@@ -26442,16 +27116,19 @@ export namespace Prisma {
   export type Tr_requestAvgAggregateInputType = {
     id?: true
     entities_id?: true
+    category?: true
   }
 
   export type Tr_requestSumAggregateInputType = {
     id?: true
     entities_id?: true
+    category?: true
   }
 
   export type Tr_requestMinAggregateInputType = {
     id?: true
     entities_id?: true
+    category?: true
     ticket_name?: true
     creation_date?: true
     closed_date?: true
@@ -26459,7 +27136,6 @@ export namespace Prisma {
     status?: true
     urgency?: true
     expected_completion_date?: true
-    category?: true
     type?: true
     department_code?: true
     department_name?: true
@@ -26476,6 +27152,7 @@ export namespace Prisma {
   export type Tr_requestMaxAggregateInputType = {
     id?: true
     entities_id?: true
+    category?: true
     ticket_name?: true
     creation_date?: true
     closed_date?: true
@@ -26483,7 +27160,6 @@ export namespace Prisma {
     status?: true
     urgency?: true
     expected_completion_date?: true
-    category?: true
     type?: true
     department_code?: true
     department_name?: true
@@ -26500,6 +27176,7 @@ export namespace Prisma {
   export type Tr_requestCountAggregateInputType = {
     id?: true
     entities_id?: true
+    category?: true
     ticket_name?: true
     creation_date?: true
     closed_date?: true
@@ -26507,7 +27184,6 @@ export namespace Prisma {
     status?: true
     urgency?: true
     expected_completion_date?: true
-    category?: true
     type?: true
     department_code?: true
     department_name?: true
@@ -26611,6 +27287,7 @@ export namespace Prisma {
   export type Tr_requestGroupByOutputType = {
     id: number
     entities_id: number | null
+    category: number | null
     ticket_name: string | null
     creation_date: Date | null
     closed_date: Date | null
@@ -26618,7 +27295,6 @@ export namespace Prisma {
     status: string | null
     urgency: string | null
     expected_completion_date: Date | null
-    category: string | null
     type: string | null
     department_code: string | null
     department_name: string | null
@@ -26654,6 +27330,7 @@ export namespace Prisma {
   export type tr_requestSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     entities_id?: boolean
+    category?: boolean
     ticket_name?: boolean
     creation_date?: boolean
     closed_date?: boolean
@@ -26661,7 +27338,6 @@ export namespace Prisma {
     status?: boolean
     urgency?: boolean
     expected_completion_date?: boolean
-    category?: boolean
     type?: boolean
     department_code?: boolean
     department_name?: boolean
@@ -26674,6 +27350,7 @@ export namespace Prisma {
     impact?: boolean
     priority?: boolean
     tr_project?: boolean | tr_request$tr_projectArgs<ExtArgs>
+    mst_category?: boolean | tr_request$mst_categoryArgs<ExtArgs>
     tr_request_validation?: boolean | tr_request$tr_request_validationArgs<ExtArgs>
     _count?: boolean | Tr_requestCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tr_request"]>
@@ -26682,6 +27359,7 @@ export namespace Prisma {
   export type tr_requestSelectScalar = {
     id?: boolean
     entities_id?: boolean
+    category?: boolean
     ticket_name?: boolean
     creation_date?: boolean
     closed_date?: boolean
@@ -26689,7 +27367,6 @@ export namespace Prisma {
     status?: boolean
     urgency?: boolean
     expected_completion_date?: boolean
-    category?: boolean
     type?: boolean
     department_code?: boolean
     department_name?: boolean
@@ -26705,6 +27382,7 @@ export namespace Prisma {
 
   export type tr_requestInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     tr_project?: boolean | tr_request$tr_projectArgs<ExtArgs>
+    mst_category?: boolean | tr_request$mst_categoryArgs<ExtArgs>
     tr_request_validation?: boolean | tr_request$tr_request_validationArgs<ExtArgs>
     _count?: boolean | Tr_requestCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -26713,11 +27391,13 @@ export namespace Prisma {
     name: "tr_request"
     objects: {
       tr_project: Prisma.$tr_projectPayload<ExtArgs>[]
+      mst_category: Prisma.$mst_categoryPayload<ExtArgs> | null
       tr_request_validation: Prisma.$tr_request_validationPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       entities_id: number | null
+      category: number | null
       ticket_name: string | null
       creation_date: Date | null
       closed_date: Date | null
@@ -26725,7 +27405,6 @@ export namespace Prisma {
       status: string | null
       urgency: string | null
       expected_completion_date: Date | null
-      category: string | null
       type: string | null
       department_code: string | null
       department_name: string | null
@@ -27078,6 +27757,7 @@ export namespace Prisma {
   export interface Prisma__tr_requestClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     tr_project<T extends tr_request$tr_projectArgs<ExtArgs> = {}>(args?: Subset<T, tr_request$tr_projectArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tr_projectPayload<ExtArgs>, T, "findMany"> | Null>
+    mst_category<T extends tr_request$mst_categoryArgs<ExtArgs> = {}>(args?: Subset<T, tr_request$mst_categoryArgs<ExtArgs>>): Prisma__mst_categoryClient<$Result.GetResult<Prisma.$mst_categoryPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     tr_request_validation<T extends tr_request$tr_request_validationArgs<ExtArgs> = {}>(args?: Subset<T, tr_request$tr_request_validationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tr_request_validationPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -27110,6 +27790,7 @@ export namespace Prisma {
   interface tr_requestFieldRefs {
     readonly id: FieldRef<"tr_request", 'Int'>
     readonly entities_id: FieldRef<"tr_request", 'Int'>
+    readonly category: FieldRef<"tr_request", 'Int'>
     readonly ticket_name: FieldRef<"tr_request", 'String'>
     readonly creation_date: FieldRef<"tr_request", 'DateTime'>
     readonly closed_date: FieldRef<"tr_request", 'DateTime'>
@@ -27117,7 +27798,6 @@ export namespace Prisma {
     readonly status: FieldRef<"tr_request", 'String'>
     readonly urgency: FieldRef<"tr_request", 'String'>
     readonly expected_completion_date: FieldRef<"tr_request", 'DateTime'>
-    readonly category: FieldRef<"tr_request", 'String'>
     readonly type: FieldRef<"tr_request", 'String'>
     readonly department_code: FieldRef<"tr_request", 'String'>
     readonly department_name: FieldRef<"tr_request", 'String'>
@@ -27445,6 +28125,21 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Tr_projectScalarFieldEnum | Tr_projectScalarFieldEnum[]
+  }
+
+  /**
+   * tr_request.mst_category
+   */
+  export type tr_request$mst_categoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_category
+     */
+    select?: mst_categorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_categoryInclude<ExtArgs> | null
+    where?: mst_categoryWhereInput
   }
 
   /**
@@ -29351,6 +30046,3817 @@ export namespace Prisma {
 
 
   /**
+   * Model map_category_to_group
+   */
+
+  export type AggregateMap_category_to_group = {
+    _count: Map_category_to_groupCountAggregateOutputType | null
+    _avg: Map_category_to_groupAvgAggregateOutputType | null
+    _sum: Map_category_to_groupSumAggregateOutputType | null
+    _min: Map_category_to_groupMinAggregateOutputType | null
+    _max: Map_category_to_groupMaxAggregateOutputType | null
+  }
+
+  export type Map_category_to_groupAvgAggregateOutputType = {
+    id: number | null
+    category_id: number | null
+    group_id: number | null
+  }
+
+  export type Map_category_to_groupSumAggregateOutputType = {
+    id: number | null
+    category_id: number | null
+    group_id: number | null
+  }
+
+  export type Map_category_to_groupMinAggregateOutputType = {
+    id: number | null
+    category_id: number | null
+    group_id: number | null
+    created_at: Date | null
+    created_by: string | null
+  }
+
+  export type Map_category_to_groupMaxAggregateOutputType = {
+    id: number | null
+    category_id: number | null
+    group_id: number | null
+    created_at: Date | null
+    created_by: string | null
+  }
+
+  export type Map_category_to_groupCountAggregateOutputType = {
+    id: number
+    category_id: number
+    group_id: number
+    created_at: number
+    created_by: number
+    _all: number
+  }
+
+
+  export type Map_category_to_groupAvgAggregateInputType = {
+    id?: true
+    category_id?: true
+    group_id?: true
+  }
+
+  export type Map_category_to_groupSumAggregateInputType = {
+    id?: true
+    category_id?: true
+    group_id?: true
+  }
+
+  export type Map_category_to_groupMinAggregateInputType = {
+    id?: true
+    category_id?: true
+    group_id?: true
+    created_at?: true
+    created_by?: true
+  }
+
+  export type Map_category_to_groupMaxAggregateInputType = {
+    id?: true
+    category_id?: true
+    group_id?: true
+    created_at?: true
+    created_by?: true
+  }
+
+  export type Map_category_to_groupCountAggregateInputType = {
+    id?: true
+    category_id?: true
+    group_id?: true
+    created_at?: true
+    created_by?: true
+    _all?: true
+  }
+
+  export type Map_category_to_groupAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which map_category_to_group to aggregate.
+     */
+    where?: map_category_to_groupWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of map_category_to_groups to fetch.
+     */
+    orderBy?: map_category_to_groupOrderByWithRelationInput | map_category_to_groupOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: map_category_to_groupWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` map_category_to_groups from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` map_category_to_groups.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned map_category_to_groups
+    **/
+    _count?: true | Map_category_to_groupCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Map_category_to_groupAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Map_category_to_groupSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Map_category_to_groupMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Map_category_to_groupMaxAggregateInputType
+  }
+
+  export type GetMap_category_to_groupAggregateType<T extends Map_category_to_groupAggregateArgs> = {
+        [P in keyof T & keyof AggregateMap_category_to_group]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMap_category_to_group[P]>
+      : GetScalarType<T[P], AggregateMap_category_to_group[P]>
+  }
+
+
+
+
+  export type map_category_to_groupGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: map_category_to_groupWhereInput
+    orderBy?: map_category_to_groupOrderByWithAggregationInput | map_category_to_groupOrderByWithAggregationInput[]
+    by: Map_category_to_groupScalarFieldEnum[] | Map_category_to_groupScalarFieldEnum
+    having?: map_category_to_groupScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Map_category_to_groupCountAggregateInputType | true
+    _avg?: Map_category_to_groupAvgAggregateInputType
+    _sum?: Map_category_to_groupSumAggregateInputType
+    _min?: Map_category_to_groupMinAggregateInputType
+    _max?: Map_category_to_groupMaxAggregateInputType
+  }
+
+  export type Map_category_to_groupGroupByOutputType = {
+    id: number
+    category_id: number | null
+    group_id: number | null
+    created_at: Date | null
+    created_by: string | null
+    _count: Map_category_to_groupCountAggregateOutputType | null
+    _avg: Map_category_to_groupAvgAggregateOutputType | null
+    _sum: Map_category_to_groupSumAggregateOutputType | null
+    _min: Map_category_to_groupMinAggregateOutputType | null
+    _max: Map_category_to_groupMaxAggregateOutputType | null
+  }
+
+  type GetMap_category_to_groupGroupByPayload<T extends map_category_to_groupGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Map_category_to_groupGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Map_category_to_groupGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Map_category_to_groupGroupByOutputType[P]>
+            : GetScalarType<T[P], Map_category_to_groupGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type map_category_to_groupSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    category_id?: boolean
+    group_id?: boolean
+    created_at?: boolean
+    created_by?: boolean
+    mst_group?: boolean | map_category_to_group$mst_groupArgs<ExtArgs>
+    mst_category?: boolean | map_category_to_group$mst_categoryArgs<ExtArgs>
+  }, ExtArgs["result"]["map_category_to_group"]>
+
+
+  export type map_category_to_groupSelectScalar = {
+    id?: boolean
+    category_id?: boolean
+    group_id?: boolean
+    created_at?: boolean
+    created_by?: boolean
+  }
+
+  export type map_category_to_groupInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    mst_group?: boolean | map_category_to_group$mst_groupArgs<ExtArgs>
+    mst_category?: boolean | map_category_to_group$mst_categoryArgs<ExtArgs>
+  }
+
+  export type $map_category_to_groupPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "map_category_to_group"
+    objects: {
+      mst_group: Prisma.$mst_groupPayload<ExtArgs> | null
+      mst_category: Prisma.$mst_categoryPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      category_id: number | null
+      group_id: number | null
+      created_at: Date | null
+      created_by: string | null
+    }, ExtArgs["result"]["map_category_to_group"]>
+    composites: {}
+  }
+
+  type map_category_to_groupGetPayload<S extends boolean | null | undefined | map_category_to_groupDefaultArgs> = $Result.GetResult<Prisma.$map_category_to_groupPayload, S>
+
+  type map_category_to_groupCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<map_category_to_groupFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: Map_category_to_groupCountAggregateInputType | true
+    }
+
+  export interface map_category_to_groupDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['map_category_to_group'], meta: { name: 'map_category_to_group' } }
+    /**
+     * Find zero or one Map_category_to_group that matches the filter.
+     * @param {map_category_to_groupFindUniqueArgs} args - Arguments to find a Map_category_to_group
+     * @example
+     * // Get one Map_category_to_group
+     * const map_category_to_group = await prisma.map_category_to_group.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends map_category_to_groupFindUniqueArgs>(args: SelectSubset<T, map_category_to_groupFindUniqueArgs<ExtArgs>>): Prisma__map_category_to_groupClient<$Result.GetResult<Prisma.$map_category_to_groupPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Map_category_to_group that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {map_category_to_groupFindUniqueOrThrowArgs} args - Arguments to find a Map_category_to_group
+     * @example
+     * // Get one Map_category_to_group
+     * const map_category_to_group = await prisma.map_category_to_group.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends map_category_to_groupFindUniqueOrThrowArgs>(args: SelectSubset<T, map_category_to_groupFindUniqueOrThrowArgs<ExtArgs>>): Prisma__map_category_to_groupClient<$Result.GetResult<Prisma.$map_category_to_groupPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Map_category_to_group that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {map_category_to_groupFindFirstArgs} args - Arguments to find a Map_category_to_group
+     * @example
+     * // Get one Map_category_to_group
+     * const map_category_to_group = await prisma.map_category_to_group.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends map_category_to_groupFindFirstArgs>(args?: SelectSubset<T, map_category_to_groupFindFirstArgs<ExtArgs>>): Prisma__map_category_to_groupClient<$Result.GetResult<Prisma.$map_category_to_groupPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Map_category_to_group that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {map_category_to_groupFindFirstOrThrowArgs} args - Arguments to find a Map_category_to_group
+     * @example
+     * // Get one Map_category_to_group
+     * const map_category_to_group = await prisma.map_category_to_group.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends map_category_to_groupFindFirstOrThrowArgs>(args?: SelectSubset<T, map_category_to_groupFindFirstOrThrowArgs<ExtArgs>>): Prisma__map_category_to_groupClient<$Result.GetResult<Prisma.$map_category_to_groupPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Map_category_to_groups that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {map_category_to_groupFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Map_category_to_groups
+     * const map_category_to_groups = await prisma.map_category_to_group.findMany()
+     * 
+     * // Get first 10 Map_category_to_groups
+     * const map_category_to_groups = await prisma.map_category_to_group.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const map_category_to_groupWithIdOnly = await prisma.map_category_to_group.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends map_category_to_groupFindManyArgs>(args?: SelectSubset<T, map_category_to_groupFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$map_category_to_groupPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Map_category_to_group.
+     * @param {map_category_to_groupCreateArgs} args - Arguments to create a Map_category_to_group.
+     * @example
+     * // Create one Map_category_to_group
+     * const Map_category_to_group = await prisma.map_category_to_group.create({
+     *   data: {
+     *     // ... data to create a Map_category_to_group
+     *   }
+     * })
+     * 
+     */
+    create<T extends map_category_to_groupCreateArgs>(args: SelectSubset<T, map_category_to_groupCreateArgs<ExtArgs>>): Prisma__map_category_to_groupClient<$Result.GetResult<Prisma.$map_category_to_groupPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Map_category_to_groups.
+     * @param {map_category_to_groupCreateManyArgs} args - Arguments to create many Map_category_to_groups.
+     * @example
+     * // Create many Map_category_to_groups
+     * const map_category_to_group = await prisma.map_category_to_group.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends map_category_to_groupCreateManyArgs>(args?: SelectSubset<T, map_category_to_groupCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Map_category_to_group.
+     * @param {map_category_to_groupDeleteArgs} args - Arguments to delete one Map_category_to_group.
+     * @example
+     * // Delete one Map_category_to_group
+     * const Map_category_to_group = await prisma.map_category_to_group.delete({
+     *   where: {
+     *     // ... filter to delete one Map_category_to_group
+     *   }
+     * })
+     * 
+     */
+    delete<T extends map_category_to_groupDeleteArgs>(args: SelectSubset<T, map_category_to_groupDeleteArgs<ExtArgs>>): Prisma__map_category_to_groupClient<$Result.GetResult<Prisma.$map_category_to_groupPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Map_category_to_group.
+     * @param {map_category_to_groupUpdateArgs} args - Arguments to update one Map_category_to_group.
+     * @example
+     * // Update one Map_category_to_group
+     * const map_category_to_group = await prisma.map_category_to_group.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends map_category_to_groupUpdateArgs>(args: SelectSubset<T, map_category_to_groupUpdateArgs<ExtArgs>>): Prisma__map_category_to_groupClient<$Result.GetResult<Prisma.$map_category_to_groupPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Map_category_to_groups.
+     * @param {map_category_to_groupDeleteManyArgs} args - Arguments to filter Map_category_to_groups to delete.
+     * @example
+     * // Delete a few Map_category_to_groups
+     * const { count } = await prisma.map_category_to_group.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends map_category_to_groupDeleteManyArgs>(args?: SelectSubset<T, map_category_to_groupDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Map_category_to_groups.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {map_category_to_groupUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Map_category_to_groups
+     * const map_category_to_group = await prisma.map_category_to_group.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends map_category_to_groupUpdateManyArgs>(args: SelectSubset<T, map_category_to_groupUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Map_category_to_group.
+     * @param {map_category_to_groupUpsertArgs} args - Arguments to update or create a Map_category_to_group.
+     * @example
+     * // Update or create a Map_category_to_group
+     * const map_category_to_group = await prisma.map_category_to_group.upsert({
+     *   create: {
+     *     // ... data to create a Map_category_to_group
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Map_category_to_group we want to update
+     *   }
+     * })
+     */
+    upsert<T extends map_category_to_groupUpsertArgs>(args: SelectSubset<T, map_category_to_groupUpsertArgs<ExtArgs>>): Prisma__map_category_to_groupClient<$Result.GetResult<Prisma.$map_category_to_groupPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Map_category_to_groups.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {map_category_to_groupCountArgs} args - Arguments to filter Map_category_to_groups to count.
+     * @example
+     * // Count the number of Map_category_to_groups
+     * const count = await prisma.map_category_to_group.count({
+     *   where: {
+     *     // ... the filter for the Map_category_to_groups we want to count
+     *   }
+     * })
+    **/
+    count<T extends map_category_to_groupCountArgs>(
+      args?: Subset<T, map_category_to_groupCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Map_category_to_groupCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Map_category_to_group.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Map_category_to_groupAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Map_category_to_groupAggregateArgs>(args: Subset<T, Map_category_to_groupAggregateArgs>): Prisma.PrismaPromise<GetMap_category_to_groupAggregateType<T>>
+
+    /**
+     * Group by Map_category_to_group.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {map_category_to_groupGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends map_category_to_groupGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: map_category_to_groupGroupByArgs['orderBy'] }
+        : { orderBy?: map_category_to_groupGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, map_category_to_groupGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMap_category_to_groupGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the map_category_to_group model
+   */
+  readonly fields: map_category_to_groupFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for map_category_to_group.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__map_category_to_groupClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    mst_group<T extends map_category_to_group$mst_groupArgs<ExtArgs> = {}>(args?: Subset<T, map_category_to_group$mst_groupArgs<ExtArgs>>): Prisma__mst_groupClient<$Result.GetResult<Prisma.$mst_groupPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    mst_category<T extends map_category_to_group$mst_categoryArgs<ExtArgs> = {}>(args?: Subset<T, map_category_to_group$mst_categoryArgs<ExtArgs>>): Prisma__mst_categoryClient<$Result.GetResult<Prisma.$mst_categoryPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the map_category_to_group model
+   */ 
+  interface map_category_to_groupFieldRefs {
+    readonly id: FieldRef<"map_category_to_group", 'Int'>
+    readonly category_id: FieldRef<"map_category_to_group", 'Int'>
+    readonly group_id: FieldRef<"map_category_to_group", 'Int'>
+    readonly created_at: FieldRef<"map_category_to_group", 'DateTime'>
+    readonly created_by: FieldRef<"map_category_to_group", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * map_category_to_group findUnique
+   */
+  export type map_category_to_groupFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the map_category_to_group
+     */
+    select?: map_category_to_groupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: map_category_to_groupInclude<ExtArgs> | null
+    /**
+     * Filter, which map_category_to_group to fetch.
+     */
+    where: map_category_to_groupWhereUniqueInput
+  }
+
+  /**
+   * map_category_to_group findUniqueOrThrow
+   */
+  export type map_category_to_groupFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the map_category_to_group
+     */
+    select?: map_category_to_groupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: map_category_to_groupInclude<ExtArgs> | null
+    /**
+     * Filter, which map_category_to_group to fetch.
+     */
+    where: map_category_to_groupWhereUniqueInput
+  }
+
+  /**
+   * map_category_to_group findFirst
+   */
+  export type map_category_to_groupFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the map_category_to_group
+     */
+    select?: map_category_to_groupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: map_category_to_groupInclude<ExtArgs> | null
+    /**
+     * Filter, which map_category_to_group to fetch.
+     */
+    where?: map_category_to_groupWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of map_category_to_groups to fetch.
+     */
+    orderBy?: map_category_to_groupOrderByWithRelationInput | map_category_to_groupOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for map_category_to_groups.
+     */
+    cursor?: map_category_to_groupWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` map_category_to_groups from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` map_category_to_groups.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of map_category_to_groups.
+     */
+    distinct?: Map_category_to_groupScalarFieldEnum | Map_category_to_groupScalarFieldEnum[]
+  }
+
+  /**
+   * map_category_to_group findFirstOrThrow
+   */
+  export type map_category_to_groupFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the map_category_to_group
+     */
+    select?: map_category_to_groupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: map_category_to_groupInclude<ExtArgs> | null
+    /**
+     * Filter, which map_category_to_group to fetch.
+     */
+    where?: map_category_to_groupWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of map_category_to_groups to fetch.
+     */
+    orderBy?: map_category_to_groupOrderByWithRelationInput | map_category_to_groupOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for map_category_to_groups.
+     */
+    cursor?: map_category_to_groupWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` map_category_to_groups from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` map_category_to_groups.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of map_category_to_groups.
+     */
+    distinct?: Map_category_to_groupScalarFieldEnum | Map_category_to_groupScalarFieldEnum[]
+  }
+
+  /**
+   * map_category_to_group findMany
+   */
+  export type map_category_to_groupFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the map_category_to_group
+     */
+    select?: map_category_to_groupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: map_category_to_groupInclude<ExtArgs> | null
+    /**
+     * Filter, which map_category_to_groups to fetch.
+     */
+    where?: map_category_to_groupWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of map_category_to_groups to fetch.
+     */
+    orderBy?: map_category_to_groupOrderByWithRelationInput | map_category_to_groupOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing map_category_to_groups.
+     */
+    cursor?: map_category_to_groupWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` map_category_to_groups from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` map_category_to_groups.
+     */
+    skip?: number
+    distinct?: Map_category_to_groupScalarFieldEnum | Map_category_to_groupScalarFieldEnum[]
+  }
+
+  /**
+   * map_category_to_group create
+   */
+  export type map_category_to_groupCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the map_category_to_group
+     */
+    select?: map_category_to_groupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: map_category_to_groupInclude<ExtArgs> | null
+    /**
+     * The data needed to create a map_category_to_group.
+     */
+    data?: XOR<map_category_to_groupCreateInput, map_category_to_groupUncheckedCreateInput>
+  }
+
+  /**
+   * map_category_to_group createMany
+   */
+  export type map_category_to_groupCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many map_category_to_groups.
+     */
+    data: map_category_to_groupCreateManyInput | map_category_to_groupCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * map_category_to_group update
+   */
+  export type map_category_to_groupUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the map_category_to_group
+     */
+    select?: map_category_to_groupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: map_category_to_groupInclude<ExtArgs> | null
+    /**
+     * The data needed to update a map_category_to_group.
+     */
+    data: XOR<map_category_to_groupUpdateInput, map_category_to_groupUncheckedUpdateInput>
+    /**
+     * Choose, which map_category_to_group to update.
+     */
+    where: map_category_to_groupWhereUniqueInput
+  }
+
+  /**
+   * map_category_to_group updateMany
+   */
+  export type map_category_to_groupUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update map_category_to_groups.
+     */
+    data: XOR<map_category_to_groupUpdateManyMutationInput, map_category_to_groupUncheckedUpdateManyInput>
+    /**
+     * Filter which map_category_to_groups to update
+     */
+    where?: map_category_to_groupWhereInput
+  }
+
+  /**
+   * map_category_to_group upsert
+   */
+  export type map_category_to_groupUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the map_category_to_group
+     */
+    select?: map_category_to_groupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: map_category_to_groupInclude<ExtArgs> | null
+    /**
+     * The filter to search for the map_category_to_group to update in case it exists.
+     */
+    where: map_category_to_groupWhereUniqueInput
+    /**
+     * In case the map_category_to_group found by the `where` argument doesn't exist, create a new map_category_to_group with this data.
+     */
+    create: XOR<map_category_to_groupCreateInput, map_category_to_groupUncheckedCreateInput>
+    /**
+     * In case the map_category_to_group was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<map_category_to_groupUpdateInput, map_category_to_groupUncheckedUpdateInput>
+  }
+
+  /**
+   * map_category_to_group delete
+   */
+  export type map_category_to_groupDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the map_category_to_group
+     */
+    select?: map_category_to_groupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: map_category_to_groupInclude<ExtArgs> | null
+    /**
+     * Filter which map_category_to_group to delete.
+     */
+    where: map_category_to_groupWhereUniqueInput
+  }
+
+  /**
+   * map_category_to_group deleteMany
+   */
+  export type map_category_to_groupDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which map_category_to_groups to delete
+     */
+    where?: map_category_to_groupWhereInput
+  }
+
+  /**
+   * map_category_to_group.mst_group
+   */
+  export type map_category_to_group$mst_groupArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_group
+     */
+    select?: mst_groupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_groupInclude<ExtArgs> | null
+    where?: mst_groupWhereInput
+  }
+
+  /**
+   * map_category_to_group.mst_category
+   */
+  export type map_category_to_group$mst_categoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_category
+     */
+    select?: mst_categorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_categoryInclude<ExtArgs> | null
+    where?: mst_categoryWhereInput
+  }
+
+  /**
+   * map_category_to_group without action
+   */
+  export type map_category_to_groupDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the map_category_to_group
+     */
+    select?: map_category_to_groupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: map_category_to_groupInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model mst_category
+   */
+
+  export type AggregateMst_category = {
+    _count: Mst_categoryCountAggregateOutputType | null
+    _avg: Mst_categoryAvgAggregateOutputType | null
+    _sum: Mst_categorySumAggregateOutputType | null
+    _min: Mst_categoryMinAggregateOutputType | null
+    _max: Mst_categoryMaxAggregateOutputType | null
+  }
+
+  export type Mst_categoryAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type Mst_categorySumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type Mst_categoryMinAggregateOutputType = {
+    id: number | null
+    category_code: string | null
+    category_name: string | null
+    is_active: string | null
+    created_at: Date | null
+    created_by: string | null
+  }
+
+  export type Mst_categoryMaxAggregateOutputType = {
+    id: number | null
+    category_code: string | null
+    category_name: string | null
+    is_active: string | null
+    created_at: Date | null
+    created_by: string | null
+  }
+
+  export type Mst_categoryCountAggregateOutputType = {
+    id: number
+    category_code: number
+    category_name: number
+    is_active: number
+    created_at: number
+    created_by: number
+    _all: number
+  }
+
+
+  export type Mst_categoryAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type Mst_categorySumAggregateInputType = {
+    id?: true
+  }
+
+  export type Mst_categoryMinAggregateInputType = {
+    id?: true
+    category_code?: true
+    category_name?: true
+    is_active?: true
+    created_at?: true
+    created_by?: true
+  }
+
+  export type Mst_categoryMaxAggregateInputType = {
+    id?: true
+    category_code?: true
+    category_name?: true
+    is_active?: true
+    created_at?: true
+    created_by?: true
+  }
+
+  export type Mst_categoryCountAggregateInputType = {
+    id?: true
+    category_code?: true
+    category_name?: true
+    is_active?: true
+    created_at?: true
+    created_by?: true
+    _all?: true
+  }
+
+  export type Mst_categoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which mst_category to aggregate.
+     */
+    where?: mst_categoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of mst_categories to fetch.
+     */
+    orderBy?: mst_categoryOrderByWithRelationInput | mst_categoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: mst_categoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` mst_categories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` mst_categories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned mst_categories
+    **/
+    _count?: true | Mst_categoryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Mst_categoryAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Mst_categorySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Mst_categoryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Mst_categoryMaxAggregateInputType
+  }
+
+  export type GetMst_categoryAggregateType<T extends Mst_categoryAggregateArgs> = {
+        [P in keyof T & keyof AggregateMst_category]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMst_category[P]>
+      : GetScalarType<T[P], AggregateMst_category[P]>
+  }
+
+
+
+
+  export type mst_categoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: mst_categoryWhereInput
+    orderBy?: mst_categoryOrderByWithAggregationInput | mst_categoryOrderByWithAggregationInput[]
+    by: Mst_categoryScalarFieldEnum[] | Mst_categoryScalarFieldEnum
+    having?: mst_categoryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Mst_categoryCountAggregateInputType | true
+    _avg?: Mst_categoryAvgAggregateInputType
+    _sum?: Mst_categorySumAggregateInputType
+    _min?: Mst_categoryMinAggregateInputType
+    _max?: Mst_categoryMaxAggregateInputType
+  }
+
+  export type Mst_categoryGroupByOutputType = {
+    id: number
+    category_code: string | null
+    category_name: string | null
+    is_active: string | null
+    created_at: Date | null
+    created_by: string | null
+    _count: Mst_categoryCountAggregateOutputType | null
+    _avg: Mst_categoryAvgAggregateOutputType | null
+    _sum: Mst_categorySumAggregateOutputType | null
+    _min: Mst_categoryMinAggregateOutputType | null
+    _max: Mst_categoryMaxAggregateOutputType | null
+  }
+
+  type GetMst_categoryGroupByPayload<T extends mst_categoryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Mst_categoryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Mst_categoryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Mst_categoryGroupByOutputType[P]>
+            : GetScalarType<T[P], Mst_categoryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type mst_categorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    category_code?: boolean
+    category_name?: boolean
+    is_active?: boolean
+    created_at?: boolean
+    created_by?: boolean
+    map_category_to_group?: boolean | mst_category$map_category_to_groupArgs<ExtArgs>
+    tr_request?: boolean | mst_category$tr_requestArgs<ExtArgs>
+    _count?: boolean | Mst_categoryCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["mst_category"]>
+
+
+  export type mst_categorySelectScalar = {
+    id?: boolean
+    category_code?: boolean
+    category_name?: boolean
+    is_active?: boolean
+    created_at?: boolean
+    created_by?: boolean
+  }
+
+  export type mst_categoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    map_category_to_group?: boolean | mst_category$map_category_to_groupArgs<ExtArgs>
+    tr_request?: boolean | mst_category$tr_requestArgs<ExtArgs>
+    _count?: boolean | Mst_categoryCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $mst_categoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "mst_category"
+    objects: {
+      map_category_to_group: Prisma.$map_category_to_groupPayload<ExtArgs>[]
+      tr_request: Prisma.$tr_requestPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      category_code: string | null
+      category_name: string | null
+      is_active: string | null
+      created_at: Date | null
+      created_by: string | null
+    }, ExtArgs["result"]["mst_category"]>
+    composites: {}
+  }
+
+  type mst_categoryGetPayload<S extends boolean | null | undefined | mst_categoryDefaultArgs> = $Result.GetResult<Prisma.$mst_categoryPayload, S>
+
+  type mst_categoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<mst_categoryFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: Mst_categoryCountAggregateInputType | true
+    }
+
+  export interface mst_categoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['mst_category'], meta: { name: 'mst_category' } }
+    /**
+     * Find zero or one Mst_category that matches the filter.
+     * @param {mst_categoryFindUniqueArgs} args - Arguments to find a Mst_category
+     * @example
+     * // Get one Mst_category
+     * const mst_category = await prisma.mst_category.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends mst_categoryFindUniqueArgs>(args: SelectSubset<T, mst_categoryFindUniqueArgs<ExtArgs>>): Prisma__mst_categoryClient<$Result.GetResult<Prisma.$mst_categoryPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Mst_category that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {mst_categoryFindUniqueOrThrowArgs} args - Arguments to find a Mst_category
+     * @example
+     * // Get one Mst_category
+     * const mst_category = await prisma.mst_category.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends mst_categoryFindUniqueOrThrowArgs>(args: SelectSubset<T, mst_categoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__mst_categoryClient<$Result.GetResult<Prisma.$mst_categoryPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Mst_category that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_categoryFindFirstArgs} args - Arguments to find a Mst_category
+     * @example
+     * // Get one Mst_category
+     * const mst_category = await prisma.mst_category.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends mst_categoryFindFirstArgs>(args?: SelectSubset<T, mst_categoryFindFirstArgs<ExtArgs>>): Prisma__mst_categoryClient<$Result.GetResult<Prisma.$mst_categoryPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Mst_category that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_categoryFindFirstOrThrowArgs} args - Arguments to find a Mst_category
+     * @example
+     * // Get one Mst_category
+     * const mst_category = await prisma.mst_category.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends mst_categoryFindFirstOrThrowArgs>(args?: SelectSubset<T, mst_categoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__mst_categoryClient<$Result.GetResult<Prisma.$mst_categoryPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Mst_categories that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_categoryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Mst_categories
+     * const mst_categories = await prisma.mst_category.findMany()
+     * 
+     * // Get first 10 Mst_categories
+     * const mst_categories = await prisma.mst_category.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const mst_categoryWithIdOnly = await prisma.mst_category.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends mst_categoryFindManyArgs>(args?: SelectSubset<T, mst_categoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$mst_categoryPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Mst_category.
+     * @param {mst_categoryCreateArgs} args - Arguments to create a Mst_category.
+     * @example
+     * // Create one Mst_category
+     * const Mst_category = await prisma.mst_category.create({
+     *   data: {
+     *     // ... data to create a Mst_category
+     *   }
+     * })
+     * 
+     */
+    create<T extends mst_categoryCreateArgs>(args: SelectSubset<T, mst_categoryCreateArgs<ExtArgs>>): Prisma__mst_categoryClient<$Result.GetResult<Prisma.$mst_categoryPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Mst_categories.
+     * @param {mst_categoryCreateManyArgs} args - Arguments to create many Mst_categories.
+     * @example
+     * // Create many Mst_categories
+     * const mst_category = await prisma.mst_category.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends mst_categoryCreateManyArgs>(args?: SelectSubset<T, mst_categoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Mst_category.
+     * @param {mst_categoryDeleteArgs} args - Arguments to delete one Mst_category.
+     * @example
+     * // Delete one Mst_category
+     * const Mst_category = await prisma.mst_category.delete({
+     *   where: {
+     *     // ... filter to delete one Mst_category
+     *   }
+     * })
+     * 
+     */
+    delete<T extends mst_categoryDeleteArgs>(args: SelectSubset<T, mst_categoryDeleteArgs<ExtArgs>>): Prisma__mst_categoryClient<$Result.GetResult<Prisma.$mst_categoryPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Mst_category.
+     * @param {mst_categoryUpdateArgs} args - Arguments to update one Mst_category.
+     * @example
+     * // Update one Mst_category
+     * const mst_category = await prisma.mst_category.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends mst_categoryUpdateArgs>(args: SelectSubset<T, mst_categoryUpdateArgs<ExtArgs>>): Prisma__mst_categoryClient<$Result.GetResult<Prisma.$mst_categoryPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Mst_categories.
+     * @param {mst_categoryDeleteManyArgs} args - Arguments to filter Mst_categories to delete.
+     * @example
+     * // Delete a few Mst_categories
+     * const { count } = await prisma.mst_category.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends mst_categoryDeleteManyArgs>(args?: SelectSubset<T, mst_categoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Mst_categories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_categoryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Mst_categories
+     * const mst_category = await prisma.mst_category.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends mst_categoryUpdateManyArgs>(args: SelectSubset<T, mst_categoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Mst_category.
+     * @param {mst_categoryUpsertArgs} args - Arguments to update or create a Mst_category.
+     * @example
+     * // Update or create a Mst_category
+     * const mst_category = await prisma.mst_category.upsert({
+     *   create: {
+     *     // ... data to create a Mst_category
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Mst_category we want to update
+     *   }
+     * })
+     */
+    upsert<T extends mst_categoryUpsertArgs>(args: SelectSubset<T, mst_categoryUpsertArgs<ExtArgs>>): Prisma__mst_categoryClient<$Result.GetResult<Prisma.$mst_categoryPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Mst_categories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_categoryCountArgs} args - Arguments to filter Mst_categories to count.
+     * @example
+     * // Count the number of Mst_categories
+     * const count = await prisma.mst_category.count({
+     *   where: {
+     *     // ... the filter for the Mst_categories we want to count
+     *   }
+     * })
+    **/
+    count<T extends mst_categoryCountArgs>(
+      args?: Subset<T, mst_categoryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Mst_categoryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Mst_category.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Mst_categoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Mst_categoryAggregateArgs>(args: Subset<T, Mst_categoryAggregateArgs>): Prisma.PrismaPromise<GetMst_categoryAggregateType<T>>
+
+    /**
+     * Group by Mst_category.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {mst_categoryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends mst_categoryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: mst_categoryGroupByArgs['orderBy'] }
+        : { orderBy?: mst_categoryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, mst_categoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMst_categoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the mst_category model
+   */
+  readonly fields: mst_categoryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for mst_category.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__mst_categoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    map_category_to_group<T extends mst_category$map_category_to_groupArgs<ExtArgs> = {}>(args?: Subset<T, mst_category$map_category_to_groupArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$map_category_to_groupPayload<ExtArgs>, T, "findMany"> | Null>
+    tr_request<T extends mst_category$tr_requestArgs<ExtArgs> = {}>(args?: Subset<T, mst_category$tr_requestArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tr_requestPayload<ExtArgs>, T, "findMany"> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the mst_category model
+   */ 
+  interface mst_categoryFieldRefs {
+    readonly id: FieldRef<"mst_category", 'Int'>
+    readonly category_code: FieldRef<"mst_category", 'String'>
+    readonly category_name: FieldRef<"mst_category", 'String'>
+    readonly is_active: FieldRef<"mst_category", 'String'>
+    readonly created_at: FieldRef<"mst_category", 'DateTime'>
+    readonly created_by: FieldRef<"mst_category", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * mst_category findUnique
+   */
+  export type mst_categoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_category
+     */
+    select?: mst_categorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_categoryInclude<ExtArgs> | null
+    /**
+     * Filter, which mst_category to fetch.
+     */
+    where: mst_categoryWhereUniqueInput
+  }
+
+  /**
+   * mst_category findUniqueOrThrow
+   */
+  export type mst_categoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_category
+     */
+    select?: mst_categorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_categoryInclude<ExtArgs> | null
+    /**
+     * Filter, which mst_category to fetch.
+     */
+    where: mst_categoryWhereUniqueInput
+  }
+
+  /**
+   * mst_category findFirst
+   */
+  export type mst_categoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_category
+     */
+    select?: mst_categorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_categoryInclude<ExtArgs> | null
+    /**
+     * Filter, which mst_category to fetch.
+     */
+    where?: mst_categoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of mst_categories to fetch.
+     */
+    orderBy?: mst_categoryOrderByWithRelationInput | mst_categoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for mst_categories.
+     */
+    cursor?: mst_categoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` mst_categories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` mst_categories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of mst_categories.
+     */
+    distinct?: Mst_categoryScalarFieldEnum | Mst_categoryScalarFieldEnum[]
+  }
+
+  /**
+   * mst_category findFirstOrThrow
+   */
+  export type mst_categoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_category
+     */
+    select?: mst_categorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_categoryInclude<ExtArgs> | null
+    /**
+     * Filter, which mst_category to fetch.
+     */
+    where?: mst_categoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of mst_categories to fetch.
+     */
+    orderBy?: mst_categoryOrderByWithRelationInput | mst_categoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for mst_categories.
+     */
+    cursor?: mst_categoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` mst_categories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` mst_categories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of mst_categories.
+     */
+    distinct?: Mst_categoryScalarFieldEnum | Mst_categoryScalarFieldEnum[]
+  }
+
+  /**
+   * mst_category findMany
+   */
+  export type mst_categoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_category
+     */
+    select?: mst_categorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_categoryInclude<ExtArgs> | null
+    /**
+     * Filter, which mst_categories to fetch.
+     */
+    where?: mst_categoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of mst_categories to fetch.
+     */
+    orderBy?: mst_categoryOrderByWithRelationInput | mst_categoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing mst_categories.
+     */
+    cursor?: mst_categoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` mst_categories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` mst_categories.
+     */
+    skip?: number
+    distinct?: Mst_categoryScalarFieldEnum | Mst_categoryScalarFieldEnum[]
+  }
+
+  /**
+   * mst_category create
+   */
+  export type mst_categoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_category
+     */
+    select?: mst_categorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_categoryInclude<ExtArgs> | null
+    /**
+     * The data needed to create a mst_category.
+     */
+    data?: XOR<mst_categoryCreateInput, mst_categoryUncheckedCreateInput>
+  }
+
+  /**
+   * mst_category createMany
+   */
+  export type mst_categoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many mst_categories.
+     */
+    data: mst_categoryCreateManyInput | mst_categoryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * mst_category update
+   */
+  export type mst_categoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_category
+     */
+    select?: mst_categorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_categoryInclude<ExtArgs> | null
+    /**
+     * The data needed to update a mst_category.
+     */
+    data: XOR<mst_categoryUpdateInput, mst_categoryUncheckedUpdateInput>
+    /**
+     * Choose, which mst_category to update.
+     */
+    where: mst_categoryWhereUniqueInput
+  }
+
+  /**
+   * mst_category updateMany
+   */
+  export type mst_categoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update mst_categories.
+     */
+    data: XOR<mst_categoryUpdateManyMutationInput, mst_categoryUncheckedUpdateManyInput>
+    /**
+     * Filter which mst_categories to update
+     */
+    where?: mst_categoryWhereInput
+  }
+
+  /**
+   * mst_category upsert
+   */
+  export type mst_categoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_category
+     */
+    select?: mst_categorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_categoryInclude<ExtArgs> | null
+    /**
+     * The filter to search for the mst_category to update in case it exists.
+     */
+    where: mst_categoryWhereUniqueInput
+    /**
+     * In case the mst_category found by the `where` argument doesn't exist, create a new mst_category with this data.
+     */
+    create: XOR<mst_categoryCreateInput, mst_categoryUncheckedCreateInput>
+    /**
+     * In case the mst_category was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<mst_categoryUpdateInput, mst_categoryUncheckedUpdateInput>
+  }
+
+  /**
+   * mst_category delete
+   */
+  export type mst_categoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_category
+     */
+    select?: mst_categorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_categoryInclude<ExtArgs> | null
+    /**
+     * Filter which mst_category to delete.
+     */
+    where: mst_categoryWhereUniqueInput
+  }
+
+  /**
+   * mst_category deleteMany
+   */
+  export type mst_categoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which mst_categories to delete
+     */
+    where?: mst_categoryWhereInput
+  }
+
+  /**
+   * mst_category.map_category_to_group
+   */
+  export type mst_category$map_category_to_groupArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the map_category_to_group
+     */
+    select?: map_category_to_groupSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: map_category_to_groupInclude<ExtArgs> | null
+    where?: map_category_to_groupWhereInput
+    orderBy?: map_category_to_groupOrderByWithRelationInput | map_category_to_groupOrderByWithRelationInput[]
+    cursor?: map_category_to_groupWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Map_category_to_groupScalarFieldEnum | Map_category_to_groupScalarFieldEnum[]
+  }
+
+  /**
+   * mst_category.tr_request
+   */
+  export type mst_category$tr_requestArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_request
+     */
+    select?: tr_requestSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_requestInclude<ExtArgs> | null
+    where?: tr_requestWhereInput
+    orderBy?: tr_requestOrderByWithRelationInput | tr_requestOrderByWithRelationInput[]
+    cursor?: tr_requestWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Tr_requestScalarFieldEnum | Tr_requestScalarFieldEnum[]
+  }
+
+  /**
+   * mst_category without action
+   */
+  export type mst_categoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the mst_category
+     */
+    select?: mst_categorySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: mst_categoryInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model tr_project_minimum_viable
+   */
+
+  export type AggregateTr_project_minimum_viable = {
+    _count: Tr_project_minimum_viableCountAggregateOutputType | null
+    _avg: Tr_project_minimum_viableAvgAggregateOutputType | null
+    _sum: Tr_project_minimum_viableSumAggregateOutputType | null
+    _min: Tr_project_minimum_viableMinAggregateOutputType | null
+    _max: Tr_project_minimum_viableMaxAggregateOutputType | null
+  }
+
+  export type Tr_project_minimum_viableAvgAggregateOutputType = {
+    id: number | null
+    project_id: number | null
+  }
+
+  export type Tr_project_minimum_viableSumAggregateOutputType = {
+    id: number | null
+    project_id: number | null
+  }
+
+  export type Tr_project_minimum_viableMinAggregateOutputType = {
+    id: number | null
+    project_id: number | null
+    minimum_viable: string | null
+    created_at: Date | null
+    created_by: string | null
+    is_deleted: boolean | null
+  }
+
+  export type Tr_project_minimum_viableMaxAggregateOutputType = {
+    id: number | null
+    project_id: number | null
+    minimum_viable: string | null
+    created_at: Date | null
+    created_by: string | null
+    is_deleted: boolean | null
+  }
+
+  export type Tr_project_minimum_viableCountAggregateOutputType = {
+    id: number
+    project_id: number
+    minimum_viable: number
+    created_at: number
+    created_by: number
+    is_deleted: number
+    _all: number
+  }
+
+
+  export type Tr_project_minimum_viableAvgAggregateInputType = {
+    id?: true
+    project_id?: true
+  }
+
+  export type Tr_project_minimum_viableSumAggregateInputType = {
+    id?: true
+    project_id?: true
+  }
+
+  export type Tr_project_minimum_viableMinAggregateInputType = {
+    id?: true
+    project_id?: true
+    minimum_viable?: true
+    created_at?: true
+    created_by?: true
+    is_deleted?: true
+  }
+
+  export type Tr_project_minimum_viableMaxAggregateInputType = {
+    id?: true
+    project_id?: true
+    minimum_viable?: true
+    created_at?: true
+    created_by?: true
+    is_deleted?: true
+  }
+
+  export type Tr_project_minimum_viableCountAggregateInputType = {
+    id?: true
+    project_id?: true
+    minimum_viable?: true
+    created_at?: true
+    created_by?: true
+    is_deleted?: true
+    _all?: true
+  }
+
+  export type Tr_project_minimum_viableAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which tr_project_minimum_viable to aggregate.
+     */
+    where?: tr_project_minimum_viableWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tr_project_minimum_viables to fetch.
+     */
+    orderBy?: tr_project_minimum_viableOrderByWithRelationInput | tr_project_minimum_viableOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: tr_project_minimum_viableWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tr_project_minimum_viables from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tr_project_minimum_viables.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned tr_project_minimum_viables
+    **/
+    _count?: true | Tr_project_minimum_viableCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Tr_project_minimum_viableAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Tr_project_minimum_viableSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Tr_project_minimum_viableMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Tr_project_minimum_viableMaxAggregateInputType
+  }
+
+  export type GetTr_project_minimum_viableAggregateType<T extends Tr_project_minimum_viableAggregateArgs> = {
+        [P in keyof T & keyof AggregateTr_project_minimum_viable]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTr_project_minimum_viable[P]>
+      : GetScalarType<T[P], AggregateTr_project_minimum_viable[P]>
+  }
+
+
+
+
+  export type tr_project_minimum_viableGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tr_project_minimum_viableWhereInput
+    orderBy?: tr_project_minimum_viableOrderByWithAggregationInput | tr_project_minimum_viableOrderByWithAggregationInput[]
+    by: Tr_project_minimum_viableScalarFieldEnum[] | Tr_project_minimum_viableScalarFieldEnum
+    having?: tr_project_minimum_viableScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Tr_project_minimum_viableCountAggregateInputType | true
+    _avg?: Tr_project_minimum_viableAvgAggregateInputType
+    _sum?: Tr_project_minimum_viableSumAggregateInputType
+    _min?: Tr_project_minimum_viableMinAggregateInputType
+    _max?: Tr_project_minimum_viableMaxAggregateInputType
+  }
+
+  export type Tr_project_minimum_viableGroupByOutputType = {
+    id: number
+    project_id: number | null
+    minimum_viable: string | null
+    created_at: Date | null
+    created_by: string | null
+    is_deleted: boolean | null
+    _count: Tr_project_minimum_viableCountAggregateOutputType | null
+    _avg: Tr_project_minimum_viableAvgAggregateOutputType | null
+    _sum: Tr_project_minimum_viableSumAggregateOutputType | null
+    _min: Tr_project_minimum_viableMinAggregateOutputType | null
+    _max: Tr_project_minimum_viableMaxAggregateOutputType | null
+  }
+
+  type GetTr_project_minimum_viableGroupByPayload<T extends tr_project_minimum_viableGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Tr_project_minimum_viableGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Tr_project_minimum_viableGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Tr_project_minimum_viableGroupByOutputType[P]>
+            : GetScalarType<T[P], Tr_project_minimum_viableGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type tr_project_minimum_viableSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    project_id?: boolean
+    minimum_viable?: boolean
+    created_at?: boolean
+    created_by?: boolean
+    is_deleted?: boolean
+    tr_project?: boolean | tr_project_minimum_viable$tr_projectArgs<ExtArgs>
+  }, ExtArgs["result"]["tr_project_minimum_viable"]>
+
+
+  export type tr_project_minimum_viableSelectScalar = {
+    id?: boolean
+    project_id?: boolean
+    minimum_viable?: boolean
+    created_at?: boolean
+    created_by?: boolean
+    is_deleted?: boolean
+  }
+
+  export type tr_project_minimum_viableInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tr_project?: boolean | tr_project_minimum_viable$tr_projectArgs<ExtArgs>
+  }
+
+  export type $tr_project_minimum_viablePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "tr_project_minimum_viable"
+    objects: {
+      tr_project: Prisma.$tr_projectPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      project_id: number | null
+      minimum_viable: string | null
+      created_at: Date | null
+      created_by: string | null
+      is_deleted: boolean | null
+    }, ExtArgs["result"]["tr_project_minimum_viable"]>
+    composites: {}
+  }
+
+  type tr_project_minimum_viableGetPayload<S extends boolean | null | undefined | tr_project_minimum_viableDefaultArgs> = $Result.GetResult<Prisma.$tr_project_minimum_viablePayload, S>
+
+  type tr_project_minimum_viableCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<tr_project_minimum_viableFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: Tr_project_minimum_viableCountAggregateInputType | true
+    }
+
+  export interface tr_project_minimum_viableDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['tr_project_minimum_viable'], meta: { name: 'tr_project_minimum_viable' } }
+    /**
+     * Find zero or one Tr_project_minimum_viable that matches the filter.
+     * @param {tr_project_minimum_viableFindUniqueArgs} args - Arguments to find a Tr_project_minimum_viable
+     * @example
+     * // Get one Tr_project_minimum_viable
+     * const tr_project_minimum_viable = await prisma.tr_project_minimum_viable.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends tr_project_minimum_viableFindUniqueArgs>(args: SelectSubset<T, tr_project_minimum_viableFindUniqueArgs<ExtArgs>>): Prisma__tr_project_minimum_viableClient<$Result.GetResult<Prisma.$tr_project_minimum_viablePayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Tr_project_minimum_viable that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {tr_project_minimum_viableFindUniqueOrThrowArgs} args - Arguments to find a Tr_project_minimum_viable
+     * @example
+     * // Get one Tr_project_minimum_viable
+     * const tr_project_minimum_viable = await prisma.tr_project_minimum_viable.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends tr_project_minimum_viableFindUniqueOrThrowArgs>(args: SelectSubset<T, tr_project_minimum_viableFindUniqueOrThrowArgs<ExtArgs>>): Prisma__tr_project_minimum_viableClient<$Result.GetResult<Prisma.$tr_project_minimum_viablePayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Tr_project_minimum_viable that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_project_minimum_viableFindFirstArgs} args - Arguments to find a Tr_project_minimum_viable
+     * @example
+     * // Get one Tr_project_minimum_viable
+     * const tr_project_minimum_viable = await prisma.tr_project_minimum_viable.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends tr_project_minimum_viableFindFirstArgs>(args?: SelectSubset<T, tr_project_minimum_viableFindFirstArgs<ExtArgs>>): Prisma__tr_project_minimum_viableClient<$Result.GetResult<Prisma.$tr_project_minimum_viablePayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Tr_project_minimum_viable that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_project_minimum_viableFindFirstOrThrowArgs} args - Arguments to find a Tr_project_minimum_viable
+     * @example
+     * // Get one Tr_project_minimum_viable
+     * const tr_project_minimum_viable = await prisma.tr_project_minimum_viable.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends tr_project_minimum_viableFindFirstOrThrowArgs>(args?: SelectSubset<T, tr_project_minimum_viableFindFirstOrThrowArgs<ExtArgs>>): Prisma__tr_project_minimum_viableClient<$Result.GetResult<Prisma.$tr_project_minimum_viablePayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Tr_project_minimum_viables that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_project_minimum_viableFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Tr_project_minimum_viables
+     * const tr_project_minimum_viables = await prisma.tr_project_minimum_viable.findMany()
+     * 
+     * // Get first 10 Tr_project_minimum_viables
+     * const tr_project_minimum_viables = await prisma.tr_project_minimum_viable.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const tr_project_minimum_viableWithIdOnly = await prisma.tr_project_minimum_viable.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends tr_project_minimum_viableFindManyArgs>(args?: SelectSubset<T, tr_project_minimum_viableFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tr_project_minimum_viablePayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Tr_project_minimum_viable.
+     * @param {tr_project_minimum_viableCreateArgs} args - Arguments to create a Tr_project_minimum_viable.
+     * @example
+     * // Create one Tr_project_minimum_viable
+     * const Tr_project_minimum_viable = await prisma.tr_project_minimum_viable.create({
+     *   data: {
+     *     // ... data to create a Tr_project_minimum_viable
+     *   }
+     * })
+     * 
+     */
+    create<T extends tr_project_minimum_viableCreateArgs>(args: SelectSubset<T, tr_project_minimum_viableCreateArgs<ExtArgs>>): Prisma__tr_project_minimum_viableClient<$Result.GetResult<Prisma.$tr_project_minimum_viablePayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Tr_project_minimum_viables.
+     * @param {tr_project_minimum_viableCreateManyArgs} args - Arguments to create many Tr_project_minimum_viables.
+     * @example
+     * // Create many Tr_project_minimum_viables
+     * const tr_project_minimum_viable = await prisma.tr_project_minimum_viable.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends tr_project_minimum_viableCreateManyArgs>(args?: SelectSubset<T, tr_project_minimum_viableCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Tr_project_minimum_viable.
+     * @param {tr_project_minimum_viableDeleteArgs} args - Arguments to delete one Tr_project_minimum_viable.
+     * @example
+     * // Delete one Tr_project_minimum_viable
+     * const Tr_project_minimum_viable = await prisma.tr_project_minimum_viable.delete({
+     *   where: {
+     *     // ... filter to delete one Tr_project_minimum_viable
+     *   }
+     * })
+     * 
+     */
+    delete<T extends tr_project_minimum_viableDeleteArgs>(args: SelectSubset<T, tr_project_minimum_viableDeleteArgs<ExtArgs>>): Prisma__tr_project_minimum_viableClient<$Result.GetResult<Prisma.$tr_project_minimum_viablePayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Tr_project_minimum_viable.
+     * @param {tr_project_minimum_viableUpdateArgs} args - Arguments to update one Tr_project_minimum_viable.
+     * @example
+     * // Update one Tr_project_minimum_viable
+     * const tr_project_minimum_viable = await prisma.tr_project_minimum_viable.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends tr_project_minimum_viableUpdateArgs>(args: SelectSubset<T, tr_project_minimum_viableUpdateArgs<ExtArgs>>): Prisma__tr_project_minimum_viableClient<$Result.GetResult<Prisma.$tr_project_minimum_viablePayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Tr_project_minimum_viables.
+     * @param {tr_project_minimum_viableDeleteManyArgs} args - Arguments to filter Tr_project_minimum_viables to delete.
+     * @example
+     * // Delete a few Tr_project_minimum_viables
+     * const { count } = await prisma.tr_project_minimum_viable.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends tr_project_minimum_viableDeleteManyArgs>(args?: SelectSubset<T, tr_project_minimum_viableDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Tr_project_minimum_viables.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_project_minimum_viableUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Tr_project_minimum_viables
+     * const tr_project_minimum_viable = await prisma.tr_project_minimum_viable.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends tr_project_minimum_viableUpdateManyArgs>(args: SelectSubset<T, tr_project_minimum_viableUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Tr_project_minimum_viable.
+     * @param {tr_project_minimum_viableUpsertArgs} args - Arguments to update or create a Tr_project_minimum_viable.
+     * @example
+     * // Update or create a Tr_project_minimum_viable
+     * const tr_project_minimum_viable = await prisma.tr_project_minimum_viable.upsert({
+     *   create: {
+     *     // ... data to create a Tr_project_minimum_viable
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Tr_project_minimum_viable we want to update
+     *   }
+     * })
+     */
+    upsert<T extends tr_project_minimum_viableUpsertArgs>(args: SelectSubset<T, tr_project_minimum_viableUpsertArgs<ExtArgs>>): Prisma__tr_project_minimum_viableClient<$Result.GetResult<Prisma.$tr_project_minimum_viablePayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Tr_project_minimum_viables.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_project_minimum_viableCountArgs} args - Arguments to filter Tr_project_minimum_viables to count.
+     * @example
+     * // Count the number of Tr_project_minimum_viables
+     * const count = await prisma.tr_project_minimum_viable.count({
+     *   where: {
+     *     // ... the filter for the Tr_project_minimum_viables we want to count
+     *   }
+     * })
+    **/
+    count<T extends tr_project_minimum_viableCountArgs>(
+      args?: Subset<T, tr_project_minimum_viableCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Tr_project_minimum_viableCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Tr_project_minimum_viable.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Tr_project_minimum_viableAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Tr_project_minimum_viableAggregateArgs>(args: Subset<T, Tr_project_minimum_viableAggregateArgs>): Prisma.PrismaPromise<GetTr_project_minimum_viableAggregateType<T>>
+
+    /**
+     * Group by Tr_project_minimum_viable.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_project_minimum_viableGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends tr_project_minimum_viableGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: tr_project_minimum_viableGroupByArgs['orderBy'] }
+        : { orderBy?: tr_project_minimum_viableGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, tr_project_minimum_viableGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTr_project_minimum_viableGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the tr_project_minimum_viable model
+   */
+  readonly fields: tr_project_minimum_viableFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for tr_project_minimum_viable.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__tr_project_minimum_viableClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    tr_project<T extends tr_project_minimum_viable$tr_projectArgs<ExtArgs> = {}>(args?: Subset<T, tr_project_minimum_viable$tr_projectArgs<ExtArgs>>): Prisma__tr_projectClient<$Result.GetResult<Prisma.$tr_projectPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the tr_project_minimum_viable model
+   */ 
+  interface tr_project_minimum_viableFieldRefs {
+    readonly id: FieldRef<"tr_project_minimum_viable", 'Int'>
+    readonly project_id: FieldRef<"tr_project_minimum_viable", 'Int'>
+    readonly minimum_viable: FieldRef<"tr_project_minimum_viable", 'String'>
+    readonly created_at: FieldRef<"tr_project_minimum_viable", 'DateTime'>
+    readonly created_by: FieldRef<"tr_project_minimum_viable", 'String'>
+    readonly is_deleted: FieldRef<"tr_project_minimum_viable", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * tr_project_minimum_viable findUnique
+   */
+  export type tr_project_minimum_viableFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_minimum_viable
+     */
+    select?: tr_project_minimum_viableSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_minimum_viableInclude<ExtArgs> | null
+    /**
+     * Filter, which tr_project_minimum_viable to fetch.
+     */
+    where: tr_project_minimum_viableWhereUniqueInput
+  }
+
+  /**
+   * tr_project_minimum_viable findUniqueOrThrow
+   */
+  export type tr_project_minimum_viableFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_minimum_viable
+     */
+    select?: tr_project_minimum_viableSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_minimum_viableInclude<ExtArgs> | null
+    /**
+     * Filter, which tr_project_minimum_viable to fetch.
+     */
+    where: tr_project_minimum_viableWhereUniqueInput
+  }
+
+  /**
+   * tr_project_minimum_viable findFirst
+   */
+  export type tr_project_minimum_viableFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_minimum_viable
+     */
+    select?: tr_project_minimum_viableSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_minimum_viableInclude<ExtArgs> | null
+    /**
+     * Filter, which tr_project_minimum_viable to fetch.
+     */
+    where?: tr_project_minimum_viableWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tr_project_minimum_viables to fetch.
+     */
+    orderBy?: tr_project_minimum_viableOrderByWithRelationInput | tr_project_minimum_viableOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for tr_project_minimum_viables.
+     */
+    cursor?: tr_project_minimum_viableWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tr_project_minimum_viables from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tr_project_minimum_viables.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of tr_project_minimum_viables.
+     */
+    distinct?: Tr_project_minimum_viableScalarFieldEnum | Tr_project_minimum_viableScalarFieldEnum[]
+  }
+
+  /**
+   * tr_project_minimum_viable findFirstOrThrow
+   */
+  export type tr_project_minimum_viableFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_minimum_viable
+     */
+    select?: tr_project_minimum_viableSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_minimum_viableInclude<ExtArgs> | null
+    /**
+     * Filter, which tr_project_minimum_viable to fetch.
+     */
+    where?: tr_project_minimum_viableWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tr_project_minimum_viables to fetch.
+     */
+    orderBy?: tr_project_minimum_viableOrderByWithRelationInput | tr_project_minimum_viableOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for tr_project_minimum_viables.
+     */
+    cursor?: tr_project_minimum_viableWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tr_project_minimum_viables from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tr_project_minimum_viables.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of tr_project_minimum_viables.
+     */
+    distinct?: Tr_project_minimum_viableScalarFieldEnum | Tr_project_minimum_viableScalarFieldEnum[]
+  }
+
+  /**
+   * tr_project_minimum_viable findMany
+   */
+  export type tr_project_minimum_viableFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_minimum_viable
+     */
+    select?: tr_project_minimum_viableSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_minimum_viableInclude<ExtArgs> | null
+    /**
+     * Filter, which tr_project_minimum_viables to fetch.
+     */
+    where?: tr_project_minimum_viableWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tr_project_minimum_viables to fetch.
+     */
+    orderBy?: tr_project_minimum_viableOrderByWithRelationInput | tr_project_minimum_viableOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing tr_project_minimum_viables.
+     */
+    cursor?: tr_project_minimum_viableWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tr_project_minimum_viables from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tr_project_minimum_viables.
+     */
+    skip?: number
+    distinct?: Tr_project_minimum_viableScalarFieldEnum | Tr_project_minimum_viableScalarFieldEnum[]
+  }
+
+  /**
+   * tr_project_minimum_viable create
+   */
+  export type tr_project_minimum_viableCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_minimum_viable
+     */
+    select?: tr_project_minimum_viableSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_minimum_viableInclude<ExtArgs> | null
+    /**
+     * The data needed to create a tr_project_minimum_viable.
+     */
+    data?: XOR<tr_project_minimum_viableCreateInput, tr_project_minimum_viableUncheckedCreateInput>
+  }
+
+  /**
+   * tr_project_minimum_viable createMany
+   */
+  export type tr_project_minimum_viableCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many tr_project_minimum_viables.
+     */
+    data: tr_project_minimum_viableCreateManyInput | tr_project_minimum_viableCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * tr_project_minimum_viable update
+   */
+  export type tr_project_minimum_viableUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_minimum_viable
+     */
+    select?: tr_project_minimum_viableSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_minimum_viableInclude<ExtArgs> | null
+    /**
+     * The data needed to update a tr_project_minimum_viable.
+     */
+    data: XOR<tr_project_minimum_viableUpdateInput, tr_project_minimum_viableUncheckedUpdateInput>
+    /**
+     * Choose, which tr_project_minimum_viable to update.
+     */
+    where: tr_project_minimum_viableWhereUniqueInput
+  }
+
+  /**
+   * tr_project_minimum_viable updateMany
+   */
+  export type tr_project_minimum_viableUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update tr_project_minimum_viables.
+     */
+    data: XOR<tr_project_minimum_viableUpdateManyMutationInput, tr_project_minimum_viableUncheckedUpdateManyInput>
+    /**
+     * Filter which tr_project_minimum_viables to update
+     */
+    where?: tr_project_minimum_viableWhereInput
+  }
+
+  /**
+   * tr_project_minimum_viable upsert
+   */
+  export type tr_project_minimum_viableUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_minimum_viable
+     */
+    select?: tr_project_minimum_viableSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_minimum_viableInclude<ExtArgs> | null
+    /**
+     * The filter to search for the tr_project_minimum_viable to update in case it exists.
+     */
+    where: tr_project_minimum_viableWhereUniqueInput
+    /**
+     * In case the tr_project_minimum_viable found by the `where` argument doesn't exist, create a new tr_project_minimum_viable with this data.
+     */
+    create: XOR<tr_project_minimum_viableCreateInput, tr_project_minimum_viableUncheckedCreateInput>
+    /**
+     * In case the tr_project_minimum_viable was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<tr_project_minimum_viableUpdateInput, tr_project_minimum_viableUncheckedUpdateInput>
+  }
+
+  /**
+   * tr_project_minimum_viable delete
+   */
+  export type tr_project_minimum_viableDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_minimum_viable
+     */
+    select?: tr_project_minimum_viableSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_minimum_viableInclude<ExtArgs> | null
+    /**
+     * Filter which tr_project_minimum_viable to delete.
+     */
+    where: tr_project_minimum_viableWhereUniqueInput
+  }
+
+  /**
+   * tr_project_minimum_viable deleteMany
+   */
+  export type tr_project_minimum_viableDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which tr_project_minimum_viables to delete
+     */
+    where?: tr_project_minimum_viableWhereInput
+  }
+
+  /**
+   * tr_project_minimum_viable.tr_project
+   */
+  export type tr_project_minimum_viable$tr_projectArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project
+     */
+    select?: tr_projectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_projectInclude<ExtArgs> | null
+    where?: tr_projectWhereInput
+  }
+
+  /**
+   * tr_project_minimum_viable without action
+   */
+  export type tr_project_minimum_viableDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_minimum_viable
+     */
+    select?: tr_project_minimum_viableSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_minimum_viableInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model tr_project_overview_goals
+   */
+
+  export type AggregateTr_project_overview_goals = {
+    _count: Tr_project_overview_goalsCountAggregateOutputType | null
+    _avg: Tr_project_overview_goalsAvgAggregateOutputType | null
+    _sum: Tr_project_overview_goalsSumAggregateOutputType | null
+    _min: Tr_project_overview_goalsMinAggregateOutputType | null
+    _max: Tr_project_overview_goalsMaxAggregateOutputType | null
+  }
+
+  export type Tr_project_overview_goalsAvgAggregateOutputType = {
+    id: number | null
+    project_id: number | null
+  }
+
+  export type Tr_project_overview_goalsSumAggregateOutputType = {
+    id: number | null
+    project_id: number | null
+  }
+
+  export type Tr_project_overview_goalsMinAggregateOutputType = {
+    id: number | null
+    project_id: number | null
+    goal: string | null
+    created_at: Date | null
+    created_by: string | null
+    is_deleted: boolean | null
+  }
+
+  export type Tr_project_overview_goalsMaxAggregateOutputType = {
+    id: number | null
+    project_id: number | null
+    goal: string | null
+    created_at: Date | null
+    created_by: string | null
+    is_deleted: boolean | null
+  }
+
+  export type Tr_project_overview_goalsCountAggregateOutputType = {
+    id: number
+    project_id: number
+    goal: number
+    created_at: number
+    created_by: number
+    is_deleted: number
+    _all: number
+  }
+
+
+  export type Tr_project_overview_goalsAvgAggregateInputType = {
+    id?: true
+    project_id?: true
+  }
+
+  export type Tr_project_overview_goalsSumAggregateInputType = {
+    id?: true
+    project_id?: true
+  }
+
+  export type Tr_project_overview_goalsMinAggregateInputType = {
+    id?: true
+    project_id?: true
+    goal?: true
+    created_at?: true
+    created_by?: true
+    is_deleted?: true
+  }
+
+  export type Tr_project_overview_goalsMaxAggregateInputType = {
+    id?: true
+    project_id?: true
+    goal?: true
+    created_at?: true
+    created_by?: true
+    is_deleted?: true
+  }
+
+  export type Tr_project_overview_goalsCountAggregateInputType = {
+    id?: true
+    project_id?: true
+    goal?: true
+    created_at?: true
+    created_by?: true
+    is_deleted?: true
+    _all?: true
+  }
+
+  export type Tr_project_overview_goalsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which tr_project_overview_goals to aggregate.
+     */
+    where?: tr_project_overview_goalsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tr_project_overview_goals to fetch.
+     */
+    orderBy?: tr_project_overview_goalsOrderByWithRelationInput | tr_project_overview_goalsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: tr_project_overview_goalsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tr_project_overview_goals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tr_project_overview_goals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned tr_project_overview_goals
+    **/
+    _count?: true | Tr_project_overview_goalsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Tr_project_overview_goalsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Tr_project_overview_goalsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Tr_project_overview_goalsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Tr_project_overview_goalsMaxAggregateInputType
+  }
+
+  export type GetTr_project_overview_goalsAggregateType<T extends Tr_project_overview_goalsAggregateArgs> = {
+        [P in keyof T & keyof AggregateTr_project_overview_goals]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTr_project_overview_goals[P]>
+      : GetScalarType<T[P], AggregateTr_project_overview_goals[P]>
+  }
+
+
+
+
+  export type tr_project_overview_goalsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tr_project_overview_goalsWhereInput
+    orderBy?: tr_project_overview_goalsOrderByWithAggregationInput | tr_project_overview_goalsOrderByWithAggregationInput[]
+    by: Tr_project_overview_goalsScalarFieldEnum[] | Tr_project_overview_goalsScalarFieldEnum
+    having?: tr_project_overview_goalsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Tr_project_overview_goalsCountAggregateInputType | true
+    _avg?: Tr_project_overview_goalsAvgAggregateInputType
+    _sum?: Tr_project_overview_goalsSumAggregateInputType
+    _min?: Tr_project_overview_goalsMinAggregateInputType
+    _max?: Tr_project_overview_goalsMaxAggregateInputType
+  }
+
+  export type Tr_project_overview_goalsGroupByOutputType = {
+    id: number
+    project_id: number | null
+    goal: string | null
+    created_at: Date | null
+    created_by: string | null
+    is_deleted: boolean | null
+    _count: Tr_project_overview_goalsCountAggregateOutputType | null
+    _avg: Tr_project_overview_goalsAvgAggregateOutputType | null
+    _sum: Tr_project_overview_goalsSumAggregateOutputType | null
+    _min: Tr_project_overview_goalsMinAggregateOutputType | null
+    _max: Tr_project_overview_goalsMaxAggregateOutputType | null
+  }
+
+  type GetTr_project_overview_goalsGroupByPayload<T extends tr_project_overview_goalsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Tr_project_overview_goalsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Tr_project_overview_goalsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Tr_project_overview_goalsGroupByOutputType[P]>
+            : GetScalarType<T[P], Tr_project_overview_goalsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type tr_project_overview_goalsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    project_id?: boolean
+    goal?: boolean
+    created_at?: boolean
+    created_by?: boolean
+    is_deleted?: boolean
+    tr_project?: boolean | tr_project_overview_goals$tr_projectArgs<ExtArgs>
+  }, ExtArgs["result"]["tr_project_overview_goals"]>
+
+
+  export type tr_project_overview_goalsSelectScalar = {
+    id?: boolean
+    project_id?: boolean
+    goal?: boolean
+    created_at?: boolean
+    created_by?: boolean
+    is_deleted?: boolean
+  }
+
+  export type tr_project_overview_goalsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    tr_project?: boolean | tr_project_overview_goals$tr_projectArgs<ExtArgs>
+  }
+
+  export type $tr_project_overview_goalsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "tr_project_overview_goals"
+    objects: {
+      tr_project: Prisma.$tr_projectPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      project_id: number | null
+      goal: string | null
+      created_at: Date | null
+      created_by: string | null
+      is_deleted: boolean | null
+    }, ExtArgs["result"]["tr_project_overview_goals"]>
+    composites: {}
+  }
+
+  type tr_project_overview_goalsGetPayload<S extends boolean | null | undefined | tr_project_overview_goalsDefaultArgs> = $Result.GetResult<Prisma.$tr_project_overview_goalsPayload, S>
+
+  type tr_project_overview_goalsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<tr_project_overview_goalsFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: Tr_project_overview_goalsCountAggregateInputType | true
+    }
+
+  export interface tr_project_overview_goalsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['tr_project_overview_goals'], meta: { name: 'tr_project_overview_goals' } }
+    /**
+     * Find zero or one Tr_project_overview_goals that matches the filter.
+     * @param {tr_project_overview_goalsFindUniqueArgs} args - Arguments to find a Tr_project_overview_goals
+     * @example
+     * // Get one Tr_project_overview_goals
+     * const tr_project_overview_goals = await prisma.tr_project_overview_goals.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends tr_project_overview_goalsFindUniqueArgs>(args: SelectSubset<T, tr_project_overview_goalsFindUniqueArgs<ExtArgs>>): Prisma__tr_project_overview_goalsClient<$Result.GetResult<Prisma.$tr_project_overview_goalsPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Tr_project_overview_goals that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {tr_project_overview_goalsFindUniqueOrThrowArgs} args - Arguments to find a Tr_project_overview_goals
+     * @example
+     * // Get one Tr_project_overview_goals
+     * const tr_project_overview_goals = await prisma.tr_project_overview_goals.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends tr_project_overview_goalsFindUniqueOrThrowArgs>(args: SelectSubset<T, tr_project_overview_goalsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__tr_project_overview_goalsClient<$Result.GetResult<Prisma.$tr_project_overview_goalsPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Tr_project_overview_goals that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_project_overview_goalsFindFirstArgs} args - Arguments to find a Tr_project_overview_goals
+     * @example
+     * // Get one Tr_project_overview_goals
+     * const tr_project_overview_goals = await prisma.tr_project_overview_goals.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends tr_project_overview_goalsFindFirstArgs>(args?: SelectSubset<T, tr_project_overview_goalsFindFirstArgs<ExtArgs>>): Prisma__tr_project_overview_goalsClient<$Result.GetResult<Prisma.$tr_project_overview_goalsPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Tr_project_overview_goals that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_project_overview_goalsFindFirstOrThrowArgs} args - Arguments to find a Tr_project_overview_goals
+     * @example
+     * // Get one Tr_project_overview_goals
+     * const tr_project_overview_goals = await prisma.tr_project_overview_goals.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends tr_project_overview_goalsFindFirstOrThrowArgs>(args?: SelectSubset<T, tr_project_overview_goalsFindFirstOrThrowArgs<ExtArgs>>): Prisma__tr_project_overview_goalsClient<$Result.GetResult<Prisma.$tr_project_overview_goalsPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Tr_project_overview_goals that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_project_overview_goalsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Tr_project_overview_goals
+     * const tr_project_overview_goals = await prisma.tr_project_overview_goals.findMany()
+     * 
+     * // Get first 10 Tr_project_overview_goals
+     * const tr_project_overview_goals = await prisma.tr_project_overview_goals.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const tr_project_overview_goalsWithIdOnly = await prisma.tr_project_overview_goals.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends tr_project_overview_goalsFindManyArgs>(args?: SelectSubset<T, tr_project_overview_goalsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tr_project_overview_goalsPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Tr_project_overview_goals.
+     * @param {tr_project_overview_goalsCreateArgs} args - Arguments to create a Tr_project_overview_goals.
+     * @example
+     * // Create one Tr_project_overview_goals
+     * const Tr_project_overview_goals = await prisma.tr_project_overview_goals.create({
+     *   data: {
+     *     // ... data to create a Tr_project_overview_goals
+     *   }
+     * })
+     * 
+     */
+    create<T extends tr_project_overview_goalsCreateArgs>(args: SelectSubset<T, tr_project_overview_goalsCreateArgs<ExtArgs>>): Prisma__tr_project_overview_goalsClient<$Result.GetResult<Prisma.$tr_project_overview_goalsPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Tr_project_overview_goals.
+     * @param {tr_project_overview_goalsCreateManyArgs} args - Arguments to create many Tr_project_overview_goals.
+     * @example
+     * // Create many Tr_project_overview_goals
+     * const tr_project_overview_goals = await prisma.tr_project_overview_goals.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends tr_project_overview_goalsCreateManyArgs>(args?: SelectSubset<T, tr_project_overview_goalsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Tr_project_overview_goals.
+     * @param {tr_project_overview_goalsDeleteArgs} args - Arguments to delete one Tr_project_overview_goals.
+     * @example
+     * // Delete one Tr_project_overview_goals
+     * const Tr_project_overview_goals = await prisma.tr_project_overview_goals.delete({
+     *   where: {
+     *     // ... filter to delete one Tr_project_overview_goals
+     *   }
+     * })
+     * 
+     */
+    delete<T extends tr_project_overview_goalsDeleteArgs>(args: SelectSubset<T, tr_project_overview_goalsDeleteArgs<ExtArgs>>): Prisma__tr_project_overview_goalsClient<$Result.GetResult<Prisma.$tr_project_overview_goalsPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Tr_project_overview_goals.
+     * @param {tr_project_overview_goalsUpdateArgs} args - Arguments to update one Tr_project_overview_goals.
+     * @example
+     * // Update one Tr_project_overview_goals
+     * const tr_project_overview_goals = await prisma.tr_project_overview_goals.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends tr_project_overview_goalsUpdateArgs>(args: SelectSubset<T, tr_project_overview_goalsUpdateArgs<ExtArgs>>): Prisma__tr_project_overview_goalsClient<$Result.GetResult<Prisma.$tr_project_overview_goalsPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Tr_project_overview_goals.
+     * @param {tr_project_overview_goalsDeleteManyArgs} args - Arguments to filter Tr_project_overview_goals to delete.
+     * @example
+     * // Delete a few Tr_project_overview_goals
+     * const { count } = await prisma.tr_project_overview_goals.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends tr_project_overview_goalsDeleteManyArgs>(args?: SelectSubset<T, tr_project_overview_goalsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Tr_project_overview_goals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_project_overview_goalsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Tr_project_overview_goals
+     * const tr_project_overview_goals = await prisma.tr_project_overview_goals.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends tr_project_overview_goalsUpdateManyArgs>(args: SelectSubset<T, tr_project_overview_goalsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Tr_project_overview_goals.
+     * @param {tr_project_overview_goalsUpsertArgs} args - Arguments to update or create a Tr_project_overview_goals.
+     * @example
+     * // Update or create a Tr_project_overview_goals
+     * const tr_project_overview_goals = await prisma.tr_project_overview_goals.upsert({
+     *   create: {
+     *     // ... data to create a Tr_project_overview_goals
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Tr_project_overview_goals we want to update
+     *   }
+     * })
+     */
+    upsert<T extends tr_project_overview_goalsUpsertArgs>(args: SelectSubset<T, tr_project_overview_goalsUpsertArgs<ExtArgs>>): Prisma__tr_project_overview_goalsClient<$Result.GetResult<Prisma.$tr_project_overview_goalsPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Tr_project_overview_goals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_project_overview_goalsCountArgs} args - Arguments to filter Tr_project_overview_goals to count.
+     * @example
+     * // Count the number of Tr_project_overview_goals
+     * const count = await prisma.tr_project_overview_goals.count({
+     *   where: {
+     *     // ... the filter for the Tr_project_overview_goals we want to count
+     *   }
+     * })
+    **/
+    count<T extends tr_project_overview_goalsCountArgs>(
+      args?: Subset<T, tr_project_overview_goalsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Tr_project_overview_goalsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Tr_project_overview_goals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Tr_project_overview_goalsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Tr_project_overview_goalsAggregateArgs>(args: Subset<T, Tr_project_overview_goalsAggregateArgs>): Prisma.PrismaPromise<GetTr_project_overview_goalsAggregateType<T>>
+
+    /**
+     * Group by Tr_project_overview_goals.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tr_project_overview_goalsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends tr_project_overview_goalsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: tr_project_overview_goalsGroupByArgs['orderBy'] }
+        : { orderBy?: tr_project_overview_goalsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, tr_project_overview_goalsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTr_project_overview_goalsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the tr_project_overview_goals model
+   */
+  readonly fields: tr_project_overview_goalsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for tr_project_overview_goals.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__tr_project_overview_goalsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    tr_project<T extends tr_project_overview_goals$tr_projectArgs<ExtArgs> = {}>(args?: Subset<T, tr_project_overview_goals$tr_projectArgs<ExtArgs>>): Prisma__tr_projectClient<$Result.GetResult<Prisma.$tr_projectPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the tr_project_overview_goals model
+   */ 
+  interface tr_project_overview_goalsFieldRefs {
+    readonly id: FieldRef<"tr_project_overview_goals", 'Int'>
+    readonly project_id: FieldRef<"tr_project_overview_goals", 'Int'>
+    readonly goal: FieldRef<"tr_project_overview_goals", 'String'>
+    readonly created_at: FieldRef<"tr_project_overview_goals", 'DateTime'>
+    readonly created_by: FieldRef<"tr_project_overview_goals", 'String'>
+    readonly is_deleted: FieldRef<"tr_project_overview_goals", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * tr_project_overview_goals findUnique
+   */
+  export type tr_project_overview_goalsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_overview_goals
+     */
+    select?: tr_project_overview_goalsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overview_goalsInclude<ExtArgs> | null
+    /**
+     * Filter, which tr_project_overview_goals to fetch.
+     */
+    where: tr_project_overview_goalsWhereUniqueInput
+  }
+
+  /**
+   * tr_project_overview_goals findUniqueOrThrow
+   */
+  export type tr_project_overview_goalsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_overview_goals
+     */
+    select?: tr_project_overview_goalsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overview_goalsInclude<ExtArgs> | null
+    /**
+     * Filter, which tr_project_overview_goals to fetch.
+     */
+    where: tr_project_overview_goalsWhereUniqueInput
+  }
+
+  /**
+   * tr_project_overview_goals findFirst
+   */
+  export type tr_project_overview_goalsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_overview_goals
+     */
+    select?: tr_project_overview_goalsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overview_goalsInclude<ExtArgs> | null
+    /**
+     * Filter, which tr_project_overview_goals to fetch.
+     */
+    where?: tr_project_overview_goalsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tr_project_overview_goals to fetch.
+     */
+    orderBy?: tr_project_overview_goalsOrderByWithRelationInput | tr_project_overview_goalsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for tr_project_overview_goals.
+     */
+    cursor?: tr_project_overview_goalsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tr_project_overview_goals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tr_project_overview_goals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of tr_project_overview_goals.
+     */
+    distinct?: Tr_project_overview_goalsScalarFieldEnum | Tr_project_overview_goalsScalarFieldEnum[]
+  }
+
+  /**
+   * tr_project_overview_goals findFirstOrThrow
+   */
+  export type tr_project_overview_goalsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_overview_goals
+     */
+    select?: tr_project_overview_goalsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overview_goalsInclude<ExtArgs> | null
+    /**
+     * Filter, which tr_project_overview_goals to fetch.
+     */
+    where?: tr_project_overview_goalsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tr_project_overview_goals to fetch.
+     */
+    orderBy?: tr_project_overview_goalsOrderByWithRelationInput | tr_project_overview_goalsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for tr_project_overview_goals.
+     */
+    cursor?: tr_project_overview_goalsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tr_project_overview_goals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tr_project_overview_goals.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of tr_project_overview_goals.
+     */
+    distinct?: Tr_project_overview_goalsScalarFieldEnum | Tr_project_overview_goalsScalarFieldEnum[]
+  }
+
+  /**
+   * tr_project_overview_goals findMany
+   */
+  export type tr_project_overview_goalsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_overview_goals
+     */
+    select?: tr_project_overview_goalsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overview_goalsInclude<ExtArgs> | null
+    /**
+     * Filter, which tr_project_overview_goals to fetch.
+     */
+    where?: tr_project_overview_goalsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tr_project_overview_goals to fetch.
+     */
+    orderBy?: tr_project_overview_goalsOrderByWithRelationInput | tr_project_overview_goalsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing tr_project_overview_goals.
+     */
+    cursor?: tr_project_overview_goalsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tr_project_overview_goals from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tr_project_overview_goals.
+     */
+    skip?: number
+    distinct?: Tr_project_overview_goalsScalarFieldEnum | Tr_project_overview_goalsScalarFieldEnum[]
+  }
+
+  /**
+   * tr_project_overview_goals create
+   */
+  export type tr_project_overview_goalsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_overview_goals
+     */
+    select?: tr_project_overview_goalsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overview_goalsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a tr_project_overview_goals.
+     */
+    data?: XOR<tr_project_overview_goalsCreateInput, tr_project_overview_goalsUncheckedCreateInput>
+  }
+
+  /**
+   * tr_project_overview_goals createMany
+   */
+  export type tr_project_overview_goalsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many tr_project_overview_goals.
+     */
+    data: tr_project_overview_goalsCreateManyInput | tr_project_overview_goalsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * tr_project_overview_goals update
+   */
+  export type tr_project_overview_goalsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_overview_goals
+     */
+    select?: tr_project_overview_goalsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overview_goalsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a tr_project_overview_goals.
+     */
+    data: XOR<tr_project_overview_goalsUpdateInput, tr_project_overview_goalsUncheckedUpdateInput>
+    /**
+     * Choose, which tr_project_overview_goals to update.
+     */
+    where: tr_project_overview_goalsWhereUniqueInput
+  }
+
+  /**
+   * tr_project_overview_goals updateMany
+   */
+  export type tr_project_overview_goalsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update tr_project_overview_goals.
+     */
+    data: XOR<tr_project_overview_goalsUpdateManyMutationInput, tr_project_overview_goalsUncheckedUpdateManyInput>
+    /**
+     * Filter which tr_project_overview_goals to update
+     */
+    where?: tr_project_overview_goalsWhereInput
+  }
+
+  /**
+   * tr_project_overview_goals upsert
+   */
+  export type tr_project_overview_goalsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_overview_goals
+     */
+    select?: tr_project_overview_goalsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overview_goalsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the tr_project_overview_goals to update in case it exists.
+     */
+    where: tr_project_overview_goalsWhereUniqueInput
+    /**
+     * In case the tr_project_overview_goals found by the `where` argument doesn't exist, create a new tr_project_overview_goals with this data.
+     */
+    create: XOR<tr_project_overview_goalsCreateInput, tr_project_overview_goalsUncheckedCreateInput>
+    /**
+     * In case the tr_project_overview_goals was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<tr_project_overview_goalsUpdateInput, tr_project_overview_goalsUncheckedUpdateInput>
+  }
+
+  /**
+   * tr_project_overview_goals delete
+   */
+  export type tr_project_overview_goalsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_overview_goals
+     */
+    select?: tr_project_overview_goalsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overview_goalsInclude<ExtArgs> | null
+    /**
+     * Filter which tr_project_overview_goals to delete.
+     */
+    where: tr_project_overview_goalsWhereUniqueInput
+  }
+
+  /**
+   * tr_project_overview_goals deleteMany
+   */
+  export type tr_project_overview_goalsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which tr_project_overview_goals to delete
+     */
+    where?: tr_project_overview_goalsWhereInput
+  }
+
+  /**
+   * tr_project_overview_goals.tr_project
+   */
+  export type tr_project_overview_goals$tr_projectArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project
+     */
+    select?: tr_projectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_projectInclude<ExtArgs> | null
+    where?: tr_projectWhereInput
+  }
+
+  /**
+   * tr_project_overview_goals without action
+   */
+  export type tr_project_overview_goalsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tr_project_overview_goals
+     */
+    select?: tr_project_overview_goalsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tr_project_overview_goalsInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -29613,13 +34119,18 @@ export namespace Prisma {
   export const Tr_project_overviewScalarFieldEnum: {
     id: 'id',
     project_id: 'project_id',
+    background: 'background',
     purpose: 'purpose',
-    goals: 'goals',
     success_measurement: 'success_measurement',
     intangible_benefit: 'intangible_benefit',
     impact_of_not_doing: 'impact_of_not_doing',
     created_at: 'created_at',
-    created_by: 'created_by'
+    created_by: 'created_by',
+    project_name: 'project_name',
+    department_name: 'department_name',
+    type: 'type',
+    expected_completion_date: 'expected_completion_date',
+    application: 'application'
   };
 
   export type Tr_project_overviewScalarFieldEnum = (typeof Tr_project_overviewScalarFieldEnum)[keyof typeof Tr_project_overviewScalarFieldEnum]
@@ -29642,9 +34153,13 @@ export namespace Prisma {
     id: 'id',
     project_id: 'project_id',
     risk: 'risk',
-    point_control: 'point_control',
+    risk_control: 'risk_control',
+    impact: 'impact',
+    probability: 'probability',
+    category: 'category',
     created_at: 'created_at',
-    created_by: 'created_by'
+    created_by: 'created_by',
+    is_deleted: 'is_deleted'
   };
 
   export type Tr_project_risk_mitigationScalarFieldEnum = (typeof Tr_project_risk_mitigationScalarFieldEnum)[keyof typeof Tr_project_risk_mitigationScalarFieldEnum]
@@ -29653,11 +34168,12 @@ export namespace Prisma {
   export const Tr_project_scopeScalarFieldEnum: {
     id: 'id',
     project_id: 'project_id',
-    features: 'features',
-    description: 'description',
+    module: 'module',
+    story_point: 'story_point',
     type: 'type',
     created_at: 'created_at',
-    created_by: 'created_by'
+    created_by: 'created_by',
+    is_deleted: 'is_deleted'
   };
 
   export type Tr_project_scopeScalarFieldEnum = (typeof Tr_project_scopeScalarFieldEnum)[keyof typeof Tr_project_scopeScalarFieldEnum]
@@ -29705,6 +34221,7 @@ export namespace Prisma {
   export const Tr_requestScalarFieldEnum: {
     id: 'id',
     entities_id: 'entities_id',
+    category: 'category',
     ticket_name: 'ticket_name',
     creation_date: 'creation_date',
     closed_date: 'closed_date',
@@ -29712,7 +34229,6 @@ export namespace Prisma {
     status: 'status',
     urgency: 'urgency',
     expected_completion_date: 'expected_completion_date',
-    category: 'category',
     type: 'type',
     department_code: 'department_code',
     department_name: 'department_name',
@@ -29755,6 +34271,53 @@ export namespace Prisma {
   };
 
   export type Tr_request_validationScalarFieldEnum = (typeof Tr_request_validationScalarFieldEnum)[keyof typeof Tr_request_validationScalarFieldEnum]
+
+
+  export const Map_category_to_groupScalarFieldEnum: {
+    id: 'id',
+    category_id: 'category_id',
+    group_id: 'group_id',
+    created_at: 'created_at',
+    created_by: 'created_by'
+  };
+
+  export type Map_category_to_groupScalarFieldEnum = (typeof Map_category_to_groupScalarFieldEnum)[keyof typeof Map_category_to_groupScalarFieldEnum]
+
+
+  export const Mst_categoryScalarFieldEnum: {
+    id: 'id',
+    category_code: 'category_code',
+    category_name: 'category_name',
+    is_active: 'is_active',
+    created_at: 'created_at',
+    created_by: 'created_by'
+  };
+
+  export type Mst_categoryScalarFieldEnum = (typeof Mst_categoryScalarFieldEnum)[keyof typeof Mst_categoryScalarFieldEnum]
+
+
+  export const Tr_project_minimum_viableScalarFieldEnum: {
+    id: 'id',
+    project_id: 'project_id',
+    minimum_viable: 'minimum_viable',
+    created_at: 'created_at',
+    created_by: 'created_by',
+    is_deleted: 'is_deleted'
+  };
+
+  export type Tr_project_minimum_viableScalarFieldEnum = (typeof Tr_project_minimum_viableScalarFieldEnum)[keyof typeof Tr_project_minimum_viableScalarFieldEnum]
+
+
+  export const Tr_project_overview_goalsScalarFieldEnum: {
+    id: 'id',
+    project_id: 'project_id',
+    goal: 'goal',
+    created_at: 'created_at',
+    created_by: 'created_by',
+    is_deleted: 'is_deleted'
+  };
+
+  export type Tr_project_overview_goalsScalarFieldEnum = (typeof Tr_project_overview_goalsScalarFieldEnum)[keyof typeof Tr_project_overview_goalsScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -30225,6 +34788,7 @@ export namespace Prisma {
     is_deleted?: BoolNullableFilter<"mst_group"> | boolean | null
     created_at?: DateTimeNullableFilter<"mst_group"> | Date | string | null
     created_by?: StringNullableFilter<"mst_group"> | string | null
+    map_category_to_group?: Map_category_to_groupListRelationFilter
     mst_authorization_usergroup?: Mst_authorization_usergroupListRelationFilter
     tr_project?: Tr_projectListRelationFilter
   }
@@ -30237,6 +34801,7 @@ export namespace Prisma {
     is_deleted?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    map_category_to_group?: map_category_to_groupOrderByRelationAggregateInput
     mst_authorization_usergroup?: mst_authorization_usergroupOrderByRelationAggregateInput
     tr_project?: tr_projectOrderByRelationAggregateInput
   }
@@ -30252,6 +34817,7 @@ export namespace Prisma {
     is_deleted?: BoolNullableFilter<"mst_group"> | boolean | null
     created_at?: DateTimeNullableFilter<"mst_group"> | Date | string | null
     created_by?: StringNullableFilter<"mst_group"> | string | null
+    map_category_to_group?: Map_category_to_groupListRelationFilter
     mst_authorization_usergroup?: Mst_authorization_usergroupListRelationFilter
     tr_project?: Tr_projectListRelationFilter
   }, "id">
@@ -30827,6 +35393,9 @@ export namespace Prisma {
     mst_project_state?: XOR<Mst_project_stateNullableRelationFilter, mst_project_stateWhereInput> | null
     tr_request?: XOR<Tr_requestNullableRelationFilter, tr_requestWhereInput> | null
     tr_project_flow?: Tr_project_flowListRelationFilter
+    tr_project_minimum_viable?: Tr_project_minimum_viableListRelationFilter
+    tr_project_overview?: Tr_project_overviewListRelationFilter
+    tr_project_overview_goals?: Tr_project_overview_goalsListRelationFilter
     tr_project_task?: Tr_project_taskListRelationFilter
   }
 
@@ -30858,6 +35427,9 @@ export namespace Prisma {
     mst_project_state?: mst_project_stateOrderByWithRelationInput
     tr_request?: tr_requestOrderByWithRelationInput
     tr_project_flow?: tr_project_flowOrderByRelationAggregateInput
+    tr_project_minimum_viable?: tr_project_minimum_viableOrderByRelationAggregateInput
+    tr_project_overview?: tr_project_overviewOrderByRelationAggregateInput
+    tr_project_overview_goals?: tr_project_overview_goalsOrderByRelationAggregateInput
     tr_project_task?: tr_project_taskOrderByRelationAggregateInput
   }
 
@@ -30892,6 +35464,9 @@ export namespace Prisma {
     mst_project_state?: XOR<Mst_project_stateNullableRelationFilter, mst_project_stateWhereInput> | null
     tr_request?: XOR<Tr_requestNullableRelationFilter, tr_requestWhereInput> | null
     tr_project_flow?: Tr_project_flowListRelationFilter
+    tr_project_minimum_viable?: Tr_project_minimum_viableListRelationFilter
+    tr_project_overview?: Tr_project_overviewListRelationFilter
+    tr_project_overview_goals?: Tr_project_overview_goalsListRelationFilter
     tr_project_task?: Tr_project_taskListRelationFilter
   }, "id">
 
@@ -31106,25 +35681,37 @@ export namespace Prisma {
     NOT?: tr_project_overviewWhereInput | tr_project_overviewWhereInput[]
     id?: IntFilter<"tr_project_overview"> | number
     project_id?: IntNullableFilter<"tr_project_overview"> | number | null
+    background?: StringNullableFilter<"tr_project_overview"> | string | null
     purpose?: StringNullableFilter<"tr_project_overview"> | string | null
-    goals?: StringNullableFilter<"tr_project_overview"> | string | null
     success_measurement?: StringNullableFilter<"tr_project_overview"> | string | null
     intangible_benefit?: StringNullableFilter<"tr_project_overview"> | string | null
     impact_of_not_doing?: StringNullableFilter<"tr_project_overview"> | string | null
     created_at?: DateTimeNullableFilter<"tr_project_overview"> | Date | string | null
     created_by?: StringNullableFilter<"tr_project_overview"> | string | null
+    project_name?: StringNullableFilter<"tr_project_overview"> | string | null
+    department_name?: StringNullableFilter<"tr_project_overview"> | string | null
+    type?: StringNullableFilter<"tr_project_overview"> | string | null
+    expected_completion_date?: DateTimeNullableFilter<"tr_project_overview"> | Date | string | null
+    application?: StringNullableFilter<"tr_project_overview"> | string | null
+    tr_project?: XOR<Tr_projectNullableRelationFilter, tr_projectWhereInput> | null
   }
 
   export type tr_project_overviewOrderByWithRelationInput = {
     id?: SortOrder
     project_id?: SortOrderInput | SortOrder
+    background?: SortOrderInput | SortOrder
     purpose?: SortOrderInput | SortOrder
-    goals?: SortOrderInput | SortOrder
     success_measurement?: SortOrderInput | SortOrder
     intangible_benefit?: SortOrderInput | SortOrder
     impact_of_not_doing?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    project_name?: SortOrderInput | SortOrder
+    department_name?: SortOrderInput | SortOrder
+    type?: SortOrderInput | SortOrder
+    expected_completion_date?: SortOrderInput | SortOrder
+    application?: SortOrderInput | SortOrder
+    tr_project?: tr_projectOrderByWithRelationInput
   }
 
   export type tr_project_overviewWhereUniqueInput = Prisma.AtLeast<{
@@ -31133,25 +35720,36 @@ export namespace Prisma {
     OR?: tr_project_overviewWhereInput[]
     NOT?: tr_project_overviewWhereInput | tr_project_overviewWhereInput[]
     project_id?: IntNullableFilter<"tr_project_overview"> | number | null
+    background?: StringNullableFilter<"tr_project_overview"> | string | null
     purpose?: StringNullableFilter<"tr_project_overview"> | string | null
-    goals?: StringNullableFilter<"tr_project_overview"> | string | null
     success_measurement?: StringNullableFilter<"tr_project_overview"> | string | null
     intangible_benefit?: StringNullableFilter<"tr_project_overview"> | string | null
     impact_of_not_doing?: StringNullableFilter<"tr_project_overview"> | string | null
     created_at?: DateTimeNullableFilter<"tr_project_overview"> | Date | string | null
     created_by?: StringNullableFilter<"tr_project_overview"> | string | null
+    project_name?: StringNullableFilter<"tr_project_overview"> | string | null
+    department_name?: StringNullableFilter<"tr_project_overview"> | string | null
+    type?: StringNullableFilter<"tr_project_overview"> | string | null
+    expected_completion_date?: DateTimeNullableFilter<"tr_project_overview"> | Date | string | null
+    application?: StringNullableFilter<"tr_project_overview"> | string | null
+    tr_project?: XOR<Tr_projectNullableRelationFilter, tr_projectWhereInput> | null
   }, "id">
 
   export type tr_project_overviewOrderByWithAggregationInput = {
     id?: SortOrder
     project_id?: SortOrderInput | SortOrder
+    background?: SortOrderInput | SortOrder
     purpose?: SortOrderInput | SortOrder
-    goals?: SortOrderInput | SortOrder
     success_measurement?: SortOrderInput | SortOrder
     intangible_benefit?: SortOrderInput | SortOrder
     impact_of_not_doing?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    project_name?: SortOrderInput | SortOrder
+    department_name?: SortOrderInput | SortOrder
+    type?: SortOrderInput | SortOrder
+    expected_completion_date?: SortOrderInput | SortOrder
+    application?: SortOrderInput | SortOrder
     _count?: tr_project_overviewCountOrderByAggregateInput
     _avg?: tr_project_overviewAvgOrderByAggregateInput
     _max?: tr_project_overviewMaxOrderByAggregateInput
@@ -31165,13 +35763,18 @@ export namespace Prisma {
     NOT?: tr_project_overviewScalarWhereWithAggregatesInput | tr_project_overviewScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"tr_project_overview"> | number
     project_id?: IntNullableWithAggregatesFilter<"tr_project_overview"> | number | null
+    background?: StringNullableWithAggregatesFilter<"tr_project_overview"> | string | null
     purpose?: StringNullableWithAggregatesFilter<"tr_project_overview"> | string | null
-    goals?: StringNullableWithAggregatesFilter<"tr_project_overview"> | string | null
     success_measurement?: StringNullableWithAggregatesFilter<"tr_project_overview"> | string | null
     intangible_benefit?: StringNullableWithAggregatesFilter<"tr_project_overview"> | string | null
     impact_of_not_doing?: StringNullableWithAggregatesFilter<"tr_project_overview"> | string | null
     created_at?: DateTimeNullableWithAggregatesFilter<"tr_project_overview"> | Date | string | null
     created_by?: StringNullableWithAggregatesFilter<"tr_project_overview"> | string | null
+    project_name?: StringNullableWithAggregatesFilter<"tr_project_overview"> | string | null
+    department_name?: StringNullableWithAggregatesFilter<"tr_project_overview"> | string | null
+    type?: StringNullableWithAggregatesFilter<"tr_project_overview"> | string | null
+    expected_completion_date?: DateTimeNullableWithAggregatesFilter<"tr_project_overview"> | Date | string | null
+    application?: StringNullableWithAggregatesFilter<"tr_project_overview"> | string | null
   }
 
   export type tr_project_participantWhereInput = {
@@ -31245,18 +35848,26 @@ export namespace Prisma {
     id?: IntFilter<"tr_project_risk_mitigation"> | number
     project_id?: IntNullableFilter<"tr_project_risk_mitigation"> | number | null
     risk?: StringNullableFilter<"tr_project_risk_mitigation"> | string | null
-    point_control?: StringNullableFilter<"tr_project_risk_mitigation"> | string | null
+    risk_control?: StringNullableFilter<"tr_project_risk_mitigation"> | string | null
+    impact?: StringNullableFilter<"tr_project_risk_mitigation"> | string | null
+    probability?: StringNullableFilter<"tr_project_risk_mitigation"> | string | null
+    category?: StringNullableFilter<"tr_project_risk_mitigation"> | string | null
     created_at?: DateTimeNullableFilter<"tr_project_risk_mitigation"> | Date | string | null
     created_by?: StringNullableFilter<"tr_project_risk_mitigation"> | string | null
+    is_deleted?: BoolNullableFilter<"tr_project_risk_mitigation"> | boolean | null
   }
 
   export type tr_project_risk_mitigationOrderByWithRelationInput = {
     id?: SortOrder
     project_id?: SortOrderInput | SortOrder
     risk?: SortOrderInput | SortOrder
-    point_control?: SortOrderInput | SortOrder
+    risk_control?: SortOrderInput | SortOrder
+    impact?: SortOrderInput | SortOrder
+    probability?: SortOrderInput | SortOrder
+    category?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    is_deleted?: SortOrderInput | SortOrder
   }
 
   export type tr_project_risk_mitigationWhereUniqueInput = Prisma.AtLeast<{
@@ -31266,18 +35877,26 @@ export namespace Prisma {
     NOT?: tr_project_risk_mitigationWhereInput | tr_project_risk_mitigationWhereInput[]
     project_id?: IntNullableFilter<"tr_project_risk_mitigation"> | number | null
     risk?: StringNullableFilter<"tr_project_risk_mitigation"> | string | null
-    point_control?: StringNullableFilter<"tr_project_risk_mitigation"> | string | null
+    risk_control?: StringNullableFilter<"tr_project_risk_mitigation"> | string | null
+    impact?: StringNullableFilter<"tr_project_risk_mitigation"> | string | null
+    probability?: StringNullableFilter<"tr_project_risk_mitigation"> | string | null
+    category?: StringNullableFilter<"tr_project_risk_mitigation"> | string | null
     created_at?: DateTimeNullableFilter<"tr_project_risk_mitigation"> | Date | string | null
     created_by?: StringNullableFilter<"tr_project_risk_mitigation"> | string | null
+    is_deleted?: BoolNullableFilter<"tr_project_risk_mitigation"> | boolean | null
   }, "id">
 
   export type tr_project_risk_mitigationOrderByWithAggregationInput = {
     id?: SortOrder
     project_id?: SortOrderInput | SortOrder
     risk?: SortOrderInput | SortOrder
-    point_control?: SortOrderInput | SortOrder
+    risk_control?: SortOrderInput | SortOrder
+    impact?: SortOrderInput | SortOrder
+    probability?: SortOrderInput | SortOrder
+    category?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    is_deleted?: SortOrderInput | SortOrder
     _count?: tr_project_risk_mitigationCountOrderByAggregateInput
     _avg?: tr_project_risk_mitigationAvgOrderByAggregateInput
     _max?: tr_project_risk_mitigationMaxOrderByAggregateInput
@@ -31292,9 +35911,13 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"tr_project_risk_mitigation"> | number
     project_id?: IntNullableWithAggregatesFilter<"tr_project_risk_mitigation"> | number | null
     risk?: StringNullableWithAggregatesFilter<"tr_project_risk_mitigation"> | string | null
-    point_control?: StringNullableWithAggregatesFilter<"tr_project_risk_mitigation"> | string | null
+    risk_control?: StringNullableWithAggregatesFilter<"tr_project_risk_mitigation"> | string | null
+    impact?: StringNullableWithAggregatesFilter<"tr_project_risk_mitigation"> | string | null
+    probability?: StringNullableWithAggregatesFilter<"tr_project_risk_mitigation"> | string | null
+    category?: StringNullableWithAggregatesFilter<"tr_project_risk_mitigation"> | string | null
     created_at?: DateTimeNullableWithAggregatesFilter<"tr_project_risk_mitigation"> | Date | string | null
     created_by?: StringNullableWithAggregatesFilter<"tr_project_risk_mitigation"> | string | null
+    is_deleted?: BoolNullableWithAggregatesFilter<"tr_project_risk_mitigation"> | boolean | null
   }
 
   export type tr_project_scopeWhereInput = {
@@ -31303,21 +35926,23 @@ export namespace Prisma {
     NOT?: tr_project_scopeWhereInput | tr_project_scopeWhereInput[]
     id?: IntFilter<"tr_project_scope"> | number
     project_id?: IntNullableFilter<"tr_project_scope"> | number | null
-    features?: StringNullableFilter<"tr_project_scope"> | string | null
-    description?: StringNullableFilter<"tr_project_scope"> | string | null
+    module?: StringNullableFilter<"tr_project_scope"> | string | null
+    story_point?: StringNullableFilter<"tr_project_scope"> | string | null
     type?: StringNullableFilter<"tr_project_scope"> | string | null
-    created_at?: StringNullableFilter<"tr_project_scope"> | string | null
+    created_at?: DateTimeNullableFilter<"tr_project_scope"> | Date | string | null
     created_by?: StringNullableFilter<"tr_project_scope"> | string | null
+    is_deleted?: BoolNullableFilter<"tr_project_scope"> | boolean | null
   }
 
   export type tr_project_scopeOrderByWithRelationInput = {
     id?: SortOrder
     project_id?: SortOrderInput | SortOrder
-    features?: SortOrderInput | SortOrder
-    description?: SortOrderInput | SortOrder
+    module?: SortOrderInput | SortOrder
+    story_point?: SortOrderInput | SortOrder
     type?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    is_deleted?: SortOrderInput | SortOrder
   }
 
   export type tr_project_scopeWhereUniqueInput = Prisma.AtLeast<{
@@ -31326,21 +35951,23 @@ export namespace Prisma {
     OR?: tr_project_scopeWhereInput[]
     NOT?: tr_project_scopeWhereInput | tr_project_scopeWhereInput[]
     project_id?: IntNullableFilter<"tr_project_scope"> | number | null
-    features?: StringNullableFilter<"tr_project_scope"> | string | null
-    description?: StringNullableFilter<"tr_project_scope"> | string | null
+    module?: StringNullableFilter<"tr_project_scope"> | string | null
+    story_point?: StringNullableFilter<"tr_project_scope"> | string | null
     type?: StringNullableFilter<"tr_project_scope"> | string | null
-    created_at?: StringNullableFilter<"tr_project_scope"> | string | null
+    created_at?: DateTimeNullableFilter<"tr_project_scope"> | Date | string | null
     created_by?: StringNullableFilter<"tr_project_scope"> | string | null
+    is_deleted?: BoolNullableFilter<"tr_project_scope"> | boolean | null
   }, "id">
 
   export type tr_project_scopeOrderByWithAggregationInput = {
     id?: SortOrder
     project_id?: SortOrderInput | SortOrder
-    features?: SortOrderInput | SortOrder
-    description?: SortOrderInput | SortOrder
+    module?: SortOrderInput | SortOrder
+    story_point?: SortOrderInput | SortOrder
     type?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    is_deleted?: SortOrderInput | SortOrder
     _count?: tr_project_scopeCountOrderByAggregateInput
     _avg?: tr_project_scopeAvgOrderByAggregateInput
     _max?: tr_project_scopeMaxOrderByAggregateInput
@@ -31354,11 +35981,12 @@ export namespace Prisma {
     NOT?: tr_project_scopeScalarWhereWithAggregatesInput | tr_project_scopeScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"tr_project_scope"> | number
     project_id?: IntNullableWithAggregatesFilter<"tr_project_scope"> | number | null
-    features?: StringNullableWithAggregatesFilter<"tr_project_scope"> | string | null
-    description?: StringNullableWithAggregatesFilter<"tr_project_scope"> | string | null
+    module?: StringNullableWithAggregatesFilter<"tr_project_scope"> | string | null
+    story_point?: StringNullableWithAggregatesFilter<"tr_project_scope"> | string | null
     type?: StringNullableWithAggregatesFilter<"tr_project_scope"> | string | null
-    created_at?: StringNullableWithAggregatesFilter<"tr_project_scope"> | string | null
+    created_at?: DateTimeNullableWithAggregatesFilter<"tr_project_scope"> | Date | string | null
     created_by?: StringNullableWithAggregatesFilter<"tr_project_scope"> | string | null
+    is_deleted?: BoolNullableWithAggregatesFilter<"tr_project_scope"> | boolean | null
   }
 
   export type tr_project_taskWhereInput = {
@@ -31575,6 +36203,7 @@ export namespace Prisma {
     NOT?: tr_requestWhereInput | tr_requestWhereInput[]
     id?: IntFilter<"tr_request"> | number
     entities_id?: IntNullableFilter<"tr_request"> | number | null
+    category?: IntNullableFilter<"tr_request"> | number | null
     ticket_name?: StringNullableFilter<"tr_request"> | string | null
     creation_date?: DateTimeNullableFilter<"tr_request"> | Date | string | null
     closed_date?: DateTimeNullableFilter<"tr_request"> | Date | string | null
@@ -31582,7 +36211,6 @@ export namespace Prisma {
     status?: StringNullableFilter<"tr_request"> | string | null
     urgency?: StringNullableFilter<"tr_request"> | string | null
     expected_completion_date?: DateTimeNullableFilter<"tr_request"> | Date | string | null
-    category?: StringNullableFilter<"tr_request"> | string | null
     type?: StringNullableFilter<"tr_request"> | string | null
     department_code?: StringNullableFilter<"tr_request"> | string | null
     department_name?: StringNullableFilter<"tr_request"> | string | null
@@ -31595,12 +36223,14 @@ export namespace Prisma {
     impact?: StringNullableFilter<"tr_request"> | string | null
     priority?: StringNullableFilter<"tr_request"> | string | null
     tr_project?: Tr_projectListRelationFilter
+    mst_category?: XOR<Mst_categoryNullableRelationFilter, mst_categoryWhereInput> | null
     tr_request_validation?: Tr_request_validationListRelationFilter
   }
 
   export type tr_requestOrderByWithRelationInput = {
     id?: SortOrder
     entities_id?: SortOrderInput | SortOrder
+    category?: SortOrderInput | SortOrder
     ticket_name?: SortOrderInput | SortOrder
     creation_date?: SortOrderInput | SortOrder
     closed_date?: SortOrderInput | SortOrder
@@ -31608,7 +36238,6 @@ export namespace Prisma {
     status?: SortOrderInput | SortOrder
     urgency?: SortOrderInput | SortOrder
     expected_completion_date?: SortOrderInput | SortOrder
-    category?: SortOrderInput | SortOrder
     type?: SortOrderInput | SortOrder
     department_code?: SortOrderInput | SortOrder
     department_name?: SortOrderInput | SortOrder
@@ -31621,6 +36250,7 @@ export namespace Prisma {
     impact?: SortOrderInput | SortOrder
     priority?: SortOrderInput | SortOrder
     tr_project?: tr_projectOrderByRelationAggregateInput
+    mst_category?: mst_categoryOrderByWithRelationInput
     tr_request_validation?: tr_request_validationOrderByRelationAggregateInput
   }
 
@@ -31630,6 +36260,7 @@ export namespace Prisma {
     OR?: tr_requestWhereInput[]
     NOT?: tr_requestWhereInput | tr_requestWhereInput[]
     entities_id?: IntNullableFilter<"tr_request"> | number | null
+    category?: IntNullableFilter<"tr_request"> | number | null
     ticket_name?: StringNullableFilter<"tr_request"> | string | null
     creation_date?: DateTimeNullableFilter<"tr_request"> | Date | string | null
     closed_date?: DateTimeNullableFilter<"tr_request"> | Date | string | null
@@ -31637,7 +36268,6 @@ export namespace Prisma {
     status?: StringNullableFilter<"tr_request"> | string | null
     urgency?: StringNullableFilter<"tr_request"> | string | null
     expected_completion_date?: DateTimeNullableFilter<"tr_request"> | Date | string | null
-    category?: StringNullableFilter<"tr_request"> | string | null
     type?: StringNullableFilter<"tr_request"> | string | null
     department_code?: StringNullableFilter<"tr_request"> | string | null
     department_name?: StringNullableFilter<"tr_request"> | string | null
@@ -31650,12 +36280,14 @@ export namespace Prisma {
     impact?: StringNullableFilter<"tr_request"> | string | null
     priority?: StringNullableFilter<"tr_request"> | string | null
     tr_project?: Tr_projectListRelationFilter
+    mst_category?: XOR<Mst_categoryNullableRelationFilter, mst_categoryWhereInput> | null
     tr_request_validation?: Tr_request_validationListRelationFilter
   }, "id">
 
   export type tr_requestOrderByWithAggregationInput = {
     id?: SortOrder
     entities_id?: SortOrderInput | SortOrder
+    category?: SortOrderInput | SortOrder
     ticket_name?: SortOrderInput | SortOrder
     creation_date?: SortOrderInput | SortOrder
     closed_date?: SortOrderInput | SortOrder
@@ -31663,7 +36295,6 @@ export namespace Prisma {
     status?: SortOrderInput | SortOrder
     urgency?: SortOrderInput | SortOrder
     expected_completion_date?: SortOrderInput | SortOrder
-    category?: SortOrderInput | SortOrder
     type?: SortOrderInput | SortOrder
     department_code?: SortOrderInput | SortOrder
     department_name?: SortOrderInput | SortOrder
@@ -31688,6 +36319,7 @@ export namespace Prisma {
     NOT?: tr_requestScalarWhereWithAggregatesInput | tr_requestScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"tr_request"> | number
     entities_id?: IntNullableWithAggregatesFilter<"tr_request"> | number | null
+    category?: IntNullableWithAggregatesFilter<"tr_request"> | number | null
     ticket_name?: StringNullableWithAggregatesFilter<"tr_request"> | string | null
     creation_date?: DateTimeNullableWithAggregatesFilter<"tr_request"> | Date | string | null
     closed_date?: DateTimeNullableWithAggregatesFilter<"tr_request"> | Date | string | null
@@ -31695,7 +36327,6 @@ export namespace Prisma {
     status?: StringNullableWithAggregatesFilter<"tr_request"> | string | null
     urgency?: StringNullableWithAggregatesFilter<"tr_request"> | string | null
     expected_completion_date?: DateTimeNullableWithAggregatesFilter<"tr_request"> | Date | string | null
-    category?: StringNullableWithAggregatesFilter<"tr_request"> | string | null
     type?: StringNullableWithAggregatesFilter<"tr_request"> | string | null
     department_code?: StringNullableWithAggregatesFilter<"tr_request"> | string | null
     department_name?: StringNullableWithAggregatesFilter<"tr_request"> | string | null
@@ -31848,6 +36479,255 @@ export namespace Prisma {
     submission_date?: DateTimeNullableWithAggregatesFilter<"tr_request_validation"> | Date | string | null
     validation_date?: DateTimeNullableWithAggregatesFilter<"tr_request_validation"> | Date | string | null
     state?: StringNullableWithAggregatesFilter<"tr_request_validation"> | string | null
+  }
+
+  export type map_category_to_groupWhereInput = {
+    AND?: map_category_to_groupWhereInput | map_category_to_groupWhereInput[]
+    OR?: map_category_to_groupWhereInput[]
+    NOT?: map_category_to_groupWhereInput | map_category_to_groupWhereInput[]
+    id?: IntFilter<"map_category_to_group"> | number
+    category_id?: IntNullableFilter<"map_category_to_group"> | number | null
+    group_id?: IntNullableFilter<"map_category_to_group"> | number | null
+    created_at?: DateTimeNullableFilter<"map_category_to_group"> | Date | string | null
+    created_by?: StringNullableFilter<"map_category_to_group"> | string | null
+    mst_group?: XOR<Mst_groupNullableRelationFilter, mst_groupWhereInput> | null
+    mst_category?: XOR<Mst_categoryNullableRelationFilter, mst_categoryWhereInput> | null
+  }
+
+  export type map_category_to_groupOrderByWithRelationInput = {
+    id?: SortOrder
+    category_id?: SortOrderInput | SortOrder
+    group_id?: SortOrderInput | SortOrder
+    created_at?: SortOrderInput | SortOrder
+    created_by?: SortOrderInput | SortOrder
+    mst_group?: mst_groupOrderByWithRelationInput
+    mst_category?: mst_categoryOrderByWithRelationInput
+  }
+
+  export type map_category_to_groupWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: map_category_to_groupWhereInput | map_category_to_groupWhereInput[]
+    OR?: map_category_to_groupWhereInput[]
+    NOT?: map_category_to_groupWhereInput | map_category_to_groupWhereInput[]
+    category_id?: IntNullableFilter<"map_category_to_group"> | number | null
+    group_id?: IntNullableFilter<"map_category_to_group"> | number | null
+    created_at?: DateTimeNullableFilter<"map_category_to_group"> | Date | string | null
+    created_by?: StringNullableFilter<"map_category_to_group"> | string | null
+    mst_group?: XOR<Mst_groupNullableRelationFilter, mst_groupWhereInput> | null
+    mst_category?: XOR<Mst_categoryNullableRelationFilter, mst_categoryWhereInput> | null
+  }, "id">
+
+  export type map_category_to_groupOrderByWithAggregationInput = {
+    id?: SortOrder
+    category_id?: SortOrderInput | SortOrder
+    group_id?: SortOrderInput | SortOrder
+    created_at?: SortOrderInput | SortOrder
+    created_by?: SortOrderInput | SortOrder
+    _count?: map_category_to_groupCountOrderByAggregateInput
+    _avg?: map_category_to_groupAvgOrderByAggregateInput
+    _max?: map_category_to_groupMaxOrderByAggregateInput
+    _min?: map_category_to_groupMinOrderByAggregateInput
+    _sum?: map_category_to_groupSumOrderByAggregateInput
+  }
+
+  export type map_category_to_groupScalarWhereWithAggregatesInput = {
+    AND?: map_category_to_groupScalarWhereWithAggregatesInput | map_category_to_groupScalarWhereWithAggregatesInput[]
+    OR?: map_category_to_groupScalarWhereWithAggregatesInput[]
+    NOT?: map_category_to_groupScalarWhereWithAggregatesInput | map_category_to_groupScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"map_category_to_group"> | number
+    category_id?: IntNullableWithAggregatesFilter<"map_category_to_group"> | number | null
+    group_id?: IntNullableWithAggregatesFilter<"map_category_to_group"> | number | null
+    created_at?: DateTimeNullableWithAggregatesFilter<"map_category_to_group"> | Date | string | null
+    created_by?: StringNullableWithAggregatesFilter<"map_category_to_group"> | string | null
+  }
+
+  export type mst_categoryWhereInput = {
+    AND?: mst_categoryWhereInput | mst_categoryWhereInput[]
+    OR?: mst_categoryWhereInput[]
+    NOT?: mst_categoryWhereInput | mst_categoryWhereInput[]
+    id?: IntFilter<"mst_category"> | number
+    category_code?: StringNullableFilter<"mst_category"> | string | null
+    category_name?: StringNullableFilter<"mst_category"> | string | null
+    is_active?: StringNullableFilter<"mst_category"> | string | null
+    created_at?: DateTimeNullableFilter<"mst_category"> | Date | string | null
+    created_by?: StringNullableFilter<"mst_category"> | string | null
+    map_category_to_group?: Map_category_to_groupListRelationFilter
+    tr_request?: Tr_requestListRelationFilter
+  }
+
+  export type mst_categoryOrderByWithRelationInput = {
+    id?: SortOrder
+    category_code?: SortOrderInput | SortOrder
+    category_name?: SortOrderInput | SortOrder
+    is_active?: SortOrderInput | SortOrder
+    created_at?: SortOrderInput | SortOrder
+    created_by?: SortOrderInput | SortOrder
+    map_category_to_group?: map_category_to_groupOrderByRelationAggregateInput
+    tr_request?: tr_requestOrderByRelationAggregateInput
+  }
+
+  export type mst_categoryWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: mst_categoryWhereInput | mst_categoryWhereInput[]
+    OR?: mst_categoryWhereInput[]
+    NOT?: mst_categoryWhereInput | mst_categoryWhereInput[]
+    category_code?: StringNullableFilter<"mst_category"> | string | null
+    category_name?: StringNullableFilter<"mst_category"> | string | null
+    is_active?: StringNullableFilter<"mst_category"> | string | null
+    created_at?: DateTimeNullableFilter<"mst_category"> | Date | string | null
+    created_by?: StringNullableFilter<"mst_category"> | string | null
+    map_category_to_group?: Map_category_to_groupListRelationFilter
+    tr_request?: Tr_requestListRelationFilter
+  }, "id">
+
+  export type mst_categoryOrderByWithAggregationInput = {
+    id?: SortOrder
+    category_code?: SortOrderInput | SortOrder
+    category_name?: SortOrderInput | SortOrder
+    is_active?: SortOrderInput | SortOrder
+    created_at?: SortOrderInput | SortOrder
+    created_by?: SortOrderInput | SortOrder
+    _count?: mst_categoryCountOrderByAggregateInput
+    _avg?: mst_categoryAvgOrderByAggregateInput
+    _max?: mst_categoryMaxOrderByAggregateInput
+    _min?: mst_categoryMinOrderByAggregateInput
+    _sum?: mst_categorySumOrderByAggregateInput
+  }
+
+  export type mst_categoryScalarWhereWithAggregatesInput = {
+    AND?: mst_categoryScalarWhereWithAggregatesInput | mst_categoryScalarWhereWithAggregatesInput[]
+    OR?: mst_categoryScalarWhereWithAggregatesInput[]
+    NOT?: mst_categoryScalarWhereWithAggregatesInput | mst_categoryScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"mst_category"> | number
+    category_code?: StringNullableWithAggregatesFilter<"mst_category"> | string | null
+    category_name?: StringNullableWithAggregatesFilter<"mst_category"> | string | null
+    is_active?: StringNullableWithAggregatesFilter<"mst_category"> | string | null
+    created_at?: DateTimeNullableWithAggregatesFilter<"mst_category"> | Date | string | null
+    created_by?: StringNullableWithAggregatesFilter<"mst_category"> | string | null
+  }
+
+  export type tr_project_minimum_viableWhereInput = {
+    AND?: tr_project_minimum_viableWhereInput | tr_project_minimum_viableWhereInput[]
+    OR?: tr_project_minimum_viableWhereInput[]
+    NOT?: tr_project_minimum_viableWhereInput | tr_project_minimum_viableWhereInput[]
+    id?: IntFilter<"tr_project_minimum_viable"> | number
+    project_id?: IntNullableFilter<"tr_project_minimum_viable"> | number | null
+    minimum_viable?: StringNullableFilter<"tr_project_minimum_viable"> | string | null
+    created_at?: DateTimeNullableFilter<"tr_project_minimum_viable"> | Date | string | null
+    created_by?: StringNullableFilter<"tr_project_minimum_viable"> | string | null
+    is_deleted?: BoolNullableFilter<"tr_project_minimum_viable"> | boolean | null
+    tr_project?: XOR<Tr_projectNullableRelationFilter, tr_projectWhereInput> | null
+  }
+
+  export type tr_project_minimum_viableOrderByWithRelationInput = {
+    id?: SortOrder
+    project_id?: SortOrderInput | SortOrder
+    minimum_viable?: SortOrderInput | SortOrder
+    created_at?: SortOrderInput | SortOrder
+    created_by?: SortOrderInput | SortOrder
+    is_deleted?: SortOrderInput | SortOrder
+    tr_project?: tr_projectOrderByWithRelationInput
+  }
+
+  export type tr_project_minimum_viableWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: tr_project_minimum_viableWhereInput | tr_project_minimum_viableWhereInput[]
+    OR?: tr_project_minimum_viableWhereInput[]
+    NOT?: tr_project_minimum_viableWhereInput | tr_project_minimum_viableWhereInput[]
+    project_id?: IntNullableFilter<"tr_project_minimum_viable"> | number | null
+    minimum_viable?: StringNullableFilter<"tr_project_minimum_viable"> | string | null
+    created_at?: DateTimeNullableFilter<"tr_project_minimum_viable"> | Date | string | null
+    created_by?: StringNullableFilter<"tr_project_minimum_viable"> | string | null
+    is_deleted?: BoolNullableFilter<"tr_project_minimum_viable"> | boolean | null
+    tr_project?: XOR<Tr_projectNullableRelationFilter, tr_projectWhereInput> | null
+  }, "id">
+
+  export type tr_project_minimum_viableOrderByWithAggregationInput = {
+    id?: SortOrder
+    project_id?: SortOrderInput | SortOrder
+    minimum_viable?: SortOrderInput | SortOrder
+    created_at?: SortOrderInput | SortOrder
+    created_by?: SortOrderInput | SortOrder
+    is_deleted?: SortOrderInput | SortOrder
+    _count?: tr_project_minimum_viableCountOrderByAggregateInput
+    _avg?: tr_project_minimum_viableAvgOrderByAggregateInput
+    _max?: tr_project_minimum_viableMaxOrderByAggregateInput
+    _min?: tr_project_minimum_viableMinOrderByAggregateInput
+    _sum?: tr_project_minimum_viableSumOrderByAggregateInput
+  }
+
+  export type tr_project_minimum_viableScalarWhereWithAggregatesInput = {
+    AND?: tr_project_minimum_viableScalarWhereWithAggregatesInput | tr_project_minimum_viableScalarWhereWithAggregatesInput[]
+    OR?: tr_project_minimum_viableScalarWhereWithAggregatesInput[]
+    NOT?: tr_project_minimum_viableScalarWhereWithAggregatesInput | tr_project_minimum_viableScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"tr_project_minimum_viable"> | number
+    project_id?: IntNullableWithAggregatesFilter<"tr_project_minimum_viable"> | number | null
+    minimum_viable?: StringNullableWithAggregatesFilter<"tr_project_minimum_viable"> | string | null
+    created_at?: DateTimeNullableWithAggregatesFilter<"tr_project_minimum_viable"> | Date | string | null
+    created_by?: StringNullableWithAggregatesFilter<"tr_project_minimum_viable"> | string | null
+    is_deleted?: BoolNullableWithAggregatesFilter<"tr_project_minimum_viable"> | boolean | null
+  }
+
+  export type tr_project_overview_goalsWhereInput = {
+    AND?: tr_project_overview_goalsWhereInput | tr_project_overview_goalsWhereInput[]
+    OR?: tr_project_overview_goalsWhereInput[]
+    NOT?: tr_project_overview_goalsWhereInput | tr_project_overview_goalsWhereInput[]
+    id?: IntFilter<"tr_project_overview_goals"> | number
+    project_id?: IntNullableFilter<"tr_project_overview_goals"> | number | null
+    goal?: StringNullableFilter<"tr_project_overview_goals"> | string | null
+    created_at?: DateTimeNullableFilter<"tr_project_overview_goals"> | Date | string | null
+    created_by?: StringNullableFilter<"tr_project_overview_goals"> | string | null
+    is_deleted?: BoolNullableFilter<"tr_project_overview_goals"> | boolean | null
+    tr_project?: XOR<Tr_projectNullableRelationFilter, tr_projectWhereInput> | null
+  }
+
+  export type tr_project_overview_goalsOrderByWithRelationInput = {
+    id?: SortOrder
+    project_id?: SortOrderInput | SortOrder
+    goal?: SortOrderInput | SortOrder
+    created_at?: SortOrderInput | SortOrder
+    created_by?: SortOrderInput | SortOrder
+    is_deleted?: SortOrderInput | SortOrder
+    tr_project?: tr_projectOrderByWithRelationInput
+  }
+
+  export type tr_project_overview_goalsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: tr_project_overview_goalsWhereInput | tr_project_overview_goalsWhereInput[]
+    OR?: tr_project_overview_goalsWhereInput[]
+    NOT?: tr_project_overview_goalsWhereInput | tr_project_overview_goalsWhereInput[]
+    project_id?: IntNullableFilter<"tr_project_overview_goals"> | number | null
+    goal?: StringNullableFilter<"tr_project_overview_goals"> | string | null
+    created_at?: DateTimeNullableFilter<"tr_project_overview_goals"> | Date | string | null
+    created_by?: StringNullableFilter<"tr_project_overview_goals"> | string | null
+    is_deleted?: BoolNullableFilter<"tr_project_overview_goals"> | boolean | null
+    tr_project?: XOR<Tr_projectNullableRelationFilter, tr_projectWhereInput> | null
+  }, "id">
+
+  export type tr_project_overview_goalsOrderByWithAggregationInput = {
+    id?: SortOrder
+    project_id?: SortOrderInput | SortOrder
+    goal?: SortOrderInput | SortOrder
+    created_at?: SortOrderInput | SortOrder
+    created_by?: SortOrderInput | SortOrder
+    is_deleted?: SortOrderInput | SortOrder
+    _count?: tr_project_overview_goalsCountOrderByAggregateInput
+    _avg?: tr_project_overview_goalsAvgOrderByAggregateInput
+    _max?: tr_project_overview_goalsMaxOrderByAggregateInput
+    _min?: tr_project_overview_goalsMinOrderByAggregateInput
+    _sum?: tr_project_overview_goalsSumOrderByAggregateInput
+  }
+
+  export type tr_project_overview_goalsScalarWhereWithAggregatesInput = {
+    AND?: tr_project_overview_goalsScalarWhereWithAggregatesInput | tr_project_overview_goalsScalarWhereWithAggregatesInput[]
+    OR?: tr_project_overview_goalsScalarWhereWithAggregatesInput[]
+    NOT?: tr_project_overview_goalsScalarWhereWithAggregatesInput | tr_project_overview_goalsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"tr_project_overview_goals"> | number
+    project_id?: IntNullableWithAggregatesFilter<"tr_project_overview_goals"> | number | null
+    goal?: StringNullableWithAggregatesFilter<"tr_project_overview_goals"> | string | null
+    created_at?: DateTimeNullableWithAggregatesFilter<"tr_project_overview_goals"> | Date | string | null
+    created_by?: StringNullableWithAggregatesFilter<"tr_project_overview_goals"> | string | null
+    is_deleted?: BoolNullableWithAggregatesFilter<"tr_project_overview_goals"> | boolean | null
   }
 
   export type mst_applicationCreateInput = {
@@ -32252,6 +37132,7 @@ export namespace Prisma {
     is_deleted?: boolean | null
     created_at?: Date | string | null
     created_by?: string | null
+    map_category_to_group?: map_category_to_groupCreateNestedManyWithoutMst_groupInput
     mst_authorization_usergroup?: mst_authorization_usergroupCreateNestedManyWithoutMst_groupInput
     tr_project?: tr_projectCreateNestedManyWithoutMst_groupInput
   }
@@ -32264,6 +37145,7 @@ export namespace Prisma {
     is_deleted?: boolean | null
     created_at?: Date | string | null
     created_by?: string | null
+    map_category_to_group?: map_category_to_groupUncheckedCreateNestedManyWithoutMst_groupInput
     mst_authorization_usergroup?: mst_authorization_usergroupUncheckedCreateNestedManyWithoutMst_groupInput
     tr_project?: tr_projectUncheckedCreateNestedManyWithoutMst_groupInput
   }
@@ -32275,6 +37157,7 @@ export namespace Prisma {
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    map_category_to_group?: map_category_to_groupUpdateManyWithoutMst_groupNestedInput
     mst_authorization_usergroup?: mst_authorization_usergroupUpdateManyWithoutMst_groupNestedInput
     tr_project?: tr_projectUpdateManyWithoutMst_groupNestedInput
   }
@@ -32287,6 +37170,7 @@ export namespace Prisma {
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    map_category_to_group?: map_category_to_groupUncheckedUpdateManyWithoutMst_groupNestedInput
     mst_authorization_usergroup?: mst_authorization_usergroupUncheckedUpdateManyWithoutMst_groupNestedInput
     tr_project?: tr_projectUncheckedUpdateManyWithoutMst_groupNestedInput
   }
@@ -32879,6 +37763,9 @@ export namespace Prisma {
     mst_project_state?: mst_project_stateCreateNestedOneWithoutTr_projectInput
     tr_request?: tr_requestCreateNestedOneWithoutTr_projectInput
     tr_project_flow?: tr_project_flowCreateNestedManyWithoutTr_projectInput
+    tr_project_minimum_viable?: tr_project_minimum_viableCreateNestedManyWithoutTr_projectInput
+    tr_project_overview?: tr_project_overviewCreateNestedManyWithoutTr_projectInput
+    tr_project_overview_goals?: tr_project_overview_goalsCreateNestedManyWithoutTr_projectInput
     tr_project_task?: tr_project_taskCreateNestedManyWithoutTr_projectInput
   }
 
@@ -32907,6 +37794,9 @@ export namespace Prisma {
     created_by?: string | null
     type?: string | null
     tr_project_flow?: tr_project_flowUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_overview?: tr_project_overviewUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_overview_goals?: tr_project_overview_goalsUncheckedCreateNestedManyWithoutTr_projectInput
     tr_project_task?: tr_project_taskUncheckedCreateNestedManyWithoutTr_projectInput
   }
 
@@ -32934,6 +37824,9 @@ export namespace Prisma {
     mst_project_state?: mst_project_stateUpdateOneWithoutTr_projectNestedInput
     tr_request?: tr_requestUpdateOneWithoutTr_projectNestedInput
     tr_project_flow?: tr_project_flowUpdateManyWithoutTr_projectNestedInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview?: tr_project_overviewUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview_goals?: tr_project_overview_goalsUpdateManyWithoutTr_projectNestedInput
     tr_project_task?: tr_project_taskUpdateManyWithoutTr_projectNestedInput
   }
 
@@ -32962,6 +37855,9 @@ export namespace Prisma {
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
     tr_project_flow?: tr_project_flowUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview?: tr_project_overviewUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview_goals?: tr_project_overview_goalsUncheckedUpdateManyWithoutTr_projectNestedInput
     tr_project_task?: tr_project_taskUncheckedUpdateManyWithoutTr_projectNestedInput
   }
 
@@ -33182,84 +38078,118 @@ export namespace Prisma {
   }
 
   export type tr_project_overviewCreateInput = {
-    project_id?: number | null
+    background?: string | null
     purpose?: string | null
-    goals?: string | null
     success_measurement?: string | null
     intangible_benefit?: string | null
     impact_of_not_doing?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    project_name?: string | null
+    department_name?: string | null
+    type?: string | null
+    expected_completion_date?: Date | string | null
+    application?: string | null
+    tr_project?: tr_projectCreateNestedOneWithoutTr_project_overviewInput
   }
 
   export type tr_project_overviewUncheckedCreateInput = {
     id?: number
     project_id?: number | null
+    background?: string | null
     purpose?: string | null
-    goals?: string | null
     success_measurement?: string | null
     intangible_benefit?: string | null
     impact_of_not_doing?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    project_name?: string | null
+    department_name?: string | null
+    type?: string | null
+    expected_completion_date?: Date | string | null
+    application?: string | null
   }
 
   export type tr_project_overviewUpdateInput = {
-    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
     purpose?: NullableStringFieldUpdateOperationsInput | string | null
-    goals?: NullableStringFieldUpdateOperationsInput | string | null
     success_measurement?: NullableStringFieldUpdateOperationsInput | string | null
     intangible_benefit?: NullableStringFieldUpdateOperationsInput | string | null
     impact_of_not_doing?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
+    department_name?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+    tr_project?: tr_projectUpdateOneWithoutTr_project_overviewNestedInput
   }
 
   export type tr_project_overviewUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
     purpose?: NullableStringFieldUpdateOperationsInput | string | null
-    goals?: NullableStringFieldUpdateOperationsInput | string | null
     success_measurement?: NullableStringFieldUpdateOperationsInput | string | null
     intangible_benefit?: NullableStringFieldUpdateOperationsInput | string | null
     impact_of_not_doing?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
+    department_name?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    application?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type tr_project_overviewCreateManyInput = {
     id?: number
     project_id?: number | null
+    background?: string | null
     purpose?: string | null
-    goals?: string | null
     success_measurement?: string | null
     intangible_benefit?: string | null
     impact_of_not_doing?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    project_name?: string | null
+    department_name?: string | null
+    type?: string | null
+    expected_completion_date?: Date | string | null
+    application?: string | null
   }
 
   export type tr_project_overviewUpdateManyMutationInput = {
-    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
     purpose?: NullableStringFieldUpdateOperationsInput | string | null
-    goals?: NullableStringFieldUpdateOperationsInput | string | null
     success_measurement?: NullableStringFieldUpdateOperationsInput | string | null
     intangible_benefit?: NullableStringFieldUpdateOperationsInput | string | null
     impact_of_not_doing?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
+    department_name?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    application?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type tr_project_overviewUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
     purpose?: NullableStringFieldUpdateOperationsInput | string | null
-    goals?: NullableStringFieldUpdateOperationsInput | string | null
     success_measurement?: NullableStringFieldUpdateOperationsInput | string | null
     intangible_benefit?: NullableStringFieldUpdateOperationsInput | string | null
     impact_of_not_doing?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
+    department_name?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    application?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type tr_project_participantCreateInput = {
@@ -33330,133 +38260,165 @@ export namespace Prisma {
   }
 
   export type tr_project_risk_mitigationCreateInput = {
-    id: number
     project_id?: number | null
     risk?: string | null
-    point_control?: string | null
+    risk_control?: string | null
+    impact?: string | null
+    probability?: string | null
+    category?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    is_deleted?: boolean | null
   }
 
   export type tr_project_risk_mitigationUncheckedCreateInput = {
-    id: number
+    id?: number
     project_id?: number | null
     risk?: string | null
-    point_control?: string | null
+    risk_control?: string | null
+    impact?: string | null
+    probability?: string | null
+    category?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    is_deleted?: boolean | null
   }
 
   export type tr_project_risk_mitigationUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
     project_id?: NullableIntFieldUpdateOperationsInput | number | null
     risk?: NullableStringFieldUpdateOperationsInput | string | null
-    point_control?: NullableStringFieldUpdateOperationsInput | string | null
+    risk_control?: NullableStringFieldUpdateOperationsInput | string | null
+    impact?: NullableStringFieldUpdateOperationsInput | string | null
+    probability?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type tr_project_risk_mitigationUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     project_id?: NullableIntFieldUpdateOperationsInput | number | null
     risk?: NullableStringFieldUpdateOperationsInput | string | null
-    point_control?: NullableStringFieldUpdateOperationsInput | string | null
+    risk_control?: NullableStringFieldUpdateOperationsInput | string | null
+    impact?: NullableStringFieldUpdateOperationsInput | string | null
+    probability?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type tr_project_risk_mitigationCreateManyInput = {
-    id: number
+    id?: number
     project_id?: number | null
     risk?: string | null
-    point_control?: string | null
+    risk_control?: string | null
+    impact?: string | null
+    probability?: string | null
+    category?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    is_deleted?: boolean | null
   }
 
   export type tr_project_risk_mitigationUpdateManyMutationInput = {
-    id?: IntFieldUpdateOperationsInput | number
     project_id?: NullableIntFieldUpdateOperationsInput | number | null
     risk?: NullableStringFieldUpdateOperationsInput | string | null
-    point_control?: NullableStringFieldUpdateOperationsInput | string | null
+    risk_control?: NullableStringFieldUpdateOperationsInput | string | null
+    impact?: NullableStringFieldUpdateOperationsInput | string | null
+    probability?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type tr_project_risk_mitigationUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     project_id?: NullableIntFieldUpdateOperationsInput | number | null
     risk?: NullableStringFieldUpdateOperationsInput | string | null
-    point_control?: NullableStringFieldUpdateOperationsInput | string | null
+    risk_control?: NullableStringFieldUpdateOperationsInput | string | null
+    impact?: NullableStringFieldUpdateOperationsInput | string | null
+    probability?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type tr_project_scopeCreateInput = {
     project_id?: number | null
-    features?: string | null
-    description?: string | null
+    module?: string | null
+    story_point?: string | null
     type?: string | null
-    created_at?: string | null
+    created_at?: Date | string | null
     created_by?: string | null
+    is_deleted?: boolean | null
   }
 
   export type tr_project_scopeUncheckedCreateInput = {
     id?: number
     project_id?: number | null
-    features?: string | null
-    description?: string | null
+    module?: string | null
+    story_point?: string | null
     type?: string | null
-    created_at?: string | null
+    created_at?: Date | string | null
     created_by?: string | null
+    is_deleted?: boolean | null
   }
 
   export type tr_project_scopeUpdateInput = {
     project_id?: NullableIntFieldUpdateOperationsInput | number | null
-    features?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
+    module?: NullableStringFieldUpdateOperationsInput | string | null
+    story_point?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type tr_project_scopeUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     project_id?: NullableIntFieldUpdateOperationsInput | number | null
-    features?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
+    module?: NullableStringFieldUpdateOperationsInput | string | null
+    story_point?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type tr_project_scopeCreateManyInput = {
     id?: number
     project_id?: number | null
-    features?: string | null
-    description?: string | null
+    module?: string | null
+    story_point?: string | null
     type?: string | null
-    created_at?: string | null
+    created_at?: Date | string | null
     created_by?: string | null
+    is_deleted?: boolean | null
   }
 
   export type tr_project_scopeUpdateManyMutationInput = {
     project_id?: NullableIntFieldUpdateOperationsInput | number | null
-    features?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
+    module?: NullableStringFieldUpdateOperationsInput | string | null
+    story_point?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type tr_project_scopeUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     project_id?: NullableIntFieldUpdateOperationsInput | number | null
-    features?: NullableStringFieldUpdateOperationsInput | string | null
-    description?: NullableStringFieldUpdateOperationsInput | string | null
+    module?: NullableStringFieldUpdateOperationsInput | string | null
+    story_point?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type tr_project_taskCreateInput = {
@@ -33693,7 +38655,6 @@ export namespace Prisma {
     status?: string | null
     urgency?: string | null
     expected_completion_date?: Date | string | null
-    category?: string | null
     type?: string | null
     department_code?: string | null
     department_name?: string | null
@@ -33706,12 +38667,14 @@ export namespace Prisma {
     impact?: string | null
     priority?: string | null
     tr_project?: tr_projectCreateNestedManyWithoutTr_requestInput
+    mst_category?: mst_categoryCreateNestedOneWithoutTr_requestInput
     tr_request_validation?: tr_request_validationCreateNestedManyWithoutTr_requestInput
   }
 
   export type tr_requestUncheckedCreateInput = {
     id?: number
     entities_id?: number | null
+    category?: number | null
     ticket_name?: string | null
     creation_date?: Date | string | null
     closed_date?: Date | string | null
@@ -33719,7 +38682,6 @@ export namespace Prisma {
     status?: string | null
     urgency?: string | null
     expected_completion_date?: Date | string | null
-    category?: string | null
     type?: string | null
     department_code?: string | null
     department_name?: string | null
@@ -33744,7 +38706,6 @@ export namespace Prisma {
     status?: NullableStringFieldUpdateOperationsInput | string | null
     urgency?: NullableStringFieldUpdateOperationsInput | string | null
     expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
     department_code?: NullableStringFieldUpdateOperationsInput | string | null
     department_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -33757,12 +38718,14 @@ export namespace Prisma {
     impact?: NullableStringFieldUpdateOperationsInput | string | null
     priority?: NullableStringFieldUpdateOperationsInput | string | null
     tr_project?: tr_projectUpdateManyWithoutTr_requestNestedInput
+    mst_category?: mst_categoryUpdateOneWithoutTr_requestNestedInput
     tr_request_validation?: tr_request_validationUpdateManyWithoutTr_requestNestedInput
   }
 
   export type tr_requestUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     entities_id?: NullableIntFieldUpdateOperationsInput | number | null
+    category?: NullableIntFieldUpdateOperationsInput | number | null
     ticket_name?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     closed_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -33770,7 +38733,6 @@ export namespace Prisma {
     status?: NullableStringFieldUpdateOperationsInput | string | null
     urgency?: NullableStringFieldUpdateOperationsInput | string | null
     expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
     department_code?: NullableStringFieldUpdateOperationsInput | string | null
     department_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -33789,6 +38751,7 @@ export namespace Prisma {
   export type tr_requestCreateManyInput = {
     id?: number
     entities_id?: number | null
+    category?: number | null
     ticket_name?: string | null
     creation_date?: Date | string | null
     closed_date?: Date | string | null
@@ -33796,7 +38759,6 @@ export namespace Prisma {
     status?: string | null
     urgency?: string | null
     expected_completion_date?: Date | string | null
-    category?: string | null
     type?: string | null
     department_code?: string | null
     department_name?: string | null
@@ -33819,7 +38781,6 @@ export namespace Prisma {
     status?: NullableStringFieldUpdateOperationsInput | string | null
     urgency?: NullableStringFieldUpdateOperationsInput | string | null
     expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
     department_code?: NullableStringFieldUpdateOperationsInput | string | null
     department_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -33836,6 +38797,7 @@ export namespace Prisma {
   export type tr_requestUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     entities_id?: NullableIntFieldUpdateOperationsInput | number | null
+    category?: NullableIntFieldUpdateOperationsInput | number | null
     ticket_name?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     closed_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -33843,7 +38805,6 @@ export namespace Prisma {
     status?: NullableStringFieldUpdateOperationsInput | string | null
     urgency?: NullableStringFieldUpdateOperationsInput | string | null
     expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
     department_code?: NullableStringFieldUpdateOperationsInput | string | null
     department_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -34002,6 +38963,243 @@ export namespace Prisma {
     submission_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     validation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     state?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type map_category_to_groupCreateInput = {
+    created_at?: Date | string | null
+    created_by?: string | null
+    mst_group?: mst_groupCreateNestedOneWithoutMap_category_to_groupInput
+    mst_category?: mst_categoryCreateNestedOneWithoutMap_category_to_groupInput
+  }
+
+  export type map_category_to_groupUncheckedCreateInput = {
+    id?: number
+    category_id?: number | null
+    group_id?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type map_category_to_groupUpdateInput = {
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_group?: mst_groupUpdateOneWithoutMap_category_to_groupNestedInput
+    mst_category?: mst_categoryUpdateOneWithoutMap_category_to_groupNestedInput
+  }
+
+  export type map_category_to_groupUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    category_id?: NullableIntFieldUpdateOperationsInput | number | null
+    group_id?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type map_category_to_groupCreateManyInput = {
+    id?: number
+    category_id?: number | null
+    group_id?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type map_category_to_groupUpdateManyMutationInput = {
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type map_category_to_groupUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    category_id?: NullableIntFieldUpdateOperationsInput | number | null
+    group_id?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type mst_categoryCreateInput = {
+    category_code?: string | null
+    category_name?: string | null
+    is_active?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    map_category_to_group?: map_category_to_groupCreateNestedManyWithoutMst_categoryInput
+    tr_request?: tr_requestCreateNestedManyWithoutMst_categoryInput
+  }
+
+  export type mst_categoryUncheckedCreateInput = {
+    id?: number
+    category_code?: string | null
+    category_name?: string | null
+    is_active?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    map_category_to_group?: map_category_to_groupUncheckedCreateNestedManyWithoutMst_categoryInput
+    tr_request?: tr_requestUncheckedCreateNestedManyWithoutMst_categoryInput
+  }
+
+  export type mst_categoryUpdateInput = {
+    category_code?: NullableStringFieldUpdateOperationsInput | string | null
+    category_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    map_category_to_group?: map_category_to_groupUpdateManyWithoutMst_categoryNestedInput
+    tr_request?: tr_requestUpdateManyWithoutMst_categoryNestedInput
+  }
+
+  export type mst_categoryUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    category_code?: NullableStringFieldUpdateOperationsInput | string | null
+    category_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    map_category_to_group?: map_category_to_groupUncheckedUpdateManyWithoutMst_categoryNestedInput
+    tr_request?: tr_requestUncheckedUpdateManyWithoutMst_categoryNestedInput
+  }
+
+  export type mst_categoryCreateManyInput = {
+    id?: number
+    category_code?: string | null
+    category_name?: string | null
+    is_active?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type mst_categoryUpdateManyMutationInput = {
+    category_code?: NullableStringFieldUpdateOperationsInput | string | null
+    category_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type mst_categoryUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    category_code?: NullableStringFieldUpdateOperationsInput | string | null
+    category_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_project_minimum_viableCreateInput = {
+    minimum_viable?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    is_deleted?: boolean | null
+    tr_project?: tr_projectCreateNestedOneWithoutTr_project_minimum_viableInput
+  }
+
+  export type tr_project_minimum_viableUncheckedCreateInput = {
+    id?: number
+    project_id?: number | null
+    minimum_viable?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    is_deleted?: boolean | null
+  }
+
+  export type tr_project_minimum_viableUpdateInput = {
+    minimum_viable?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    tr_project?: tr_projectUpdateOneWithoutTr_project_minimum_viableNestedInput
+  }
+
+  export type tr_project_minimum_viableUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    minimum_viable?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type tr_project_minimum_viableCreateManyInput = {
+    id?: number
+    project_id?: number | null
+    minimum_viable?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    is_deleted?: boolean | null
+  }
+
+  export type tr_project_minimum_viableUpdateManyMutationInput = {
+    minimum_viable?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type tr_project_minimum_viableUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    minimum_viable?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type tr_project_overview_goalsCreateInput = {
+    goal?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    is_deleted?: boolean | null
+    tr_project?: tr_projectCreateNestedOneWithoutTr_project_overview_goalsInput
+  }
+
+  export type tr_project_overview_goalsUncheckedCreateInput = {
+    id?: number
+    project_id?: number | null
+    goal?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    is_deleted?: boolean | null
+  }
+
+  export type tr_project_overview_goalsUpdateInput = {
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    tr_project?: tr_projectUpdateOneWithoutTr_project_overview_goalsNestedInput
+  }
+
+  export type tr_project_overview_goalsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type tr_project_overview_goalsCreateManyInput = {
+    id?: number
+    project_id?: number | null
+    goal?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    is_deleted?: boolean | null
+  }
+
+  export type tr_project_overview_goalsUpdateManyMutationInput = {
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type tr_project_overview_goalsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    project_id?: NullableIntFieldUpdateOperationsInput | number | null
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -34422,6 +39620,12 @@ export namespace Prisma {
     parent_id?: SortOrder
   }
 
+  export type Map_category_to_groupListRelationFilter = {
+    every?: map_category_to_groupWhereInput
+    some?: map_category_to_groupWhereInput
+    none?: map_category_to_groupWhereInput
+  }
+
   export type Mst_authorization_usergroupListRelationFilter = {
     every?: mst_authorization_usergroupWhereInput
     some?: mst_authorization_usergroupWhereInput
@@ -34432,6 +39636,10 @@ export namespace Prisma {
     every?: tr_projectWhereInput
     some?: tr_projectWhereInput
     none?: tr_projectWhereInput
+  }
+
+  export type map_category_to_groupOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type mst_authorization_usergroupOrderByRelationAggregateInput = {
@@ -34848,6 +40056,36 @@ export namespace Prisma {
     isNot?: tr_requestWhereInput | null
   }
 
+  export type Tr_project_minimum_viableListRelationFilter = {
+    every?: tr_project_minimum_viableWhereInput
+    some?: tr_project_minimum_viableWhereInput
+    none?: tr_project_minimum_viableWhereInput
+  }
+
+  export type Tr_project_overviewListRelationFilter = {
+    every?: tr_project_overviewWhereInput
+    some?: tr_project_overviewWhereInput
+    none?: tr_project_overviewWhereInput
+  }
+
+  export type Tr_project_overview_goalsListRelationFilter = {
+    every?: tr_project_overview_goalsWhereInput
+    some?: tr_project_overview_goalsWhereInput
+    none?: tr_project_overview_goalsWhereInput
+  }
+
+  export type tr_project_minimum_viableOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type tr_project_overviewOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type tr_project_overview_goalsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type tr_projectCountOrderByAggregateInput = {
     id?: SortOrder
     request_id?: SortOrder
@@ -35059,13 +40297,18 @@ export namespace Prisma {
   export type tr_project_overviewCountOrderByAggregateInput = {
     id?: SortOrder
     project_id?: SortOrder
+    background?: SortOrder
     purpose?: SortOrder
-    goals?: SortOrder
     success_measurement?: SortOrder
     intangible_benefit?: SortOrder
     impact_of_not_doing?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
+    project_name?: SortOrder
+    department_name?: SortOrder
+    type?: SortOrder
+    expected_completion_date?: SortOrder
+    application?: SortOrder
   }
 
   export type tr_project_overviewAvgOrderByAggregateInput = {
@@ -35076,25 +40319,35 @@ export namespace Prisma {
   export type tr_project_overviewMaxOrderByAggregateInput = {
     id?: SortOrder
     project_id?: SortOrder
+    background?: SortOrder
     purpose?: SortOrder
-    goals?: SortOrder
     success_measurement?: SortOrder
     intangible_benefit?: SortOrder
     impact_of_not_doing?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
+    project_name?: SortOrder
+    department_name?: SortOrder
+    type?: SortOrder
+    expected_completion_date?: SortOrder
+    application?: SortOrder
   }
 
   export type tr_project_overviewMinOrderByAggregateInput = {
     id?: SortOrder
     project_id?: SortOrder
+    background?: SortOrder
     purpose?: SortOrder
-    goals?: SortOrder
     success_measurement?: SortOrder
     intangible_benefit?: SortOrder
     impact_of_not_doing?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
+    project_name?: SortOrder
+    department_name?: SortOrder
+    type?: SortOrder
+    expected_completion_date?: SortOrder
+    application?: SortOrder
   }
 
   export type tr_project_overviewSumOrderByAggregateInput = {
@@ -35146,9 +40399,13 @@ export namespace Prisma {
     id?: SortOrder
     project_id?: SortOrder
     risk?: SortOrder
-    point_control?: SortOrder
+    risk_control?: SortOrder
+    impact?: SortOrder
+    probability?: SortOrder
+    category?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type tr_project_risk_mitigationAvgOrderByAggregateInput = {
@@ -35160,18 +40417,26 @@ export namespace Prisma {
     id?: SortOrder
     project_id?: SortOrder
     risk?: SortOrder
-    point_control?: SortOrder
+    risk_control?: SortOrder
+    impact?: SortOrder
+    probability?: SortOrder
+    category?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type tr_project_risk_mitigationMinOrderByAggregateInput = {
     id?: SortOrder
     project_id?: SortOrder
     risk?: SortOrder
-    point_control?: SortOrder
+    risk_control?: SortOrder
+    impact?: SortOrder
+    probability?: SortOrder
+    category?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type tr_project_risk_mitigationSumOrderByAggregateInput = {
@@ -35182,11 +40447,12 @@ export namespace Prisma {
   export type tr_project_scopeCountOrderByAggregateInput = {
     id?: SortOrder
     project_id?: SortOrder
-    features?: SortOrder
-    description?: SortOrder
+    module?: SortOrder
+    story_point?: SortOrder
     type?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type tr_project_scopeAvgOrderByAggregateInput = {
@@ -35197,21 +40463,23 @@ export namespace Prisma {
   export type tr_project_scopeMaxOrderByAggregateInput = {
     id?: SortOrder
     project_id?: SortOrder
-    features?: SortOrder
-    description?: SortOrder
+    module?: SortOrder
+    story_point?: SortOrder
     type?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type tr_project_scopeMinOrderByAggregateInput = {
     id?: SortOrder
     project_id?: SortOrder
-    features?: SortOrder
-    description?: SortOrder
+    module?: SortOrder
+    story_point?: SortOrder
     type?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type tr_project_scopeSumOrderByAggregateInput = {
@@ -35358,6 +40626,11 @@ export namespace Prisma {
     project_id?: SortOrder
   }
 
+  export type Mst_categoryNullableRelationFilter = {
+    is?: mst_categoryWhereInput | null
+    isNot?: mst_categoryWhereInput | null
+  }
+
   export type Tr_request_validationListRelationFilter = {
     every?: tr_request_validationWhereInput
     some?: tr_request_validationWhereInput
@@ -35371,6 +40644,7 @@ export namespace Prisma {
   export type tr_requestCountOrderByAggregateInput = {
     id?: SortOrder
     entities_id?: SortOrder
+    category?: SortOrder
     ticket_name?: SortOrder
     creation_date?: SortOrder
     closed_date?: SortOrder
@@ -35378,7 +40652,6 @@ export namespace Prisma {
     status?: SortOrder
     urgency?: SortOrder
     expected_completion_date?: SortOrder
-    category?: SortOrder
     type?: SortOrder
     department_code?: SortOrder
     department_name?: SortOrder
@@ -35395,11 +40668,13 @@ export namespace Prisma {
   export type tr_requestAvgOrderByAggregateInput = {
     id?: SortOrder
     entities_id?: SortOrder
+    category?: SortOrder
   }
 
   export type tr_requestMaxOrderByAggregateInput = {
     id?: SortOrder
     entities_id?: SortOrder
+    category?: SortOrder
     ticket_name?: SortOrder
     creation_date?: SortOrder
     closed_date?: SortOrder
@@ -35407,7 +40682,6 @@ export namespace Prisma {
     status?: SortOrder
     urgency?: SortOrder
     expected_completion_date?: SortOrder
-    category?: SortOrder
     type?: SortOrder
     department_code?: SortOrder
     department_name?: SortOrder
@@ -35424,6 +40698,7 @@ export namespace Prisma {
   export type tr_requestMinOrderByAggregateInput = {
     id?: SortOrder
     entities_id?: SortOrder
+    category?: SortOrder
     ticket_name?: SortOrder
     creation_date?: SortOrder
     closed_date?: SortOrder
@@ -35431,7 +40706,6 @@ export namespace Prisma {
     status?: SortOrder
     urgency?: SortOrder
     expected_completion_date?: SortOrder
-    category?: SortOrder
     type?: SortOrder
     department_code?: SortOrder
     department_name?: SortOrder
@@ -35448,6 +40722,7 @@ export namespace Prisma {
   export type tr_requestSumOrderByAggregateInput = {
     id?: SortOrder
     entities_id?: SortOrder
+    category?: SortOrder
   }
 
   export type tr_request_technicianCountOrderByAggregateInput = {
@@ -35534,6 +40809,161 @@ export namespace Prisma {
   export type tr_request_validationSumOrderByAggregateInput = {
     id?: SortOrder
     request_id?: SortOrder
+  }
+
+  export type map_category_to_groupCountOrderByAggregateInput = {
+    id?: SortOrder
+    category_id?: SortOrder
+    group_id?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+  }
+
+  export type map_category_to_groupAvgOrderByAggregateInput = {
+    id?: SortOrder
+    category_id?: SortOrder
+    group_id?: SortOrder
+  }
+
+  export type map_category_to_groupMaxOrderByAggregateInput = {
+    id?: SortOrder
+    category_id?: SortOrder
+    group_id?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+  }
+
+  export type map_category_to_groupMinOrderByAggregateInput = {
+    id?: SortOrder
+    category_id?: SortOrder
+    group_id?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+  }
+
+  export type map_category_to_groupSumOrderByAggregateInput = {
+    id?: SortOrder
+    category_id?: SortOrder
+    group_id?: SortOrder
+  }
+
+  export type Tr_requestListRelationFilter = {
+    every?: tr_requestWhereInput
+    some?: tr_requestWhereInput
+    none?: tr_requestWhereInput
+  }
+
+  export type tr_requestOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type mst_categoryCountOrderByAggregateInput = {
+    id?: SortOrder
+    category_code?: SortOrder
+    category_name?: SortOrder
+    is_active?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+  }
+
+  export type mst_categoryAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type mst_categoryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    category_code?: SortOrder
+    category_name?: SortOrder
+    is_active?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+  }
+
+  export type mst_categoryMinOrderByAggregateInput = {
+    id?: SortOrder
+    category_code?: SortOrder
+    category_name?: SortOrder
+    is_active?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+  }
+
+  export type mst_categorySumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type tr_project_minimum_viableCountOrderByAggregateInput = {
+    id?: SortOrder
+    project_id?: SortOrder
+    minimum_viable?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type tr_project_minimum_viableAvgOrderByAggregateInput = {
+    id?: SortOrder
+    project_id?: SortOrder
+  }
+
+  export type tr_project_minimum_viableMaxOrderByAggregateInput = {
+    id?: SortOrder
+    project_id?: SortOrder
+    minimum_viable?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type tr_project_minimum_viableMinOrderByAggregateInput = {
+    id?: SortOrder
+    project_id?: SortOrder
+    minimum_viable?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type tr_project_minimum_viableSumOrderByAggregateInput = {
+    id?: SortOrder
+    project_id?: SortOrder
+  }
+
+  export type tr_project_overview_goalsCountOrderByAggregateInput = {
+    id?: SortOrder
+    project_id?: SortOrder
+    goal?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type tr_project_overview_goalsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    project_id?: SortOrder
+  }
+
+  export type tr_project_overview_goalsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    project_id?: SortOrder
+    goal?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type tr_project_overview_goalsMinOrderByAggregateInput = {
+    id?: SortOrder
+    project_id?: SortOrder
+    goal?: SortOrder
+    created_at?: SortOrder
+    created_by?: SortOrder
+    is_deleted?: SortOrder
+  }
+
+  export type tr_project_overview_goalsSumOrderByAggregateInput = {
+    id?: SortOrder
+    project_id?: SortOrder
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -35770,6 +41200,13 @@ export namespace Prisma {
     deleteMany?: mst_authorizationScalarWhereInput | mst_authorizationScalarWhereInput[]
   }
 
+  export type map_category_to_groupCreateNestedManyWithoutMst_groupInput = {
+    create?: XOR<map_category_to_groupCreateWithoutMst_groupInput, map_category_to_groupUncheckedCreateWithoutMst_groupInput> | map_category_to_groupCreateWithoutMst_groupInput[] | map_category_to_groupUncheckedCreateWithoutMst_groupInput[]
+    connectOrCreate?: map_category_to_groupCreateOrConnectWithoutMst_groupInput | map_category_to_groupCreateOrConnectWithoutMst_groupInput[]
+    createMany?: map_category_to_groupCreateManyMst_groupInputEnvelope
+    connect?: map_category_to_groupWhereUniqueInput | map_category_to_groupWhereUniqueInput[]
+  }
+
   export type mst_authorization_usergroupCreateNestedManyWithoutMst_groupInput = {
     create?: XOR<mst_authorization_usergroupCreateWithoutMst_groupInput, mst_authorization_usergroupUncheckedCreateWithoutMst_groupInput> | mst_authorization_usergroupCreateWithoutMst_groupInput[] | mst_authorization_usergroupUncheckedCreateWithoutMst_groupInput[]
     connectOrCreate?: mst_authorization_usergroupCreateOrConnectWithoutMst_groupInput | mst_authorization_usergroupCreateOrConnectWithoutMst_groupInput[]
@@ -35784,6 +41221,13 @@ export namespace Prisma {
     connect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
   }
 
+  export type map_category_to_groupUncheckedCreateNestedManyWithoutMst_groupInput = {
+    create?: XOR<map_category_to_groupCreateWithoutMst_groupInput, map_category_to_groupUncheckedCreateWithoutMst_groupInput> | map_category_to_groupCreateWithoutMst_groupInput[] | map_category_to_groupUncheckedCreateWithoutMst_groupInput[]
+    connectOrCreate?: map_category_to_groupCreateOrConnectWithoutMst_groupInput | map_category_to_groupCreateOrConnectWithoutMst_groupInput[]
+    createMany?: map_category_to_groupCreateManyMst_groupInputEnvelope
+    connect?: map_category_to_groupWhereUniqueInput | map_category_to_groupWhereUniqueInput[]
+  }
+
   export type mst_authorization_usergroupUncheckedCreateNestedManyWithoutMst_groupInput = {
     create?: XOR<mst_authorization_usergroupCreateWithoutMst_groupInput, mst_authorization_usergroupUncheckedCreateWithoutMst_groupInput> | mst_authorization_usergroupCreateWithoutMst_groupInput[] | mst_authorization_usergroupUncheckedCreateWithoutMst_groupInput[]
     connectOrCreate?: mst_authorization_usergroupCreateOrConnectWithoutMst_groupInput | mst_authorization_usergroupCreateOrConnectWithoutMst_groupInput[]
@@ -35796,6 +41240,20 @@ export namespace Prisma {
     connectOrCreate?: tr_projectCreateOrConnectWithoutMst_groupInput | tr_projectCreateOrConnectWithoutMst_groupInput[]
     createMany?: tr_projectCreateManyMst_groupInputEnvelope
     connect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
+  }
+
+  export type map_category_to_groupUpdateManyWithoutMst_groupNestedInput = {
+    create?: XOR<map_category_to_groupCreateWithoutMst_groupInput, map_category_to_groupUncheckedCreateWithoutMst_groupInput> | map_category_to_groupCreateWithoutMst_groupInput[] | map_category_to_groupUncheckedCreateWithoutMst_groupInput[]
+    connectOrCreate?: map_category_to_groupCreateOrConnectWithoutMst_groupInput | map_category_to_groupCreateOrConnectWithoutMst_groupInput[]
+    upsert?: map_category_to_groupUpsertWithWhereUniqueWithoutMst_groupInput | map_category_to_groupUpsertWithWhereUniqueWithoutMst_groupInput[]
+    createMany?: map_category_to_groupCreateManyMst_groupInputEnvelope
+    set?: map_category_to_groupWhereUniqueInput | map_category_to_groupWhereUniqueInput[]
+    disconnect?: map_category_to_groupWhereUniqueInput | map_category_to_groupWhereUniqueInput[]
+    delete?: map_category_to_groupWhereUniqueInput | map_category_to_groupWhereUniqueInput[]
+    connect?: map_category_to_groupWhereUniqueInput | map_category_to_groupWhereUniqueInput[]
+    update?: map_category_to_groupUpdateWithWhereUniqueWithoutMst_groupInput | map_category_to_groupUpdateWithWhereUniqueWithoutMst_groupInput[]
+    updateMany?: map_category_to_groupUpdateManyWithWhereWithoutMst_groupInput | map_category_to_groupUpdateManyWithWhereWithoutMst_groupInput[]
+    deleteMany?: map_category_to_groupScalarWhereInput | map_category_to_groupScalarWhereInput[]
   }
 
   export type mst_authorization_usergroupUpdateManyWithoutMst_groupNestedInput = {
@@ -35824,6 +41282,20 @@ export namespace Prisma {
     update?: tr_projectUpdateWithWhereUniqueWithoutMst_groupInput | tr_projectUpdateWithWhereUniqueWithoutMst_groupInput[]
     updateMany?: tr_projectUpdateManyWithWhereWithoutMst_groupInput | tr_projectUpdateManyWithWhereWithoutMst_groupInput[]
     deleteMany?: tr_projectScalarWhereInput | tr_projectScalarWhereInput[]
+  }
+
+  export type map_category_to_groupUncheckedUpdateManyWithoutMst_groupNestedInput = {
+    create?: XOR<map_category_to_groupCreateWithoutMst_groupInput, map_category_to_groupUncheckedCreateWithoutMst_groupInput> | map_category_to_groupCreateWithoutMst_groupInput[] | map_category_to_groupUncheckedCreateWithoutMst_groupInput[]
+    connectOrCreate?: map_category_to_groupCreateOrConnectWithoutMst_groupInput | map_category_to_groupCreateOrConnectWithoutMst_groupInput[]
+    upsert?: map_category_to_groupUpsertWithWhereUniqueWithoutMst_groupInput | map_category_to_groupUpsertWithWhereUniqueWithoutMst_groupInput[]
+    createMany?: map_category_to_groupCreateManyMst_groupInputEnvelope
+    set?: map_category_to_groupWhereUniqueInput | map_category_to_groupWhereUniqueInput[]
+    disconnect?: map_category_to_groupWhereUniqueInput | map_category_to_groupWhereUniqueInput[]
+    delete?: map_category_to_groupWhereUniqueInput | map_category_to_groupWhereUniqueInput[]
+    connect?: map_category_to_groupWhereUniqueInput | map_category_to_groupWhereUniqueInput[]
+    update?: map_category_to_groupUpdateWithWhereUniqueWithoutMst_groupInput | map_category_to_groupUpdateWithWhereUniqueWithoutMst_groupInput[]
+    updateMany?: map_category_to_groupUpdateManyWithWhereWithoutMst_groupInput | map_category_to_groupUpdateManyWithWhereWithoutMst_groupInput[]
+    deleteMany?: map_category_to_groupScalarWhereInput | map_category_to_groupScalarWhereInput[]
   }
 
   export type mst_authorization_usergroupUncheckedUpdateManyWithoutMst_groupNestedInput = {
@@ -36097,6 +41569,27 @@ export namespace Prisma {
     connect?: tr_project_flowWhereUniqueInput | tr_project_flowWhereUniqueInput[]
   }
 
+  export type tr_project_minimum_viableCreateNestedManyWithoutTr_projectInput = {
+    create?: XOR<tr_project_minimum_viableCreateWithoutTr_projectInput, tr_project_minimum_viableUncheckedCreateWithoutTr_projectInput> | tr_project_minimum_viableCreateWithoutTr_projectInput[] | tr_project_minimum_viableUncheckedCreateWithoutTr_projectInput[]
+    connectOrCreate?: tr_project_minimum_viableCreateOrConnectWithoutTr_projectInput | tr_project_minimum_viableCreateOrConnectWithoutTr_projectInput[]
+    createMany?: tr_project_minimum_viableCreateManyTr_projectInputEnvelope
+    connect?: tr_project_minimum_viableWhereUniqueInput | tr_project_minimum_viableWhereUniqueInput[]
+  }
+
+  export type tr_project_overviewCreateNestedManyWithoutTr_projectInput = {
+    create?: XOR<tr_project_overviewCreateWithoutTr_projectInput, tr_project_overviewUncheckedCreateWithoutTr_projectInput> | tr_project_overviewCreateWithoutTr_projectInput[] | tr_project_overviewUncheckedCreateWithoutTr_projectInput[]
+    connectOrCreate?: tr_project_overviewCreateOrConnectWithoutTr_projectInput | tr_project_overviewCreateOrConnectWithoutTr_projectInput[]
+    createMany?: tr_project_overviewCreateManyTr_projectInputEnvelope
+    connect?: tr_project_overviewWhereUniqueInput | tr_project_overviewWhereUniqueInput[]
+  }
+
+  export type tr_project_overview_goalsCreateNestedManyWithoutTr_projectInput = {
+    create?: XOR<tr_project_overview_goalsCreateWithoutTr_projectInput, tr_project_overview_goalsUncheckedCreateWithoutTr_projectInput> | tr_project_overview_goalsCreateWithoutTr_projectInput[] | tr_project_overview_goalsUncheckedCreateWithoutTr_projectInput[]
+    connectOrCreate?: tr_project_overview_goalsCreateOrConnectWithoutTr_projectInput | tr_project_overview_goalsCreateOrConnectWithoutTr_projectInput[]
+    createMany?: tr_project_overview_goalsCreateManyTr_projectInputEnvelope
+    connect?: tr_project_overview_goalsWhereUniqueInput | tr_project_overview_goalsWhereUniqueInput[]
+  }
+
   export type tr_project_taskCreateNestedManyWithoutTr_projectInput = {
     create?: XOR<tr_project_taskCreateWithoutTr_projectInput, tr_project_taskUncheckedCreateWithoutTr_projectInput> | tr_project_taskCreateWithoutTr_projectInput[] | tr_project_taskUncheckedCreateWithoutTr_projectInput[]
     connectOrCreate?: tr_project_taskCreateOrConnectWithoutTr_projectInput | tr_project_taskCreateOrConnectWithoutTr_projectInput[]
@@ -36109,6 +41602,27 @@ export namespace Prisma {
     connectOrCreate?: tr_project_flowCreateOrConnectWithoutTr_projectInput | tr_project_flowCreateOrConnectWithoutTr_projectInput[]
     createMany?: tr_project_flowCreateManyTr_projectInputEnvelope
     connect?: tr_project_flowWhereUniqueInput | tr_project_flowWhereUniqueInput[]
+  }
+
+  export type tr_project_minimum_viableUncheckedCreateNestedManyWithoutTr_projectInput = {
+    create?: XOR<tr_project_minimum_viableCreateWithoutTr_projectInput, tr_project_minimum_viableUncheckedCreateWithoutTr_projectInput> | tr_project_minimum_viableCreateWithoutTr_projectInput[] | tr_project_minimum_viableUncheckedCreateWithoutTr_projectInput[]
+    connectOrCreate?: tr_project_minimum_viableCreateOrConnectWithoutTr_projectInput | tr_project_minimum_viableCreateOrConnectWithoutTr_projectInput[]
+    createMany?: tr_project_minimum_viableCreateManyTr_projectInputEnvelope
+    connect?: tr_project_minimum_viableWhereUniqueInput | tr_project_minimum_viableWhereUniqueInput[]
+  }
+
+  export type tr_project_overviewUncheckedCreateNestedManyWithoutTr_projectInput = {
+    create?: XOR<tr_project_overviewCreateWithoutTr_projectInput, tr_project_overviewUncheckedCreateWithoutTr_projectInput> | tr_project_overviewCreateWithoutTr_projectInput[] | tr_project_overviewUncheckedCreateWithoutTr_projectInput[]
+    connectOrCreate?: tr_project_overviewCreateOrConnectWithoutTr_projectInput | tr_project_overviewCreateOrConnectWithoutTr_projectInput[]
+    createMany?: tr_project_overviewCreateManyTr_projectInputEnvelope
+    connect?: tr_project_overviewWhereUniqueInput | tr_project_overviewWhereUniqueInput[]
+  }
+
+  export type tr_project_overview_goalsUncheckedCreateNestedManyWithoutTr_projectInput = {
+    create?: XOR<tr_project_overview_goalsCreateWithoutTr_projectInput, tr_project_overview_goalsUncheckedCreateWithoutTr_projectInput> | tr_project_overview_goalsCreateWithoutTr_projectInput[] | tr_project_overview_goalsUncheckedCreateWithoutTr_projectInput[]
+    connectOrCreate?: tr_project_overview_goalsCreateOrConnectWithoutTr_projectInput | tr_project_overview_goalsCreateOrConnectWithoutTr_projectInput[]
+    createMany?: tr_project_overview_goalsCreateManyTr_projectInputEnvelope
+    connect?: tr_project_overview_goalsWhereUniqueInput | tr_project_overview_goalsWhereUniqueInput[]
   }
 
   export type tr_project_taskUncheckedCreateNestedManyWithoutTr_projectInput = {
@@ -36162,6 +41676,48 @@ export namespace Prisma {
     deleteMany?: tr_project_flowScalarWhereInput | tr_project_flowScalarWhereInput[]
   }
 
+  export type tr_project_minimum_viableUpdateManyWithoutTr_projectNestedInput = {
+    create?: XOR<tr_project_minimum_viableCreateWithoutTr_projectInput, tr_project_minimum_viableUncheckedCreateWithoutTr_projectInput> | tr_project_minimum_viableCreateWithoutTr_projectInput[] | tr_project_minimum_viableUncheckedCreateWithoutTr_projectInput[]
+    connectOrCreate?: tr_project_minimum_viableCreateOrConnectWithoutTr_projectInput | tr_project_minimum_viableCreateOrConnectWithoutTr_projectInput[]
+    upsert?: tr_project_minimum_viableUpsertWithWhereUniqueWithoutTr_projectInput | tr_project_minimum_viableUpsertWithWhereUniqueWithoutTr_projectInput[]
+    createMany?: tr_project_minimum_viableCreateManyTr_projectInputEnvelope
+    set?: tr_project_minimum_viableWhereUniqueInput | tr_project_minimum_viableWhereUniqueInput[]
+    disconnect?: tr_project_minimum_viableWhereUniqueInput | tr_project_minimum_viableWhereUniqueInput[]
+    delete?: tr_project_minimum_viableWhereUniqueInput | tr_project_minimum_viableWhereUniqueInput[]
+    connect?: tr_project_minimum_viableWhereUniqueInput | tr_project_minimum_viableWhereUniqueInput[]
+    update?: tr_project_minimum_viableUpdateWithWhereUniqueWithoutTr_projectInput | tr_project_minimum_viableUpdateWithWhereUniqueWithoutTr_projectInput[]
+    updateMany?: tr_project_minimum_viableUpdateManyWithWhereWithoutTr_projectInput | tr_project_minimum_viableUpdateManyWithWhereWithoutTr_projectInput[]
+    deleteMany?: tr_project_minimum_viableScalarWhereInput | tr_project_minimum_viableScalarWhereInput[]
+  }
+
+  export type tr_project_overviewUpdateManyWithoutTr_projectNestedInput = {
+    create?: XOR<tr_project_overviewCreateWithoutTr_projectInput, tr_project_overviewUncheckedCreateWithoutTr_projectInput> | tr_project_overviewCreateWithoutTr_projectInput[] | tr_project_overviewUncheckedCreateWithoutTr_projectInput[]
+    connectOrCreate?: tr_project_overviewCreateOrConnectWithoutTr_projectInput | tr_project_overviewCreateOrConnectWithoutTr_projectInput[]
+    upsert?: tr_project_overviewUpsertWithWhereUniqueWithoutTr_projectInput | tr_project_overviewUpsertWithWhereUniqueWithoutTr_projectInput[]
+    createMany?: tr_project_overviewCreateManyTr_projectInputEnvelope
+    set?: tr_project_overviewWhereUniqueInput | tr_project_overviewWhereUniqueInput[]
+    disconnect?: tr_project_overviewWhereUniqueInput | tr_project_overviewWhereUniqueInput[]
+    delete?: tr_project_overviewWhereUniqueInput | tr_project_overviewWhereUniqueInput[]
+    connect?: tr_project_overviewWhereUniqueInput | tr_project_overviewWhereUniqueInput[]
+    update?: tr_project_overviewUpdateWithWhereUniqueWithoutTr_projectInput | tr_project_overviewUpdateWithWhereUniqueWithoutTr_projectInput[]
+    updateMany?: tr_project_overviewUpdateManyWithWhereWithoutTr_projectInput | tr_project_overviewUpdateManyWithWhereWithoutTr_projectInput[]
+    deleteMany?: tr_project_overviewScalarWhereInput | tr_project_overviewScalarWhereInput[]
+  }
+
+  export type tr_project_overview_goalsUpdateManyWithoutTr_projectNestedInput = {
+    create?: XOR<tr_project_overview_goalsCreateWithoutTr_projectInput, tr_project_overview_goalsUncheckedCreateWithoutTr_projectInput> | tr_project_overview_goalsCreateWithoutTr_projectInput[] | tr_project_overview_goalsUncheckedCreateWithoutTr_projectInput[]
+    connectOrCreate?: tr_project_overview_goalsCreateOrConnectWithoutTr_projectInput | tr_project_overview_goalsCreateOrConnectWithoutTr_projectInput[]
+    upsert?: tr_project_overview_goalsUpsertWithWhereUniqueWithoutTr_projectInput | tr_project_overview_goalsUpsertWithWhereUniqueWithoutTr_projectInput[]
+    createMany?: tr_project_overview_goalsCreateManyTr_projectInputEnvelope
+    set?: tr_project_overview_goalsWhereUniqueInput | tr_project_overview_goalsWhereUniqueInput[]
+    disconnect?: tr_project_overview_goalsWhereUniqueInput | tr_project_overview_goalsWhereUniqueInput[]
+    delete?: tr_project_overview_goalsWhereUniqueInput | tr_project_overview_goalsWhereUniqueInput[]
+    connect?: tr_project_overview_goalsWhereUniqueInput | tr_project_overview_goalsWhereUniqueInput[]
+    update?: tr_project_overview_goalsUpdateWithWhereUniqueWithoutTr_projectInput | tr_project_overview_goalsUpdateWithWhereUniqueWithoutTr_projectInput[]
+    updateMany?: tr_project_overview_goalsUpdateManyWithWhereWithoutTr_projectInput | tr_project_overview_goalsUpdateManyWithWhereWithoutTr_projectInput[]
+    deleteMany?: tr_project_overview_goalsScalarWhereInput | tr_project_overview_goalsScalarWhereInput[]
+  }
+
   export type tr_project_taskUpdateManyWithoutTr_projectNestedInput = {
     create?: XOR<tr_project_taskCreateWithoutTr_projectInput, tr_project_taskUncheckedCreateWithoutTr_projectInput> | tr_project_taskCreateWithoutTr_projectInput[] | tr_project_taskUncheckedCreateWithoutTr_projectInput[]
     connectOrCreate?: tr_project_taskCreateOrConnectWithoutTr_projectInput | tr_project_taskCreateOrConnectWithoutTr_projectInput[]
@@ -36188,6 +41744,48 @@ export namespace Prisma {
     update?: tr_project_flowUpdateWithWhereUniqueWithoutTr_projectInput | tr_project_flowUpdateWithWhereUniqueWithoutTr_projectInput[]
     updateMany?: tr_project_flowUpdateManyWithWhereWithoutTr_projectInput | tr_project_flowUpdateManyWithWhereWithoutTr_projectInput[]
     deleteMany?: tr_project_flowScalarWhereInput | tr_project_flowScalarWhereInput[]
+  }
+
+  export type tr_project_minimum_viableUncheckedUpdateManyWithoutTr_projectNestedInput = {
+    create?: XOR<tr_project_minimum_viableCreateWithoutTr_projectInput, tr_project_minimum_viableUncheckedCreateWithoutTr_projectInput> | tr_project_minimum_viableCreateWithoutTr_projectInput[] | tr_project_minimum_viableUncheckedCreateWithoutTr_projectInput[]
+    connectOrCreate?: tr_project_minimum_viableCreateOrConnectWithoutTr_projectInput | tr_project_minimum_viableCreateOrConnectWithoutTr_projectInput[]
+    upsert?: tr_project_minimum_viableUpsertWithWhereUniqueWithoutTr_projectInput | tr_project_minimum_viableUpsertWithWhereUniqueWithoutTr_projectInput[]
+    createMany?: tr_project_minimum_viableCreateManyTr_projectInputEnvelope
+    set?: tr_project_minimum_viableWhereUniqueInput | tr_project_minimum_viableWhereUniqueInput[]
+    disconnect?: tr_project_minimum_viableWhereUniqueInput | tr_project_minimum_viableWhereUniqueInput[]
+    delete?: tr_project_minimum_viableWhereUniqueInput | tr_project_minimum_viableWhereUniqueInput[]
+    connect?: tr_project_minimum_viableWhereUniqueInput | tr_project_minimum_viableWhereUniqueInput[]
+    update?: tr_project_minimum_viableUpdateWithWhereUniqueWithoutTr_projectInput | tr_project_minimum_viableUpdateWithWhereUniqueWithoutTr_projectInput[]
+    updateMany?: tr_project_minimum_viableUpdateManyWithWhereWithoutTr_projectInput | tr_project_minimum_viableUpdateManyWithWhereWithoutTr_projectInput[]
+    deleteMany?: tr_project_minimum_viableScalarWhereInput | tr_project_minimum_viableScalarWhereInput[]
+  }
+
+  export type tr_project_overviewUncheckedUpdateManyWithoutTr_projectNestedInput = {
+    create?: XOR<tr_project_overviewCreateWithoutTr_projectInput, tr_project_overviewUncheckedCreateWithoutTr_projectInput> | tr_project_overviewCreateWithoutTr_projectInput[] | tr_project_overviewUncheckedCreateWithoutTr_projectInput[]
+    connectOrCreate?: tr_project_overviewCreateOrConnectWithoutTr_projectInput | tr_project_overviewCreateOrConnectWithoutTr_projectInput[]
+    upsert?: tr_project_overviewUpsertWithWhereUniqueWithoutTr_projectInput | tr_project_overviewUpsertWithWhereUniqueWithoutTr_projectInput[]
+    createMany?: tr_project_overviewCreateManyTr_projectInputEnvelope
+    set?: tr_project_overviewWhereUniqueInput | tr_project_overviewWhereUniqueInput[]
+    disconnect?: tr_project_overviewWhereUniqueInput | tr_project_overviewWhereUniqueInput[]
+    delete?: tr_project_overviewWhereUniqueInput | tr_project_overviewWhereUniqueInput[]
+    connect?: tr_project_overviewWhereUniqueInput | tr_project_overviewWhereUniqueInput[]
+    update?: tr_project_overviewUpdateWithWhereUniqueWithoutTr_projectInput | tr_project_overviewUpdateWithWhereUniqueWithoutTr_projectInput[]
+    updateMany?: tr_project_overviewUpdateManyWithWhereWithoutTr_projectInput | tr_project_overviewUpdateManyWithWhereWithoutTr_projectInput[]
+    deleteMany?: tr_project_overviewScalarWhereInput | tr_project_overviewScalarWhereInput[]
+  }
+
+  export type tr_project_overview_goalsUncheckedUpdateManyWithoutTr_projectNestedInput = {
+    create?: XOR<tr_project_overview_goalsCreateWithoutTr_projectInput, tr_project_overview_goalsUncheckedCreateWithoutTr_projectInput> | tr_project_overview_goalsCreateWithoutTr_projectInput[] | tr_project_overview_goalsUncheckedCreateWithoutTr_projectInput[]
+    connectOrCreate?: tr_project_overview_goalsCreateOrConnectWithoutTr_projectInput | tr_project_overview_goalsCreateOrConnectWithoutTr_projectInput[]
+    upsert?: tr_project_overview_goalsUpsertWithWhereUniqueWithoutTr_projectInput | tr_project_overview_goalsUpsertWithWhereUniqueWithoutTr_projectInput[]
+    createMany?: tr_project_overview_goalsCreateManyTr_projectInputEnvelope
+    set?: tr_project_overview_goalsWhereUniqueInput | tr_project_overview_goalsWhereUniqueInput[]
+    disconnect?: tr_project_overview_goalsWhereUniqueInput | tr_project_overview_goalsWhereUniqueInput[]
+    delete?: tr_project_overview_goalsWhereUniqueInput | tr_project_overview_goalsWhereUniqueInput[]
+    connect?: tr_project_overview_goalsWhereUniqueInput | tr_project_overview_goalsWhereUniqueInput[]
+    update?: tr_project_overview_goalsUpdateWithWhereUniqueWithoutTr_projectInput | tr_project_overview_goalsUpdateWithWhereUniqueWithoutTr_projectInput[]
+    updateMany?: tr_project_overview_goalsUpdateManyWithWhereWithoutTr_projectInput | tr_project_overview_goalsUpdateManyWithWhereWithoutTr_projectInput[]
+    deleteMany?: tr_project_overview_goalsScalarWhereInput | tr_project_overview_goalsScalarWhereInput[]
   }
 
   export type tr_project_taskUncheckedUpdateManyWithoutTr_projectNestedInput = {
@@ -36292,6 +41890,22 @@ export namespace Prisma {
     update?: tr_project_activityUpdateWithWhereUniqueWithoutTr_project_flowInput | tr_project_activityUpdateWithWhereUniqueWithoutTr_project_flowInput[]
     updateMany?: tr_project_activityUpdateManyWithWhereWithoutTr_project_flowInput | tr_project_activityUpdateManyWithWhereWithoutTr_project_flowInput[]
     deleteMany?: tr_project_activityScalarWhereInput | tr_project_activityScalarWhereInput[]
+  }
+
+  export type tr_projectCreateNestedOneWithoutTr_project_overviewInput = {
+    create?: XOR<tr_projectCreateWithoutTr_project_overviewInput, tr_projectUncheckedCreateWithoutTr_project_overviewInput>
+    connectOrCreate?: tr_projectCreateOrConnectWithoutTr_project_overviewInput
+    connect?: tr_projectWhereUniqueInput
+  }
+
+  export type tr_projectUpdateOneWithoutTr_project_overviewNestedInput = {
+    create?: XOR<tr_projectCreateWithoutTr_project_overviewInput, tr_projectUncheckedCreateWithoutTr_project_overviewInput>
+    connectOrCreate?: tr_projectCreateOrConnectWithoutTr_project_overviewInput
+    upsert?: tr_projectUpsertWithoutTr_project_overviewInput
+    disconnect?: tr_projectWhereInput | boolean
+    delete?: tr_projectWhereInput | boolean
+    connect?: tr_projectWhereUniqueInput
+    update?: XOR<XOR<tr_projectUpdateToOneWithWhereWithoutTr_project_overviewInput, tr_projectUpdateWithoutTr_project_overviewInput>, tr_projectUncheckedUpdateWithoutTr_project_overviewInput>
   }
 
   export type tr_projectCreateNestedOneWithoutTr_project_taskInput = {
@@ -36407,6 +42021,12 @@ export namespace Prisma {
     connect?: tr_projectWhereUniqueInput | tr_projectWhereUniqueInput[]
   }
 
+  export type mst_categoryCreateNestedOneWithoutTr_requestInput = {
+    create?: XOR<mst_categoryCreateWithoutTr_requestInput, mst_categoryUncheckedCreateWithoutTr_requestInput>
+    connectOrCreate?: mst_categoryCreateOrConnectWithoutTr_requestInput
+    connect?: mst_categoryWhereUniqueInput
+  }
+
   export type tr_request_validationCreateNestedManyWithoutTr_requestInput = {
     create?: XOR<tr_request_validationCreateWithoutTr_requestInput, tr_request_validationUncheckedCreateWithoutTr_requestInput> | tr_request_validationCreateWithoutTr_requestInput[] | tr_request_validationUncheckedCreateWithoutTr_requestInput[]
     connectOrCreate?: tr_request_validationCreateOrConnectWithoutTr_requestInput | tr_request_validationCreateOrConnectWithoutTr_requestInput[]
@@ -36440,6 +42060,16 @@ export namespace Prisma {
     update?: tr_projectUpdateWithWhereUniqueWithoutTr_requestInput | tr_projectUpdateWithWhereUniqueWithoutTr_requestInput[]
     updateMany?: tr_projectUpdateManyWithWhereWithoutTr_requestInput | tr_projectUpdateManyWithWhereWithoutTr_requestInput[]
     deleteMany?: tr_projectScalarWhereInput | tr_projectScalarWhereInput[]
+  }
+
+  export type mst_categoryUpdateOneWithoutTr_requestNestedInput = {
+    create?: XOR<mst_categoryCreateWithoutTr_requestInput, mst_categoryUncheckedCreateWithoutTr_requestInput>
+    connectOrCreate?: mst_categoryCreateOrConnectWithoutTr_requestInput
+    upsert?: mst_categoryUpsertWithoutTr_requestInput
+    disconnect?: mst_categoryWhereInput | boolean
+    delete?: mst_categoryWhereInput | boolean
+    connect?: mst_categoryWhereUniqueInput
+    update?: XOR<XOR<mst_categoryUpdateToOneWithWhereWithoutTr_requestInput, mst_categoryUpdateWithoutTr_requestInput>, mst_categoryUncheckedUpdateWithoutTr_requestInput>
   }
 
   export type tr_request_validationUpdateManyWithoutTr_requestNestedInput = {
@@ -36498,6 +42128,154 @@ export namespace Prisma {
     delete?: tr_requestWhereInput | boolean
     connect?: tr_requestWhereUniqueInput
     update?: XOR<XOR<tr_requestUpdateToOneWithWhereWithoutTr_request_validationInput, tr_requestUpdateWithoutTr_request_validationInput>, tr_requestUncheckedUpdateWithoutTr_request_validationInput>
+  }
+
+  export type mst_groupCreateNestedOneWithoutMap_category_to_groupInput = {
+    create?: XOR<mst_groupCreateWithoutMap_category_to_groupInput, mst_groupUncheckedCreateWithoutMap_category_to_groupInput>
+    connectOrCreate?: mst_groupCreateOrConnectWithoutMap_category_to_groupInput
+    connect?: mst_groupWhereUniqueInput
+  }
+
+  export type mst_categoryCreateNestedOneWithoutMap_category_to_groupInput = {
+    create?: XOR<mst_categoryCreateWithoutMap_category_to_groupInput, mst_categoryUncheckedCreateWithoutMap_category_to_groupInput>
+    connectOrCreate?: mst_categoryCreateOrConnectWithoutMap_category_to_groupInput
+    connect?: mst_categoryWhereUniqueInput
+  }
+
+  export type mst_groupUpdateOneWithoutMap_category_to_groupNestedInput = {
+    create?: XOR<mst_groupCreateWithoutMap_category_to_groupInput, mst_groupUncheckedCreateWithoutMap_category_to_groupInput>
+    connectOrCreate?: mst_groupCreateOrConnectWithoutMap_category_to_groupInput
+    upsert?: mst_groupUpsertWithoutMap_category_to_groupInput
+    disconnect?: mst_groupWhereInput | boolean
+    delete?: mst_groupWhereInput | boolean
+    connect?: mst_groupWhereUniqueInput
+    update?: XOR<XOR<mst_groupUpdateToOneWithWhereWithoutMap_category_to_groupInput, mst_groupUpdateWithoutMap_category_to_groupInput>, mst_groupUncheckedUpdateWithoutMap_category_to_groupInput>
+  }
+
+  export type mst_categoryUpdateOneWithoutMap_category_to_groupNestedInput = {
+    create?: XOR<mst_categoryCreateWithoutMap_category_to_groupInput, mst_categoryUncheckedCreateWithoutMap_category_to_groupInput>
+    connectOrCreate?: mst_categoryCreateOrConnectWithoutMap_category_to_groupInput
+    upsert?: mst_categoryUpsertWithoutMap_category_to_groupInput
+    disconnect?: mst_categoryWhereInput | boolean
+    delete?: mst_categoryWhereInput | boolean
+    connect?: mst_categoryWhereUniqueInput
+    update?: XOR<XOR<mst_categoryUpdateToOneWithWhereWithoutMap_category_to_groupInput, mst_categoryUpdateWithoutMap_category_to_groupInput>, mst_categoryUncheckedUpdateWithoutMap_category_to_groupInput>
+  }
+
+  export type map_category_to_groupCreateNestedManyWithoutMst_categoryInput = {
+    create?: XOR<map_category_to_groupCreateWithoutMst_categoryInput, map_category_to_groupUncheckedCreateWithoutMst_categoryInput> | map_category_to_groupCreateWithoutMst_categoryInput[] | map_category_to_groupUncheckedCreateWithoutMst_categoryInput[]
+    connectOrCreate?: map_category_to_groupCreateOrConnectWithoutMst_categoryInput | map_category_to_groupCreateOrConnectWithoutMst_categoryInput[]
+    createMany?: map_category_to_groupCreateManyMst_categoryInputEnvelope
+    connect?: map_category_to_groupWhereUniqueInput | map_category_to_groupWhereUniqueInput[]
+  }
+
+  export type tr_requestCreateNestedManyWithoutMst_categoryInput = {
+    create?: XOR<tr_requestCreateWithoutMst_categoryInput, tr_requestUncheckedCreateWithoutMst_categoryInput> | tr_requestCreateWithoutMst_categoryInput[] | tr_requestUncheckedCreateWithoutMst_categoryInput[]
+    connectOrCreate?: tr_requestCreateOrConnectWithoutMst_categoryInput | tr_requestCreateOrConnectWithoutMst_categoryInput[]
+    createMany?: tr_requestCreateManyMst_categoryInputEnvelope
+    connect?: tr_requestWhereUniqueInput | tr_requestWhereUniqueInput[]
+  }
+
+  export type map_category_to_groupUncheckedCreateNestedManyWithoutMst_categoryInput = {
+    create?: XOR<map_category_to_groupCreateWithoutMst_categoryInput, map_category_to_groupUncheckedCreateWithoutMst_categoryInput> | map_category_to_groupCreateWithoutMst_categoryInput[] | map_category_to_groupUncheckedCreateWithoutMst_categoryInput[]
+    connectOrCreate?: map_category_to_groupCreateOrConnectWithoutMst_categoryInput | map_category_to_groupCreateOrConnectWithoutMst_categoryInput[]
+    createMany?: map_category_to_groupCreateManyMst_categoryInputEnvelope
+    connect?: map_category_to_groupWhereUniqueInput | map_category_to_groupWhereUniqueInput[]
+  }
+
+  export type tr_requestUncheckedCreateNestedManyWithoutMst_categoryInput = {
+    create?: XOR<tr_requestCreateWithoutMst_categoryInput, tr_requestUncheckedCreateWithoutMst_categoryInput> | tr_requestCreateWithoutMst_categoryInput[] | tr_requestUncheckedCreateWithoutMst_categoryInput[]
+    connectOrCreate?: tr_requestCreateOrConnectWithoutMst_categoryInput | tr_requestCreateOrConnectWithoutMst_categoryInput[]
+    createMany?: tr_requestCreateManyMst_categoryInputEnvelope
+    connect?: tr_requestWhereUniqueInput | tr_requestWhereUniqueInput[]
+  }
+
+  export type map_category_to_groupUpdateManyWithoutMst_categoryNestedInput = {
+    create?: XOR<map_category_to_groupCreateWithoutMst_categoryInput, map_category_to_groupUncheckedCreateWithoutMst_categoryInput> | map_category_to_groupCreateWithoutMst_categoryInput[] | map_category_to_groupUncheckedCreateWithoutMst_categoryInput[]
+    connectOrCreate?: map_category_to_groupCreateOrConnectWithoutMst_categoryInput | map_category_to_groupCreateOrConnectWithoutMst_categoryInput[]
+    upsert?: map_category_to_groupUpsertWithWhereUniqueWithoutMst_categoryInput | map_category_to_groupUpsertWithWhereUniqueWithoutMst_categoryInput[]
+    createMany?: map_category_to_groupCreateManyMst_categoryInputEnvelope
+    set?: map_category_to_groupWhereUniqueInput | map_category_to_groupWhereUniqueInput[]
+    disconnect?: map_category_to_groupWhereUniqueInput | map_category_to_groupWhereUniqueInput[]
+    delete?: map_category_to_groupWhereUniqueInput | map_category_to_groupWhereUniqueInput[]
+    connect?: map_category_to_groupWhereUniqueInput | map_category_to_groupWhereUniqueInput[]
+    update?: map_category_to_groupUpdateWithWhereUniqueWithoutMst_categoryInput | map_category_to_groupUpdateWithWhereUniqueWithoutMst_categoryInput[]
+    updateMany?: map_category_to_groupUpdateManyWithWhereWithoutMst_categoryInput | map_category_to_groupUpdateManyWithWhereWithoutMst_categoryInput[]
+    deleteMany?: map_category_to_groupScalarWhereInput | map_category_to_groupScalarWhereInput[]
+  }
+
+  export type tr_requestUpdateManyWithoutMst_categoryNestedInput = {
+    create?: XOR<tr_requestCreateWithoutMst_categoryInput, tr_requestUncheckedCreateWithoutMst_categoryInput> | tr_requestCreateWithoutMst_categoryInput[] | tr_requestUncheckedCreateWithoutMst_categoryInput[]
+    connectOrCreate?: tr_requestCreateOrConnectWithoutMst_categoryInput | tr_requestCreateOrConnectWithoutMst_categoryInput[]
+    upsert?: tr_requestUpsertWithWhereUniqueWithoutMst_categoryInput | tr_requestUpsertWithWhereUniqueWithoutMst_categoryInput[]
+    createMany?: tr_requestCreateManyMst_categoryInputEnvelope
+    set?: tr_requestWhereUniqueInput | tr_requestWhereUniqueInput[]
+    disconnect?: tr_requestWhereUniqueInput | tr_requestWhereUniqueInput[]
+    delete?: tr_requestWhereUniqueInput | tr_requestWhereUniqueInput[]
+    connect?: tr_requestWhereUniqueInput | tr_requestWhereUniqueInput[]
+    update?: tr_requestUpdateWithWhereUniqueWithoutMst_categoryInput | tr_requestUpdateWithWhereUniqueWithoutMst_categoryInput[]
+    updateMany?: tr_requestUpdateManyWithWhereWithoutMst_categoryInput | tr_requestUpdateManyWithWhereWithoutMst_categoryInput[]
+    deleteMany?: tr_requestScalarWhereInput | tr_requestScalarWhereInput[]
+  }
+
+  export type map_category_to_groupUncheckedUpdateManyWithoutMst_categoryNestedInput = {
+    create?: XOR<map_category_to_groupCreateWithoutMst_categoryInput, map_category_to_groupUncheckedCreateWithoutMst_categoryInput> | map_category_to_groupCreateWithoutMst_categoryInput[] | map_category_to_groupUncheckedCreateWithoutMst_categoryInput[]
+    connectOrCreate?: map_category_to_groupCreateOrConnectWithoutMst_categoryInput | map_category_to_groupCreateOrConnectWithoutMst_categoryInput[]
+    upsert?: map_category_to_groupUpsertWithWhereUniqueWithoutMst_categoryInput | map_category_to_groupUpsertWithWhereUniqueWithoutMst_categoryInput[]
+    createMany?: map_category_to_groupCreateManyMst_categoryInputEnvelope
+    set?: map_category_to_groupWhereUniqueInput | map_category_to_groupWhereUniqueInput[]
+    disconnect?: map_category_to_groupWhereUniqueInput | map_category_to_groupWhereUniqueInput[]
+    delete?: map_category_to_groupWhereUniqueInput | map_category_to_groupWhereUniqueInput[]
+    connect?: map_category_to_groupWhereUniqueInput | map_category_to_groupWhereUniqueInput[]
+    update?: map_category_to_groupUpdateWithWhereUniqueWithoutMst_categoryInput | map_category_to_groupUpdateWithWhereUniqueWithoutMst_categoryInput[]
+    updateMany?: map_category_to_groupUpdateManyWithWhereWithoutMst_categoryInput | map_category_to_groupUpdateManyWithWhereWithoutMst_categoryInput[]
+    deleteMany?: map_category_to_groupScalarWhereInput | map_category_to_groupScalarWhereInput[]
+  }
+
+  export type tr_requestUncheckedUpdateManyWithoutMst_categoryNestedInput = {
+    create?: XOR<tr_requestCreateWithoutMst_categoryInput, tr_requestUncheckedCreateWithoutMst_categoryInput> | tr_requestCreateWithoutMst_categoryInput[] | tr_requestUncheckedCreateWithoutMst_categoryInput[]
+    connectOrCreate?: tr_requestCreateOrConnectWithoutMst_categoryInput | tr_requestCreateOrConnectWithoutMst_categoryInput[]
+    upsert?: tr_requestUpsertWithWhereUniqueWithoutMst_categoryInput | tr_requestUpsertWithWhereUniqueWithoutMst_categoryInput[]
+    createMany?: tr_requestCreateManyMst_categoryInputEnvelope
+    set?: tr_requestWhereUniqueInput | tr_requestWhereUniqueInput[]
+    disconnect?: tr_requestWhereUniqueInput | tr_requestWhereUniqueInput[]
+    delete?: tr_requestWhereUniqueInput | tr_requestWhereUniqueInput[]
+    connect?: tr_requestWhereUniqueInput | tr_requestWhereUniqueInput[]
+    update?: tr_requestUpdateWithWhereUniqueWithoutMst_categoryInput | tr_requestUpdateWithWhereUniqueWithoutMst_categoryInput[]
+    updateMany?: tr_requestUpdateManyWithWhereWithoutMst_categoryInput | tr_requestUpdateManyWithWhereWithoutMst_categoryInput[]
+    deleteMany?: tr_requestScalarWhereInput | tr_requestScalarWhereInput[]
+  }
+
+  export type tr_projectCreateNestedOneWithoutTr_project_minimum_viableInput = {
+    create?: XOR<tr_projectCreateWithoutTr_project_minimum_viableInput, tr_projectUncheckedCreateWithoutTr_project_minimum_viableInput>
+    connectOrCreate?: tr_projectCreateOrConnectWithoutTr_project_minimum_viableInput
+    connect?: tr_projectWhereUniqueInput
+  }
+
+  export type tr_projectUpdateOneWithoutTr_project_minimum_viableNestedInput = {
+    create?: XOR<tr_projectCreateWithoutTr_project_minimum_viableInput, tr_projectUncheckedCreateWithoutTr_project_minimum_viableInput>
+    connectOrCreate?: tr_projectCreateOrConnectWithoutTr_project_minimum_viableInput
+    upsert?: tr_projectUpsertWithoutTr_project_minimum_viableInput
+    disconnect?: tr_projectWhereInput | boolean
+    delete?: tr_projectWhereInput | boolean
+    connect?: tr_projectWhereUniqueInput
+    update?: XOR<XOR<tr_projectUpdateToOneWithWhereWithoutTr_project_minimum_viableInput, tr_projectUpdateWithoutTr_project_minimum_viableInput>, tr_projectUncheckedUpdateWithoutTr_project_minimum_viableInput>
+  }
+
+  export type tr_projectCreateNestedOneWithoutTr_project_overview_goalsInput = {
+    create?: XOR<tr_projectCreateWithoutTr_project_overview_goalsInput, tr_projectUncheckedCreateWithoutTr_project_overview_goalsInput>
+    connectOrCreate?: tr_projectCreateOrConnectWithoutTr_project_overview_goalsInput
+    connect?: tr_projectWhereUniqueInput
+  }
+
+  export type tr_projectUpdateOneWithoutTr_project_overview_goalsNestedInput = {
+    create?: XOR<tr_projectCreateWithoutTr_project_overview_goalsInput, tr_projectUncheckedCreateWithoutTr_project_overview_goalsInput>
+    connectOrCreate?: tr_projectCreateOrConnectWithoutTr_project_overview_goalsInput
+    upsert?: tr_projectUpsertWithoutTr_project_overview_goalsInput
+    disconnect?: tr_projectWhereInput | boolean
+    delete?: tr_projectWhereInput | boolean
+    connect?: tr_projectWhereUniqueInput
+    update?: XOR<XOR<tr_projectUpdateToOneWithWhereWithoutTr_project_overview_goalsInput, tr_projectUpdateWithoutTr_project_overview_goalsInput>, tr_projectUncheckedUpdateWithoutTr_project_overview_goalsInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -37017,6 +42795,7 @@ export namespace Prisma {
     is_deleted?: boolean | null
     created_at?: Date | string | null
     created_by?: string | null
+    map_category_to_group?: map_category_to_groupCreateNestedManyWithoutMst_groupInput
     tr_project?: tr_projectCreateNestedManyWithoutMst_groupInput
   }
 
@@ -37028,6 +42807,7 @@ export namespace Prisma {
     is_deleted?: boolean | null
     created_at?: Date | string | null
     created_by?: string | null
+    map_category_to_group?: map_category_to_groupUncheckedCreateNestedManyWithoutMst_groupInput
     tr_project?: tr_projectUncheckedCreateNestedManyWithoutMst_groupInput
   }
 
@@ -37054,6 +42834,7 @@ export namespace Prisma {
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    map_category_to_group?: map_category_to_groupUpdateManyWithoutMst_groupNestedInput
     tr_project?: tr_projectUpdateManyWithoutMst_groupNestedInput
   }
 
@@ -37065,6 +42846,7 @@ export namespace Prisma {
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    map_category_to_group?: map_category_to_groupUncheckedUpdateManyWithoutMst_groupNestedInput
     tr_project?: tr_projectUncheckedUpdateManyWithoutMst_groupNestedInput
   }
 
@@ -37137,6 +42919,29 @@ export namespace Prisma {
     is_deleted?: BoolNullableFilter<"mst_authorization"> | boolean | null
   }
 
+  export type map_category_to_groupCreateWithoutMst_groupInput = {
+    created_at?: Date | string | null
+    created_by?: string | null
+    mst_category?: mst_categoryCreateNestedOneWithoutMap_category_to_groupInput
+  }
+
+  export type map_category_to_groupUncheckedCreateWithoutMst_groupInput = {
+    id?: number
+    category_id?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type map_category_to_groupCreateOrConnectWithoutMst_groupInput = {
+    where: map_category_to_groupWhereUniqueInput
+    create: XOR<map_category_to_groupCreateWithoutMst_groupInput, map_category_to_groupUncheckedCreateWithoutMst_groupInput>
+  }
+
+  export type map_category_to_groupCreateManyMst_groupInputEnvelope = {
+    data: map_category_to_groupCreateManyMst_groupInput | map_category_to_groupCreateManyMst_groupInput[]
+    skipDuplicates?: boolean
+  }
+
   export type mst_authorization_usergroupCreateWithoutMst_groupInput = {
     employee_code?: string | null
     is_manager?: string | null
@@ -37185,6 +42990,9 @@ export namespace Prisma {
     mst_project_state?: mst_project_stateCreateNestedOneWithoutTr_projectInput
     tr_request?: tr_requestCreateNestedOneWithoutTr_projectInput
     tr_project_flow?: tr_project_flowCreateNestedManyWithoutTr_projectInput
+    tr_project_minimum_viable?: tr_project_minimum_viableCreateNestedManyWithoutTr_projectInput
+    tr_project_overview?: tr_project_overviewCreateNestedManyWithoutTr_projectInput
+    tr_project_overview_goals?: tr_project_overview_goalsCreateNestedManyWithoutTr_projectInput
     tr_project_task?: tr_project_taskCreateNestedManyWithoutTr_projectInput
   }
 
@@ -37212,6 +43020,9 @@ export namespace Prisma {
     created_by?: string | null
     type?: string | null
     tr_project_flow?: tr_project_flowUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_overview?: tr_project_overviewUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_overview_goals?: tr_project_overview_goalsUncheckedCreateNestedManyWithoutTr_projectInput
     tr_project_task?: tr_project_taskUncheckedCreateNestedManyWithoutTr_projectInput
   }
 
@@ -37223,6 +43034,33 @@ export namespace Prisma {
   export type tr_projectCreateManyMst_groupInputEnvelope = {
     data: tr_projectCreateManyMst_groupInput | tr_projectCreateManyMst_groupInput[]
     skipDuplicates?: boolean
+  }
+
+  export type map_category_to_groupUpsertWithWhereUniqueWithoutMst_groupInput = {
+    where: map_category_to_groupWhereUniqueInput
+    update: XOR<map_category_to_groupUpdateWithoutMst_groupInput, map_category_to_groupUncheckedUpdateWithoutMst_groupInput>
+    create: XOR<map_category_to_groupCreateWithoutMst_groupInput, map_category_to_groupUncheckedCreateWithoutMst_groupInput>
+  }
+
+  export type map_category_to_groupUpdateWithWhereUniqueWithoutMst_groupInput = {
+    where: map_category_to_groupWhereUniqueInput
+    data: XOR<map_category_to_groupUpdateWithoutMst_groupInput, map_category_to_groupUncheckedUpdateWithoutMst_groupInput>
+  }
+
+  export type map_category_to_groupUpdateManyWithWhereWithoutMst_groupInput = {
+    where: map_category_to_groupScalarWhereInput
+    data: XOR<map_category_to_groupUpdateManyMutationInput, map_category_to_groupUncheckedUpdateManyWithoutMst_groupInput>
+  }
+
+  export type map_category_to_groupScalarWhereInput = {
+    AND?: map_category_to_groupScalarWhereInput | map_category_to_groupScalarWhereInput[]
+    OR?: map_category_to_groupScalarWhereInput[]
+    NOT?: map_category_to_groupScalarWhereInput | map_category_to_groupScalarWhereInput[]
+    id?: IntFilter<"map_category_to_group"> | number
+    category_id?: IntNullableFilter<"map_category_to_group"> | number | null
+    group_id?: IntNullableFilter<"map_category_to_group"> | number | null
+    created_at?: DateTimeNullableFilter<"map_category_to_group"> | Date | string | null
+    created_by?: StringNullableFilter<"map_category_to_group"> | string | null
   }
 
   export type mst_authorization_usergroupUpsertWithWhereUniqueWithoutMst_groupInput = {
@@ -37535,6 +43373,9 @@ export namespace Prisma {
     mst_group?: mst_groupCreateNestedOneWithoutTr_projectInput
     tr_request?: tr_requestCreateNestedOneWithoutTr_projectInput
     tr_project_flow?: tr_project_flowCreateNestedManyWithoutTr_projectInput
+    tr_project_minimum_viable?: tr_project_minimum_viableCreateNestedManyWithoutTr_projectInput
+    tr_project_overview?: tr_project_overviewCreateNestedManyWithoutTr_projectInput
+    tr_project_overview_goals?: tr_project_overview_goalsCreateNestedManyWithoutTr_projectInput
     tr_project_task?: tr_project_taskCreateNestedManyWithoutTr_projectInput
   }
 
@@ -37562,6 +43403,9 @@ export namespace Prisma {
     created_by?: string | null
     type?: string | null
     tr_project_flow?: tr_project_flowUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_overview?: tr_project_overviewUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_overview_goals?: tr_project_overview_goalsUncheckedCreateNestedManyWithoutTr_projectInput
     tr_project_task?: tr_project_taskUncheckedCreateNestedManyWithoutTr_projectInput
   }
 
@@ -37598,6 +43442,7 @@ export namespace Prisma {
     is_deleted?: boolean | null
     created_at?: Date | string | null
     created_by?: string | null
+    map_category_to_group?: map_category_to_groupCreateNestedManyWithoutMst_groupInput
     mst_authorization_usergroup?: mst_authorization_usergroupCreateNestedManyWithoutMst_groupInput
   }
 
@@ -37609,6 +43454,7 @@ export namespace Prisma {
     is_deleted?: boolean | null
     created_at?: Date | string | null
     created_by?: string | null
+    map_category_to_group?: map_category_to_groupUncheckedCreateNestedManyWithoutMst_groupInput
     mst_authorization_usergroup?: mst_authorization_usergroupUncheckedCreateNestedManyWithoutMst_groupInput
   }
 
@@ -37644,7 +43490,6 @@ export namespace Prisma {
     status?: string | null
     urgency?: string | null
     expected_completion_date?: Date | string | null
-    category?: string | null
     type?: string | null
     department_code?: string | null
     department_name?: string | null
@@ -37656,12 +43501,14 @@ export namespace Prisma {
     created_by?: string | null
     impact?: string | null
     priority?: string | null
+    mst_category?: mst_categoryCreateNestedOneWithoutTr_requestInput
     tr_request_validation?: tr_request_validationCreateNestedManyWithoutTr_requestInput
   }
 
   export type tr_requestUncheckedCreateWithoutTr_projectInput = {
     id?: number
     entities_id?: number | null
+    category?: number | null
     ticket_name?: string | null
     creation_date?: Date | string | null
     closed_date?: Date | string | null
@@ -37669,7 +43516,6 @@ export namespace Prisma {
     status?: string | null
     urgency?: string | null
     expected_completion_date?: Date | string | null
-    category?: string | null
     type?: string | null
     department_code?: string | null
     department_name?: string | null
@@ -37713,6 +43559,97 @@ export namespace Prisma {
 
   export type tr_project_flowCreateManyTr_projectInputEnvelope = {
     data: tr_project_flowCreateManyTr_projectInput | tr_project_flowCreateManyTr_projectInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type tr_project_minimum_viableCreateWithoutTr_projectInput = {
+    minimum_viable?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    is_deleted?: boolean | null
+  }
+
+  export type tr_project_minimum_viableUncheckedCreateWithoutTr_projectInput = {
+    id?: number
+    minimum_viable?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    is_deleted?: boolean | null
+  }
+
+  export type tr_project_minimum_viableCreateOrConnectWithoutTr_projectInput = {
+    where: tr_project_minimum_viableWhereUniqueInput
+    create: XOR<tr_project_minimum_viableCreateWithoutTr_projectInput, tr_project_minimum_viableUncheckedCreateWithoutTr_projectInput>
+  }
+
+  export type tr_project_minimum_viableCreateManyTr_projectInputEnvelope = {
+    data: tr_project_minimum_viableCreateManyTr_projectInput | tr_project_minimum_viableCreateManyTr_projectInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type tr_project_overviewCreateWithoutTr_projectInput = {
+    background?: string | null
+    purpose?: string | null
+    success_measurement?: string | null
+    intangible_benefit?: string | null
+    impact_of_not_doing?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    project_name?: string | null
+    department_name?: string | null
+    type?: string | null
+    expected_completion_date?: Date | string | null
+    application?: string | null
+  }
+
+  export type tr_project_overviewUncheckedCreateWithoutTr_projectInput = {
+    id?: number
+    background?: string | null
+    purpose?: string | null
+    success_measurement?: string | null
+    intangible_benefit?: string | null
+    impact_of_not_doing?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    project_name?: string | null
+    department_name?: string | null
+    type?: string | null
+    expected_completion_date?: Date | string | null
+    application?: string | null
+  }
+
+  export type tr_project_overviewCreateOrConnectWithoutTr_projectInput = {
+    where: tr_project_overviewWhereUniqueInput
+    create: XOR<tr_project_overviewCreateWithoutTr_projectInput, tr_project_overviewUncheckedCreateWithoutTr_projectInput>
+  }
+
+  export type tr_project_overviewCreateManyTr_projectInputEnvelope = {
+    data: tr_project_overviewCreateManyTr_projectInput | tr_project_overviewCreateManyTr_projectInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type tr_project_overview_goalsCreateWithoutTr_projectInput = {
+    goal?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    is_deleted?: boolean | null
+  }
+
+  export type tr_project_overview_goalsUncheckedCreateWithoutTr_projectInput = {
+    id?: number
+    goal?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    is_deleted?: boolean | null
+  }
+
+  export type tr_project_overview_goalsCreateOrConnectWithoutTr_projectInput = {
+    where: tr_project_overview_goalsWhereUniqueInput
+    create: XOR<tr_project_overview_goalsCreateWithoutTr_projectInput, tr_project_overview_goalsUncheckedCreateWithoutTr_projectInput>
+  }
+
+  export type tr_project_overview_goalsCreateManyTr_projectInputEnvelope = {
+    data: tr_project_overview_goalsCreateManyTr_projectInput | tr_project_overview_goalsCreateManyTr_projectInput[]
     skipDuplicates?: boolean
   }
 
@@ -37791,6 +43728,7 @@ export namespace Prisma {
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    map_category_to_group?: map_category_to_groupUpdateManyWithoutMst_groupNestedInput
     mst_authorization_usergroup?: mst_authorization_usergroupUpdateManyWithoutMst_groupNestedInput
   }
 
@@ -37802,6 +43740,7 @@ export namespace Prisma {
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    map_category_to_group?: map_category_to_groupUncheckedUpdateManyWithoutMst_groupNestedInput
     mst_authorization_usergroup?: mst_authorization_usergroupUncheckedUpdateManyWithoutMst_groupNestedInput
   }
 
@@ -37849,7 +43788,6 @@ export namespace Prisma {
     status?: NullableStringFieldUpdateOperationsInput | string | null
     urgency?: NullableStringFieldUpdateOperationsInput | string | null
     expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
     department_code?: NullableStringFieldUpdateOperationsInput | string | null
     department_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -37861,12 +43799,14 @@ export namespace Prisma {
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     impact?: NullableStringFieldUpdateOperationsInput | string | null
     priority?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_category?: mst_categoryUpdateOneWithoutTr_requestNestedInput
     tr_request_validation?: tr_request_validationUpdateManyWithoutTr_requestNestedInput
   }
 
   export type tr_requestUncheckedUpdateWithoutTr_projectInput = {
     id?: IntFieldUpdateOperationsInput | number
     entities_id?: NullableIntFieldUpdateOperationsInput | number | null
+    category?: NullableIntFieldUpdateOperationsInput | number | null
     ticket_name?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     closed_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -37874,7 +43814,6 @@ export namespace Prisma {
     status?: NullableStringFieldUpdateOperationsInput | string | null
     urgency?: NullableStringFieldUpdateOperationsInput | string | null
     expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
     department_code?: NullableStringFieldUpdateOperationsInput | string | null
     department_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -37903,6 +43842,98 @@ export namespace Prisma {
   export type tr_project_flowUpdateManyWithWhereWithoutTr_projectInput = {
     where: tr_project_flowScalarWhereInput
     data: XOR<tr_project_flowUpdateManyMutationInput, tr_project_flowUncheckedUpdateManyWithoutTr_projectInput>
+  }
+
+  export type tr_project_minimum_viableUpsertWithWhereUniqueWithoutTr_projectInput = {
+    where: tr_project_minimum_viableWhereUniqueInput
+    update: XOR<tr_project_minimum_viableUpdateWithoutTr_projectInput, tr_project_minimum_viableUncheckedUpdateWithoutTr_projectInput>
+    create: XOR<tr_project_minimum_viableCreateWithoutTr_projectInput, tr_project_minimum_viableUncheckedCreateWithoutTr_projectInput>
+  }
+
+  export type tr_project_minimum_viableUpdateWithWhereUniqueWithoutTr_projectInput = {
+    where: tr_project_minimum_viableWhereUniqueInput
+    data: XOR<tr_project_minimum_viableUpdateWithoutTr_projectInput, tr_project_minimum_viableUncheckedUpdateWithoutTr_projectInput>
+  }
+
+  export type tr_project_minimum_viableUpdateManyWithWhereWithoutTr_projectInput = {
+    where: tr_project_minimum_viableScalarWhereInput
+    data: XOR<tr_project_minimum_viableUpdateManyMutationInput, tr_project_minimum_viableUncheckedUpdateManyWithoutTr_projectInput>
+  }
+
+  export type tr_project_minimum_viableScalarWhereInput = {
+    AND?: tr_project_minimum_viableScalarWhereInput | tr_project_minimum_viableScalarWhereInput[]
+    OR?: tr_project_minimum_viableScalarWhereInput[]
+    NOT?: tr_project_minimum_viableScalarWhereInput | tr_project_minimum_viableScalarWhereInput[]
+    id?: IntFilter<"tr_project_minimum_viable"> | number
+    project_id?: IntNullableFilter<"tr_project_minimum_viable"> | number | null
+    minimum_viable?: StringNullableFilter<"tr_project_minimum_viable"> | string | null
+    created_at?: DateTimeNullableFilter<"tr_project_minimum_viable"> | Date | string | null
+    created_by?: StringNullableFilter<"tr_project_minimum_viable"> | string | null
+    is_deleted?: BoolNullableFilter<"tr_project_minimum_viable"> | boolean | null
+  }
+
+  export type tr_project_overviewUpsertWithWhereUniqueWithoutTr_projectInput = {
+    where: tr_project_overviewWhereUniqueInput
+    update: XOR<tr_project_overviewUpdateWithoutTr_projectInput, tr_project_overviewUncheckedUpdateWithoutTr_projectInput>
+    create: XOR<tr_project_overviewCreateWithoutTr_projectInput, tr_project_overviewUncheckedCreateWithoutTr_projectInput>
+  }
+
+  export type tr_project_overviewUpdateWithWhereUniqueWithoutTr_projectInput = {
+    where: tr_project_overviewWhereUniqueInput
+    data: XOR<tr_project_overviewUpdateWithoutTr_projectInput, tr_project_overviewUncheckedUpdateWithoutTr_projectInput>
+  }
+
+  export type tr_project_overviewUpdateManyWithWhereWithoutTr_projectInput = {
+    where: tr_project_overviewScalarWhereInput
+    data: XOR<tr_project_overviewUpdateManyMutationInput, tr_project_overviewUncheckedUpdateManyWithoutTr_projectInput>
+  }
+
+  export type tr_project_overviewScalarWhereInput = {
+    AND?: tr_project_overviewScalarWhereInput | tr_project_overviewScalarWhereInput[]
+    OR?: tr_project_overviewScalarWhereInput[]
+    NOT?: tr_project_overviewScalarWhereInput | tr_project_overviewScalarWhereInput[]
+    id?: IntFilter<"tr_project_overview"> | number
+    project_id?: IntNullableFilter<"tr_project_overview"> | number | null
+    background?: StringNullableFilter<"tr_project_overview"> | string | null
+    purpose?: StringNullableFilter<"tr_project_overview"> | string | null
+    success_measurement?: StringNullableFilter<"tr_project_overview"> | string | null
+    intangible_benefit?: StringNullableFilter<"tr_project_overview"> | string | null
+    impact_of_not_doing?: StringNullableFilter<"tr_project_overview"> | string | null
+    created_at?: DateTimeNullableFilter<"tr_project_overview"> | Date | string | null
+    created_by?: StringNullableFilter<"tr_project_overview"> | string | null
+    project_name?: StringNullableFilter<"tr_project_overview"> | string | null
+    department_name?: StringNullableFilter<"tr_project_overview"> | string | null
+    type?: StringNullableFilter<"tr_project_overview"> | string | null
+    expected_completion_date?: DateTimeNullableFilter<"tr_project_overview"> | Date | string | null
+    application?: StringNullableFilter<"tr_project_overview"> | string | null
+  }
+
+  export type tr_project_overview_goalsUpsertWithWhereUniqueWithoutTr_projectInput = {
+    where: tr_project_overview_goalsWhereUniqueInput
+    update: XOR<tr_project_overview_goalsUpdateWithoutTr_projectInput, tr_project_overview_goalsUncheckedUpdateWithoutTr_projectInput>
+    create: XOR<tr_project_overview_goalsCreateWithoutTr_projectInput, tr_project_overview_goalsUncheckedCreateWithoutTr_projectInput>
+  }
+
+  export type tr_project_overview_goalsUpdateWithWhereUniqueWithoutTr_projectInput = {
+    where: tr_project_overview_goalsWhereUniqueInput
+    data: XOR<tr_project_overview_goalsUpdateWithoutTr_projectInput, tr_project_overview_goalsUncheckedUpdateWithoutTr_projectInput>
+  }
+
+  export type tr_project_overview_goalsUpdateManyWithWhereWithoutTr_projectInput = {
+    where: tr_project_overview_goalsScalarWhereInput
+    data: XOR<tr_project_overview_goalsUpdateManyMutationInput, tr_project_overview_goalsUncheckedUpdateManyWithoutTr_projectInput>
+  }
+
+  export type tr_project_overview_goalsScalarWhereInput = {
+    AND?: tr_project_overview_goalsScalarWhereInput | tr_project_overview_goalsScalarWhereInput[]
+    OR?: tr_project_overview_goalsScalarWhereInput[]
+    NOT?: tr_project_overview_goalsScalarWhereInput | tr_project_overview_goalsScalarWhereInput[]
+    id?: IntFilter<"tr_project_overview_goals"> | number
+    project_id?: IntNullableFilter<"tr_project_overview_goals"> | number | null
+    goal?: StringNullableFilter<"tr_project_overview_goals"> | string | null
+    created_at?: DateTimeNullableFilter<"tr_project_overview_goals"> | Date | string | null
+    created_by?: StringNullableFilter<"tr_project_overview_goals"> | string | null
+    is_deleted?: BoolNullableFilter<"tr_project_overview_goals"> | boolean | null
   }
 
   export type tr_project_taskUpsertWithWhereUniqueWithoutTr_projectInput = {
@@ -38051,6 +44082,9 @@ export namespace Prisma {
     mst_group?: mst_groupCreateNestedOneWithoutTr_projectInput
     mst_project_state?: mst_project_stateCreateNestedOneWithoutTr_projectInput
     tr_request?: tr_requestCreateNestedOneWithoutTr_projectInput
+    tr_project_minimum_viable?: tr_project_minimum_viableCreateNestedManyWithoutTr_projectInput
+    tr_project_overview?: tr_project_overviewCreateNestedManyWithoutTr_projectInput
+    tr_project_overview_goals?: tr_project_overview_goalsCreateNestedManyWithoutTr_projectInput
     tr_project_task?: tr_project_taskCreateNestedManyWithoutTr_projectInput
   }
 
@@ -38078,6 +44112,9 @@ export namespace Prisma {
     created_at?: Date | string | null
     created_by?: string | null
     type?: string | null
+    tr_project_minimum_viable?: tr_project_minimum_viableUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_overview?: tr_project_overviewUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_overview_goals?: tr_project_overview_goalsUncheckedCreateNestedManyWithoutTr_projectInput
     tr_project_task?: tr_project_taskUncheckedCreateNestedManyWithoutTr_projectInput
   }
 
@@ -38183,6 +44220,9 @@ export namespace Prisma {
     mst_group?: mst_groupUpdateOneWithoutTr_projectNestedInput
     mst_project_state?: mst_project_stateUpdateOneWithoutTr_projectNestedInput
     tr_request?: tr_requestUpdateOneWithoutTr_projectNestedInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview?: tr_project_overviewUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview_goals?: tr_project_overview_goalsUpdateManyWithoutTr_projectNestedInput
     tr_project_task?: tr_project_taskUpdateManyWithoutTr_projectNestedInput
   }
 
@@ -38210,6 +44250,143 @@ export namespace Prisma {
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
+    tr_project_minimum_viable?: tr_project_minimum_viableUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview?: tr_project_overviewUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview_goals?: tr_project_overview_goalsUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_task?: tr_project_taskUncheckedUpdateManyWithoutTr_projectNestedInput
+  }
+
+  export type tr_projectCreateWithoutTr_project_overviewInput = {
+    application_id?: number | null
+    project_name?: string | null
+    survey_id?: number | null
+    project_code?: string | null
+    thumbnail?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
+    plan_start_date?: Date | string | null
+    plan_end_date?: Date | string | null
+    real_start_date?: Date | string | null
+    real_end_date?: Date | string | null
+    expected_completion?: Date | string | null
+    percent_done?: string | null
+    auto_percent_done?: boolean | null
+    is_deleted?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    type?: string | null
+    mst_group?: mst_groupCreateNestedOneWithoutTr_projectInput
+    mst_project_state?: mst_project_stateCreateNestedOneWithoutTr_projectInput
+    tr_request?: tr_requestCreateNestedOneWithoutTr_projectInput
+    tr_project_flow?: tr_project_flowCreateNestedManyWithoutTr_projectInput
+    tr_project_minimum_viable?: tr_project_minimum_viableCreateNestedManyWithoutTr_projectInput
+    tr_project_overview_goals?: tr_project_overview_goalsCreateNestedManyWithoutTr_projectInput
+    tr_project_task?: tr_project_taskCreateNestedManyWithoutTr_projectInput
+  }
+
+  export type tr_projectUncheckedCreateWithoutTr_project_overviewInput = {
+    id?: number
+    request_id?: number | null
+    application_id?: number | null
+    project_name?: string | null
+    survey_id?: number | null
+    project_code?: string | null
+    thumbnail?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
+    group_id?: number | null
+    plan_start_date?: Date | string | null
+    plan_end_date?: Date | string | null
+    real_start_date?: Date | string | null
+    real_end_date?: Date | string | null
+    expected_completion?: Date | string | null
+    percent_done?: string | null
+    auto_percent_done?: boolean | null
+    state?: number | null
+    is_deleted?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    type?: string | null
+    tr_project_flow?: tr_project_flowUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_overview_goals?: tr_project_overview_goalsUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_task?: tr_project_taskUncheckedCreateNestedManyWithoutTr_projectInput
+  }
+
+  export type tr_projectCreateOrConnectWithoutTr_project_overviewInput = {
+    where: tr_projectWhereUniqueInput
+    create: XOR<tr_projectCreateWithoutTr_project_overviewInput, tr_projectUncheckedCreateWithoutTr_project_overviewInput>
+  }
+
+  export type tr_projectUpsertWithoutTr_project_overviewInput = {
+    update: XOR<tr_projectUpdateWithoutTr_project_overviewInput, tr_projectUncheckedUpdateWithoutTr_project_overviewInput>
+    create: XOR<tr_projectCreateWithoutTr_project_overviewInput, tr_projectUncheckedCreateWithoutTr_project_overviewInput>
+    where?: tr_projectWhereInput
+  }
+
+  export type tr_projectUpdateToOneWithWhereWithoutTr_project_overviewInput = {
+    where?: tr_projectWhereInput
+    data: XOR<tr_projectUpdateWithoutTr_project_overviewInput, tr_projectUncheckedUpdateWithoutTr_project_overviewInput>
+  }
+
+  export type tr_projectUpdateWithoutTr_project_overviewInput = {
+    application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
+    survey_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_code?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    issue_description?: NullableStringFieldUpdateOperationsInput | string | null
+    business_impact?: NullableStringFieldUpdateOperationsInput | string | null
+    plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expected_completion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    percent_done?: NullableStringFieldUpdateOperationsInput | string | null
+    auto_percent_done?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_group?: mst_groupUpdateOneWithoutTr_projectNestedInput
+    mst_project_state?: mst_project_stateUpdateOneWithoutTr_projectNestedInput
+    tr_request?: tr_requestUpdateOneWithoutTr_projectNestedInput
+    tr_project_flow?: tr_project_flowUpdateManyWithoutTr_projectNestedInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview_goals?: tr_project_overview_goalsUpdateManyWithoutTr_projectNestedInput
+    tr_project_task?: tr_project_taskUpdateManyWithoutTr_projectNestedInput
+  }
+
+  export type tr_projectUncheckedUpdateWithoutTr_project_overviewInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    request_id?: NullableIntFieldUpdateOperationsInput | number | null
+    application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
+    survey_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_code?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    issue_description?: NullableStringFieldUpdateOperationsInput | string | null
+    business_impact?: NullableStringFieldUpdateOperationsInput | string | null
+    group_id?: NullableIntFieldUpdateOperationsInput | number | null
+    plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expected_completion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    percent_done?: NullableStringFieldUpdateOperationsInput | string | null
+    auto_percent_done?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    state?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    tr_project_flow?: tr_project_flowUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview_goals?: tr_project_overview_goalsUncheckedUpdateManyWithoutTr_projectNestedInput
     tr_project_task?: tr_project_taskUncheckedUpdateManyWithoutTr_projectNestedInput
   }
 
@@ -38237,6 +44414,9 @@ export namespace Prisma {
     mst_project_state?: mst_project_stateCreateNestedOneWithoutTr_projectInput
     tr_request?: tr_requestCreateNestedOneWithoutTr_projectInput
     tr_project_flow?: tr_project_flowCreateNestedManyWithoutTr_projectInput
+    tr_project_minimum_viable?: tr_project_minimum_viableCreateNestedManyWithoutTr_projectInput
+    tr_project_overview?: tr_project_overviewCreateNestedManyWithoutTr_projectInput
+    tr_project_overview_goals?: tr_project_overview_goalsCreateNestedManyWithoutTr_projectInput
   }
 
   export type tr_projectUncheckedCreateWithoutTr_project_taskInput = {
@@ -38264,6 +44444,9 @@ export namespace Prisma {
     created_by?: string | null
     type?: string | null
     tr_project_flow?: tr_project_flowUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_overview?: tr_project_overviewUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_overview_goals?: tr_project_overview_goalsUncheckedCreateNestedManyWithoutTr_projectInput
   }
 
   export type tr_projectCreateOrConnectWithoutTr_project_taskInput = {
@@ -38447,6 +44630,9 @@ export namespace Prisma {
     mst_project_state?: mst_project_stateUpdateOneWithoutTr_projectNestedInput
     tr_request?: tr_requestUpdateOneWithoutTr_projectNestedInput
     tr_project_flow?: tr_project_flowUpdateManyWithoutTr_projectNestedInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview?: tr_project_overviewUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview_goals?: tr_project_overview_goalsUpdateManyWithoutTr_projectNestedInput
   }
 
   export type tr_projectUncheckedUpdateWithoutTr_project_taskInput = {
@@ -38474,6 +44660,9 @@ export namespace Prisma {
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
     tr_project_flow?: tr_project_flowUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview?: tr_project_overviewUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview_goals?: tr_project_overview_goalsUncheckedUpdateManyWithoutTr_projectNestedInput
   }
 
   export type tr_project_taskUpsertWithoutOther_tr_project_taskInput = {
@@ -38681,6 +44870,9 @@ export namespace Prisma {
     mst_group?: mst_groupCreateNestedOneWithoutTr_projectInput
     mst_project_state?: mst_project_stateCreateNestedOneWithoutTr_projectInput
     tr_project_flow?: tr_project_flowCreateNestedManyWithoutTr_projectInput
+    tr_project_minimum_viable?: tr_project_minimum_viableCreateNestedManyWithoutTr_projectInput
+    tr_project_overview?: tr_project_overviewCreateNestedManyWithoutTr_projectInput
+    tr_project_overview_goals?: tr_project_overview_goalsCreateNestedManyWithoutTr_projectInput
     tr_project_task?: tr_project_taskCreateNestedManyWithoutTr_projectInput
   }
 
@@ -38708,6 +44900,9 @@ export namespace Prisma {
     created_by?: string | null
     type?: string | null
     tr_project_flow?: tr_project_flowUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_overview?: tr_project_overviewUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_overview_goals?: tr_project_overview_goalsUncheckedCreateNestedManyWithoutTr_projectInput
     tr_project_task?: tr_project_taskUncheckedCreateNestedManyWithoutTr_projectInput
   }
 
@@ -38719,6 +44914,30 @@ export namespace Prisma {
   export type tr_projectCreateManyTr_requestInputEnvelope = {
     data: tr_projectCreateManyTr_requestInput | tr_projectCreateManyTr_requestInput[]
     skipDuplicates?: boolean
+  }
+
+  export type mst_categoryCreateWithoutTr_requestInput = {
+    category_code?: string | null
+    category_name?: string | null
+    is_active?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    map_category_to_group?: map_category_to_groupCreateNestedManyWithoutMst_categoryInput
+  }
+
+  export type mst_categoryUncheckedCreateWithoutTr_requestInput = {
+    id?: number
+    category_code?: string | null
+    category_name?: string | null
+    is_active?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    map_category_to_group?: map_category_to_groupUncheckedCreateNestedManyWithoutMst_categoryInput
+  }
+
+  export type mst_categoryCreateOrConnectWithoutTr_requestInput = {
+    where: mst_categoryWhereUniqueInput
+    create: XOR<mst_categoryCreateWithoutTr_requestInput, mst_categoryUncheckedCreateWithoutTr_requestInput>
   }
 
   export type tr_request_validationCreateWithoutTr_requestInput = {
@@ -38770,6 +44989,36 @@ export namespace Prisma {
     data: XOR<tr_projectUpdateManyMutationInput, tr_projectUncheckedUpdateManyWithoutTr_requestInput>
   }
 
+  export type mst_categoryUpsertWithoutTr_requestInput = {
+    update: XOR<mst_categoryUpdateWithoutTr_requestInput, mst_categoryUncheckedUpdateWithoutTr_requestInput>
+    create: XOR<mst_categoryCreateWithoutTr_requestInput, mst_categoryUncheckedCreateWithoutTr_requestInput>
+    where?: mst_categoryWhereInput
+  }
+
+  export type mst_categoryUpdateToOneWithWhereWithoutTr_requestInput = {
+    where?: mst_categoryWhereInput
+    data: XOR<mst_categoryUpdateWithoutTr_requestInput, mst_categoryUncheckedUpdateWithoutTr_requestInput>
+  }
+
+  export type mst_categoryUpdateWithoutTr_requestInput = {
+    category_code?: NullableStringFieldUpdateOperationsInput | string | null
+    category_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    map_category_to_group?: map_category_to_groupUpdateManyWithoutMst_categoryNestedInput
+  }
+
+  export type mst_categoryUncheckedUpdateWithoutTr_requestInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    category_code?: NullableStringFieldUpdateOperationsInput | string | null
+    category_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    map_category_to_group?: map_category_to_groupUncheckedUpdateManyWithoutMst_categoryNestedInput
+  }
+
   export type tr_request_validationUpsertWithWhereUniqueWithoutTr_requestInput = {
     where: tr_request_validationWhereUniqueInput
     update: XOR<tr_request_validationUpdateWithoutTr_requestInput, tr_request_validationUncheckedUpdateWithoutTr_requestInput>
@@ -38811,7 +45060,6 @@ export namespace Prisma {
     status?: string | null
     urgency?: string | null
     expected_completion_date?: Date | string | null
-    category?: string | null
     type?: string | null
     department_code?: string | null
     department_name?: string | null
@@ -38824,11 +45072,13 @@ export namespace Prisma {
     impact?: string | null
     priority?: string | null
     tr_project?: tr_projectCreateNestedManyWithoutTr_requestInput
+    mst_category?: mst_categoryCreateNestedOneWithoutTr_requestInput
   }
 
   export type tr_requestUncheckedCreateWithoutTr_request_validationInput = {
     id?: number
     entities_id?: number | null
+    category?: number | null
     ticket_name?: string | null
     creation_date?: Date | string | null
     closed_date?: Date | string | null
@@ -38836,7 +45086,6 @@ export namespace Prisma {
     status?: string | null
     urgency?: string | null
     expected_completion_date?: Date | string | null
-    category?: string | null
     type?: string | null
     department_code?: string | null
     department_name?: string | null
@@ -38876,7 +45125,6 @@ export namespace Prisma {
     status?: NullableStringFieldUpdateOperationsInput | string | null
     urgency?: NullableStringFieldUpdateOperationsInput | string | null
     expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
     department_code?: NullableStringFieldUpdateOperationsInput | string | null
     department_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -38889,11 +45137,13 @@ export namespace Prisma {
     impact?: NullableStringFieldUpdateOperationsInput | string | null
     priority?: NullableStringFieldUpdateOperationsInput | string | null
     tr_project?: tr_projectUpdateManyWithoutTr_requestNestedInput
+    mst_category?: mst_categoryUpdateOneWithoutTr_requestNestedInput
   }
 
   export type tr_requestUncheckedUpdateWithoutTr_request_validationInput = {
     id?: IntFieldUpdateOperationsInput | number
     entities_id?: NullableIntFieldUpdateOperationsInput | number | null
+    category?: NullableIntFieldUpdateOperationsInput | number | null
     ticket_name?: NullableStringFieldUpdateOperationsInput | string | null
     creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     closed_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -38901,7 +45151,6 @@ export namespace Prisma {
     status?: NullableStringFieldUpdateOperationsInput | string | null
     urgency?: NullableStringFieldUpdateOperationsInput | string | null
     expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    category?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
     department_code?: NullableStringFieldUpdateOperationsInput | string | null
     department_name?: NullableStringFieldUpdateOperationsInput | string | null
@@ -38914,6 +45163,531 @@ export namespace Prisma {
     impact?: NullableStringFieldUpdateOperationsInput | string | null
     priority?: NullableStringFieldUpdateOperationsInput | string | null
     tr_project?: tr_projectUncheckedUpdateManyWithoutTr_requestNestedInput
+  }
+
+  export type mst_groupCreateWithoutMap_category_to_groupInput = {
+    entities_id?: number | null
+    group_name?: string | null
+    parent_id?: number | null
+    is_deleted?: boolean | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    mst_authorization_usergroup?: mst_authorization_usergroupCreateNestedManyWithoutMst_groupInput
+    tr_project?: tr_projectCreateNestedManyWithoutMst_groupInput
+  }
+
+  export type mst_groupUncheckedCreateWithoutMap_category_to_groupInput = {
+    id?: number
+    entities_id?: number | null
+    group_name?: string | null
+    parent_id?: number | null
+    is_deleted?: boolean | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    mst_authorization_usergroup?: mst_authorization_usergroupUncheckedCreateNestedManyWithoutMst_groupInput
+    tr_project?: tr_projectUncheckedCreateNestedManyWithoutMst_groupInput
+  }
+
+  export type mst_groupCreateOrConnectWithoutMap_category_to_groupInput = {
+    where: mst_groupWhereUniqueInput
+    create: XOR<mst_groupCreateWithoutMap_category_to_groupInput, mst_groupUncheckedCreateWithoutMap_category_to_groupInput>
+  }
+
+  export type mst_categoryCreateWithoutMap_category_to_groupInput = {
+    category_code?: string | null
+    category_name?: string | null
+    is_active?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    tr_request?: tr_requestCreateNestedManyWithoutMst_categoryInput
+  }
+
+  export type mst_categoryUncheckedCreateWithoutMap_category_to_groupInput = {
+    id?: number
+    category_code?: string | null
+    category_name?: string | null
+    is_active?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    tr_request?: tr_requestUncheckedCreateNestedManyWithoutMst_categoryInput
+  }
+
+  export type mst_categoryCreateOrConnectWithoutMap_category_to_groupInput = {
+    where: mst_categoryWhereUniqueInput
+    create: XOR<mst_categoryCreateWithoutMap_category_to_groupInput, mst_categoryUncheckedCreateWithoutMap_category_to_groupInput>
+  }
+
+  export type mst_groupUpsertWithoutMap_category_to_groupInput = {
+    update: XOR<mst_groupUpdateWithoutMap_category_to_groupInput, mst_groupUncheckedUpdateWithoutMap_category_to_groupInput>
+    create: XOR<mst_groupCreateWithoutMap_category_to_groupInput, mst_groupUncheckedCreateWithoutMap_category_to_groupInput>
+    where?: mst_groupWhereInput
+  }
+
+  export type mst_groupUpdateToOneWithWhereWithoutMap_category_to_groupInput = {
+    where?: mst_groupWhereInput
+    data: XOR<mst_groupUpdateWithoutMap_category_to_groupInput, mst_groupUncheckedUpdateWithoutMap_category_to_groupInput>
+  }
+
+  export type mst_groupUpdateWithoutMap_category_to_groupInput = {
+    entities_id?: NullableIntFieldUpdateOperationsInput | number | null
+    group_name?: NullableStringFieldUpdateOperationsInput | string | null
+    parent_id?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_authorization_usergroup?: mst_authorization_usergroupUpdateManyWithoutMst_groupNestedInput
+    tr_project?: tr_projectUpdateManyWithoutMst_groupNestedInput
+  }
+
+  export type mst_groupUncheckedUpdateWithoutMap_category_to_groupInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    entities_id?: NullableIntFieldUpdateOperationsInput | number | null
+    group_name?: NullableStringFieldUpdateOperationsInput | string | null
+    parent_id?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_authorization_usergroup?: mst_authorization_usergroupUncheckedUpdateManyWithoutMst_groupNestedInput
+    tr_project?: tr_projectUncheckedUpdateManyWithoutMst_groupNestedInput
+  }
+
+  export type mst_categoryUpsertWithoutMap_category_to_groupInput = {
+    update: XOR<mst_categoryUpdateWithoutMap_category_to_groupInput, mst_categoryUncheckedUpdateWithoutMap_category_to_groupInput>
+    create: XOR<mst_categoryCreateWithoutMap_category_to_groupInput, mst_categoryUncheckedCreateWithoutMap_category_to_groupInput>
+    where?: mst_categoryWhereInput
+  }
+
+  export type mst_categoryUpdateToOneWithWhereWithoutMap_category_to_groupInput = {
+    where?: mst_categoryWhereInput
+    data: XOR<mst_categoryUpdateWithoutMap_category_to_groupInput, mst_categoryUncheckedUpdateWithoutMap_category_to_groupInput>
+  }
+
+  export type mst_categoryUpdateWithoutMap_category_to_groupInput = {
+    category_code?: NullableStringFieldUpdateOperationsInput | string | null
+    category_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    tr_request?: tr_requestUpdateManyWithoutMst_categoryNestedInput
+  }
+
+  export type mst_categoryUncheckedUpdateWithoutMap_category_to_groupInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    category_code?: NullableStringFieldUpdateOperationsInput | string | null
+    category_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_active?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    tr_request?: tr_requestUncheckedUpdateManyWithoutMst_categoryNestedInput
+  }
+
+  export type map_category_to_groupCreateWithoutMst_categoryInput = {
+    created_at?: Date | string | null
+    created_by?: string | null
+    mst_group?: mst_groupCreateNestedOneWithoutMap_category_to_groupInput
+  }
+
+  export type map_category_to_groupUncheckedCreateWithoutMst_categoryInput = {
+    id?: number
+    group_id?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type map_category_to_groupCreateOrConnectWithoutMst_categoryInput = {
+    where: map_category_to_groupWhereUniqueInput
+    create: XOR<map_category_to_groupCreateWithoutMst_categoryInput, map_category_to_groupUncheckedCreateWithoutMst_categoryInput>
+  }
+
+  export type map_category_to_groupCreateManyMst_categoryInputEnvelope = {
+    data: map_category_to_groupCreateManyMst_categoryInput | map_category_to_groupCreateManyMst_categoryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type tr_requestCreateWithoutMst_categoryInput = {
+    entities_id?: number | null
+    ticket_name?: string | null
+    creation_date?: Date | string | null
+    closed_date?: Date | string | null
+    creator?: string | null
+    status?: string | null
+    urgency?: string | null
+    expected_completion_date?: Date | string | null
+    type?: string | null
+    department_code?: string | null
+    department_name?: string | null
+    is_project?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    impact?: string | null
+    priority?: string | null
+    tr_project?: tr_projectCreateNestedManyWithoutTr_requestInput
+    tr_request_validation?: tr_request_validationCreateNestedManyWithoutTr_requestInput
+  }
+
+  export type tr_requestUncheckedCreateWithoutMst_categoryInput = {
+    id?: number
+    entities_id?: number | null
+    ticket_name?: string | null
+    creation_date?: Date | string | null
+    closed_date?: Date | string | null
+    creator?: string | null
+    status?: string | null
+    urgency?: string | null
+    expected_completion_date?: Date | string | null
+    type?: string | null
+    department_code?: string | null
+    department_name?: string | null
+    is_project?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    impact?: string | null
+    priority?: string | null
+    tr_project?: tr_projectUncheckedCreateNestedManyWithoutTr_requestInput
+    tr_request_validation?: tr_request_validationUncheckedCreateNestedManyWithoutTr_requestInput
+  }
+
+  export type tr_requestCreateOrConnectWithoutMst_categoryInput = {
+    where: tr_requestWhereUniqueInput
+    create: XOR<tr_requestCreateWithoutMst_categoryInput, tr_requestUncheckedCreateWithoutMst_categoryInput>
+  }
+
+  export type tr_requestCreateManyMst_categoryInputEnvelope = {
+    data: tr_requestCreateManyMst_categoryInput | tr_requestCreateManyMst_categoryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type map_category_to_groupUpsertWithWhereUniqueWithoutMst_categoryInput = {
+    where: map_category_to_groupWhereUniqueInput
+    update: XOR<map_category_to_groupUpdateWithoutMst_categoryInput, map_category_to_groupUncheckedUpdateWithoutMst_categoryInput>
+    create: XOR<map_category_to_groupCreateWithoutMst_categoryInput, map_category_to_groupUncheckedCreateWithoutMst_categoryInput>
+  }
+
+  export type map_category_to_groupUpdateWithWhereUniqueWithoutMst_categoryInput = {
+    where: map_category_to_groupWhereUniqueInput
+    data: XOR<map_category_to_groupUpdateWithoutMst_categoryInput, map_category_to_groupUncheckedUpdateWithoutMst_categoryInput>
+  }
+
+  export type map_category_to_groupUpdateManyWithWhereWithoutMst_categoryInput = {
+    where: map_category_to_groupScalarWhereInput
+    data: XOR<map_category_to_groupUpdateManyMutationInput, map_category_to_groupUncheckedUpdateManyWithoutMst_categoryInput>
+  }
+
+  export type tr_requestUpsertWithWhereUniqueWithoutMst_categoryInput = {
+    where: tr_requestWhereUniqueInput
+    update: XOR<tr_requestUpdateWithoutMst_categoryInput, tr_requestUncheckedUpdateWithoutMst_categoryInput>
+    create: XOR<tr_requestCreateWithoutMst_categoryInput, tr_requestUncheckedCreateWithoutMst_categoryInput>
+  }
+
+  export type tr_requestUpdateWithWhereUniqueWithoutMst_categoryInput = {
+    where: tr_requestWhereUniqueInput
+    data: XOR<tr_requestUpdateWithoutMst_categoryInput, tr_requestUncheckedUpdateWithoutMst_categoryInput>
+  }
+
+  export type tr_requestUpdateManyWithWhereWithoutMst_categoryInput = {
+    where: tr_requestScalarWhereInput
+    data: XOR<tr_requestUpdateManyMutationInput, tr_requestUncheckedUpdateManyWithoutMst_categoryInput>
+  }
+
+  export type tr_requestScalarWhereInput = {
+    AND?: tr_requestScalarWhereInput | tr_requestScalarWhereInput[]
+    OR?: tr_requestScalarWhereInput[]
+    NOT?: tr_requestScalarWhereInput | tr_requestScalarWhereInput[]
+    id?: IntFilter<"tr_request"> | number
+    entities_id?: IntNullableFilter<"tr_request"> | number | null
+    category?: IntNullableFilter<"tr_request"> | number | null
+    ticket_name?: StringNullableFilter<"tr_request"> | string | null
+    creation_date?: DateTimeNullableFilter<"tr_request"> | Date | string | null
+    closed_date?: DateTimeNullableFilter<"tr_request"> | Date | string | null
+    creator?: StringNullableFilter<"tr_request"> | string | null
+    status?: StringNullableFilter<"tr_request"> | string | null
+    urgency?: StringNullableFilter<"tr_request"> | string | null
+    expected_completion_date?: DateTimeNullableFilter<"tr_request"> | Date | string | null
+    type?: StringNullableFilter<"tr_request"> | string | null
+    department_code?: StringNullableFilter<"tr_request"> | string | null
+    department_name?: StringNullableFilter<"tr_request"> | string | null
+    is_project?: StringNullableFilter<"tr_request"> | string | null
+    background?: StringNullableFilter<"tr_request"> | string | null
+    issue_description?: StringNullableFilter<"tr_request"> | string | null
+    business_impact?: StringNullableFilter<"tr_request"> | string | null
+    created_at?: DateTimeNullableFilter<"tr_request"> | Date | string | null
+    created_by?: StringNullableFilter<"tr_request"> | string | null
+    impact?: StringNullableFilter<"tr_request"> | string | null
+    priority?: StringNullableFilter<"tr_request"> | string | null
+  }
+
+  export type tr_projectCreateWithoutTr_project_minimum_viableInput = {
+    application_id?: number | null
+    project_name?: string | null
+    survey_id?: number | null
+    project_code?: string | null
+    thumbnail?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
+    plan_start_date?: Date | string | null
+    plan_end_date?: Date | string | null
+    real_start_date?: Date | string | null
+    real_end_date?: Date | string | null
+    expected_completion?: Date | string | null
+    percent_done?: string | null
+    auto_percent_done?: boolean | null
+    is_deleted?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    type?: string | null
+    mst_group?: mst_groupCreateNestedOneWithoutTr_projectInput
+    mst_project_state?: mst_project_stateCreateNestedOneWithoutTr_projectInput
+    tr_request?: tr_requestCreateNestedOneWithoutTr_projectInput
+    tr_project_flow?: tr_project_flowCreateNestedManyWithoutTr_projectInput
+    tr_project_overview?: tr_project_overviewCreateNestedManyWithoutTr_projectInput
+    tr_project_overview_goals?: tr_project_overview_goalsCreateNestedManyWithoutTr_projectInput
+    tr_project_task?: tr_project_taskCreateNestedManyWithoutTr_projectInput
+  }
+
+  export type tr_projectUncheckedCreateWithoutTr_project_minimum_viableInput = {
+    id?: number
+    request_id?: number | null
+    application_id?: number | null
+    project_name?: string | null
+    survey_id?: number | null
+    project_code?: string | null
+    thumbnail?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
+    group_id?: number | null
+    plan_start_date?: Date | string | null
+    plan_end_date?: Date | string | null
+    real_start_date?: Date | string | null
+    real_end_date?: Date | string | null
+    expected_completion?: Date | string | null
+    percent_done?: string | null
+    auto_percent_done?: boolean | null
+    state?: number | null
+    is_deleted?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    type?: string | null
+    tr_project_flow?: tr_project_flowUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_overview?: tr_project_overviewUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_overview_goals?: tr_project_overview_goalsUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_task?: tr_project_taskUncheckedCreateNestedManyWithoutTr_projectInput
+  }
+
+  export type tr_projectCreateOrConnectWithoutTr_project_minimum_viableInput = {
+    where: tr_projectWhereUniqueInput
+    create: XOR<tr_projectCreateWithoutTr_project_minimum_viableInput, tr_projectUncheckedCreateWithoutTr_project_minimum_viableInput>
+  }
+
+  export type tr_projectUpsertWithoutTr_project_minimum_viableInput = {
+    update: XOR<tr_projectUpdateWithoutTr_project_minimum_viableInput, tr_projectUncheckedUpdateWithoutTr_project_minimum_viableInput>
+    create: XOR<tr_projectCreateWithoutTr_project_minimum_viableInput, tr_projectUncheckedCreateWithoutTr_project_minimum_viableInput>
+    where?: tr_projectWhereInput
+  }
+
+  export type tr_projectUpdateToOneWithWhereWithoutTr_project_minimum_viableInput = {
+    where?: tr_projectWhereInput
+    data: XOR<tr_projectUpdateWithoutTr_project_minimum_viableInput, tr_projectUncheckedUpdateWithoutTr_project_minimum_viableInput>
+  }
+
+  export type tr_projectUpdateWithoutTr_project_minimum_viableInput = {
+    application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
+    survey_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_code?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    issue_description?: NullableStringFieldUpdateOperationsInput | string | null
+    business_impact?: NullableStringFieldUpdateOperationsInput | string | null
+    plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expected_completion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    percent_done?: NullableStringFieldUpdateOperationsInput | string | null
+    auto_percent_done?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_group?: mst_groupUpdateOneWithoutTr_projectNestedInput
+    mst_project_state?: mst_project_stateUpdateOneWithoutTr_projectNestedInput
+    tr_request?: tr_requestUpdateOneWithoutTr_projectNestedInput
+    tr_project_flow?: tr_project_flowUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview?: tr_project_overviewUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview_goals?: tr_project_overview_goalsUpdateManyWithoutTr_projectNestedInput
+    tr_project_task?: tr_project_taskUpdateManyWithoutTr_projectNestedInput
+  }
+
+  export type tr_projectUncheckedUpdateWithoutTr_project_minimum_viableInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    request_id?: NullableIntFieldUpdateOperationsInput | number | null
+    application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
+    survey_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_code?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    issue_description?: NullableStringFieldUpdateOperationsInput | string | null
+    business_impact?: NullableStringFieldUpdateOperationsInput | string | null
+    group_id?: NullableIntFieldUpdateOperationsInput | number | null
+    plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expected_completion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    percent_done?: NullableStringFieldUpdateOperationsInput | string | null
+    auto_percent_done?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    state?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    tr_project_flow?: tr_project_flowUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview?: tr_project_overviewUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview_goals?: tr_project_overview_goalsUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_task?: tr_project_taskUncheckedUpdateManyWithoutTr_projectNestedInput
+  }
+
+  export type tr_projectCreateWithoutTr_project_overview_goalsInput = {
+    application_id?: number | null
+    project_name?: string | null
+    survey_id?: number | null
+    project_code?: string | null
+    thumbnail?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
+    plan_start_date?: Date | string | null
+    plan_end_date?: Date | string | null
+    real_start_date?: Date | string | null
+    real_end_date?: Date | string | null
+    expected_completion?: Date | string | null
+    percent_done?: string | null
+    auto_percent_done?: boolean | null
+    is_deleted?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    type?: string | null
+    mst_group?: mst_groupCreateNestedOneWithoutTr_projectInput
+    mst_project_state?: mst_project_stateCreateNestedOneWithoutTr_projectInput
+    tr_request?: tr_requestCreateNestedOneWithoutTr_projectInput
+    tr_project_flow?: tr_project_flowCreateNestedManyWithoutTr_projectInput
+    tr_project_minimum_viable?: tr_project_minimum_viableCreateNestedManyWithoutTr_projectInput
+    tr_project_overview?: tr_project_overviewCreateNestedManyWithoutTr_projectInput
+    tr_project_task?: tr_project_taskCreateNestedManyWithoutTr_projectInput
+  }
+
+  export type tr_projectUncheckedCreateWithoutTr_project_overview_goalsInput = {
+    id?: number
+    request_id?: number | null
+    application_id?: number | null
+    project_name?: string | null
+    survey_id?: number | null
+    project_code?: string | null
+    thumbnail?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
+    group_id?: number | null
+    plan_start_date?: Date | string | null
+    plan_end_date?: Date | string | null
+    real_start_date?: Date | string | null
+    real_end_date?: Date | string | null
+    expected_completion?: Date | string | null
+    percent_done?: string | null
+    auto_percent_done?: boolean | null
+    state?: number | null
+    is_deleted?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    type?: string | null
+    tr_project_flow?: tr_project_flowUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_overview?: tr_project_overviewUncheckedCreateNestedManyWithoutTr_projectInput
+    tr_project_task?: tr_project_taskUncheckedCreateNestedManyWithoutTr_projectInput
+  }
+
+  export type tr_projectCreateOrConnectWithoutTr_project_overview_goalsInput = {
+    where: tr_projectWhereUniqueInput
+    create: XOR<tr_projectCreateWithoutTr_project_overview_goalsInput, tr_projectUncheckedCreateWithoutTr_project_overview_goalsInput>
+  }
+
+  export type tr_projectUpsertWithoutTr_project_overview_goalsInput = {
+    update: XOR<tr_projectUpdateWithoutTr_project_overview_goalsInput, tr_projectUncheckedUpdateWithoutTr_project_overview_goalsInput>
+    create: XOR<tr_projectCreateWithoutTr_project_overview_goalsInput, tr_projectUncheckedCreateWithoutTr_project_overview_goalsInput>
+    where?: tr_projectWhereInput
+  }
+
+  export type tr_projectUpdateToOneWithWhereWithoutTr_project_overview_goalsInput = {
+    where?: tr_projectWhereInput
+    data: XOR<tr_projectUpdateWithoutTr_project_overview_goalsInput, tr_projectUncheckedUpdateWithoutTr_project_overview_goalsInput>
+  }
+
+  export type tr_projectUpdateWithoutTr_project_overview_goalsInput = {
+    application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
+    survey_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_code?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    issue_description?: NullableStringFieldUpdateOperationsInput | string | null
+    business_impact?: NullableStringFieldUpdateOperationsInput | string | null
+    plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expected_completion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    percent_done?: NullableStringFieldUpdateOperationsInput | string | null
+    auto_percent_done?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_group?: mst_groupUpdateOneWithoutTr_projectNestedInput
+    mst_project_state?: mst_project_stateUpdateOneWithoutTr_projectNestedInput
+    tr_request?: tr_requestUpdateOneWithoutTr_projectNestedInput
+    tr_project_flow?: tr_project_flowUpdateManyWithoutTr_projectNestedInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview?: tr_project_overviewUpdateManyWithoutTr_projectNestedInput
+    tr_project_task?: tr_project_taskUpdateManyWithoutTr_projectNestedInput
+  }
+
+  export type tr_projectUncheckedUpdateWithoutTr_project_overview_goalsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    request_id?: NullableIntFieldUpdateOperationsInput | number | null
+    application_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
+    survey_id?: NullableIntFieldUpdateOperationsInput | number | null
+    project_code?: NullableStringFieldUpdateOperationsInput | string | null
+    thumbnail?: NullableStringFieldUpdateOperationsInput | string | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    issue_description?: NullableStringFieldUpdateOperationsInput | string | null
+    business_impact?: NullableStringFieldUpdateOperationsInput | string | null
+    group_id?: NullableIntFieldUpdateOperationsInput | number | null
+    plan_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    plan_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    real_end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    expected_completion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    percent_done?: NullableStringFieldUpdateOperationsInput | string | null
+    auto_percent_done?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    state?: NullableIntFieldUpdateOperationsInput | number | null
+    is_deleted?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    tr_project_flow?: tr_project_flowUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview?: tr_project_overviewUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_task?: tr_project_taskUncheckedUpdateManyWithoutTr_projectNestedInput
   }
 
   export type tr_project_taskCreateManyMst_authorizationInput = {
@@ -39091,6 +45865,13 @@ export namespace Prisma {
     is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
+  export type map_category_to_groupCreateManyMst_groupInput = {
+    id?: number
+    category_id?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
   export type mst_authorization_usergroupCreateManyMst_groupInput = {
     id?: number
     employee_code?: string | null
@@ -39122,6 +45903,26 @@ export namespace Prisma {
     created_at?: Date | string | null
     created_by?: string | null
     type?: string | null
+  }
+
+  export type map_category_to_groupUpdateWithoutMst_groupInput = {
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_category?: mst_categoryUpdateOneWithoutMap_category_to_groupNestedInput
+  }
+
+  export type map_category_to_groupUncheckedUpdateWithoutMst_groupInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    category_id?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type map_category_to_groupUncheckedUpdateManyWithoutMst_groupInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    category_id?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type mst_authorization_usergroupUpdateWithoutMst_groupInput = {
@@ -39170,6 +45971,9 @@ export namespace Prisma {
     mst_project_state?: mst_project_stateUpdateOneWithoutTr_projectNestedInput
     tr_request?: tr_requestUpdateOneWithoutTr_projectNestedInput
     tr_project_flow?: tr_project_flowUpdateManyWithoutTr_projectNestedInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview?: tr_project_overviewUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview_goals?: tr_project_overview_goalsUpdateManyWithoutTr_projectNestedInput
     tr_project_task?: tr_project_taskUpdateManyWithoutTr_projectNestedInput
   }
 
@@ -39197,6 +46001,9 @@ export namespace Prisma {
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
     tr_project_flow?: tr_project_flowUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview?: tr_project_overviewUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview_goals?: tr_project_overview_goalsUncheckedUpdateManyWithoutTr_projectNestedInput
     tr_project_task?: tr_project_taskUncheckedUpdateManyWithoutTr_projectNestedInput
   }
 
@@ -39439,6 +46246,9 @@ export namespace Prisma {
     mst_group?: mst_groupUpdateOneWithoutTr_projectNestedInput
     tr_request?: tr_requestUpdateOneWithoutTr_projectNestedInput
     tr_project_flow?: tr_project_flowUpdateManyWithoutTr_projectNestedInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview?: tr_project_overviewUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview_goals?: tr_project_overview_goalsUpdateManyWithoutTr_projectNestedInput
     tr_project_task?: tr_project_taskUpdateManyWithoutTr_projectNestedInput
   }
 
@@ -39466,6 +46276,9 @@ export namespace Prisma {
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
     tr_project_flow?: tr_project_flowUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview?: tr_project_overviewUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview_goals?: tr_project_overview_goalsUncheckedUpdateManyWithoutTr_projectNestedInput
     tr_project_task?: tr_project_taskUncheckedUpdateManyWithoutTr_projectNestedInput
   }
 
@@ -39500,6 +46313,38 @@ export namespace Prisma {
     status?: boolean | null
     updated_at?: Date | string | null
     updated_by?: string | null
+  }
+
+  export type tr_project_minimum_viableCreateManyTr_projectInput = {
+    id?: number
+    minimum_viable?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    is_deleted?: boolean | null
+  }
+
+  export type tr_project_overviewCreateManyTr_projectInput = {
+    id?: number
+    background?: string | null
+    purpose?: string | null
+    success_measurement?: string | null
+    intangible_benefit?: string | null
+    impact_of_not_doing?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    project_name?: string | null
+    department_name?: string | null
+    type?: string | null
+    expected_completion_date?: Date | string | null
+    application?: string | null
+  }
+
+  export type tr_project_overview_goalsCreateManyTr_projectInput = {
+    id?: number
+    goal?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    is_deleted?: boolean | null
   }
 
   export type tr_project_taskCreateManyTr_projectInput = {
@@ -39548,6 +46393,99 @@ export namespace Prisma {
     status?: NullableBoolFieldUpdateOperationsInput | boolean | null
     updated_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updated_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_project_minimum_viableUpdateWithoutTr_projectInput = {
+    minimum_viable?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type tr_project_minimum_viableUncheckedUpdateWithoutTr_projectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    minimum_viable?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type tr_project_minimum_viableUncheckedUpdateManyWithoutTr_projectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    minimum_viable?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type tr_project_overviewUpdateWithoutTr_projectInput = {
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    purpose?: NullableStringFieldUpdateOperationsInput | string | null
+    success_measurement?: NullableStringFieldUpdateOperationsInput | string | null
+    intangible_benefit?: NullableStringFieldUpdateOperationsInput | string | null
+    impact_of_not_doing?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
+    department_name?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_project_overviewUncheckedUpdateWithoutTr_projectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    purpose?: NullableStringFieldUpdateOperationsInput | string | null
+    success_measurement?: NullableStringFieldUpdateOperationsInput | string | null
+    intangible_benefit?: NullableStringFieldUpdateOperationsInput | string | null
+    impact_of_not_doing?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
+    department_name?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_project_overviewUncheckedUpdateManyWithoutTr_projectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    purpose?: NullableStringFieldUpdateOperationsInput | string | null
+    success_measurement?: NullableStringFieldUpdateOperationsInput | string | null
+    intangible_benefit?: NullableStringFieldUpdateOperationsInput | string | null
+    impact_of_not_doing?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    project_name?: NullableStringFieldUpdateOperationsInput | string | null
+    department_name?: NullableStringFieldUpdateOperationsInput | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    application?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_project_overview_goalsUpdateWithoutTr_projectInput = {
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type tr_project_overview_goalsUncheckedUpdateWithoutTr_projectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type tr_project_overview_goalsUncheckedUpdateManyWithoutTr_projectInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    goal?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    is_deleted?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type tr_project_taskUpdateWithoutTr_projectInput = {
@@ -39816,6 +46754,9 @@ export namespace Prisma {
     mst_group?: mst_groupUpdateOneWithoutTr_projectNestedInput
     mst_project_state?: mst_project_stateUpdateOneWithoutTr_projectNestedInput
     tr_project_flow?: tr_project_flowUpdateManyWithoutTr_projectNestedInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview?: tr_project_overviewUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview_goals?: tr_project_overview_goalsUpdateManyWithoutTr_projectNestedInput
     tr_project_task?: tr_project_taskUpdateManyWithoutTr_projectNestedInput
   }
 
@@ -39843,6 +46784,9 @@ export namespace Prisma {
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
     type?: NullableStringFieldUpdateOperationsInput | string | null
     tr_project_flow?: tr_project_flowUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_minimum_viable?: tr_project_minimum_viableUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview?: tr_project_overviewUncheckedUpdateManyWithoutTr_projectNestedInput
+    tr_project_overview_goals?: tr_project_overview_goalsUncheckedUpdateManyWithoutTr_projectNestedInput
     tr_project_task?: tr_project_taskUncheckedUpdateManyWithoutTr_projectNestedInput
   }
 
@@ -39906,6 +46850,128 @@ export namespace Prisma {
     state?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type map_category_to_groupCreateManyMst_categoryInput = {
+    id?: number
+    group_id?: number | null
+    created_at?: Date | string | null
+    created_by?: string | null
+  }
+
+  export type tr_requestCreateManyMst_categoryInput = {
+    id?: number
+    entities_id?: number | null
+    ticket_name?: string | null
+    creation_date?: Date | string | null
+    closed_date?: Date | string | null
+    creator?: string | null
+    status?: string | null
+    urgency?: string | null
+    expected_completion_date?: Date | string | null
+    type?: string | null
+    department_code?: string | null
+    department_name?: string | null
+    is_project?: string | null
+    background?: string | null
+    issue_description?: string | null
+    business_impact?: string | null
+    created_at?: Date | string | null
+    created_by?: string | null
+    impact?: string | null
+    priority?: string | null
+  }
+
+  export type map_category_to_groupUpdateWithoutMst_categoryInput = {
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    mst_group?: mst_groupUpdateOneWithoutMap_category_to_groupNestedInput
+  }
+
+  export type map_category_to_groupUncheckedUpdateWithoutMst_categoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    group_id?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type map_category_to_groupUncheckedUpdateManyWithoutMst_categoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    group_id?: NullableIntFieldUpdateOperationsInput | number | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type tr_requestUpdateWithoutMst_categoryInput = {
+    entities_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ticket_name?: NullableStringFieldUpdateOperationsInput | string | null
+    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    closed_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creator?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    urgency?: NullableStringFieldUpdateOperationsInput | string | null
+    expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    department_code?: NullableStringFieldUpdateOperationsInput | string | null
+    department_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_project?: NullableStringFieldUpdateOperationsInput | string | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    issue_description?: NullableStringFieldUpdateOperationsInput | string | null
+    business_impact?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    impact?: NullableStringFieldUpdateOperationsInput | string | null
+    priority?: NullableStringFieldUpdateOperationsInput | string | null
+    tr_project?: tr_projectUpdateManyWithoutTr_requestNestedInput
+    tr_request_validation?: tr_request_validationUpdateManyWithoutTr_requestNestedInput
+  }
+
+  export type tr_requestUncheckedUpdateWithoutMst_categoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    entities_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ticket_name?: NullableStringFieldUpdateOperationsInput | string | null
+    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    closed_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creator?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    urgency?: NullableStringFieldUpdateOperationsInput | string | null
+    expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    department_code?: NullableStringFieldUpdateOperationsInput | string | null
+    department_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_project?: NullableStringFieldUpdateOperationsInput | string | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    issue_description?: NullableStringFieldUpdateOperationsInput | string | null
+    business_impact?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    impact?: NullableStringFieldUpdateOperationsInput | string | null
+    priority?: NullableStringFieldUpdateOperationsInput | string | null
+    tr_project?: tr_projectUncheckedUpdateManyWithoutTr_requestNestedInput
+    tr_request_validation?: tr_request_validationUncheckedUpdateManyWithoutTr_requestNestedInput
+  }
+
+  export type tr_requestUncheckedUpdateManyWithoutMst_categoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    entities_id?: NullableIntFieldUpdateOperationsInput | number | null
+    ticket_name?: NullableStringFieldUpdateOperationsInput | string | null
+    creation_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    closed_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    creator?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableStringFieldUpdateOperationsInput | string | null
+    urgency?: NullableStringFieldUpdateOperationsInput | string | null
+    expected_completion_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    department_code?: NullableStringFieldUpdateOperationsInput | string | null
+    department_name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_project?: NullableStringFieldUpdateOperationsInput | string | null
+    background?: NullableStringFieldUpdateOperationsInput | string | null
+    issue_description?: NullableStringFieldUpdateOperationsInput | string | null
+    business_impact?: NullableStringFieldUpdateOperationsInput | string | null
+    created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    impact?: NullableStringFieldUpdateOperationsInput | string | null
+    priority?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
 
 
   /**
@@ -39955,6 +47021,10 @@ export namespace Prisma {
      * @deprecated Use Tr_requestCountOutputTypeDefaultArgs instead
      */
     export type Tr_requestCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Tr_requestCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use Mst_categoryCountOutputTypeDefaultArgs instead
+     */
+    export type Mst_categoryCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = Mst_categoryCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use mst_applicationDefaultArgs instead
      */
@@ -40063,6 +47133,22 @@ export namespace Prisma {
      * @deprecated Use tr_request_validationDefaultArgs instead
      */
     export type tr_request_validationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = tr_request_validationDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use map_category_to_groupDefaultArgs instead
+     */
+    export type map_category_to_groupArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = map_category_to_groupDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use mst_categoryDefaultArgs instead
+     */
+    export type mst_categoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = mst_categoryDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use tr_project_minimum_viableDefaultArgs instead
+     */
+    export type tr_project_minimum_viableArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = tr_project_minimum_viableDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use tr_project_overview_goalsDefaultArgs instead
+     */
+    export type tr_project_overview_goalsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = tr_project_overview_goalsDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany
