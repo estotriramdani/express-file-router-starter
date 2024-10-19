@@ -100,7 +100,7 @@ export const post = async (req: Request, res: Response) => {
             id: findFlow.id,
           },
           data: {
-            status: false,
+            state: 'Pending',
             updated_at: null,
           },
         });

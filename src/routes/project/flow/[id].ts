@@ -73,14 +73,17 @@ const flowByProjectActivity = async (data: ProjectFlowType[], flowName: string) 
     where: {
       project_flow_id: data[flowIndex].id,
     },
+    orderBy: {
+      created_at: 'desc',
+    }
   });
 
   if (!findActivity) return;
 
   await db1.tr_project_flow.update({
     data: {
-      status: true,
       updated_at: findActivity.created_at,
+      state: findActivity.state
     },
     where: {
       id: data[flowIndex].id,
