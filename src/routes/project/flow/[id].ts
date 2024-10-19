@@ -16,7 +16,7 @@ const projectApprovalFlow = async (request_id: number, data: ProjectFlowType[]) 
     throw new Error('Approval flow not found');
   }
 
-  if (data[approvalIndex].status) return;
+  if (data[approvalIndex].state === 'Done') return;
 
   const validations = await db1.tr_request_validation.findMany({
     where: {
@@ -67,7 +67,7 @@ const flowByProjectActivity = async (data: ProjectFlowType[], flowName: string) 
     throw new Error(`Flow for ${flowName} is not found`);
   }
 
-  if (data[flowIndex].status) return;
+  if (data[flowIndex].state === 'Done') return;
 
   const findActivity = await db1.tr_project_activity.findFirst({
     where: {
@@ -91,7 +91,7 @@ const flowByProjectActivity = async (data: ProjectFlowType[], flowName: string) 
   });
 
   // TODO: Uncomment later
-  // if (flowName === 'Task Calculation' && data[flowIndex].status === 'Done') {
+  // if (flowName === 'Task Calculation' && data[flowIndex].state === 'Done') {
   //   await sendProjectCalculationNotification(findActivity.project_id);
   // }
 };
