@@ -111,6 +111,8 @@ export const sendProjectCalculationNotification = async (id: number) => {
       teams: projectTeams,
     });
   });
+
+  return true;
 };
 
 export const get = [

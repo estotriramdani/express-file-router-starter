@@ -5,6 +5,7 @@ import { ExtendedRequest } from '@/types/auth';
 import { generateRandomString } from '@/utils';
 import { db1 } from '@/utils/db1';
 import { authenticateJWT } from '@/middlewares/bearerToken';
+import { sendProjectCalculationNotification } from '../send-notification/[id]';
 
 const slugify = (text: string) => {
   return text
@@ -55,6 +56,10 @@ export const post = [
           created_by,
         },
       });
+
+      if (data.activity_name === 'Cost Calculation' && data.state === 'Done') {
+        await sendProjectCalculationNotification(+project_id);
+      }
 
       res.json({ status: true, message: 'Success', data });
     } catch (error) {
