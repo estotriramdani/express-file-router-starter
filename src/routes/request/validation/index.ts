@@ -9,15 +9,25 @@ export const post = async (req: Request, res: Response) => {
       error: 'Method Not Allowed',
     });
 
-  const { id_header, nik, solution, user_id_validate } = req.body;
+  const { id_header, nik, solution, value, user_id_validate } = req.body;
 
   try {
+    const requestData = await db1.tr_request.findUnique({
+      where: {
+        id: parseInt(id_header),
+      },
+    });
+
+    if (!requestData) {
+      return res.status(404).json({ status: false, message: 'Request not found' });
+    }
+
     await db1.tr_request_validation.create({
       data: {
         request_id: parseInt(id_header),
         user_id: nik,
         user_id_validate: user_id_validate ? user_id_validate : nik,
-        comment_validation: solution,
+        comment_validation: solution || value,
         status: user_id_validate ? 'Open' : 'Completed',
       },
     });
@@ -44,18 +54,29 @@ export const post = async (req: Request, res: Response) => {
       },
     });
 
-    await createNotification({
-      notification_type: 'Need Action',
-      employee_code: user_id_validate,
-      message: `You have a new request to validate`,
-      title: `Ticket: ${findTitle.ticket_name}.`,
-      action_url: `${process.env.FE_URL}/request/detail?value=${urlEncodedValue}`,
-    });
-
-    await sendEmailRequestValidation({
-      requestId: parseInt(id_header),
-      validator: user_id_validate,
-    });
+    if (user_id_validate) {
+      // sending a validation
+      await createNotification({
+        notification_type: 'Need Action',
+        employee_code: user_id_validate,
+        message: `You have a new request to validate`,
+        title: `Ticket: ${findTitle.ticket_name}.`,
+        action_url: `${process.env.FE_URL}/request/detail?value=${urlEncodedValue}`,
+      });
+      await sendEmailRequestValidation({
+        requestId: parseInt(id_header),
+        validator: user_id_validate,
+      });
+    } else {
+      // send a solution to the requester
+      await createNotification({
+        notification_type: 'Need Action',
+        employee_code: requestData.creator,
+        title: `Ticket: ${findTitle.ticket_name}.`,
+        message: `Solution has been provided for your request`,
+        action_url: `${process.env.FE_URL}/request/detail?value=${urlEncodedValue}`,
+      });
+    }
 
     const projectData = await db1.tr_project.findFirst({
       where: {
