@@ -35,6 +35,7 @@ export const post = async (req: Request, res: Response) => {
         creator: nik,
         status: 'Submit',
         urgency: urgency.value,
+        category: category.value,
         expected_completion_date: moment(expected_completion_date).toISOString(),
         type: type.value,
         department_code: department ? department.toString() : null,
