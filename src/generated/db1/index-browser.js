@@ -308,7 +308,8 @@ exports.Prisma.Tr_project_flowScalarFieldEnum = {
   flow_id: 'flow_id',
   status: 'status',
   updated_at: 'updated_at',
-  updated_by: 'updated_by'
+  updated_by: 'updated_by',
+  state: 'state'
 };
 
 exports.Prisma.Tr_project_overviewScalarFieldEnum = {
@@ -485,7 +486,11 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
-
+exports.tr_project_flow_state = exports.$Enums.tr_project_flow_state = {
+  Pending: 'Pending',
+  Progress: 'Progress',
+  Done: 'Done'
+};
 
 exports.Prisma.ModelName = {
   mst_application: 'mst_application',
