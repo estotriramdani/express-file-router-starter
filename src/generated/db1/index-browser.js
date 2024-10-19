@@ -299,7 +299,8 @@ exports.Prisma.Tr_project_activityScalarFieldEnum = {
   content: 'content',
   document: 'document',
   created_at: 'created_at',
-  created_by: 'created_by'
+  created_by: 'created_by',
+  state: 'state'
 };
 
 exports.Prisma.Tr_project_flowScalarFieldEnum = {
@@ -486,6 +487,12 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+exports.tr_project_activity_state = exports.$Enums.tr_project_activity_state = {
+  Pending: 'Pending',
+  Progress: 'Progress',
+  Done: 'Done'
+};
+
 exports.tr_project_flow_state = exports.$Enums.tr_project_flow_state = {
   Pending: 'Pending',
   Progress: 'Progress',

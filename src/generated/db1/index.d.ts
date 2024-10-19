@@ -173,7 +173,16 @@ export type tr_project_overview_goals = $Result.DefaultSelection<Prisma.$tr_proj
  * Enums
  */
 export namespace $Enums {
-  export const tr_project_flow_state: {
+  export const tr_project_activity_state: {
+  Pending: 'Pending',
+  Progress: 'Progress',
+  Done: 'Done'
+};
+
+export type tr_project_activity_state = (typeof tr_project_activity_state)[keyof typeof tr_project_activity_state]
+
+
+export const tr_project_flow_state: {
   Pending: 'Pending',
   Progress: 'Progress',
   Done: 'Done'
@@ -182,6 +191,10 @@ export namespace $Enums {
 export type tr_project_flow_state = (typeof tr_project_flow_state)[keyof typeof tr_project_flow_state]
 
 }
+
+export type tr_project_activity_state = $Enums.tr_project_activity_state
+
+export const tr_project_activity_state: typeof $Enums.tr_project_activity_state
 
 export type tr_project_flow_state = $Enums.tr_project_flow_state
 
@@ -19209,6 +19222,7 @@ export namespace Prisma {
     document: string | null
     created_at: Date | null
     created_by: string | null
+    state: $Enums.tr_project_activity_state | null
   }
 
   export type Tr_project_activityMaxAggregateOutputType = {
@@ -19221,6 +19235,7 @@ export namespace Prisma {
     document: string | null
     created_at: Date | null
     created_by: string | null
+    state: $Enums.tr_project_activity_state | null
   }
 
   export type Tr_project_activityCountAggregateOutputType = {
@@ -19233,6 +19248,7 @@ export namespace Prisma {
     document: number
     created_at: number
     created_by: number
+    state: number
     _all: number
   }
 
@@ -19259,6 +19275,7 @@ export namespace Prisma {
     document?: true
     created_at?: true
     created_by?: true
+    state?: true
   }
 
   export type Tr_project_activityMaxAggregateInputType = {
@@ -19271,6 +19288,7 @@ export namespace Prisma {
     document?: true
     created_at?: true
     created_by?: true
+    state?: true
   }
 
   export type Tr_project_activityCountAggregateInputType = {
@@ -19283,6 +19301,7 @@ export namespace Prisma {
     document?: true
     created_at?: true
     created_by?: true
+    state?: true
     _all?: true
   }
 
@@ -19382,6 +19401,7 @@ export namespace Prisma {
     document: string | null
     created_at: Date | null
     created_by: string | null
+    state: $Enums.tr_project_activity_state | null
     _count: Tr_project_activityCountAggregateOutputType | null
     _avg: Tr_project_activityAvgAggregateOutputType | null
     _sum: Tr_project_activitySumAggregateOutputType | null
@@ -19413,6 +19433,7 @@ export namespace Prisma {
     document?: boolean
     created_at?: boolean
     created_by?: boolean
+    state?: boolean
     tr_project_flow?: boolean | tr_project_activity$tr_project_flowArgs<ExtArgs>
   }, ExtArgs["result"]["tr_project_activity"]>
 
@@ -19427,6 +19448,7 @@ export namespace Prisma {
     document?: boolean
     created_at?: boolean
     created_by?: boolean
+    state?: boolean
   }
 
   export type tr_project_activityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -19448,6 +19470,7 @@ export namespace Prisma {
       document: string | null
       created_at: Date | null
       created_by: string | null
+      state: $Enums.tr_project_activity_state | null
     }, ExtArgs["result"]["tr_project_activity"]>
     composites: {}
   }
@@ -19827,6 +19850,7 @@ export namespace Prisma {
     readonly document: FieldRef<"tr_project_activity", 'String'>
     readonly created_at: FieldRef<"tr_project_activity", 'DateTime'>
     readonly created_by: FieldRef<"tr_project_activity", 'String'>
+    readonly state: FieldRef<"tr_project_activity", 'tr_project_activity_state'>
   }
     
 
@@ -34127,7 +34151,8 @@ export namespace Prisma {
     content: 'content',
     document: 'document',
     created_at: 'created_at',
-    created_by: 'created_by'
+    created_by: 'created_by',
+    state: 'state'
   };
 
   export type Tr_project_activityScalarFieldEnum = (typeof Tr_project_activityScalarFieldEnum)[keyof typeof Tr_project_activityScalarFieldEnum]
@@ -34403,6 +34428,13 @@ export namespace Prisma {
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'tr_project_activity_state'
+   */
+  export type Enumtr_project_activity_stateFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'tr_project_activity_state'>
     
 
 
@@ -35580,6 +35612,7 @@ export namespace Prisma {
     document?: StringNullableFilter<"tr_project_activity"> | string | null
     created_at?: DateTimeNullableFilter<"tr_project_activity"> | Date | string | null
     created_by?: StringNullableFilter<"tr_project_activity"> | string | null
+    state?: Enumtr_project_activity_stateNullableFilter<"tr_project_activity"> | $Enums.tr_project_activity_state | null
     tr_project_flow?: XOR<Tr_project_flowNullableRelationFilter, tr_project_flowWhereInput> | null
   }
 
@@ -35593,6 +35626,7 @@ export namespace Prisma {
     document?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    state?: SortOrderInput | SortOrder
     tr_project_flow?: tr_project_flowOrderByWithRelationInput
   }
 
@@ -35609,6 +35643,7 @@ export namespace Prisma {
     document?: StringNullableFilter<"tr_project_activity"> | string | null
     created_at?: DateTimeNullableFilter<"tr_project_activity"> | Date | string | null
     created_by?: StringNullableFilter<"tr_project_activity"> | string | null
+    state?: Enumtr_project_activity_stateNullableFilter<"tr_project_activity"> | $Enums.tr_project_activity_state | null
     tr_project_flow?: XOR<Tr_project_flowNullableRelationFilter, tr_project_flowWhereInput> | null
   }, "id">
 
@@ -35622,6 +35657,7 @@ export namespace Prisma {
     document?: SortOrderInput | SortOrder
     created_at?: SortOrderInput | SortOrder
     created_by?: SortOrderInput | SortOrder
+    state?: SortOrderInput | SortOrder
     _count?: tr_project_activityCountOrderByAggregateInput
     _avg?: tr_project_activityAvgOrderByAggregateInput
     _max?: tr_project_activityMaxOrderByAggregateInput
@@ -35642,6 +35678,7 @@ export namespace Prisma {
     document?: StringNullableWithAggregatesFilter<"tr_project_activity"> | string | null
     created_at?: DateTimeNullableWithAggregatesFilter<"tr_project_activity"> | Date | string | null
     created_by?: StringNullableWithAggregatesFilter<"tr_project_activity"> | string | null
+    state?: Enumtr_project_activity_stateNullableWithAggregatesFilter<"tr_project_activity"> | $Enums.tr_project_activity_state | null
   }
 
   export type tr_project_flowWhereInput = {
@@ -37985,6 +38022,7 @@ export namespace Prisma {
     document?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    state?: $Enums.tr_project_activity_state | null
     tr_project_flow?: tr_project_flowCreateNestedOneWithoutTr_project_activityInput
   }
 
@@ -37998,6 +38036,7 @@ export namespace Prisma {
     document?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    state?: $Enums.tr_project_activity_state | null
   }
 
   export type tr_project_activityUpdateInput = {
@@ -38008,6 +38047,7 @@ export namespace Prisma {
     document?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: NullableEnumtr_project_activity_stateFieldUpdateOperationsInput | $Enums.tr_project_activity_state | null
     tr_project_flow?: tr_project_flowUpdateOneWithoutTr_project_activityNestedInput
   }
 
@@ -38021,6 +38061,7 @@ export namespace Prisma {
     document?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: NullableEnumtr_project_activity_stateFieldUpdateOperationsInput | $Enums.tr_project_activity_state | null
   }
 
   export type tr_project_activityCreateManyInput = {
@@ -38033,6 +38074,7 @@ export namespace Prisma {
     document?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    state?: $Enums.tr_project_activity_state | null
   }
 
   export type tr_project_activityUpdateManyMutationInput = {
@@ -38043,6 +38085,7 @@ export namespace Prisma {
     document?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: NullableEnumtr_project_activity_stateFieldUpdateOperationsInput | $Enums.tr_project_activity_state | null
   }
 
   export type tr_project_activityUncheckedUpdateManyInput = {
@@ -38055,6 +38098,7 @@ export namespace Prisma {
     document?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: NullableEnumtr_project_activity_stateFieldUpdateOperationsInput | $Enums.tr_project_activity_state | null
   }
 
   export type tr_project_flowCreateInput = {
@@ -40231,6 +40275,13 @@ export namespace Prisma {
     state?: SortOrder
   }
 
+  export type Enumtr_project_activity_stateNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.tr_project_activity_state | Enumtr_project_activity_stateFieldRefInput<$PrismaModel> | null
+    in?: $Enums.tr_project_activity_state[] | null
+    notIn?: $Enums.tr_project_activity_state[] | null
+    not?: NestedEnumtr_project_activity_stateNullableFilter<$PrismaModel> | $Enums.tr_project_activity_state | null
+  }
+
   export type Tr_project_flowNullableRelationFilter = {
     is?: tr_project_flowWhereInput | null
     isNot?: tr_project_flowWhereInput | null
@@ -40246,6 +40297,7 @@ export namespace Prisma {
     document?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
+    state?: SortOrder
   }
 
   export type tr_project_activityAvgOrderByAggregateInput = {
@@ -40264,6 +40316,7 @@ export namespace Prisma {
     document?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
+    state?: SortOrder
   }
 
   export type tr_project_activityMinOrderByAggregateInput = {
@@ -40276,12 +40329,23 @@ export namespace Prisma {
     document?: SortOrder
     created_at?: SortOrder
     created_by?: SortOrder
+    state?: SortOrder
   }
 
   export type tr_project_activitySumOrderByAggregateInput = {
     id?: SortOrder
     project_id?: SortOrder
     project_flow_id?: SortOrder
+  }
+
+  export type Enumtr_project_activity_stateNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.tr_project_activity_state | Enumtr_project_activity_stateFieldRefInput<$PrismaModel> | null
+    in?: $Enums.tr_project_activity_state[] | null
+    notIn?: $Enums.tr_project_activity_state[] | null
+    not?: NestedEnumtr_project_activity_stateNullableWithAggregatesFilter<$PrismaModel> | $Enums.tr_project_activity_state | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumtr_project_activity_stateNullableFilter<$PrismaModel>
+    _max?: NestedEnumtr_project_activity_stateNullableFilter<$PrismaModel>
   }
 
   export type Enumtr_project_flow_stateNullableFilter<$PrismaModel = never> = {
@@ -41877,6 +41941,10 @@ export namespace Prisma {
     connect?: tr_project_flowWhereUniqueInput
   }
 
+  export type NullableEnumtr_project_activity_stateFieldUpdateOperationsInput = {
+    set?: $Enums.tr_project_activity_state | null
+  }
+
   export type tr_project_flowUpdateOneWithoutTr_project_activityNestedInput = {
     create?: XOR<tr_project_flowCreateWithoutTr_project_activityInput, tr_project_flowUncheckedCreateWithoutTr_project_activityInput>
     connectOrCreate?: tr_project_flowCreateOrConnectWithoutTr_project_activityInput
@@ -42510,6 +42578,23 @@ export namespace Prisma {
     _sum?: NestedFloatNullableFilter<$PrismaModel>
     _min?: NestedFloatNullableFilter<$PrismaModel>
     _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumtr_project_activity_stateNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.tr_project_activity_state | Enumtr_project_activity_stateFieldRefInput<$PrismaModel> | null
+    in?: $Enums.tr_project_activity_state[] | null
+    notIn?: $Enums.tr_project_activity_state[] | null
+    not?: NestedEnumtr_project_activity_stateNullableFilter<$PrismaModel> | $Enums.tr_project_activity_state | null
+  }
+
+  export type NestedEnumtr_project_activity_stateNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.tr_project_activity_state | Enumtr_project_activity_stateFieldRefInput<$PrismaModel> | null
+    in?: $Enums.tr_project_activity_state[] | null
+    notIn?: $Enums.tr_project_activity_state[] | null
+    not?: NestedEnumtr_project_activity_stateNullableWithAggregatesFilter<$PrismaModel> | $Enums.tr_project_activity_state | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumtr_project_activity_stateNullableFilter<$PrismaModel>
+    _max?: NestedEnumtr_project_activity_stateNullableFilter<$PrismaModel>
   }
 
   export type NestedEnumtr_project_flow_stateNullableFilter<$PrismaModel = never> = {
@@ -44109,6 +44194,7 @@ export namespace Prisma {
     document?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    state?: $Enums.tr_project_activity_state | null
   }
 
   export type tr_project_activityUncheckedCreateWithoutTr_project_flowInput = {
@@ -44120,6 +44206,7 @@ export namespace Prisma {
     document?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    state?: $Enums.tr_project_activity_state | null
   }
 
   export type tr_project_activityCreateOrConnectWithoutTr_project_flowInput = {
@@ -44251,6 +44338,7 @@ export namespace Prisma {
     document?: StringNullableFilter<"tr_project_activity"> | string | null
     created_at?: DateTimeNullableFilter<"tr_project_activity"> | Date | string | null
     created_by?: StringNullableFilter<"tr_project_activity"> | string | null
+    state?: Enumtr_project_activity_stateNullableFilter<"tr_project_activity"> | $Enums.tr_project_activity_state | null
   }
 
   export type mst_project_flowUpsertWithoutTr_project_flowInput = {
@@ -46674,6 +46762,7 @@ export namespace Prisma {
     document?: string | null
     created_at?: Date | string | null
     created_by?: string | null
+    state?: $Enums.tr_project_activity_state | null
   }
 
   export type tr_project_activityUpdateWithoutTr_project_flowInput = {
@@ -46684,6 +46773,7 @@ export namespace Prisma {
     document?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: NullableEnumtr_project_activity_stateFieldUpdateOperationsInput | $Enums.tr_project_activity_state | null
   }
 
   export type tr_project_activityUncheckedUpdateWithoutTr_project_flowInput = {
@@ -46695,6 +46785,7 @@ export namespace Prisma {
     document?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: NullableEnumtr_project_activity_stateFieldUpdateOperationsInput | $Enums.tr_project_activity_state | null
   }
 
   export type tr_project_activityUncheckedUpdateManyWithoutTr_project_flowInput = {
@@ -46706,6 +46797,7 @@ export namespace Prisma {
     document?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     created_by?: NullableStringFieldUpdateOperationsInput | string | null
+    state?: NullableEnumtr_project_activity_stateFieldUpdateOperationsInput | $Enums.tr_project_activity_state | null
   }
 
   export type tr_project_taskCreateManyTr_project_taskInput = {

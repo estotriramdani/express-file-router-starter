@@ -224,16 +224,17 @@ model tr_project {
 }
 
 model tr_project_activity {
-  id              Int              @id @default(autoincrement())
+  id              Int                        @id @default(autoincrement())
   project_id      Int?
   project_flow_id Int?
-  activity_name   String?          @db.VarChar(255)
-  date            DateTime?        @db.DateTime(0)
-  content         String?          @db.VarChar(255)
-  document        String?          @db.VarChar(255)
-  created_at      DateTime?        @db.DateTime(0)
-  created_by      String?          @db.VarChar(255)
-  tr_project_flow tr_project_flow? @relation(fields: [project_flow_id], references: [id], onUpdate: SetNull, map: "FK_project_flow_id")
+  activity_name   String?                    @db.VarChar(255)
+  date            DateTime?                  @db.DateTime(0)
+  content         String?                    @db.VarChar(255)
+  document        String?                    @db.VarChar(255)
+  created_at      DateTime?                  @db.DateTime(0)
+  created_by      String?                    @db.VarChar(255)
+  state           tr_project_activity_state?
+  tr_project_flow tr_project_flow?           @relation(fields: [project_flow_id], references: [id], onUpdate: SetNull, map: "FK_project_flow_id")
 
   @@index([project_flow_id], map: "FK_project_flow_id")
 }
@@ -462,6 +463,12 @@ model tr_project_overview_goals {
 }
 
 enum tr_project_flow_state {
+  Pending
+  Progress
+  Done
+}
+
+enum tr_project_activity_state {
   Pending
   Progress
   Done
