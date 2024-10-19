@@ -94,6 +94,7 @@ model mst_group {
   is_deleted                  Boolean?                      @default(false)
   created_at                  DateTime?                     @default(now()) @db.DateTime(0)
   created_by                  String?                       @db.VarChar(255)
+  map_category_to_group       map_category_to_group[]
   mst_authorization_usergroup mst_authorization_usergroup[]
   tr_project                  tr_project[]
 }
@@ -146,7 +147,7 @@ model mst_role {
 
 model tr_document {
   id         Int       @id @default(autoincrement())
-  type       String?   @db.VarChar(11)
+  type       String?   @db.VarChar(50)
   type_id    Int?
   name       String?   @db.VarChar(255)
   filename   String?   @db.VarChar(255)
@@ -185,34 +186,37 @@ model tr_notification {
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model tr_project {
-  id                  Int                @id @default(autoincrement())
-  request_id          Int?
-  application_id      Int?
-  project_name        String?            @db.VarChar(255)
-  survey_id           Int?
-  project_code        String?            @db.VarChar(255)
-  thumbnail           String?            @db.VarChar(255)
-  background          String?            @db.LongText
-  issue_description   String?            @db.LongText
-  business_impact     String?            @db.LongText
-  group_id            Int?
-  plan_start_date     DateTime?          @db.DateTime(0)
-  plan_end_date       DateTime?          @db.DateTime(0)
-  real_start_date     DateTime?          @db.DateTime(0)
-  real_end_date       DateTime?          @db.DateTime(0)
-  expected_completion DateTime?          @db.DateTime(0)
-  percent_done        String?            @db.VarChar(255)
-  auto_percent_done   Boolean?
-  state               Int?
-  is_deleted          String?            @default("0") @db.VarChar(255)
-  created_at          DateTime?          @db.DateTime(0)
-  created_by          String?            @db.VarChar(255)
-  type                String?            @db.VarChar(255)
-  mst_group           mst_group?         @relation(fields: [group_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_master_group")
-  mst_project_state   mst_project_state? @relation(fields: [state], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_master_state")
-  tr_request          tr_request?        @relation(fields: [request_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "tr_project_ibfk_1")
-  tr_project_flow     tr_project_flow[]
-  tr_project_task     tr_project_task[]
+  id                        Int                         @id @default(autoincrement())
+  request_id                Int?
+  application_id            Int?
+  project_name              String?                     @db.VarChar(255)
+  survey_id                 Int?
+  project_code              String?                     @db.VarChar(255)
+  thumbnail                 String?                     @db.VarChar(255)
+  background                String?                     @db.LongText
+  issue_description         String?                     @db.LongText
+  business_impact           String?                     @db.LongText
+  group_id                  Int?
+  plan_start_date           DateTime?                   @db.DateTime(0)
+  plan_end_date             DateTime?                   @db.DateTime(0)
+  real_start_date           DateTime?                   @db.DateTime(0)
+  real_end_date             DateTime?                   @db.DateTime(0)
+  expected_completion       DateTime?                   @db.DateTime(0)
+  percent_done              String?                     @db.VarChar(255)
+  auto_percent_done         Boolean?
+  state                     Int?
+  is_deleted                String?                     @default("0") @db.VarChar(255)
+  created_at                DateTime?                   @db.DateTime(0)
+  created_by                String?                     @db.VarChar(255)
+  type                      String?                     @db.VarChar(255)
+  mst_group                 mst_group?                  @relation(fields: [group_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_master_group")
+  mst_project_state         mst_project_state?          @relation(fields: [state], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_master_state")
+  tr_request                tr_request?                 @relation(fields: [request_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "tr_project_ibfk_1")
+  tr_project_flow           tr_project_flow[]
+  tr_project_minimum_viable tr_project_minimum_viable[]
+  tr_project_overview       tr_project_overview[]
+  tr_project_overview_goals tr_project_overview_goals[]
+  tr_project_task           tr_project_task[]
 
   @@index([group_id], map: "fk_master_group")
   @@index([state], map: "fk_master_state")
@@ -220,45 +224,67 @@ model tr_project {
 }
 
 model tr_project_activity {
-  id              Int              @id @default(autoincrement())
+  id              Int                        @id @default(autoincrement())
   project_id      Int?
   project_flow_id Int?
-  activity_name   String?          @db.VarChar(255)
-  date            DateTime?        @db.DateTime(0)
-  content         String?          @db.VarChar(255)
-  document        String?          @db.VarChar(255)
-  created_at      DateTime?        @db.DateTime(0)
-  created_by      String?          @db.VarChar(255)
-  tr_project_flow tr_project_flow? @relation(fields: [project_flow_id], references: [id], onUpdate: SetNull, map: "FK_project_flow_id")
+  activity_name   String?                    @db.VarChar(255)
+  date            DateTime?                  @db.DateTime(0)
+  content         String?                    @db.VarChar(255)
+  document        String?                    @db.VarChar(255)
+  created_at      DateTime?                  @db.DateTime(0)
+  created_by      String?                    @db.VarChar(255)
+  state           tr_project_activity_state?
+  tr_project_flow tr_project_flow?           @relation(fields: [project_flow_id], references: [id], onUpdate: SetNull, map: "FK_project_flow_id")
 
   @@index([project_flow_id], map: "FK_project_flow_id")
 }
 
 model tr_project_flow {
-  id                  Int                   @id @default(autoincrement())
+  id                  Int                    @id @default(autoincrement())
   project_id          Int?
   flow_id             Int?
   status              Boolean?
-  updated_at          DateTime?             @db.DateTime(0)
-  updated_by          String?               @db.VarChar(255)
+  updated_at          DateTime?              @db.DateTime(0)
+  updated_by          String?                @db.VarChar(255)
+  state               tr_project_flow_state?
   tr_project_activity tr_project_activity[]
-  mst_project_flow    mst_project_flow?     @relation(fields: [flow_id], references: [id], onUpdate: SetNull, map: "FK_flow")
-  tr_project          tr_project?           @relation(fields: [project_id], references: [id], onUpdate: SetNull, map: "FK_project")
+  mst_project_flow    mst_project_flow?      @relation(fields: [flow_id], references: [id], onUpdate: SetNull, map: "FK_flow")
+  tr_project          tr_project?            @relation(fields: [project_id], references: [id], onUpdate: SetNull, map: "FK_project")
 
   @@index([flow_id], map: "FK_flow")
   @@index([project_id], map: "FK_project")
 }
 
 model tr_project_overview {
-  id                  Int       @id @default(autoincrement())
-  project_id          Int?
-  purpose             String?   @db.VarChar(255)
-  goals               String?   @db.VarChar(255)
-  success_measurement String?   @db.VarChar(255)
-  intangible_benefit  String?   @map("intangible benefit") @db.VarChar(255)
-  impact_of_not_doing String?   @db.VarChar(255)
-  created_at          DateTime? @db.DateTime(0)
-  created_by          String?   @db.VarChar(255)
+  id                       Int         @id @default(autoincrement())
+  project_id               Int?
+  background               String?     @db.LongText
+  purpose                  String?     @db.LongText
+  success_measurement      String?     @db.LongText
+  intangible_benefit       String?     @db.LongText
+  impact_of_not_doing      String?     @db.LongText
+  created_at               DateTime?   @default(now()) @db.DateTime(0)
+  created_by               String?     @db.VarChar(255)
+  project_name             String?     @db.VarChar(255)
+  department_name          String?     @db.VarChar(255)
+  type                     String?     @db.VarChar(255)
+  expected_completion_date DateTime?   @db.Date
+  application              String?     @db.VarChar(255)
+  tr_project               tr_project? @relation(fields: [project_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "tr_project_overview_FK")
+
+  @@index([project_id], map: "tr_project_overview_FK")
+}
+
+model tr_project_overview_goals {
+  id         Int         @id @default(autoincrement())
+  project_id Int?
+  goal       String?     @db.LongText
+  created_at DateTime?   @default(now()) @db.DateTime(0)
+  created_by String?     @db.VarChar(255)
+  is_deleted Boolean?    @default(false)
+  tr_project tr_project? @relation(fields: [project_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "tr_project_overview_goals_FK")
+
+  @@index([project_id], map: "tr_project_overview_goals_FK")
 }
 
 model tr_project_participant {
@@ -272,23 +298,28 @@ model tr_project_participant {
 }
 
 model tr_project_risk_mitigation {
-  id            Int       @id
-  project_id    Int?
-  risk          String?   @db.VarChar(255)
-  point_control String?   @db.VarChar(255)
-  created_at    DateTime? @db.DateTime(0)
-  created_by    String?   @db.VarChar(255)
+  id           Int       @id @default(autoincrement())
+  project_id   Int?
+  risk         String?   @db.LongText
+  risk_control String?   @db.LongText
+  impact       String?   @db.VarChar(100)
+  probability  String?   @db.VarChar(100)
+  category     String?   @db.VarChar(100)
+  created_at   DateTime? @default(now()) @db.DateTime(0)
+  created_by   String?   @db.VarChar(255)
+  is_deleted   Boolean?  @default(false)
 }
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model tr_project_scope {
-  id          Int     @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   project_id  Int?
-  features    String? @db.VarChar(255)
-  description String? @db.VarChar(255)
-  type        String? @db.VarChar(255)
-  created_at  String? @db.VarChar(255)
-  created_by  String? @db.VarChar(255)
+  module      String?   @db.VarChar(255)
+  story_point String?   @db.VarChar(255)
+  type        String?   @db.VarChar(255)
+  created_at  DateTime? @default(now()) @db.DateTime(0)
+  created_by  String?   @db.VarChar(255)
+  is_deleted  Boolean?  @default(false)
 }
 
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
@@ -343,6 +374,7 @@ model tr_project_team {
 model tr_request {
   id                       Int                     @id @default(autoincrement())
   entities_id              Int?
+  category                 Int?
   ticket_name              String?                 @db.VarChar(255)
   creation_date            DateTime?               @default(now()) @db.Date
   closed_date              DateTime?               @db.Date
@@ -350,7 +382,6 @@ model tr_request {
   status                   String?                 @db.VarChar(255)
   urgency                  String?                 @db.VarChar(255)
   expected_completion_date DateTime?               @db.Date
-  category                 String?                 @db.VarChar(255)
   type                     String?                 @db.VarChar(255)
   department_code          String?                 @db.VarChar(255)
   department_name          String?                 @db.VarChar(255)
@@ -363,7 +394,10 @@ model tr_request {
   impact                   String?                 @db.VarChar(255)
   priority                 String?                 @db.VarChar(255)
   tr_project               tr_project[]
+  mst_category             mst_category?           @relation(fields: [category], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "tr_request_ibfk_1")
   tr_request_validation    tr_request_validation[]
+
+  @@index([category], map: "category")
 }
 
 model tr_request_technician {
@@ -390,4 +424,52 @@ model tr_request_validation {
   tr_request         tr_request? @relation(fields: [request_id], references: [id], onUpdate: SetNull, map: "FK_REQUEST")
 
   @@index([request_id], map: "FK_REQUEST")
+}
+
+model tr_project_minimum_viable {
+  id             Int         @id @default(autoincrement())
+  project_id     Int?
+  minimum_viable String?     @db.LongText
+  created_at     DateTime?   @default(now()) @db.DateTime(0)
+  created_by     String?     @db.VarChar(255)
+  is_deleted     Boolean?    @default(false)
+  tr_project     tr_project? @relation(fields: [project_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "tr_project_overview_goals_FK_copy")
+
+  @@index([project_id], map: "tr_project_overview_goals_FK")
+}
+
+model map_category_to_group {
+  id           Int           @id @default(autoincrement())
+  category_id  Int?
+  group_id     Int?
+  created_at   DateTime?     @db.DateTime(0)
+  created_by   String?       @db.VarChar(100)
+  mst_group    mst_group?    @relation(fields: [group_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "map_category_to_group_ibfk_1")
+  mst_category mst_category? @relation(fields: [category_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "map_category_to_group_ibfk_2")
+
+  @@index([category_id], map: "category_id")
+  @@index([group_id], map: "group_id")
+}
+
+model mst_category {
+  id                    Int                     @id @default(autoincrement())
+  category_code         String?                 @db.VarChar(20)
+  category_name         String?                 @db.VarChar(100)
+  is_active             String?                 @default("1") @db.VarChar(255)
+  created_at            DateTime?               @db.DateTime(0)
+  created_by            String?                 @db.VarChar(100)
+  map_category_to_group map_category_to_group[]
+  tr_request            tr_request[]
+}
+
+enum tr_project_flow_state {
+  Pending
+  Progress
+  Done
+}
+
+enum tr_project_activity_state {
+  Pending
+  Progress
+  Done
 }

@@ -36,6 +36,14 @@ export const get = async (req: Request, res: Response) => {
       }
     });
 
+    const document_project_charter = await db1.tr_document.findMany({
+      where: {
+        type: 'project_charter',
+        type_id: parseInt(req.params.id),
+        is_deleted: '0'
+      }
+    });
+
 
     const technician = await db1.$queryRaw`
     SELECT
@@ -66,7 +74,8 @@ export const get = async (req: Request, res: Response) => {
         validation: validation,
         document: document,
         technician: technician,
-        project:project
+        project:project,
+        document_project_charter:document_project_charter,
       }
     });
 
