@@ -54,3 +54,19 @@ export const del = [authenticateJWT, async (req: Request, res: Response) => {
     })
     apiOk(res, data);
   }];
+
+
+  export const put = [authenticateJWT, async (req: Request, res: Response) => {
+    try {
+      const updateProject = await db1.tr_project.update({
+        where: { id: parseInt(req.params.id) },
+        data: req.body.form_data,
+      });
+
+      return res.json(updateProject);
+      
+    } catch (error) {
+      console.error("Error updating project:", error);
+      return res.status(500).json({ error: "Failed to update participant" });
+    }
+  }];
