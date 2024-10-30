@@ -67,8 +67,6 @@ const flowByProjectActivity = async (data: ProjectFlowType[], flowName: string) 
     throw new Error(`Flow for ${flowName} is not found`);
   }
 
-  if (data[flowIndex].state === 'Done') return;
-
   const findActivity = await db1.tr_project_activity.findFirst({
     where: {
       project_flow_id: data[flowIndex].id,
