@@ -2,20 +2,21 @@ import { Response } from 'express';
 import { ExtendedRequest } from '@/types/auth';
 import { db1 } from '@/utils/db1';
 import { authenticateJWT } from '@/middlewares/bearerToken';
-import { Prisma, tr_project_task } from '@/generated/db1';
+import { Prisma } from '@/generated/db1';
+import { sendProjectCalculationNotification } from '../send-notification/[id]';
 
 type ProjectFlowType = Prisma.tr_project_flowGetPayload<{
-  include: { mst_project_flow: true };
+  include: { mst_project_flow: true; tr_project_activity: true };
 }>;
 
 const projectApprovalFlow = async (request_id: number, data: ProjectFlowType[]) => {
   const approvalIndex = data.findIndex((item) => item.mst_project_flow.flow === 'Approval');
 
-  if (!approvalIndex) {
+  if (approvalIndex === -1) {
     throw new Error('Approval flow not found');
   }
 
-  if (data[approvalIndex]?.status) return;
+  if (data[approvalIndex].state === 'Done') return;
 
   const validations = await db1.tr_request_validation.findMany({
     where: {
@@ -28,107 +29,115 @@ const projectApprovalFlow = async (request_id: number, data: ProjectFlowType[]) 
 
   let approvalStatus = validations.length === 0;
 
-  if (approvalStatus && data[approvalIndex]?.id) {
+  if (approvalStatus === true) {
+    const findLastValidation = await db1.tr_request_validation.findFirst({
+      where: {
+        request_id: request_id,
+      },
+      orderBy: {
+        validation_date: 'desc',
+      },
+    });
+
     await db1.tr_project_flow.update({
       where: {
         id: data[approvalIndex].id,
       },
       data: {
-        status: true,
+        state: 'Done',
+        updated_at: findLastValidation.validation_date,
+      },
+    });
+  } else {
+    await db1.tr_project_flow.update({
+      where: {
+        id: data[approvalIndex].id,
+      },
+      data: {
+        state: 'Pending',
       },
     });
   }
 };
 
-const developmentFlow = async (tasks: tr_project_task[], data: ProjectFlowType[]) => {
-  const developmentIndex = data.findIndex((item) => item.mst_project_flow.flow === 'Development');
+const flowByProjectActivity = async (data: ProjectFlowType[], flowName: string) => {
+  const flowIndex = data.findIndex((item) => item.mst_project_flow.flow === flowName);
 
-  if (!developmentIndex) {
-    throw new Error('Development flow not found');
+  if (flowIndex === -1) {
+    throw new Error(`Flow for ${flowName} is not found`);
   }
 
-  if (data[developmentIndex]?.status) return;
+  const findActivity = await db1.tr_project_activity.findFirst({
+    where: {
+      project_flow_id: data[flowIndex].id,
+    },
+    orderBy: {
+      created_at: 'desc',
+    }
+  });
 
-  const projectPercentage = tasks.reduce((acc, curr) => {
-    return acc + curr.percent_done;
-  }, 0);
+  if (!findActivity) return;
 
-  if (projectPercentage && projectPercentage > 0) {
-    await db1.tr_project_flow.update({
-      where: {
-        id: data[developmentIndex].id,
-      },
-      data: {
-        status: true,
-      },
-    });
-  }
-};
+  await db1.tr_project_flow.update({
+    data: {
+      updated_at: findActivity.created_at,
+      state: findActivity.state
+    },
+    where: {
+      id: data[flowIndex].id,
+    },
+  });
 
-const taskCalculationFlow = async (tasks: tr_project_task[], data: ProjectFlowType[]) => {
-  const taskCalculationIndex = data.findIndex(
-    (item) => item.mst_project_flow.flow === 'Task Calculation'
-  );
-
-  if (!taskCalculationIndex) {
-    throw new Error('Task Calculation not found');
-  }
-
-  if (data[taskCalculationIndex]?.status) return;
-
-  const projectCost = tasks.reduce((acc, curr) => {
-    return acc + curr.cost;
-  }, 0);
-
-  if (projectCost && projectCost > 0) {
-    await db1.tr_project_flow.update({
-      where: {
-        id: data[taskCalculationIndex].id,
-      },
-      data: {
-        status: true,
-      },
-    });
-  }
+  // TODO: Uncomment later
+  // if (flowName === 'Task Calculation' && data[flowIndex].state === 'Done') {
+  //   await sendProjectCalculationNotification(findActivity.project_id);
+  // }
 };
 
 export const get = [
   async (req: ExtendedRequest, res: Response) => {
     if (req.method !== 'GET') return res.status(405);
 
-    const data = await db1.tr_project_flow.findMany({
-      where: { project_id: parseInt(req.params.id) },
-      include: {
-        mst_project_flow: true,
-      },
-    });
+    try {
+      const data = await db1.tr_project_flow.findMany({
+        where: { project_id: parseInt(req.params.id) },
+        include: {
+          mst_project_flow: true,
+          tr_project_activity: true,
+        },
+      });
 
-    const project = await db1.tr_project.findUnique({
-      where: {
-        id: parseInt(req.params.id),
-      },
-    });
+      const project = await db1.tr_project.findUnique({
+        where: {
+          id: parseInt(req.params.id),
+        },
+      });
 
-    if (!project) return res.status(404).json({ message: 'Project not found' });
+      if (!project) return res.status(404).json({ message: 'Project not found' });
 
-    await projectApprovalFlow(project.request_id, data);
+      await projectApprovalFlow(project.request_id, data);
 
-    const tasks = await db1.tr_project_task.findMany({
-      where: {
-        project_id: project.id,
-      },
-    });
+      await flowByProjectActivity(data, 'Task Calculation');
+      await flowByProjectActivity(data, 'Development');
+      await flowByProjectActivity(data, 'UAT Testing');
+      await flowByProjectActivity(data, 'Security Testing');
+      await flowByProjectActivity(data, 'Deployment');
+      await flowByProjectActivity(data, 'Go Live');
 
-    await taskCalculationFlow(tasks, data);
-    await developmentFlow(tasks, data);
+      const finalData = await db1.tr_project_flow.findMany({
+        where: { project_id: parseInt(req.params.id) },
+        include: {
+          mst_project_flow: true,
+          tr_project_activity: true,
+        },
+      });
 
-    const finalData = await db1.tr_project_flow.findMany({
-      where: { project_id: parseInt(req.params.id) },
-      include: {
-        mst_project_flow: true,
-      },
-    });
-
-    return res.json({ data: finalData });
+      return res.json({ data: finalData });
+    } catch (error) {
+      console.error(error);
+      return res
+        .status(500)
+        .json({ status: false, message: error?.message || 'Internal server error', error });
+    }
   },
 ];

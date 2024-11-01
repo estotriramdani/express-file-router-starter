@@ -41,23 +41,24 @@ export const get = [
   },
 ];
 
-export const post = [authenticateJWT, async (req: Request, res: Response) => {
-  try {
-    console.log(req.body.form_data);
+export const post = [
+  authenticateJWT, async (req: Request, res: Response) => {
+    try {
+      console.log(req.body.form_data);
     
     const tr_project = await db1.tr_project.create({
-      data: req.body.form_data,
-    });
-    const flows = await db1.mst_project_flow.findMany()
-    
-    if (req.body.form_data.request_id) {
-      const requestData = await db1.tr_request.findUnique({
-        where: {
-          id: +req.body.form_data.request_id,
-        },
+        data: req.body.form_data,
       });
+      const flows = await db1.mst_project_flow.findMany();
+
+      if (req.body.form_data.request_id) {
+      const requestData = await db1.tr_request.findUnique({
+          where: {
+            id: +req.body.form_data.request_id,
+          },
+        });
   
-      if (requestData) {
+        if (requestData) {
         console.log('requestData');
         const base64Value = Buffer.from(requestData.id.toString()).toString('base64');
           const urlEncodedValue = encodeURIComponent(base64Value);
@@ -72,23 +73,25 @@ export const post = [authenticateJWT, async (req: Request, res: Response) => {
       }
     }
 
-    for(const item of flows){
-      await db1.tr_project_flow.create({
-        data: {
-          project_id: tr_project.id,
-          flow_id: item.id,
-          status: (item.id == 1 ? true:false),
-          updated_by: (item.id == 1 ? tr_project.created_by:null)
-        },
-      });
-    }
+      for (const item of flows) {
+        await db1.tr_project_flow.create({
+          data: {
+            project_id: tr_project.id,
+            flow_id: item.id,
+            state: item.id == 1 ? 'Done' : 'Pending',
+            updated_at: item.id == 1 ? new Date() : null,
+            updated_by: item.id == 1 ? tr_project.created_by : null,
+          },
+        });
+      }
 
-    return res.status(201).json({
-      status: true,
-      data:tr_project
-    });
-  } catch (error) {
-    console.log(error);
-    return res.status(500).json({ error: error });
-  }
-}];
+      return res.status(201).json({
+        status: true,
+        data: tr_project,
+      });
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({ error: error });
+    }
+  },
+];

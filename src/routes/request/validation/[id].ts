@@ -37,7 +37,7 @@ const handleApproval = async (requestId: string) => {
         id: flow.id,
       },
       data: {
-        status: true,
+        state: 'Pending',
       },
     });
   }

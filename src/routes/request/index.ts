@@ -2,6 +2,7 @@ import { Response, Request } from 'express';
 import moment from 'moment';
 import { db1 } from '@/utils/db1';
 import { createNotification } from '@/services/notification';
+import { sendEmailRequestValidation } from '@/services/NotificationService';
 
 export const post = async (req: Request, res: Response) => {
   if (req.method !== 'POST')
@@ -34,6 +35,7 @@ export const post = async (req: Request, res: Response) => {
         creator: nik,
         status: 'Submit',
         urgency: urgency.value,
+        category: category.value,
         expected_completion_date: moment(expected_completion_date).toISOString(),
         type: type.value,
         department_code: department ? department.toString() : null,
@@ -90,6 +92,14 @@ export const post = async (req: Request, res: Response) => {
         created_by: nik,
       }))
     );
+
+    for (let i = 0; i < insertedValidators.length; i++) {
+      const element = insertedValidators[i];
+      await sendEmailRequestValidation({
+        requestId: idHeader,
+        validator: element.user_id_validate,
+      });
+    }
 
     return res.json({ status: true, data: 'Succeed' });
   } catch (error) {

@@ -119,6 +119,14 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
+exports.Prisma.Map_category_to_groupScalarFieldEnum = {
+  id: 'id',
+  category_id: 'category_id',
+  group_id: 'group_id',
+  created_at: 'created_at',
+  created_by: 'created_by'
+};
+
 exports.Prisma.Mst_applicationScalarFieldEnum = {
   id: 'id',
   application_name: 'application_name',
@@ -165,6 +173,15 @@ exports.Prisma.Mst_authorization_usergroupScalarFieldEnum = {
   employee_code: 'employee_code',
   group_id: 'group_id',
   is_manager: 'is_manager',
+  created_at: 'created_at',
+  created_by: 'created_by'
+};
+
+exports.Prisma.Mst_categoryScalarFieldEnum = {
+  id: 'id',
+  category_code: 'category_code',
+  category_name: 'category_name',
+  is_active: 'is_active',
   created_at: 'created_at',
   created_by: 'created_by'
 };
@@ -313,6 +330,15 @@ exports.Prisma.Tr_project_flowScalarFieldEnum = {
   state: 'state'
 };
 
+exports.Prisma.Tr_project_minimum_viableScalarFieldEnum = {
+  id: 'id',
+  project_id: 'project_id',
+  minimum_viable: 'minimum_viable',
+  created_at: 'created_at',
+  created_by: 'created_by',
+  is_deleted: 'is_deleted'
+};
+
 exports.Prisma.Tr_project_overviewScalarFieldEnum = {
   id: 'id',
   project_id: 'project_id',
@@ -452,32 +478,6 @@ exports.Prisma.Tr_request_validationScalarFieldEnum = {
   state: 'state'
 };
 
-exports.Prisma.Tr_project_minimum_viableScalarFieldEnum = {
-  id: 'id',
-  project_id: 'project_id',
-  minimum_viable: 'minimum_viable',
-  created_at: 'created_at',
-  created_by: 'created_by',
-  is_deleted: 'is_deleted'
-};
-
-exports.Prisma.Map_category_to_groupScalarFieldEnum = {
-  id: 'id',
-  category_id: 'category_id',
-  group_id: 'group_id',
-  created_at: 'created_at',
-  created_by: 'created_by'
-};
-
-exports.Prisma.Mst_categoryScalarFieldEnum = {
-  id: 'id',
-  category_code: 'category_code',
-  category_name: 'category_name',
-  is_active: 'is_active',
-  created_at: 'created_at',
-  created_by: 'created_by'
-};
-
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -500,11 +500,13 @@ exports.tr_project_flow_state = exports.$Enums.tr_project_flow_state = {
 };
 
 exports.Prisma.ModelName = {
+  map_category_to_group: 'map_category_to_group',
   mst_application: 'mst_application',
   mst_application_version: 'mst_application_version',
   mst_authorization: 'mst_authorization',
   mst_authorization_profile: 'mst_authorization_profile',
   mst_authorization_usergroup: 'mst_authorization_usergroup',
+  mst_category: 'mst_category',
   mst_entities: 'mst_entities',
   mst_group: 'mst_group',
   mst_manpower_cost: 'mst_manpower_cost',
@@ -518,6 +520,7 @@ exports.Prisma.ModelName = {
   tr_project: 'tr_project',
   tr_project_activity: 'tr_project_activity',
   tr_project_flow: 'tr_project_flow',
+  tr_project_minimum_viable: 'tr_project_minimum_viable',
   tr_project_overview: 'tr_project_overview',
   tr_project_overview_goals: 'tr_project_overview_goals',
   tr_project_participant: 'tr_project_participant',
@@ -527,10 +530,7 @@ exports.Prisma.ModelName = {
   tr_project_team: 'tr_project_team',
   tr_request: 'tr_request',
   tr_request_technician: 'tr_request_technician',
-  tr_request_validation: 'tr_request_validation',
-  tr_project_minimum_viable: 'tr_project_minimum_viable',
-  map_category_to_group: 'map_category_to_group',
-  mst_category: 'mst_category'
+  tr_request_validation: 'tr_request_validation'
 };
 
 /**

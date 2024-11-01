@@ -13,6 +13,9 @@ export const get = async (req: Request, res: Response) => {
     const request = await db1.tr_request.findFirst({
       where: {
         id: parseInt(req.params.id)
+      },
+      include: {
+        mst_category: true,
       }
     });
 

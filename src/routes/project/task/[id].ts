@@ -82,31 +82,6 @@ export const put = [
         });
       }
 
-      // updateTask.project_id
-      const allTasks = await db1.tr_project_task.findMany({
-        where: { project_id: updateTask.project_id },
-      });
-
-      // #region UPDATING PROJECT FLOW for Development phase
-      const totalProgress = allTasks.reduce((acc, task) => acc + task.percent_done, 0);
-
-      const projectFlow = await db1.tr_project_flow.findFirst({
-        where: {
-          project_id: updateTask.project_id,
-          mst_project_flow: {
-            flow: 'Development',
-          },
-        },
-      });
-
-      if (projectFlow && projectFlow.status === false && totalProgress > 0) {
-        await db1.tr_project_flow.update({
-          where: { id: projectFlow.id },
-          data: { status: true },
-        });
-      }
-      // #endregion UPDATING PROJECT FLOW for Development phase
-
       return res.json(updateTask);
     } catch (error) {
       console.log(error);

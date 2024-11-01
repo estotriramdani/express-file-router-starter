@@ -6,5 +6,6 @@ namespace NodeJS {
     DATABASE_URL_3: string;
     JWT_SECRET: string;
     FE_URL: string;
+    BE_URL: string;
   }
 }
