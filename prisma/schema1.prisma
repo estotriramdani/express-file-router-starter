@@ -8,6 +8,19 @@ datasource db {
   url      = env("DATABASE_URL_1")
 }
 
+model map_category_to_group {
+  id           Int           @id @default(autoincrement())
+  category_id  Int?
+  group_id     Int?
+  created_at   DateTime?     @db.DateTime(0)
+  created_by   String?       @db.VarChar(100)
+  mst_group    mst_group?    @relation(fields: [group_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "map_category_to_group_ibfk_1")
+  mst_category mst_category? @relation(fields: [category_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "map_category_to_group_ibfk_2")
+
+  @@index([category_id], map: "category_id")
+  @@index([group_id], map: "group_id")
+}
+
 /// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model mst_application {
   id                  Int       @id @default(autoincrement())
@@ -75,6 +88,17 @@ model mst_authorization_usergroup {
 
   @@index([employee_code], map: "employee_code")
   @@index([group_id], map: "group_id")
+}
+
+model mst_category {
+  id                    Int                     @id @default(autoincrement())
+  category_code         String?                 @db.VarChar(20)
+  category_name         String?                 @db.VarChar(100)
+  is_active             String?                 @default("1") @db.VarChar(255)
+  created_at            DateTime?               @db.DateTime(0)
+  created_by            String?                 @db.VarChar(100)
+  map_category_to_group map_category_to_group[]
+  tr_request            tr_request[]
 }
 
 model mst_entities {
@@ -147,7 +171,7 @@ model mst_role {
 
 model tr_document {
   id         Int       @id @default(autoincrement())
-  type       String?   @db.VarChar(11)
+  type       String?   @db.VarChar(50)
   type_id    Int?
   name       String?   @db.VarChar(255)
   filename   String?   @db.VarChar(255)
@@ -206,7 +230,7 @@ model tr_project {
   auto_percent_done         Boolean?
   state                     Int?
   is_deleted                String?                     @default("0") @db.VarChar(255)
-  created_at                DateTime?                   @db.DateTime(0)
+  created_at                DateTime?                   @default(now()) @db.DateTime(0)
   created_by                String?                     @db.VarChar(255)
   type                      String?                     @db.VarChar(255)
   mst_group                 mst_group?                  @relation(fields: [group_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_master_group")
@@ -255,6 +279,18 @@ model tr_project_flow {
   @@index([project_id], map: "FK_project")
 }
 
+model tr_project_minimum_viable {
+  id             Int         @id @default(autoincrement())
+  project_id     Int?
+  minimum_viable String?     @db.LongText
+  created_at     DateTime?   @default(now()) @db.DateTime(0)
+  created_by     String?     @db.VarChar(255)
+  is_deleted     Boolean?    @default(false)
+  tr_project     tr_project? @relation(fields: [project_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "tr_project_overview_goals_FK_copy")
+
+  @@index([project_id], map: "tr_project_overview_goals_FK")
+}
+
 model tr_project_overview {
   id                       Int         @id @default(autoincrement())
   project_id               Int?
@@ -273,6 +309,18 @@ model tr_project_overview {
   tr_project               tr_project? @relation(fields: [project_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "tr_project_overview_FK")
 
   @@index([project_id], map: "tr_project_overview_FK")
+}
+
+model tr_project_overview_goals {
+  id         Int         @id @default(autoincrement())
+  project_id Int?
+  goal       String?     @db.LongText
+  created_at DateTime?   @default(now()) @db.DateTime(0)
+  created_by String?     @db.VarChar(255)
+  is_deleted Boolean?    @default(false)
+  tr_project tr_project? @relation(fields: [project_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "tr_project_overview_goals_FK")
+
+  @@index([project_id], map: "tr_project_overview_goals_FK")
 }
 
 model tr_project_participant {
@@ -412,54 +460,6 @@ model tr_request_validation {
   tr_request         tr_request? @relation(fields: [request_id], references: [id], onUpdate: SetNull, map: "FK_REQUEST")
 
   @@index([request_id], map: "FK_REQUEST")
-}
-
-model map_category_to_group {
-  id           Int           @id @default(autoincrement())
-  category_id  Int?
-  group_id     Int?
-  created_at   DateTime?     @db.DateTime(0)
-  created_by   String?       @db.VarChar(100)
-  mst_group    mst_group?    @relation(fields: [group_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "map_category_to_group_ibfk_1")
-  mst_category mst_category? @relation(fields: [category_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "map_category_to_group_ibfk_2")
-
-  @@index([category_id], map: "category_id")
-  @@index([group_id], map: "group_id")
-}
-
-model mst_category {
-  id                    Int                     @id @default(autoincrement())
-  category_code         String?                 @db.VarChar(20)
-  category_name         String?                 @db.VarChar(100)
-  is_active             String?                 @default("1") @db.VarChar(255)
-  created_at            DateTime?               @db.DateTime(0)
-  created_by            String?                 @db.VarChar(100)
-  map_category_to_group map_category_to_group[]
-  tr_request            tr_request[]
-}
-
-model tr_project_minimum_viable {
-  id             Int         @id @default(autoincrement())
-  project_id     Int?
-  minimum_viable String?     @db.LongText
-  created_at     DateTime?   @default(now()) @db.DateTime(0)
-  created_by     String?     @db.VarChar(255)
-  is_deleted     Boolean?    @default(false)
-  tr_project     tr_project? @relation(fields: [project_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "tr_project_overview_goals_FK_copy")
-
-  @@index([project_id], map: "tr_project_overview_goals_FK")
-}
-
-model tr_project_overview_goals {
-  id         Int         @id @default(autoincrement())
-  project_id Int?
-  goal       String?     @db.LongText
-  created_at DateTime?   @default(now()) @db.DateTime(0)
-  created_by String?     @db.VarChar(255)
-  is_deleted Boolean?    @default(false)
-  tr_project tr_project? @relation(fields: [project_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "tr_project_overview_goals_FK")
-
-  @@index([project_id], map: "tr_project_overview_goals_FK")
 }
 
 enum tr_project_flow_state {

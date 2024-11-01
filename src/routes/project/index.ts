@@ -42,29 +42,36 @@ export const get = [
 ];
 
 export const post = [
-  async (req: Request, res: Response) => {
+  authenticateJWT, async (req: Request, res: Response) => {
     try {
-      const tr_project = await db1.tr_project.create({
+      console.log(req.body.form_data);
+    
+    const tr_project = await db1.tr_project.create({
         data: req.body.form_data,
       });
       const flows = await db1.mst_project_flow.findMany();
 
+      if (req.body.form_data.request_id) {
       const requestData = await db1.tr_request.findUnique({
-        where: {
-          id: +req.body.form_data.request_id,
-        },
-      });
-
-      const base64Value = Buffer.from(requestData.id.toString()).toString('base64');
-      const urlEncodedValue = encodeURIComponent(base64Value);
-
-      await createNotification({
-        action_url: `${process.env.FE_URL}/request/detail?value=${urlEncodedValue}`,
-        employee_code: requestData.creator,
-        message: `Project has been created for request ID: ${requestData.id}. Please submit project charter.`,
-        title: 'Submit Project Chart',
-        notification_type: 'Need Action',
-      });
+          where: {
+            id: +req.body.form_data.request_id,
+          },
+        });
+  
+        if (requestData) {
+        console.log('requestData');
+        const base64Value = Buffer.from(requestData.id.toString()).toString('base64');
+          const urlEncodedValue = encodeURIComponent(base64Value);
+    
+          await createNotification({
+            action_url: `${process.env.FE_URL}/request/detail?value=${urlEncodedValue}`,
+            employee_code: requestData.creator,
+            message: `Project has been created for request ID: ${requestData.id}. Please submit project charter.`,
+            title: 'Submit Project Chart',
+            notification_type: 'Need Action',
+          });
+      }
+    }
 
       for (const item of flows) {
         await db1.tr_project_flow.create({

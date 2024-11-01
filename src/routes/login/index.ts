@@ -15,10 +15,10 @@ export const post = async (req: Request, res: Response) => {
   const { nik, password } = req.body;
 
   try {
-    const datas = await db2.pHP_ms_login.findFirst({
+    const datas = await db2.pHP_ms_login_os.findFirst({
       select: {
         lg_nik: true,
-        lg_email_aio: true,
+        email: true,
         lg_name: true,
       },
       where: {
@@ -46,7 +46,7 @@ export const post = async (req: Request, res: Response) => {
       let dataUser = {
         nik: datas.lg_nik,
         name: datas.lg_name,
-        email: datas.lg_email_aio,
+        email: datas.email,
         role: role.length > 0 ? role[0].technician_level : null,
         active_profile: role.length > 0 ? role[0].mst_profile.profile_name : null,
         active_entities: role.length > 0 ? role[0].mst_entities.entities_name : null,
