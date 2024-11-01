@@ -50,9 +50,10 @@ export const put = async (req: Request, res: Response) => {
     });
 
     if (!validationData) {
-      throw new Error('Validator not found', {
-        cause: 'Validator not found',
-      });
+      // throw new Error('Validator not found', {
+      //   cause: 'Validator not found',
+      // });
+      res.status(404).json({ status: false, message: 'Validator not found' });
     }
 
     const { state, comment_validation } = req.body;
