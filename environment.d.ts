@@ -7,5 +7,6 @@ namespace NodeJS {
     JWT_SECRET: string;
     FE_URL: string;
     BE_URL: string;
+    MODE: 'development' | 'production';
   }
 }

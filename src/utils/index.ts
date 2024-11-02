@@ -31,3 +31,9 @@ export const decryptRequestValidation = (
   const [requestId, validator] = decrypted.split('-');
   return { requestId: parseInt(requestId), validator: validator.substring(0, 5) };
 };
+
+export const transformEmployeeCode = (code: string, length: 4 | 5 = 5) => {
+  if (code.length === length) return code;
+  const zeroes = length - code.length;
+  return '0'.repeat(zeroes) + code;
+};

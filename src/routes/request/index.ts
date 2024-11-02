@@ -95,7 +95,8 @@ export const post = async (req: Request, res: Response) => {
 
     for (let i = 0; i < insertedValidators.length; i++) {
       const element = insertedValidators[i];
-      await sendEmailRequestValidation({
+      // this is not awaiting the request to faster the response to user
+      sendEmailRequestValidation({
         requestId: idHeader,
         validator: element.user_id_validate,
       });

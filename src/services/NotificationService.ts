@@ -1,9 +1,16 @@
 import fs from 'fs';
 import path from 'path';
 import { emailSender } from './EmailService';
-import { encryptRequestValidation, fillParameters, newLineToBr } from '@/utils';
+import {
+  encryptRequestValidation,
+  fillParameters,
+  newLineToBr,
+  transformEmployeeCode,
+} from '@/utils';
 import { db1 } from '@/utils/db1';
 import moment from 'moment';
+import { db2 } from '@/utils/db2';
+import { db3 } from '@/utils/db3';
 
 interface Recipient {
   email: string;
@@ -124,12 +131,6 @@ export const getRequestValidationDetail = async (params: {
     business_impact: newLineToBr(requestData.business_impact),
   };
 
-  let creator = requestData.creator;
-  if (creator.length < 5) {
-    const zeroes = 5 - creator.length;
-    creator = '0'.repeat(zeroes) + creator;
-  }
-
   const employeeData = await db1.$queryRaw<
     readonly [{ employee_name: string; employee_code: string; mail_id: string }]
   >`SELECT 
@@ -138,7 +139,9 @@ export const getRequestValidationDetail = async (params: {
     b.mail_id
   FROM 
     aio_employee.mst_employment b 
-  WHERE b.employee_code IN (${requestData.creator}, ${params.validator})
+  WHERE b.employee_code IN (${transformEmployeeCode(requestData.creator)}, ${transformEmployeeCode(
+    params.validator
+  )})
   `;
 
   const creatorDataEmployee = employeeData.find(
@@ -177,10 +180,22 @@ export const sendEmailRequestValidation = async (params: {
 
   const html = fillParameters(template, { ...templateParams, validation_link });
 
+  const validatorNik = await db3.mst_employment.findFirst({
+    where: {
+      employee_code: transformEmployeeCode(params.validator, 5),
+    },
+    select: {
+      mail_id: true,
+      employee_name: true,
+      employee_code: true,
+    },
+  });
+
+  const to = process.env.MODE === 'production' ? validatorNik?.mail_id : 'enurlustiawan@aio.co.id';
+
   await emailSender({
     subject: 'Request Validation',
-    // to: validatorDataEmployee?.mail_id || '',
-    to: 'enurlustiawan@aio.co.id',
+    to,
     text: 'Please enable HTML!',
     body: html,
     attachments: [],
