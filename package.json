@@ -7,10 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec ts-node src/app.ts",
     "push:digital_twin": "npx prisma db push --schema=./prisma/digital_twin_db.prisma",
+
     "pull:digital_twin": "npx prisma db pull --schema=./prisma/digital_twin_db.prisma",
     "pull:employment": "npx prisma db pull --schema=./prisma/employment_db.prisma",
+    "pull:iot_data_raw": "npx prisma db pull --schema=./prisma/iot_data_raw_db.prisma",
+
     "generate:digital_twin": "npx prisma generate --schema=./prisma/digital_twin_db.prisma",
     "generate:employment": "npx prisma generate --schema=./prisma/employment_db.prisma",
+    "generate:iot_data_raw": "npx prisma generate --schema=./prisma/iot_data_raw_db.prisma",
+
     "start": "bun run --watch src/app.ts",
     "gas": "nodemon src/app.ts"
   },

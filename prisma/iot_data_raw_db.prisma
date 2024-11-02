@@ -1,0 +1,369 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/iot_data_raw_db"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL_IOT_DATA_RAW")
+}
+
+model steam_boiler_12tph {
+  DateTime      DateTime  @id @db.DateTime(0)
+  Value         Float?    @db.Float
+  Consume       Float?    @db.Float
+  Unit          String?   @db.VarChar(20)
+  StartDateTime DateTime? @db.DateTime(0)
+  IsTotalizer   Int?
+
+  @@map("86_steam_boiler_12tph")
+}
+
+model alarm_system_results {
+  id            Int            @id @default(autoincrement())
+  value         Float?         @db.Float
+  severity      String?        @db.VarChar(255)
+  alarmSystemId Int?
+  createdAt     DateTime       @db.DateTime(0)
+  updatedAt     DateTime       @db.DateTime(0)
+  remark        String?        @db.VarChar(255)
+  alarm_systems alarm_systems? @relation(fields: [alarmSystemId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "alarm_system_results_ibfk_1")
+
+  @@index([alarmSystemId], map: "alarmSystemId")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model alarm_systems {
+  id                   Int                      @id @default(autoincrement())
+  endpoint             String?                  @db.VarChar(255)
+  nodeId               String?                  @db.VarChar(255)
+  status               String?                  @db.VarChar(255)
+  isBoolean            Boolean?
+  standardCriticalMin  Float?                   @db.Float
+  standardCriticalMax  Float?                   @db.Float
+  standardHighMin      Float?                   @db.Float
+  standardHighMax      Float?                   @db.Float
+  standardMediumMin    Float?                   @db.Float
+  standardMediumMax    Float?                   @db.Float
+  standardLowMin       Float?                   @db.Float
+  standardLowMax       Float?                   @db.Float
+  createdAt            DateTime                 @db.DateTime(0)
+  updatedAt            DateTime                 @db.DateTime(0)
+  deviceDescription    String?                  @db.VarChar(255)
+  valueType            alarm_systems_valueType? @default(max)
+  machineStatusTag     String?                  @db.VarChar(255)
+  alarm_system_results alarm_system_results[]
+}
+
+model all_line_status {
+  id         Int      @id @default(autoincrement())
+  created_at DateTime @default(now()) @db.Timestamp(0)
+  oc3        Int?
+  gbl        Int?
+  al4        Int?
+  pet2       Int?     @default(404)
+  can        Int?     @default(404)
+  sachet     Int?     @default(404)
+  enmix      Int?     @default(404)
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model ccp_nodes {
+  id          Int      @id @default(autoincrement())
+  endpoint    String?  @db.VarChar(255)
+  nodeId      String?  @db.VarChar(255)
+  area        String?  @db.VarChar(255)
+  description String?  @db.VarChar(255)
+  standardMin Float?   @db.Float
+  standardMax Float?   @db.Float
+  createdAt   DateTime @default(now()) @db.DateTime(0)
+  updatedAt   DateTime @default(now()) @db.DateTime(0)
+  tagName     String?  @db.VarChar(255)
+  isApproved  Int?     @db.TinyInt
+  scadaTagId  Int?
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model ccp_results {
+  id          Int                 @id @default(autoincrement())
+  endpoint    String?             @db.VarChar(255)
+  nodeId      String?             @db.VarChar(255)
+  area        String?             @db.VarChar(255)
+  description String?             @db.VarChar(255)
+  standardMin Float?              @db.Float
+  standardMax Float?              @db.Float
+  value       Float?              @db.Float
+  result      ccp_results_result?
+  createdAt   DateTime            @db.DateTime(0)
+  updatedAt   DateTime            @db.DateTime(0)
+  tagName     String?             @db.VarChar(255)
+  isApproved  Int?                @db.TinyInt
+}
+
+model check_times {
+  id         Int    @id @default(autoincrement())
+  table_name String @db.VarChar(255)
+  check_time String @db.VarChar(255)
+}
+
+model data_entries {
+  id          Float   @id @db.Float
+  device_name String? @db.VarChar(1024)
+  field_name  String? @db.VarChar(1024)
+  table_name  String? @db.VarChar(1024)
+  uom         String? @db.VarChar(1024)
+  zone        String? @db.VarChar(1024)
+  category    String? @db.VarChar(1024)
+}
+
+model data_entry_opc_nodes {
+  id        Int      @id @default(autoincrement())
+  tableName String?  @db.VarChar(255)
+  fieldName String?  @db.VarChar(255)
+  endpoint  String?  @db.VarChar(255)
+  nodeId    String?  @db.VarChar(255)
+  createdAt DateTime @default(now()) @db.DateTime(0)
+  updatedAt DateTime @default(now()) @db.DateTime(0)
+}
+
+model data_entry_opc_results {
+  id        Int      @id @default(autoincrement())
+  endpoint  String?  @db.VarChar(255)
+  nodeId    String?  @db.VarChar(255)
+  tableName String?  @db.VarChar(255)
+  fieldName String?  @db.VarChar(255)
+  value     String?  @db.VarChar(255)
+  createdAt DateTime @db.DateTime(0)
+  updatedAt DateTime @db.DateTime(0)
+}
+
+model data_entry_times {
+  id        Int      @id @default(autoincrement())
+  tableName String?  @db.VarChar(255)
+  times     String?  @db.VarChar(255)
+  createdAt DateTime @default(now()) @db.DateTime(0)
+  updatedAt DateTime @default(now()) @db.DateTime(0)
+}
+
+model distributed_breakdown_theories {
+  id          Int                                        @id @default(autoincrement())
+  sourceType  distributed_breakdown_theories_sourceType?
+  power_meter String?                                    @db.VarChar(255)
+  field_name  String?                                    @db.VarChar(255)
+  table_name  String?                                    @db.VarChar(255)
+  line        String?                                    @db.VarChar(255)
+  category    String?                                    @db.VarChar(255)
+  formula     String?                                    @db.Text
+  createdAt   DateTime                                   @default(now()) @db.DateTime(0)
+  updatedAt   DateTime                                   @default(now()) @db.DateTime(0)
+}
+
+model energy_cost_histories {
+  id               Int                         @id @default(autoincrement())
+  mode             energy_cost_histories_mode?
+  date             DateTime?                   @db.DateTime(0)
+  factoryLine      String?                     @db.VarChar(255)
+  factoryLineAlias String?                     @db.VarChar(255)
+  costPerBottle    Float?                      @db.Float
+  createdAt        DateTime                    @db.DateTime(0)
+  updatedAt        DateTime                    @db.DateTime(0)
+}
+
+model energy_per_hours {
+  id         Int      @id @default(autoincrement())
+  line       String   @db.VarChar(255)
+  dateTime   DateTime @db.DateTime(0)
+  value      Float    @db.Float
+  indexValue Float    @db.Float
+  createdAt  DateTime @db.DateTime(0)
+  updatedAt  DateTime @db.DateTime(0)
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model equipment_efficiency_opc_nodes {
+  id          Int       @id @default(autoincrement())
+  endpoint    String?   @db.VarChar(255)
+  node_id     String?   @db.VarChar(255)
+  description String?   @db.VarChar(255)
+  created_at  DateTime? @default(now()) @db.Timestamp(0)
+  scadaTagId  String?   @db.VarChar(255)
+}
+
+model equipment_efficiency_results {
+  id         Int      @id @default(autoincrement())
+  node_desc  String?  @db.VarChar(255)
+  node_id    String?  @db.VarChar(255)
+  endpoint   String?  @db.VarChar(255)
+  value      Float?   @db.Float
+  created_at DateTime @default(now()) @db.Timestamp(0)
+}
+
+model error_logs {
+  id         Int      @id @default(autoincrement())
+  created_at DateTime @default(now()) @db.Timestamp(0)
+  logs       String?  @db.LongText
+}
+
+model evaporator {
+  id         Int      @id @default(autoincrement())
+  value      String?  @db.VarChar(255)
+  created_at DateTime @default(now()) @db.Timestamp(0)
+}
+
+model health_monitoring_nodes {
+  id          Int      @id @default(autoincrement())
+  area        String?  @db.VarChar(255)
+  endpoint    String?  @db.VarChar(255)
+  type        String?  @db.VarChar(255)
+  nodeId      String?  @db.VarChar(255)
+  equipment   String?  @db.VarChar(255)
+  description String?  @db.VarChar(255)
+  uom         String?  @db.VarChar(255)
+  remarks     String?  @db.VarChar(255)
+  createdAt   DateTime @db.DateTime(0)
+  updatedAt   DateTime @db.DateTime(0)
+}
+
+model health_monitoring_results {
+  id          Int      @id @default(autoincrement())
+  area        String?  @db.VarChar(255)
+  endpoint    String?  @db.VarChar(255)
+  type        String?  @db.VarChar(255)
+  nodeId      String?  @db.VarChar(255)
+  equipment   String?  @db.VarChar(255)
+  description String?  @db.VarChar(255)
+  uom         String?  @db.VarChar(255)
+  remarks     String?  @db.VarChar(255)
+  value       Float?   @db.Float
+  createdAt   DateTime @db.DateTime(0)
+  updatedAt   DateTime @db.DateTime(0)
+}
+
+model iam_meter_maps {
+  id             Int      @id @default(autoincrement())
+  url            String?  @db.VarChar(255)
+  dataOrder      String?  @db.VarChar(255)
+  description    String?  @db.VarChar(255)
+  collectionName String?  @db.VarChar(255)
+  interval       Int?
+  createdAt      DateTime @db.DateTime(0)
+  updatedAt      DateTime @db.DateTime(0)
+}
+
+model iam_meter_results {
+  id             Int      @id @default(autoincrement())
+  url            String?  @db.VarChar(255)
+  dataOrder      String?  @db.VarChar(255)
+  description    String?  @db.VarChar(255)
+  collectionName String?  @db.VarChar(255)
+  interval       Int?
+  data           Json?
+  createdAt      DateTime @db.DateTime(0)
+  updatedAt      DateTime @db.DateTime(0)
+}
+
+model line_status_nodes {
+  id          Int      @id @default(autoincrement())
+  endpoint    String   @db.VarChar(255)
+  node_id     String   @db.VarChar(255)
+  description String   @db.VarChar(255)
+  created_at  DateTime @default(now()) @db.Timestamp(0)
+}
+
+model metering_fields {
+  id          Int       @id @default(autoincrement())
+  category    String?   @db.VarChar(255)
+  power_meter String?   @db.VarChar(255)
+  field_name  String?   @db.VarChar(255)
+  table_name  String?   @db.VarChar(255)
+  createdAt   DateTime? @default(now()) @db.DateTime(0)
+  updatedAt   DateTime? @default(now()) @db.DateTime(0)
+}
+
+model opc_endpoints {
+  id        Int      @id @default(autoincrement())
+  endpoint  String?  @unique(map: "endpoint") @db.VarChar(255)
+  createdAt DateTime @default(now()) @db.DateTime(0)
+  updatedAt DateTime @default(now()) @db.DateTime(0)
+}
+
+model opc_watch_nodes {
+  id             Int      @id @default(autoincrement())
+  endpoint       String?  @db.VarChar(255)
+  nodeId         String?  @db.VarChar(255)
+  collectionName String?  @unique(map: "collectionName") @db.VarChar(255)
+  description    String?  @db.VarChar(255)
+  uom            String?  @db.VarChar(255)
+  createdAt      DateTime @default(now()) @db.DateTime(0)
+  updatedAt      DateTime @default(now()) @db.DateTime(0)
+}
+
+model running_hour_maintenance_current_results {
+  id              Int      @id @default(autoincrement())
+  endpoint        String?  @db.VarChar(255)
+  nodeId          String?  @db.VarChar(255)
+  area            String?  @db.VarChar(255)
+  functionCode    String?  @db.VarChar(255)
+  subfunctionCode String?  @db.VarChar(255)
+  equipmentCode   String?  @db.VarChar(255)
+  description     String?  @db.VarChar(255)
+  value           Float?   @db.Float
+  createdAt       DateTime @db.DateTime(0)
+  updatedAt       DateTime @db.DateTime(0)
+}
+
+model running_hour_maintenance_nodes {
+  id              Int      @id @default(autoincrement())
+  endpoint        String?  @db.VarChar(255)
+  nodeId          String?  @db.VarChar(255)
+  area            String?  @db.VarChar(255)
+  functionCode    String?  @db.VarChar(255)
+  subfunctionCode String?  @db.VarChar(255)
+  equipmentCode   String?  @db.VarChar(255)
+  description     String?  @db.VarChar(255)
+  createdAt       DateTime @db.DateTime(0)
+  updatedAt       DateTime @db.DateTime(0)
+}
+
+model running_hour_maintenance_results {
+  id              Int      @id @default(autoincrement())
+  endpoint        String?  @db.VarChar(255)
+  nodeId          String?  @db.VarChar(255)
+  area            String?  @db.VarChar(255)
+  functionCode    String?  @db.VarChar(255)
+  subfunctionCode String?  @db.VarChar(255)
+  equipmentCode   String?  @db.VarChar(255)
+  description     String?  @db.VarChar(255)
+  value           Float?   @db.Float
+  createdAt       DateTime @db.DateTime(0)
+  updatedAt       DateTime @db.DateTime(0)
+}
+
+model utility_report_device_desc {
+  id          Int     @id @default(autoincrement())
+  power_meter String? @db.VarChar(255)
+  desc_1      String? @db.VarChar(255)
+  desc_2      String? @db.VarChar(255)
+  desc_3      String? @db.VarChar(255)
+  category    String? @db.VarChar(255)
+}
+
+enum distributed_breakdown_theories_sourceType {
+  electric
+  water
+}
+
+enum energy_cost_histories_mode {
+  yearly
+  monthly
+}
+
+enum ccp_results_result {
+  GOOD
+  BAD
+}
+
+enum alarm_systems_valueType {
+  max
+  min
+}

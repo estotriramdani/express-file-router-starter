@@ -9,6 +9,7 @@ export const authenticateJWT = (req: ExtendedRequest, res: Response, next: NextF
 
   if (!authHeader) {
     return res.status(401).json({
+      status: false,
       message: 'Authorization header missing',
     });
   }

@@ -6,11 +6,6 @@ import md5 from 'md5';
 const JWT_SECRET = process.env.JWT_SECRET || '';
 
 export const post = async (req: Request, res: Response) => {
-  if (req.method !== 'POST')
-    return res.status(405).json({
-      error: 'Method Not Allowed',
-    });
-
   const { username, password } = req.body;
 
   try {
