@@ -1,5 +1,16 @@
 import 'module-alias/register';
 
+declare global {
+  interface BigInt {
+    toJSON(): string | number;
+  }
+}
+
+BigInt.prototype.toJSON = function () {
+  const int = Number.parseInt(this.toString());
+  return int ?? this.toString();
+};
+
 import path from 'path';
 import cors from 'cors';
 import express from 'express';
