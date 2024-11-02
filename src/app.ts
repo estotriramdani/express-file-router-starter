@@ -1,11 +1,11 @@
 import 'module-alias/register';
 
-import path from "path";
-import cors from "cors";
-import express, { json, urlencoded } from "express";
-import createRouter, { router } from "express-file-routing";
-import dotenv from "dotenv";
-import fileUpload from "express-fileupload";
+import path from 'path';
+import cors from 'cors';
+import express from 'express';
+import createRouter from 'express-file-routing';
+import dotenv from 'dotenv';
+import fileUpload from 'express-fileupload';
 import morgan from 'morgan';
 
 const main = async () => {
@@ -26,31 +26,27 @@ const main = async () => {
 
   app.use(
     bodyParser.json({
-      limit: "50mb",
+      limit: '50mb',
     })
   );
   app.use(
     bodyParser.urlencoded({
-      limit: "50mb",
+      limit: '50mb',
       extended: true,
       parameterLimit: 50000,
     })
   );
 
   await createRouter(router, {
-    directory: path.join(__dirname, "routes"),
+    directory: path.join(__dirname, 'routes'),
   });
 
-  app.use("/api", router);
+  app.use('/api', router);
 
-  await createRouter(router, {
-    directory: path.join(__dirname, "views"),
-  });
+  const PORT = +(process.env.PORT || 4912);
 
-  app.use("/views", router);
-
-  app.listen(4999, () => {
-    console.log("Server started on port 4999");
+  app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`);
   });
 };
 
