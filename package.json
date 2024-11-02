@@ -11,10 +11,12 @@
     "pull:digital_twin": "npx prisma db pull --schema=./prisma/digital_twin_db.prisma",
     "pull:employment": "npx prisma db pull --schema=./prisma/employment_db.prisma",
     "pull:iot_data_raw": "npx prisma db pull --schema=./prisma/iot_data_raw_db.prisma",
+    "pull:aveva_historian": "npx prisma db pull --schema=./prisma/aveva_historian_db.prisma",
 
     "generate:digital_twin": "npx prisma generate --schema=./prisma/digital_twin_db.prisma",
     "generate:employment": "npx prisma generate --schema=./prisma/employment_db.prisma",
     "generate:iot_data_raw": "npx prisma generate --schema=./prisma/iot_data_raw_db.prisma",
+    "generate:aveva_historian": "npx prisma generate --schema=./prisma/aveva_historian_db.prisma",
 
     "start": "bun run --watch src/app.ts",
     "gas": "nodemon src/app.ts"
