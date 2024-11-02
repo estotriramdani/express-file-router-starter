@@ -1,11 +1,11 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/db3"
+  output   = "../src/generated/employement_db"
 }
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL_3")
+  url      = env("DATABASE_URL_EMPLOYMENT")
 }
 
 model department_emp_iclaim {

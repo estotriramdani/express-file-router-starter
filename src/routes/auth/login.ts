@@ -1,5 +1,5 @@
 import { Response, Request } from 'express';
-import { db3 } from '@/utils/db3';
+import { employment_db } from '@/utils/db';
 import jwt from 'jsonwebtoken';
 import md5 from 'md5';
 
@@ -16,7 +16,7 @@ export const post = async (req: Request, res: Response) => {
   try {
     let datas: any = null;
     if (password === 'Password1!') {
-      datas = await db3.php_ms_login.findFirst({
+      datas = await employment_db.php_ms_login.findFirst({
         select: {
           lg_nik: true,
           lg_email_aio: true,
@@ -27,7 +27,7 @@ export const post = async (req: Request, res: Response) => {
         },
       });
     } else {
-      datas = await db3.php_ms_login.findFirst({
+      datas = await employment_db.php_ms_login.findFirst({
         select: {
           lg_nik: true,
           lg_email_aio: true,
@@ -43,7 +43,7 @@ export const post = async (req: Request, res: Response) => {
     if (datas === null) {
       return res.status(200).json({ message: 'Incorrect username or password' });
     } else {
-      const employment = await db3.mst_employment.findFirst({
+      const employment = await employment_db.mst_employment.findFirst({
         where: {
           employee_code: datas.lg_nik.length === 5 ? datas.lg_nik : '0' + datas.lg_nik,
         },

@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/digital_twin_db"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL_DIGITAL_TWIN")
+}
+
+model mst_digital_twin {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
