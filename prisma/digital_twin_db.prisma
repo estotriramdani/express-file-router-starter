@@ -31,12 +31,14 @@ model mst_machine_parameter {
   name            String
   slug            String      @unique
   description     String?
+  uom             String?
   sourceType      String
   avevaTag        String?
   scadaTagId      String?
   opcServer       String?
   opcTag          String?
   iotDataRawQuery String?
+  valueKey        String?
   machine_slug    String
   machine         mst_machine @relation(fields: [machine_slug], references: [slug])
   createdAt       DateTime    @default(now())
