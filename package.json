@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec ts-node src/app.ts",
     "push:digital_twin": "npx prisma db push --schema=./prisma/digital_twin_db.prisma",
+    "studio:digital_twin": "npx prisma studio --schema=./prisma/digital_twin_db.prisma",
 
     "pull:digital_twin": "npx prisma db pull --schema=./prisma/digital_twin_db.prisma",
     "pull:employment": "npx prisma db pull --schema=./prisma/employment_db.prisma",

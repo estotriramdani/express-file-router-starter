@@ -15,3 +15,30 @@ model mst_digital_twin {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
+
+model mst_machine {
+  id                    String                  @id @default(cuid())
+  name                  String
+  slug                  String                  @unique
+  description           String?
+  createdAt             DateTime                @default(now())
+  updatedAt             DateTime                @updatedAt
+  mst_machine_parameter mst_machine_parameter[]
+}
+
+model mst_machine_parameter {
+  id              String      @id @default(cuid())
+  name            String
+  slug            String      @unique
+  description     String?
+  sourceType      String
+  avevaTag        String?
+  scadaTagId      String?
+  opcServer       String?
+  opcTag          String?
+  iotDataRawQuery String?
+  machine_slug    String
+  machine         mst_machine @relation(fields: [machine_slug], references: [slug])
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+}
