@@ -39,6 +39,7 @@ model mst_machine_parameter {
   opcTag          String?
   iotDataRawQuery String?
   valueKey        String?
+  timestampKey    String?
   machine_slug    String
   machine         mst_machine @relation(fields: [machine_slug], references: [slug])
   createdAt       DateTime    @default(now())
