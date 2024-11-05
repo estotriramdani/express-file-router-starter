@@ -14,3 +14,14 @@ export const get = [
     }
   },
 ];
+
+export const post = [
+  authenticateJWT,
+  async (req: ExtendedRequest, res: Response) => {
+    try {
+      res.json({ status: true, data: {} });
+    } catch (error) {
+      res.status(500).json({ error });
+    }
+  },
+];
