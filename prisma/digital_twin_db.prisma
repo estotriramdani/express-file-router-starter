@@ -8,12 +8,20 @@ datasource db {
   url      = env("DATABASE_URL_DIGITAL_TWIN")
 }
 
-model mst_digital_twin {
-  id          String   @id @default(cuid())
-  name        String
-  description String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+model mst_guest_user {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model tr_refresh_token {
+  id        String   @id @default(cuid())
+  token     String   @db.LongText
+  user      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 }
 
 model mst_machine {
