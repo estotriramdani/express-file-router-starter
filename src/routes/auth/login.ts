@@ -53,20 +53,10 @@ export const post = async (req: Request, res: Response) => {
       };
 
       const accessToken = generateAccessToken(dataUser);
-      const refreshToken = jwt.sign(dataUser, process.env.REFRESH_TOKEN_SECRET, {
-        expiresIn: '1d',
-      });
-
-      await digital_twin_db.tr_refresh_token.create({
-        data: {
-          token: refreshToken,
-          user: dataUser.employee_code,
-        },
-      });
 
       return res.status(200).json({
         status: true,
-        data: { ...dataUser, accessToken, refreshToken },
+        data: { ...dataUser, accessToken },
       });
     }
   } catch (error) {
