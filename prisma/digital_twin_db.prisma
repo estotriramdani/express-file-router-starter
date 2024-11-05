@@ -10,6 +10,7 @@ datasource db {
 
 model mst_guest_user {
   id        String   @id @default(cuid())
+  name      String
   username  String   @unique
   password  String
   createdAt DateTime @default(now())

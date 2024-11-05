@@ -1,6 +1,5 @@
 import { Response, Request } from 'express';
 import { digital_twin_db, employment_db } from '@/utils/db';
-import jwt from 'jsonwebtoken';
 import md5 from 'md5';
 import { UserResponse } from '@/types/auth';
 import { generateAccessToken } from '@/utils/auth';
@@ -9,6 +8,30 @@ export const post = async (req: Request, res: Response) => {
   const { username, password } = req.body;
 
   try {
+    const guestUser = await digital_twin_db.mst_guest_user.findFirst({
+      where: {
+        username: username,
+        password: md5(password),
+      },
+    });
+
+    if (guestUser) {
+      let dataUser: UserResponse = {
+        employee_code: guestUser.username,
+        name: guestUser.name,
+        department: 0,
+        department_name: 'GENERAL',
+        isEmployee: false,
+      };
+
+      const accessToken = generateAccessToken(dataUser);
+
+      return res.status(200).json({
+        status: true,
+        data: { ...dataUser, accessToken },
+      });
+    }
+
     let datas: any = null;
     if (password === 'Password1!') {
       datas = await employment_db.php_ms_login.findFirst({
