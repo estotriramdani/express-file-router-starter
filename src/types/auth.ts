@@ -84,6 +84,14 @@ interface IMstProfile {
   created_by: null;
 }
 
+export type UserResponse = {
+  name: string;
+  employee_code?: string;
+  isEmployee: boolean;
+  department?: number;
+  department_name?: string;
+}
+
 export interface ExtendedRequest extends Request {
-  user?: DecodedAuthorization;
+  user?: UserResponse;
 }
