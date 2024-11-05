@@ -1,9 +1,9 @@
 import { Response, Request } from 'express';
-import { employment_db } from '@/utils/db';
+import { digital_twin_db, employment_db } from '@/utils/db';
 import jwt from 'jsonwebtoken';
 import md5 from 'md5';
-
-const JWT_SECRET = process.env.JWT_SECRET || '';
+import { UserResponse } from '@/types/auth';
+import { generateAccessToken } from '@/utils/auth';
 
 export const post = async (req: Request, res: Response) => {
   const { username, password } = req.body;
@@ -44,23 +44,29 @@ export const post = async (req: Request, res: Response) => {
         },
       });
 
-      let dataUser = {
-        nik: employment.employee_code,
+      let dataUser: UserResponse = {
+        employee_code: employment.employee_code,
         name: datas.lg_name,
-        email: datas.lg_email_aio,
-        employment: employment,
         department: employment.deparment_id,
         department_name: employment.department_desc,
+        isEmployee: true,
       };
 
-      const token = jwt.sign(dataUser, JWT_SECRET, {
-        expiresIn: '24h',
+      const accessToken = generateAccessToken(dataUser);
+      const refreshToken = jwt.sign(dataUser, process.env.REFRESH_TOKEN_SECRET, {
+        expiresIn: '1d',
+      });
+
+      await digital_twin_db.tr_refresh_token.create({
+        data: {
+          token: refreshToken,
+          user: dataUser.employee_code,
+        },
       });
 
       return res.status(200).json({
         status: true,
-        data: dataUser,
-        token,
+        data: { ...dataUser, accessToken, refreshToken },
       });
     }
   } catch (error) {
