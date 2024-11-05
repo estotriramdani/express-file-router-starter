@@ -22,6 +22,7 @@
     "generate:scada": "npx prisma generate --schema=./prisma/scada_db.prisma",
 
     "start": "bun run --watch src/app.ts",
+    "start:prod": "ts-node src/app.ts",
     "gas": "nodemon src/app.ts"
   },
   "author": "estotriramdani",
