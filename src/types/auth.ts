@@ -1,3 +1,4 @@
+import { tr_user_role } from '@/generated/digital_twin_db';
 import { Request } from 'express';
 
 export interface DecodedAuthorization {
@@ -90,8 +91,22 @@ export type UserResponse = {
   isEmployee: boolean;
   department?: number;
   department_name?: string;
-}
+};
 
 export interface ExtendedRequest extends Request {
   user?: UserResponse;
+}
+
+export interface LoginDataAttributes {
+  username: string;
+  email: string;
+  fullName: string;
+  role: { name: string; id: string }[];
+  token?: {
+    type: string;
+    attributes: {
+      access: string;
+      refresh: string;
+    };
+  };
 }

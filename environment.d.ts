@@ -5,6 +5,7 @@ namespace NodeJS {
     DATABASE_URL_EMPLOYMENT: string;
     REFRESH_TOKEN_SECRET: string;
     ACCESS_TOKEN_SECRET: string;
+    SELF_URL: string;
     MODE: 'development' | 'production';
   }
 }

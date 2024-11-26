@@ -17,6 +17,24 @@ model mst_guest_user {
   updatedAt DateTime @default(now()) @updatedAt
 }
 
+model mst_role {
+  id           String         @id @default(cuid())
+  role_name    String
+  role_level   Int
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @default(now()) @updatedAt
+  tr_user_role tr_user_role[]
+}
+
+model tr_user_role {
+  id        String   @id @default(cuid())
+  username  String // NIK of user 
+  role      String // ID of role
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  mst_role  mst_role @relation(fields: [role], references: [id])
+}
+
 model tr_refresh_token {
   id        String   @id @default(cuid())
   token     String   @db.LongText
@@ -35,23 +53,35 @@ model mst_machine {
   mst_machine_parameter mst_machine_parameter[]
 }
 
+model mst_function {
+  id                    String                  @id @default(cuid())
+  name                  String
+  slug                  String                  @unique
+  createdAt             DateTime                @default(now())
+  updatedAt             DateTime                @updatedAt
+  mst_machine_parameter mst_machine_parameter[]
+}
+
 model mst_machine_parameter {
-  id              String      @id @default(cuid())
-  name            String
-  slug            String      @unique
-  description     String?
-  uom             String?
-  sourceType      String
-  avevaTag        String?
-  scadaTagId      String?
-  opcServer       String?
-  opcTag          String?
-  iotDataRawQuery String?
-  valueKey        String?
-  timestampKey    String?
-  machine_slug    String
-  isConsumption   Boolean?    @default(false)
-  machine         mst_machine @relation(fields: [machine_slug], references: [slug])
-  createdAt       DateTime    @default(now())
-  updatedAt       DateTime    @updatedAt
+  id                String        @id @default(cuid())
+  name              String
+  slug              String        @unique
+  description       String?
+  uom               String?
+  sourceType        String
+  avevaTag          String?
+  scadaTagId        String?
+  opcServer         String?
+  opcTag            String?
+  iotDataRawQuery   String?
+  valueKey          String?
+  timestampKey      String?
+  machine_slug      String
+  isConsumption     Boolean?      @default(false)
+  hasTrend          Boolean?      @default(false)
+  mst_machine       mst_machine   @relation(fields: [machine_slug], references: [slug])
+  mst_function      mst_function? @relation(fields: [mst_function_slug], references: [slug])
+  mst_function_slug String?
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
 }

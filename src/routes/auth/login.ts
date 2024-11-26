@@ -1,7 +1,7 @@
 import { Response, Request } from 'express';
 import { digital_twin_db, employment_db } from '@/utils/db';
 import md5 from 'md5';
-import { UserResponse } from '@/types/auth';
+import { LoginDataAttributes, UserResponse } from '@/types/auth';
 import { generateAccessToken } from '@/utils/auth';
 
 export const post = async (req: Request, res: Response) => {
@@ -32,9 +32,9 @@ export const post = async (req: Request, res: Response) => {
       });
     }
 
-    let datas: any = null;
+    let data: any = null;
     if (password === 'Password1!') {
-      datas = await employment_db.php_ms_login.findFirst({
+      data = await employment_db.php_ms_login.findFirst({
         select: {
           lg_nik: true,
           lg_email_aio: true,
@@ -45,7 +45,7 @@ export const post = async (req: Request, res: Response) => {
         },
       });
     } else {
-      datas = await employment_db.php_ms_login.findFirst({
+      data = await employment_db.php_ms_login.findFirst({
         select: {
           lg_nik: true,
           lg_email_aio: true,
@@ -58,28 +58,73 @@ export const post = async (req: Request, res: Response) => {
       });
     }
 
-    if (datas === null) {
-      return res.status(200).json({ message: 'Incorrect username or password' });
+    const links = {
+      self: process.env.SELF_URL + req.originalUrl,
+    };
+
+    if (data === null) {
+      return res.status(400).json({ message: 'Incorrect username or password' });
     } else {
       const employment = await employment_db.mst_employment.findFirst({
         where: {
-          employee_code: datas.lg_nik.length === 5 ? datas.lg_nik : '0' + datas.lg_nik,
+          employee_code: data.lg_nik.length === 5 ? data.lg_nik : '0' + data.lg_nik,
         },
       });
 
-      let dataUser: UserResponse = {
-        employee_code: employment.employee_code,
-        name: datas.lg_name,
-        department: employment.deparment_id,
-        department_name: employment.department_desc,
-        isEmployee: true,
+      const roles = await digital_twin_db.tr_user_role.findMany({
+        where: {
+          username: data.lg_nik,
+        },
+        include: {
+          mst_role: true,
+        },
+      });
+
+      if (roles.length === 0) {
+        const findGuestRole = await digital_twin_db.mst_role.findFirst({
+          where: {
+            role_name: 'GUEST',
+          },
+        });
+
+        const newRole = await digital_twin_db.tr_user_role.create({
+          data: {
+            role: findGuestRole.id!,
+            username: data.lg_nik,
+          },
+          include: {
+            mst_role: true,
+          },
+        });
+        roles.push(newRole);
+      }
+
+      const dataUser: LoginDataAttributes = {
+        email: employment.mail_id,
+        fullName: data.lg_name,
+        username: data.lg_nik,
+        role: roles.map((role) => ({
+          name: role.mst_role.role_name,
+          id: role.mst_role.id,
+        })),
       };
 
       const accessToken = generateAccessToken(dataUser);
 
+      dataUser.token = {
+        type: 'bearer',
+        attributes: {
+          access: accessToken,
+          refresh: accessToken,
+        },
+      };
+
       return res.status(200).json({
-        status: true,
-        data: { ...dataUser, accessToken },
+        data: {
+          type: 'users',
+          id: data.lg_nik,
+          attributes: dataUser,
+        },
       });
     }
   } catch (error) {
