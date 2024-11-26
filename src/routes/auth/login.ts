@@ -1,11 +1,17 @@
 import { Response, Request } from 'express';
 import { digital_twin_db, employment_db } from '@/utils/db';
 import md5 from 'md5';
-import { LoginDataAttributes, UserResponse } from '@/types/auth';
+import { LoginDataAttributes } from '@/types/auth';
 import { generateAccessToken } from '@/utils/auth';
+import { generateError, generateRandomString } from '@/utils';
+import { GUEST_USER } from '@/constants';
 
 export const post = async (req: Request, res: Response) => {
   const { username, password } = req.body;
+
+  const links = {
+    self: process.env.SELF_URL + req.originalUrl,
+  };
 
   try {
     const guestUser = await digital_twin_db.mst_guest_user.findFirst({
@@ -16,19 +22,34 @@ export const post = async (req: Request, res: Response) => {
     });
 
     if (guestUser) {
-      let dataUser: UserResponse = {
-        employee_code: guestUser.username,
-        name: guestUser.name,
-        department: 0,
-        department_name: 'GENERAL',
-        isEmployee: false,
+      const dataUser: LoginDataAttributes = {
+        email: 'email',
+        fullName: 'GUEST',
+        username: 'guest',
+        role: [
+          {
+            id: GUEST_USER.id,
+            name: GUEST_USER.role_name,
+          },
+        ],
       };
 
       const accessToken = generateAccessToken(dataUser);
 
+      dataUser.token = {
+        type: 'bearer',
+        attributes: {
+          access: accessToken,
+          refresh: accessToken,
+        },
+      };
+
       return res.status(200).json({
-        status: true,
-        data: { ...dataUser, accessToken },
+        data: {
+          type: 'users',
+          id: 'guest',
+          attributes: dataUser,
+        },
       });
     }
 
@@ -58,12 +79,16 @@ export const post = async (req: Request, res: Response) => {
       });
     }
 
-    const links = {
-      self: process.env.SELF_URL + req.originalUrl,
-    };
-
     if (data === null) {
-      return res.status(400).json({ message: 'Incorrect username or password' });
+      const err = generateError({
+        id: generateRandomString(10),
+        status: 400,
+        title: 'Bad Request',
+        code: 400,
+        description: 'Incorrect username or password',
+        timestamp: new Date().toISOString(),
+      });
+      return res.status(400).json({ links, errors: [err] });
     } else {
       const employment = await employment_db.mst_employment.findFirst({
         where: {
@@ -128,7 +153,17 @@ export const post = async (req: Request, res: Response) => {
       });
     }
   } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: 'Internal Server Error' });
+    return res.status(500).json({
+      errors: [
+        generateError({
+          code: 500,
+          title: 'Internal Server Error',
+          description: error?.message || 'Something went wrong',
+          timestamp: new Date().toISOString(),
+          id: generateRandomString(10),
+          status: 500,
+        }),
+      ],
+    });
   }
 };
