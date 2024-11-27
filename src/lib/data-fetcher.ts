@@ -1,10 +1,6 @@
 import type { mst_machine_parameter } from '@/generated/digital_twin_db';
-import { aveva_historian_db, iot_data_raw_db } from '@/lib/db';
+import { aveva_historian_db, digital_twin_db, iot_data_raw_db } from '@/lib/db';
 import moment from 'moment';
-
-const boiler12tphStatus = async (currentErr: number) => {
-  // boiler-12tph-status
-}
 
 export const getDataParameters = async (params: mst_machine_parameter) => {
   const baseObject = {
@@ -130,6 +126,44 @@ export const getDataParameters = async (params: mst_machine_parameter) => {
     ...baseObject,
     value: {
       value: null,
+      last_update: null,
+    },
+  };
+};
+
+export const boiler12tphStatus = async (params: mst_machine_parameter) => {
+  // boiler-12tph-status
+  const baseObject = {
+    id: params.id,
+    name: params.name,
+    slug: params.slug,
+    description: params.description,
+    uom: params.uom,
+    sourceType: params.sourceType,
+  };
+
+  const errBoiler = await digital_twin_db.mst_machine_parameter.findFirst({
+    where: {
+      slug: 'err-boiler-12tph',
+      machine_slug: params.machine_slug,
+    },
+  });
+
+  if (errBoiler) {
+    const result = await getDataParameters(errBoiler);
+    if (result.value?.value)
+      return {
+        ...baseObject,
+        value: {
+          value: 'Running',
+          last_update: result.value.last_update,
+        },
+      };
+  }
+  return {
+    ...baseObject,
+    value: {
+      value: 'Stopped',
       last_update: null,
     },
   };

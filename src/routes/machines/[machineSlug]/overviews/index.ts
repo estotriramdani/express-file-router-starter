@@ -2,7 +2,7 @@ import { Response } from 'express';
 import { authenticateJWT } from '@/middlewares/bearerToken';
 import { ExtendedRequest } from '@/types/auth';
 import { digital_twin_db } from '@/lib/db';
-import { getDataParameters } from '@/lib/data-fetcher';
+import { boiler12tphStatus, getDataParameters } from '@/lib/data-fetcher';
 import { IParameterResult } from '@/types/response';
 import { generateError, generateRandomString } from '@/utils';
 
@@ -39,7 +39,12 @@ export const get = [
 
       const dataParameters = await Promise.all(
         data.map(async (params) => {
-          const data = await getDataParameters(params);
+          let data = await getDataParameters(params);
+
+          if (params.slug === 'boiler-12tph-status') {
+            data = await boiler12tphStatus(params);
+          }
+
           const restructured: IParameterResult = {
             type: 'parameters',
             id: data.id,
