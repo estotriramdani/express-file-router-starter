@@ -77,6 +77,7 @@ model mst_machine_parameter {
   description       String?
   uom               String?
   sourceType        String
+  tableName         String?
   avevaTag          String?
   scadaTagId        String?
   opcServer         String?
