@@ -23,3 +23,16 @@ export const transformEmployeeCode = (code: string, length: 4 | 5 = 5) => {
   const zeroes = length - code.length;
   return '0'.repeat(zeroes) + code;
 };
+
+export interface Error {
+  id: string;
+  status: number;
+  code: number;
+  title: string;
+  description: string;
+  timestamp: string;
+}
+
+export const generateError = (error: Error): Error => {
+  return error;
+};

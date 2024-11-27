@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken';
 import { Response, NextFunction } from 'express';
-import { DecodedAuthorization, ExtendedRequest } from '@/types/auth';
+import { ExtendedRequest, UserResponse } from '@/types/auth';
 
-const SECRET_KEY = process.env.JWT_SECRET;
+const SECRET_KEY = process.env.ACCESS_TOKEN_SECRET;
 
 export const authenticateJWT = (req: ExtendedRequest, res: Response, next: NextFunction) => {
   const authHeader = req.headers.authorization;
@@ -15,7 +15,7 @@ export const authenticateJWT = (req: ExtendedRequest, res: Response, next: NextF
   }
 
   try {
-    const splitted  = authHeader.split(' ');
+    const splitted = authHeader.split(' ');
     const token = splitted?.[1];
 
     jwt.verify(token || authHeader, SECRET_KEY, (err, decoded) => {
@@ -25,7 +25,16 @@ export const authenticateJWT = (req: ExtendedRequest, res: Response, next: NextF
           message: 'Invalid token.',
         });
       } else {
-        req.user = decoded as DecodedAuthorization;
+        req.user = decoded as UserResponse;
+        if (
+          req.user.employee_code?.toLowerCase().startsWith('guest') &&
+          req.method.toLowerCase() !== 'get'
+        ) {
+          return res.status(403).json({
+            status: false,
+            message: 'Guest users cannot perform this action',
+          });
+        }
         next();
       }
     });
