@@ -19,8 +19,17 @@ model mst_guest_user {
 
 model mst_role {
   id           String         @id @default(cuid())
-  role_name    String
+  role_name    String         @unique
   role_level   Int
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @default(now()) @updatedAt
+  tr_user_role tr_user_role[]
+}
+
+model mst_user {
+  id           String         @id @default(cuid())
+  name         String
+  username     String         @unique
   createdAt    DateTime       @default(now())
   updatedAt    DateTime       @default(now()) @updatedAt
   tr_user_role tr_user_role[]
@@ -28,11 +37,12 @@ model mst_role {
 
 model tr_user_role {
   id        String   @id @default(cuid())
-  username  String // NIK of user 
   role      String // ID of role
+  user      String // ID of user
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
-  mst_role  mst_role @relation(fields: [role], references: [id])
+  mst_role  mst_role @relation(fields: [role], references: [role_name])
+  mst_user  mst_user @relation(fields: [user], references: [username])
 }
 
 model tr_refresh_token {

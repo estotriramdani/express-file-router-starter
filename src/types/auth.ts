@@ -1,4 +1,3 @@
-import { tr_user_role } from '@/generated/digital_twin_db';
 import { Request } from 'express';
 
 export interface DecodedAuthorization {
@@ -101,6 +100,7 @@ export interface LoginDataAttributes {
   username: string;
   email: string;
   fullName: string;
+  photo?: string;
   role: { name: string; id: string }[];
   token?: {
     type: string;

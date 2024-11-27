@@ -96,39 +96,47 @@ export const post = async (req: Request, res: Response) => {
         },
       });
 
-      const roles = await digital_twin_db.tr_user_role.findMany({
+      let findUser = await digital_twin_db.mst_user.findFirst({
+        where: {
+          username: data.lg_nik,
+        },
+      });
+
+      if (!findUser) {
+        const newUser = await digital_twin_db.mst_user.create({
+          data: {
+            username: data.lg_nik,
+            name: data.lg_name,
+          },
+        });
+
+        await digital_twin_db.tr_user_role.create({
+          data: {
+            role: 'GUEST',
+            user: newUser.username,
+          },
+        });
+      }
+
+      const updatedUser = await digital_twin_db.mst_user.findFirst({
         where: {
           username: data.lg_nik,
         },
         include: {
-          mst_role: true,
+          tr_user_role: {
+            include: {
+              mst_role: true,
+            },
+          },
         },
       });
-
-      if (roles.length === 0) {
-        const findGuestRole = await digital_twin_db.mst_role.findFirst({
-          where: {
-            role_name: 'GUEST',
-          },
-        });
-
-        const newRole = await digital_twin_db.tr_user_role.create({
-          data: {
-            role: findGuestRole.id!,
-            username: data.lg_nik,
-          },
-          include: {
-            mst_role: true,
-          },
-        });
-        roles.push(newRole);
-      }
 
       const dataUser: LoginDataAttributes = {
         email: employment.mail_id,
         fullName: data.lg_name,
         username: data.lg_nik,
-        role: roles.map((role) => ({
+        photo: employment.profile_pic,
+        role: updatedUser.tr_user_role.map((role) => ({
           name: role.mst_role.role_name,
           id: role.mst_role.id,
         })),
