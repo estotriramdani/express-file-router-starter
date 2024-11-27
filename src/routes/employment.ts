@@ -1,7 +1,7 @@
 import { Response } from 'express';
 import { authenticateJWT } from '@/middlewares/bearerToken';
 import { ExtendedRequest } from '@/types/auth';
-import { employment_db } from '@/utils/db';
+import { employment_db } from '@/lib/db';
 import { transformEmployeeCode } from '@/utils';
 
 export const get = [

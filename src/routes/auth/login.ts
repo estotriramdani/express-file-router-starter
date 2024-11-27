@@ -1,5 +1,5 @@
 import { Response, Request } from 'express';
-import { digital_twin_db, employment_db } from '@/utils/db';
+import { digital_twin_db, employment_db } from '@/lib/db';
 import md5 from 'md5';
 import { LoginDataAttributes } from '@/types/auth';
 import { generateAccessToken } from '@/utils/auth';

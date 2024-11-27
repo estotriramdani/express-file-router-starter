@@ -1,5 +1,5 @@
 import type { mst_machine_parameter } from '@/generated/digital_twin_db';
-import { aveva_historian_db, iot_data_raw_db } from '@/utils/db';
+import { aveva_historian_db, iot_data_raw_db } from '@/lib/db';
 import moment from 'moment';
 
 const boiler12tphStatus = async (currentErr: number) => {

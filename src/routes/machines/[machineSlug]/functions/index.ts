@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express';
 import { generateError, generateRandomString } from '@/utils';
-import { digital_twin_db } from '@/utils/db';
+import { digital_twin_db } from '@/lib/db';
 
 export const get = async (req: Request, res: Response) => {
   try {

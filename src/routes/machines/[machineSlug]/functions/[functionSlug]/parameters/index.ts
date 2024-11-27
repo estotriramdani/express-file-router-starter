@@ -1,7 +1,7 @@
 import { Response } from 'express';
 import { authenticateJWT } from '@/middlewares/bearerToken';
 import { ExtendedRequest } from '@/types/auth';
-import { digital_twin_db } from '@/utils/db';
+import { digital_twin_db } from '@/lib/db';
 import { getDataParameters } from '@/lib/data-fetcher';
 import { IParameterResult } from '@/types/response';
 import { generateError, generateRandomString } from '@/utils';
