@@ -65,10 +65,15 @@ model mst_function {
   mst_machine           mst_machine?            @relation(fields: [machine_slug], references: [slug])
 }
 
+enum ParameterTrendType {
+  CONSUMPTION // get difference between last value and current value
+  TIME_SERIES // get all value in a time range
+}
+
 model mst_machine_parameter {
-  id                String        @id @default(cuid())
+  id                String              @id @default(cuid())
   name              String
-  slug              String        @unique
+  slug              String              @unique
   description       String?
   uom               String?
   sourceType        String
@@ -80,11 +85,12 @@ model mst_machine_parameter {
   valueKey          String?
   timestampKey      String?
   machine_slug      String
-  isConsumption     Boolean?      @default(false)
-  hasTrend          Boolean?      @default(false)
-  mst_machine       mst_machine   @relation(fields: [machine_slug], references: [slug])
-  mst_function      mst_function? @relation(fields: [mst_function_slug], references: [slug])
+  isConsumption     Boolean?            @default(false)
+  hasTrend          Boolean?            @default(false)
+  trendType         ParameterTrendType?
+  mst_machine       mst_machine         @relation(fields: [machine_slug], references: [slug])
+  mst_function      mst_function?       @relation(fields: [mst_function_slug], references: [slug])
   mst_function_slug String?
-  createdAt         DateTime      @default(now())
-  updatedAt         DateTime      @updatedAt
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
 }
