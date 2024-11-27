@@ -3,6 +3,7 @@ import { PrismaClient as PrismaClientDigitalTwin } from '@/generated/digital_twi
 import { PrismaClient as PrismaClientIotDataRaw } from '@/generated/iot_data_raw_db';
 import { PrismaClient as PrismaClientIotAvevaHistorian } from '@/generated/aveva_historian_db';
 import { PrismaClient as PrismaClientScada } from '@/generated/scada_db';
+import { PrismaClient as PrismaClientDf } from '@/generated/aio_iot_engineering_db';
 
 export const employment_db = new PrismaClientEmployment();
 
@@ -13,3 +14,5 @@ export const iot_data_raw_db = new PrismaClientIotDataRaw();
 export const aveva_historian_db = new PrismaClientIotAvevaHistorian();
 
 export const scada_db = new PrismaClientScada();
+
+export const df_db = new PrismaClientDf();

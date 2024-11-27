@@ -14,12 +14,14 @@
     "pull:iot_data_raw": "npx prisma db pull --schema=./prisma/iot_data_raw_db.prisma",
     "pull:aveva_historian": "npx prisma db pull --schema=./prisma/aveva_historian_db.prisma",
     "pull:scada": "npx prisma db pull --schema=./prisma/scada_db.prisma",
+    "pull:aio_iot_engineering": "npx prisma db pull --schema=./prisma/aio_iot_engineering_db.prisma",
 
     "generate:digital_twin": "npx prisma generate --schema=./prisma/digital_twin_db.prisma",
     "generate:employment": "npx prisma generate --schema=./prisma/employment_db.prisma",
     "generate:iot_data_raw": "npx prisma generate --schema=./prisma/iot_data_raw_db.prisma",
     "generate:aveva_historian": "npx prisma generate --schema=./prisma/aveva_historian_db.prisma",
     "generate:scada": "npx prisma generate --schema=./prisma/scada_db.prisma",
+    "generate:aio_iot_engineering": "npx prisma generate --schema=./prisma/aio_iot_engineering_db.prisma",
 
     "start": "bun run --watch src/app.ts",
     "start:prod": "ts-node src/app.ts",
