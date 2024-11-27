@@ -1,8 +1,7 @@
 import { Response } from 'express';
 import { authenticateJWT } from '@/middlewares/bearerToken';
 import { ExtendedRequest } from '@/types/auth';
-import { digital_twin_db, iot_data_raw_db } from '@/lib/db';
-import { getDataParameters } from '@/lib/data-fetcher';
+import { df_db, digital_twin_db, iot_data_raw_db } from '@/lib/db';
 import { generateError, generateRandomString, getDateRange } from '@/utils';
 import { generateTrendQueryEquipmentEff, TimeUnit } from '@/utils/query';
 
@@ -56,9 +55,33 @@ export const get = [
           endTime: filterDate.endDate,
           nodeDesc: data.node_desc,
           unit: (unit || filterDate.unit) as TimeUnit,
+          db: 'iot_data_raw',
         });
 
         responseData = await iot_data_raw_db.$queryRawUnsafe<{ x: number; y: string }[]>(query);
+      }
+
+      if (data.sourceType === 'aveva' && data.avevaTag && data.availableInDynamicForm) {
+        const tableId = data.avevaTag.split('_')[0];
+
+        const formDetail = await df_db.mst_form.findFirst({
+          where: {
+            id: +tableId,
+          },
+        });
+
+        const query = generateTrendQueryEquipmentEff({
+          aggregate: 'SUM',
+          startTime: filterDate.startDate,
+          endTime: filterDate.endDate,
+          nodeDesc: data.node_desc,
+          unit: (unit || filterDate.unit) as TimeUnit,
+          db: 'aio_iot_engineering',
+          tableName: formDetail.table_name.toLowerCase(),
+          columnName: data.avevaTag.replace(`${tableId}_`, ''),
+        });
+
+        responseData = await df_db.$queryRawUnsafe<{ x: number; y: string }[]>(query);
       }
 
       return res.json({

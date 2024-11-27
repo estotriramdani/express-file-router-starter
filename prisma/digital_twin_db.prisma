@@ -71,28 +71,29 @@ enum ParameterTrendType {
 }
 
 model mst_machine_parameter {
-  id                String              @id @default(cuid())
-  name              String
-  slug              String              @unique
-  description       String?
-  uom               String?
-  sourceType        String
-  tableName         String?
-  node_desc         String? // for equipment_efficiency_results
-  avevaTag          String?
-  scadaTagId        String?
-  opcServer         String?
-  opcTag            String?
-  iotDataRawQuery   String?
-  valueKey          String?
-  timestampKey      String?
-  machine_slug      String
-  isConsumption     Boolean?            @default(false)
-  hasTrend          Boolean?            @default(false)
-  trendType         ParameterTrendType?
-  mst_machine       mst_machine         @relation(fields: [machine_slug], references: [slug])
-  mst_function      mst_function?       @relation(fields: [mst_function_slug], references: [slug])
-  mst_function_slug String?
-  createdAt         DateTime            @default(now())
-  updatedAt         DateTime            @updatedAt
+  id                     String              @id @default(cuid())
+  name                   String
+  slug                   String              @unique
+  description            String?
+  uom                    String?
+  sourceType             String
+  tableName              String?
+  node_desc              String? // for equipment_efficiency_results
+  avevaTag               String?
+  availableInDynamicForm Boolean?            @default(false) // to mark if this parameter is available in dynamic form. If it is true, the number in aveva tag is ID of the table, and the rest is the column name (e.g. 1_column_name)
+  scadaTagId             String?
+  opcServer              String?
+  opcTag                 String?
+  iotDataRawQuery        String?
+  valueKey               String?
+  timestampKey           String?
+  machine_slug           String
+  isConsumption          Boolean?            @default(false)
+  hasTrend               Boolean?            @default(false)
+  trendType              ParameterTrendType?
+  mst_machine            mst_machine         @relation(fields: [machine_slug], references: [slug])
+  mst_function           mst_function?       @relation(fields: [mst_function_slug], references: [slug])
+  mst_function_slug      String?
+  createdAt              DateTime            @default(now())
+  updatedAt              DateTime            @updatedAt
 }
