@@ -10,7 +10,7 @@ export const get = [
   authenticateJWT,
   async (req: ExtendedRequest, res: Response) => {
     try {
-      const { machineSlug } = req.params;
+      const { machineSlug, functionSlug } = req.params;
 
       const links = {
         self: process.env.SELF_URL + req.originalUrl,
@@ -19,8 +19,24 @@ export const get = [
       const data = await digital_twin_db.mst_machine_parameter.findMany({
         where: {
           machine_slug: machineSlug,
+          mst_function_slug: functionSlug,
         },
       });
+
+      if (data.length === 0) {
+        return res.status(404).json({
+          errors: [
+            generateError({
+              code: 404,
+              description: 'Parameter not found',
+              id: generateRandomString(10),
+              status: 404,
+              title: 'Parameter not found',
+              timestamp: new Date().toISOString(),
+            }),
+          ],
+        });
+      }
 
       const dataParameters = await Promise.all(
         data.map(async (params) => {
