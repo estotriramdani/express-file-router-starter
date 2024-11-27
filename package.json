@@ -23,9 +23,9 @@
     "generate:scada": "npx prisma generate --schema=./prisma/scada_db.prisma",
     "generate:aio_iot_engineering": "npx prisma generate --schema=./prisma/aio_iot_engineering_db.prisma",
 
-    "start": "bun run --watch src/app.ts",
+    "start:bun": "bun run --watch src/app.ts",
     "start:prod": "ts-node src/app.ts",
-    "gas": "nodemon src/app.ts"
+    "start:dev": "nodemon src/app.ts"
   },
   "author": "estotriramdani",
   "license": "ISC",
