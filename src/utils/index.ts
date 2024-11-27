@@ -1,3 +1,6 @@
+import moment from 'moment';
+import { TimeUnit } from './query';
+
 /**
  * @description Fill parameters in a template string, e.g. `Hello, {{name}}!` with `{ name: 'John' }` will return `Hello, John!`
  */
@@ -35,4 +38,59 @@ export interface Error {
 
 export const generateError = (error: Error): Error => {
   return error;
+};
+
+export const getDateRange = (filterDate: string = '1day') => {
+  filterDate = filterDate.toLowerCase();
+  let startDate: string;
+  let endDate: string;
+  let unit: TimeUnit = 'hourly';
+
+  if (filterDate === '1day') {
+    startDate = moment().subtract(1, 'days').startOf('day').format('YYYY-MM-DD HH:mm:ss');
+    endDate = moment().endOf('day').format('YYYY-MM-DD HH:mm:ss');
+    unit = 'hourly';
+  }
+
+  if (filterDate === '7days') {
+    startDate = moment().subtract(7, 'days').startOf('day').format('YYYY-MM-DD HH:mm:ss');
+    endDate = moment().endOf('day').format('YYYY-MM-DD HH:mm:ss');
+    unit = 'daily';
+  }
+
+  if (filterDate === '30days') {
+    startDate = moment().subtract(30, 'days').startOf('day').format('YYYY-MM-DD HH:mm:ss');
+    endDate = moment().endOf('day').format('YYYY-MM-DD HH:mm:ss');
+    unit = 'daily';
+  }
+
+  // 3months
+  if (filterDate === '3months') {
+    startDate = moment().subtract(3, 'months').startOf('day').format('YYYY-MM-DD HH:mm:ss');
+    endDate = moment().endOf('day').format('YYYY-MM-DD HH:mm:ss');
+    unit = 'monthly';
+  }
+
+  // 6months
+  if (filterDate === '6months') {
+    startDate = moment().subtract(6, 'months').startOf('day').format('YYYY-MM-DD HH:mm:ss');
+    endDate = moment().endOf('day').format('YYYY-MM-DD HH:mm:ss');
+    unit = 'monthly';
+  }
+
+  // 1year
+  if (filterDate === '1year' || filterDate === '12months') {
+    startDate = moment().subtract(1, 'years').startOf('day').format('YYYY-MM-DD HH:mm:ss');
+    endDate = moment().endOf('day').format('YYYY-MM-DD HH:mm:ss');
+    unit = 'monthly';
+  }
+
+  // ytd
+  if (filterDate === 'ytd') {
+    startDate = moment().startOf('year').format('YYYY-MM-DD HH:mm:ss');
+    endDate = moment().endOf('day').format('YYYY-MM-DD HH:mm:ss');
+    unit = 'monthly';
+  }
+
+  return { startDate, endDate, unit };
 };

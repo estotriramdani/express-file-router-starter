@@ -1,15 +1,18 @@
 import { Response } from 'express';
 import { authenticateJWT } from '@/middlewares/bearerToken';
 import { ExtendedRequest } from '@/types/auth';
-import { digital_twin_db } from '@/lib/db';
+import { digital_twin_db, iot_data_raw_db } from '@/lib/db';
 import { getDataParameters } from '@/lib/data-fetcher';
-import { generateError, generateRandomString } from '@/utils';
+import { generateError, generateRandomString, getDateRange } from '@/utils';
+import { generateTrendQueryEquipmentEff, TimeUnit } from '@/utils/query';
 
 export const get = [
   authenticateJWT,
   async (req: ExtendedRequest, res: Response) => {
     try {
       const { machineSlug, parameterSlug, functionSlug } = req.params;
+      const { unit } = req.query;
+
       const data = await digital_twin_db.mst_machine_parameter.findFirst({
         where: {
           machine_slug: machineSlug,
@@ -34,25 +37,53 @@ export const get = [
         });
       }
 
-      const result = await getDataParameters(data);
+      const links = {
+        self: process.env.SELF_URL + req.originalUrl,
+      };
 
-      res.json({ status: true, data: result });
+      const filterDate = getDateRange(req.query.filter_date as string);
+
+      let responseData: { x: number; y: string }[] = [];
+
+      if (
+        data.sourceType === 'iot_data_raw' &&
+        data.tableName === 'equipment_efficiency_results' &&
+        data.node_desc
+      ) {
+        const query = generateTrendQueryEquipmentEff({
+          aggregate: 'AVG',
+          startTime: filterDate.startDate,
+          endTime: filterDate.endDate,
+          nodeDesc: data.node_desc,
+          unit: (unit || filterDate.unit) as TimeUnit,
+        });
+
+        responseData = await iot_data_raw_db.$queryRawUnsafe<{ x: number; y: string }[]>(query);
+      }
+
+      return res.json({
+        links,
+        data: responseData.map((item) => {
+          return {
+            type: 'logs',
+            attributes: item,
+          };
+        }),
+      });
     } catch (error) {
       console.log(error);
-      res
-        .status(500)
-        .json({
-          errors: [
-            generateError({
-              code: 500,
-              description: error?.message || 'Internal Server Error',
-              id: generateRandomString(10),
-              status: 500,
-              title: 'Internal Server Error',
-              timestamp: new Date().toISOString(),
-            }),
-          ],
-        });
+      res.status(500).json({
+        errors: [
+          generateError({
+            code: 500,
+            description: error?.message || 'Internal Server Error',
+            id: generateRandomString(10),
+            status: 500,
+            title: 'Internal Server Error',
+            timestamp: new Date().toISOString(),
+          }),
+        ],
+      });
     }
   },
 ];

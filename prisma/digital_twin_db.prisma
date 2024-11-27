@@ -78,6 +78,7 @@ model mst_machine_parameter {
   uom               String?
   sourceType        String
   tableName         String?
+  node_desc         String? // for equipment_efficiency_results
   avevaTag          String?
   scadaTagId        String?
   opcServer         String?
