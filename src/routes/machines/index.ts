@@ -2,6 +2,7 @@ import { Response } from 'express';
 import { authenticateJWT } from '@/middlewares/bearerToken';
 import { ExtendedRequest } from '@/types/auth';
 import { digital_twin_db } from '@/utils/db';
+import { generateError, generateRandomString } from '@/utils';
 
 export const get = [
   authenticateJWT,
@@ -31,7 +32,18 @@ export const get = [
         data: transformed,
       });
     } catch (error) {
-      res.status(500).json({ error });
+      res.status(400).json({
+        errors: [
+          generateError({
+            code: 400,
+            description: error?.message || 'Internal Server Error',
+            id: generateRandomString(10),
+            status: 400,
+            title: 'Internal Server Error',
+            timestamp: new Date().toISOString(),
+          }),
+        ],
+      });
     }
   },
 ];
