@@ -93,7 +93,7 @@ export type UserResponse = {
 };
 
 export interface ExtendedRequest extends Request {
-  user?: UserResponse;
+  user?: LoginDataAttributes;
 }
 
 export interface LoginDataAttributes {
