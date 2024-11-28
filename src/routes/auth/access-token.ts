@@ -43,7 +43,6 @@ export const get = async (req: ExtendedRequest, res: Response) => {
         if (req?.user?.exp) {
           delete req.user.exp;
         }
-        console.log(req.user);
         const accessToken = generateAccessToken(req.user);
         res.status(200).json({
           links: {
