@@ -109,4 +109,6 @@ export interface LoginDataAttributes {
       refresh: string;
     };
   };
+  iat?: number;
+  exp?: number;  
 }

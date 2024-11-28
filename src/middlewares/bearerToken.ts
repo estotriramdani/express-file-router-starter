@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { Response, NextFunction } from 'express';
 import { ExtendedRequest, LoginDataAttributes, UserResponse } from '@/types/auth';
+import { generateError } from '@/utils';
 
 const SECRET_KEY = process.env.ACCESS_TOKEN_SECRET;
 
@@ -21,12 +22,21 @@ export const authenticateJWT = (req: ExtendedRequest, res: Response, next: NextF
     jwt.verify(token || authHeader, SECRET_KEY, (err, decoded) => {
       if (err) {
         console.error('Token invalid:', err.message);
-        res.status(400).json({
-          message: 'Invalid token.',
+        res.status(403).json({
+          errors: [
+            generateError({
+              code: 403,
+              title: 'Invalid token',
+              description: err?.message || 'Something went wrong',
+              timestamp: new Date().toISOString(),
+              id: '123',
+              status: 403,
+            }),
+          ],
         });
       } else {
         req.user = decoded as LoginDataAttributes;
-        
+
         if (
           req.user.username?.toLowerCase().startsWith('guest') &&
           req.method.toLowerCase() !== 'get'
@@ -41,7 +51,16 @@ export const authenticateJWT = (req: ExtendedRequest, res: Response, next: NextF
     });
   } catch (ex) {
     res.status(400).json({
-      message: 'Invalid token.',
+      errors: [
+        generateError({
+          code: 400,
+          title: 'Bad Request',
+          description: ex?.message || 'Something went wrong',
+          timestamp: new Date().toISOString(),
+          id: '123',
+          status: 400,
+        }),
+      ],
     });
   }
 };

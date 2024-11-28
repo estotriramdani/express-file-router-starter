@@ -5,6 +5,7 @@ import { LoginDataAttributes } from '@/types/auth';
 import { generateAccessToken } from '@/utils/auth';
 import { generateError, generateRandomString } from '@/utils';
 import { GUEST_USER } from '@/constants';
+import jwt from 'jsonwebtoken';
 
 export const post = async (req: Request, res: Response) => {
   const { username, password } = req.body;
@@ -143,12 +144,15 @@ export const post = async (req: Request, res: Response) => {
       };
 
       const accessToken = generateAccessToken(dataUser);
+      const refreshToken = jwt.sign(dataUser, process.env.REFRESH_TOKEN_SECRET, {
+        expiresIn: '8h',
+      });
 
       dataUser.token = {
         type: 'bearer',
         attributes: {
           access: accessToken,
-          refresh: accessToken,
+          refresh: refreshToken,
         },
       };
 
