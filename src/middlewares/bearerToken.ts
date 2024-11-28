@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { Response, NextFunction } from 'express';
-import { ExtendedRequest, UserResponse } from '@/types/auth';
+import { ExtendedRequest, LoginDataAttributes, UserResponse } from '@/types/auth';
 
 const SECRET_KEY = process.env.ACCESS_TOKEN_SECRET;
 
@@ -25,9 +25,10 @@ export const authenticateJWT = (req: ExtendedRequest, res: Response, next: NextF
           message: 'Invalid token.',
         });
       } else {
-        req.user = decoded as UserResponse;
+        req.user = decoded as LoginDataAttributes;
+        
         if (
-          req.user.employee_code?.toLowerCase().startsWith('guest') &&
+          req.user.username?.toLowerCase().startsWith('guest') &&
           req.method.toLowerCase() !== 'get'
         ) {
           return res.status(403).json({
