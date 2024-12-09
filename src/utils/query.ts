@@ -1,5 +1,5 @@
 export type AggregateFunction = 'MAX' | 'MIN' | 'AVG' | 'SUM';
-export type TimeUnit = 'hourly' | 'daily' | 'monthly';
+export type TimeUnit = 'hourly' | 'daily' | 'monthly' | 'yearly';
 
 type TrendQueryEquipmentEffParams = {
   nodeDesc: string;
@@ -41,6 +41,11 @@ export function generateTrendQueryEquipmentEff(params: TrendQueryEquipmentEffPar
     case 'monthly':
       dateFormat = '%Y-%m-01';
       groupBy = `DATE_FORMAT(${timeColumn}, '%Y-%m-01')`;
+      orderBy = 'x';
+      break;
+    case 'yearly':
+      dateFormat = '%Y-01-01';
+      groupBy = `DATE_FORMAT(${timeColumn}, '%Y-01-01')`;
       orderBy = 'x';
       break;
     default:
