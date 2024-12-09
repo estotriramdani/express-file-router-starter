@@ -54,38 +54,6 @@ export const get = async (req: Request, res: Response) => {
           },
         },
       },
-      {
-        type: 'ring',
-        id: 'cm32etjpp0002hiohtaqo21728',
-        attributes: {
-          slug: 'wtp-system',
-          name: 'WTP system',
-          uom: 'Running/Stop',
-          description: null,
-          placeholder: 4,
-          sourceType: 'source',
-          value: {
-            value: 1,
-            last_update: null,
-          },
-        },
-      },
-      {
-        type: 'ring',
-        id: 'cm32etjpp0002hiohtaq12u10',
-        attributes: {
-          slug: 'boiler-system',
-          name: 'Boiler System',
-          uom: 'Running/Stop',
-          description: null,
-          placeholder: 5,
-          sourceType: 'source',
-          value: {
-            value: 1,
-            last_update: null,
-          },
-        },
-      },
     ],
   });
 };
