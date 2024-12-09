@@ -4,6 +4,7 @@ import { ExtendedRequest } from '@/types/auth';
 import { df_db, digital_twin_db, iot_data_raw_db } from '@/lib/db';
 import { generateError, generateRandomString, getDateRange } from '@/utils';
 import { generateTrendQueryEquipmentEff, TimeUnit } from '@/utils/query';
+import { catchResponse } from '@/utils/response';
 
 export const get = [
   authenticateJWT,
@@ -95,18 +96,7 @@ export const get = [
       });
     } catch (error) {
       console.log(error);
-      res.status(500).json({
-        errors: [
-          generateError({
-            code: 500,
-            description: error?.message || 'Internal Server Error',
-            id: generateRandomString(10),
-            status: 500,
-            title: 'Internal Server Error',
-            timestamp: new Date().toISOString(),
-          }),
-        ],
-      });
+      catchResponse(res, error);
     }
   },
 ];

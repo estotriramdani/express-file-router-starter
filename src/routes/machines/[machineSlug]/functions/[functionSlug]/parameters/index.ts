@@ -5,6 +5,7 @@ import { digital_twin_db } from '@/lib/db';
 import { boiler12tphStatus, getDataParameters } from '@/lib/data-fetcher';
 import { IParameterResult } from '@/types/response';
 import { generateError, generateRandomString } from '@/utils';
+import { catchResponse } from '@/utils/response';
 
 export const get = [
   authenticateJWT,
@@ -58,18 +59,7 @@ export const get = [
       res.json({ links, data: dataParameters });
     } catch (error) {
       console.log(error);
-      res.status(400).json({
-        errors: [
-          generateError({
-            code: 400,
-            description: error?.message || 'Internal Server Error',
-            id: generateRandomString(10),
-            status: 400,
-            title: error?.message || 'Internal Server Error',
-            timestamp: new Date().toISOString(),
-          }),
-        ],
-      });
+      catchResponse(res, error);
     }
   },
 ];
