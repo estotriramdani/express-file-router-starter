@@ -86,6 +86,7 @@ model mst_machine_parameter {
   slug                   String              @unique
   description            String?
   uom                    String?
+  placeholder            Int?
   sourceType             String
   tableName              String?
   node_desc              String? // for equipment_efficiency_results
@@ -106,4 +107,22 @@ model mst_machine_parameter {
   mst_function_slug      String?
   createdAt              DateTime            @default(now())
   updatedAt              DateTime            @updatedAt
+}
+
+enum Area {
+  PRODUCTION
+  UTILITY
+  OTHER
+}
+
+model mst_overview {
+  id          Int      @id @default(autoincrement())
+  slug        String   @unique
+  name        String
+  uom         String?
+  description String?
+  placeholder Int?
+  area        Area
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
 }
