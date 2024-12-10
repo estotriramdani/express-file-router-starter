@@ -12,57 +12,6 @@ export const get = [
         self: process.env.SELF_URL + req.originalUrl,
       };
 
-      return res.json({
-        links,
-        data: [
-          {
-            type: 'lines',
-            id: '1',
-            attributes: {
-              slug: 'warehouse-occupancy',
-              name: 'Warehouse Occupancy',
-              uom: '%',
-              description: 'Warehouse occupancy (%)',
-              sourceType: 'source',
-              value: {
-                value: 82,
-                last_update: null,
-              },
-            },
-          },
-          {
-            type: 'lines',
-            id: '2',
-            attributes: {
-              slug: 'rak-availbility',
-              name: 'Rak Availbility',
-              uom: 'rak',
-              description: 'Warehouse availbility (Rak)',
-              sourceType: 'source',
-              value: {
-                value: 6,
-                last_update: null,
-              },
-            },
-          },
-          {
-            type: 'lines',
-            id: '3',
-            attributes: {
-              slug: 'pallet-availbility',
-              name: 'Pallet Availbility',
-              uom: 'pallet',
-              description: 'Warehouse availbility (Pallet)',
-              sourceType: 'source',
-              value: {
-                value: 13,
-                last_update: null,
-              },
-            },
-          },
-        ],
-      });
-
       type Data = {
         WarehouseGroup: string;
         StockConv: number;
@@ -108,7 +57,7 @@ export const get = [
               description: 'Warehouse occupancy (%)',
               sourceType: 'source',
               value: {
-                value: Math.round(data[0].SCORE * 100),
+                value: data[0].SCORE * 100,
                 last_update: new Date().toISOString(),
               },
             },
@@ -117,10 +66,10 @@ export const get = [
             type: 'warehouse',
             id: '2',
             attributes: {
-              slug: 'rak-availbility',
-              name: 'Rak availbility',
+              slug: 'rak-availability',
+              name: 'Rak Availability',
               uom: 'rak',
-              description: 'Warehouse availbility (Rak)',
+              description: 'Warehouse availability (Rak)',
               sourceType: 'source',
               value: {
                 value: 0,
@@ -132,10 +81,10 @@ export const get = [
             type: 'warehouse',
             id: '3',
             attributes: {
-              slug: 'pallet-availbility',
-              name: 'Pallet availbility',
+              slug: 'pallet-availability',
+              name: 'Pallet Availability',
               uom: 'pallet',
-              description: 'Warehouse availbility (Pallet)',
+              description: 'Warehouse availability (Pallet)',
               sourceType: 'source',
               value: {
                 value: 0,
