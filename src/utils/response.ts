@@ -1,6 +1,7 @@
 import { generateError, generateRandomString } from '.';
 
 export const catchResponse = (res: any, error: any) => {
+  console.error(new Date().toISOString(), error);
   res.status(400).json({
     errors: [
       generateError({
