@@ -24,7 +24,7 @@ type StatusLine = {
   ach: number;
 };
 
-export const getLineInformation = async (table: string): Promise<StatusLine[] | null> => {
+export const getLineInformation = async (table: string): Promise<StatusLine | null> => {
   // check the cache first
   const cached = await cache.get(`statusLine.${table}`);
   if (cached) return cached;
@@ -35,7 +35,7 @@ export const getLineInformation = async (table: string): Promise<StatusLine[] | 
 
   if (!data.length) return null;
 
-  return data;
+  return data[0];
 };
 
 export const getStatusLine = async (
@@ -45,10 +45,8 @@ export const getStatusLine = async (
 
   if (!data) return { value: 0, last_update: new Date().toISOString() };
 
-  const line = data[0];
-
   return {
-    value: data.length,
+    value: data ? 1 : 0,
     last_update: new Date().toISOString(),
   };
 };
