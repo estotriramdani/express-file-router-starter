@@ -58,6 +58,7 @@ model mst_machine {
   name                  String
   slug                  String                  @unique
   description           String?
+  documentation_url     String?
   createdAt             DateTime                @default(now())
   updatedAt             DateTime                @updatedAt
   mst_machine_parameter mst_machine_parameter[]
@@ -65,11 +66,12 @@ model mst_machine {
 }
 
 model mst_function {
-  id                    String                  @id @default(cuid())
+  id                    Int                  @id @default(autoincrement())
   name                  String
+  placeholder           Int?
   slug                  String                  @unique
   createdAt             DateTime                @default(now())
-  updatedAt             DateTime                @updatedAt
+  updatedAt             DateTime                @default(now()) @updatedAt 
   mst_machine_parameter mst_machine_parameter[]
   machine_slug          String?
   mst_machine           mst_machine?            @relation(fields: [machine_slug], references: [slug])
