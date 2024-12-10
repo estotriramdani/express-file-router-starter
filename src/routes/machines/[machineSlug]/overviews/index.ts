@@ -62,10 +62,10 @@ export const get = [
       });
 
       const responseData = {
-        type: 'overview',
-        id: dataMachine.id,
+        type: 'overviews  ',
         attributes: {
           slug: dataMachine.slug,
+          id: dataMachine.id,
           info: {
             type: 'machine-info',
             id: dataMachine.id,
