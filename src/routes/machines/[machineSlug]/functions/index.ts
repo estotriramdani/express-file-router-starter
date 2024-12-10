@@ -22,7 +22,7 @@ export const get = async (req: Request, res: Response) => {
         attributes: {
           slug: item.slug,
           name: item.name,
-          placeholder: 1,
+          placeholder: item.placeholder,
           createdAt: item.createdAt,
           updatedAt: item.updatedAt,
         },
