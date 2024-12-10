@@ -66,12 +66,12 @@ model mst_machine {
 }
 
 model mst_function {
-  id                    Int                  @id @default(autoincrement())
+  id                    Int                     @id @default(autoincrement())
   name                  String
   placeholder           Int?
   slug                  String                  @unique
   createdAt             DateTime                @default(now())
-  updatedAt             DateTime                @default(now()) @updatedAt 
+  updatedAt             DateTime                @default(now()) @updatedAt
   mst_machine_parameter mst_machine_parameter[]
   machine_slug          String?
   mst_machine           mst_machine?            @relation(fields: [machine_slug], references: [slug])
@@ -127,4 +127,31 @@ model mst_overview {
   area        Area
   createdAt   DateTime @default(now())
   updatedAt   DateTime @default(now()) @updatedAt
+}
+
+model mst_line_subarea {
+  id          Int      @id @default(autoincrement())
+  slug        String   @unique
+  name        String
+  uom         String?
+  description String?
+  placeholder Int?
+  sourceType  String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
+  line_slug   String?
+}
+
+model mst_line_subarea_equipment {
+  id           Int      @id @default(autoincrement())
+  slug         String   @unique
+  name         String
+  uom          String?
+  description  String?
+  placeholder  Int?
+  sourceType   String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @default(now()) @updatedAt
+  line_slug    String?
+  subarea_slug String?
 }
