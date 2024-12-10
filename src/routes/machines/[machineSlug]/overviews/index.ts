@@ -49,7 +49,7 @@ export const get = [
           const restructured: IParameterResult = {
             type: 'parameters',
             id: data.id,
-            attributes: { ...data, placeholder: 1 },
+            attributes: { ...data, placeholder: params.placeholder },
           };
           return restructured;
         })
