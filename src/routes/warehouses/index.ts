@@ -57,7 +57,7 @@ export const get = [
               description: 'Warehouse occupancy (%)',
               sourceType: 'source',
               value: {
-                value: data[0].SCORE * 100,
+                value: Math.round(data[0].SCORE * 100),
                 last_update: new Date().toISOString(),
               },
             },
@@ -66,10 +66,10 @@ export const get = [
             type: 'warehouse',
             id: '2',
             attributes: {
-              slug: 'rak-availability',
-              name: 'Rak Availability',
+              slug: 'rak-availbility',
+              name: 'Rak availbility',
               uom: 'rak',
-              description: 'Warehouse availability (Rak)',
+              description: 'Warehouse availbility (Rak)',
               sourceType: 'source',
               value: {
                 value: 0,
@@ -81,10 +81,10 @@ export const get = [
             type: 'warehouse',
             id: '3',
             attributes: {
-              slug: 'pallet-availability',
-              name: 'Pallet Availability',
+              slug: 'pallet-availbility',
+              name: 'Pallet availbility',
               uom: 'pallet',
-              description: 'Warehouse availability (Pallet)',
+              description: 'Warehouse availbility (Pallet)',
               sourceType: 'source',
               value: {
                 value: 0,
