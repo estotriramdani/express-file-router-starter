@@ -1,7 +1,7 @@
 import type { Request, Response } from 'express';
 import { authenticateJWT } from '@/middlewares/bearerToken';
-import { generateError, generateRandomString } from '@/utils';
 import { catchResponse } from '@/utils/response';
+import { digital_twin_db } from '@/lib/db';
 
 export const get = [
   authenticateJWT,
@@ -11,11 +11,15 @@ export const get = [
         self: process.env.SELF_URL + req.originalUrl,
       };
 
-      const data = [];
+      const result = await digital_twin_db.mst_line_subarea.findMany({
+        where: {
+          line_slug: req.params.lineSlug,
+        },
+      });
 
       res.json({
         links,
-        data,
+        data: result,
       });
     } catch (error) {
       catchResponse(res, error);
