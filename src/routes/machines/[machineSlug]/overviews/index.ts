@@ -47,7 +47,7 @@ export const get = [
           }
 
           const restructured: IParameterResult = {
-            type: 'parameters',
+            type: 'machine-parameters',
             id: `${params.placeholder}`,
             attributes: { ...data, placeholder: params.placeholder },
           };
