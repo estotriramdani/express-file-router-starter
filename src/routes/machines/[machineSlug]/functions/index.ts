@@ -18,13 +18,15 @@ export const get = async (req: Request, res: Response) => {
     const transformed = data.map((item) => {
       return {
         type: 'functions',
-        id: item.id,
+        id: `${item.id}`,
         attributes: {
           slug: item.slug,
           name: item.name,
           placeholder: item.placeholder,
-          createdAt: item.createdAt,
-          updatedAt: item.updatedAt,
+          value: {
+            value: 1,
+            last_update: new Date().toISOString(),
+          }
         },
       };
     });
