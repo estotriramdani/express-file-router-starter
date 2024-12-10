@@ -131,7 +131,7 @@ export const getDataParameters = async (params: mst_machine_parameter) => {
   };
 };
 
-export const boiler12tphStatus = async (params: mst_machine_parameter) => {
+export const boiler12tphStatus = async (params: mst_machine_parameter, errTag?: string) => {
   // boiler-12tph-status
   const baseObject = {
     id: params.id,
@@ -144,7 +144,7 @@ export const boiler12tphStatus = async (params: mst_machine_parameter) => {
 
   const errBoiler = await digital_twin_db.mst_machine_parameter.findFirst({
     where: {
-      slug: 'err-boiler-12tph',
+      slug: errTag,
       machine_slug: params.machine_slug,
     },
   });
