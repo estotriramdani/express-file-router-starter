@@ -55,7 +55,30 @@ export const get = [
         })
       );
 
-      res.json({ links, data: dataParameters });
+      const dataMachine = await digital_twin_db.mst_machine.findFirst({
+        where: {
+          slug: machineSlug,
+        },
+      });
+
+      const responseData = {
+        type: 'overview',
+        id: dataMachine.id,
+        attributes: {
+          slug: dataMachine.slug,
+          info: {
+            type: 'machine-info',
+            id: dataMachine.id,
+            attributes: {
+              description: dataMachine.description,
+              documentation_url: dataMachine.documentation_url,
+            },
+          },
+          parameters: dataParameters,
+        },
+      };
+
+      res.json({ links, data: responseData });
     } catch (error) {
       console.log(error);
       catchResponse(res, error);
