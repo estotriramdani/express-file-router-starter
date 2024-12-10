@@ -4,19 +4,18 @@ import { generateError, generateRandomString } from '@/utils';
 import { catchResponse } from '@/utils/response';
 
 export const get = [
-  authenticateJWT,
+  // authenticateJWT,
   async (req: Request, res: Response) => {
     try {
       const links = {
         self: process.env.SELF_URL + req.originalUrl,
       };
 
-      const data = [];
+      const getData = await fetch(`http://10.10.2.70:3013${req.originalUrl.replace('/api/', '/')}`);
 
-      res.json({
-        links,
-        data,
-      });
+      const data = await getData.json();
+
+      res.json(data);
     } catch (error) {
       catchResponse(res, error);
     }
