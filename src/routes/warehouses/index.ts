@@ -72,7 +72,7 @@ export const get = [
               description: 'Warehouse availbility (Rak)',
               sourceType: 'source',
               value: {
-                value: 0,
+                value: Math.random() * 100,
                 last_update: null,
               },
             },
@@ -87,7 +87,7 @@ export const get = [
               description: 'Warehouse availbility (Pallet)',
               sourceType: 'source',
               value: {
-                value: 0,
+                value: Math.random() * 100,
                 last_update: null,
               },
             },
