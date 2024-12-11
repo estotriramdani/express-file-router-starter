@@ -94,3 +94,17 @@ export const getDateRange = (filterDate: string = '1day') => {
 
   return { startDate, endDate, unit };
 };
+
+export const datesBetween = (startDate: string, endDate: string) => {
+  return `AND [DATE] BETWEEN '${startDate}' AND '${endDate}'`;
+};
+
+export const generateDatesBetween = (startDate: string, endDate: string): string[] => {
+  const dates = [];
+  let currentDate = moment(startDate).format('YYYY-MM-DD');
+  while (currentDate <= endDate) {
+    dates.push(currentDate);
+    currentDate = moment(currentDate).add(1, 'days').format('YYYY-MM-DD');
+  }
+  return dates;
+};
