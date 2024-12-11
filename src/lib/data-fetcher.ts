@@ -155,7 +155,7 @@ export const boiler12tphStatus = async (params: mst_machine_parameter, errTag?: 
       return {
         ...baseObject,
         value: {
-          value: 'RUN',
+          value: errTag?.toLowerCase().includes('boiler') ? 1 : 'RUN',
           last_update: result.value.last_update,
         },
       };
@@ -163,7 +163,7 @@ export const boiler12tphStatus = async (params: mst_machine_parameter, errTag?: 
   return {
     ...baseObject,
     value: {
-      value: 'STOP',
+      value: errTag?.toLowerCase().includes('boiler') ? 0 : 'RUN',
       last_update: null,
     },
   };
