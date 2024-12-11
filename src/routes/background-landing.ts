@@ -4,7 +4,7 @@ import path from 'path';
 
 export const get = (req: Request, res: Response) => {
   // get from the file system
-  const pathToFile = path.join(__dirname, '../assets/background-landing.jpg');
+  const pathToFile = path.join(__dirname, '../assets/background-landing.png');
 
   // res.send(pathToFile)
 
