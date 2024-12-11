@@ -37,22 +37,33 @@ export const get = [
       const combined = await getFinishGoodWithPlan(sevenDaysBefore, sevenDaysAfter);
 
       const finalData: ResponseDataFinishGood[] = combined.map((item) => {
+        const isAfter = moment(item.date).isAfter(moment());
         return {
-          type: 'finish-good',
+          type: isAfter ? 'production-plan-target' : 'production-plan',
           id: item.id,
           attributes: {
             slug: item.slug,
             name: item.name,
-            date: item.date,
+            date: new Date(item.date).toISOString(),
             value: {
               actual_production: item.actual_production,
               target_production: item.target_production,
+              last_update: null,
             },
           },
         };
       });
 
-      res.json({ links, data: finalData });
+      res.json({
+        links,
+        data: finalData,
+        _meta: {
+          date: {
+            start: new Date(sevenDaysBefore).toISOString(),
+            end: new Date(sevenDaysAfter).toISOString(),
+          },
+        },
+      });
     } catch (error) {
       catchResponse(res, error);
     }
