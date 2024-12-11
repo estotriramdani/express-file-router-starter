@@ -44,13 +44,11 @@ export const get = [
       const today = moment();
       const year = today.format('YYYY');
       const month = today.format('MM');
-      
+
       const combined = {
         ...al4,
         ...al4_eff_ach,
       };
-
-      
 
       const data = {
         type: 'overviews',
@@ -72,7 +70,7 @@ export const get = [
                 description: 'Efficiency (%)',
                 sourceType: 'source',
                 value: {
-                  value: combined.eff,
+                  value: combined.eff || 0,
                   last_update: null,
                 },
               },
@@ -87,7 +85,7 @@ export const get = [
                 description: null,
                 sourceType: 'source',
                 value: {
-                  value: combined.counter,
+                  value: combined.counter || 0,
                   last_update: null,
                 },
               },
@@ -117,7 +115,7 @@ export const get = [
                 description: null,
                 sourceType: 'source',
                 value: {
-                  value: combined.reject,
+                  value: combined.reject || 0,
                   last_update: null,
                 },
               },
@@ -162,7 +160,7 @@ export const get = [
                 description: null,
                 sourceType: 'source',
                 value: {
-                  value: combined.downtime,
+                  value: combined.downtime || 0,
                   last_update: null,
                 },
               },
