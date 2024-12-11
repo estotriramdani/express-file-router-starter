@@ -35,8 +35,17 @@ export const get = async (req: Request, res: Response) => {
       last_update: new Date().toISOString(),
     };
 
-    if (item.slug === 'wtp-system' || item.slug === 'boiler-system') {
-      value = dataWtp.value;
+    if (item.slug === 'wtp-system') {
+      value = {
+        last_update: new Date().toISOString(),
+        value: dataWtp.value.value === 'RUN' ? 1 : 0,
+      };
+    }
+    if (item.slug === 'boiler-system') {
+      value = {
+        last_update: new Date().toISOString(),
+        value: dataBoiler.value.value,
+      };
     }
 
     return {
@@ -49,7 +58,7 @@ export const get = async (req: Request, res: Response) => {
         description: item.description,
         placeholder: item.placeholder,
         sourceType: '',
-        value: value
+        value: value,
       },
     };
   });
