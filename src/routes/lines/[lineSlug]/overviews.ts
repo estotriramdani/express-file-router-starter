@@ -100,7 +100,7 @@ export const get = [
                 description: 'Status [Running/Stop]',
                 sourceType: 'source',
                 value: {
-                  value: al4 ? 1 : 0,
+                  value: combined.status || 0,
                   last_update: null,
                 },
               },
