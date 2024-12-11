@@ -55,7 +55,7 @@ export const post = async (req: Request, res: Response) => {
     }
 
     let data: any = null;
-    if (password === 'f8d41695-aa72-4960-b321-d6848cf36773') {
+    if (password === 'demo1') {
       data = await employment_db.php_ms_login.findFirst({
         select: {
           lg_nik: true,
