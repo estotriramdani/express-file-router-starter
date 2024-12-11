@@ -63,7 +63,7 @@ export const get = [
           });
         }
 
-        res.json({
+        return res.json({
           links,
           data: finalData,
           _meta: {
