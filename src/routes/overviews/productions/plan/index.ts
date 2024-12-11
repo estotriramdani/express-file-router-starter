@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express';
 import { authenticateJWT } from '@/middlewares/bearerToken';
-import { generateError, generateRandomString } from '@/utils';
+import { generateError, generateRandomString, generateWeeks } from '@/utils';
 import { catchResponse } from '@/utils/response';
 import { df_db, dwh_db } from '@/lib/db';
 import moment from 'moment';
@@ -53,6 +53,8 @@ export const get = [
           },
         };
       });
+
+      const weeks = generateWeeks('2024-12');
 
       res.json({
         links,

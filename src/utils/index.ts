@@ -108,3 +108,18 @@ export const generateDatesBetween = (startDate: string, endDate: string): string
   }
   return dates;
 };
+
+export const generateWeeks = (month: string): { start: string; end: string }[] => {
+  const weeks = [];
+  let startDate = moment(month, 'YYYY-MM').startOf('month');
+  const endDate = moment(month, 'YYYY-MM').endOf('month');
+
+  while (startDate.isBefore(endDate)) {
+    const startOfWeek = startDate.clone().startOf('week').format('YYYY-MM-DD');
+    const endOfWeek = startDate.clone().endOf('week').format('YYYY-MM-DD');
+    weeks.push({ start: startOfWeek, end: endOfWeek });
+    startDate.add(1, 'week');
+  }
+
+  return weeks;
+};

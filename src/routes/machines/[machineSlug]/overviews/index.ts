@@ -65,6 +65,7 @@ export const get = [
         type: 'overviews  ',
         attributes: {
           slug: dataMachine.slug,
+          name: dataMachine.name,
           id: dataMachine.id,
           info: {
             type: 'machine-info',
