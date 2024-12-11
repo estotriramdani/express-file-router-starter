@@ -46,7 +46,7 @@ export const getStatusLine = async (
   if (!data) return { value: 0, last_update: new Date().toISOString() };
 
   return {
-    value: data.status ? 1 : data ? 1 : 0,
+    value: typeof data.status === 'number' ? data.status : data ? 1 : 0,
     last_update: new Date().toISOString(),
   };
 };
