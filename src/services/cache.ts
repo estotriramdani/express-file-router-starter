@@ -1,54 +1,47 @@
-// @ts-ignore
-// import Cache from 'file-system-cache';
+import { digital_twin_db } from '@/lib/db';
 
-// export const cache = Cache({
-//   basePath: './.cache', // (optional) Path where cache files are stored (default).
-//   ns: 'my-namespace', // (optional) A grouping namespace for items.
-//   hash: 'sha1', // (optional) A hashing algorithm used within the cache key.
-//   ttl: 60 * 60 * 3, // (optional) A time-to-live (in secs) on how long an item remains cached.
-// });
-
-import * as fs from 'fs';
-import * as path from 'path';
-
-const cacheDir = path.resolve(__dirname, '../../.cache');
-
-if (!fs.existsSync(cacheDir)) {
-  fs.mkdirSync(cacheDir);
+interface CacheOptions {
+  maxSize?: number;
+  ttl?: number; // time to live in milliseconds
 }
 
-const Cache = (options) => {
+const Cache = (options: CacheOptions) => {
+  options.ttl = options.ttl || 1000 * 60; // 1 minute
   return {
-    set: async (key, value) => {
-      // const filePath = path.join(cacheDir, key);
-      // await fs.promises.writeFile(filePath, JSON.stringify(value));
+    set: async (key: string, value: any, ttl?: number) => {
+      await digital_twin_db.cache.create({
+        data: {
+          key,
+          value,
+          expiredAt: new Date(Date.now() + (ttl || options.ttl)),
+        },
+      });
     },
-    get: async (key) => {
-      const filePath = path.join(cacheDir, key);
-      // if (fs.existsSync(filePath)) {
-      //   const data = await fs.promises.readFile(filePath, 'utf-8');
-      //   return JSON.parse(data);
-      // }
-      return null;
+    get: async (key: string) => {
+      const cache = await digital_twin_db.cache.findFirst({
+        where: {
+          key,
+          expiredAt: {
+            gt: new Date(),
+          },
+        },
+      });
+
+      return cache ? cache?.value : null;
     },
-    remove: async (key) => {
-      // const filePath = path.join(cacheDir, key);
-      // if (fs.existsSync(filePath)) {
-      //   await fs.promises.unlink(filePath);
-      // }
+    remove: async (key: string) => {
+      await digital_twin_db.cache.deleteMany({
+        where: {
+          key,
+        },
+      });
     },
     clear: async () => {
-      // const files = await fs.promises.readdir(cacheDir);
-      // for (const file of files) {
-      //   await fs.promises.unlink(path.join(cacheDir, file));
-      // }
+      await digital_twin_db.cache.deleteMany({});
     },
   };
 };
 
 export const cache = Cache({
-  basePath: './.cache', // (optional) Path where cache files are stored (default).
-  ns: 'my-namespace', // (optional) A grouping namespace for items.
-  hash: 'sha1', // (optional) A hashing algorithm used within the cache key.
-  ttl: 60 * 60 * 3, // (optional) A time-to-live (in secs) on how long an item remains cached.
+  ttl: 1000 * 60 * 60 * 3,
 });
