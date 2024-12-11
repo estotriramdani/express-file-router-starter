@@ -17,7 +17,7 @@ export const get = [
         where: {
           machine_slug: machineSlug,
           slug: parameterSlug,
-          mst_function_slug: functionSlug,
+          // mst_function_slug: functionSlug,
           hasTrend: true,
         },
       });
