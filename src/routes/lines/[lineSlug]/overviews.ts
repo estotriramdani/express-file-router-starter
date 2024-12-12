@@ -3,7 +3,7 @@ import { authenticateJWT } from '@/middlewares/bearerToken';
 import { generateError, generateRandomString } from '@/utils';
 import { catchResponse } from '@/utils/response';
 import { error } from 'console';
-import { digital_twin_db } from '@/lib/db';
+import { digital_twin_db, iot_data_raw_db } from '@/lib/db';
 import { getLineInformation, getStatusLine } from '@/services/get-status-line';
 import moment from 'moment';
 
@@ -49,6 +49,18 @@ export const get = [
         ...al4,
         ...al4_eff_ach,
       };
+
+      // await machine
+      
+      const dataElectricity = await iot_data_raw_db.energy_per_hours.findFirst({
+        where: {
+          line: 'MVMDB 20kV AL-4',
+        },
+        take: 1,
+        orderBy: {
+          createdAt: 'desc',
+        },
+      });
 
       const data = {
         type: 'overviews',
@@ -126,11 +138,11 @@ export const get = [
               attributes: {
                 slug: 'gas',
                 name: 'Gas',
-                uom: 'unknown',
+                uom: 'MMBTU',
                 description: null,
                 sourceType: 'source',
                 value: {
-                  value: 4,
+                  value: 0,
                   last_update: null,
                 },
               },
@@ -145,7 +157,7 @@ export const get = [
                 description: null,
                 sourceType: 'source',
                 value: {
-                  value: 4,
+                  value: dataElectricity?.value || 0,
                   last_update: null,
                 },
               },

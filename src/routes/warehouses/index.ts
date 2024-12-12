@@ -44,6 +44,14 @@ export const get = [
         });
       }
 
+      const occupancy = data[0].SCORE * 100;
+
+      const RACK = 17325;
+      const PALLET = 17325;
+
+      const availableRack = RACK - RACK * data[0].SCORE;
+      const availablePallet = PALLET - PALLET * data[0].SCORE;
+
       res.json({
         links,
         data: [
@@ -57,7 +65,7 @@ export const get = [
               description: 'Warehouse occupancy (%)',
               sourceType: 'source',
               value: {
-                value: data[0].SCORE * 100,
+                value: occupancy > 100 ? 100 : occupancy,
                 last_update: new Date().toISOString(),
               },
             },
@@ -72,7 +80,7 @@ export const get = [
               description: 'Warehouse availbility (Rak)',
               sourceType: 'source',
               value: {
-                value: Math.random() * 100,
+                value: occupancy > 100 ? 0 : Math.ceil(availableRack),
                 last_update: null,
               },
             },
@@ -87,7 +95,7 @@ export const get = [
               description: 'Warehouse availbility (Pallet)',
               sourceType: 'source',
               value: {
-                value: Math.random() * 100,
+                value: occupancy > 100 ? 0 : Math.ceil(availablePallet),
                 last_update: null,
               },
             },
