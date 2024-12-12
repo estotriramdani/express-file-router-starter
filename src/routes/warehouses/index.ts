@@ -3,6 +3,7 @@ import { authenticateJWT } from '@/middlewares/bearerToken';
 import { generateError, generateRandomString } from '@/utils';
 import { catchResponse } from '@/utils/response';
 import { dwh_db } from '@/lib/db';
+import { biDashboardQuery } from '@/services/bi-dashboard-query';
 
 export const get = [
   authenticateJWT,
@@ -20,14 +21,14 @@ export const get = [
         SCORE_CONV: number;
       };
 
-      const data = await dwh_db.$queryRaw<Data[]>`SELECT TOP (1000) [WarehouseGroup]
+      const data = (await biDashboardQuery(`SELECT TOP (1000) [WarehouseGroup]
       ,[Stock Conv]
       ,[Capacity]
       ,[SCORE]
       ,[SCORE_CONV]
   FROM [BI_DASHBOARD].[dbo].[Tb_STOCK_BALANCE_WHOCCUPANCY_SUMMARY]
       WHERE [WarehouseGroup] = 'Sukabumi'
-  `;
+  `)) as Data[];
 
       if (!data.length) {
         return res.status(404).json({

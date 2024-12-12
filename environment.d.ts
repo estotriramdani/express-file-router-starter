@@ -6,6 +6,7 @@ namespace NodeJS {
     REFRESH_TOKEN_SECRET: string;
     ACCESS_TOKEN_SECRET: string;
     SELF_URL: string;
+    GOPRO_URL: string;
     MODE: 'development' | 'production';
   }
 }
