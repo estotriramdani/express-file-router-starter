@@ -7,11 +7,9 @@ export const biDashboardQuery = async (query: string) => {
     headers: {
       'Content-Type': 'application/json',
     },
-  })
-    .then((response) => response.json())
-    .then((response) => response.data);
+  }).then((response) => response.json());
 
-    console.log(data);
+  console.log(data);
 
   return data;
 };
