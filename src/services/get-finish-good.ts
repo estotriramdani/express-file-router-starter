@@ -2,6 +2,7 @@ import { allLines, mappingFactoryLineDF, mappingFactoryLineTableau } from '@/con
 import { df_db, dwh_db } from '@/lib/db';
 import { datesBetween, generateDatesBetween } from '@/utils';
 import moment from 'moment';
+import { biDashboardQuery } from './bi-dashboard-query';
 
 export const getFinishGoodWithPlan = async (startDate: string, endDate: string) => {
   const whereDate = datesBetween(startDate, endDate);
@@ -16,7 +17,7 @@ export const getFinishGoodWithPlan = async (startDate: string, endDate: string) 
     TOTAL_FINISH_GOOD: number;
   };
 
-  const plan = await dwh_db.$queryRawUnsafe<Plan[]>(`SELECT 
+  const plan: Plan[] = await biDashboardQuery(`SELECT 
           [DATE],
           [FACTORY LINE] AS FACTORY_LINE,
           SUM([PLAN FG]) AS TOTAL_PLAN_FG
