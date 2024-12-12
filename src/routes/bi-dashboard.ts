@@ -4,6 +4,7 @@ import type { Request, Response } from 'express';
 export const post = async (req: Request, res: Response) => {
   try {
     const data = await dwh_db.$queryRawUnsafe(req.body.query);
+    console.log(data);
     return res.json(data);
   } catch (error) {
     console.log(error);

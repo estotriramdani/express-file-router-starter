@@ -11,5 +11,7 @@ export const biDashboardQuery = async (query: string) => {
     .then((response) => response.json())
     .then((response) => response.data);
 
+    console.log(data);
+
   return data;
 };
