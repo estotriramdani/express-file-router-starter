@@ -26,7 +26,7 @@ type StatusLine = {
 
 export const getLineInformation = async (table: string): Promise<StatusLine | null> => {
   // check the cache first
-  const cached = await cache.get(`statusLine.${table}`);
+  const cached: any = await cache.get(`statusLine.${table}`);
   if (cached) return cached;
 
   const data = await aio_iot_db.$queryRawUnsafe<StatusLine[]>(`SELECT * FROM ${table}`);
