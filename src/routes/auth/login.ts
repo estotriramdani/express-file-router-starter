@@ -133,10 +133,10 @@ export const post = async (req: Request, res: Response) => {
       });
 
       const dataUser: LoginDataAttributes = {
-        email: employment.mail_id,
+        email: employment?.mail_id,
         fullName: data.lg_name,
         username: data.lg_nik,
-        photo: employment.profile_pic,
+        photo: employment?.profile_pic,
         role: updatedUser.tr_user_role.map((role) => ({
           name: role.mst_role.role_name,
           id: role.mst_role.id,

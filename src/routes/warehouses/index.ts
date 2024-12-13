@@ -30,8 +30,6 @@ export const get = [
       WHERE [WarehouseGroup] = 'Sukabumi'
   `)) as Data[];
 
-  console.log(data);
-  
       if (!data.length) {
         return res.status(404).json({
           errors: [

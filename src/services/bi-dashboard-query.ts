@@ -9,7 +9,5 @@ export const biDashboardQuery = async (query: string) => {
     },
   }).then((response) => response.json());
 
-  console.log(data);
-
   return data;
 };
