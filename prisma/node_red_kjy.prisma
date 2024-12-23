@@ -1,0 +1,3055 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/node_red_kjy"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL_NODE_RED_KJY")
+}
+
+model v_digital_twin_oci1 {
+  id                  Int    @id
+  Normal_mode         Int?
+  h2o2_mode           Int?
+  csiop_mode          Int?
+  new_h2o2_room       Int?
+  idle_mode           Int?
+  room_pressure       Float?
+  Cycle_Time          Float?
+  Speed_Label         Float?
+  lblchecker_total_ng Int?
+
+  @@map("v_digital_twin_oci1") // Maps the model to the database view
+}
+
+
+model alarm_outspec {
+  id           Int       @id @default(autoincrement())
+  table        String?   @db.VarChar(50)
+  field        String?   @db.VarChar(50)
+  value        Float?    @db.Float
+  time         DateTime? @db.DateTime(0)
+  lotno        String?   @db.VarChar(100)
+  prod_order   String?   @db.VarChar(100)
+  status_value String?   @db.VarChar(20)
+  value_update DateTime? @db.DateTime(0)
+  min          Float?    @db.Float
+  max          Float?    @db.Float
+  error_code   String?   @db.VarChar(5)
+  message      String?   @db.VarChar(255)
+}
+
+model alarm_outspec_temp {
+  id           Int       @id @default(autoincrement())
+  table        String?   @db.VarChar(50)
+  field        String?   @db.VarChar(50)
+  value        Float?    @db.Float
+  time         DateTime? @db.DateTime(0)
+  lotno        String?   @db.VarChar(100)
+  prod_order   String?   @db.VarChar(100)
+  status_value String?   @db.VarChar(20)
+  value_update DateTime? @db.DateTime(0)
+  min          Float?    @db.Float
+  max          Float?    @db.Float
+  error_code   String?   @db.VarChar(5)
+  message      String?   @db.VarChar(255)
+}
+
+model alembic_version {
+  version_num String @id @db.VarChar(32)
+}
+
+model blow1util {
+  epochtime                Int      @id
+  time                     DateTime @db.DateTime(0)
+  plc_time                 DateTime @db.DateTime(0)
+  ms                       Int?
+  modify                   Int?
+  lotno1                   String?  @db.VarChar(50)
+  prod_order1              String?  @db.VarChar(50)
+  Press_40Bar              Float?   @db.Float
+  Chill_Oven_Flow          Float?   @db.Float
+  Chill_Oven_Temp          Float?   @db.Float
+  MoldBodies_Temp          Float?   @db.Float
+  MoldNeckBase_Flow        Float?   @db.Float
+  MoldNeckBase_temp        Float?   @db.Float
+  AvgOutRate               Float?   @db.Float
+  h2o2_liquid_flow         Float?   @db.Float
+  A_Reject_count           Float?   @db.Float
+  air_flow_h2o2            Float?   @db.Float
+  air_flow_set_h2o2        Float?   @db.Float
+  DefectPF                 Float?   @db.Float
+  MachineNumber            Float?   @db.Float
+  MobDiffReg1              Float?   @db.Float
+  MotorIntensity           Float?   @db.Float
+  noMold                   Float?   @db.Float
+  outBotleBlow             Float?   @db.Float
+  PFused                   Float?   @db.Float
+  Press_Spray_Liquid       Float?   @db.Float
+  PressFixDiff             Float?   @db.Float
+  RegulatorSteam1          Float?   @db.Float
+  RejectPressco            Float?   @db.Float
+  stop                     Float?   @db.Float
+  stop_cause               Float?   @db.Float
+  MachineEffBlow           Float?   @db.Float
+  Press_Spray_Air          Float?   @db.Float
+  Temperature_Ex_Hood      Float?   @db.Float
+  Temperature_External     Float?   @db.Float
+  Temperature_DewPoint_40B Float?   @db.Float
+}
+
+model blow2 {
+  epochtime                Int      @id
+  time                     DateTime @db.DateTime(0)
+  plc_time                 DateTime @db.DateTime(0)
+  ms                       Int?
+  modify                   Int?
+  lotno2                   String?  @db.VarChar(50)
+  prod_order2              String?  @db.VarChar(50)
+  Container_unit           Float?   @db.Float
+  A_Good_Count             Float?   @db.Float
+  A_Reject_count           Float?   @db.Float
+  air_flow_h2o2            Float?   @db.Float
+  air_flow_set_h2o2        Float?   @db.Float
+  AvgOutRate               Float?   @db.Float
+  Chill_Oven_Flow          Float?   @db.Float
+  Chill_Oven_Temp          Float?   @db.Float
+  DefectPF                 Float?   @db.Float
+  h2o2_liquid_flow         Float?   @db.Float
+  h2o2_liquid_setpoint     Float?   @db.Float
+  MachineNumber            Float?   @db.Float
+  MobDiffReg1              Float?   @db.Float
+  MoldBodies_Temp          Float?   @db.Float
+  MoldNeckBase_Flow        Float?   @db.Float
+  MoldNeckBase_temp        Float?   @db.Float
+  MotorIntensity           Float?   @db.Float
+  noMold                   Float?   @db.Float
+  NoOven                   Float?   @db.Float
+  noPFarm                  Float?   @db.Float
+  outBotleBlow             Float?   @db.Float
+  PFused                   Float?   @db.Float
+  Press_40Bar              Float?   @db.Float
+  Press_Spray_Liquid       Float?   @db.Float
+  PressFixDiff             Float?   @db.Float
+  RegulatorSteam1          Float?   @db.Float
+  RejectPressco            Float?   @db.Float
+  Speed                    Float?   @db.Float
+  stop                     Float?   @db.Float
+  stop_cause               Float?   @db.Float
+  MachineEffBlow           Float?   @db.Float
+  Press_Spray_Air          Float?   @db.Float
+  DewPoint2                Float?   @db.Float
+  Temperature_Ex_Hood      Float?   @db.Float
+  Temperature_External     Float?   @db.Float
+  Temperature_DewPoint_40B Float?   @db.Float
+  pressure_inside_bottle_1 Float?   @db.Float
+}
+
+model blow_add1 {
+  epochtime                 Int      @id
+  time                      DateTime @db.DateTime(0)
+  plc_time                  DateTime @db.DateTime(0)
+  ms                        Int?
+  modify                    Int?
+  lotno1                    String?  @db.VarChar(50)
+  prod_order1               String?  @db.VarChar(12)
+  Blow_whell_Cab_1_HZ       Float?   @db.Float
+  Blow_whell_Cab_1_press    Float?   @db.Float
+  Blow_whell_Cab_1_speed    Float?   @db.Float
+  Blow_whell_Cab_2_HZ       Float?   @db.Float
+  Blow_whell_Cab_2_press    Float?   @db.Float
+  Blow_whell_Cab_2_speed    Float?   @db.Float
+  Blow_whell_Cab_3_HZ       Float?   @db.Float
+  Blow_whell_Cab_3_press    Float?   @db.Float
+  Blow_whell_Cab_3_speed    Float?   @db.Float
+  Blow_whell_Cab_4_HZ       Float?   @db.Float
+  Blow_whell_Cab_4_press    Float?   @db.Float
+  Blow_whell_Cab_4_speed    Float?   @db.Float
+  Trans_Cab_1_hz            Float?   @db.Float
+  Trans_Cab_1_press         Float?   @db.Float
+  Trans_Cab_1_speed         Float?   @db.Float
+  Trans_Cab_2_Hz            Float?   @db.Float
+  Trans_Cab_2_press         Float?   @db.Float
+  Trans_Cab_2_speed         Float?   @db.Float
+  flowrate_mold_bodies      Float?   @db.Float
+  Pressure_Blowing          Float?   @db.Float
+  Pressure_Streching        Float?   @db.Float
+  Pressure_Actuating        Float?   @db.Float
+  dedust_air_pressure       Float?   @db.Float
+  Good_Count                Float?   @db.Float
+  PFused                    Float?   @db.Float
+  RejectPressco             Float?   @db.Float
+  Reject_count              Float?   @db.Float
+  DefectPF                  Float?   @db.Float
+  speed1                    Float?   @db.Float
+  speed                     Float?   @db.Float
+  MotorIntensity            Float?   @db.Float
+  Temperature_DewPoint_40B  Float?   @db.Float
+  Temperature_Ex_Hood       Float?   @db.Float
+  Temperature_External      Float?   @db.Float
+  Temperature_Oven          Float?   @db.Float
+  Temperature_Preform       Float?   @db.Float
+  Pressure_preblow          Float?   @db.Float
+  time_blowing              Float?   @db.Float
+  time_exhaust              Float?   @db.Float
+  Pressure_Inside_Bottle_1  Float?   @db.Float
+  Pressure_Inside_Bottle_2  Float?   @db.Float
+  Pressure_Inside_Bottle_3  Float?   @db.Float
+  Pressure_Inside_Bottle_4  Float?   @db.Float
+  Pressure_Inside_Bottle_5  Float?   @db.Float
+  Pressure_Inside_Bottle_6  Float?   @db.Float
+  Pressure_Inside_Bottle_7  Float?   @db.Float
+  Pressure_Inside_Bottle_8  Float?   @db.Float
+  Pressure_Inside_Bottle_9  Float?   @db.Float
+  Pressure_Inside_Bottle_10 Float?   @db.Float
+  Pressure_Inside_Bottle_11 Float?   @db.Float
+  Pressure_Inside_Bottle_12 Float?   @db.Float
+  Pressure_Inside_Bottle_13 Float?   @db.Float
+  Pressure_Inside_Bottle_14 Float?   @db.Float
+  Pressure_Inside_Bottle_15 Float?   @db.Float
+  Pressure_Inside_Bottle_16 Float?   @db.Float
+  Pressure_Inside_Bottle_17 Float?   @db.Float
+  Pressure_Inside_Bottle_18 Float?   @db.Float
+  Pressure_Inside_Bottle_19 Float?   @db.Float
+  Pressure_Inside_Bottle_20 Float?   @db.Float
+  press_oven1_1             Float?   @db.Float
+  press_oven1_2             Float?   @db.Float
+  press_oven1_3             Float?   @db.Float
+  press_oven2_1             Float?   @db.Float
+  press_oven2_2             Float?   @db.Float
+  press_oven2_3             Float?   @db.Float
+}
+
+model blow_add2 {
+  epochtime                 Int      @id
+  time                      DateTime @db.DateTime(0)
+  plc_time                  DateTime @db.DateTime(0)
+  ms                        Int?
+  modify                    Int?
+  lotno2                    String?  @db.VarChar(50)
+  prod_order2               String?  @db.VarChar(12)
+  Blow_whell_Cab_1_HZ       Float?   @db.Float
+  Blow_whell_Cab_1_press    Float?   @db.Float
+  Blow_whell_Cab_1_speed    Float?   @db.Float
+  Blow_whell_Cab_2_HZ       Float?   @db.Float
+  Blow_whell_Cab_2_press    Float?   @db.Float
+  Blow_whell_Cab_2_speed    Float?   @db.Float
+  Blow_whell_Cab_3_HZ       Float?   @db.Float
+  Blow_whell_Cab_3_press    Float?   @db.Float
+  Blow_whell_Cab_3_speed    Float?   @db.Float
+  Blow_whell_Cab_4_HZ       Float?   @db.Float
+  Blow_whell_Cab_4_press    Float?   @db.Float
+  Blow_whell_Cab_4_speed    Float?   @db.Float
+  Trans_Cab_1_hz            Float?   @db.Float
+  Trans_Cab_1_press         Float?   @db.Float
+  Trans_Cab_1_speed         Float?   @db.Float
+  Trans_Cab_2_Hz            Float?   @db.Float
+  Trans_Cab_2_press         Float?   @db.Float
+  Trans_Cab_2_speed         Float?   @db.Float
+  flowrate_mold_bodies      Float?   @db.Float
+  Pressure_Blowing          Float?   @db.Float
+  Pressure_Streching        Float?   @db.Float
+  Pressure_Actuating        Float?   @db.Float
+  dedust_air_pressure       Float?   @db.Float
+  Good_Count                Float?   @db.Float
+  PFused                    Float?   @db.Float
+  RejectPressco             Float?   @db.Float
+  Reject_count              Float?   @db.Float
+  DefectPF                  Float?   @db.Float
+  speed2                    Float?   @db.Float
+  MotorIntensity            Float?   @db.Float
+  Temperature_DewPoint_40B  Float?   @db.Float
+  Temperature_Ex_Hood       Float?   @db.Float
+  Temperature_External      Float?   @db.Float
+  Temperature_Oven          Float?   @db.Float
+  Temperature_Preform       Float?   @db.Float
+  Pressure_preblow          Float?   @db.Float
+  time_blowing              Float?   @db.Float
+  time_exhaust              Float?   @db.Float
+  Pressure_Inside_Bottle_1  Float?   @db.Float
+  Pressure_Inside_Bottle_2  Float?   @db.Float
+  Pressure_Inside_Bottle_3  Float?   @db.Float
+  Pressure_Inside_Bottle_4  Float?   @db.Float
+  Pressure_Inside_Bottle_5  Float?   @db.Float
+  Pressure_Inside_Bottle_6  Float?   @db.Float
+  Pressure_Inside_Bottle_7  Float?   @db.Float
+  Pressure_Inside_Bottle_8  Float?   @db.Float
+  Pressure_Inside_Bottle_9  Float?   @db.Float
+  Pressure_Inside_Bottle_10 Float?   @db.Float
+  Pressure_Inside_Bottle_11 Float?   @db.Float
+  Pressure_Inside_Bottle_12 Float?   @db.Float
+  Pressure_Inside_Bottle_13 Float?   @db.Float
+  Pressure_Inside_Bottle_14 Float?   @db.Float
+  Pressure_Inside_Bottle_15 Float?   @db.Float
+  Pressure_Inside_Bottle_16 Float?   @db.Float
+  Pressure_Inside_Bottle_17 Float?   @db.Float
+  Pressure_Inside_Bottle_18 Float?   @db.Float
+  Pressure_Inside_Bottle_19 Float?   @db.Float
+  Pressure_Inside_Bottle_20 Float?   @db.Float
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model bpd_oc2 {
+  id          Int       @id @default(autoincrement())
+  epochtime   Int?
+  lotno2      String?   @db.VarChar(100)
+  prod_order2 String?   @db.VarChar(100)
+  counter     Int?
+  time        DateTime? @db.DateTime(0)
+  value       String?   @db.VarChar(100)
+  avg         Int?
+  min         Int?
+  max         Int?
+
+  @@index([time, value], map: "time_value")
+}
+
+model bpdoc1 {
+  id          Int       @id @default(autoincrement())
+  epochtime   Int?
+  time        DateTime? @db.DateTime(0)
+  lotno1      String?   @db.VarChar(100)
+  prod_order1 String?   @db.VarChar(100)
+  counter     Int?
+  value       String?   @db.VarChar(100)
+  avg         Int?
+  min         Int?
+  max         Int?
+
+  @@index([time, value], map: "time_value")
+}
+
+model camera_inline {
+  epochtime                Int      @id
+  time                     DateTime @db.DateTime(0)
+  plc_time                 DateTime @db.DateTime(0)
+  ms                       Int?
+  modify                   Int?
+  body_TotalNumberDefects  Float?   @db.Float
+  body_TotalPercentDefects Float?   @db.Float
+  cap1_TotalNumberDefects  Float?   @db.Float
+  cap1_TotalPercentDefects Float?   @db.Float
+  cap2_TotalNumberDefects  Float?   @db.Float
+  cap2_TotalPercentDefects Float?   @db.Float
+  Online                   Float?   @db.Float
+  TotalNumberDefects       Float?   @db.Float
+  TotalNumberInspected     Float?   @db.Float
+  TotalPercentDefects      Float?   @db.Float
+}
+
+model coldstor {
+  time     DateTime @id @db.DateTime(0)
+  ms       Int?
+  modify   Int?
+  tempfrez Float?   @db.Float
+  humfrez  Float?   @db.Float
+}
+
+model cttn_baking_cooling_fsb {
+  epochtime         Int       @id
+  time              DateTime? @db.DateTime(0)
+  plc_time          DateTime? @db.DateTime(0)
+  ms                Int?
+  modify            Int?
+  Receipe_no        Float?    @db.Float
+  baking_status     Float?    @db.Float
+  receipe_txt       Float?    @db.Float
+  steam_flow_miura  Float?    @db.Float
+  steam_heatplus2   Float?    @db.Float
+  steam_press_hp2   Float?    @db.Float
+  temp_Z1_down      Float?    @db.Float
+  temp_Z1_up        Float?    @db.Float
+  temp_Z2_down      Float?    @db.Float
+  temp_Z2_up        Float?    @db.Float
+  temp_Z3_down      Float?    @db.Float
+  temp_Z3_up        Float?    @db.Float
+  temp_cooling_room Float?    @db.Float
+  accum_percent     Float?    @db.Float
+  display_output    Float?    @db.Float
+  status_normal_op  Float?    @db.Float
+  status_output     Float?    @db.Float
+  press_miura       Float?    @db.Float
+  suhu_miura        Float?    @db.Float
+  Low_Fr1_Ig_Fault  Int?
+  Upp_Fr1_Ig_Fault  Int?
+}
+
+model cttn_caser2 {
+  epochtime                          Int      @id
+  time                               DateTime @db.DateTime(0)
+  plc_time                           DateTime @db.DateTime(0)
+  ms                                 Int?
+  modify                             Int?
+  lotno2                             String?  @db.VarChar(50)
+  prod_order2                        String?  @db.VarChar(12)
+  CNT_Box_Caser                      Float?   @db.Float
+  CNT_back_both_sides_flap           Float?   @db.Float
+  CNT_left_sides_flap                Float?   @db.Float
+  CNT_right_sides_flap               Float?   @db.Float
+  CNT_top_sides_flap                 Float?   @db.Float
+  Total_waktu_back_both_side_flap    Float?   @db.Float
+  Total_waktu_top_flap               Float?   @db.Float
+  Total_waktu_left_side_flap         Float?   @db.Float
+  Total_waktu_right_side_flap        Float?   @db.Float
+  status_caser                       Int?
+  status_CDL                         Int?
+  counting_NG_weight_checker         Float?   @db.Float
+  counting_sensor_confirm_reject_box Float?   @db.Float
+  receipt_350ml                      Int?
+  receipt_500ml                      Int?
+  receipt_900ml                      Int?
+}
+
+model cttn_ccpfsb {
+  epochtime          Int       @id
+  time               DateTime? @db.DateTime(0)
+  plc_time           DateTime? @db.DateTime(0)
+  ms                 Int?
+  modify             Int?
+  ccp_speed_cv       Float?    @db.Float
+  ccp_Temp_Z1_Down   Float?    @db.Float
+  ccp_Temp_Z1_Up     Float?    @db.Float
+  output_mon_z1_down Float?    @db.Float
+  output_mon_z1_up   Float?    @db.Float
+  output_mon_z2_down Float?    @db.Float
+  output_mon_z2_up   Float?    @db.Float
+  output_mon_z3_down Float?    @db.Float
+  output_mon_z3_up   Float?    @db.Float
+}
+
+model cttn_forming_fsb {
+  epochtime             Int       @id
+  time                  DateTime? @db.DateTime(0)
+  plc_time              DateTime? @db.DateTime(0)
+  ms                    Int?
+  modify                Int?
+  sp_speed_ferry_cv     Float?    @db.Float
+  sp_speed_makeup_table Float?    @db.Float
+  sp_speed_oven_ferry   Float?    @db.Float
+  sp_speed_screw_center Float?    @db.Float
+  sp_speed_screw_inside Float?    @db.Float
+  sp_speed_screw_near   Float?    @db.Float
+  speed_Extruder        Float?    @db.Float
+  speed_ditch_roller    Float?    @db.Float
+  speed_ferry_cv        Float?    @db.Float
+  speed_flow_control    Float?    @db.Float
+  speed_makeup_table    Float?    @db.Float
+  speed_oven_ferry      Float?    @db.Float
+  speed_scrapt_cv       Float?    @db.Float
+  speed_scrapt_sv       Float?    @db.Float
+  speed_screw_center    Float?    @db.Float
+  speed_screw_inside    Float?    @db.Float
+  speed_screw_near      Float?    @db.Float
+  speed_underneath_cv   Float?    @db.Float
+  bar_before_backing    Int?
+}
+
+model cttn_hvac_fsb {
+  epochtime            Int       @id
+  time                 DateTime? @db.DateTime(0)
+  plc_time             DateTime? @db.DateTime(0)
+  ms                   Int?
+  modify               Int?
+  rh_coldstorage       Float?    @db.Float
+  rh_rack_7            Float?    @db.Float
+  rh_rm_7              Float?    @db.Float
+  temp_cold_storage    Float?    @db.Float
+  temp_drying_room     Float?    @db.Float
+  temp_flavor_weigh    Float?    @db.Float
+  temp_granulated      Float?    @db.Float
+  temp_locker          Float?    @db.Float
+  temp_mix_powder      Float?    @db.Float
+  temp_mixing_forming  Float?    @db.Float
+  temp_oahu1           Float?    @db.Float
+  temp_oahu2           Float?    @db.Float
+  temp_rack_7          Float?    @db.Float
+  temp_rack_truck      Float?    @db.Float
+  temp_remian_material Float?    @db.Float
+  temp_rm_7            Float?    @db.Float
+  temp_rm_storage      Float?    @db.Float
+  temp_soy_flour       Float?    @db.Float
+  temp_weigh_material  Float?    @db.Float
+}
+
+model cttn_injeksi1 {
+  epochtime                         Int      @id
+  time                              DateTime @db.DateTime(0)
+  plc_time                          DateTime @db.DateTime(0)
+  ms                                Int?
+  modify                            Int?
+  lotno1                            String?  @db.VarChar(50)
+  prod_order1                       String?  @db.VarChar(12)
+  CycleCounter                      Float?   @db.Float
+  Back_Pressure                     Float?   @db.Float
+  Barrel_Head_Extension_Temperature Float?   @db.Float
+  Barrel_Head_Temperature           Float?   @db.Float
+  Cavity_Pressure_At_Transition     Float?   @db.Float
+  Cooling_Time                      Float?   @db.Float
+  Coolpik_Horizontal_Time           Float?   @db.Float
+  Coolpik_Vertical_Time             Float?   @db.Float
+  Cushion                           Float?   @db.Float
+  Cycle_Time                        Float?   @db.Float
+  Distributor_Temperature           Float?   @db.Float
+  Effective_Cooling_Time            Float?   @db.Float
+  Ejector_Back_Time                 Float?   @db.Float
+  Ejector_Forward_Time              Float?   @db.Float
+  Ejector_Maximum_Forward_Position  Float?   @db.Float
+  Extruder_Temperature_1            Float?   @db.Float
+  Extruder_Temperature_2            Float?   @db.Float
+  Extruder_Temperature_3            Float?   @db.Float
+  Extruder_Temperature_4            Float?   @db.Float
+  Extruder_Temperature_5            Float?   @db.Float
+  Extruder_Temperature_6            Float?   @db.Float
+  Extruder_Temperature_7            Float?   @db.Float
+  Fill_Time                         Float?   @db.Float
+  Hold_Pressure_Zone_1              Float?   @db.Float
+  Hold_Pressure_Zone_2              Float?   @db.Float
+  Hold_Pressure_Zone_3              Float?   @db.Float
+  Hold_Pressure_Zone_4              Float?   @db.Float
+  Hold_Pressure_Zone_5              Float?   @db.Float
+  Hold_Pressure_Zone_6              Float?   @db.Float
+  Hold_Pressure_Zone_7              Float?   @db.Float
+  Hold_Pressure_Zone_8              Float?   @db.Float
+  Hold_Pressure_Zone_9              Float?   @db.Float
+  Hold_Pressure_Zone_10             Float?   @db.Float
+  Injection_Hold_Time               Float?   @db.Float
+  Machine_Cycle_Time                Float?   @db.Float
+  Maximum_Cavity_Pressure           Float?   @db.Float
+  Maximum_Fill_Pressure             Float?   @db.Float
+  Maximum_Transfer_Pressure         Float?   @db.Float
+  Mold_Closing_Time                 Float?   @db.Float
+  Mold_Growth                       Float?   @db.Float
+  Mold_Heats_Temperature_1          Float?   @db.Float
+  Mold_Heats_Temperature_2          Float?   @db.Float
+  Mold_Heats_Temperature_3          Float?   @db.Float
+  Mold_Heats_Temperature_4          Float?   @db.Float
+  Mold_Heats_Temperature_5          Float?   @db.Float
+  Mold_Heats_Temperature_6          Float?   @db.Float
+  Mold_Heats_Temperature_7          Float?   @db.Float
+  Mold_Heats_Temperature_8          Float?   @db.Float
+  Mold_Heats_Temperature_9          Float?   @db.Float
+  Mold_Heats_Temperature_10         Float?   @db.Float
+  Mold_Heats_Temperature_11         Float?   @db.Float
+  Mold_Heats_Temperature_12         Float?   @db.Float
+  Mold_Heats_Temperature_13         Float?   @db.Float
+  Mold_Heats_Temperature_14         Float?   @db.Float
+  Mold_Heats_Temperature_15         Float?   @db.Float
+  Mold_Heats_Temperature_16         Float?   @db.Float
+  Mold_Heats_Temperature_17         Float?   @db.Float
+  Mold_Heats_Temperature_18         Float?   @db.Float
+  Mold_Heats_Temperature_19         Float?   @db.Float
+  Mold_Heats_Temperature_20         Float?   @db.Float
+  Mold_Heats_Temperature_21         Float?   @db.Float
+  Mold_Heats_Temperature_22         Float?   @db.Float
+  Mold_Heats_Temperature_23         Float?   @db.Float
+  Mold_Heats_Temperature_24         Float?   @db.Float
+  Mold_Heats_Temperature_25         Float?   @db.Float
+  Mold_Heats_Temperature_26         Float?   @db.Float
+  Mold_Heats_Temperature_27         Float?   @db.Float
+  Mold_Open_Time                    Float?   @db.Float
+  Mold_Opening_Time                 Float?   @db.Float
+  Nozzle_Adapter_Temperature        Float?   @db.Float
+  Oil_Temperature                   Float?   @db.Float
+  Operator_Cycle_Time               Float?   @db.Float
+  Part_Drop                         Float?   @db.Float
+  Resin_Temperature                 Float?   @db.Float
+  Screw_RPM                         Float?   @db.Float
+  Screw_Run_Time                    Float?   @db.Float
+  Shooting_Pot_Temperature_19       Float?   @db.Float
+  Shooting_Pot_Temperature_20       Float?   @db.Float
+  Shot_Length                       Float?   @db.Float
+  Shot_Size                         Float?   @db.Float
+  Tonnage                           Float?   @db.Float
+  Tooling_Plate_In_Stage_1          Float?   @db.Float
+  Tooling_Plate_In_Stage_2          Float?   @db.Float
+  Tooling_Plate_In_Stage_3          Float?   @db.Float
+  Tooling_Plate_In_Stage_4          Float?   @db.Float
+  Tooling_Plate_Out_Stage_1         Float?   @db.Float
+  Tooling_Plate_Out_Stage_2         Float?   @db.Float
+  Tooling_Plate_Out_Stage_3         Float?   @db.Float
+  Tooling_Plate_Out_Stage_4         Float?   @db.Float
+  Transfer_Cushion                  Float?   @db.Float
+  Transfer_Pressure                 Float?   @db.Float
+  Transfer_Time                     Float?   @db.Float
+  Transition_Position               Float?   @db.Float
+  Transition_Pressure               Float?   @db.Float
+  Clamp_Up_Time                     Float?   @db.Float
+  Clamp_Up_Start_Time               Float?   @db.Float
+  Injeksi_extend_mode               Int?
+  Status_Kanesho                    Int?
+  RH_injeksi                        Float?   @db.Float
+  Temp_Injeksi                      Float?   @db.Float
+  press_chiller_ijk1                Float?   @db.Float
+  temp_chiller_ijk1                 Float?   @db.Float
+  total_flow_air_comp_kanesho       Float?   @db.Float
+  flow_air_comp_kanesho             Float?   @db.Float
+  MachineState                      String?  @db.VarChar(50)
+}
+
+model cttn_injeksi2 {
+  epochtime                         Int      @id
+  time                              DateTime @db.DateTime(0)
+  plc_time                          DateTime @db.DateTime(0)
+  ms                                Int?
+  modify                            Int?
+  lotno2                            String?  @db.VarChar(50)
+  prod_order2                       String?  @db.VarChar(12)
+  CycleCounter                      Float?   @db.Float
+  Back_Pressure                     Float?   @db.Float
+  Barrel_Head_Extension_Temperature Float?   @db.Float
+  Barrel_Head_Temperature           Float?   @db.Float
+  Cavity_Pressure_At_Transition     Float?   @db.Float
+  Cooling_Time                      Float?   @db.Float
+  Coolpik_Horizontal_Time           Float?   @db.Float
+  Coolpik_Vertical_Time             Float?   @db.Float
+  Cushion                           Float?   @db.Float
+  Cycle_Time                        Float?   @db.Float
+  Distributor_Temperature           Float?   @db.Float
+  Effective_Cooling_Time            Float?   @db.Float
+  Ejector_Back_Time                 Float?   @db.Float
+  Ejector_Forward_Time              Float?   @db.Float
+  Ejector_Maximum_Forward_Position  Float?   @db.Float
+  Extruder_Temperature_1            Float?   @db.Float
+  Extruder_Temperature_2            Float?   @db.Float
+  Extruder_Temperature_3            Float?   @db.Float
+  Extruder_Temperature_4            Float?   @db.Float
+  Extruder_Temperature_5            Float?   @db.Float
+  Extruder_Temperature_6            Float?   @db.Float
+  Extruder_Temperature_7            Float?   @db.Float
+  Fill_Time                         Float?   @db.Float
+  Hold_Pressure_Zone_1              Float?   @db.Float
+  Hold_Pressure_Zone_2              Float?   @db.Float
+  Hold_Pressure_Zone_3              Float?   @db.Float
+  Hold_Pressure_Zone_4              Float?   @db.Float
+  Hold_Pressure_Zone_5              Float?   @db.Float
+  Hold_Pressure_Zone_6              Float?   @db.Float
+  Hold_Pressure_Zone_7              Float?   @db.Float
+  Hold_Pressure_Zone_8              Float?   @db.Float
+  Hold_Pressure_Zone_9              Float?   @db.Float
+  Hold_Pressure_Zone_10             Float?   @db.Float
+  Injection_Hold_Time               Float?   @db.Float
+  Machine_Cycle_Time                Float?   @db.Float
+  Maximum_Cavity_Pressure           Float?   @db.Float
+  Maximum_Fill_Pressure             Float?   @db.Float
+  Maximum_Transfer_Pressure         Float?   @db.Float
+  Mold_Closing_Time                 Float?   @db.Float
+  Mold_Growth                       Float?   @db.Float
+  Mold_Heats_Temperature_1          Float?   @db.Float
+  Mold_Heats_Temperature_2          Float?   @db.Float
+  Mold_Heats_Temperature_3          Float?   @db.Float
+  Mold_Heats_Temperature_4          Float?   @db.Float
+  Mold_Heats_Temperature_5          Float?   @db.Float
+  Mold_Heats_Temperature_6          Float?   @db.Float
+  Mold_Heats_Temperature_7          Float?   @db.Float
+  Mold_Heats_Temperature_8          Float?   @db.Float
+  Mold_Heats_Temperature_9          Float?   @db.Float
+  Mold_Heats_Temperature_10         Float?   @db.Float
+  Mold_Heats_Temperature_11         Float?   @db.Float
+  Mold_Heats_Temperature_12         Float?   @db.Float
+  Mold_Heats_Temperature_13         Float?   @db.Float
+  Mold_Heats_Temperature_14         Float?   @db.Float
+  Mold_Heats_Temperature_15         Float?   @db.Float
+  Mold_Heats_Temperature_16         Float?   @db.Float
+  Mold_Heats_Temperature_17         Float?   @db.Float
+  Mold_Heats_Temperature_18         Float?   @db.Float
+  Mold_Heats_Temperature_19         Float?   @db.Float
+  Mold_Heats_Temperature_20         Float?   @db.Float
+  Mold_Heats_Temperature_21         Float?   @db.Float
+  Mold_Heats_Temperature_22         Float?   @db.Float
+  Mold_Heats_Temperature_23         Float?   @db.Float
+  Mold_Heats_Temperature_24         Float?   @db.Float
+  Mold_Heats_Temperature_25         Float?   @db.Float
+  Mold_Heats_Temperature_26         Float?   @db.Float
+  Mold_Heats_Temperature_27         Float?   @db.Float
+  Mold_Open_Time                    Float?   @db.Float
+  Mold_Opening_Time                 Float?   @db.Float
+  Nozzle_Adapter_Temperature        Float?   @db.Float
+  Oil_Temperature                   Float?   @db.Float
+  Operator_Cycle_Time               Float?   @db.Float
+  Part_Drop                         Float?   @db.Float
+  Resin_Temperature                 Float?   @db.Float
+  Screw_RPM                         Float?   @db.Float
+  Screw_Run_Time                    Float?   @db.Float
+  Shooting_Pot_Temperature_19       Float?   @db.Float
+  Shooting_Pot_Temperature_20       Float?   @db.Float
+  Shot_Length                       Float?   @db.Float
+  Shot_Size                         Float?   @db.Float
+  Tonnage                           Float?   @db.Float
+  Tooling_Plate_In_Stage_1          Float?   @db.Float
+  Tooling_Plate_In_Stage_2          Float?   @db.Float
+  Tooling_Plate_In_Stage_3          Float?   @db.Float
+  Tooling_Plate_In_Stage_4          Float?   @db.Float
+  Tooling_Plate_Out_Stage_1         Float?   @db.Float
+  Tooling_Plate_Out_Stage_2         Float?   @db.Float
+  Tooling_Plate_Out_Stage_3         Float?   @db.Float
+  Tooling_Plate_Out_Stage_4         Float?   @db.Float
+  Transfer_Cushion                  Float?   @db.Float
+  Transfer_Pressure                 Float?   @db.Float
+  Transfer_Time                     Float?   @db.Float
+  Transition_Position               Float?   @db.Float
+  Transition_Pressure               Float?   @db.Float
+  Clamp_Up_Time                     Float?   @db.Float
+  Clamp_Up_Start_Time               Float?   @db.Float
+  Injeksi_extend_mode               Int?
+  Status_Kanesho                    Int?
+  MachineState                      String?  @db.VarChar(50)
+  pressure_ijk2                     Float?   @db.Float
+  temp_ijk2                         Float?   @db.Float
+}
+
+model cttn_ln2keyence1 {
+  epochtime           Int       @id
+  time                DateTime? @db.DateTime(0)
+  plc_time            DateTime? @db.DateTime(0)
+  ms                  Int?
+  modify              Int?
+  lotno1              String?   @db.VarChar(64)
+  prod_order1         String?   @db.VarChar(12)
+  LN_Sensor           Float?    @db.Float
+  Temp_Exhaust_BFR_A9 Float?    @db.Float
+  Temp_Surface_Tank   Float?    @db.Float
+  Temp_Inlet_AFT_A7   Float?    @db.Float
+  Level_Separator     Float?    @db.Float
+  Pressure_Separator  Float?    @db.Float
+  flow_a4             Float?    @db.Float
+  flow_a5             Float?    @db.Float
+  flow_a6             Float?    @db.Float
+  Status_A4           Float?    @db.Float
+  Status_A5           Float?    @db.Float
+  Status_A7           Float?    @db.Float
+  Status_Vaccum_Pump  Float?    @db.Float
+  Temp_Exhaust        Float?    @db.Float
+  Temp_H1             Float?    @db.Float
+  Temp_H2             Float?    @db.Float
+  Temp_H3             Float?    @db.Float
+  Temp_Mini_Tank      Float?    @db.Float
+  Temp_Nozzle         Float?    @db.Float
+  Temp_Nozzle_Filler  Float?    @db.Float
+  Temp_TH1            Float?    @db.Float
+  Temp_TH2            Float?    @db.Float
+  Temp_TH3            Float?    @db.Float
+  Temp_TH4            Float?    @db.Float
+  SecondsInError      Int?
+  all_shunt_K2        Int?
+  speed_K2            Int?
+  Nozzle_position1    Float?    @db.Float
+
+  @@index([epochtime], map: "idx_Cttn_LN2Keyence1")
+}
+
+model cttn_ln2keyence2 {
+  epochtime           Int       @id
+  time                DateTime? @db.DateTime(0)
+  plc_time            DateTime? @db.DateTime(0)
+  ms                  Int?
+  modify              Int?
+  lotno2              String?   @db.VarChar(50)
+  prod_order2         String?   @db.VarChar(50)
+  LN_Sensor           Float?    @db.Float
+  Temp_Exhaust_BFR_A9 Float?    @db.Float
+  Temp_Surface_Tank   Float?    @db.Float
+  Temp_Inlet_AFT_A7   Float?    @db.Float
+  Level_Separator     Float?    @db.Float
+  Pressure_Separator  Float?    @db.Float
+  flow_a1             Float?    @db.Float
+  flow_a11            Float?    @db.Float
+  flow_a2             Float?    @db.Float
+  flow_a4             Float?    @db.Float
+  flow_a5             Float?    @db.Float
+  flow_a6             Float?    @db.Float
+  Status_A4           Float?    @db.Float
+  Status_A5           Float?    @db.Float
+  Status_A7           Float?    @db.Float
+  Status_Vaccum_Pump  Float?    @db.Float
+  Temp_Exhaust        Float?    @db.Float
+  Temp_H1             Float?    @db.Float
+  Temp_H2             Float?    @db.Float
+  Temp_H3             Float?    @db.Float
+  Temp_Mini_Tank      Float?    @db.Float
+  Temp_Nozzle         Float?    @db.Float
+  Temp_Nozzle_Filler  Float?    @db.Float
+  Temp_TH1            Float?    @db.Float
+  Temp_TH2            Float?    @db.Float
+  Temp_TH3            Float?    @db.Float
+  Temp_TH4            Float?    @db.Float
+  SecondsInError      Int?
+  all_shunt_K2        Int?
+  speed_K2            Int?
+  Nozzle_position2    Float?    @db.Float
+
+  @@index([epochtime], map: "idx_Cttn_LN2Keyence2")
+}
+
+model cttn_nozzle_filler1 {
+  id             Int    @id
+  time           Int?
+  ms             Int?
+  modify         Int?
+  Nozzle_Flow_1  Float? @db.Float
+  Nozzle_Flow_2  Float? @db.Float
+  Nozzle_Flow_3  Float? @db.Float
+  Nozzle_Flow_4  Float? @db.Float
+  Nozzle_Flow_5  Float? @db.Float
+  Nozzle_Flow_6  Float? @db.Float
+  Nozzle_Flow_7  Float? @db.Float
+  Nozzle_Flow_8  Float? @db.Float
+  Nozzle_Flow_9  Float? @db.Float
+  Nozzle_Flow_10 Float? @db.Float
+  Nozzle_Flow_11 Float? @db.Float
+  Nozzle_Flow_12 Float? @db.Float
+  Nozzle_Flow_13 Float? @db.Float
+  Nozzle_Flow_14 Float? @db.Float
+  Nozzle_Flow_15 Float? @db.Float
+  Nozzle_Flow_16 Float? @db.Float
+  Nozzle_Flow_17 Float? @db.Float
+  Nozzle_Flow_18 Float? @db.Float
+  Nozzle_Flow_19 Float? @db.Float
+  Nozzle_Flow_20 Float? @db.Float
+  Nozzle_Flow_21 Float? @db.Float
+  Nozzle_Flow_22 Float? @db.Float
+  Nozzle_Flow_23 Float? @db.Float
+  Nozzle_Flow_24 Float? @db.Float
+  Nozzle_Flow_25 Float? @db.Float
+  Nozzle_Flow_26 Float? @db.Float
+  Nozzle_Flow_27 Float? @db.Float
+  Nozzle_Flow_28 Float? @db.Float
+  Nozzle_Flow_29 Float? @db.Float
+  Nozzle_Flow_30 Float? @db.Float
+  Nozzle_Flow_31 Float? @db.Float
+  Nozzle_Flow_32 Float? @db.Float
+  Nozzle_Flow_33 Float? @db.Float
+  Nozzle_Flow_34 Float? @db.Float
+  Nozzle_Flow_35 Float? @db.Float
+  Nozzle_Flow_36 Float? @db.Float
+  Nozzle_Flow_37 Float? @db.Float
+  Nozzle_Flow_38 Float? @db.Float
+  Nozzle_Flow_39 Float? @db.Float
+  Nozzle_Flow_40 Float? @db.Float
+  Nozzle_Flow_41 Float? @db.Float
+  Nozzle_Flow_42 Float? @db.Float
+  Nozzle_Flow_43 Float? @db.Float
+  Nozzle_Flow_44 Float? @db.Float
+  Nozzle_Flow_45 Float? @db.Float
+  Nozzle_Flow_46 Float? @db.Float
+  Nozzle_Flow_47 Float? @db.Float
+  Nozzle_Flow_48 Float? @db.Float
+  Nozzle_Flow_49 Float? @db.Float
+  Nozzle_Flow_50 Float? @db.Float
+  Nozzle_Flow_51 Float? @db.Float
+  Nozzle_Flow_52 Float? @db.Float
+  Nozzle_Flow_53 Float? @db.Float
+  Nozzle_Flow_54 Float? @db.Float
+  Nozzle_Flow_55 Float? @db.Float
+  Nozzle_Flow_56 Float? @db.Float
+  Nozzle_Flow_57 Float? @db.Float
+  Nozzle_Flow_58 Float? @db.Float
+  Nozzle_Flow_59 Float? @db.Float
+  Nozzle_Flow_60 Float? @db.Float
+
+  @@index([id], map: "idx_cttn_nozzle_fIller1")
+}
+
+model cttn_nozzle_filler2 {
+  id             Int    @id
+  time           Int?
+  ms             Int?
+  modify         Int?
+  Nozzle_Flow_1  Float? @db.Float
+  Nozzle_Flow_2  Float? @db.Float
+  Nozzle_Flow_3  Float? @db.Float
+  Nozzle_Flow_4  Float? @db.Float
+  Nozzle_Flow_5  Float? @db.Float
+  Nozzle_Flow_6  Float? @db.Float
+  Nozzle_Flow_7  Float? @db.Float
+  Nozzle_Flow_8  Float? @db.Float
+  Nozzle_Flow_9  Float? @db.Float
+  Nozzle_Flow_10 Float? @db.Float
+  Nozzle_Flow_11 Float? @db.Float
+  Nozzle_Flow_12 Float? @db.Float
+  Nozzle_Flow_13 Float? @db.Float
+  Nozzle_Flow_14 Float? @db.Float
+  Nozzle_Flow_15 Float? @db.Float
+  Nozzle_Flow_16 Float? @db.Float
+  Nozzle_Flow_17 Float? @db.Float
+  Nozzle_Flow_18 Float? @db.Float
+  Nozzle_Flow_19 Float? @db.Float
+  Nozzle_Flow_20 Float? @db.Float
+  Nozzle_Flow_21 Float? @db.Float
+  Nozzle_Flow_22 Float? @db.Float
+  Nozzle_Flow_23 Float? @db.Float
+  Nozzle_Flow_24 Float? @db.Float
+  Nozzle_Flow_25 Float? @db.Float
+  Nozzle_Flow_26 Float? @db.Float
+  Nozzle_Flow_27 Float? @db.Float
+  Nozzle_Flow_28 Float? @db.Float
+  Nozzle_Flow_29 Float? @db.Float
+  Nozzle_Flow_30 Float? @db.Float
+  Nozzle_Flow_31 Float? @db.Float
+  Nozzle_Flow_32 Float? @db.Float
+  Nozzle_Flow_33 Float? @db.Float
+  Nozzle_Flow_34 Float? @db.Float
+  Nozzle_Flow_35 Float? @db.Float
+  Nozzle_Flow_36 Float? @db.Float
+  Nozzle_Flow_37 Float? @db.Float
+  Nozzle_Flow_38 Float? @db.Float
+  Nozzle_Flow_39 Float? @db.Float
+  Nozzle_Flow_40 Float? @db.Float
+  Nozzle_Flow_41 Float? @db.Float
+  Nozzle_Flow_42 Float? @db.Float
+  Nozzle_Flow_43 Float? @db.Float
+  Nozzle_Flow_44 Float? @db.Float
+  Nozzle_Flow_45 Float? @db.Float
+  Nozzle_Flow_46 Float? @db.Float
+  Nozzle_Flow_47 Float? @db.Float
+  Nozzle_Flow_48 Float? @db.Float
+  Nozzle_Flow_49 Float? @db.Float
+  Nozzle_Flow_50 Float? @db.Float
+  Nozzle_Flow_51 Float? @db.Float
+  Nozzle_Flow_52 Float? @db.Float
+  Nozzle_Flow_53 Float? @db.Float
+  Nozzle_Flow_54 Float? @db.Float
+  Nozzle_Flow_55 Float? @db.Float
+  Nozzle_Flow_56 Float? @db.Float
+  Nozzle_Flow_57 Float? @db.Float
+  Nozzle_Flow_58 Float? @db.Float
+  Nozzle_Flow_59 Float? @db.Float
+  Nozzle_Flow_60 Float? @db.Float
+
+  @@index([id], map: "idx_cttn_nozzle_fIller2")
+}
+
+model cttn_pillow_fsb {
+  epochtime                     Int       @id
+  time                          DateTime? @db.DateTime(0)
+  plc_time                      DateTime? @db.DateTime(0)
+  ms                            Int?
+  modify                        Int?
+  Counter_Outerbox              Float?    @db.Float
+  Counter_FG                    Float?    @db.Float
+  CNT_bar                       Float?    @db.Float
+  Delay_status                  Float?    @db.Float
+  accum_percent                 Float?    @db.Float
+  bypass_stop_sec               Float?    @db.Float
+  bypass_to_start_sec           Float?    @db.Float
+  drawer_op_delay_sec           Float?    @db.Float
+  drawer_pulse_count_sva23      Float?    @db.Float
+  drawer_slow_pulse_count_sva23 Float?    @db.Float
+  drawer_slow_sva23             Float?    @db.Float
+  drawer_sva23                  Float?    @db.Float
+  product_length_err_sec        Float?    @db.Float
+  transfer_stop_sec             Float?    @db.Float
+  Counting_jaw_pillow           Int?
+  counting_jaw_tiap_menit       Int?
+  HT1_counting                  Int?
+  HT2_counting                  Int?
+  HT3_counting                  Int?
+  HT4_counting                  Int?
+  HT5_counting                  Int?
+  HT6_counting                  Int?
+  HT7_counting                  Int?
+  HT8_counting                  Int?
+  current_A                     Float?    @db.Float
+  current_B                     Float?    @db.Float
+  current_C                     Float?    @db.Float
+  voltage_meter_ijp_MD          Float?    @db.Float
+}
+
+model cttn_prod_area_filling1 {
+  epochtime                     Int      @id
+  time                          DateTime @db.DateTime(0)
+  plc_time                      DateTime @db.DateTime(0)
+  ms                            Int?
+  modify                        Int?
+  lotno1                        String?  @db.VarChar(50)
+  prod_order1                   String?  @db.VarChar(12)
+  counter_filling               Float?   @db.Float
+  Counter_Product               Float?   @db.Float
+  Room_RH                       Float?   @db.Float
+  Room_temperature              Float?   @db.Float
+  Room_pressure                 Float?   @db.Float
+  Inverter_Exhaust_Fan_TT       Float?   @db.Float
+  Inverter_Exhaust_Filling      Float?   @db.Float
+  Inverter_Exhaust_Cap_Steril   Float?   @db.Float
+  Pressure_Filling_Chamber      Float?   @db.Float
+  Pressure_Transfer_Table       Float?   @db.Float
+  Diff_Press_Fill_TT            Float?   @db.Float
+  Pressure_Cap_Cool             Float?   @db.Float
+  Pressure_Cap_Steam            Float?   @db.Float
+  Diff_Press_Cap_Cool_Steam     Float?   @db.Float
+  Volume_Aseptic_tank           Float?   @db.Float
+  Pressure_Aseptic_tank         Float?   @db.Float
+  Temp_T51B                     Float?   @db.Float
+  Press_Steam                   Float?   @db.Float
+  Press_Steam_TMR04             Float?   @db.Float
+  Press_Steam_TMR05             Float?   @db.Float
+  Press_Steam_TMR06             Float?   @db.Float
+  Temp_Air_Cool_TMR07           Float?   @db.Float
+  Rotary_Speed                  Float?   @db.Float
+  Press_Aseptic_Air             Float?   @db.Float
+  Press_Water_Sterile           Float?   @db.Float
+  Press_Water_sterile_Rot_Joint Float?   @db.Float
+  Press_Air_Filler              Float?   @db.Float
+}
+
+model cttn_prod_area_filling2 {
+  epochtime                     Int      @id
+  time                          DateTime @db.DateTime(0)
+  plc_time                      DateTime @db.DateTime(0)
+  ms                            Int?
+  modify                        Int?
+  lotno2                        String?  @db.VarChar(50)
+  prod_order2                   String?  @db.VarChar(12)
+  counter_filling               Float?   @db.Float
+  Counter_Product               Float?   @db.Float
+  Room_RH                       Float?   @db.Float
+  Room_temperature              Float?   @db.Float
+  Room_pressure                 Float?   @db.Float
+  Inverter_Exhaust_Fan_TT       Float?   @db.Float
+  Inverter_Exhaust_Filling      Float?   @db.Float
+  Inverter_Exhaust_Cap_Steril   Float?   @db.Float
+  Pressure_Filling_Chamber      Float?   @db.Float
+  Pressure_Transfer_Table       Float?   @db.Float
+  Diff_Press_Fill_TT            Float?   @db.Float
+  Pressure_Cap_Cool             Float?   @db.Float
+  Pressure_Cap_Steam            Float?   @db.Float
+  Diff_Press_Cap_Cool_Steam     Float?   @db.Float
+  Volume_Aseptic_tank           Float?   @db.Float
+  Pressure_Aseptic_tank         Float?   @db.Float
+  Temp_T51B                     Float?   @db.Float
+  Press_Steam                   Float?   @db.Float
+  Press_Steam_TMR04             Float?   @db.Float
+  Press_Steam_TMR05             Float?   @db.Float
+  Press_Steam_TMR06             Float?   @db.Float
+  Temp_Air_Cool_TMR07           Float?   @db.Float
+  Rotary_Speed                  Float?   @db.Float
+  Press_Aseptic_Air             Float?   @db.Float
+  Press_Water_Sterile           Float?   @db.Float
+  Press_Water_sterile_Rot_Joint Float?   @db.Float
+  Press_Air_Filler              Float?   @db.Float
+}
+
+model cttn_rejectionoc1 {
+  epochtime                           Int       @id
+  time                                DateTime? @db.DateTime(0)
+  plc_time                            DateTime? @db.DateTime(0)
+  ms                                  Int?
+  modify                              Int?
+  lotno1                              String?   @db.VarChar(64)
+  prod_order1                         String?   @db.VarChar(12)
+  fill_feed_bottle                    Int?
+  fill_operation_bottle               Int?
+  fill_product_bottle                 Int?
+  fill_reject_defect                  Int?
+  fill_cap_defect                     Int?
+  cap_cnt_inlet_bpd                   Int?
+  cap_cnt_inlet_cc1                   Int?
+  cap_cnt_inlet_cc2                   Int?
+  cap_cnt_outlet_bpd                  Int?
+  cap_bottle_total_count              Int?
+  cap_bottle_ng_count                 Int?
+  cap_capper_total_count              Int?
+  cap_capper_ng_count                 Int?
+  cap_ng_cap_high                     Int?
+  cap_ng_cap_lower                    Int?
+  cb_cv_sampling                      Int?
+  cb_inlet_camera_inline              Int?
+  cb_oulet_camera_inline              Int?
+  cb_outlet_label                     Int?
+  lblchecker_cnt_inlet_label          Int?
+  lblchecker_cnt_roll_label           Int?
+  lblchecker_ng_deference_level       Int?
+  lblchecker_ng_ijp_print             Int?
+  lblchecker_ng_label_eyemark         Int?
+  lblchecker_ng_label_join            Int?
+  lblchecker_ng_lower_label           Int?
+  lblchecker_total_ng                 Int?
+  lblchecker_ng_no_label              Int?
+  lblchecker_ng_upper_level           Int?
+  lblchecker_ng_melipat               Int?
+  lblchecker_ng_abnormal              Int?
+  lblchecker_total_count              Int?
+  paletizer_total_box                 Int?
+  paletizer_total_pallet              Int?
+  bpd_total_count                     Int?
+  bpd_total_defect                    Int?
+  body_TotalNumberDefects             Int?
+  body_TotalPercentDefects            Int?
+  cap1_TotalNumberDefects             Int?
+  cap1_TotalPercentDefects            Int?
+  cap2_TotalNumberDefects             Int?
+  cap2_TotalPercentDefects            Int?
+  Online                              Int?
+  TotalNumberDefects                  Int?
+  TotalNumberInspected                Int?
+  TotalPercentDefects                 Int?
+  receipt_350ml                       Int?
+  receipt_500ml                       Int?
+  receipt_900ml                       Int?
+  STS_Inlet_Camera_Inline             Int?
+  STS_Oulet_Camera_Inline             Int?
+  STS_Oulet_Label                     Int?
+  Status_Conveyor                     Int?
+  Status_Label                        Int?
+  Status_Pressco_Cam_Inline           Int?
+  Status_Xray                         Int?
+  reject_X_ray                        Int?
+  cam_inline_body_neckring_roi        Int?
+  cam_inline_body_neckring            Int?
+  cam_inline_body_fill_height_roi     Int?
+  cam_inline_body_fill_height         Int?
+  cam_inline_body_polygon             Int?
+  cam_inline_body_cap_reg_roi         Int?
+  cam_inline_body_cap_reg             Int?
+  cam_inline_body_temperband_roi      Int?
+  cam_inline_body_temperband          Int?
+  cam_inline_body_temperband_side_roi Int?
+  cam_inline_body_temperband_side     Int?
+  cam_inline_body_grow_light_areas1   Int?
+  cam_inline_body_grow_light_areas2   Int?
+  cam_inline_body_cap_height_left     Int?
+  cam_inline_body_cap_height_right    Int?
+  cam_inline_body_high_cap            Int?
+  cam_inline_cap1_neckring_reg_roi    Int?
+  cam_inline_cap1_neckring_reg        Int?
+  cam_inline_cap1_cap_reg_roi         Int?
+  cam_inline_cap1_cap_reg             Int?
+  cam_inline_cap1_temperband_roi      Int?
+  cam_inline_cap1_temperband          Int?
+  cam_inline_cap1_grow_light_areas1   Int?
+  cam_inline_cap1_grow_light_areas2   Int?
+  cam_inline_cap1_temperband_side_roi Int?
+  cam_inline_cap1_temperband_side     Int?
+  cam_inline_cap1_no_cap_roi          Int?
+  cam_inline_cap1_no_cap_inspection   Int?
+  cam_inline_cap1_no_ring_roi         Int?
+  cam_inline_cap1_no_ring             Int?
+  cam_inline_cap1_cap_height_left     Int?
+  cam_inline_cap1_cap_height_right    Int?
+  cam_inline_cap2_neckring_reg_roi    Int?
+  cam_inline_cap2_neckring_reg        Int?
+  cam_inline_cap2_cap_reg_roi         Int?
+  cam_inline_cap2_cap_reg             Int?
+  cam_inline_cap2_temperband_roi      Int?
+  cam_inline_cap2_temperband          Int?
+  cam_inline_cap2_grow_light_areas1   Int?
+  cam_inline_cap2_grow_light_areas2   Int?
+  cam_inline_cap2_temperband_side_roi Int?
+  cam_inline_cap2_temperband_side     Int?
+  cam_inline_cap2_cap_height_left     Int?
+  cam_inline_cap2_cap_height_right    Int?
+
+  @@index([epochtime], map: "idx_Cttn_LN2Keyence1")
+}
+
+model cttn_rejectionoc2 {
+  epochtime                         Int       @id
+  time                              DateTime? @db.DateTime(0)
+  plc_time                          DateTime? @db.DateTime(0)
+  ms                                Int?
+  modify                            Int?
+  lotno2                            String?   @db.VarChar(64)
+  prod_order2                       String?   @db.VarChar(12)
+  fill_feed_bottle                  Int?
+  fill_operation_bottle             Int?
+  fill_product_bottle               Int?
+  fill_reject_defect                Int?
+  fill_cap_defect                   Int?
+  cap_cnt_inlet_bpd                 Int?
+  cap_cnt_inlet_cc2                 Int?
+  cap_cnt_outlet_bpd                Int?
+  cap_bottle_total_count            Int?
+  cap_bottle_ng_count               Int?
+  cap_capper_total_count            Int?
+  cap_capper_ng_count               Int?
+  cap_ng_cap_high                   Int?
+  cap_ng_cap_lower                  Int?
+  cb_cv_sampling                    Int?
+  cam_inline_cnt_inlet              Int?
+  cam_inline_cnt_outlet             Int?
+  cam_inline_abnormal_ng            Int?
+  cam_inline_bottom_ng              Int?
+  cam_inline_bridge_ng              Int?
+  cam_inline_solution_ng            Int?
+  cam_inline_total_good_bottle      Int?
+  lblchecker_cnt_inlet_label        Int?
+  lblchecker_cnt_outlet_label       Int?
+  lblchecker_cnt_roll_label         Int?
+  lblchecker_ng_deference_level     Int?
+  lblchecker_ng_ijp_print           Int?
+  lblchecker_ng_label_eyemark       Int?
+  lblchecker_ng_label_join          Int?
+  lblchecker_ng_lower_label         Int?
+  lblchecker_total_ng               Int?
+  lblchecker_ng_no_label            Int?
+  lblchecker_ng_upper_level         Int?
+  lblchecker_total_count            Int?
+  Counter_NG_labeljoin_detectsensor Int?
+  Counter_NG_label_melipat          Int?
+  Counter_NG_label_abnormal         Int?
+  caser_cnt_box                     Int?
+  paletizer_total_box               Int?
+  paletizer_total_pallet            Int?
+  bpd_total_count                   Int?
+  bpd_total_defect                  Int?
+  Combine_x83                       Int?
+  Combine_x8a                       Int?
+  Combine_x101                      Int?
+  Status_Conveyor                   Int?
+  Status_Label                      Int?
+  Status_Xray                       Int?
+  reject_X_ray                      Int?
+  c_alu_x11b                        Int?
+
+  @@index([epochtime], map: "idx_Cttn_LN2Keyence1")
+}
+
+model current_cv_pack1 {
+  epochtime       Int      @id
+  time            DateTime @db.DateTime(0)
+  plc_time        DateTime @db.DateTime(0)
+  ms              Int?
+  modify          Int?
+  lotno1          String?  @db.VarChar(50)
+  prod_order1     String?  @db.VarChar(50)
+  Mode_350ML      Float?   @db.Float
+  Mode_500ML      Float?   @db.Float
+  Mode_900ML      Float?   @db.Float
+  Mode_CSIOP      Float?   @db.Float
+  Mode_Formalin   Float?   @db.Float
+  Mode_H2O2       Float?   @db.Float
+  Mode_Nightime   Float?   @db.Float
+  Mode_Production Float?   @db.Float
+  Current_M01     Float?   @db.Float
+  Current_M01B    Float?   @db.Float
+  Current_MG1     Float?   @db.Float
+  Current_MG2     Float?   @db.Float
+  Current_M02     Float?   @db.Float
+  Current_M03     Float?   @db.Float
+  Current_M16     Float?   @db.Float
+  Current_M17     Float?   @db.Float
+  Current_M18     Float?   @db.Float
+  Current_M19     Float?   @db.Float
+  Current_M21     Float?   @db.Float
+  Current_M22     Float?   @db.Float
+  Current_M41     Float?   @db.Float
+  Current_M104    Float?   @db.Float
+  Current_M105    Float?   @db.Float
+  Current_M106    Float?   @db.Float
+  Current_M107    Float?   @db.Float
+  Current_M108    Float?   @db.Float
+  Current_M109    Float?   @db.Float
+  Current_M110    Float?   @db.Float
+  Current_M111    Float?   @db.Float
+  Current_M112    Float?   @db.Float
+  Current_M113    Float?   @db.Float
+  Current_M114    Float?   @db.Float
+  Current_M115    Float?   @db.Float
+  Current_M116    Float?   @db.Float
+  Current_M117    Float?   @db.Float
+  Current_M118    Float?   @db.Float
+  Current_M119    Float?   @db.Float
+  Current_M119A   Float?   @db.Float
+  Current_M119B   Float?   @db.Float
+  Current_M120    Float?   @db.Float
+  Current_M120A   Float?   @db.Float
+  Current_M120B   Float?   @db.Float
+  Current_M121    Float?   @db.Float
+  Current_M122    Float?   @db.Float
+  Current_M123    Float?   @db.Float
+  Current_M124    Float?   @db.Float
+  Current_M124A   Float?   @db.Float
+  Current_M124B   Float?   @db.Float
+  Current_M124C   Float?   @db.Float
+  Current_M124D   Float?   @db.Float
+  Current_M124E   Float?   @db.Float
+  Current_M124F   Float?   @db.Float
+  Current_M124G   Float?   @db.Float
+  Current_M125    Float?   @db.Float
+  mode_hvac       Int?
+}
+
+model current_cv_pack2 {
+  epochtime       Int      @id
+  time            DateTime @db.DateTime(0)
+  plc_time        DateTime @db.DateTime(0)
+  ms              Int?
+  modify          Int?
+  lotno2          String?  @db.VarChar(50)
+  prod_order2     String?  @db.VarChar(50)
+  Mode_350ML      Float?   @db.Float
+  Mode_500ML      Float?   @db.Float
+  Mode_900ML      Float?   @db.Float
+  Mode_CSIOP      Float?   @db.Float
+  Mode_Formalin   Float?   @db.Float
+  Mode_H2O2       Float?   @db.Float
+  Mode_Nightime   Float?   @db.Float
+  Mode_Production Float?   @db.Float
+  Current_M01     Float?   @db.Float
+  Current_MG1     Float?   @db.Float
+  Current_MG2     Float?   @db.Float
+  Current_M02     Float?   @db.Float
+  Current_M03     Float?   @db.Float
+  Current_M04     Float?   @db.Float
+  Current_M05     Float?   @db.Float
+  Current_M06     Float?   @db.Float
+  Current_M07     Float?   @db.Float
+  Current_M08     Float?   @db.Float
+  Current_M09     Float?   @db.Float
+  Current_M10     Float?   @db.Float
+  Current_M11     Float?   @db.Float
+  Current_M12     Float?   @db.Float
+  Current_M13     Float?   @db.Float
+  Current_M14     Float?   @db.Float
+  Current_M15     Float?   @db.Float
+  Current_M16     Float?   @db.Float
+  Current_M17     Float?   @db.Float
+  Current_M18     Float?   @db.Float
+  Current_M19     Float?   @db.Float
+  Current_M20     Float?   @db.Float
+  Current_M20A    Float?   @db.Float
+  Current_M21     Float?   @db.Float
+  Current_M22     Float?   @db.Float
+  Current_M23     Float?   @db.Float
+  Current_M23A    Float?   @db.Float
+  Current_M24     Float?   @db.Float
+  Current_M25     Float?   @db.Float
+  Current_M26     Float?   @db.Float
+  Current_M27     Float?   @db.Float
+  Current_M28     Float?   @db.Float
+  Current_M29     Float?   @db.Float
+  Current_M30     Float?   @db.Float
+  Current_M31     Float?   @db.Float
+  Current_M32     Float?   @db.Float
+  Current_M33     Float?   @db.Float
+  Current_M41     Float?   @db.Float
+  Current_M51     Float?   @db.Float
+  Current_M52     Float?   @db.Float
+  Current_M53     Float?   @db.Float
+  Current_M54     Float?   @db.Float
+  Current_M55     Float?   @db.Float
+  Current_M56     Float?   @db.Float
+  Current_MB1     Float?   @db.Float
+  Current_MB2     Float?   @db.Float
+  Current_M101    Float?   @db.Float
+  Current_M102    Float?   @db.Float
+  Current_M103    Float?   @db.Float
+  Current_M105    Float?   @db.Float
+  Current_M106    Float?   @db.Float
+  Current_M107    Float?   @db.Float
+  Current_M108    Float?   @db.Float
+  Current_M109    Float?   @db.Float
+  Current_M110    Float?   @db.Float
+  Current_M111    Float?   @db.Float
+  Current_M34     Float?   @db.Float
+  mode_hvac       Int?
+}
+
+model filler_add1 {
+  epochtime                    Int      @id
+  time                         DateTime @db.DateTime(0)
+  plc_time                     DateTime @db.DateTime(0)
+  ms                           Int?
+  modify                       Int?
+  Pressure_before_Fi513        Float?   @db.Float
+  Pressure_After_Fi513         Float?   @db.Float
+  Running_H                    Float?   @db.Float
+  stopper_cap                  Float?   @db.Float
+  press_chamber_tandingan      Float?   @db.Float
+  press_cap_tandingan          Float?   @db.Float
+  Running_H_AUHT1              Int?
+  bpm                          Int?
+  Freq_set_airfeed             Int?
+  Freq_set_hepa1               Int?
+  Freq_set_hepa2               Int?
+  Drive_gain                   Float?   @db.Float
+  density                      Float?   @db.Float
+  masflow                      Float?   @db.Float
+  masflow_total                Float?   @db.Float
+  temp                         Float?   @db.Float
+  Vibration_Motor_Cap_Steril   Float?   @db.Float
+  Vibration_Motor_DischargeCV  Float?   @db.Float
+  h2o2_rs                      Int?
+  sip_start_req                Int?
+  AirPress_Inlet_Filler        Float?   @db.Float
+  flow_comp                    Float?   @db.Float
+  totalizer                    Float?   @db.Float
+  vibration_main_motor_filler1 Float?   @db.Float
+  flowLN2_consumption_total    Float?   @db.Float
+  flowLN2_flow                 Float?   @db.Float
+  flowT51_consumption_total    Float?   @db.Float
+  flowT51_flow                 Float?   @db.Float
+  cip_op_status                Int?
+  cop_op_status                Int?
+  ffu_op_status                Int?
+  hepa_op_status               Int?
+  linefilter_op_status         Int?
+  ln_op_status                 Int?
+  sip_op_status                Int?
+  sop_op_status                Int?
+  Current_Exhaust_Fan1         Float?   @db.Float
+  Current_Exhaust_Fan2         Float?   @db.Float
+  Current_Exhaust_Fan3         Float?   @db.Float
+  Current_Hepa_Fan1            Float?   @db.Float
+  Current_Hepa_Fan2            Float?   @db.Float
+  Current_Motor_Cap_Steril     Float?   @db.Float
+  Current_Motor_Discharge      Float?   @db.Float
+  Current_MainMotor_Filler     Float?   @db.Float
+  Current_Recovery_Pump        Float?   @db.Float
+  Current_Up_down              Float?   @db.Float
+}
+
+model filler_add2 {
+  epochtime                    Int      @id
+  time                         DateTime @db.DateTime(0)
+  plc_time                     DateTime @db.DateTime(0)
+  ms                           Int?
+  modify                       Int?
+  Pressure_before_Fi513        Float?   @db.Float
+  Pressure_After_Fi513         Float?   @db.Float
+  Running_H                    Float?   @db.Float
+  stopper_cap                  Float?   @db.Float
+  press_chamber_tandingan      Float?   @db.Float
+  press_cap_tandingan          Float?   @db.Float
+  Vibration_Motor_Cap_Steril   Float?   @db.Float
+  Vibration_Motor_DischargeCV  Float?   @db.Float
+  Running_H_AUHT2              Int?
+  bpm                          Int?
+  h2o2_rs                      Int?
+  sip_start_req                Int?
+  AirPress_Inlet_Filler        Float?   @db.Float
+  flow_comp                    Float?   @db.Float
+  totalizer                    Float?   @db.Float
+  vibration_main_motor_filler2 Float?   @db.Float
+  flow_air_comp                Float?   @db.Float
+  consumsion_total             Float?   @db.Float
+  cip_op_status                Int?
+  cop_op_status                Int?
+  ffu_op_status                Int?
+  hepa_op_status               Int?
+  linefilter_op_status         Int?
+  ln_op_status                 Int?
+  sip_op_status                Int?
+  sop_op_status                Int?
+  Current_Exhaust_Fan1         Float?   @db.Float
+  Current_Exhaust_Fan2         Float?   @db.Float
+  Current_Exhaust_Fan3         Float?   @db.Float
+  Current_Hepa_Fan1            Float?   @db.Float
+  Current_Hepa_Fan2            Float?   @db.Float
+  Current_Motor_Cap_Steril     Float?   @db.Float
+  Current_Motor_Discharge      Float?   @db.Float
+  Current_MainMotor_Filler     Float?   @db.Float
+  Current_Recovery_Pump        Float?   @db.Float
+  Current_Up_down              Float?   @db.Float
+}
+
+model flow_nozzle_filler1 {
+  epochtime       Int       @id
+  time            DateTime? @db.DateTime(0)
+  plc_time        DateTime? @db.DateTime(0)
+  lotno1          String?   @db.VarChar(20)
+  prod_order1     String?   @db.VarChar(20)
+  mode_hvac       Int?
+  Mode_CSIOP      Int?
+  Mode_Formalin   Int?
+  Mode_H2O2       Int?
+  Mode_Nightime   Int?
+  Mode_Production Int?
+  Nozzle_Flow_1   Float?    @db.Float
+  Nozzle_Flow_2   Float?    @db.Float
+  Nozzle_Flow_3   Float?    @db.Float
+  Nozzle_Flow_4   Float?    @db.Float
+  Nozzle_Flow_5   Float?    @db.Float
+  Nozzle_Flow_6   Float?    @db.Float
+  Nozzle_Flow_7   Float?    @db.Float
+  Nozzle_Flow_8   Float?    @db.Float
+  Nozzle_Flow_9   Float?    @db.Float
+  Nozzle_Flow_10  Float?    @db.Float
+  Nozzle_Flow_11  Float?    @db.Float
+  Nozzle_Flow_12  Float?    @db.Float
+  Nozzle_Flow_13  Float?    @db.Float
+  Nozzle_Flow_14  Float?    @db.Float
+  Nozzle_Flow_15  Float?    @db.Float
+  Nozzle_Flow_16  Float?    @db.Float
+  Nozzle_Flow_17  Float?    @db.Float
+  Nozzle_Flow_18  Float?    @db.Float
+  Nozzle_Flow_19  Float?    @db.Float
+  Nozzle_Flow_20  Float?    @db.Float
+  Nozzle_Flow_21  Float?    @db.Float
+  Nozzle_Flow_22  Float?    @db.Float
+  Nozzle_Flow_23  Float?    @db.Float
+  Nozzle_Flow_24  Float?    @db.Float
+  Nozzle_Flow_25  Float?    @db.Float
+  Nozzle_Flow_26  Float?    @db.Float
+  Nozzle_Flow_27  Float?    @db.Float
+  Nozzle_Flow_28  Float?    @db.Float
+  Nozzle_Flow_29  Float?    @db.Float
+  Nozzle_Flow_30  Float?    @db.Float
+  Nozzle_Flow_31  Float?    @db.Float
+  Nozzle_Flow_32  Float?    @db.Float
+  Nozzle_Flow_33  Float?    @db.Float
+  Nozzle_Flow_34  Float?    @db.Float
+  Nozzle_Flow_35  Float?    @db.Float
+  Nozzle_Flow_36  Float?    @db.Float
+  Nozzle_Flow_37  Float?    @db.Float
+  Nozzle_Flow_38  Float?    @db.Float
+  Nozzle_Flow_39  Float?    @db.Float
+  Nozzle_Flow_40  Float?    @db.Float
+  Nozzle_Flow_41  Float?    @db.Float
+  Nozzle_Flow_42  Float?    @db.Float
+  Nozzle_Flow_43  Float?    @db.Float
+  Nozzle_Flow_44  Float?    @db.Float
+  Nozzle_Flow_45  Float?    @db.Float
+  Nozzle_Flow_46  Float?    @db.Float
+  Nozzle_Flow_47  Float?    @db.Float
+  Nozzle_Flow_48  Float?    @db.Float
+  Nozzle_Flow_49  Float?    @db.Float
+  Nozzle_Flow_50  Float?    @db.Float
+  Nozzle_Flow_51  Float?    @db.Float
+  Nozzle_Flow_52  Float?    @db.Float
+  Nozzle_Flow_53  Float?    @db.Float
+  Nozzle_Flow_54  Float?    @db.Float
+  Nozzle_Flow_55  Float?    @db.Float
+  Nozzle_Flow_56  Float?    @db.Float
+  Nozzle_Flow_57  Float?    @db.Float
+  Nozzle_Flow_58  Float?    @db.Float
+  Nozzle_Flow_59  Float?    @db.Float
+  Nozzle_Flow_60  Float?    @db.Float
+}
+
+model flow_nozzle_filler2 {
+  epochtime       Int       @id
+  time            DateTime? @db.DateTime(0)
+  plc_time        DateTime? @db.DateTime(0)
+  lotno2          String?   @db.VarChar(20)
+  prod_order2     String?   @db.VarChar(20)
+  mode_hvac       Int?
+  Mode_Formalin   Int?
+  Mode_CSIOP      Int?
+  Mode_H2O2       Int?
+  Mode_Nightime   Int?
+  Mode_Production Int?
+  Nozzle_Flow_1   Float?    @db.Float
+  Nozzle_Flow_2   Float?    @db.Float
+  Nozzle_Flow_3   Float?    @db.Float
+  Nozzle_Flow_4   Float?    @db.Float
+  Nozzle_Flow_5   Float?    @db.Float
+  Nozzle_Flow_6   Float?    @db.Float
+  Nozzle_Flow_7   Float?    @db.Float
+  Nozzle_Flow_8   Float?    @db.Float
+  Nozzle_Flow_9   Float?    @db.Float
+  Nozzle_Flow_10  Float?    @db.Float
+  Nozzle_Flow_11  Float?    @db.Float
+  Nozzle_Flow_12  Float?    @db.Float
+  Nozzle_Flow_13  Float?    @db.Float
+  Nozzle_Flow_14  Float?    @db.Float
+  Nozzle_Flow_15  Float?    @db.Float
+  Nozzle_Flow_16  Float?    @db.Float
+  Nozzle_Flow_17  Float?    @db.Float
+  Nozzle_Flow_18  Float?    @db.Float
+  Nozzle_Flow_19  Float?    @db.Float
+  Nozzle_Flow_20  Float?    @db.Float
+  Nozzle_Flow_21  Float?    @db.Float
+  Nozzle_Flow_22  Float?    @db.Float
+  Nozzle_Flow_23  Float?    @db.Float
+  Nozzle_Flow_24  Float?    @db.Float
+  Nozzle_Flow_25  Float?    @db.Float
+  Nozzle_Flow_26  Float?    @db.Float
+  Nozzle_Flow_27  Float?    @db.Float
+  Nozzle_Flow_28  Float?    @db.Float
+  Nozzle_Flow_29  Float?    @db.Float
+  Nozzle_Flow_30  Float?    @db.Float
+  Nozzle_Flow_31  Float?    @db.Float
+  Nozzle_Flow_32  Float?    @db.Float
+  Nozzle_Flow_33  Float?    @db.Float
+  Nozzle_Flow_34  Float?    @db.Float
+  Nozzle_Flow_35  Float?    @db.Float
+  Nozzle_Flow_36  Float?    @db.Float
+  Nozzle_Flow_37  Float?    @db.Float
+  Nozzle_Flow_38  Float?    @db.Float
+  Nozzle_Flow_39  Float?    @db.Float
+  Nozzle_Flow_40  Float?    @db.Float
+  Nozzle_Flow_41  Float?    @db.Float
+  Nozzle_Flow_42  Float?    @db.Float
+  Nozzle_Flow_43  Float?    @db.Float
+  Nozzle_Flow_44  Float?    @db.Float
+  Nozzle_Flow_45  Float?    @db.Float
+  Nozzle_Flow_46  Float?    @db.Float
+  Nozzle_Flow_47  Float?    @db.Float
+  Nozzle_Flow_48  Float?    @db.Float
+  Nozzle_Flow_49  Float?    @db.Float
+  Nozzle_Flow_50  Float?    @db.Float
+  Nozzle_Flow_51  Float?    @db.Float
+  Nozzle_Flow_52  Float?    @db.Float
+  Nozzle_Flow_53  Float?    @db.Float
+  Nozzle_Flow_54  Float?    @db.Float
+  Nozzle_Flow_55  Float?    @db.Float
+  Nozzle_Flow_56  Float?    @db.Float
+  Nozzle_Flow_57  Float?    @db.Float
+  Nozzle_Flow_58  Float?    @db.Float
+  Nozzle_Flow_59  Float?    @db.Float
+  Nozzle_Flow_60  Float?    @db.Float
+}
+
+model fsb_pillow_keyence {
+  epochtime        Int       @id
+  time             DateTime? @db.DateTime(0)
+  plc_time         DateTime? @db.DateTime(0)
+  ms               Int?
+  modify           Int?
+  Temp_HT1         Float?    @db.Float
+  Temp_HT2         Float?    @db.Float
+  Temp_HT3         Float?    @db.Float
+  Temp_HT4         Float?    @db.Float
+  Temp_HT5         Float?    @db.Float
+  Temp_HT6         Float?    @db.Float
+  Temp_HT7         Float?    @db.Float
+  Temp_HT8         Float?    @db.Float
+  seal_ng          Float?    @db.Float
+  ijp_ng           Float?    @db.Float
+  ijp_ok           Float?    @db.Float
+  ijp_allcnt       Float?    @db.Float
+  position_seal_ng Float?    @db.Float
+  width_seal_ng    Float?    @db.Float
+}
+
+model fsb_wc_controls {
+  epochtime   BigInt   @id
+  wc_type     String   @db.VarChar(255)
+  address     String   @db.VarChar(255)
+  status      String   @db.VarChar(255)
+  message     String   @db.VarChar(255)
+  information String   @db.VarChar(255)
+  createdAt   DateTime @db.DateTime(0)
+  updatedAt   DateTime @db.DateTime(0)
+}
+
+model fsb_wc_innerbox {
+  epochtime BigInt   @id
+  counter   Float
+  recipe    Float
+  weight    Float
+  createdAt DateTime @db.DateTime(0)
+  updatedAt DateTime @db.DateTime(0)
+}
+
+model fsb_wc_outerbox {
+  epochtime BigInt   @id
+  counter   Float
+  recipe    Float
+  weight    Float
+  createdAt DateTime @db.DateTime(0)
+  updatedAt DateTime @db.DateTime(0)
+}
+
+model fsb_wc_pillow {
+  epochtime BigInt    @id @default(0)
+  counter   Float
+  recipe    Float
+  weight    Float?    @db.Float
+  createdAt DateTime? @db.DateTime(0)
+  updatedAt DateTime? @db.DateTime(0)
+}
+
+model history_alarm_capper_1 {
+  id          Int       @id @default(autoincrement())
+  lotno       String?   @db.VarChar(100)
+  pro         String?   @db.VarChar(100)
+  cap_no      String?   @db.VarChar(255)
+  alarm_code  String?   @db.VarChar(255)
+  server_time DateTime? @db.Timestamp(0)
+  time        DateTime? @db.Time(0)
+  date        DateTime? @db.Date
+  b15         Int?      @default(0)
+  b14         Int?      @default(0)
+  b13         Int?      @default(0)
+  b12         Int?      @default(0)
+  b11         Int?      @default(0)
+  b10         Int?      @default(0)
+  b9          Int?      @default(0)
+  b8          Int?      @default(0)
+  b7          Int?      @default(0)
+  b6          Int?      @default(0)
+  b5          Int?      @default(0)
+  b4          Int?      @default(0)
+  b3          Int?      @default(0)
+  b2          Int?      @default(0)
+  b1          Int?      @default(0)
+  b0          Int?      @default(0)
+}
+
+model history_alarm_capper_2 {
+  id          Int       @id @default(autoincrement())
+  lotno       String?   @db.VarChar(100)
+  pro         String?   @db.VarChar(100)
+  cap_no      String?   @db.VarChar(255)
+  alarm_code  String?   @db.VarChar(255)
+  server_time DateTime? @db.Timestamp(0)
+  time        DateTime? @db.Time(0)
+  date        DateTime? @db.Date
+  b15         Int?      @default(0)
+  b14         Int?      @default(0)
+  b13         Int?      @default(0)
+  b12         Int?      @default(0)
+  b11         Int?      @default(0)
+  b10         Int?      @default(0)
+  b9          Int?      @default(0)
+  b8          Int?      @default(0)
+  b7          Int?      @default(0)
+  b6          Int?      @default(0)
+  b5          Int?      @default(0)
+  b4          Int?      @default(0)
+  b3          Int?      @default(0)
+  b2          Int?      @default(0)
+  b1          Int?      @default(0)
+  b0          Int?      @default(0)
+}
+
+model history_keepware_data {
+  id              Int       @id @default(autoincrement())
+  device          String    @db.VarChar(255)
+  machine         String    @db.VarChar(255)
+  connected_value Int
+  activeAt        DateTime? @default(now()) @db.DateTime(0)
+  inactiveAt      DateTime? @db.DateTime(0)
+}
+
+model history_wtp_alarm {
+  id          BigInt    @id @default(autoincrement())
+  node        String    @default("0") @db.VarChar(100)
+  value       Boolean   @default(false)
+  active_at   DateTime? @db.DateTime(0)
+  inactive_at DateTime? @db.DateTime(0)
+}
+
+model hvac1 {
+  epochtime       Int       @id
+  time            DateTime? @db.DateTime(0)
+  plc_time        DateTime? @db.DateTime(0)
+  ms              Int?
+  modify          Int?
+  lotno1          String?   @db.VarChar(100)
+  prod_order1     String?   @db.VarChar(100)
+  Normal_mode     Int?
+  aeration_2      Int?
+  aeration_2_h2o2 Int?
+  aeration_2_room Int?
+  allfresh_h2o2   Int?
+  ch2o_mode       Int?
+  csiop_mode      Int?
+  h2o2_mode       Int?
+  idle_mode       Int?
+  new_h2o2_room   Int?
+  rh_ahu_1        Float?    @db.Float
+  room_pressure   Float?    @db.Float
+  temp_ahu_1      Float?    @db.Float
+  eh_ahu11        Float?    @db.Float
+  eh_ahu12        Float?    @db.Float
+  eh_ahu2         Float?    @db.Float
+  mdp_1_1         Float?    @db.Float
+  mv_ahu11        Float?    @db.Float
+  mv_ahu12        Float?    @db.Float
+  mv_ahu2         Float?    @db.Float
+  mv_oac          Float?    @db.Float
+  temp_ra_ef2     Float?    @db.Float
+  tenp_oa_oac     Float?    @db.Float
+  tx_pv_oac       Float?    @db.Float
+  vx_pv_oac       Float?    @db.Float
+
+  @@index([epochtime], map: "epochtime")
+  @@index([time], map: "time_value")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model hvac2 {
+  epochtime        Int       @id
+  time             DateTime? @db.DateTime(0)
+  plc_time         DateTime? @db.DateTime(0)
+  ms               Int?
+  modify           Int?
+  lotno2           String?   @db.VarChar(100)
+  prod_order2      String?   @db.VarChar(100)
+  aeration_1_h2o2  Int?
+  aeration_2       Int?
+  aeration_2_h2o2  Int?
+  aeration_2_room  Int?
+  allfresh_h2o2    Int?
+  ch2o_mode        Int?
+  csiop_mode       Int?
+  h2o2_mode        Int?
+  idle_mode        Int?
+  new_h2o2_room    Int?
+  normal_mode      Int?
+  rh_ahu_2_1       Float?    @db.Float
+  room_pressure    Float?    @db.Float
+  temp_ahu_2_1     Float?    @db.Float
+  temp_ahu_2_2     Float?    @db.Float
+  temp_oac         Float?    @db.Float
+  velocity_oac     Float?    @db.Float
+  velosity_ahu_2_1 Float?    @db.Float
+  velosity_ahu_2_2 Float?    @db.Float
+  dewpoint_ahu_2_1 Float?    @db.Float
+  dewpoint_oas     Float?    @db.Float
+  eh_ahu_2_1       Float?    @db.Float
+  eh_ahu_2_2       Float?    @db.Float
+  eh_oac           Float?    @db.Float
+  humidity_ahu_2_1 Float?    @db.Float
+  humidity_ahu_2_2 Float?    @db.Float
+  humidity_oac     Float?    @db.Float
+  mv_ahu_2_1       Float?    @db.Float
+  mv_ahu_2_2       Float?    @db.Float
+  mv_oac           Float?    @db.Float
+
+  @@index([epochtime], map: "epochtime")
+  @@index([time], map: "time_value")
+}
+
+model label_oci1 {
+  epochtime              Int      @id
+  time                   DateTime @db.DateTime(0)
+  plc_time               DateTime @db.DateTime(0)
+  ms                     Int?
+  modify                 Int?
+  lotno1                 String?  @db.VarChar(50)
+  prod_order1            String?  @db.VarChar(50)
+  Label_Length_AVE       Float?   @db.Float
+  Label_Length_PV        Float?   @db.Float
+  Label_Length_SV        Float?   @db.Float
+  Temp_G_Roller_Body_PV  Float?   @db.Float
+  Temp_G_Roller_Body_SP  Float?   @db.Float
+  Temp_Glue_Bar_PV       Float?   @db.Float
+  Temp_Glue_Bar_SP       Float?   @db.Float
+  Temp_Glue_PV           Float?   @db.Float
+  Temp_Glue_SP           Float?   @db.Float
+  Temp_Glue_Scrapper_PV  Float?   @db.Float
+  Temp_Glue_Scrapper_SP  Float?   @db.Float
+  Temp_Glue_Tank_PV      Float?   @db.Float
+  Temp_Glue_Tank_SP      Float?   @db.Float
+  Temp_Glue_Roller_PV    Float?   @db.Float
+  Temp_Glue_Roller_SP    Float?   @db.Float
+  Speed_Label            Float?   @db.Float
+  bpd_Lower_pressure_Min Float?   @db.Float
+  bpd_Upper_pressure_Max Float?   @db.Float
+  press_vacuum_td        Float?   @db.Float
+  pres_chanel_1          Float?   @db.Float
+  pres_chanel_2          Float?   @db.Float
+}
+
+model label_oci2 {
+  epochtime              Int      @id
+  time                   DateTime @db.DateTime(0)
+  plc_time               DateTime @db.DateTime(0)
+  ms                     Int?
+  modify                 Int?
+  lotno2                 String?  @db.VarChar(50)
+  prod_order2            String?  @db.VarChar(50)
+  Label_Length_AVE       Int?
+  Label_Length_PV        Int?
+  Label_Length_SV        Int?
+  Temp_G_Roller_Body_PV  Int?
+  Temp_G_Roller_Body_SP  Int?
+  Temp_Glue_Bar_PV       Int?
+  Temp_Glue_Bar_SP       Int?
+  Temp_Glue_PV           Int?
+  Temp_Glue_SP           Int?
+  Temp_Glue_Scrapper_PV  Int?
+  Temp_Glue_Scrapper_SP  Int?
+  Temp_Glue_Tank_PV      Int?
+  Temp_Glue_Tank_SP      Int?
+  Temp_Glue_Roller_PV    Int?
+  Temp_Glue_Roller_SP    Int?
+  Speed_Label            Int?
+  bpd_Lower_pressure_Min Int?
+  bpd_Upper_pressure_Max Int?
+}
+
+model mst_capper_alarm {
+  id         String  @id @default("") @db.VarChar(50)
+  no         Int     @default(0)
+  alarm_name String? @db.VarChar(50)
+}
+
+model mst_csiop_op_desc {
+  id          BigInt @id @default(autoincrement()) @db.UnsignedBigInt
+  description String @default("-") @db.VarChar(50)
+}
+
+model mst_data_motors {
+  id          BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  device      String   @db.VarChar(50)
+  rh_value    String   @db.VarChar(50)
+  hmax_value  Int      @default(0)
+  description String   @default("-") @db.Text
+  line        String   @db.VarChar(20)
+  machine     String   @db.VarChar(50)
+  createdAt   DateTime @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime @default(now()) @db.Timestamp(0)
+}
+
+model mst_data_pistons {
+  id           BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  name         String   @db.VarChar(50)
+  node_op      Int      @default(0)
+  node_t_open  Int      @default(0)
+  node_t_close Int      @default(0)
+  description  String   @default("-") @db.Text
+  line         String   @db.VarChar(20)
+  machine      String   @db.VarChar(50)
+  createdAt    DateTime @default(now()) @db.Timestamp(0)
+  updatedAt    DateTime @default(now()) @db.Timestamp(0)
+}
+
+model mst_dummies {
+  id          BigInt    @id @default(autoincrement())
+  device      String    @db.VarChar(50)
+  line        String    @db.VarChar(10)
+  description String    @db.Text
+  value       Int       @db.TinyInt
+  category    String    @db.VarChar(50)
+  machine     String    @db.VarChar(50)
+  activeAt    DateTime? @default(now()) @db.Timestamp(0)
+  inactiveAt  DateTime? @default(now()) @db.Timestamp(0)
+}
+
+model mst_final_counter {
+  id          BigInt    @id @default(autoincrement())
+  item        String    @db.VarChar(50)
+  line        String    @db.VarChar(10)
+  description String    @db.Text
+  value       Float     @default(0.0000)
+  category    String    @db.VarChar(50)
+  machine     String    @db.VarChar(50)
+  createdAt   DateTime? @db.Timestamp(0)
+  updatedAt   DateTime? @db.Timestamp(0)
+}
+
+model mst_histories {
+  id          BigInt    @id @default(autoincrement())
+  device      String    @db.VarChar(50)
+  line        String    @db.VarChar(10)
+  description String    @db.Text
+  value       Int       @db.TinyInt
+  category    String    @db.VarChar(50)
+  machine     String    @db.VarChar(50)
+  activeAt    DateTime? @db.Timestamp(0)
+  inactiveAt  DateTime? @db.Timestamp(0)
+}
+
+model mst_histories_copy {
+  id          BigInt    @id @default(autoincrement())
+  device      String    @unique(map: "device") @db.VarChar(255)
+  line        String    @db.VarChar(255)
+  description String?   @db.Text
+  value       Int
+  category    String    @db.VarChar(255)
+  machine     String    @db.VarChar(255)
+  activeAt    DateTime? @db.DateTime(0)
+  inactiveAt  DateTime? @db.DateTime(0)
+}
+
+model mst_nodes {
+  id          BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  device      String   @db.VarChar(50)
+  node        String   @db.VarChar(255)
+  description String   @default("-") @db.Text
+  line        String   @db.VarChar(20)
+  category    String   @db.VarChar(50)
+  machine     String   @db.VarChar(50)
+  createdAt   DateTime @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime @default(now()) @db.Timestamp(0)
+
+  @@index([device], map: "device_index")
+  @@index([node], map: "node_index")
+}
+
+model mst_nodes_final_counters {
+  id          BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  device      String   @db.VarChar(50)
+  node        String   @db.VarChar(255)
+  description String   @default("-") @db.Text
+  line        String   @db.VarChar(20)
+  status      Int      @default(0) @db.TinyInt
+  category    String   @db.VarChar(50)
+  machine     String   @db.VarChar(50)
+  createdAt   DateTime @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime @default(now()) @db.Timestamp(0)
+
+  @@index([device], map: "device_index")
+  @@index([node], map: "node_index")
+}
+
+model mst_nodes_keepwares {
+  id          BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  device      String   @db.VarChar(50)
+  machine     String   @db.VarChar(50)
+  node        String   @db.VarChar(255)
+  description String   @default("-") @db.Text
+  line        String   @db.VarChar(50)
+  category    String   @db.VarChar(50)
+  createdAt   DateTime @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime @default(now()) @db.Timestamp(0)
+}
+
+model mst_nodes_motors {
+  id          BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  device      String   @db.VarChar(50)
+  node_hmax   String   @db.VarChar(255)
+  node_rh     String   @db.VarChar(255)
+  description String   @default("-") @db.Text
+  line        String   @db.VarChar(20)
+  category    String   @db.VarChar(50)
+  machine     String   @db.VarChar(50)
+  createdAt   DateTime @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime @default(now()) @db.Timestamp(0)
+
+  @@index([device], map: "device_index")
+  @@index([node_hmax], map: "node_index")
+}
+
+model mst_nodes_parameter {
+  id        BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  item      String   @db.VarChar(50)
+  node      String   @db.VarChar(255)
+  value     Int      @default(0)
+  line      String   @db.VarChar(20)
+  machine   String   @db.VarChar(50)
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @db.Timestamp(0)
+
+  @@index([item], map: "device_index")
+  @@index([node], map: "node_index")
+}
+
+model mst_nodes_pistons {
+  id           BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  name         String   @db.VarChar(50)
+  node_op      String   @db.VarChar(255)
+  node_t_open  String   @db.VarChar(255)
+  node_t_close String   @db.VarChar(255)
+  description  String   @default("-") @db.Text
+  line         String   @db.VarChar(20)
+  machine      String   @db.VarChar(50)
+  createdAt    DateTime @default(now()) @db.Timestamp(0)
+  updatedAt    DateTime @default(now()) @db.Timestamp(0)
+}
+
+model mst_nodes_running_hours {
+  id        BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  item      String   @db.VarChar(50)
+  node      String   @db.VarChar(255)
+  value     Int      @default(0)
+  status    Int      @default(1)
+  line      String   @db.VarChar(20)
+  machine   String   @db.VarChar(50)
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @db.Timestamp(0)
+
+  @@index([item], map: "device_index")
+  @@index([node], map: "node_index")
+}
+
+model packing_oc1 {
+  epochtime               Int      @id
+  time                    DateTime @db.DateTime(0)
+  plc_time                DateTime @db.DateTime(0)
+  ms                      Int?
+  modify                  Int?
+  lotno1                  String?  @db.VarChar(50)
+  prod_order1             String?  @db.VarChar(12)
+  palletizer_Count_BOX    Int?
+  palletizer_count_pallet Int?
+}
+
+model packing_oc2 {
+  epochtime               Int      @id
+  time                    DateTime @db.DateTime(0)
+  plc_time                DateTime @db.DateTime(0)
+  ms                      Int?
+  modify                  Int?
+  lotno2                  String?  @db.VarChar(50)
+  prod_order2             String?  @db.VarChar(12)
+  palletizer_Count_BOX    Int?
+  palletizer_count_pallet Int?
+}
+
+model php_ms_login {
+  lg_nik             String    @id @db.VarChar(30)
+  lg_name            String?   @db.VarChar(255)
+  lg_password        String?   @db.VarChar(255)
+  lg_department      String?   @db.VarChar(255)
+  lg_location        String?   @db.VarChar(255)
+  lg_product         String?   @db.VarChar(255)
+  lg_email_aio       String?   @db.VarChar(255)
+  lg_email_private   String?   @db.VarChar(255)
+  lg_update          DateTime? @db.DateTime(0)
+  lg_propose         String?   @db.Char(1)
+  lg_admin           String?   @db.Char(1)
+  lg_retur           String?   @db.Char(1)
+  lg_retur_admin     String?   @db.Char(1)
+  lg_level           String?   @db.VarChar(100)
+  lg_type            String?   @db.VarChar(100)
+  lg_ga              String?   @db.Char(1)
+  lg_aktif           String?   @db.Char(1)
+  lg_costcenter      String?   @db.Char(8)
+  protean_location   String?   @db.VarChar(255)
+  protean_department String?   @db.VarChar(255)
+  lg_profitcenter    String?   @db.VarChar(255)
+  lg_corp_cc         String?   @db.Char(1)
+  tgl_rfc            DateTime? @db.DateTime(0)
+  lg_faktur          String?   @db.Char(1)
+  lg_claim_track     String?   @db.Char(1)
+  n_photo            String?   @db.VarChar(255)
+  n_phone            String?   @db.VarChar(50)
+  n_level            Int?
+  n_info             String?   @db.VarChar(255)
+  ifi_level          Int?
+  beclaim_level      Int?
+  cms_level          Int?
+  qc_level           Int?
+  invoice_level      Int?
+  visit_level        Int?
+  paper_level        Int?
+  apps_aktif         Int?
+  beclaim_kjy_level  Int?
+  ifi_kjy_level      Int?
+  invoice_kjy_level  Int?
+  beclaim_ho_level   Int?
+  lg_entitas         String?   @db.VarChar(50)
+  ihelprpt_level     Int?
+  rfid               String?   @db.VarChar(30)
+  section            Int?
+  sectionParent      Int?
+  categoryShift      String?   @db.VarChar(20)
+  isCS               Int?
+  facebook_URL       String?   @db.VarChar(255)
+  instagram_URL      String?   @db.VarChar(255)
+  limaes_level       Int?
+  iot_skb            Int?
+  lims_oto           String?   @db.VarChar(100)
+  gmp_apps           Int?
+  gen_apps           Int?
+  id_telegram        String?   @db.VarChar(255)
+  head1              String?   @db.VarChar(50)
+  head2              String?   @db.VarChar(50)
+  head3              String?   @db.VarChar(50)
+  isEmployee         Int?
+  apar_apps          Int?
+  qa_apk             Int?
+}
+
+model piovan1 {
+  id                       Int       @id @default(autoincrement())
+  epochtime                Int?
+  time                     DateTime? @db.DateTime(0)
+  plc_time                 DateTime? @db.DateTime(0)
+  ms                       Int?
+  modify                   Int?
+  lotno1                   String?   @db.VarChar(100)
+  prod_order1              String?   @db.VarChar(100)
+  Cooling_coil_water_inlet Float?    @db.Float
+  DewPoint                 Float?    @db.Float
+  L_tower_inlet_temp       Float?    @db.Float
+  L_tower_outlet_temp      Float?    @db.Float
+  POD                      Float?    @db.Float
+  Process_blower_1         Float?    @db.Float
+  Process_blower_2         Float?    @db.Float
+  R_tower_inlet_temp       Float?    @db.Float
+  R_tower_outlet_temp      Float?    @db.Float
+  airflow                  Float?    @db.Float
+  analog0                  Float?    @db.Float
+  cone_temp                Float?    @db.Float
+  cylinder_temp            Float?    @db.Float
+  heating_power            Float?    @db.Float
+  hopper_material_lvl      Float?    @db.Float
+  hopper_material_weight   Float?    @db.Float
+  l_inlet_temp             Float?    @db.Float
+  material_temp            Float?    @db.Float
+  process_temp             Float?    @db.Float
+  regeneration_cyce_done   Float?    @db.Float
+  regeneration_phase       Float?    @db.Float
+  return_temp              Float?    @db.Float
+  safety_process_temp      Float?    @db.Float
+
+  @@index([time], map: "time_value")
+}
+
+model piovan2 {
+  id                       Int       @id @default(autoincrement())
+  epochtime                Int?
+  time                     DateTime? @db.DateTime(0)
+  plc_time                 DateTime? @db.DateTime(0)
+  ms                       Int?
+  modify                   Int?
+  lotno2                   String?   @db.VarChar(100)
+  prod_order2              String?   @db.VarChar(100)
+  Cooling_coil_water_inlet Float?    @db.Float
+  DewPoint                 Float?    @db.Float
+  L_tower_inlet_temp       Float?    @db.Float
+  L_tower_outlet_temp      Float?    @db.Float
+  POD                      Float?    @db.Float
+  Process_blower_1         Float?    @db.Float
+  Process_blower_2         Float?    @db.Float
+  R_tower_inlet_temp       Float?    @db.Float
+  R_tower_outlet_temp      Float?    @db.Float
+  airflow                  Float?    @db.Float
+  analog0                  Float?    @db.Float
+  cone_temp                Float?    @db.Float
+  cylinder_temp            Float?    @db.Float
+  heating_power            Float?    @db.Float
+  hopper_material_lvl      Float?    @db.Float
+  hopper_material_weight   Float?    @db.Float
+  l_inlet_temp             Float?    @db.Float
+  material_temp            Float?    @db.Float
+  process_temp             Float?    @db.Float
+  regeneration_cyce_done   Float?    @db.Float
+  regeneration_phase       Float?    @db.Float
+  return_temp              Float?    @db.Float
+  safety_process_temp      Float?    @db.Float
+  Receiver_1_on_off        Int?
+  Receiver_1_suction_time  Float?    @db.Float
+  silo_oc2                 Float?    @db.Float
+
+  @@index([time], map: "time_value")
+}
+
+model ppi_ilbfiller1 {
+  epochtime   Int      @id
+  time        DateTime @db.DateTime(0)
+  plc_time    DateTime @db.DateTime(0)
+  ms          Int?
+  modify      Int?
+  lotno1      String?  @db.VarChar(64)
+  prod_order1 String?  @db.VarChar(12)
+  T22         Float?   @db.Float
+  T23         Float?   @db.Float
+  RIA311      Float?   @db.Float
+  FICA311     Float?   @db.Float
+  FICA321     Float?   @db.Float
+  FICA411     Float?   @db.Float
+  V3207       Float?   @db.Float
+  TICA412     Float?   @db.Float
+  PIA412      Float?   @db.Float
+  PIA417      Float?   @db.Float
+  TIA413      Float?   @db.Float
+  TICA414     Float?   @db.Float
+  PIA418      Float?   @db.Float
+  PS431       Float?   @db.Float
+  PICT43      Float?   @db.Float
+  PIAT51      Float?   @db.Float
+  TIAT510     Float?   @db.Float
+}
+
+model ppi_ilbfiller2 {
+  epochtime   Int       @id
+  time        DateTime  @db.DateTime(0)
+  plc_time    DateTime? @db.DateTime(0)
+  ms          Int?
+  modify      Int?
+  lotno2      String?   @db.VarChar(64)
+  prod_order2 String?   @db.VarChar(12)
+  T22         Float?    @db.Float
+  T23         Float?    @db.Float
+  RIA311      Float?    @db.Float
+  FICA311     Float?    @db.Float
+  FICA321     Float?    @db.Float
+  FICA411     Float?    @db.Float
+  V3207       Float?    @db.Float
+  TICA412     Float?    @db.Float
+  PIA412      Float?    @db.Float
+  PIA417      Float?    @db.Float
+  TIA413      Float?    @db.Float
+  TICA414     Float?    @db.Float
+  PIA418      Float?    @db.Float
+  PS431       Float?    @db.Float
+  PICT43      Float?    @db.Float
+  PIAT51      Float?    @db.Float
+  TIAT510     Float?    @db.Float
+}
+
+model pre_alarm1 {
+  epochtime                          Int      @id
+  time                               DateTime @db.DateTime(0)
+  plc_time                           DateTime @db.DateTime(0)
+  ms                                 Int?
+  modify                             Int?
+  lotno1                             String?  @db.VarChar(50)
+  prod_order1                        String?  @db.VarChar(50)
+  Mode_350ML                         Int?
+  Mode_500ML                         Int?
+  Mode_900ML                         Int?
+  Mode_CSIOP                         Int?
+  Mode_Formalin                      Int?
+  Mode_H2O2                          Int?
+  Mode_Nightime                      Int?
+  Mode_Production                    Int?
+  Room_press                         Float?   @db.Float
+  rh_ahu_1                           Float?   @db.Float
+  room_pressure                      Float?   @db.Float
+  temp_ahu_1                         Float?   @db.Float
+  Pressure_Filling_Chamber           Float?   @db.Float
+  Pressure_Filling_Chamber_tandingan Float?   @db.Float
+  Pressure_Transfer_Table            Float?   @db.Float
+  Pressure_Cap_Cool                  Float?   @db.Float
+  Pressure_Cap_Steam                 Float?   @db.Float
+  Pressure_Cap_Steam_tandingan       Float?   @db.Float
+  Press_Steam                        Float?   @db.Float
+  Rotary_Speed                       Float?   @db.Float
+  Press_40Bar                        Float?   @db.Float
+  h2o2_liquid_flow                   Float?   @db.Float
+  MobDiffReg1                        Float?   @db.Float
+  FICA411                            Float?   @db.Float
+  TIA413                             Float?   @db.Float
+  RIA311                             Float?   @db.Float
+  PIAT51                             Float?   @db.Float
+  sts_pf_feeding                     Float?   @db.Float
+  Level_Separator                    Float?   @db.Float
+  mode_hvac                          Int?
+  Press_Asp_Rot_kpa                  Float?   @db.Float
+  cap_shorter_sts                    Float?   @db.Float
+  cap_checker_sts                    Float?   @db.Float
+  conveyor_sts                       Float?   @db.Float
+  filler1_sts                        Float?   @db.Float
+  kanesho_sts                        Float?   @db.Float
+  label_checker_sts                  Float?   @db.Float
+  palletizer_sts                     Float?   @db.Float
+  sheet_supplier_sts                 Float?   @db.Float
+  blow1_sts                          Float?   @db.Float
+}
+
+model pre_alarm2 {
+  epochtime                          Int      @id
+  time                               DateTime @db.DateTime(0)
+  plc_time                           DateTime @db.DateTime(0)
+  ms                                 Int?
+  modify                             Int?
+  lotno2                             String?  @db.VarChar(50)
+  prod_order2                        String?  @db.VarChar(50)
+  Mode_350ML                         Float?   @db.Float
+  Mode_500ML                         Float?   @db.Float
+  Mode_900ML                         Float?   @db.Float
+  Mode_CSIOP                         Float?   @db.Float
+  Mode_Formalin                      Float?   @db.Float
+  Mode_H2O2                          Float?   @db.Float
+  Mode_Nightime                      Float?   @db.Float
+  Mode_Production                    Float?   @db.Float
+  Room_press                         Float?   @db.Float
+  rh_ahu_2_1                         Float?   @db.Float
+  room_pressure                      Float?   @db.Float
+  temp_ahu_2_1                       Float?   @db.Float
+  Pressure_Filling_Chamber           Float?   @db.Float
+  Pressure_Filling_Chamber_tandingan Float?   @db.Float
+  Pressure_Transfer_Table            Float?   @db.Float
+  Pressure_Cap_Cool                  Float?   @db.Float
+  Pressure_Cap_Steam                 Float?   @db.Float
+  Pressure_Cap_Steam_tandingan       Float?   @db.Float
+  Press_Steam                        Float?   @db.Float
+  Rotary_Speed                       Float?   @db.Float
+  Press_40Bar                        Float?   @db.Float
+  h2o2_liquid_flow                   Float?   @db.Float
+  MobDiffReg1                        Float?   @db.Float
+  FICA411                            Float?   @db.Float
+  TIA413                             Float?   @db.Float
+  RIA311                             Float?   @db.Float
+  PIAT51                             Float?   @db.Float
+  sts_pf_feeding                     Float?   @db.Float
+  Level_Separator                    Float?   @db.Float
+  mode_hvac                          Int?
+  Press_Asp_Rot_kpa                  Int?
+  cam_inline_sts                     Float?   @db.Float
+  cap_shorter_sts                    Float?   @db.Float
+  cap_checker_sts                    Float?   @db.Float
+  caser_sts                          Float?   @db.Float
+  conveyor_cb_sts                    Float?   @db.Float
+  divider_sts                        Float?   @db.Float
+  filler_sts                         Float?   @db.Float
+  kanesho_sts                        Float?   @db.Float
+  label_checker_sts                  Float?   @db.Float
+  labeller_sts                       Float?   @db.Float
+  paletizer_sts                      Float?   @db.Float
+  sheet_supplier_sts                 Float?   @db.Float
+  blow2_sts                          Float?   @db.Float
+}
+
+model prep_add1 {
+  epochtime                  Int      @id
+  time                       DateTime @db.DateTime(0)
+  plc_time                   DateTime @db.DateTime(0)
+  ms                         Int?
+  modify                     Int?
+  lotno1                     String?  @db.VarChar(50)
+  prod_order1                String?  @db.VarChar(50)
+  C1T_STEP                   Int?
+  C2T_STEP                   Int?
+  WIAT21                     Float?   @db.Float
+  WIAT22                     Float?   @db.Float
+  WIAT23                     Float?   @db.Float
+  LT11                       Float?   @db.Float
+  LICAT31                    Float?   @db.Float
+  LICAT31mm                  Float?   @db.Float
+  LICAT32                    Float?   @db.Float
+  LICAT32mm                  Float?   @db.Float
+  LICAT33                    Float?   @db.Float
+  LICAT33mm                  Float?   @db.Float
+  LIAT411                    Float?   @db.Float
+  LVL_T43                    Float?   @db.Float
+  LICA_T51                   Float?   @db.Float
+  v_3207                     Float?   @db.Float
+  ps432                      Float?   @db.Float
+  ps511                      Float?   @db.Float
+  PIA411                     Float?   @db.Float
+  PIA412                     Float?   @db.Float
+  PIA413                     Float?   @db.Float
+  PIA414                     Float?   @db.Float
+  PIA415                     Float?   @db.Float
+  PIA416                     Float?   @db.Float
+  PIA417                     Float?   @db.Float
+  PIA418                     Float?   @db.Float
+  Ampere_AT21                Float?   @db.Float
+  Ampere_AT22                Float?   @db.Float
+  Ampere_AT23                Float?   @db.Float
+  Ampere_CP211               Float?   @db.Float
+  Ampere_P111                Float?   @db.Float
+  Ampere_P112                Float?   @db.Float
+  Ampere_P113                Float?   @db.Float
+  Ampere_P114                Float?   @db.Float
+  Ampere_P121                Float?   @db.Float
+  Ampere_P131                Float?   @db.Float
+  Ampere_P211                Float?   @db.Float
+  Ampere_P212                Float?   @db.Float
+  Ampere_P213                Float?   @db.Float
+  Ampere_P214                Float?   @db.Float
+  Ampere_P215                Float?   @db.Float
+  Ampere_AT41                Float?   @db.Float
+  Ampere_HWP_411             Float?   @db.Float
+  Ampere_P411                Float?   @db.Float
+  Ampere_P412                Float?   @db.Float
+  Vibration_HWP411B          Float?   @db.Float
+  Vibration_P411B            Float?   @db.Float
+  Vibration_P412B            Float?   @db.Float
+  TIAT21                     Float?   @db.Float
+  TIAT22                     Float?   @db.Float
+  TIAT23                     Float?   @db.Float
+  TIA510                     Float?   @db.Float
+  TIA513                     Float?   @db.Float
+  TIA625                     Float?   @db.Float
+  TIA626                     Float?   @db.Float
+  TIA627                     Float?   @db.Float
+  CIPSTEP                    Int?
+  CIAC1A                     Float?   @db.Float
+  CIACT110                   Float?   @db.Float
+  FIAC1A                     Float?   @db.Float
+  LIACT110                   Float?   @db.Float
+  TIA_C1A                    Float?   @db.Float
+  TICC1A                     Float?   @db.Float
+  CSOP_STEP                  Int?
+  CIA611                     Float?   @db.Float
+  CIA611_ppm                 Float?   @db.Float
+  FIA612                     Float?   @db.Float
+  FIA613                     Float?   @db.Float
+  LIAT61                     Float?   @db.Float
+  LIAT62                     Float?   @db.Float
+  TIA615                     Float?   @db.Float
+  TICA614                    Float?   @db.Float
+  Temp_T22_OC1               Float?   @db.Float
+  Temp_T23_OC1               Float?   @db.Float
+  pressure_GN2_before_filter Float?   @db.Float
+  pressure_GN2_after_filter  Float?   @db.Float
+  STEP_COP                   Int?
+  STEP_SIP                   Int?
+  STEP_AUHT                  Int?
+  RIA311                     Float?   @db.Float
+}
+
+model prep_add2 {
+  epochtime         Int      @id
+  time              DateTime @db.DateTime(0)
+  plc_time          DateTime @db.DateTime(0)
+  ms                Int?
+  modify            Int?
+  lotno2            String?  @db.VarChar(50)
+  prod_order2       String?  @db.VarChar(50)
+  C1T_STEP          Int?
+  C2T_STEP          Int?
+  WIAT21            Float?   @db.Float
+  WIAT22            Float?   @db.Float
+  WIAT23            Float?   @db.Float
+  LT11              Float?   @db.Float
+  LICAT31           Float?   @db.Float
+  LICAT31mm         Float?   @db.Float
+  LICAT32           Float?   @db.Float
+  LICAT32mm         Float?   @db.Float
+  LICAT33           Float?   @db.Float
+  LICAT33mm         Float?   @db.Float
+  LIAT411           Float?   @db.Float
+  LVL_T43           Float?   @db.Float
+  LICA_T51          Float?   @db.Float
+  v_3207            Float?   @db.Float
+  ps432             Float?   @db.Float
+  ps511             Float?   @db.Float
+  PIA411            Float?   @db.Float
+  PIA412            Float?   @db.Float
+  PIA413            Float?   @db.Float
+  PIA414            Float?   @db.Float
+  PIA415            Float?   @db.Float
+  PIA416            Float?   @db.Float
+  PIA417            Float?   @db.Float
+  PIA418            Float?   @db.Float
+  Vibration_HWP411B Float?   @db.Float
+  Vibration_P411B   Float?   @db.Float
+  Vibration_P412B   Float?   @db.Float
+  TIAT21            Float?   @db.Float
+  TIAT22            Float?   @db.Float
+  TIAT23            Float?   @db.Float
+  TIA510            Float?   @db.Float
+  TIA513            Float?   @db.Float
+  TIA625            Float?   @db.Float
+  TIA626            Float?   @db.Float
+  TIA627            Float?   @db.Float
+  CIPSTEP           Int?
+  CIAC1A            Float?   @db.Float
+  CIACT110          Float?   @db.Float
+  FIAC1A            Float?   @db.Float
+  LIACT110          Float?   @db.Float
+  TIA_C1A           Float?   @db.Float
+  TICC1A            Float?   @db.Float
+  CSOP_STEP         Int?
+  CIA611            Float?   @db.Float
+  CIA611_ppm        Float?   @db.Float
+  FIA612            Float?   @db.Float
+  FIA613            Float?   @db.Float
+  LIAT61            Float?   @db.Float
+  LIAT62            Float?   @db.Float
+  TIA615            Float?   @db.Float
+  TICA614           Float?   @db.Float
+  Temp_T22_OC2      Float?   @db.Float
+  Temp_T23_OC2      Float?   @db.Float
+  Ampere_AT41       Float?   @db.Float
+  Ampere_HWP_411    Float?   @db.Float
+  Ampere_P411       Float?   @db.Float
+  Ampere_P412       Float?   @db.Float
+  STEP_COP          Int?
+  STEP_SIP          Int?
+  STEP_AUHT         Int?
+  RIA311            Float?   @db.Float
+}
+
+model presco1 {
+  epochtime                           Int       @id
+  time                                DateTime  @db.DateTime(0)
+  plc_time                            DateTime  @db.DateTime(0)
+  ms                                  Int?
+  modify                              Int?
+  lotno1                              String?   @db.VarChar(50)
+  prod_order1                         String?   @db.VarChar(12)
+  CurrentPart                         String?   @db.VarChar(50)
+  AlarmActive                         Int?
+  PartRate                            Float?    @db.Float
+  TimeLastReset                       DateTime? @db.DateTime(0)
+  TotalNumberDefects                  Float?    @db.Float
+  TotalNumberInspected                Float?    @db.Float
+  TotalPercentDefects                 Float?    @db.Float
+  EncoderFrequency                    Float?    @db.Float
+  Online                              Float?    @db.Float
+  BaseTotalNumberDefects              Float?    @db.Float
+  BaseTotalPercentDefects             Float?    @db.Float
+  SealTotalNumberDefects              Float?    @db.Float
+  SealTotalPercentDefects             Float?    @db.Float
+  UpBodyTotalNumberDefects            Float?    @db.Float
+  UpBodyTotalPercentDefects           Float?    @db.Float
+  LowBodyTotalNumberDefects           Float?    @db.Float
+  LowBodyTotalPercentDefects          Float?    @db.Float
+  pw360TotalNumberDefects             Float?    @db.Float
+  pw360TotalPercentDefects            Float?    @db.Float
+  pw360RecentPercentDefects           Float?    @db.Float
+  pw360contrastTotalNumberDefects     Float?    @db.Float
+  pw360contrastTotalPercentDefects    Float?    @db.Float
+  pw360contrastRecentPercentDefects   Float?    @db.Float
+  pw360PcrEPITotalNumberDefects       Float?    @db.Float
+  pw360PcrEPITotalPercentDefects      Float?    @db.Float
+  pw360PcrEPIRecentPercentDefects     Float?    @db.Float
+  pw360UppBarrellTotalNumberDefects   Float?    @db.Float
+  pw360UppBarrellTotalPercentDefects  Float?    @db.Float
+  pw360UppBarrellRecentPercentDefects Float?    @db.Float
+  pw360UppEndCapTotalNumberDefects    Float?    @db.Float
+  pw360UppEndCapTotalPercentDefects   Float?    @db.Float
+  pw360UppEndCapRecentPercentDefects  Float?    @db.Float
+  pw360UppPFTopTotalNumberDefects     Float?    @db.Float
+  pw360UppPFTopTotalPercentDefects    Float?    @db.Float
+  pw360UppPFTopRecentPercentDefects   Float?    @db.Float
+  pw360UppShadowTotalNumberDefects    Float?    @db.Float
+  pw360UppShadowTotalPercentDefects   Float?    @db.Float
+  pw360UppShadowRecentPercentDefects  Float?    @db.Float
+}
+
+model presco2 {
+  epochtime                   Int       @id
+  time                        DateTime  @db.DateTime(0)
+  plc_time                    DateTime  @db.DateTime(0)
+  ms                          Int?
+  modify                      Int?
+  lotno2                      String?   @db.VarChar(50)
+  prod_order2                 String?   @db.VarChar(12)
+  AlarmActive                 Int?
+  CurrentPart                 String?   @db.VarChar(50)
+  EncoderFrequency            Float?    @db.Float
+  PartRate                    Float?    @db.Float
+  TimeLastReset               DateTime? @db.DateTime(0)
+  TotalNumberDefects          Float?    @db.Float
+  TotalNumberInspected        Float?    @db.Float
+  TotalPercentDefects         Float?    @db.Float
+  Online                      Float?    @db.Float
+  BaseTotalNumberDefects      Float?    @db.Float
+  BaseTotalPercentDefects     Float?    @db.Float
+  BaseRecentPercentDefects    Float?    @db.Float
+  SealTotalNumberDefects      Float?    @db.Float
+  SealTotalPercentDefects     Float?    @db.Float
+  SealRecentPercentDefects    Float?    @db.Float
+  UpBodyTotalNumberDefects    Float?    @db.Float
+  UpBodyTotalPercentDefects   Float?    @db.Float
+  UpBodyRecentPercentDefects  Float?    @db.Float
+  LowBodyTotalNumberDefects   Float?    @db.Float
+  LowBodyTotalPercentDefects  Float?    @db.Float
+  LowBodyRecentPercentDefects Float?    @db.Float
+  pw360TotalNumberDefects     Float?    @db.Float
+  pw360TotalPercentDefects    Float?    @db.Float
+  pw360RecentPercentDefects   Float?    @db.Float
+}
+
+model rai_charts {
+  id                   Int       @id @default(autoincrement())
+  page_id              Int?
+  title                String?   @db.VarChar(255)
+  query                String?   @db.Text
+  selected_columns     String?   @db.Text
+  index_column         String?   @db.VarChar(255)
+  date_range           String?   @db.VarChar(255)
+  time_range           String?   @db.VarChar(255)
+  position_chart_index String?   @db.VarChar(255)
+  colors               String?   @db.Text
+  is_timeseries        Int?
+  created_at           DateTime? @default(now()) @db.DateTime(0)
+  updated_at           DateTime? @default(now()) @db.DateTime(0)
+}
+
+model rai_db_conn_credentials {
+  id         Int       @id @default(0) @db.UnsignedInt
+  database   String?   @db.VarChar(255)
+  host       String?   @db.VarChar(255)
+  username   String?   @db.VarChar(255)
+  password   String?   @db.VarChar(255)
+  port       Int?      @default(3306)
+  dialect    String?   @default("mysql") @db.VarChar(50)
+  timezone   String?   @default("+07:00") @db.VarChar(10)
+  created_at DateTime? @default(now()) @db.DateTime(0)
+  updated_at DateTime? @default(now()) @db.DateTime(0)
+}
+
+model rai_folders {
+  id                Int               @id @default(autoincrement())
+  supervisor_id     Int?
+  name              String            @db.VarChar(255)
+  created_at        DateTime?         @default(now()) @db.DateTime(0)
+  updated_at        DateTime?         @default(now()) @db.DateTime(0)
+  owner_id          String?           @db.VarChar(255)
+  access_level      String?           @db.VarChar(255)
+  path              String?           @db.VarChar(1024)
+  type              rai_folders_type?
+  is_deleted        Boolean?
+  size              BigInt?
+  metadata          String?           @db.Text
+  shared_with       String?           @db.Text
+  rai_folders       rai_folders?      @relation("rai_foldersTorai_folders", fields: [supervisor_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "rai_folders_ibfk_1")
+  other_rai_folders rai_folders[]     @relation("rai_foldersTorai_folders")
+
+  @@index([supervisor_id], map: "parent_id")
+}
+
+model rai_tele_bots {
+  id         Int       @id @default(autoincrement())
+  bot_name   String?   @db.VarChar(255)
+  api_token  String?   @db.VarChar(255)
+  created_at DateTime? @default(now()) @db.DateTime(0)
+  updated_at DateTime? @default(now()) @db.DateTime(0)
+  is_active  Int?
+}
+
+model rai_tele_groups {
+  id         Int       @id @default(autoincrement())
+  group_name String?   @db.VarChar(255)
+  chat_id    String?   @db.VarChar(255)
+  bot_id     Int?
+  created_at DateTime? @default(now()) @db.DateTime(0)
+  updated_at DateTime? @default(now()) @db.DateTime(0)
+  is_active  Int?
+}
+
+model rai_tele_message_templates {
+  id              Int       @id @default(autoincrement())
+  template_name   String?   @db.VarChar(255)
+  message_content String?   @db.VarChar(255)
+  category        String?   @db.VarChar(255)
+  created_at      DateTime? @default(now()) @db.DateTime(0)
+  updated_at      DateTime? @default(now()) @db.DateTime(0)
+  is_active       Int?
+}
+
+model rai_tele_schedules {
+  id                Int       @id @default(autoincrement())
+  message_template  String?   @db.Text
+  cron_schedule     String?   @db.VarChar(50)
+  schedulable_table String?   @db.VarChar(255)
+  schedulable_id    String?   @db.VarChar(255)
+  group_id          Int?
+  bot_id            Int?
+  created_at        DateTime? @default(now()) @db.DateTime(0)
+  updated_at        DateTime? @default(now()) @db.DateTime(0)
+  is_active         Int?
+  category          Int?
+}
+
+model rai_test_data {
+  id                Int    @id
+  time              Int?
+  ms                Int?
+  modify            Int?
+  P411B             Float? @db.Float
+  P412B             Float? @db.Float
+  HWP411B           Float? @db.Float
+  Main_motor_filler Float? @db.Float
+  P111B             Float? @db.Float
+  category          Int?   @default(1)
+
+  @@index([id], map: "idx_Vibration_Prep2")
+}
+
+model rai_thresholds {
+  id                  Int      @id @default(autoincrement())
+  threshold           Float    @db.Float
+  thresholdable_table String   @db.VarChar(255)
+  thresholdable_id    Int
+  state_steps         Int?     @default(-1)
+  limit_steps         Int      @default(0)
+  created_at          DateTime @default(now()) @db.DateTime(0)
+  updated_at          DateTime @default(now()) @db.DateTime(0)
+}
+
+model rai_user_roles {
+  id         Int       @id @default(autoincrement())
+  role       String?   @db.VarChar(255)
+  label      String?   @db.VarChar(255)
+  created_at DateTime? @default(now()) @db.DateTime(0)
+  updated_at DateTime? @default(now()) @db.DateTime(0)
+}
+
+model rai_users {
+  id         Int       @id @default(autoincrement())
+  nik        String?   @db.VarChar(255)
+  roles      String?   @db.VarChar(255)
+  created_at DateTime? @default(now()) @db.DateTime(0)
+  updated_at DateTime? @default(now()) @db.DateTime(0)
+}
+
+model running_hours_data {
+  id        BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  item      String   @db.VarChar(50)
+  line      String   @db.VarChar(20)
+  value     Int      @default(0)
+  machine   String   @db.VarChar(50)
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @db.Timestamp(0)
+
+  @@index([item], map: "device_index")
+}
+
+model status_prod1 {
+  epochtime   Int       @id
+  time        DateTime? @db.DateTime(0)
+  plc_time    DateTime? @db.DateTime(0)
+  lotno1      String?   @db.VarChar(20)
+  prod_order1 String?   @db.VarChar(20)
+  production  Int?
+  h2o2        Int?
+  csiop       Int?
+  formalin    Int?
+  nighttime   Int?
+}
+
+model status_prod2 {
+  epochtime   Int       @id
+  time        DateTime? @db.DateTime(0)
+  plc_time    DateTime? @db.DateTime(0)
+  lotno2      String?   @db.VarChar(20)
+  prod_order2 String?   @db.VarChar(20)
+  production  Int?
+  h2o2        Int?
+  csiop       Int?
+  formalin    Int?
+  nighttime   Int?
+}
+
+model timer_plc_filler1 {
+  epochtime            Int      @id
+  time                 DateTime @db.DateTime(0)
+  plc_time             DateTime @db.DateTime(0)
+  ms                   Int?
+  modify               Int?
+  Timer_DP_CapAir_AA   Float?   @db.Float
+  Timer_DP_CapSteam_AA Float?   @db.Float
+  Timer_DP_FIller_AA   Float?   @db.Float
+  Timer_DP_TT_AA       Float?   @db.Float
+}
+
+model timer_plc_filler2 {
+  epochtime            Int      @id
+  time                 DateTime @db.DateTime(0)
+  plc_time             DateTime @db.DateTime(0)
+  ms                   Int?
+  modify               Int?
+  Timer_DP_CapAir_AA   Float?   @db.Float
+  Timer_DP_CapSteam_AA Float?   @db.Float
+  Timer_DP_FIller_AA   Float?   @db.Float
+  Timer_DP_TT_AA       Float?   @db.Float
+}
+
+model vibration_oci1 {
+  epochtime          Int      @id
+  time               DateTime @db.DateTime(0)
+  plc_time           DateTime @db.DateTime(0)
+  ms                 Int?
+  modify             Int?
+  lotno1             String?  @db.VarChar(50)
+  prod_order1        String?  @db.VarChar(12)
+  Locking_cam_1      Float?   @db.Float
+  Locking_cam_2      Float?   @db.Float
+  Locking_cam_3      Float?   @db.Float
+  Locking_cam_4      Float?   @db.Float
+  Locking_cam_5      Float?   @db.Float
+  Locking_cam_6      Float?   @db.Float
+  Locking_cam_7      Float?   @db.Float
+  Locking_cam_8      Float?   @db.Float
+  Locking_cam_9      Float?   @db.Float
+  Locking_cam_10     Float?   @db.Float
+  Locking_cam_11     Float?   @db.Float
+  Locking_cam_12     Float?   @db.Float
+  Locking_cam_13     Float?   @db.Float
+  Locking_cam_14     Float?   @db.Float
+  Locking_cam_15     Float?   @db.Float
+  Locking_cam_16     Float?   @db.Float
+  Locking_cam_17     Float?   @db.Float
+  Locking_cam_18     Float?   @db.Float
+  Locking_cam_19     Float?   @db.Float
+  Locking_cam_20     Float?   @db.Float
+  Open_Closed_cam_1  Float?   @db.Float
+  Open_Closed_cam_2  Float?   @db.Float
+  Open_Closed_cam_3  Float?   @db.Float
+  Open_Closed_cam_4  Float?   @db.Float
+  Open_Closed_cam_5  Float?   @db.Float
+  Open_Closed_cam_6  Float?   @db.Float
+  Open_Closed_cam_7  Float?   @db.Float
+  Open_Closed_cam_8  Float?   @db.Float
+  Open_Closed_cam_9  Float?   @db.Float
+  Open_Closed_cam_10 Float?   @db.Float
+  Open_Closed_cam_11 Float?   @db.Float
+  Open_Closed_cam_12 Float?   @db.Float
+  Open_Closed_cam_13 Float?   @db.Float
+  Open_Closed_cam_14 Float?   @db.Float
+  Open_Closed_cam_15 Float?   @db.Float
+  Open_Closed_cam_16 Float?   @db.Float
+  Open_Closed_cam_17 Float?   @db.Float
+  Open_Closed_cam_18 Float?   @db.Float
+  Open_Closed_cam_19 Float?   @db.Float
+  Open_Closed_cam_20 Float?   @db.Float
+  Streching_cam_1    Float?   @db.Float
+  Streching_cam_2    Float?   @db.Float
+  Streching_cam_3    Float?   @db.Float
+  Streching_cam_4    Float?   @db.Float
+  Streching_cam_5    Float?   @db.Float
+  Streching_cam_6    Float?   @db.Float
+  Streching_cam_7    Float?   @db.Float
+  Streching_cam_8    Float?   @db.Float
+  Streching_cam_9    Float?   @db.Float
+  Streching_cam_10   Float?   @db.Float
+  Streching_cam_11   Float?   @db.Float
+  Streching_cam_12   Float?   @db.Float
+  Streching_cam_13   Float?   @db.Float
+  Streching_cam_14   Float?   @db.Float
+  Streching_cam_15   Float?   @db.Float
+  Streching_cam_16   Float?   @db.Float
+  Streching_cam_17   Float?   @db.Float
+  Streching_cam_18   Float?   @db.Float
+  Streching_cam_19   Float?   @db.Float
+  Streching_cam_20   Float?   @db.Float
+  UP_Down_cam_1      Float?   @db.Float
+  UP_Down_cam_2      Float?   @db.Float
+  UP_Down_cam_3      Float?   @db.Float
+  UP_Down_cam_4      Float?   @db.Float
+  UP_Down_cam_5      Float?   @db.Float
+  UP_Down_cam_6      Float?   @db.Float
+  UP_Down_cam_7      Float?   @db.Float
+  UP_Down_cam_8      Float?   @db.Float
+  UP_Down_cam_9      Float?   @db.Float
+  UP_Down_cam_10     Float?   @db.Float
+  UP_Down_cam_11     Float?   @db.Float
+  UP_Down_cam_12     Float?   @db.Float
+  UP_Down_cam_13     Float?   @db.Float
+  UP_Down_cam_14     Float?   @db.Float
+  UP_Down_cam_15     Float?   @db.Float
+  UP_Down_cam_16     Float?   @db.Float
+  UP_Down_cam_17     Float?   @db.Float
+  UP_Down_cam_18     Float?   @db.Float
+  UP_Down_cam_19     Float?   @db.Float
+  UP_Down_cam_20     Float?   @db.Float
+  speed_blow         Float?   @db.Float
+}
+
+model vibration_oci2 {
+  epochtime          Int      @id
+  time               DateTime @db.DateTime(0)
+  plc_time           DateTime @db.DateTime(0)
+  ms                 Int?
+  modify             Int?
+  lotno2             String?  @db.VarChar(50)
+  prod_order2        String?  @db.VarChar(12)
+  Locking_cam_1      Float?   @db.Float
+  Locking_cam_2      Float?   @db.Float
+  Locking_cam_3      Float?   @db.Float
+  Locking_cam_4      Float?   @db.Float
+  Locking_cam_5      Float?   @db.Float
+  Locking_cam_6      Float?   @db.Float
+  Locking_cam_7      Float?   @db.Float
+  Locking_cam_8      Float?   @db.Float
+  Locking_cam_9      Float?   @db.Float
+  Locking_cam_10     Float?   @db.Float
+  Locking_cam_11     Float?   @db.Float
+  Locking_cam_12     Float?   @db.Float
+  Locking_cam_13     Float?   @db.Float
+  Locking_cam_14     Float?   @db.Float
+  Locking_cam_15     Float?   @db.Float
+  Locking_cam_16     Float?   @db.Float
+  Locking_cam_17     Float?   @db.Float
+  Locking_cam_18     Float?   @db.Float
+  Locking_cam_19     Float?   @db.Float
+  Locking_cam_20     Float?   @db.Float
+  Open_Closed_cam_1  Float?   @db.Float
+  Open_Closed_cam_2  Float?   @db.Float
+  Open_Closed_cam_3  Float?   @db.Float
+  Open_Closed_cam_4  Float?   @db.Float
+  Open_Closed_cam_5  Float?   @db.Float
+  Open_Closed_cam_6  Float?   @db.Float
+  Open_Closed_cam_7  Float?   @db.Float
+  Open_Closed_cam_8  Float?   @db.Float
+  Open_Closed_cam_9  Float?   @db.Float
+  Open_Closed_cam_10 Float?   @db.Float
+  Open_Closed_cam_11 Float?   @db.Float
+  Open_Closed_cam_12 Float?   @db.Float
+  Open_Closed_cam_13 Float?   @db.Float
+  Open_Closed_cam_14 Float?   @db.Float
+  Open_Closed_cam_15 Float?   @db.Float
+  Open_Closed_cam_16 Float?   @db.Float
+  Open_Closed_cam_17 Float?   @db.Float
+  Open_Closed_cam_18 Float?   @db.Float
+  Open_Closed_cam_19 Float?   @db.Float
+  Open_Closed_cam_20 Float?   @db.Float
+  Streching_cam_1    Float?   @db.Float
+  Streching_cam_2    Float?   @db.Float
+  Streching_cam_3    Float?   @db.Float
+  Streching_cam_4    Float?   @db.Float
+  Streching_cam_5    Float?   @db.Float
+  Streching_cam_6    Float?   @db.Float
+  Streching_cam_7    Float?   @db.Float
+  Streching_cam_8    Float?   @db.Float
+  Streching_cam_9    Float?   @db.Float
+  Streching_cam_10   Float?   @db.Float
+  Streching_cam_11   Float?   @db.Float
+  Streching_cam_12   Float?   @db.Float
+  Streching_cam_13   Float?   @db.Float
+  Streching_cam_14   Float?   @db.Float
+  Streching_cam_15   Float?   @db.Float
+  Streching_cam_16   Float?   @db.Float
+  Streching_cam_17   Float?   @db.Float
+  Streching_cam_18   Float?   @db.Float
+  Streching_cam_19   Float?   @db.Float
+  Streching_cam_20   Float?   @db.Float
+  UP_Down_cam_1      Float?   @db.Float
+  UP_Down_cam_2      Float?   @db.Float
+  UP_Down_cam_3      Float?   @db.Float
+  UP_Down_cam_4      Float?   @db.Float
+  UP_Down_cam_5      Float?   @db.Float
+  UP_Down_cam_6      Float?   @db.Float
+  UP_Down_cam_7      Float?   @db.Float
+  UP_Down_cam_8      Float?   @db.Float
+  UP_Down_cam_9      Float?   @db.Float
+  UP_Down_cam_10     Float?   @db.Float
+  UP_Down_cam_11     Float?   @db.Float
+  UP_Down_cam_12     Float?   @db.Float
+  UP_Down_cam_13     Float?   @db.Float
+  UP_Down_cam_14     Float?   @db.Float
+  UP_Down_cam_15     Float?   @db.Float
+  UP_Down_cam_16     Float?   @db.Float
+  UP_Down_cam_17     Float?   @db.Float
+  UP_Down_cam_18     Float?   @db.Float
+  UP_Down_cam_19     Float?   @db.Float
+  UP_Down_cam_20     Float?   @db.Float
+  speed_blow         Float?   @db.Float
+  vib_blow2          Float?   @db.Float
+  vib_injection2     Float?   @db.Float
+}
+
+model vibration_oci2_min {
+  epochtime   Int      @id
+  time        DateTime @db.DateTime(0)
+  plc_time    DateTime @db.DateTime(0)
+  ms          Int?
+  modify      Int?
+  lotno2      String?  @db.VarChar(50)
+  prod_order2 String?  @db.VarChar(12)
+  MD13_accel  Float?   @db.Float
+  MD13_envel  Float?   @db.Float
+  MD13_veloc  Float?   @db.Float
+  MD14_accel  Float?   @db.Float
+  MD14_envel  Float?   @db.Float
+  MD14_veloc  Float?   @db.Float
+  MD15_accel  Float?   @db.Float
+  MD15_envel  Float?   @db.Float
+  MD15_veloc  Float?   @db.Float
+  RF21_accel  Float?   @db.Float
+  RF21_envel  Float?   @db.Float
+  RF21_veloc  Float?   @db.Float
+  ahu21_accel Float?   @db.Float
+  ahu21_envel Float?   @db.Float
+  ahu21_veloc Float?   @db.Float
+  ahu22_accel Float?   @db.Float
+  ahu22_envel Float?   @db.Float
+  ahu22_veloc Float?   @db.Float
+  oac_a_accel Float?   @db.Float
+  oac_a_envel Float?   @db.Float
+  oac_a_veloc Float?   @db.Float
+  oac_b_accel Float?   @db.Float
+  oac_b_envel Float?   @db.Float
+  oac_b_veloc Float?   @db.Float
+}
+
+model vr_mst_final_transaction {
+  id         Int      @id @default(autoincrement())
+  pro        String   @db.VarChar(50)
+  item       String?  @db.VarChar(50)
+  value      Float?
+  section    String?  @db.VarChar(50)
+  created_at DateTime @default(now()) @db.Timestamp(0)
+  updated_at DateTime @default(now()) @db.Timestamp(0)
+}
+
+model vr_mst_nodes {
+  id         Int      @id @default(autoincrement())
+  pro        String   @db.VarChar(50)
+  node       String   @db.VarChar(255)
+  section    String   @db.VarChar(50)
+  item       String?  @db.VarChar(50)
+  created_at DateTime @default(now()) @db.Timestamp(0)
+  updated_at DateTime @default(now()) @db.Timestamp(0)
+}
+
+enum rai_folders_type {
+  folder
+  file
+}
