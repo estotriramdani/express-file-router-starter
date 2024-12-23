@@ -36,6 +36,7 @@
     "generate:scada_db1_kjy": "npx prisma generate --schema=./prisma/scada_db1_kjy.prisma",
 
     "start:bun": "bun run --watch src/app.ts",
+    "start:bun:prod": "bun run src/app.ts",
     "start:prod": "ts-node src/app.ts",
     "start:dev": "nodemon src/app.ts"
   },
