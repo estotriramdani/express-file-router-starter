@@ -10,11 +10,11 @@ datasource db {
 
 model mst_guest_user {
   id        String   @id @default(cuid())
-  name      String
   username  String   @unique
   password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
+  name      String
 }
 
 model mst_role {
@@ -37,12 +37,15 @@ model mst_user {
 
 model tr_user_role {
   id        String   @id @default(cuid())
-  role      String // ID of role
-  user      String // ID of user
+  role      String
+  user      String
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
   mst_role  mst_role @relation(fields: [role], references: [role_name])
   mst_user  mst_user @relation(fields: [user], references: [username])
+
+  @@index([role], map: "tr_user_role_role_fkey")
+  @@index([user], map: "tr_user_role_user_fkey")
 }
 
 model tr_refresh_token {
@@ -58,28 +61,25 @@ model mst_machine {
   name                  String
   slug                  String                  @unique
   description           String?
-  documentation_url     String?
   createdAt             DateTime                @default(now())
   updatedAt             DateTime                @updatedAt
-  mst_machine_parameter mst_machine_parameter[]
+  documentation_url     String?
   mst_function          mst_function[]
+  mst_machine_parameter mst_machine_parameter[]
 }
 
 model mst_function {
   id                    Int                     @id @default(autoincrement())
   name                  String
-  placeholder           Int?
   slug                  String                  @unique
   createdAt             DateTime                @default(now())
   updatedAt             DateTime                @default(now()) @updatedAt
-  mst_machine_parameter mst_machine_parameter[]
   machine_slug          String?
+  placeholder           Int?
   mst_machine           mst_machine?            @relation(fields: [machine_slug], references: [slug])
-}
+  mst_machine_parameter mst_machine_parameter[]
 
-enum ParameterTrendType {
-  CONSUMPTION // get difference between last value and current value
-  TIME_SERIES // get all value in a time range
+  @@index([machine_slug], map: "mst_function_machine_slug_fkey")
 }
 
 model mst_machine_parameter {
@@ -87,46 +87,43 @@ model mst_machine_parameter {
   name                   String
   slug                   String              @unique
   description            String?
-  uom                    String?
-  placeholder            Int?
   sourceType             String
-  tableName              String?
-  node_desc              String? // for equipment_efficiency_results
   avevaTag               String?
-  availableInDynamicForm Boolean?            @default(false) // to mark if this parameter is available in dynamic form. If it is true, the number in aveva tag is ID of the table, and the rest is the column name (e.g. 1_column_name)
   scadaTagId             String?
   opcServer              String?
   opcTag                 String?
   iotDataRawQuery        String?
-  valueKey               String?
-  timestampKey           String?
-  machine_slug           String
-  isConsumption          Boolean?            @default(false)
-  hasTrend               Boolean?            @default(false)
-  trendType              ParameterTrendType?
-  mst_machine            mst_machine         @relation(fields: [machine_slug], references: [slug])
-  mst_function           mst_function?       @relation(fields: [mst_function_slug], references: [slug])
-  mst_function_slug      String?
   createdAt              DateTime            @default(now())
   updatedAt              DateTime            @updatedAt
-}
+  machine_slug           String
+  uom                    String?
+  valueKey               String?
+  timestampKey           String?
+  isConsumption          Boolean?            @default(false)
+  hasTrend               Boolean?            @default(false)
+  mst_function_slug      String?
+  trendType              ParameterTrendType?
+  tableName              String?
+  node_desc              String?
+  availableInDynamicForm Boolean?            @default(false)
+  placeholder            Int?
+  mst_machine            mst_machine         @relation(fields: [machine_slug], references: [slug])
+  mst_function           mst_function?       @relation(fields: [mst_function_slug], references: [slug])
 
-enum Area {
-  PRODUCTION
-  UTILITY
-  OTHER
+  @@index([machine_slug], map: "mst_machine_parameter_machine_slug_fkey")
+  @@index([mst_function_slug], map: "mst_machine_parameter_mst_function_slug_fkey")
 }
 
 model mst_overview {
-  id          Int      @id @default(autoincrement())
-  slug        String   @unique
+  id          Int               @id @default(autoincrement())
+  slug        String            @unique
   name        String
   uom         String?
   description String?
   placeholder Int?
-  area        Area
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @default(now()) @updatedAt
+  area        mst_overview_area
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @default(now()) @updatedAt
 }
 
 model mst_line_subarea {
@@ -163,4 +160,32 @@ model cache {
   expiredAt DateTime
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
+}
+
+model mst_line_parameter {
+  id           Int      @id @default(autoincrement())
+  slug         String
+  name         String
+  uom          String?
+  description  String?
+  placeholder  Int?
+  sourceType   String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @default(now())
+  line_slug    String?
+  subarea_slug String?
+  db_var       String?  @db.VarChar(255)
+  column_value String?  @db.VarChar(255)
+}
+
+enum ParameterTrendType {
+  CONSUMPTION
+  TIME_SERIES
+}
+
+enum mst_overview_area {
+  PRODUCTION
+  UTILITY
+  OTHER
+  PRODUCTION_KJY @map("PRODUCTION KJY")
 }
