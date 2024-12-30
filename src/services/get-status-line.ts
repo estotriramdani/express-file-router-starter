@@ -27,7 +27,11 @@ type StatusLine = {
 export const getLineInformation = async (table: string): Promise<StatusLine | null> => {
   // check the cache first
   const cached: any = await cache.get(`statusLine.${table}`);
-  if (cached) return cached;
+
+  if (cached) {
+    if (cached.length) return cached[0];
+    return cached;
+  }
 
   const data = await aio_iot_db.$queryRawUnsafe<StatusLine[]>(`SELECT * FROM ${table}`);
 
@@ -38,15 +42,18 @@ export const getLineInformation = async (table: string): Promise<StatusLine | nu
   return data[0];
 };
 
-export const getLineInformationKjy = async (table: string, db: string): Promise<StatusLine | null> => {
+export const getLineInformationKjy = async (
+  table: string,
+  db: string
+): Promise<StatusLine | null> => {
   // check the cache first
   // const cached: any = await cache.get(`statusLine.${table}`);
   // if (cached) return cached;
 
   let data: any;
-  
+
   if (db === 'aio_iot_oci1') {
-    data = await aio_iot_oci1.$queryRawUnsafe<any[]>(`SELECT * FROM ${table}`)
+    data = await aio_iot_oci1.$queryRawUnsafe<any[]>(`SELECT * FROM ${table}`);
   } else {
     data = await node_red_kjy.$queryRawUnsafe<any[]>(`
       SELECT
@@ -64,9 +71,9 @@ export const getLineInformationKjy = async (table: string, db: string): Promise<
       ORDER BY
         epochtime DESC 
         LIMIT 1 
-      `)
+      `);
   }
-  
+
   await cache.set(`statusLine.${table}`, data);
 
   if (!data.length) return null;
@@ -91,7 +98,6 @@ export const getStatusLineKjy = async (
   table: string,
   db: string = 'aio_iot_oci1'
 ): Promise<any> => {
-  
   const data = await getLineInformationKjy(table, db);
 
   if (!data) return { value: 0, last_update: new Date().toISOString() };
