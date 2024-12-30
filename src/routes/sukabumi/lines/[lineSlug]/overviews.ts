@@ -50,8 +50,6 @@ export const get = [
         ...al4_eff_ach,
       };
 
-      // await machine
-      
       const dataElectricity = await iot_data_raw_db.energy_per_hours.findFirst({
         where: {
           line: 'MVMDB 20kV AL-4',
