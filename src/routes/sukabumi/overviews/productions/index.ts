@@ -55,22 +55,13 @@ export const get = [
           element.value = al4;
         }
         if (data[i].slug === 'line-al4-preparation') {
-          element.value = {
-            value: 0,
-            last_update: null,
-          };
+          element.value = al4;
         }
         if (data[i].slug === 'line-al4-ibf') {
-          element.value = {
-            value: 0,
-            last_update: null,
-          };
+          element.value = al4;
         }
         if (data[i].slug === 'line-al4-packing') {
-          element.value = {
-            value: 0,
-            last_update: null,
-          };
+          element.value = al4;
         }
         newData.push(element);
       }

@@ -128,7 +128,7 @@ model mst_overview {
 
 model mst_line_subarea {
   id          Int      @id @default(autoincrement())
-  slug        String   @unique
+  slug        String
   name        String
   uom         String?
   description String?
@@ -141,7 +141,7 @@ model mst_line_subarea {
 
 model mst_line_subarea_equipment {
   id           Int      @id @default(autoincrement())
-  slug         String   @unique
+  slug         String
   name         String
   uom          String?
   description  String?

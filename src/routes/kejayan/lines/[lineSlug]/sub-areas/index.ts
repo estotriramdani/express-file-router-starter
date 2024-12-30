@@ -21,7 +21,7 @@ export const get = [
 
       const data = await digital_twin_db.mst_overview.findMany({
         where: {
-          area: 'PRODUCTION_KJY',
+          area: 'PRODUCTION_KJY' as any,
           slug: {
             startsWith: `${req.params.lineSlug}-`, // Filters slugs starting with "line-oc1-"
           },
