@@ -39,6 +39,14 @@ export const mappingFactoryLineTableau = {
     name: 'Line Glass Bottle',
     slug: 'line-glass-bottle',
   },
+  'OC 1': {
+    name: 'Line OC1',
+    slug: 'line-oc1',
+  },
+  'OC 2': {
+    name: 'Line OC2',
+    slug: 'line-oc2',
+  },
 };
 
 export const mappingFactoryLineDF = {
@@ -72,6 +80,17 @@ export const mappingFactoryLineDF = {
   },
 };
 
+export const mappingFactoryLineKjy = {
+  'OC 1': {
+    name: 'Line OC1',
+    slug: 'line-oc1',
+  },
+  'OC 2': {
+    name: 'Line OC2',
+    slug: 'line-oc2',
+  },
+}
+
 export const allLines: { name: string; slug: string }[] = [
   { name: 'Line CAN', slug: 'line-can' },
   { name: 'Line SACHET', slug: 'line-sachet' },
@@ -79,4 +98,9 @@ export const allLines: { name: string; slug: string }[] = [
   { name: 'Line OC3', slug: 'line-oc3' },
   { name: 'Line PET 2', slug: 'line-pet2' },
   { name: 'Line Glass Bottle', slug: 'line-glass-bottle' },
+];
+
+export const allLinesKjy: { name: string; slug: string }[] = [
+  { name: 'Line OC1', slug: 'line-oc1' },
+  { name: 'Line OC2', slug: 'line-oc2' }
 ];

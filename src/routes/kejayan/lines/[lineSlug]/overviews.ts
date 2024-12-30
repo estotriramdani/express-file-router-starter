@@ -35,7 +35,7 @@ export const get = [
       const line = lineSlug === 'line-oc1' ? '1' : '2';
       const lineInfo = await getStatusLineKjy(`aio_iot_oci${line}.v_digital_twin`);
       const nodeRedInfo = await getStatusLineKjy(`node_red.v_digital_twin_oci${line}`, 'node_red_kjy');
-      console.log(nodeRedInfo);
+      // console.log(nodeRedInfo);
       
 
       const overview = await digital_twin_db.mst_overview.findFirst({
@@ -61,9 +61,7 @@ export const get = [
         console.log(infoData.value[x.column_value]);
 
         if (x.column_value === 'status' && infoData.value[x.column_value] === 'PRODUCTION') {
-          infoData.value[x.column_value] = 1;
-        } else {
-          infoData.value[x.column_value] = 0;
+          infoData.value[x.column_value] = infoData.value[x.column_value] === 'PRODUCTION' ? 1 : 0;
         }
         
 
