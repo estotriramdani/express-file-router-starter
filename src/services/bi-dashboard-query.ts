@@ -1,13 +1,7 @@
-export const biDashboardQuery = async (query: string) => {
-  const data = await fetch(`http://10.10.2.70:4912/api/bi-dashboard`, {
-    body: JSON.stringify({
-      query,
-    }),
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  }).then((response) => response.json());
+import { dwh_db } from '@/lib/db';
 
+export const biDashboardQuery = async (query: string) => {
+  const data = await dwh_db.$queryRawUnsafe(query);
+  
   return data;
 };
