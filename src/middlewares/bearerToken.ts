@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { Response, NextFunction } from 'express';
-import { ExtendedRequest, LoginDataAttributes, UserResponse } from '@/types/auth';
+import { ExtendedRequest } from '@/types/auth';
 import { generateError } from '@/utils';
 
 const SECRET_KEY = process.env.ACCESS_TOKEN_SECRET;
@@ -35,7 +35,7 @@ export const authenticateJWT = (req: ExtendedRequest, res: Response, next: NextF
           ],
         });
       } else {
-        req.user = decoded as LoginDataAttributes;
+        req.user = decoded as any;
 
         if (
           req.user.username?.toLowerCase().startsWith('guest') &&
