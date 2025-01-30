@@ -1,42 +1,70 @@
+import { main_db } from '@/lib/db';
 import { Request, Response } from 'express';
 
-export const get = (req: Request, res: Response) => {
-  const users = [
-    { id: 1, name: 'Name1' },
-    { id: 2, name: 'Name2' },
-  ];
-  const user = users.find((u) => u.id === parseInt(req.params.id));
-  if (user) {
-    res.json(user);
-  } else {
-    res.status(404).send('User not found');
-  }
+export const get = async (req: Request, res: Response) => {
+  const todo = await main_db.tr_todo.findFirst({
+    where: {
+      deleted_at: null,
+      id: parseInt(req.params.id),
+    },
+  });
+
+  res.status(200).json({
+    status: true,
+    data: todo,
+  });
 };
 
-export const put = (req: Request, res: Response) => {
-  const users = [
-    { id: 1, name: 'Name1' },
-    { id: 2, name: 'Name2' },
-  ];
-  const user = users.find((u) => u.id === parseInt(req.params.id));
-  if (user) {
-    user.name = req.body.name;
-    res.json(user);
-  } else {
-    res.status(404).send('User not found');
+export const put = async (req: Request, res: Response) => {
+  const { title, category_id, description, progress } = req.body;
+  const id = parseInt(req.params.id);
+
+  const isExist = await main_db.tr_todo.findFirst({
+    where: {
+      id: id,
+      deleted_at: null,
+    },
+  });
+
+  if (!isExist) {
+    return res.status(404).json({
+      status: false,
+      message: 'Item is not found',
+    });
   }
+
+  const todo = await main_db.tr_todo.update({
+    where: {
+      id: id,
+    },
+    data: {
+      title,
+      category_id,
+      description,
+      progress,
+    },
+  });
+
+  return res.status(203).json({
+    status: true,
+    data: todo,
+  });
 };
 
-export const del = (req: Request, res: Response) => {
-  const users = [
-    { id: 1, name: 'Name1' },
-    { id: 2, name: 'Name2' },
-  ];
-  const userIndex = users.findIndex((u) => u.id === parseInt(req.params.id));
-  if (userIndex !== -1) {
-    users.splice(userIndex, 1); // Remove the user from the array
-    res.send('User deleted');
-  } else {
-    res.status(404).send('User not found');
-  }
+export const del = async (req: Request, res: Response) => {
+  const id = parseInt(req.params.id);
+
+  const todo = await main_db.tr_todo.update({
+    where: {
+      id: id,
+    },
+    data: {
+      deleted_at: new Date(),
+    },
+  });
+
+  return res.status(200).json({
+    status: true,
+    data: todo,
+  });
 };

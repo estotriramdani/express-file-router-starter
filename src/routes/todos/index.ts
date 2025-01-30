@@ -1,23 +1,43 @@
+import { main_db } from '@/lib/db';
 import { printTimestamp } from '@/middlewares/printTimestamp';
+import { CustomRequest } from '@/types';
 import { Request, Response } from 'express';
 
-// GET `/users`
-export const get = (req: Request, res: Response) => {
-  const users = [
-    { id: 1, name: 'Name1' },
-    { id: 2, name: 'Name2' },
-  ];
-  res.json(users);
+export const get = async (req: Request, res: Response) => {
+  const todos = await main_db.tr_todo.findMany({
+    where: {
+      deleted_at: {
+        not: null,
+      },
+    },
+  });
+
+  res.status(200).json({
+    status: true,
+    data: todos,
+  });
 };
 
 export const post = [
   printTimestamp,
-  (req: Request, res: Response) => {
-    const newUser = {
-      id: Date.now(),
-      name: req.body.name,
-    };
+  async (req: CustomRequest, res: Response) => {
+    const { title, category_id, description, progress = 0 } = req.body;
+    const created_by = req.user.name;
+
+    const todo = await main_db.tr_todo.create({
+      data: {
+        title: title,
+        created_by: created_by,
+        category_id: category_id,
+        description: description,
+        progress: progress,
+      },
+    });
+
     // Normally, you would save this user to a database
-    res.status(201).json(newUser);
+    res.status(201).json({
+      status: true,
+      data: todo,
+    });
   },
 ];

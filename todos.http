@@ -2,30 +2,33 @@ GET http://localhost:4912
 
 ###
 
-GET http://localhost:4912/users?stop=true
+GET http://localhost:4912/todos?stop=true
 
 ###
 
-GET http://localhost:4912/users/1?stop=false
+GET http://localhost:4912/todos/2?stop=false
 
 ###
 
-POST http://localhost:4912/users
+POST http://localhost:4912/todos
 Content-Type: application/json
 
 {
-  "name": "Abdul"
+  "title": "First Todo",
+  "description": "this is description",
+  "category_id": 1,
+  "progress": 20
 }
 
 ###
 
-PUT http://localhost:4912/users/1
+PUT http://localhost:4912/todos/2
 Content-Type: application/json
 
 {
-  "name": "Esto"
+  "title": "First Todo Edit"
 }
 
 ###
 
-DELETE http://localhost:4912/users/1
+DELETE http://localhost:4912/todos/2
