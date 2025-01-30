@@ -1,6 +1,7 @@
+import { printTimestamp } from '@/middlewares/printTimestamp';
 import { Request, Response } from 'express';
 
-// GET `/users` 
+// GET `/users`
 export const get = (req: Request, res: Response) => {
   const users = [
     { id: 1, name: 'Name1' },
@@ -9,11 +10,14 @@ export const get = (req: Request, res: Response) => {
   res.json(users);
 };
 
-export const post = (req: Request, res: Response) => {
-  const newUser = {
-    id: Date.now(),
-    name: req.body.name,
-  };
-  // Normally, you would save this user to a database
-  res.status(201).json(newUser);
-};
+export const post = [
+  printTimestamp,
+  (req: Request, res: Response) => {
+    const newUser = {
+      id: Date.now(),
+      name: req.body.name,
+    };
+    // Normally, you would save this user to a database
+    res.status(201).json(newUser);
+  },
+];
