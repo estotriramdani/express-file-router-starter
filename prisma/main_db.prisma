@@ -8,22 +8,3 @@ datasource db {
   url      = env("DATABASE_URL_MAIN_DB")
 }
 
-model mst_todo_type {
-  id        Int      @id @default(autoincrement())
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  tr_todo   tr_todo? @relation(fields: [tr_todoId], references: [id])
-  tr_todoId Int?
-}
-
-model tr_todo {
-  id        Int      @id @default(autoincrement())
-  title     String
-  type      Int
-  done      Boolean  @default(false)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  todo_types mst_todo_type[]
-}
