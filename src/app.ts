@@ -52,7 +52,7 @@ const main = async () => {
     directory: path.join(__dirname, 'routes'),
   });
 
-  app.use('/api', router);
+  app.use('/', router);
 
   const PORT = +(process.env.PORT || 4912);
 

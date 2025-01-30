@@ -1,3 +1,3 @@
-import { PrismaClient as PrismaClientDigitalTwin } from '@/generated/main_db';
+import { PrismaClient as PrismaClientMainDb } from '@/generated/main_db';
 
-export const main_db = new PrismaClientDigitalTwin();
+export const main_db = new PrismaClientMainDb();
