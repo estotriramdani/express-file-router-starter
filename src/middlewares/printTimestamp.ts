@@ -1,19 +1,38 @@
-import { CustomRequest } from '@/types';
-import { Request, Response, NextFunction } from 'express'
+import { CustomRequest, IUser } from '@/types';
+import { Request, Response, NextFunction } from 'express';
+import jwt from 'jsonwebtoken';
 
-export const printTimestamp = (request: CustomRequest, response: Response, nextFunction: NextFunction) => {
+export const printTimestamp = (
+  request: CustomRequest,
+  response: Response,
+  nextFunction: NextFunction
+) => {
   console.log(`Accessing ${request.originalUrl}: ${new Date().toString()}`);
 
-  if (request.query.stop === 'true') {
-    return response.status(403).json({
-      message: 'Stop!!',
+  const authorization = request.headers['authorization'];
+
+  const token = authorization?.split(' ')?.[1];
+
+  if (!token) {
+    return response.status(401).json({
+      message: 'Unauthorized',
     });
   }
 
-  request.user = {
-    name: 'esto',
-    nik: '4189',
-  };
+  console.log(token);
 
-  nextFunction();
+  jwt.verify(token, process.env.JWT_SECRET || '', (err, decoded) => {
+    if (err) {
+      return response.status(403).json({
+        message: 'Forbidden',
+      });
+    } else {
+      const user = decoded as IUser;
+  
+      request.user = user;
+  
+      nextFunction();
+    }
+
+  });
 };

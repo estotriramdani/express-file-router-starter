@@ -1,8 +1,10 @@
 import { Request } from 'express';
 
+export interface IUser {
+  username: string;
+  email: string;
+}
+
 export interface CustomRequest extends Request {
-  user?: {
-    name: string;
-    nik: string;
-  }
+  user?: IUser;
 }

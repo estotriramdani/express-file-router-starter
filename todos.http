@@ -6,7 +6,7 @@ GET http://localhost:4912/todos?stop=true
 
 ###
 
-GET http://localhost:4912/todos/2?stop=false
+GET http://localhost:4912/todos/3?stop=false
 
 ###
 
@@ -14,7 +14,7 @@ POST http://localhost:4912/todos
 Content-Type: application/json
 
 {
-  "title": "First Todo",
+  "title": "Third Todo",
   "description": "this is description",
   "category_id": 1,
   "progress": 20
@@ -22,13 +22,24 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:4912/todos/2
+PUT http://localhost:4912/todos/3
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG5fZG9lIiwiZW1haWwiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTczODMwNTk5MCwiZXhwIjoxNzM4MzkyMzkwfQ.Jl9ebOSUUYUV5mFsOecyZHfUMEUHMWEfigTK-KeMB5M
 
 {
-  "title": "First Todo Edit"
+  "title": "Second Todo Edit"
 }
 
 ###
 
 DELETE http://localhost:4912/todos/2
+
+###
+
+POST http://localhost:4912/auth/login
+Content-Type: application/json
+
+{
+  "username": "john_doe",
+  "password": "qwe123"
+}

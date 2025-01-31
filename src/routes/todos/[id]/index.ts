@@ -1,4 +1,6 @@
 import { main_db } from '@/lib/db';
+import { printTimestamp } from '@/middlewares/printTimestamp';
+import { CustomRequest } from '@/types';
 import { Request, Response } from 'express';
 
 export const get = async (req: Request, res: Response) => {
@@ -15,56 +17,64 @@ export const get = async (req: Request, res: Response) => {
   });
 };
 
-export const put = async (req: Request, res: Response) => {
-  const { title, category_id, description, progress } = req.body;
-  const id = parseInt(req.params.id);
+export const put = [
+  printTimestamp,
+  async (req: CustomRequest, res: Response) => {
+    const { title, category_id, description, progress } = req.body;
+    const id = parseInt(req.params.id);
 
-  const isExist = await main_db.tr_todo.findFirst({
-    where: {
-      id: id,
-      deleted_at: null,
-    },
-  });
+    console.log('Ini dari PUT: ', req.user)
 
-  if (!isExist) {
-    return res.status(404).json({
-      status: false,
-      message: 'Item is not found',
+    const isExist = await main_db.tr_todo.findFirst({
+      where: {
+        id: id,
+        deleted_at: null,
+      },
     });
-  }
 
-  const todo = await main_db.tr_todo.update({
-    where: {
-      id: id,
-    },
-    data: {
-      title,
-      category_id,
-      description,
-      progress,
-    },
-  });
+    if (!isExist) {
+      return res.status(404).json({
+        status: false,
+        message: 'Item is not found',
+      });
+    }
 
-  return res.status(203).json({
-    status: true,
-    data: todo,
-  });
-};
+    const todo = await main_db.tr_todo.update({
+      where: {
+        id: id,
+      },
+      data: {
+        title,
+        category_id,
+        description,
+        progress,
+      },
+    });
 
-export const del = async (req: Request, res: Response) => {
-  const id = parseInt(req.params.id);
+    return res.status(203).json({
+      status: true,
+      data: todo,
+    });
+  },
+];
 
-  const todo = await main_db.tr_todo.update({
-    where: {
-      id: id,
-    },
-    data: {
-      deleted_at: new Date(),
-    },
-  });
+export const del = [
+  printTimestamp,
+  async (req: Request, res: Response) => {
+    const id = parseInt(req.params.id);
 
-  return res.status(200).json({
-    status: true,
-    data: todo,
-  });
-};
+    const todo = await main_db.tr_todo.update({
+      where: {
+        id: id,
+      },
+      data: {
+        deleted_at: new Date(),
+      },
+    });
+
+    return res.status(200).json({
+      status: true,
+      data: todo,
+    });
+  },
+];

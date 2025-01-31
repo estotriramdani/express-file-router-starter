@@ -6,9 +6,7 @@ import { Request, Response } from 'express';
 export const get = async (req: Request, res: Response) => {
   const todos = await main_db.tr_todo.findMany({
     where: {
-      deleted_at: {
-        not: null,
-      },
+      deleted_at: null,
     },
   });
 
@@ -22,7 +20,7 @@ export const post = [
   printTimestamp,
   async (req: CustomRequest, res: Response) => {
     const { title, category_id, description, progress = 0 } = req.body;
-    const created_by = req.user.name;
+    const created_by = req.user.username;
 
     const todo = await main_db.tr_todo.create({
       data: {
