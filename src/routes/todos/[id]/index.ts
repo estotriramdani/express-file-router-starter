@@ -4,77 +4,101 @@ import { CustomRequest } from '@/types';
 import { Request, Response } from 'express';
 
 export const get = async (req: Request, res: Response) => {
-  const todo = await main_db.tr_todo.findFirst({
-    where: {
-      deleted_at: null,
-      id: parseInt(req.params.id),
-    },
-  });
+  try {
+    const todo = await main_db.tr_todo.findFirst({
+      where: {
+        deleted_at: null,
+        id: parseInt(req.params.id),
+      },
+    });
 
-  res.status(200).json({
-    status: true,
-    data: todo,
-  });
+    res.status(200).json({
+      status: true,
+      data: todo,
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: false,
+      error: error,
+      message: error?.message || 'Something went wrong',
+    });
+  }
 };
 
 export const put = [
   printTimestamp,
   async (req: CustomRequest, res: Response) => {
-    const { title, category_id, description, progress } = req.body;
-    const id = parseInt(req.params.id);
+    try {
+      const { title, category_id, description, progress } = req.body;
+      const id = parseInt(req.params.id);
 
-    console.log('Ini dari PUT: ', req.user)
+      console.log('Ini dari PUT: ', req.user);
 
-    const isExist = await main_db.tr_todo.findFirst({
-      where: {
-        id: id,
-        deleted_at: null,
-      },
-    });
+      const isExist = await main_db.tr_todo.findFirst({
+        where: {
+          id: id,
+          deleted_at: null,
+        },
+      });
 
-    if (!isExist) {
-      return res.status(404).json({
+      if (!isExist) {
+        return res.status(404).json({
+          status: false,
+          message: 'Item is not found',
+        });
+      }
+
+      const todo = await main_db.tr_todo.update({
+        where: {
+          id: id,
+        },
+        data: {
+          title,
+          category_id,
+          description,
+          progress,
+        },
+      });
+
+      return res.status(203).json({
+        status: true,
+        data: todo,
+      });
+    } catch (error) {
+      res.status(500).json({
         status: false,
-        message: 'Item is not found',
+        error: error,
+        message: error?.message || 'Something went wrong',
       });
     }
-
-    const todo = await main_db.tr_todo.update({
-      where: {
-        id: id,
-      },
-      data: {
-        title,
-        category_id,
-        description,
-        progress,
-      },
-    });
-
-    return res.status(203).json({
-      status: true,
-      data: todo,
-    });
   },
 ];
 
 export const del = [
   printTimestamp,
   async (req: Request, res: Response) => {
-    const id = parseInt(req.params.id);
+    try {
+      const id = parseInt(req.params.id);
 
-    const todo = await main_db.tr_todo.update({
-      where: {
-        id: id,
-      },
-      data: {
-        deleted_at: new Date(),
-      },
-    });
+      const todo = await main_db.tr_todo.update({
+        where: {
+          id: id,
+        },
+        data: {
+          deleted_at: new Date(),
+        },
+      });
 
-    return res.status(200).json({
-      status: true,
-      data: todo,
-    });
+      return res.status(200).json({
+        status: true,
+        data: todo,
+      });
+    } catch (error) {
+      res.status(500).json({
+        status: false,
+        error: error,
+        message: error?.message || 'Something went wrong',
+      });
+    }
   },
 ];
